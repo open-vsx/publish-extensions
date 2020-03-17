@@ -2,8 +2,8 @@ name: Publish VS Code extensions to open-vsx.org
 
 on:
   schedule:
-    # Run every 5 minutes.
-    - cron:  '*/5 * * * *'
+    # Run at 03:03 UTC every day.
+    - cron:  '3 3 * * *'
 
 jobs:
   download_and_publish:
