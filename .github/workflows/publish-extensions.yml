@@ -1,0 +1,17 @@
+name: Publish VS Code extensions to open-vsx.org
+
+on:
+  schedule:
+    # Run every 5 minutes.
+    - cron:  '*/5 * * * *'
+
+jobs:
+  download_and_publish:
+    name: Download extensions and publish updates to open-vsx.org
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - run: npx ovsx version
