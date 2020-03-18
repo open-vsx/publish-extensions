@@ -51,6 +51,9 @@ const readFile = util.promisify(require('fs').readFile);
 
       console.log(`Attempting to publish ${id} to Open VSX`);
       await exec(`git clone ${repository} /tmp/repository`);
+      if (extension.checkout) {
+        await exec(`git checkout ${extension.checkout}`, { cwd: '/tmp/repository' });
+      }
       const location = path.join('/tmp/repository', extension.location || '.');
       await exec(`npm install`, { cwd: location });
       await ovsx.publish({ packagePath: location });
