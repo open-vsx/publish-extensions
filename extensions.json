@@ -1,14 +1,190 @@
 {
   "extensions": [
     {
-      "repository": "https://github.com/johnpapa/vscode-angular-essentials",
-      "namespace": "johnpapa",
-      "name": "vscode-angular-essentials"
+      "id": "CoenraadS.bracket-pair-colorizer",
+      "version": "1.0.61",
+      "repository": "https://github.com/CoenraadS/BracketPair"
     },
     {
-      "repository": "https://github.com/akosyakov/vscode-alt-sample",
-      "namespace": "akosyakov",
-      "name": "vscode-alt-sample"
+      "id": "HookyQR.beautify",
+      "version": "1.4.11",
+      "repository": "https://github.com/HookyQR/VSCodeBeautify"
+    },
+    {
+      "id": "PKief.material-icon-theme",
+      "version": "4.0.1",
+      "repository": "https://github.com/PKief/vscode-material-icon-theme"
+    },
+    {
+      "id": "Wscats.omi-snippets",
+      "version": "2.1.3",
+      "repository": "https://github.com/Wscats/omi-snippets"
+    },
+    {
+      "id": "abusaidm.html-snippets",
+      "version": "0.2.1",
+      "repository": "https://github.com/abusaidm/html-snippets"
+    },
+    {
+      "id": "christian-kohler.path-intellisense",
+      "version": "1.4.2",
+      "repository": "https://github.com/ChristianKohler/PathIntellisense"
+    },
+    {
+      "id": "dbaeumer.vscode-eslint",
+      "version": "2.1.1",
+      "repository": "https://github.com/microsoft/vscode-eslint"
+    },
+    {
+      "id": "donjayamanne.githistory",
+      "version": "0.6.3",
+      "repository": "https://github.com/DonJayamanne/gitHistoryVSCode"
+    },
+    {
+      "id": "eamodio.gitlens",
+      "version": "10.2.1",
+      "repository": "https://github.com/eamodio/vscode-gitlens"
+    },
+    {
+      "id": "ecmel.vscode-html-css",
+      "version": "0.2.3",
+      "repository": "https://github.com/ecmel/vscode-html-css"
+    },
+    {
+      "id": "eg2.vscode-npm-script",
+      "version": "0.3.11",
+      "repository": "https://github.com/Microsoft/vscode-npm-scripts"
+    },
+    {
+      "id": "esbenp.prettier-vscode",
+      "version": "3.20.0",
+      "repository": "https://github.com/prettier/prettier-vscode"
+    },
+    {
+      "id": "felixfbecker.php-debug",
+      "version": "1.13.0",
+      "repository": "https://github.com/felixfbecker/vscode-php-debug",
+      "checkout": "v1.13.0"
+    },
+    {
+      "id": "felixfbecker.php-intellisense",
+      "version": "2.3.14",
+      "repository": "https://github.com/felixfbecker/vscode-php-intellisense",
+      "checkout": "v2.3.14"
+    },
+    {
+      "id": "formulahendry.auto-close-tag",
+      "version": "0.5.6",
+      "repository": "https://github.com/formulahendry/vscode-auto-close-tag"
+    },
+    {
+      "id": "formulahendry.code-runner",
+      "version": "0.9.17",
+      "repository": "https://github.com/formulahendry/vscode-code-runner"
+    },
+    {
+      "id": "ms-azuretools.vscode-docker",
+      "version": "1.0.0",
+      "repository": "https://github.com/microsoft/vscode-docker",
+      "checkout": "v1.0.0"
+    },
+    {
+      "id": "ms-dotnettools.csharp",
+      "version": "1.21.14",
+      "repository": "https://github.com/OmniSharp/omnisharp-vscode"
+    },
+    {
+      "id": "ms-mssql.mssql",
+      "version": "1.9.0",
+      "repository": "https://github.com/Microsoft/vscode-mssql"
+    },
+    {
+      "id": "ms-python.python",
+      "version": "2020.2.64397",
+      "repository": "https://github.com/Microsoft/vscode-python",
+      "checkout": "2020.2.64397"
+    },
+    {
+      "id": "ms-vscode.Go",
+      "version": "0.13.1",
+      "repository": "https://github.com/microsoft/vscode-go"
+    },
+    {
+      "id": "ms-vscode.cpptools",
+      "version": "0.26.3",
+      "repository": "https://github.com/microsoft/vscode-cpptools",
+      "checkout": "0.26.3",
+      "location": "Extension"
+    },
+    {
+      "id": "ms-vscode.powershell-preview",
+      "version": "2020.3.0",
+      "repository": "https://github.com/PowerShell/vscode-powershell"
+    },
+    {
+      "id": "ms-vscode.vscode-typescript-tslint-plugin",
+      "version": "1.2.2",
+      "repository": "https://github.com/Microsoft/vscode-typescript-tslint-plugin"
+    },
+    {
+      "id": "msjsdiag.debugger-for-chrome",
+      "version": "4.12.6",
+      "repository": "https://github.com/microsoft/vscode-chrome-debug"
+    },
+    {
+      "id": "octref.vetur",
+      "version": "0.24.0",
+      "repository": "https://github.com/vuejs/vetur"
+    },
+    {
+      "id": "redhat.java",
+      "version": "0.58.0",
+      "repository": "https://github.com/redhat-developer/vscode-java"
+    },
+    {
+      "id": "redhat.vscode-yaml",
+      "version": "0.7.2",
+      "repository": "https://github.com/redhat-developer/vscode-yaml"
+    },
+    {
+      "id": "ritwickdey.LiveServer",
+      "version": "5.6.1",
+      "repository": "https://github.com/ritwickdey/vscode-live-server"
+    },
+    {
+      "id": "vscjava.vscode-java-debug",
+      "version": "0.25.1",
+      "repository": "https://github.com/microsoft/vscode-java-debug"
+    },
+    {
+      "id": "vscjava.vscode-java-dependency",
+      "version": "0.9.0",
+      "repository": "https://github.com/Microsoft/vscode-java-dependency"
+    },
+    {
+      "id": "vscjava.vscode-java-pack",
+      "version": "0.8.1",
+      "repository": "https://github.com/microsoft/vscode-java-pack"
+    },
+    {
+      "id": "vscjava.vscode-java-test",
+      "version": "0.22.2",
+      "repository": "https://github.com/microsoft/vscode-java-test"
+    },
+    {
+      "id": "vscjava.vscode-maven",
+      "version": "0.21.1",
+      "repository": "https://github.com/microsoft/vscode-maven"
+    },
+    {
+      "id": "vscode-icons-team.vscode-icons",
+      "version": "10.0.0",
+      "repository": "https://github.com/vscode-icons/vscode-icons"
+    },
+    {
+      "id": "xabikos.JavaScriptSnippets",
+      "version": "1.7.2",
+      "repository": "https://github.com/xabikos/vscode-javascript"
     }
   ]
 }
