@@ -76,6 +76,7 @@ const writeFile = util.promisify(fs.writeFile);
   } catch (error) {
     console.error(`[FAIL] Could not add ${repository}!`);
     console.error(error);
+    process.exitCode = -1;
   } finally {
     await exec('rm -rf /tmp/repository');
   }

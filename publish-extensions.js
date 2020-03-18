@@ -58,6 +58,7 @@ const readFile = util.promisify(require('fs').readFile);
     } catch (error) {
       console.error('[FAIL] Could not process extension!');
       console.error(error);
+      process.exitCode = -1;
     } finally {
       await exec('rm -rf /tmp/repository');
     }
