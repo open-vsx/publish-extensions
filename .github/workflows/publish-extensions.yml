@@ -2,12 +2,12 @@ name: Publish extensions to open-vsx.org
 
 on:
   schedule:
-    # Run at 17:25 UTC every day.
-    - cron:  '25 17 * * *'
+    # Run at 17:45 UTC every day.
+    - cron:  '45 17 * * *'
 
 jobs:
-  download_and_publish:
-    name: Check all extensions and publish any updates to open-vsx.org
+  publish_extensions:
+    name: node publish-extensions
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
