@@ -11,6 +11,8 @@ To automatically publish an extension to Open VSX, simply add it to [`extensions
 
 You can also run `node add-extension [REPOSITORY]` to add it automatically.
 
+---
+
 Here is the expected format of an `extensions.json` entry:
 
 ```js
