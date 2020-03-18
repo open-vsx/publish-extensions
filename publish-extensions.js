@@ -20,7 +20,7 @@ const readFile = util.promisify(require('fs').readFile);
   const registry = new ovsx.Registry();
 
   for (const extension of extensions) {
-    console.log(`\nProcessing extension: ${JSON.stringify(extension, null, 2)}\n`);
+    console.log(`\nProcessing extension: ${JSON.stringify(extension, null, 2)}`);
     try {
       const { id, repository } = extension;
       if (!new URL(repository)) {
@@ -49,7 +49,7 @@ const readFile = util.promisify(require('fs').readFile);
         }
       }
 
-      console.log(`\nAttempting to publish ${id} to Open VSX`);
+      console.log(`Attempting to publish ${id} to Open VSX`);
       await exec(`git clone ${repository} /tmp/repository`);
       const location = path.join('/tmp/repository', extension.location || '.');
       await exec(`npm install`, { cwd: location });
