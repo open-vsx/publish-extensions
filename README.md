@@ -11,6 +11,8 @@ To automatically publish an extension to Open VSX, simply add it to [`extensions
 
 You can also run `node add-extension [REPOSITORY]` to add it automatically.
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/open-vsx/publish-extensions)
+
 ---
 
 Here is the expected format of an `extensions.json` entry:
