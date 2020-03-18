@@ -29,9 +29,9 @@ Here are all the supported values, including optional ones:
 ```js
     {
       "id": "ms-vscode.cpptools", // Unique Open VSX extension ID in the form "<namespace>.<name>"
-      "version": "0.26.3", // [OPTIONAL] The version to publish to Open VSX (defaults your package.json version)
+      "version": "0.26.3", // (OPTIONAL) The version to publish to Open VSX (defaults your package.json version)
       "repository": "https://github.com/microsoft/vscode-cpptools", // Repository URL to clone and publish from
-      "checkout": "0.26.3", // [OPTIONAL] The Git branch, tag, or commit to check out before publishing (defaults to Git's default branch)
-      "location": "Extension" // [OPTIONAL] Location of your extension's package.json in the repository (defaults to ".")
+      "checkout": "0.26.3", // (OPTIONAL) The Git branch, tag, or commit to check out before publishing (defaults to your repository's default branch)
+      "location": "Extension" // (OPTIONAL) Location of your extension's package.json in the repository (defaults to ".")
     },
 ```
