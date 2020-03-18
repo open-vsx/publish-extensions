@@ -1,0 +1,27 @@
+{
+  "name": "publish-to-open-vsx",
+  "version": "0.0.0",
+  "description": "CI for publishing VS Code extensions to open-vsx.org",
+  "homepage": "https://open-vsx.org",
+  "license": "EPL-2.0",
+  "bugs": {
+    "url": "https://github.com/open-vsx/publish-extensions/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/open-vsx/publish-extensions"
+  },
+  "contributors": [
+    {
+      "name": "TypeFox",
+      "url": "https://www.typefox.io"
+    }
+  ],
+  "bin": "bin/publish-extensions",
+  "main": "publish-extensions",
+  "scripts": {},
+  "dependencies": {
+    "ovsx": "0.1.0-next.9321255"
+  },
+  "devDependencies": {}
+}

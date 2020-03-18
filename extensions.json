@@ -1,0 +1,14 @@
+{
+  "extensions": [
+    {
+      "repository": "https://github.com/johnpapa/vscode-angular-essentials",
+      "namespace": "johnpapa",
+      "name": "vscode-angular-essentials"
+    },
+    {
+      "repository": "https://github.com/akosyakov/vscode-alt-sample",
+      "namespace": "akosyakov",
+      "name": "vscode-alt-sample"
+    }
+  ]
+}
