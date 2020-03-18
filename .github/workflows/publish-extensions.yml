@@ -2,8 +2,8 @@ name: Publish extensions to open-vsx.org
 
 on:
   schedule:
-    # Run at 03:03 UTC every day.
-    - cron:  '3 3 * * *'
+    # Run at 17:25 UTC every day.
+    - cron:  '25 17 * * *'
 
 jobs:
   download_and_publish:
