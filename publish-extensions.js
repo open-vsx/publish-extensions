@@ -8,35 +8,55 @@
  * SPDX-License-Identifier: EPL-2.0
  ********************************************************************************/
 
-const fs = require('fs');
 const ovsx = require('ovsx');
+const path = require('path');
 const util = require('util');
-const exec = util.promisify(require('child_process').exec);
-
-const { extensions } = JSON.parse(fs.readFileSync('./extensions.json', 'utf-8'));
-const registry = new ovsx.Registry();
+const semver = require('semver');
+const exec = require('./lib/exec');
+const readFile = util.promisify(require('fs').readFile);
 
 (async () => {
-  for (const { repository, namespace, name } of extensions) {
-    console.log(`\nProcessing extension: ${JSON.stringify({ repository, namespace, name }, null, 2)}\n`);
+  const { extensions } = JSON.parse(await readFile('./extensions.json', 'utf-8'));
+  const registry = new ovsx.Registry();
+
+  for (const extension of extensions) {
+    console.log(`\nProcessing extension: ${JSON.stringify(extension, null, 2)}\n`);
     try {
+      const { id, repository } = extension;
       if (!new URL(repository)) {
         throw new Error(`Invalid repository URL: ${repository}`);
       }
 
-      console.log(`Cloning ${repository}...`);
-      await exec(`git clone ${repository} /tmp/repository`);
-
-      console.log(`Looking for Open VSX version of "${namespace}/${name}"...`);
+      console.log(`Checking Open VSX version of ${id}`);
       let ovsxVersion;
+      const [namespace, name] = id.split('.');
       const metadata = await registry.getMetadata(namespace, name);
       if (metadata.error) {
         console.error(metadata.error);
       } else {
-        console.log(`Found version: ${metadata.version}`)
+        console.log(`Found version: ${metadata.version}`);
         ovsxVersion = metadata.version;
       }
+
+      // Check if the requested version is greater than the one on Open VSX.
+      if (ovsxVersion && extension.version) {
+        if (semver.gt(ovsxVersion, extension.version)) {
+          throw new Error(`extensions.json is out-of-date: Open VSX version ${ovsxVersion} is already greater than specified version ${extension.version}`);
+        }
+        if (semver.eq(ovsxVersion, extension.version)) {
+          console.log(`[SKIPPED] Requested version ${extension.version} is already published on Open VSX`);
+          continue;
+        }
+      }
+
+      console.log(`\nAttempting to publish ${id} to Open VSX`);
+      await exec(`git clone ${repository} /tmp/repository`);
+      const location = path.join('/tmp/repository', extension.location || '.');
+      await exec(`npm install`, { cwd: location });
+      await ovsx.publish({ packagePath: location });
+      console.log(`[OK] Successfully published ${id} to Open VSX!`)
     } catch (error) {
+      console.error('[FAIL] Could not process extension!');
       console.error(error);
     } finally {
       await exec('rm -rf /tmp/repository');
