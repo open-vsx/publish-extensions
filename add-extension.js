@@ -8,6 +8,7 @@
  * SPDX-License-Identifier: EPL-2.0
  ********************************************************************************/
 
+// @ts-check
 const fs = require('fs');
 const path = require('path');
 const util = require('util');
@@ -17,6 +18,7 @@ const writeFile = util.promisify(fs.writeFile);
 
 (async () => {
   const argv = process.argv.slice(2);
+  /** @type {{ extensions: { id: string, version?: string, repository: string, checkout?: string, location?: string }[] }} */
   const { extensions } = JSON.parse(await readFile('./extensions.json', 'utf-8'));
 
   if (argv.length !== 1) {
@@ -48,6 +50,7 @@ const writeFile = util.promisify(fs.writeFile);
     if (locations.length > 1) {
       console.warn(`[WARNING] Multiple package.json found in repository, arbitrarily using the first one:\n> ${locations[0]}\n${locations.slice(1).map(l => '  ' + l).join('\n')}`);
     }
+    /** @type {{ name: string, version: string, publisher: string }} */
     const package = JSON.parse(await readFile(path.join('/tmp/repository', locations[0]), 'utf-8'));
     ['publisher', 'name', 'version'].forEach(key => {
       if (!(key in package)) {

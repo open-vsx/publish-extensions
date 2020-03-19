@@ -8,6 +8,7 @@
  * SPDX-License-Identifier: EPL-2.0
  ********************************************************************************/
 
+// @ts-check
 const ovsx = require('ovsx');
 const path = require('path');
 const util = require('util');
@@ -16,6 +17,7 @@ const exec = require('./lib/exec');
 const readFile = util.promisify(require('fs').readFile);
 
 (async () => {
+  /** @type {{ extensions: { id: string, version?: string, repository: string, checkout?: string, location?: string }[] }} */
   const { extensions } = JSON.parse(await readFile('./extensions.json', 'utf-8'));
   const registry = new ovsx.Registry();
 

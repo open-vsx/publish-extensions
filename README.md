@@ -19,8 +19,10 @@ Here is the expected format of an `extensions.json` entry:
 
 ```js
     {
-      "id": "redhat.vscode-yaml", // Unique Open VSX extension ID in the form "<namespace>.<name>"
-      "repository": "https://github.com/redhat-developer/vscode-yaml" // Repository URL to clone and publish from
+      // Unique Open VSX extension ID in the form "<namespace>.<name>"
+      "id": "redhat.vscode-yaml",
+      // Repository URL to clone and publish from
+      "repository": "https://github.com/redhat-developer/vscode-yaml"
     },
 ```
 
@@ -28,10 +30,15 @@ Here are all the supported values, including optional ones:
 
 ```js
     {
-      "id": "ms-vscode.cpptools", // Unique Open VSX extension ID in the form "<namespace>.<name>"
-      "version": "0.26.3", // (OPTIONAL) The version to publish to Open VSX (defaults your package.json version)
-      "repository": "https://github.com/microsoft/vscode-cpptools", // Repository URL to clone and publish from
-      "checkout": "0.26.3", // (OPTIONAL) The Git branch, tag, or commit to check out before publishing (defaults to your repository's default branch)
-      "location": "Extension" // (OPTIONAL) Location of your extension's package.json in the repository (defaults to ".")
+      // Unique Open VSX extension ID in the form "<namespace>.<name>"
+      "id": "ms-vscode.cpptools",
+      // (OPTIONAL) The version to publish to Open VSX (defaults to the package.json version)
+      "version": "0.26.3",
+      // Repository URL to clone and publish from
+      "repository": "https://github.com/microsoft/vscode-cpptools",
+      // (OPTIONAL) The Git branch, tag, or commit to check out before publishing (defaults to the repository's default branch)
+      "checkout": "0.26.3",
+      // (OPTIONAL) Location of the extension's package.json in the repository (defaults to the repository's root directory)
+      "location": "Extension"
     },
 ```
