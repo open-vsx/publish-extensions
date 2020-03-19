@@ -52,12 +52,24 @@ const readFile = util.promisify(require('fs').readFile);
       }
 
       console.log(`Attempting to publish ${id} to Open VSX`);
+
+      // Clone and set up the repository.
       await exec(`git clone ${repository} /tmp/repository`);
       if (extension.checkout) {
         await exec(`git checkout ${extension.checkout}`, { cwd: '/tmp/repository' });
       }
       const location = path.join('/tmp/repository', extension.location || '.');
       await exec(`npm install`, { cwd: location });
+
+      // Create a public Open VSX namespace if needed.
+      try {
+        await ovsx.createNamespace({ name: namespace });
+      } catch (error) {
+        console.log(`Creating Open VSX namespace failed -- assuming that it already exists`);
+        console.log(error);
+      }
+
+      // Publish the extension.
       await ovsx.publish({ packagePath: location });
       console.log(`[OK] Successfully published ${id} to Open VSX!`)
     } catch (error) {
