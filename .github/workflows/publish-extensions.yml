@@ -16,3 +16,5 @@ jobs:
         node-version: '12.x'
     - run: npm install
     - run: node publish-extensions
+      env:
+        OVSX_PAT: ${{ secrets.OVSX_PAT }}
