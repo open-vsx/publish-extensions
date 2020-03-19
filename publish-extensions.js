@@ -73,7 +73,7 @@ const readFile = util.promisify(require('fs').readFile);
       await ovsx.publish({ packagePath: location });
       console.log(`[OK] Successfully published ${id} to Open VSX!`)
     } catch (error) {
-      console.error('[FAIL] Could not process extension!');
+      console.error(`[FAIL] Could not process extension: ${JSON.stringify(extension, null, 2)}`);
       console.error(error);
       process.exitCode = -1;
     } finally {
