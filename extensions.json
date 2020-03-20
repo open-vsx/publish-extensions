@@ -76,6 +76,11 @@
       "repository": "https://github.com/abusaidm/html-snippets"
     },
     {
+      "id": "almenon.arepl",
+      "version": "1.0.22",
+      "repository": "https://github.com/almenon/arepl-vscode"
+    },
+    {
       "id": "christian-kohler.npm-intellisense",
       "version": "1.2.1",
       "repository": "https://github.com/ChristianKohler/NpmIntellisense"
