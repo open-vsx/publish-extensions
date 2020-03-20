@@ -15,6 +15,7 @@ jobs:
       with:
         node-version: '12.x'
     - run: npm install
+    - run: npm install --global yarn
     - run: node publish-extensions
       env:
         OVSX_PAT: ${{ secrets.OVSX_PAT }}
