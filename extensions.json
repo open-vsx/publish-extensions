@@ -190,11 +190,6 @@
       "repository": "https://github.com/Microsoft/vscode-java-dependency"
     },
     {
-      "id": "vscjava.vscode-java-pack",
-      "version": "0.8.1",
-      "repository": "https://github.com/microsoft/vscode-java-pack"
-    },
-    {
       "id": "vscjava.vscode-java-test",
       "version": "0.22.2",
       "repository": "https://github.com/microsoft/vscode-java-test"
