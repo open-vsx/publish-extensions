@@ -210,6 +210,11 @@
       "repository": "https://github.com/vuejs/vetur"
     },
     {
+      "id": "paulmolluzzo.convert-css-in-js",
+      "version": "0.3.0",
+      "repository": "https://github.com/paulmolluzzo/convert-css-in-js"
+    },
+    {
       "id": "redhat.java",
       "version": "0.58.0",
       "repository": "https://github.com/redhat-developer/vscode-java"
