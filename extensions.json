@@ -41,6 +41,11 @@
       "repository": "https://github.com/PKief/vscode-material-icon-theme"
     },
     {
+      "id": "Swellaby.vscode-rust-test-adapter",
+      "version": "0.11.0",
+      "repository": "https://github.com/swellaby/vscode-rust-test-adapter"
+    },
+    {
       "id": "Wscats.omi-snippets",
       "version": "2.1.3",
       "repository": "https://github.com/Wscats/omi-snippets"
