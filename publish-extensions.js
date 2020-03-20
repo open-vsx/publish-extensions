@@ -9,12 +9,13 @@
  ********************************************************************************/
 
 // @ts-check
+const fs = require('fs');
 const ovsx = require('ovsx');
 const path = require('path');
 const util = require('util');
 const semver = require('semver');
 const exec = require('./lib/exec');
-const readFile = util.promisify(require('fs').readFile);
+const readFile = util.promisify(fs.readFile);
 
 (async () => {
   /** @type {{ extensions: { id: string, version?: string, repository: string, checkout?: string, location?: string }[] }} */
@@ -59,7 +60,10 @@ const readFile = util.promisify(require('fs').readFile);
         await exec(`git checkout ${extension.checkout}`, { cwd: '/tmp/repository' });
       }
       const location = path.join('/tmp/repository', extension.location || '.');
-      await exec(`npm install`, { cwd: location });
+      let yarn = await new Promise(resolve => {
+        fs.access(path.join(location, 'yarn.lock'), error => resolve(!!error));
+      });
+      await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: location });
 
       // Create a public Open VSX namespace if needed.
       try {
@@ -70,7 +74,11 @@ const readFile = util.promisify(require('fs').readFile);
       }
 
       // Publish the extension.
-      await ovsx.publish({ packagePath: location });
+      const options = { packagePath: location };
+      if (yarn) {
+        options.yarn = true;
+      }
+      await ovsx.publish(options);
       console.log(`[OK] Successfully published ${id} to Open VSX!`)
     } catch (error) {
       console.error(`[FAIL] Could not process extension: ${JSON.stringify(extension, null, 2)}`);
