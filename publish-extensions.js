@@ -61,7 +61,7 @@ const readFile = util.promisify(fs.readFile);
       }
       const location = path.join('/tmp/repository', extension.location || '.');
       let yarn = await new Promise(resolve => {
-        fs.access(path.join(location, 'yarn.lock'), error => resolve(!!error));
+        fs.access(path.join(location, 'yarn.lock'), error => resolve(!error));
       });
       await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: location });
 
