@@ -158,6 +158,11 @@
       "repository": "https://github.com/johnpapa/vscode-angular-snippets"
     },
     {
+      "id": "jpoissonnier.vscode-styled-components",
+      "version": "0.0.29",
+      "repository": "https://github.com/styled-components/vscode-styled-components"
+    },
+    {
       "id": "ms-azuretools.vscode-docker",
       "version": "1.0.0",
       "repository": "https://github.com/microsoft/vscode-docker",
