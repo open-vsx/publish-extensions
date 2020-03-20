@@ -105,13 +105,6 @@
       "repository": "https://github.com/microsoft/vscode-go"
     },
     {
-      "id": "ms-vscode.cpptools",
-      "version": "0.26.3",
-      "repository": "https://github.com/microsoft/vscode-cpptools",
-      "checkout": "0.26.3",
-      "location": "Extension"
-    },
-    {
       "id": "ms-vscode.powershell-preview",
       "version": "2020.3.0",
       "repository": "https://github.com/PowerShell/vscode-powershell"
