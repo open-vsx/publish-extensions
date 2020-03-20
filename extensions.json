@@ -21,6 +21,11 @@
       "repository": "https://github.com/editorconfig/editorconfig-vscode"
     },
     {
+      "id": "Equinusocio.vsc-community-material-theme",
+      "version": "1.4.1",
+      "repository": "https://github.com/material-theme/vsc-community-material-theme/"
+    },
+    {
       "id": "Equinusocio.vsc-material-theme",
       "version": "32.5.0",
       "repository": "https://github.com/material-theme/vsc-material-theme"
