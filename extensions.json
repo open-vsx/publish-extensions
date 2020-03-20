@@ -91,6 +91,11 @@
       "repository": "https://github.com/Microsoft/vscode-npm-scripts"
     },
     {
+      "id": "equinusocio.vsc-material-theme-icons",
+      "version": "1.1.4",
+      "repository": "https://github.com/material-theme/vsc-material-theme-icons"
+    },
+    {
       "id": "esbenp.prettier-vscode",
       "version": "3.20.0",
       "repository": "https://github.com/prettier/prettier-vscode"
