@@ -56,6 +56,11 @@
       "repository": "https://github.com/PKief/vscode-material-icon-theme"
     },
     {
+      "id": "Shan.code-settings-sync",
+      "version": "3.4.3",
+      "repository": "https://github.com/shanalikhan/code-settings-sync"
+    },
+    {
       "id": "Swellaby.vscode-rust-test-adapter",
       "version": "0.11.0",
       "repository": "https://github.com/swellaby/vscode-rust-test-adapter"
