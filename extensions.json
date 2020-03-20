@@ -123,6 +123,11 @@
       "repository": "https://github.com/formulahendry/vscode-code-runner"
     },
     {
+      "id": "hbenl.vscode-test-explorer",
+      "version": "2.17.0",
+      "repository": "https://github.com/hbenl/vscode-test-explorer"
+    },
+    {
       "id": "johnpapa.Angular2",
       "version": "9.1.2",
       "repository": "https://github.com/johnpapa/vscode-angular-snippets"
