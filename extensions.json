@@ -6,6 +6,16 @@
       "repository": "https://github.com/CoenraadS/BracketPair"
     },
     {
+      "id": "Dart-Code.dart-code",
+      "version": "3.9.0-dev",
+      "repository": "https://github.com/Dart-Code/Dart-Code"
+    },
+    {
+      "id": "Dart-Code.flutter",
+      "version": "3.8.1",
+      "repository": "https://github.com/Dart-Code/Flutter"
+    },
+    {
       "id": "DavidAnson.vscode-markdownlint",
       "version": "0.34.0",
       "repository": "https://github.com/DavidAnson/vscode-markdownlint"
