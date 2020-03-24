@@ -283,6 +283,24 @@
       "id": "zhuangtongfa.material-theme",
       "version": "3.2.4",
       "repository": "https://github.com/Binaryify/OneDark-Pro"
+    },
+    {
+      "id": "ms-vscode.node-debug",
+      "version": "1.35.3",
+      "repository": "https://github.com/microsoft/vscode-node-debug",
+      "checkpoint": "v1.35.3"
+    },
+    {
+      "id": "ms-vscode.node-debug2",
+      "version": "1.33.0",
+      "repository": "https://github.com/microsoft/vscode-node-debug2",
+      "checkout": "v1.33.0"
+    },
+    {
+      "id": "ms-vscode.references-view",
+      "version": "0.0.4",
+      "repository": "https://github.com/microsoft/vscode-references-view",
+      "checkout": "0.0.4"
     }
   ]
 }
