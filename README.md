@@ -15,7 +15,7 @@ You can also run `node add-extension [REPOSITORY]` to add it automatically.
 
 ## Publishing Options
 
-Here is the expected format of an `extensions.json` entry:
+Here is the expected format of an [`extensions.json`](./extensions.json) entry:
 
 ```js
     {
@@ -42,3 +42,17 @@ Here are all the supported values, including optional ones:
       "location": "Extension"
     },
 ```
+
+## How are Extensions Published?
+
+Every night [at 03:00 UTC](https://github.com/open-vsx/publish-extensions/blob/e70fb554a5c265e53f44605dbd826270b860694b/.github/workflows/publish-extensions.yml#L3-L6), a [GitHub workflow](https://github.com/open-vsx/publish-extensions/blob/e70fb554a5c265e53f44605dbd826270b860694b/.github/workflows/publish-extensions.yml#L9-L21) goes through [`extensions.json`](./extensions.json), and checks if the specified `"version"` needs to be published to https://open-vsx.org or not.
+
+The [publishing process](https://github.com/open-vsx/publish-extensions/blob/e70fb554a5c265e53f44605dbd826270b860694b/publish-extensions.js#L57-L82) can be summarized like this:
+
+1. [`git clone "repository"`](https://github.com/open-vsx/publish-extensions/blob/e70fb554a5c265e53f44605dbd826270b860694b/publish-extensions.js#L58)
+2. _([`git checkout "checkout"`](https://github.com/open-vsx/publish-extensions/blob/e70fb554a5c265e53f44605dbd826270b860694b/publish-extensions.js#L60) if a `"checkout"` value is specified)_
+3. [`npm install`](https://github.com/open-vsx/publish-extensions/blob/e70fb554a5c265e53f44605dbd826270b860694b/publish-extensions.js#L66) (or `yarn install` if a `yarn.lock` file is detected in the provided `"location"`)
+4. _([`ovsx create-namespace "publisher"`](https://github.com/open-vsx/publish-extensions/blob/e70fb554a5c265e53f44605dbd826270b860694b/publish-extensions.js#L68-L74) if it doesn't already exist)_
+5. [`ovsx publish`](https://github.com/open-vsx/publish-extensions/blob/e70fb554a5c265e53f44605dbd826270b860694b/publish-extensions.js#L76-L82) (with `--yarn` if a `yarn.lock` file was detected earlier)
+
+See all `ovsx` CLI options [here](https://github.com/eclipse/openvsx/blob/master/cli/README.md).
