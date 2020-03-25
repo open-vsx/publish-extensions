@@ -298,9 +298,9 @@
     },
     {
       "id": "ms-vscode.references-view",
-      "version": "0.0.4",
+      "version": "0.0.47",
       "repository": "https://github.com/microsoft/vscode-references-view",
-      "checkout": "0.0.4"
+      "checkout": "05339da0c4d62d9804f9e33e47cafc2fcf1b2afa"
     }
   ]
 }
