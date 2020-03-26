@@ -7,6 +7,8 @@ A CI for publishing open-source VS Code extensions to https://open-vsx.org
 
 ## How to Add an Extension?
 
+⚠️ _Note: If you maintain an extension, you probably want to [publish it yourself with the `ovsx` CLI](https://github.com/eclipse/openvsx/blob/master/cli/README.md) instead of adding it here._ ⚠️
+
 To automatically publish an extension to Open VSX, simply add it to [`extensions.json`](./extensions.json).
 
 You can also run `node add-extension [REPOSITORY]` to add it automatically.
