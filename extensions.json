@@ -336,6 +336,11 @@
       "repository": "https://github.com/xabikos/vscode-javascript"
     },
     {
+      "id": "yzhang.markdown-all-in-one",
+      "version": "2.7.0",
+      "repository": "https://github.com/yzhang-gh/vscode-markdown"
+    },
+    {
       "id": "zhuangtongfa.material-theme",
       "version": "3.2.4",
       "repository": "https://github.com/Binaryify/OneDark-Pro"
