@@ -203,6 +203,12 @@
       "repository": "https://github.com/lonefy/vscode-js-css-html-formatter"
     },
     {
+      "id": "magicstack.MagicPython",
+      "version": "1.1.0",
+      "repository": "https://github.com/MagicStack/MagicPython",
+      "checkout": "v1.1.0"
+    },
+    {
       "id": "ms-azuretools.vscode-docker",
       "version": "1.0.0",
       "repository": "https://github.com/microsoft/vscode-docker",
