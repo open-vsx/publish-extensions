@@ -111,6 +111,11 @@
       "repository": "https://github.com/ChristianKohler/PathIntellisense"
     },
     {
+      "id": "dbaeumer.jshint",
+      "version": "0.10.21",
+      "repository": "https://github.com/microsoft/vscode-jshint"
+    },
+    {
       "id": "dbaeumer.vscode-eslint",
       "version": "2.1.1",
       "repository": "https://github.com/microsoft/vscode-eslint"
