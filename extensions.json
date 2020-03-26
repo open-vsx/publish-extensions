@@ -279,6 +279,13 @@
       "repository": "https://github.com/paulmolluzzo/convert-css-in-js"
     },
     {
+      "id": "rebornix.ruby",
+      "version": "0.27.0",
+      "repository": "https://github.com/rubyide/vscode-ruby",
+      "checkout": "v0.27.0",
+      "location": "packages/vscode-ruby-client"
+    },
+    {
       "id": "redhat.java",
       "version": "0.58.0",
       "repository": "https://github.com/redhat-developer/vscode-java"
