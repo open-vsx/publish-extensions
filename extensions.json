@@ -205,9 +205,27 @@
       "repository": "https://github.com/microsoft/vscode-go"
     },
     {
+      "id": "ms-vscode.node-debug",
+      "version": "1.35.3",
+      "repository": "https://github.com/microsoft/vscode-node-debug",
+      "checkpoint": "v1.35.3"
+    },
+    {
+      "id": "ms-vscode.node-debug2",
+      "version": "1.33.0",
+      "repository": "https://github.com/microsoft/vscode-node-debug2",
+      "checkout": "v1.33.0"
+    },
+    {
       "id": "ms-vscode.powershell-preview",
       "version": "2020.3.0",
       "repository": "https://github.com/PowerShell/vscode-powershell"
+    },
+    {
+      "id": "ms-vscode.references-view",
+      "version": "0.0.47",
+      "repository": "https://github.com/microsoft/vscode-references-view",
+      "checkout": "05339da0c4d62d9804f9e33e47cafc2fcf1b2afa"
     },
     {
       "id": "ms-vscode.vscode-typescript-tslint-plugin",
@@ -283,24 +301,6 @@
       "id": "zhuangtongfa.material-theme",
       "version": "3.2.4",
       "repository": "https://github.com/Binaryify/OneDark-Pro"
-    },
-    {
-      "id": "ms-vscode.node-debug",
-      "version": "1.35.3",
-      "repository": "https://github.com/microsoft/vscode-node-debug",
-      "checkpoint": "v1.35.3"
-    },
-    {
-      "id": "ms-vscode.node-debug2",
-      "version": "1.33.0",
-      "repository": "https://github.com/microsoft/vscode-node-debug2",
-      "checkout": "v1.33.0"
-    },
-    {
-      "id": "ms-vscode.references-view",
-      "version": "0.0.47",
-      "repository": "https://github.com/microsoft/vscode-references-view",
-      "checkout": "05339da0c4d62d9804f9e33e47cafc2fcf1b2afa"
     }
   ]
 }
