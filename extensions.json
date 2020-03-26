@@ -198,6 +198,11 @@
       "repository": "https://github.com/styled-components/vscode-styled-components"
     },
     {
+      "id": "lonefy.vscode-JS-CSS-HTML-formatter",
+      "version": "0.2.3",
+      "repository": "https://github.com/lonefy/vscode-js-css-html-formatter"
+    },
+    {
       "id": "ms-azuretools.vscode-docker",
       "version": "1.0.0",
       "repository": "https://github.com/microsoft/vscode-docker",
