@@ -287,8 +287,9 @@
     },
     {
       "id": "redhat.java",
-      "version": "0.58.0",
-      "repository": "https://github.com/redhat-developer/vscode-java"
+      "version": "0.54.2",
+      "repository": "https://github.com/redhat-developer/vscode-java",
+      "checkout": "v0.54.2"
     },
     {
       "id": "redhat.vscode-yaml",
