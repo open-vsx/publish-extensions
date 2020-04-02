@@ -280,11 +280,6 @@
       "location": "packages/vscode-ruby-client"
     },
     {
-      "id": "redhat.vscode-yaml",
-      "version": "0.7.2",
-      "repository": "https://github.com/redhat-developer/vscode-yaml"
-    },
-    {
       "id": "ritwickdey.LiveServer",
       "version": "5.6.1",
       "repository": "https://github.com/ritwickdey/vscode-live-server"
