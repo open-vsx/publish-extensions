@@ -245,6 +245,11 @@
       "repository": "https://github.com/microsoft/vscode-go"
     },
     {
+      "id": "ms-vscode.azure-account",
+      "version": "0.8.8",
+      "repository": "https://github.com/microsoft/vscode-azure-account"
+    },
+    {
       "id": "ms-vscode.node-debug",
       "version": "1.35.3",
       "repository": "https://github.com/microsoft/vscode-node-debug",
