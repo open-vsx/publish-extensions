@@ -345,6 +345,11 @@
       "repository": "https://github.com/wayou/vscode-todo-highlight"
     },
     {
+      "id": "wholroyd.jinja",
+      "version": "0.0.8",
+      "repository": "https://github.com/wholroyd/vscode-jinja"
+    },
+    {
       "id": "xabikos.JavaScriptSnippets",
       "version": "1.7.2",
       "repository": "https://github.com/xabikos/vscode-javascript"
