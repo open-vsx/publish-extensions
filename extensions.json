@@ -340,6 +340,11 @@
       "repository": "https://github.com/VSCodeVim/Vim"
     },
     {
+      "id": "wayou.vscode-todo-highlight",
+      "version": "1.0.4",
+      "repository": "https://github.com/wayou/vscode-todo-highlight"
+    },
+    {
       "id": "xabikos.JavaScriptSnippets",
       "version": "1.7.2",
       "repository": "https://github.com/xabikos/vscode-javascript"
