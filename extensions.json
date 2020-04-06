@@ -296,7 +296,7 @@
     },
     {
       "id": "vscjava.vscode-java-test",
-      "version": "0.22.2",
+      "version": "0.22.3",
       "repository": "https://github.com/microsoft/vscode-java-test"
     },
     {
