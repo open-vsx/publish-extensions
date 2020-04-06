@@ -278,6 +278,11 @@
       "repository": "https://github.com/Microsoft/vscode-typescript-tslint-plugin"
     },
     {
+      "id": "ms-vsts.team",
+      "version": "1.161.0",
+      "repository": "https://github.com/Microsoft/azure-repos-vscode"
+    },
+    {
       "id": "msjsdiag.debugger-for-chrome",
       "version": "4.12.6",
       "repository": "https://github.com/microsoft/vscode-chrome-debug"
