@@ -290,7 +290,8 @@
     {
       "id": "octref.vetur",
       "version": "0.24.0",
-      "repository": "https://github.com/vuejs/vetur"
+      "repository": "https://github.com/vuejs/vetur",
+      "checkout": "v0.24.0"
     },
     {
       "id": "paulmolluzzo.convert-css-in-js",
