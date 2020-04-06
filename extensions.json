@@ -2,7 +2,7 @@
   "extensions": [
     {
       "id": "Angular.ng-template",
-      "version": "0.900.18",
+      "version": "0.901.0",
       "repository": "https://github.com/angular/vscode-ng-language-service"
     },
     {
