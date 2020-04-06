@@ -204,9 +204,9 @@
     },
     {
       "id": "magicstack.MagicPython",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "repository": "https://github.com/MagicStack/MagicPython",
-      "checkout": "v1.1.0"
+      "checkout": "v1.1.1"
     },
     {
       "id": "ms-mssql.mssql",
