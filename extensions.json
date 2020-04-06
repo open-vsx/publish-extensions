@@ -101,6 +101,11 @@
       "repository": "https://github.com/almenon/arepl-vscode"
     },
     {
+      "id": "batisteo.vscode-django",
+      "version": "0.20.0",
+      "repository": "https://github.com/vscode-django/vscode-django"
+    },
+    {
       "id": "christian-kohler.npm-intellisense",
       "version": "1.2.1",
       "repository": "https://github.com/ChristianKohler/NpmIntellisense"
