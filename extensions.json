@@ -136,6 +136,11 @@
       "repository": "https://github.com/DonJayamanne/gitHistoryVSCode"
     },
     {
+      "id": "donjayamanne.python-extension-pack",
+      "version": "1.5.0",
+      "repository": "https://github.com/DonJayamanne/python-extension-pack"
+    },
+    {
       "id": "dracula-theme.theme-dracula",
       "version": "2.21.0",
       "repository": "https://github.com/dracula/visual-studio-code"
