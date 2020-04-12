@@ -46,6 +46,12 @@
       "repository": "https://github.com/material-theme/vsc-material-theme"
     },
     {
+      "id": "GrapeCity.gc-excelviewer",
+      "version": "2.1.34",
+      "repository": "https://github.com/jjuback/gc-excelviewer",
+      "checkout": "v2.1.34"
+    },
+    {
       "id": "HookyQR.beautify",
       "version": "1.4.11",
       "repository": "https://github.com/HookyQR/VSCodeBeautify"
