@@ -332,6 +332,12 @@
       "repository": "https://github.com/ritwickdey/vscode-live-server"
     },
     {
+      "id": "steoates.autoimport",
+      "version": "1.5.3",
+      "repository": "https://github.com/soates/Auto-Import",
+      "checkout": "v1.5.3"
+    },
+    {
       "id": "vscjava.vscode-java-debug",
       "version": "0.25.1",
       "repository": "https://github.com/microsoft/vscode-java-debug"
