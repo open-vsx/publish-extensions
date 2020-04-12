@@ -10,8 +10,10 @@
 
 // @ts-check
 const fs = require('fs');
+const ovsx = require('ovsx');
 const path = require('path');
 const util = require('util');
+const semver = require('semver');
 const exec = require('./lib/exec');
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
@@ -20,6 +22,7 @@ const writeFile = util.promisify(fs.writeFile);
   const argv = process.argv.slice(2);
   /** @type {{ extensions: { id: string, version?: string, repository: string, checkout?: string, location?: string }[] }} */
   const { extensions } = JSON.parse(await readFile('./extensions.json', 'utf-8'));
+  const registry = new ovsx.Registry();
 
   if (argv.length !== 1) {
     console.log('Usage: node add-extension [REPOSITORY]');
@@ -58,8 +61,21 @@ const writeFile = util.promisify(fs.writeFile);
       }
     });
 
+    // Check whether the extension is already published on Open VSX.
+    const id = `${package.publisher}.${package.name}`;
+    const metadata = await registry.getMetadata(package.publisher, package.name);
+    if (metadata.error) {
+      console.warn(`[WARNING] Could not check Open VSX version of ${id}:`);
+      console.warn(metadata.error);
+    } else if (metadata.version) {
+      if (semver.gt(metadata.version, package.version)) {
+        throw new Error(`Open VSX already has a more recent version of ${id}: ${metadata.version} > ${package.version}`);
+      }
+      console.warn(`[WARNING] Open VSX already has ${id} in version ${metadata.version}. Adding ${package.version} here anyway.`);
+    }
+
     // Add extension to the list.
-    const extension = { id: `${package.publisher}.${package.name}`, version: package.version, repository };
+    const extension = { id, version: package.version, repository };
     const location = path.dirname(locations[0]);
     if (location !== '.') {
       extension.location = location;
