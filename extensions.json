@@ -333,8 +333,9 @@
     },
     {
       "id": "vscode-icons-team.vscode-icons",
-      "version": "10.0.0",
-      "repository": "https://github.com/vscode-icons/vscode-icons"
+      "version": "10.1.1",
+      "repository": "https://github.com/vscode-icons/vscode-icons",
+      "checkout": "v10.1.1"
     },
     {
       "id": "vscodevim.vim",
