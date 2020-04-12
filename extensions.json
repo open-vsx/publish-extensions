@@ -214,6 +214,12 @@
       "repository": "https://github.com/hollowtree/vscode-vue-snippets"
     },
     {
+      "id": "humao.rest-client",
+      "version": "0.23.2",
+      "repository": "https://github.com/Huachao/vscode-restclient",
+      "checkout": "v0.23.2"
+    },
+    {
       "id": "johnpapa.Angular2",
       "version": "9.1.2",
       "repository": "https://github.com/johnpapa/vscode-angular-snippets"
