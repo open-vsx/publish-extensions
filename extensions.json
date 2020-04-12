@@ -309,6 +309,11 @@
       "repository": "https://github.com/microsoft/vscode-chrome-debug"
     },
     {
+      "id": "naumovs.color-highlight",
+      "version": "2.3.0",
+      "repository": "https://github.com/egonyans/vscode-ext-color-highlight"
+    },
+    {
       "id": "octref.vetur",
       "version": "0.24.0",
       "repository": "https://github.com/vuejs/vetur",
