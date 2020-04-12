@@ -258,9 +258,9 @@
     },
     {
       "id": "ms-vscode.node-debug2",
-      "version": "1.33.0",
+      "version": "1.42.1",
       "repository": "https://github.com/microsoft/vscode-node-debug2",
-      "checkout": "v1.33.0"
+      "checkout": "v1.42.1"
     },
     {
       "id": "ms-vscode.powershell-preview",
