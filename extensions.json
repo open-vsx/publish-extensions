@@ -235,6 +235,11 @@
       "checkout": "v1.1.1"
     },
     {
+      "id": "mikestead.dotenv",
+      "version": "1.0.1",
+      "repository": "https://github.com/mikestead/vscode-dotenv"
+    },
+    {
       "id": "mitaki28.vscode-clang",
       "version": "0.2.3",
       "repository": "https://github.com/mitaki28/vscode-clang"
