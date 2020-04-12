@@ -274,6 +274,11 @@
       "checkout": "05339da0c4d62d9804f9e33e47cafc2fcf1b2afa"
     },
     {
+      "id": "ms-vscode.sublime-keybindings",
+      "version": "4.0.6",
+      "repository": "https://github.com/Microsoft/vscode-sublime-keybindings"
+    },
+    {
       "id": "ms-vscode.vscode-typescript-tslint-plugin",
       "version": "1.2.2",
       "repository": "https://github.com/Microsoft/vscode-typescript-tslint-plugin"
