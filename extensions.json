@@ -257,75 +257,6 @@
       "repository": "https://github.com/mitaki28/vscode-clang"
     },
     {
-      "id": "ms-mssql.mssql",
-      "version": "1.9.0",
-      "repository": "https://github.com/Microsoft/vscode-mssql"
-    },
-    {
-      "id": "ms-python.anaconda-extension-pack",
-      "version": "1.0.1",
-      "repository": "https://github.com/Microsoft/vscode-anaconda-extension-pack"
-    },
-    {
-      "id": "ms-python.python",
-      "version": "2020.2.64397",
-      "repository": "https://github.com/Microsoft/vscode-python",
-      "checkout": "2020.2.64397"
-    },
-    {
-      "id": "ms-vscode.Go",
-      "version": "0.13.1",
-      "repository": "https://github.com/microsoft/vscode-go"
-    },
-    {
-      "id": "ms-vscode.azure-account",
-      "version": "0.8.9",
-      "repository": "https://github.com/microsoft/vscode-azure-account"
-    },
-    {
-      "id": "ms-vscode.node-debug",
-      "version": "1.41.1",
-      "repository": "https://github.com/microsoft/vscode-node-debug",
-      "checkout": "v1.41.1"
-    },
-    {
-      "id": "ms-vscode.node-debug2",
-      "version": "1.42.1",
-      "repository": "https://github.com/microsoft/vscode-node-debug2",
-      "checkout": "v1.42.1"
-    },
-    {
-      "id": "ms-vscode.powershell-preview",
-      "version": "2020.3.0",
-      "repository": "https://github.com/PowerShell/vscode-powershell"
-    },
-    {
-      "id": "ms-vscode.references-view",
-      "version": "0.0.47",
-      "repository": "https://github.com/microsoft/vscode-references-view",
-      "checkout": "05339da0c4d62d9804f9e33e47cafc2fcf1b2afa"
-    },
-    {
-      "id": "ms-vscode.sublime-keybindings",
-      "version": "4.0.6",
-      "repository": "https://github.com/Microsoft/vscode-sublime-keybindings"
-    },
-    {
-      "id": "ms-vscode.vscode-typescript-tslint-plugin",
-      "version": "1.2.2",
-      "repository": "https://github.com/Microsoft/vscode-typescript-tslint-plugin"
-    },
-    {
-      "id": "ms-vsts.team",
-      "version": "1.161.0",
-      "repository": "https://github.com/Microsoft/azure-repos-vscode"
-    },
-    {
-      "id": "msjsdiag.debugger-for-chrome",
-      "version": "4.12.6",
-      "repository": "https://github.com/microsoft/vscode-chrome-debug"
-    },
-    {
       "id": "naumovs.color-highlight",
       "version": "2.3.0",
       "repository": "https://github.com/egonyans/vscode-ext-color-highlight"
@@ -358,26 +289,6 @@
       "version": "1.5.3",
       "repository": "https://github.com/soates/Auto-Import",
       "checkout": "v1.5.3"
-    },
-    {
-      "id": "vscjava.vscode-java-debug",
-      "version": "0.25.1",
-      "repository": "https://github.com/microsoft/vscode-java-debug"
-    },
-    {
-      "id": "vscjava.vscode-java-dependency",
-      "version": "0.9.0",
-      "repository": "https://github.com/Microsoft/vscode-java-dependency"
-    },
-    {
-      "id": "vscjava.vscode-java-test",
-      "version": "0.22.3",
-      "repository": "https://github.com/microsoft/vscode-java-test"
-    },
-    {
-      "id": "vscjava.vscode-maven",
-      "version": "0.21.2",
-      "repository": "https://github.com/microsoft/vscode-maven"
     },
     {
       "id": "vscode-icons-team.vscode-icons",
