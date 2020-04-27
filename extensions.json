@@ -257,6 +257,11 @@
       "checkout": "v0.24.0"
     },
     {
+      "id": "oderwat.indent-rainbow",
+      "version": "7.4.0",
+      "repository": "https://github.com/oderwat/vscode-indent-rainbow"
+    },
+    {
       "id": "paulmolluzzo.convert-css-in-js",
       "version": "0.3.0",
       "repository": "https://github.com/paulmolluzzo/convert-css-in-js"
