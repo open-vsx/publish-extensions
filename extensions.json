@@ -170,6 +170,11 @@
       "repository": "https://github.com/ecmel/vscode-html-css"
     },
     {
+      "id": "emmanuelbeziat.vscode-great-icons",
+      "version": "2.1.48",
+      "repository": "https://github.com/EmmanuelBeziat/vscode-great-icons"
+    },
+    {
       "id": "equinusocio.vsc-material-theme-icons",
       "version": "1.1.4",
       "repository": "https://github.com/material-theme/vsc-material-theme-icons"
