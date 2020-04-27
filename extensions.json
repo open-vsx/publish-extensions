@@ -69,6 +69,12 @@
       "repository": "https://github.com/Ikuyadeu/vscode-R"
     },
     {
+      "id": "James-Yu.latex-workshop",
+      "version": "8.9.0",
+      "repository": "https://github.com/James-Yu/LaTeX-Workshop",
+      "checkout": "v8.9.0"
+    },
+    {
       "id": "Mikael.Angular-BeastCode",
       "version": "8.1.1",
       "repository": "https://github.com/BeastCode/VSCode-Angular-TypeScript-Snippets"
