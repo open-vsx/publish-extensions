@@ -302,8 +302,9 @@
     },
     {
       "id": "xabikos.JavaScriptSnippets",
-      "version": "1.7.2",
-      "repository": "https://github.com/xabikos/vscode-javascript"
+      "version": "1.8.0",
+      "repository": "https://github.com/xabikos/vscode-javascript",
+      "checkout": "v1.8.0"
     },
     {
       "id": "yzhang.markdown-all-in-one",
