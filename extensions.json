@@ -160,9 +160,9 @@
     },
     {
       "id": "esbenp.prettier-vscode",
-      "version": "4.2.0",
+      "version": "4.5.0",
       "repository": "https://github.com/prettier/prettier-vscode",
-      "checkout": "v4.2.0"
+      "checkout": "v4.5.0"
     },
     {
       "id": "felixfbecker.php-debug",
