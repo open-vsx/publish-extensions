@@ -99,6 +99,11 @@
       "repository": "https://github.com/Zignd/HTML-CSS-Class-Completion"
     },
     {
+      "id": "aaron-bond.better-comments",
+      "version": "2.0.5",
+      "repository": "https://github.com/aaron-bond/better-comments"
+    },
+    {
       "id": "abusaidm.html-snippets",
       "version": "0.2.1",
       "repository": "https://github.com/abusaidm/html-snippets"
