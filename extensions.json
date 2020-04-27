@@ -12,6 +12,11 @@
       "repository": "https://github.com/CoenraadS/BracketPair"
     },
     {
+      "id": "CoenraadS.bracket-pair-colorizer-2",
+      "version": "0.0.28",
+      "repository": "https://github.com/CoenraadS/Bracket-Pair-Colorizer-2"
+    },
+    {
       "id": "Dart-Code.dart-code",
       "version": "3.9.1",
       "repository": "https://github.com/Dart-Code/Dart-Code"
