@@ -251,6 +251,11 @@
       "repository": "https://github.com/johnpapa/vscode-angular-snippets"
     },
     {
+      "id": "johnpapa.winteriscoming",
+      "version": "1.4.1",
+      "repository": "https://github.com/johnpapa/vscode-winteriscoming"
+    },
+    {
       "id": "jpoissonnier.vscode-styled-components",
       "version": "0.0.29",
       "repository": "https://github.com/styled-components/vscode-styled-components"
