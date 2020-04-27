@@ -82,10 +82,10 @@ const writeFile = util.promisify(fs.writeFile);
     }
     extensions.push(extension);
 
-    // Sort extensions alphabetically by ID.
+    // Sort extensions alphabetically by ID (not case-sensitive).
     extensions.sort((a, b) => {
-      if (b.id > a.id) return -1;
-      if (b.id < a.id) return 1;
+      if (b.id.toLowerCase() > a.id.toLowerCase()) return -1;
+      if (b.id.toLowerCase() < a.id.toLowerCase()) return 1;
       return 0;
     });
 
