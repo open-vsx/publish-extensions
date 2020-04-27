@@ -129,7 +129,7 @@
       "repository": "https://github.com/material-theme/vsc-material-theme"
     },
     {
-      "id": "equinusocio.vsc-material-theme-icons",
+      "id": "Equinusocio.vsc-material-theme-icons",
       "version": "1.1.4",
       "repository": "https://github.com/material-theme/vsc-material-theme-icons"
     },
@@ -303,7 +303,8 @@
     {
       "id": "ritwickdey.LiveServer",
       "version": "5.6.1",
-      "repository": "https://github.com/ritwickdey/vscode-live-server"
+      "repository": "https://github.com/ritwickdey/vscode-live-server",
+      "checkout": "v5.6.1"
     },
     {
       "id": "Shan.code-settings-sync",
