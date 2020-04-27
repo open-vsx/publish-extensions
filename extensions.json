@@ -23,8 +23,9 @@
     },
     {
       "id": "DavidAnson.vscode-markdownlint",
-      "version": "0.34.0",
-      "repository": "https://github.com/DavidAnson/vscode-markdownlint"
+      "version": "0.35.1",
+      "repository": "https://github.com/DavidAnson/vscode-markdownlint",
+      "checkout": "v0.35.1"
     },
     {
       "id": "DotJoshJohnson.xml",
