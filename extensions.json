@@ -287,6 +287,11 @@
       "repository": "https://github.com/oderwat/vscode-indent-rainbow"
     },
     {
+      "id": "onecentlin.laravel-blade",
+      "version": "1.20.0",
+      "repository": "https://github.com/onecentlin/laravel-blade-snippets-vscode"
+    },
+    {
       "id": "paulmolluzzo.convert-css-in-js",
       "version": "0.3.0",
       "repository": "https://github.com/paulmolluzzo/convert-css-in-js"
