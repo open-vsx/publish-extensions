@@ -2,8 +2,9 @@
   "extensions": [
     {
       "id": "Angular.ng-template",
-      "version": "0.901.0",
-      "repository": "https://github.com/angular/vscode-ng-language-service"
+      "version": "0.901.3",
+      "repository": "https://github.com/angular/vscode-ng-language-service",
+      "checkout": "v0.901.3"
     },
     {
       "id": "CoenraadS.bracket-pair-colorizer",
