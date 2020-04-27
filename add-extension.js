@@ -29,7 +29,7 @@ const writeFile = util.promisify(fs.writeFile);
     process.exit();
   }
 
-  const repository = argv[0];
+  const repository = argv[0].replace(/\/*$/, '');
   const existing = extensions.find(extension => extension.repository.toLowerCase() === repository.toLowerCase());
   if (existing) {
     console.log(`[SKIPPED] Repository already in extensions.json: ${JSON.stringify(existing, null, 2)}`);
