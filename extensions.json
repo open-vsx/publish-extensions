@@ -150,6 +150,11 @@
       "checkout": "v0.6.5"
     },
     {
+      "id": "donjayamanne.jquerysnippets",
+      "version": "0.0.1",
+      "repository": "https://github.com/DonJayamanne/jquerysnippets"
+    },
+    {
       "id": "dracula-theme.theme-dracula",
       "version": "2.21.0",
       "repository": "https://github.com/dracula/visual-studio-code"
