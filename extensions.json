@@ -102,8 +102,9 @@
     },
     {
       "id": "dracula-theme.theme-dracula",
-      "version": "2.21.0",
-      "repository": "https://github.com/dracula/visual-studio-code"
+      "version": "2.22.0",
+      "repository": "https://github.com/dracula/visual-studio-code",
+      "checkout": "v2.22.0",
     },
     {
       "id": "dsznajder.es7-react-js-snippets",
