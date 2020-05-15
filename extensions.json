@@ -32,9 +32,9 @@
     },
     {
       "id": "Angular.ng-template",
-      "version": "0.901.3",
+      "version": "0.901.7",
       "repository": "https://github.com/angular/vscode-ng-language-service",
-      "checkout": "v0.901.3"
+      "checkout": "v0.901.7"
     },
     {
       "id": "appulate.filewatcher",
