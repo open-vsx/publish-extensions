@@ -42,6 +42,11 @@
       "repository": "https://github.com/appulate/vscode-file-watcher"
     },
     {
+      "id": "austin.code-gnu-global",
+      "version": "0.2.2",
+      "repository": "https://github.com/austin-----/code-gnu-global"
+    },
+    {
       "id": "batisteo.vscode-django",
       "version": "0.20.0",
       "repository": "https://github.com/vscode-django/vscode-django"
@@ -168,6 +173,12 @@
       "id": "formulahendry.auto-close-tag",
       "version": "0.5.7",
       "repository": "https://github.com/formulahendry/vscode-auto-close-tag"
+    },
+    {
+      "id": "formulahendry.auto-rename-tag",
+      "version": "0.1.2",
+      "repository": "https://github.com/formulahendry/vscode-auto-rename-tag",
+      "location": "packages/extension"
     },
     {
       "id": "formulahendry.code-runner",
