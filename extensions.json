@@ -244,9 +244,9 @@
     },
     {
       "id": "Luxcium.pop-n-lock-theme-vscode",
-      "version": "3.25.0",
+      "version": "3.27.3333",
       "repository": "https://github.com/luxcium/pop-n-lock-theme-vscode",
-      "checkout": "v3.25.0"
+      "checkout": "v3.27.3333"
     },
     {
       "id": "magicstack.MagicPython",
