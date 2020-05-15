@@ -68,13 +68,15 @@
     },
     {
       "id": "Dart-Code.dart-code",
-      "version": "3.9.1",
-      "repository": "https://github.com/Dart-Code/Dart-Code"
+      "version": "3.10.1",
+      "repository": "https://github.com/Dart-Code/Dart-Code",
+      "checkout": "v3.10.1"
     },
     {
       "id": "Dart-Code.flutter",
-      "version": "3.9.1",
-      "repository": "https://github.com/Dart-Code/Flutter"
+      "version": "3.10.1",
+      "repository": "https://github.com/Dart-Code/Flutter",
+      "checkout": "v3.10.1"
     },
     {
       "id": "DavidAnson.vscode-markdownlint",
