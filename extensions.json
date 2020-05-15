@@ -103,13 +103,14 @@
     {
       "id": "DotJoshJohnson.xml",
       "version": "2.5.0",
-      "repository": "https://github.com/DotJoshJohnson/vscode-xml"
+      "repository": "https://github.com/DotJoshJohnson/vscode-xml",
+      "checkout": "v2.5.0"
     },
     {
       "id": "dracula-theme.theme-dracula",
       "version": "2.22.0",
       "repository": "https://github.com/dracula/visual-studio-code",
-      "checkout": "v2.22.0",
+      "checkout": "v2.22.0"
     },
     {
       "id": "dsznajder.es7-react-js-snippets",
