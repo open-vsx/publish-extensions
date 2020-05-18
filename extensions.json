@@ -251,6 +251,11 @@
       "repository": "https://github.com/jchannon/csharpextensions"
     },
     {
+      "id": "JeffersonQin.latex-snippets-jeff",
+      "version": "1.2.1",
+      "repository": "https://github.com/JeffersonQin/VSCode-LaTeX-Snippets"
+    },
+    {
       "id": "johnpapa.Angular2",
       "version": "9.1.2",
       "repository": "https://github.com/johnpapa/vscode-angular-snippets"
