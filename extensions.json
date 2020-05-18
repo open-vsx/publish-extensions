@@ -138,6 +138,12 @@
       "repository": "https://github.com/editorconfig/editorconfig-vscode"
     },
     {
+      "id": "efoerster.texlab",
+      "version": "2.1.0",
+      "repository": "https://github.com/latex-lsp/texlab-vscode",
+      "checkout": "v2.1.0"
+    },
+    {
       "id": "emmanuelbeziat.vscode-great-icons",
       "version": "2.1.48",
       "repository": "https://github.com/EmmanuelBeziat/vscode-great-icons"
