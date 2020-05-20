@@ -60,7 +60,7 @@ const readFile = util.promisify(fs.readFile);
         await exec(`git checkout ${extension.checkout}`, { cwd: '/tmp/repository' });
       }
       let yarn = await new Promise(resolve => {
-        fs.access(path.join(location, 'yarn.lock'), error => resolve(!error));
+        fs.access(path.join('/tmp/repository', 'yarn.lock'), error => resolve(!error));
       });
       await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: '/tmp/repository' });
 
