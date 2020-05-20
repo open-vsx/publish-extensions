@@ -59,11 +59,10 @@ const readFile = util.promisify(fs.readFile);
       if (extension.checkout) {
         await exec(`git checkout ${extension.checkout}`, { cwd: '/tmp/repository' });
       }
-      const location = path.join('/tmp/repository', extension.location || '.');
       let yarn = await new Promise(resolve => {
         fs.access(path.join(location, 'yarn.lock'), error => resolve(!error));
       });
-      await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: location });
+      await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: '/tmp/repository' });
 
       // Create a public Open VSX namespace if needed.
       try {
@@ -74,7 +73,7 @@ const readFile = util.promisify(fs.readFile);
       }
 
       // Publish the extension.
-      const options = { packagePath: location };
+      const options = { packagePath: path.join('/tmp/repository', extension.location || '.') };
       if (yarn) {
         options.yarn = true;
       }

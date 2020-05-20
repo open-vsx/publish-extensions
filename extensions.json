@@ -341,6 +341,13 @@
       "location": "packages/vscode-ruby-client"
     },
     {
+      "id": "wingrunr21.vscode-ruby",
+      "version": "0.27.0",
+      "repository": "https://github.com/rubyide/vscode-ruby",
+      "checkout": "v0.27.0",
+      "location": "packages/vscode-ruby"
+    },
+    {
       "id": "ritwickdey.LiveServer",
       "version": "5.6.1",
       "repository": "https://github.com/ritwickdey/vscode-live-server",
