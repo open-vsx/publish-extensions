@@ -341,13 +341,6 @@
       "location": "packages/vscode-ruby-client"
     },
     {
-      "id": "wingrunr21.vscode-ruby",
-      "version": "0.27.0",
-      "repository": "https://github.com/rubyide/vscode-ruby",
-      "checkout": "v0.27.0",
-      "location": "packages/vscode-ruby"
-    },
-    {
       "id": "ritwickdey.LiveServer",
       "version": "5.6.1",
       "repository": "https://github.com/ritwickdey/vscode-live-server",
@@ -387,9 +380,21 @@
       "repository": "https://github.com/wayou/vscode-todo-highlight"
     },
     {
+      "id": "webfreak.debug",
+      "version": "0.25.0",
+      "repository": "https://github.com/WebFreak001/code-debug"
+    },
+    {
       "id": "wholroyd.jinja",
       "version": "0.0.8",
       "repository": "https://github.com/wholroyd/vscode-jinja"
+    },
+    {
+      "id": "wingrunr21.vscode-ruby",
+      "version": "0.27.0",
+      "repository": "https://github.com/rubyide/vscode-ruby",
+      "checkout": "v0.27.0",
+      "location": "packages/vscode-ruby"
     },
     {
       "id": "Wscats.omi-snippets",
