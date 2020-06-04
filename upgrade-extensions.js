@@ -19,7 +19,7 @@ const dontUpgrade = [
   'rebornix.ruby', // Error: Expected "publisher" in package.json
   'felixfbecker.php-debug', // https://github.com/open-vsx/publish-extensions/issues/4
   'felixfbecker.php-intellisense', // https://github.com/open-vsx/publish-extensions/issues/4
-  'ms-vscode.references-view', // https://github.com/open-vsx/publish-extensions/issues/17
+  'formulahendry.auto-rename-tag', // Error: Expected "publisher" in package.json
 ];
 
 (async () => {
