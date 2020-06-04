@@ -90,9 +90,9 @@
     },
     {
       "id": "Dart-Code.flutter",
-      "version": "3.10.1",
+      "version": "3.11.0",
       "repository": "https://github.com/Dart-Code/Flutter",
-      "checkout": "v3.10.1"
+      "checkout": "v3.11.0"
     },
     {
       "id": "DavidAnson.vscode-markdownlint",
