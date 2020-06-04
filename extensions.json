@@ -135,7 +135,7 @@
     },
     {
       "id": "EditorConfig.EditorConfig",
-      "version": "0.14.5",
+      "version": "0.15.1",
       "repository": "https://github.com/editorconfig/editorconfig-vscode"
     },
     {
