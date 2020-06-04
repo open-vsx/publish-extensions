@@ -96,9 +96,9 @@
     },
     {
       "id": "DavidAnson.vscode-markdownlint",
-      "version": "0.35.1",
+      "version": "0.36.0",
       "repository": "https://github.com/DavidAnson/vscode-markdownlint",
-      "checkout": "v0.35.1"
+      "checkout": "v0.36.0"
     },
     {
       "id": "donjayamanne.githistory",
