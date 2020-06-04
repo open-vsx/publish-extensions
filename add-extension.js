@@ -10,6 +10,7 @@
 
 // @ts-check
 const fs = require('fs');
+const minimist = require('minimist');
 const ovsx = require('ovsx');
 const path = require('path');
 const util = require('util');
@@ -19,17 +20,17 @@ const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
 (async () => {
-  const argv = process.argv.slice(2);
+  const argv = minimist(process.argv.slice(2));
   /** @type {{ extensions: { id: string, version?: string, repository: string, checkout?: string, location?: string }[] }} */
   const { extensions } = JSON.parse(await readFile('./extensions.json', 'utf-8'));
   const registry = new ovsx.Registry();
 
-  if (argv.length !== 1) {
+  if (argv._.length !== 1) {
     console.log('Usage: node add-extension [REPOSITORY]');
     process.exit();
   }
 
-  const repository = argv[0].replace(/\/*$/, '');
+  const repository = argv._[0].replace(/\/*$/, '');
   const existing = extensions.find(extension => extension.repository.toLowerCase() === repository.toLowerCase());
   if (existing) {
     console.log(`[SKIPPED] Repository already in extensions.json: ${JSON.stringify(existing, null, 2)}`);
