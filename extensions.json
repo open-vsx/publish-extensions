@@ -140,9 +140,9 @@
     },
     {
       "id": "efoerster.texlab",
-      "version": "2.1.0",
+      "version": "2.2.0",
       "repository": "https://github.com/latex-lsp/texlab-vscode",
-      "checkout": "v2.1.0"
+      "checkout": "v2.2.0"
     },
     {
       "id": "emmanuelbeziat.vscode-great-icons",
