@@ -33,15 +33,17 @@ Here are all the supported values, including optional ones:
 ```js
     {
       // Unique Open VSX extension ID in the form "<namespace>.<name>"
-      "id": "ms-vscode.cpptools",
+      "id": "rebornix.ruby",
       // (OPTIONAL) The version to publish to Open VSX (defaults to the package.json version)
-      "version": "0.26.3",
+      "version": "0.27.0",
       // Repository URL to clone and publish from
-      "repository": "https://github.com/microsoft/vscode-cpptools",
+      "repository": "https://github.com/rubyide/vscode-ruby",
       // (OPTIONAL) The Git branch, tag, or commit to check out before publishing (defaults to the repository's default branch)
-      "checkout": "0.26.3",
+      "checkout": "v0.27.0",
       // (OPTIONAL) Location of the extension's package.json in the repository (defaults to the repository's root directory)
-      "location": "Extension"
+      "location": "packages/vscode-ruby-client",
+      // (OPTIONAL) Extra commands to run just before publishing to Open VSX (i.e. after "yarn/npm install", but before "vscode:prepublish")
+      "prepublish": "npm run build"
     },
 ```
 
@@ -54,7 +56,8 @@ The [publishing process](https://github.com/open-vsx/publish-extensions/blob/e70
 1. [`git clone "repository"`](https://github.com/open-vsx/publish-extensions/blob/e70fb554a5c265e53f44605dbd826270b860694b/publish-extensions.js#L58)
 2. _([`git checkout "checkout"`](https://github.com/open-vsx/publish-extensions/blob/e70fb554a5c265e53f44605dbd826270b860694b/publish-extensions.js#L60) if a `"checkout"` value is specified)_
 3. [`npm install`](https://github.com/open-vsx/publish-extensions/blob/e70fb554a5c265e53f44605dbd826270b860694b/publish-extensions.js#L66) (or `yarn install` if a `yarn.lock` file is detected in the provided `"location"`)
-4. _([`ovsx create-namespace "publisher"`](https://github.com/open-vsx/publish-extensions/blob/e70fb554a5c265e53f44605dbd826270b860694b/publish-extensions.js#L68-L74) if it doesn't already exist)_
-5. [`ovsx publish`](https://github.com/open-vsx/publish-extensions/blob/e70fb554a5c265e53f44605dbd826270b860694b/publish-extensions.js#L76-L82) (with `--yarn` if a `yarn.lock` file was detected earlier)
+4. _(`prepublish`)_
+5. _([`ovsx create-namespace "publisher"`](https://github.com/open-vsx/publish-extensions/blob/e70fb554a5c265e53f44605dbd826270b860694b/publish-extensions.js#L68-L74) if it doesn't already exist)_
+6. [`ovsx publish`](https://github.com/open-vsx/publish-extensions/blob/e70fb554a5c265e53f44605dbd826270b860694b/publish-extensions.js#L76-L82) (with `--yarn` if a `yarn.lock` file was detected earlier)
 
 See all `ovsx` CLI options [here](https://github.com/eclipse/openvsx/blob/master/cli/README.md).

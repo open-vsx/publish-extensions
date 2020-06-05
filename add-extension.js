@@ -21,7 +21,7 @@ const writeFile = util.promisify(fs.writeFile);
 
 (async () => {
   const argv = minimist(process.argv.slice(2));
-  /** @type {{ extensions: { id: string, version?: string, repository: string, checkout?: string, location?: string }[] }} */
+  /** @type {{ extensions: { id: string, version?: string, repository: string, checkout?: string, location?: string, prepublish?: string }[] }} */
   const { extensions } = JSON.parse(await readFile('./extensions.json', 'utf-8'));
   const registry = new ovsx.Registry();
 
