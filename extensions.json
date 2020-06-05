@@ -212,7 +212,8 @@
     {
       "id": "hbenl.vscode-test-explorer",
       "version": "2.19.1",
-      "repository": "https://github.com/hbenl/vscode-test-explorer"
+      "repository": "https://github.com/hbenl/vscode-test-explorer",
+      "prepublish": "npm run build"
     },
     {
       "id": "hollowtree.vue-snippets",
