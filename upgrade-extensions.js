@@ -23,7 +23,7 @@ const dontUpgrade = [
 ];
 
 (async () => {
-  /** @type {{ extensions: { id: string, version?: string, repository: string, checkout?: string, location?: string }[] }} */
+  /** @type {{ extensions: { id: string, version?: string, repository: string, checkout?: string, location?: string, prepublish?: string }[] }} */
   const { extensions } = JSON.parse(await readFile('./extensions.json', 'utf-8'));
   const extensionsToUpgrade = extensions.filter(e => !dontUpgrade.includes(e.id))
   const extensionsToNotUpgrade = extensions.filter(e => dontUpgrade.includes(e.id));

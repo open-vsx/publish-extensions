@@ -18,7 +18,7 @@ const exec = require('./lib/exec');
 const readFile = util.promisify(fs.readFile);
 
 (async () => {
-  /** @type {{ extensions: { id: string, version?: string, repository: string, checkout?: string, location?: string }[] }} */
+  /** @type {{ extensions: { id: string, version?: string, repository: string, checkout?: string, location?: string, prepublish?: string }[] }} */
   const { extensions } = JSON.parse(await readFile('./extensions.json', 'utf-8'));
   const registry = new ovsx.Registry();
 
@@ -63,6 +63,9 @@ const readFile = util.promisify(fs.readFile);
         fs.access(path.join('/tmp/repository', 'yarn.lock'), error => resolve(!error));
       });
       await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: '/tmp/repository' });
+      if (extension.prepublish) {
+        await exec(extension.prepublish, { cwd: '/tmp/repository' })
+      }
 
       // Create a public Open VSX namespace if needed.
       try {
