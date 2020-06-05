@@ -306,6 +306,13 @@
       "repository": "https://github.com/mitaki28/vscode-clang"
     },
     {
+      "id": "ms-python.python",
+      "version": "2020.5.1",
+      "repository": "https://github.com/Microsoft/vscode-python",
+      "checkout": "2020.5.80290",
+      "prepublish": "npm run package"
+    },
+    {
       "id": "naumovs.color-highlight",
       "version": "2.3.0",
       "repository": "https://github.com/egonyans/vscode-ext-color-highlight"
