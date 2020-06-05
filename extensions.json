@@ -372,9 +372,9 @@
     },
     {
       "id": "vscodevim.vim",
-      "version": "1.14.3",
+      "version": "1.14.5",
       "repository": "https://github.com/VSCodeVim/Vim",
-      "checkout": "v1.14.3"
+      "checkout": "v1.14.5"
     },
     {
       "id": "wayou.vscode-todo-highlight",
