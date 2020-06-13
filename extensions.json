@@ -52,6 +52,11 @@
       "repository": "https://github.com/austin-----/code-gnu-global"
     },
     {
+      "id": "bajdzis.vscode-database",
+      "version": "2.2.0",
+      "repository": "https://github.com/Bajdzis/vscode-database"
+    },
+    {
       "id": "batisteo.vscode-django",
       "version": "0.20.0",
       "repository": "https://github.com/vscode-django/vscode-django"
