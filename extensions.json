@@ -26,6 +26,11 @@
       "repository": "https://github.com/alefragnani/vscode-project-manager"
     },
     {
+      "id": "alexcvzz.vscode-sqlite",
+      "version": "0.8.2",
+      "repository": "https://github.com/AlexCovizzi/vscode-sqlite"
+    },
+    {
       "id": "almenon.arepl",
       "version": "1.0.24",
       "repository": "https://github.com/almenon/arepl-vscode"
