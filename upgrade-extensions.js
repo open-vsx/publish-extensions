@@ -20,6 +20,7 @@ const dontUpgrade = [
   'felixfbecker.php-debug', // https://github.com/open-vsx/publish-extensions/issues/4
   'felixfbecker.php-intellisense', // https://github.com/open-vsx/publish-extensions/issues/4
   'formulahendry.auto-rename-tag', // Error: Expected "publisher" in package.json
+  'Luxcium.pop-n-lock-theme-vscode', // Error: Open VSX already has a more recent version of Luxcium.pop-n-lock-theme-vscode: 3.28.5 > 3.28.0
 ];
 
 (async () => {
