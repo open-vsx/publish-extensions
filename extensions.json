@@ -441,6 +441,12 @@
       "repository": "https://github.com/swellaby/vscode-rust-test-adapter"
     },
     {
+      "id": "timonwong.shellcheck",
+      "version": "0.9.0",
+      "repository": "https://github.com/timonwong/vscode-shellcheck",
+      "checkout": "v0.9.0"
+    },
+    {
       "id": "vscode-icons-team.vscode-icons",
       "version": "10.1.1",
       "repository": "https://github.com/vscode-icons/vscode-icons",
