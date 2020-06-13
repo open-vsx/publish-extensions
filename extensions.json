@@ -331,6 +331,13 @@
       "checkout": "v3.28.5"
     },
     {
+      "id": "mads-hartmann.bash-ide-vscode",
+      "version": "1.10.2",
+      "repository": "https://github.com/bash-lsp/bash-language-server",
+      "checkout": "vscode-client-1.10.2",
+      "location": "vscode-client"
+    },
+    {
       "id": "magicstack.MagicPython",
       "version": "1.1.1",
       "repository": "https://github.com/MagicStack/MagicPython",
