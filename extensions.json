@@ -449,6 +449,11 @@
       "repository": "https://github.com/samuelcolvin/jinjahtml-vscode"
     },
     {
+      "id": "scala-lang.scala",
+      "version": "0.3.9",
+      "repository": "https://github.com/scala/vscode-scala-syntax"
+    },
+    {
       "id": "Shan.code-settings-sync",
       "version": "3.4.3",
       "repository": "https://github.com/shanalikhan/code-settings-sync"
