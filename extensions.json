@@ -62,6 +62,11 @@
       "repository": "https://github.com/vscode-django/vscode-django"
     },
     {
+      "id": "belfz.search-crates-io",
+      "version": "1.2.1",
+      "repository": "https://github.com/belfz/search-crates-io"
+    },
+    {
       "id": "bmewburn.vscode-intelephense-client",
       "version": "1.4.1",
       "repository": "https://github.com/bmewburn/vscode-intelephense",
