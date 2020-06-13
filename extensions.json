@@ -73,6 +73,12 @@
       "checkout": "v1.4.1"
     },
     {
+      "id": "bungcip.better-toml",
+      "version": "0.3.2",
+      "repository": "https://github.com/bungcip/better-toml",
+      "checkout": "0.3.2"
+    },
+    {
       "id": "christian-kohler.npm-intellisense",
       "version": "1.2.1",
       "repository": "https://github.com/ChristianKohler/NpmIntellisense"
