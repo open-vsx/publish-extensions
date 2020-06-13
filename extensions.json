@@ -362,6 +362,11 @@
       "repository": "https://github.com/egonyans/vscode-ext-color-highlight"
     },
     {
+      "id": "neilbrayfield.php-docblocker",
+      "version": "2.1.0",
+      "repository": "https://github.com/neild3r/vscode-php-docblocker"
+    },
+    {
       "id": "octref.vetur",
       "version": "0.24.0",
       "repository": "https://github.com/vuejs/vetur",
