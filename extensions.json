@@ -460,6 +460,11 @@
       "checkout": "v1.9.0"
     },
     {
+      "id": "serayuzgur.crates",
+      "version": "0.5.0",
+      "repository": "https://github.com/serayuzgur/crates"
+    },
+    {
       "id": "Shan.code-settings-sync",
       "version": "3.4.3",
       "repository": "https://github.com/shanalikhan/code-settings-sync"
