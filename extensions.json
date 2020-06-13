@@ -314,6 +314,12 @@
       "repository": "https://github.com/styled-components/vscode-styled-components"
     },
     {
+      "id": "littlefoxteam.vscode-python-test-adapter",
+      "version": "0.4.3",
+      "repository": "https://github.com/kondratyev-nv/vscode-python-test-adapter",
+      "checkout": "0.4.3"
+    },
+    {
       "id": "lonefy.vscode-JS-CSS-HTML-formatter",
       "version": "0.2.3",
       "repository": "https://github.com/lonefy/vscode-js-css-html-formatter"
