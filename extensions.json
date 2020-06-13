@@ -227,9 +227,9 @@
     },
     {
       "id": "humao.rest-client",
-      "version": "0.23.2",
+      "version": "0.24.1",
       "repository": "https://github.com/Huachao/vscode-restclient",
-      "checkout": "v0.23.2"
+      "checkout": "v0.24.1"
     },
     {
       "id": "ikappas.phpcs",
