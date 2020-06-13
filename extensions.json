@@ -396,6 +396,12 @@
       "repository": "https://github.com/shanalikhan/code-settings-sync"
     },
     {
+      "id": "shinichi-takii.sql-bigquery",
+      "version": "1.4.0",
+      "repository": "https://github.com/shinichi-takii/vscode-language-sql-bigquery",
+      "checkout": "v1.4.0"
+    },
+    {
       "id": "steoates.autoimport",
       "version": "1.5.3",
       "repository": "https://github.com/soates/Auto-Import",
