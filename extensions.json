@@ -412,6 +412,11 @@
       "checkout": "v0.7.8"
     },
     {
+      "id": "samuelcolvin.jinjahtml",
+      "version": "0.12.0",
+      "repository": "https://github.com/samuelcolvin/jinjahtml-vscode"
+    },
+    {
       "id": "Shan.code-settings-sync",
       "version": "3.4.3",
       "repository": "https://github.com/shanalikhan/code-settings-sync"
