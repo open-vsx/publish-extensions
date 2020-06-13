@@ -335,6 +335,12 @@
       "prepublish": "npm run package"
     },
     {
+      "id": "mtxr.sqltools",
+      "version": "0.22.7",
+      "repository": "https://github.com/mtxr/vscode-sqltools",
+      "checkout": "v0.22.7"
+    },
+    {
       "id": "naumovs.color-highlight",
       "version": "2.3.0",
       "repository": "https://github.com/egonyans/vscode-ext-color-highlight"
