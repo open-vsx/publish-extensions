@@ -458,6 +458,11 @@
       "checkout": "v1.8.0"
     },
     {
+      "id": "xyz.plsql-language",
+      "version": "1.8.2",
+      "repository": "https://github.com/zabel-xyz/plsql-language"
+    },
+    {
       "id": "yzhang.markdown-all-in-one",
       "version": "3.0.0",
       "repository": "https://github.com/yzhang-gh/vscode-markdown"
