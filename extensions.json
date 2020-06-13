@@ -99,6 +99,12 @@
       "repository": "https://github.com/CoenraadS/Bracket-Pair-Colorizer-2"
     },
     {
+      "id": "connorshea.vscode-ruby-test-adapter",
+      "version": "0.7.1",
+      "repository": "https://github.com/connorshea/vscode-ruby-test-adapter",
+      "checkout": "v0.7.1"
+    },
+    {
       "id": "cschleiden.vscode-github-actions",
       "version": "0.5.1",
       "repository": "https://github.com/cschleiden/vscode-github-actions"
