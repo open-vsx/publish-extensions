@@ -214,6 +214,12 @@
       "repository": "https://github.com/formulahendry/vscode-code-runner"
     },
     {
+      "id": "formulahendry.vscode-mysql",
+      "version": "0.4.0",
+      "repository": "https://github.com/formulahendry/vscode-mysql",
+      "checkout": "0.4.0"
+    },
+    {
       "id": "GrapeCity.gc-excelviewer",
       "version": "2.1.35",
       "repository": "https://github.com/jjuback/gc-excelviewer",
