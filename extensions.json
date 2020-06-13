@@ -476,6 +476,11 @@
       "id": "Zignd.html-css-class-completion",
       "version": "1.19.0",
       "repository": "https://github.com/Zignd/HTML-CSS-Class-Completion"
+    },
+    {
+      "id": "zxh404.vscode-proto3",
+      "version": "0.4.2",
+      "repository": "https://github.com/zxh0/vscode-proto3"
     }
   ]
 }
