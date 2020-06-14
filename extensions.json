@@ -129,6 +129,12 @@
       "checkout": "v0.36.0"
     },
     {
+      "id": "denoland.vscode-deno",
+      "version": "1.25.0",
+      "repository": "https://github.com/denoland/vscode_deno",
+      "checkout": "v1.25.0"
+    },
+    {
       "id": "donjayamanne.githistory",
       "version": "0.6.6",
       "repository": "https://github.com/DonJayamanne/gitHistoryVSCode",
