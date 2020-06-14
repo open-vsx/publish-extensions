@@ -414,7 +414,8 @@
     {
       "id": "onecentlin.laravel-blade",
       "version": "1.21.0",
-      "repository": "https://github.com/onecentlin/laravel-blade-snippets-vscode"
+      "repository": "https://github.com/onecentlin/laravel-blade-snippets-vscode",
+      "prepublish": "npm config set script-shell /bin/bash"
     },
     {
       "id": "paulmolluzzo.convert-css-in-js",
