@@ -521,6 +521,11 @@
       "checkout": "v0.9.0"
     },
     {
+      "id": "tombonnike.vscode-status-bar-format-toggle",
+      "version": "2.0.0",
+      "repository": "https://github.com/Tom-Bonnike/vscode-formatting-toggle"
+    },
+    {
       "id": "vscode-icons-team.vscode-icons",
       "version": "10.1.1",
       "repository": "https://github.com/vscode-icons/vscode-icons",
