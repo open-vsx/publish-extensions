@@ -430,6 +430,12 @@
       "prepublish": "npm config set script-shell /bin/bash"
     },
     {
+      "id": "patcx.vscode-nuget-gallery",
+      "version": "0.0.19",
+      "repository": "https://github.com/pcislo/vscode-nuget-gallery",
+      "checkout": "master"
+    },
+    {
       "id": "paulmolluzzo.convert-css-in-js",
       "version": "0.3.0",
       "repository": "https://github.com/paulmolluzzo/convert-css-in-js"
