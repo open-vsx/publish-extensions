@@ -244,6 +244,12 @@
       "checkout": "0.4.0"
     },
     {
+      "id": "GitHub.github-vscode-theme",
+      "version": "1.1.2",
+      "repository": "https://github.com/primer/github-vscode-theme",
+      "checkout": "v1.1.2"
+    },
+    {
       "id": "GrapeCity.gc-excelviewer",
       "version": "2.1.35",
       "repository": "https://github.com/jjuback/gc-excelviewer",
