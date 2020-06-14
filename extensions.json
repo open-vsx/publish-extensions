@@ -28,7 +28,8 @@
     {
       "id": "alexcvzz.vscode-sqlite",
       "version": "0.8.2",
-      "repository": "https://github.com/AlexCovizzi/vscode-sqlite"
+      "repository": "https://github.com/AlexCovizzi/vscode-sqlite",
+      "prepublish": "npm install -g preact"
     },
     {
       "id": "almenon.arepl",
