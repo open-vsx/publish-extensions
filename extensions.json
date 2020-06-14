@@ -269,7 +269,8 @@
       "id": "ikappas.phpcs",
       "version": "1.0.5",
       "repository": "https://github.com/ikappas/vscode-phpcs",
-      "checkout": "1.0.5"
+      "checkout": "1.0.5",
+      "prepublish": "npm install -g rimraf"
     },
     {
       "id": "Ikuyadeu.r",
