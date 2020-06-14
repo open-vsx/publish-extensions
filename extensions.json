@@ -281,7 +281,7 @@
       "id": "Ionide.Ionide-fsharp",
       "version": "4.12.1",
       "repository": "https://github.com/ionide/ionide-vscode-fsharp",
-      "checkout": "v4.12.1",
+      "checkout": "4.12.1",
       "location": "release"
     },
     {
