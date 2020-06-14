@@ -565,6 +565,11 @@
       "repository": "https://github.com/Wscats/omi-snippets"
     },
     {
+      "id": "wwm.better-align",
+      "version": "1.1.7",
+      "repository": "https://github.com/WarWithinMe/better-align"
+    },
+    {
       "id": "xabikos.JavaScriptSnippets",
       "version": "1.8.0",
       "repository": "https://github.com/xabikos/vscode-javascript",
