@@ -250,6 +250,11 @@
       "checkout": "v1.1.2"
     },
     {
+      "id": "golang.Go",
+      "repository": "https://github.com/golang/vscode-go",
+      "checkout": "latest"
+    },
+    {
       "id": "GrapeCity.gc-excelviewer",
       "version": "2.1.35",
       "repository": "https://github.com/jjuback/gc-excelviewer",
