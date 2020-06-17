@@ -74,6 +74,10 @@
       "checkout": "v1.4.1"
     },
     {
+      "id": "bung87.rails",
+      "repository": "https://github.com/bung87/vscode-rails"
+    },
+    {
       "id": "bradlc.vscode-tailwindcss",
       "version": "0.3.1",
       "repository": "https://github.com/bradlc/vscode-tailwindcss",
@@ -534,6 +538,10 @@
       "id": "tombonnike.vscode-status-bar-format-toggle",
       "version": "2.0.0",
       "repository": "https://github.com/Tom-Bonnike/vscode-formatting-toggle"
+    },
+    {
+      "id": "vortizhe.simple-ruby-erb",
+      "repository": "https://github.com/vortizhe/vscode-ruby-erb"
     },
     {
       "id": "vscode-icons-team.vscode-icons",
