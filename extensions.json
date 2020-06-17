@@ -74,14 +74,14 @@
       "checkout": "v1.4.1"
     },
     {
-      "id": "bung87.rails",
-      "repository": "https://github.com/bung87/vscode-rails"
-    },
-    {
       "id": "bradlc.vscode-tailwindcss",
       "version": "0.3.1",
       "repository": "https://github.com/bradlc/vscode-tailwindcss",
       "checkout": "v0.3.1"
+    },
+    {
+      "id": "bung87.rails",
+      "repository": "https://github.com/bung87/vscode-rails"
     },
     {
       "id": "bungcip.better-toml",
@@ -454,6 +454,12 @@
       "id": "paulmolluzzo.convert-css-in-js",
       "version": "0.3.0",
       "repository": "https://github.com/paulmolluzzo/convert-css-in-js"
+    },
+    {
+      "id": "pflannery.vscode-versionlens",
+      "repository": "https://github.com/vscode-contrib/vscode-versionlens",
+      "version": "1.0.8",
+      "checkout": "1.0.8"
     },
     {
       "id": "PKief.material-icon-theme",
