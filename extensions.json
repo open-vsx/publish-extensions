@@ -78,6 +78,12 @@
       "repository": "https://github.com/bung87/vscode-rails"
     },
     {
+      "id": "bradlc.vscode-tailwindcss",
+      "version": "0.3.1",
+      "repository": "https://github.com/bradlc/vscode-tailwindcss",
+      "checkout": "v0.3.1"
+    },
+    {
       "id": "bungcip.better-toml",
       "version": "0.3.2",
       "repository": "https://github.com/bungcip/better-toml",
