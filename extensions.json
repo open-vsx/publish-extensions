@@ -74,6 +74,11 @@
       "checkout": "v1.4.1"
     },
     {
+      "id": "bradlc.vscode-tailwindcss",
+      "repository": "https://github.com/bradlc/vscode-tailwindcss"
+    },
+
+    {
       "id": "bungcip.better-toml",
       "version": "0.3.2",
       "repository": "https://github.com/bungcip/better-toml",
