@@ -26,7 +26,7 @@ const writeFile = util.promisify(fs.writeFile);
   const registry = new ovsx.Registry();
 
   if (argv._.length !== 1) {
-    console.log('Usage: node add-extension [REPOSITORY]');
+    console.log('Usage: node add-extension [--location=LOCATION] REPOSITORY');
     process.exit();
   }
 
@@ -46,19 +46,23 @@ const writeFile = util.promisify(fs.writeFile);
     await exec(`git clone ${repository} /tmp/repository`);
 
     // Locate and parse package.json.
-    const { stdout: files } = await exec('ls package.json 2>/dev/null || git ls-files | grep package\\.json', { cwd: '/tmp/repository' });
-    if (!files.trim()) {
-      throw new Error(`No package.json found in repository!`);
+    let location = argv.location;
+    if (!location) {
+        const { stdout: files } = await exec('ls package.json 2>/dev/null || git ls-files | grep package\\.json', { cwd: '/tmp/repository' });
+        if (!files.trim()) {
+            throw new Error(`No package.json found in repository!`);
+        }
+        const locations = files.trim().split('\n');
+        if (locations.length > 1) {
+            console.warn(`[WARNING] Multiple package.json found in repository, arbitrarily using the first one:\n> ${locations[0]}\n${locations.slice(1).map(l => '  ' + l).join('\n')}`);
+        }
+        location = path.dirname(locations[0]);
     }
-    const locations = files.trim().split('\n');
-    if (locations.length > 1) {
-      console.warn(`[WARNING] Multiple package.json found in repository, arbitrarily using the first one:\n> ${locations[0]}\n${locations.slice(1).map(l => '  ' + l).join('\n')}`);
-    }
-    /** @type {{ name: string, version: string, publisher: string }} */
-    const package = JSON.parse(await readFile(path.join('/tmp/repository', locations[0]), 'utf-8'));
+    /** @type {{ publisher: string, name: string, version: string }} */
+    const package = JSON.parse(await readFile(path.join('/tmp/repository', location, 'package.json'), 'utf-8'));
     ['publisher', 'name', 'version'].forEach(key => {
       if (!(key in package)) {
-        throw new Error(`Expected "${key}" in ${locations[0]}: ${JSON.stringify(package, null, 2)}`);
+        throw new Error(`Expected "${key}" in ${location}/package.json: ${JSON.stringify(package, null, 2)}`);
       }
     });
 
@@ -77,7 +81,6 @@ const writeFile = util.promisify(fs.writeFile);
 
     // Add extension to the list.
     const extension = { id, repository, version: package.version };
-    const location = path.dirname(locations[0]);
     if (location !== '.') {
       extension.location = location;
     }
