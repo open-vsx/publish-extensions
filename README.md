@@ -24,11 +24,7 @@ Here is the expected format of an [`extensions.json`](./extensions.json) entry:
       // Unique Open VSX extension ID in the form "<namespace>.<name>"
       "id": "redhat.vscode-yaml",
       // Repository URL to clone and publish from
-      "repository": "https://github.com/redhat-developer/vscode-yaml",
-      // (RECOMMENDED) The version to publish to Open VSX (defaults to the package.json version)
-      "version": "0.27.0",
-      // (RECOMMENDED) The Git branch, tag, or commit to check out before publishing (defaults to the repository's default branch)
-      "checkout": "v0.27.0",
+      "repository": "https://github.com/redhat-developer/vscode-yaml"
     },
 ```
 
@@ -40,9 +36,9 @@ Here are all the supported values, including optional ones:
       "id": "rebornix.ruby",
       // Repository URL to clone and publish from
       "repository": "https://github.com/rubyide/vscode-ruby",
-      // (RECOMMENDED) The version to publish to Open VSX (defaults to the package.json version)
+      // (RECOMMENDED) The version that should be published on Open VSX (defaults to the package.json version)
       "version": "0.27.0",
-      // (RECOMMENDED) The Git branch, tag, or commit to check out before publishing (defaults to the repository's default branch), should match "version"
+      // (RECOMMENDED) The Git branch, tag, or commit to check out before publishing (defaults to the repository's default branch)
       "checkout": "v0.27.0",
       // (OPTIONAL) Location of the extension's package.json in the repository (defaults to the repository's root directory)
       "location": "packages/vscode-ruby-client",
