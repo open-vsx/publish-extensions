@@ -538,6 +538,10 @@
       "repository": "https://github.com/Tom-Bonnike/vscode-formatting-toggle"
     },
     {
+      "id": "vortizhe.simple-ruby-erb",
+      "repository": "https://github.com/vortizhe/vscode-ruby-erb"
+    },
+    {
       "id": "vscode-icons-team.vscode-icons",
       "version": "10.1.1",
       "repository": "https://github.com/vscode-icons/vscode-icons",
