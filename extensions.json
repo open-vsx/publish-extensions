@@ -281,6 +281,10 @@
       "repository": "https://github.com/HookyQR/VSCodeBeautify"
     },
     {
+      "id": "hridoy.rails-snippets",
+      "repository": "https://github.com/hridoy/rails-vscode"
+    },
+    {
       "id": "humao.rest-client",
       "version": "0.24.1",
       "repository": "https://github.com/Huachao/vscode-restclient",
