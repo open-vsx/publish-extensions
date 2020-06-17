@@ -21,7 +21,7 @@ const writeFile = util.promisify(fs.writeFile);
 
 (async () => {
   const argv = minimist(process.argv.slice(2));
-  /** @type {{ extensions: { id: string, version?: string, repository: string, checkout?: string, location?: string, prepublish?: string }[] }} */
+  /** @type {{ extensions: { id: string, repository: string, version?: string, checkout?: string, location?: string, prepublish?: string }[] }} */
   const { extensions } = JSON.parse(await readFile('./extensions.json', 'utf-8'));
   const registry = new ovsx.Registry();
 
@@ -76,7 +76,7 @@ const writeFile = util.promisify(fs.writeFile);
     }
 
     // Add extension to the list.
-    const extension = { id, version: package.version, repository };
+    const extension = { id, repository, version: package.version };
     const location = path.dirname(locations[0]);
     if (location !== '.') {
       extension.location = location;

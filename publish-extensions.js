@@ -18,7 +18,7 @@ const exec = require('./lib/exec');
 const readFile = util.promisify(fs.readFile);
 
 (async () => {
-  /** @type {{ extensions: { id: string, version?: string, repository: string, checkout?: string, location?: string, prepublish?: string }[] }} */
+  /** @type {{ extensions: { id: string, repository: string, version?: string, checkout?: string, location?: string, prepublish?: string }[] }} */
   const { extensions } = JSON.parse(await readFile('./extensions.json', 'utf-8'));
   const registry = new ovsx.Registry();
 
