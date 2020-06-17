@@ -74,6 +74,10 @@
       "checkout": "v1.4.1"
     },
     {
+      "id": "bung87.rails",
+      "repository": "https://github.com/bung87/vscode-rails"
+    },
+    {
       "id": "bungcip.better-toml",
       "version": "0.3.2",
       "repository": "https://github.com/bungcip/better-toml",
