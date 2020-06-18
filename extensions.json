@@ -36,6 +36,10 @@
       "version": "1.0.24"
     },
     {
+      "id": "alonski.prettier-for-handlebars-vscode",
+      "repository": "https://github.com/ember-tooling/prettier-for-handlebars-vscode"
+    },
+    {
       "id": "Angular.ng-template",
       "repository": "https://github.com/angular/vscode-ng-language-service",
       "version": "0.901.11",
