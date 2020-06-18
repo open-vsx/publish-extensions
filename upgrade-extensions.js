@@ -16,10 +16,8 @@ const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
 const dontUpgrade = [
-  'rebornix.ruby', // Error: Expected "publisher" in package.json
   'felixfbecker.php-debug', // https://github.com/open-vsx/publish-extensions/issues/4
   'felixfbecker.php-intellisense', // https://github.com/open-vsx/publish-extensions/issues/4
-  'formulahendry.auto-rename-tag', // Error: Expected "publisher" in package.json
   'Luxcium.pop-n-lock-theme-vscode', // Error: Open VSX already has a more recent version of Luxcium.pop-n-lock-theme-vscode: 3.28.5 > 3.28.0
 ];
 
@@ -34,7 +32,7 @@ const dontUpgrade = [
     await writeFile('./extensions.json', JSON.stringify({ extensions: extensionsToNotUpgrade }, null, 2), 'utf-8');
 
     for (const extension of extensionsToUpgrade) {
-      await exec(`node add-extension ${extension.repository}`);
+      await exec(`node add-extension${extension.location ? ' --location=' + extension.location : ''} ${extension.repository}`);
     }
   } catch (error) {
     console.error(`[FAIL] Could not upgrade extensions.json!`);
