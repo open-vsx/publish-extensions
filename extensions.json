@@ -154,6 +154,11 @@
       "checkout": "v1.25.0"
     },
     {
+      "id": "docsmsft.docs-markdown",
+      "repository": "https://github.com/Microsoft/vscode-docs-authoring",
+      "location": "docs-markdown"
+    },
+    {
       "id": "donjayamanne.githistory",
       "repository": "https://github.com/DonJayamanne/gitHistoryVSCode",
       "version": "0.6.6",
