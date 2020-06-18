@@ -311,6 +311,13 @@
       "checkout": "v0.24.1"
     },
     {
+      "id": "IBMBlockchain.ibm-blockchain-platform",
+      "repository": "https://github.com/IBM-Blockchain/blockchain-vscode-extension",
+      "version": "1.0.33",
+      "checkout": "v1.0.33",
+      "location": "packages/blockchain-extension"
+    },
+    {
       "id": "ikappas.phpcs",
       "repository": "https://github.com/ikappas/vscode-phpcs",
       "checkout": "1.0.5",
