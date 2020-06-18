@@ -589,6 +589,10 @@
       "version": "2.0.0"
     },
     {
+      "id": "travis.simple-dark",
+      "repository": "https://github.com/HondryTravis/simple-dark"
+    },
+    {
       "id": "vortizhe.simple-ruby-erb",
       "repository": "https://github.com/vortizhe/vscode-ruby-erb"
     },
