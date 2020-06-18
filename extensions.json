@@ -2,81 +2,80 @@
   "extensions": [
     {
       "id": "aaron-bond.better-comments",
-      "version": "2.0.5",
-      "repository": "https://github.com/aaron-bond/better-comments"
+      "repository": "https://github.com/aaron-bond/better-comments",
+      "version": "2.0.5"
     },
     {
       "id": "abusaidm.html-snippets",
-      "version": "0.2.1",
-      "repository": "https://github.com/abusaidm/html-snippets"
+      "repository": "https://github.com/abusaidm/html-snippets",
+      "version": "0.2.1"
     },
     {
       "id": "akamud.vscode-theme-onedark",
-      "version": "2.2.1",
-      "repository": "https://github.com/akamud/vscode-theme-onedark"
+      "repository": "https://github.com/akamud/vscode-theme-onedark",
+      "version": "2.2.1"
     },
     {
       "id": "alefragnani.Bookmarks",
-      "version": "11.2.0",
-      "repository": "https://github.com/alefragnani/vscode-bookmarks"
+      "repository": "https://github.com/alefragnani/vscode-bookmarks",
+      "version": "11.3.0"
     },
     {
       "id": "alefragnani.project-manager",
-      "version": "11.0.1",
-      "repository": "https://github.com/alefragnani/vscode-project-manager"
+      "repository": "https://github.com/alefragnani/vscode-project-manager",
+      "version": "11.0.1"
     },
     {
       "id": "alexcvzz.vscode-sqlite",
-      "version": "0.8.2",
       "repository": "https://github.com/AlexCovizzi/vscode-sqlite",
-      "prepublish": "npm install -g preact"
+      "version": "0.8.2"
     },
     {
       "id": "almenon.arepl",
-      "version": "1.0.24",
-      "repository": "https://github.com/almenon/arepl-vscode"
+      "repository": "https://github.com/almenon/arepl-vscode",
+      "version": "1.0.24"
     },
     {
       "id": "Angular.ng-template",
-      "version": "0.901.11",
       "repository": "https://github.com/angular/vscode-ng-language-service",
+      "version": "0.901.11",
       "checkout": "v0.901.11"
     },
     {
       "id": "appulate.filewatcher",
-      "version": "1.0.3",
-      "repository": "https://github.com/appulate/vscode-file-watcher"
+      "repository": "https://github.com/appulate/vscode-file-watcher",
+      "version": "1.0.3"
     },
     {
       "id": "austin.code-gnu-global",
-      "version": "0.2.2",
-      "repository": "https://github.com/austin-----/code-gnu-global"
+      "repository": "https://github.com/austin-----/code-gnu-global",
+      "version": "0.2.2"
     },
     {
       "id": "bajdzis.vscode-database",
-      "version": "2.2.0",
-      "repository": "https://github.com/Bajdzis/vscode-database"
+      "repository": "https://github.com/Bajdzis/vscode-database",
+      "version": "2.2.2"
     },
     {
       "id": "batisteo.vscode-django",
-      "version": "0.20.0",
-      "repository": "https://github.com/vscode-django/vscode-django"
+      "repository": "https://github.com/vscode-django/vscode-django",
+      "version": "0.20.0"
     },
     {
       "id": "belfz.search-crates-io",
-      "version": "1.2.1",
-      "repository": "https://github.com/belfz/search-crates-io"
+      "repository": "https://github.com/belfz/search-crates-io",
+      "version": "1.2.1"
     },
     {
       "id": "bmewburn.vscode-intelephense-client",
-      "version": "1.4.1",
       "repository": "https://github.com/bmewburn/vscode-intelephense",
+      "version": "1.4.1",
       "checkout": "v1.4.1"
     },
     {
       "id": "bradlc.vscode-tailwindcss",
-      "version": "0.3.1",
       "repository": "https://github.com/bradlc/vscode-tailwindcss",
+      "version": "0.3.1",
       "checkout": "v0.3.1"
     },
     {
@@ -85,134 +84,134 @@
     },
     {
       "id": "bungcip.better-toml",
-      "version": "0.3.2",
       "repository": "https://github.com/bungcip/better-toml",
+      "version": "0.3.2",
       "checkout": "0.3.2"
     },
     {
       "id": "christian-kohler.npm-intellisense",
-      "version": "1.2.1",
-      "repository": "https://github.com/ChristianKohler/NpmIntellisense"
+      "repository": "https://github.com/ChristianKohler/NpmIntellisense",
+      "version": "1.2.1"
     },
     {
       "id": "christian-kohler.path-intellisense",
-      "version": "2.2.1",
-      "repository": "https://github.com/ChristianKohler/PathIntellisense"
+      "repository": "https://github.com/ChristianKohler/PathIntellisense",
+      "version": "2.2.1"
     },
     {
       "id": "CoenraadS.bracket-pair-colorizer",
-      "version": "1.0.61",
-      "repository": "https://github.com/CoenraadS/BracketPair"
+      "repository": "https://github.com/CoenraadS/BracketPair",
+      "version": "1.0.61"
     },
     {
       "id": "CoenraadS.bracket-pair-colorizer-2",
-      "version": "0.1.4",
-      "repository": "https://github.com/CoenraadS/Bracket-Pair-Colorizer-2"
+      "repository": "https://github.com/CoenraadS/Bracket-Pair-Colorizer-2",
+      "version": "0.1.4"
     },
     {
       "id": "connorshea.vscode-ruby-test-adapter",
-      "version": "0.7.1",
       "repository": "https://github.com/connorshea/vscode-ruby-test-adapter",
+      "version": "0.7.1",
       "checkout": "v0.7.1"
     },
     {
       "id": "cschleiden.vscode-github-actions",
-      "version": "0.5.1",
-      "repository": "https://github.com/cschleiden/vscode-github-actions"
+      "repository": "https://github.com/cschleiden/vscode-github-actions",
+      "version": "0.6.0"
     },
     {
       "id": "Dart-Code.dart-code",
-      "version": "3.11.0",
       "repository": "https://github.com/Dart-Code/Dart-Code",
+      "version": "3.11.0",
       "checkout": "v3.11.0"
     },
     {
       "id": "Dart-Code.flutter",
-      "version": "3.11.0",
       "repository": "https://github.com/Dart-Code/Flutter",
+      "version": "3.11.0",
       "checkout": "v3.11.0"
     },
     {
       "id": "DavidAnson.vscode-markdownlint",
-      "version": "0.36.0",
       "repository": "https://github.com/DavidAnson/vscode-markdownlint",
+      "version": "0.36.0",
       "checkout": "v0.36.0"
     },
     {
       "id": "denoland.vscode-deno",
-      "version": "1.25.0",
       "repository": "https://github.com/denoland/vscode_deno",
+      "version": "1.25.0",
       "checkout": "v1.25.0"
     },
     {
       "id": "donjayamanne.githistory",
-      "version": "0.6.6",
       "repository": "https://github.com/DonJayamanne/gitHistoryVSCode",
+      "version": "0.6.6",
       "checkout": "v0.6.6"
     },
     {
       "id": "donjayamanne.jquerysnippets",
-      "version": "0.0.1",
-      "repository": "https://github.com/DonJayamanne/jquerysnippets"
+      "repository": "https://github.com/DonJayamanne/jquerysnippets",
+      "version": "0.0.1"
     },
     {
       "id": "DotJoshJohnson.xml",
-      "version": "2.5.0",
       "repository": "https://github.com/DotJoshJohnson/vscode-xml",
+      "version": "2.5.0",
       "checkout": "v2.5.0"
     },
     {
       "id": "dracula-theme.theme-dracula",
-      "version": "2.22.1",
       "repository": "https://github.com/dracula/visual-studio-code",
+      "version": "2.22.1",
       "checkout": "v2.22.1"
     },
     {
       "id": "dsznajder.es7-react-js-snippets",
-      "version": "2.8.0",
-      "repository": "https://github.com/dsznajder/vscode-es7-javascript-react-snippets"
+      "repository": "https://github.com/dsznajder/vscode-es7-javascript-react-snippets",
+      "version": "2.8.0"
     },
     {
       "id": "ecmel.vscode-html-css",
-      "version": "0.2.3",
-      "repository": "https://github.com/ecmel/vscode-html-css"
+      "repository": "https://github.com/ecmel/vscode-html-css",
+      "version": "0.2.3"
     },
     {
       "id": "EditorConfig.EditorConfig",
-      "version": "0.15.1",
-      "repository": "https://github.com/editorconfig/editorconfig-vscode"
+      "repository": "https://github.com/editorconfig/editorconfig-vscode",
+      "version": "0.15.1"
     },
     {
       "id": "efoerster.texlab",
-      "version": "2.2.0",
       "repository": "https://github.com/latex-lsp/texlab-vscode",
+      "version": "2.2.0",
       "checkout": "v2.2.0"
     },
     {
       "id": "emmanuelbeziat.vscode-great-icons",
-      "version": "2.1.48",
-      "repository": "https://github.com/EmmanuelBeziat/vscode-great-icons"
+      "repository": "https://github.com/EmmanuelBeziat/vscode-great-icons",
+      "version": "2.1.48"
     },
     {
       "id": "Equinusocio.vsc-community-material-theme",
-      "version": "1.4.1",
-      "repository": "https://github.com/material-theme/vsc-community-material-theme"
+      "repository": "https://github.com/material-theme/vsc-community-material-theme",
+      "version": "1.4.1"
     },
     {
       "id": "Equinusocio.vsc-material-theme",
-      "version": "32.6.0",
-      "repository": "https://github.com/material-theme/vsc-material-theme"
+      "repository": "https://github.com/material-theme/vsc-material-theme",
+      "version": "32.6.0"
     },
     {
-      "id": "Equinusocio.vsc-material-theme-icons",
-      "version": "1.1.4",
-      "repository": "https://github.com/material-theme/vsc-material-theme-icons"
+      "id": "equinusocio.vsc-material-theme-icons",
+      "repository": "https://github.com/material-theme/vsc-material-theme-icons",
+      "version": "1.1.4"
     },
     {
       "id": "esbenp.prettier-vscode",
-      "version": "5.0.0",
       "repository": "https://github.com/prettier/prettier-vscode",
-      "checkout": "v5.0.0"
+      "version": "5.0.1",
+      "checkout": "v5.0.1"
     },
     {
       "id": "felixfbecker.php-debug",
@@ -228,35 +227,35 @@
     },
     {
       "id": "felixfbecker.php-pack",
-      "version": "1.0.2",
-      "repository": "https://github.com/felixfbecker/vscode-php-pack"
+      "repository": "https://github.com/felixfbecker/vscode-php-pack",
+      "version": "1.0.2"
     },
     {
       "id": "formulahendry.auto-close-tag",
-      "version": "0.5.7",
-      "repository": "https://github.com/formulahendry/vscode-auto-close-tag"
+      "repository": "https://github.com/formulahendry/vscode-auto-close-tag",
+      "version": "0.5.7"
     },
     {
       "id": "formulahendry.auto-rename-tag",
-      "version": "0.1.3",
       "repository": "https://github.com/formulahendry/vscode-auto-rename-tag",
+      "version": "0.1.3",
       "location": "packages/extension"
     },
     {
       "id": "formulahendry.code-runner",
-      "version": "0.10.0",
-      "repository": "https://github.com/formulahendry/vscode-code-runner"
+      "repository": "https://github.com/formulahendry/vscode-code-runner",
+      "version": "0.10.0"
     },
     {
       "id": "formulahendry.vscode-mysql",
-      "version": "0.4.0",
       "repository": "https://github.com/formulahendry/vscode-mysql",
+      "version": "0.4.0",
       "checkout": "0.4.0"
     },
     {
       "id": "GitHub.github-vscode-theme",
-      "version": "1.1.2",
       "repository": "https://github.com/primer/github-vscode-theme",
+      "version": "1.1.2",
       "checkout": "v1.1.2"
     },
     {
@@ -266,92 +265,91 @@
     },
     {
       "id": "GrapeCity.gc-excelviewer",
-      "version": "2.1.35",
       "repository": "https://github.com/jjuback/gc-excelviewer",
+      "version": "2.1.35",
       "checkout": "v2.1.35"
     },
     {
       "id": "hbenl.vscode-test-explorer",
-      "version": "2.19.1",
       "repository": "https://github.com/hbenl/vscode-test-explorer",
+      "version": "2.19.1",
       "prepublish": "npm run build"
     },
     {
       "id": "hollowtree.vue-snippets",
-      "version": "0.1.11",
-      "repository": "https://github.com/hollowtree/vscode-vue-snippets"
+      "repository": "https://github.com/hollowtree/vscode-vue-snippets",
+      "version": "0.1.11"
     },
     {
       "id": "HookyQR.beautify",
-      "version": "1.4.11",
-      "repository": "https://github.com/HookyQR/VSCodeBeautify"
+      "repository": "https://github.com/HookyQR/VSCodeBeautify",
+      "version": "1.4.11"
     },
     {
       "id": "humao.rest-client",
-      "version": "0.24.1",
       "repository": "https://github.com/Huachao/vscode-restclient",
+      "version": "0.24.1",
       "checkout": "v0.24.1"
     },
     {
       "id": "ikappas.phpcs",
-      "version": "1.0.5",
       "repository": "https://github.com/ikappas/vscode-phpcs",
       "checkout": "1.0.5",
-      "prepublish": "npm install -g rimraf"
+      "version": "1.0.5"
     },
     {
       "id": "Ikuyadeu.r",
-      "version": "1.4.1",
-      "repository": "https://github.com/Ikuyadeu/vscode-R"
+      "repository": "https://github.com/Ikuyadeu/vscode-R",
+      "version": "1.4.2"
     },
     {
       "id": "Ionide.Ionide-fsharp",
-      "version": "4.12.1",
       "repository": "https://github.com/ionide/ionide-vscode-fsharp",
-      "checkout": "4.12.1",
+      "version": "4.13.0",
+      "checkout": "4.13.0",
       "location": "release"
     },
     {
       "id": "James-Yu.latex-workshop",
-      "version": "8.10.0",
       "repository": "https://github.com/James-Yu/LaTeX-Workshop",
+      "version": "8.10.0",
       "checkout": "v8.10.0"
     },
     {
       "id": "jchannon.csharpextensions",
-      "version": "1.3.0",
-      "repository": "https://github.com/jchannon/csharpextensions"
+      "repository": "https://github.com/jchannon/csharpextensions",
+      "version": "1.3.0"
     },
     {
       "id": "JeffersonQin.latex-snippets-jeff",
-      "version": "1.2.3",
-      "repository": "https://github.com/JeffersonQin/VSCode-LaTeX-Snippets"
+      "repository": "https://github.com/JeffersonQin/VSCode-LaTeX-Snippets",
+      "version": "1.2.3"
     },
     {
       "id": "johnpapa.Angular2",
-      "version": "9.1.2",
-      "repository": "https://github.com/johnpapa/vscode-angular-snippets"
+      "repository": "https://github.com/johnpapa/vscode-angular-snippets",
+      "version": "9.1.2"
     },
     {
       "id": "johnpapa.winteriscoming",
-      "version": "1.4.3",
-      "repository": "https://github.com/johnpapa/vscode-winteriscoming"
+      "repository": "https://github.com/johnpapa/vscode-winteriscoming",
+      "version": "1.4.3"
     },
     {
       "id": "jpoissonnier.vscode-styled-components",
-      "version": "0.0.29",
-      "repository": "https://github.com/styled-components/vscode-styled-components"
+      "repository": "https://github.com/styled-components/vscode-styled-components",
+      "version": "0.0.29"
     },
     {
       "id": "littlefoxteam.vscode-python-test-adapter",
-      "version": "0.4.3",
       "repository": "https://github.com/kondratyev-nv/vscode-python-test-adapter",
+      "version": "0.4.3",
       "checkout": "v0.4.3"
     },
     {
       "id": "lonefy.vscode-JS-CSS-HTML-formatter",
-      "version": "0.2.3",
-      "repository": "https://github.com/lonefy/vscode-js-css-html-formatter"
+      "repository": "https://github.com/lonefy/vscode-js-css-html-formatter",
+      "version": "0.2.3"
     },
     {
       "id": "Luxcium.pop-n-lock-theme-vscode",
@@ -361,99 +359,99 @@
     },
     {
       "id": "mads-hartmann.bash-ide-vscode",
-      "version": "1.10.2",
       "repository": "https://github.com/bash-lsp/bash-language-server",
+      "version": "1.10.2",
       "checkout": "vscode-client-1.10.2",
       "location": "vscode-client"
     },
     {
       "id": "magicstack.MagicPython",
-      "version": "1.1.1",
       "repository": "https://github.com/MagicStack/MagicPython",
+      "version": "1.1.1",
       "checkout": "v1.1.1"
     },
     {
       "id": "matklad.rust-analyzer",
-      "version": "0.4.0-dev",
       "repository": "https://github.com/rust-analyzer/rust-analyzer",
+      "version": "0.4.0-dev",
       "location": "editors/code"
     },
     {
       "id": "MehediDracula.php-namespace-resolver",
-      "version": "1.1.8",
-      "repository": "https://github.com/MehediDracula/PHP-Namespace-Resolver"
+      "repository": "https://github.com/MehediDracula/PHP-Namespace-Resolver",
+      "version": "1.1.8"
     },
     {
       "id": "Mikael.Angular-BeastCode",
-      "version": "8.1.1",
-      "repository": "https://github.com/BeastCode/VSCode-Angular-TypeScript-Snippets"
+      "repository": "https://github.com/BeastCode/VSCode-Angular-TypeScript-Snippets",
+      "version": "8.1.1"
     },
     {
       "id": "mikestead.dotenv",
-      "version": "1.0.1",
-      "repository": "https://github.com/mikestead/vscode-dotenv"
+      "repository": "https://github.com/mikestead/vscode-dotenv",
+      "version": "1.0.1"
     },
     {
       "id": "mitaki28.vscode-clang",
-      "version": "0.2.3",
-      "repository": "https://github.com/mitaki28/vscode-clang"
+      "repository": "https://github.com/mitaki28/vscode-clang",
+      "version": "0.2.3"
     },
     {
       "id": "ms-kubernetes-tools.vscode-kubernetes-tools",
-      "version": "1.2.1",
       "repository": "https://github.com/Azure/vscode-kubernetes-tools",
+      "version": "1.2.1",
       "checkout": "1.2.1"
     },
     {
       "id": "ms-python.python",
-      "version": "2020.5.3",
       "repository": "https://github.com/Microsoft/vscode-python",
-      "checkout": "2020.5.86806",
+      "version": "2020.6.0",
+      "checkout": "2020.6.88468",
       "prepublish": "npm run package"
     },
     {
       "id": "mtxr.sqltools",
-      "version": "0.22.7",
       "repository": "https://github.com/mtxr/vscode-sqltools",
+      "version": "0.22.7",
       "checkout": "v0.22.7"
     },
     {
       "id": "naumovs.color-highlight",
-      "version": "2.3.0",
-      "repository": "https://github.com/egonyans/vscode-ext-color-highlight"
+      "repository": "https://github.com/egonyans/vscode-ext-color-highlight",
+      "version": "2.3.0"
     },
     {
       "id": "neilbrayfield.php-docblocker",
-      "version": "2.1.0",
-      "repository": "https://github.com/neild3r/vscode-php-docblocker"
+      "repository": "https://github.com/neild3r/vscode-php-docblocker",
+      "version": "2.1.0"
     },
     {
       "id": "octref.vetur",
-      "version": "0.24.0",
       "repository": "https://github.com/vuejs/vetur",
+      "version": "0.24.0",
       "checkout": "v0.24.0"
     },
     {
       "id": "oderwat.indent-rainbow",
-      "version": "7.4.0",
-      "repository": "https://github.com/oderwat/vscode-indent-rainbow"
+      "repository": "https://github.com/oderwat/vscode-indent-rainbow",
+      "version": "7.4.0"
     },
     {
       "id": "onecentlin.laravel-blade",
-      "version": "1.21.0",
       "repository": "https://github.com/onecentlin/laravel-blade-snippets-vscode",
+      "version": "1.21.0",
       "prepublish": "npm config set script-shell /bin/bash"
     },
     {
       "id": "patcx.vscode-nuget-gallery",
-      "version": "0.0.19",
       "repository": "https://github.com/pcislo/vscode-nuget-gallery",
+      "version": "0.0.19",
       "checkout": "master"
     },
     {
       "id": "paulmolluzzo.convert-css-in-js",
-      "version": "0.3.0",
-      "repository": "https://github.com/paulmolluzzo/convert-css-in-js"
+      "repository": "https://github.com/paulmolluzzo/convert-css-in-js",
+      "version": "0.3.0"
     },
     {
       "id": "pflannery.vscode-versionlens",
@@ -463,87 +461,87 @@
     },
     {
       "id": "PKief.material-icon-theme",
-      "version": "4.1.0",
-      "repository": "https://github.com/PKief/vscode-material-icon-theme"
+      "repository": "https://github.com/PKief/vscode-material-icon-theme",
+      "version": "4.1.0"
     },
     {
       "id": "rebornix.ruby",
-      "version": "0.27.0",
       "repository": "https://github.com/rubyide/vscode-ruby",
+      "version": "0.27.0",
       "checkout": "v0.27.0",
       "location": "packages/vscode-ruby-client"
     },
     {
       "id": "ritwickdey.LiveServer",
-      "version": "5.6.1",
       "repository": "https://github.com/ritwickdey/vscode-live-server",
+      "version": "5.6.1",
       "checkout": "v5.6.1"
     },
     {
       "id": "rust-lang.rust",
-      "version": "0.7.8",
       "repository": "https://github.com/rust-lang/rls-vscode",
+      "version": "0.7.8",
       "checkout": "v0.7.8"
     },
     {
       "id": "samuelcolvin.jinjahtml",
-      "version": "0.12.0",
-      "repository": "https://github.com/samuelcolvin/jinjahtml-vscode"
+      "repository": "https://github.com/samuelcolvin/jinjahtml-vscode",
+      "version": "0.12.0"
     },
     {
       "id": "scala-lang.scala",
-      "version": "0.3.9",
-      "repository": "https://github.com/scala/vscode-scala-syntax"
+      "repository": "https://github.com/scala/vscode-scala-syntax",
+      "version": "0.3.9"
     },
     {
       "id": "scalameta.metals",
-      "version": "1.9.0",
-      "repository": "https://github.com/scalameta/metals-vscode"
+      "repository": "https://github.com/scalameta/metals-vscode",
+      "version": "1.9.0"
     },
     {
       "id": "serayuzgur.crates",
-      "version": "0.5.0",
-      "repository": "https://github.com/serayuzgur/crates"
+      "repository": "https://github.com/serayuzgur/crates",
+      "version": "0.5.0"
     },
     {
       "id": "Shan.code-settings-sync",
-      "version": "3.4.3",
-      "repository": "https://github.com/shanalikhan/code-settings-sync"
+      "repository": "https://github.com/shanalikhan/code-settings-sync",
+      "version": "3.4.3"
     },
     {
       "id": "shinichi-takii.sql-bigquery",
-      "version": "1.4.0",
       "repository": "https://github.com/shinichi-takii/vscode-language-sql-bigquery",
+      "version": "1.4.0",
       "checkout": "v1.4.0"
     },
     {
       "id": "steoates.autoimport",
-      "version": "1.5.3",
       "repository": "https://github.com/soates/Auto-Import",
+      "version": "1.5.3",
       "checkout": "v1.5.3"
     },
     {
       "id": "streetsidesoftware.code-spell-checker",
-      "version": "1.9.0",
       "repository": "https://github.com/streetsidesoftware/vscode-spell-checker",
+      "version": "1.9.0",
       "checkout": "v1.9.0",
       "location": "packages/client"
     },
     {
       "id": "Swellaby.vscode-rust-test-adapter",
-      "version": "0.11.0",
-      "repository": "https://github.com/swellaby/vscode-rust-test-adapter"
+      "repository": "https://github.com/swellaby/vscode-rust-test-adapter",
+      "version": "0.11.0"
     },
     {
       "id": "timonwong.shellcheck",
-      "version": "0.9.0",
       "repository": "https://github.com/timonwong/vscode-shellcheck",
+      "version": "0.9.0",
       "checkout": "v0.9.0"
     },
     {
       "id": "tombonnike.vscode-status-bar-format-toggle",
-      "version": "2.0.0",
-      "repository": "https://github.com/Tom-Bonnike/vscode-formatting-toggle"
+      "repository": "https://github.com/Tom-Bonnike/vscode-formatting-toggle",
+      "version": "2.0.0"
     },
     {
       "id": "vortizhe.simple-ruby-erb",
@@ -551,78 +549,78 @@
     },
     {
       "id": "vscode-icons-team.vscode-icons",
-      "version": "10.1.1",
       "repository": "https://github.com/vscode-icons/vscode-icons",
+      "version": "10.1.1",
       "checkout": "v10.1.1"
     },
     {
       "id": "vscodevim.vim",
-      "version": "1.14.5",
       "repository": "https://github.com/VSCodeVim/Vim",
+      "version": "1.14.5",
       "checkout": "v1.14.5"
     },
     {
       "id": "wayou.vscode-todo-highlight",
-      "version": "1.0.4",
-      "repository": "https://github.com/wayou/vscode-todo-highlight"
+      "repository": "https://github.com/wayou/vscode-todo-highlight",
+      "version": "1.0.4"
     },
     {
       "id": "webfreak.debug",
-      "version": "0.25.0",
-      "repository": "https://github.com/WebFreak001/code-debug"
+      "repository": "https://github.com/WebFreak001/code-debug",
+      "version": "0.25.0"
     },
     {
       "id": "wholroyd.jinja",
-      "version": "0.0.8",
-      "repository": "https://github.com/wholroyd/vscode-jinja"
+      "repository": "https://github.com/wholroyd/vscode-jinja",
+      "version": "0.0.8"
     },
     {
       "id": "wingrunr21.vscode-ruby",
-      "version": "0.27.0",
       "repository": "https://github.com/rubyide/vscode-ruby",
+      "version": "0.27.0",
       "checkout": "v0.27.0",
       "location": "packages/vscode-ruby"
     },
     {
       "id": "Wscats.omi-snippets",
-      "version": "2.2.1",
-      "repository": "https://github.com/Wscats/omi-snippets"
+      "repository": "https://github.com/Wscats/omi-snippets",
+      "version": "2.2.1"
     },
     {
       "id": "wwm.better-align",
-      "version": "1.1.7",
-      "repository": "https://github.com/WarWithinMe/better-align"
+      "repository": "https://github.com/WarWithinMe/better-align",
+      "version": "1.1.7"
     },
     {
       "id": "xabikos.JavaScriptSnippets",
-      "version": "1.8.0",
       "repository": "https://github.com/xabikos/vscode-javascript",
+      "version": "1.8.0",
       "checkout": "v1.8.0"
     },
     {
       "id": "xyz.plsql-language",
-      "version": "1.8.2",
-      "repository": "https://github.com/zabel-xyz/plsql-language"
+      "repository": "https://github.com/zabel-xyz/plsql-language",
+      "version": "1.8.2"
     },
     {
       "id": "yzhang.markdown-all-in-one",
-      "version": "3.0.0",
-      "repository": "https://github.com/yzhang-gh/vscode-markdown"
+      "repository": "https://github.com/yzhang-gh/vscode-markdown",
+      "version": "3.0.0"
     },
     {
       "id": "zhuangtongfa.material-theme",
-      "version": "3.7.3",
-      "repository": "https://github.com/Binaryify/OneDark-Pro"
+      "repository": "https://github.com/Binaryify/OneDark-Pro",
+      "version": "3.8.0"
     },
     {
       "id": "Zignd.html-css-class-completion",
-      "version": "1.19.0",
-      "repository": "https://github.com/Zignd/HTML-CSS-Class-Completion"
+      "repository": "https://github.com/Zignd/HTML-CSS-Class-Completion",
+      "version": "1.19.0"
     },
     {
       "id": "zxh404.vscode-proto3",
-      "version": "0.4.2",
-      "repository": "https://github.com/zxh0/vscode-proto3"
+      "repository": "https://github.com/zxh0/vscode-proto3",
+      "version": "0.4.2"
     }
   ]
 }
