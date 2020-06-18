@@ -599,7 +599,7 @@
     },
     {
       "id": "xyz.local-history",
-      "repository": "https://github.com/zabel-xyz/local-history",
+      "repository": "https://github.com/zabel-xyz/local-history"
     },
     {
       "id": "xyz.plsql-language",
