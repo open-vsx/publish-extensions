@@ -46,6 +46,12 @@
       "checkout": "v0.901.11"
     },
     {
+      "id": "anseki.vscode-color",
+      "repository": "https://github.com/anseki/vscode-color",
+      "version": "0.4.5",
+      "checkout": "0.4.5"
+    },
+    {
       "id": "appulate.filewatcher",
       "repository": "https://github.com/appulate/vscode-file-watcher",
       "version": "1.0.3"
