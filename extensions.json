@@ -429,6 +429,12 @@
       "version": "0.2.3"
     },
     {
+      "id": "mp.oradew-vscode",
+      "repository": "https://github.com/mickeypearce/oradew-vscode",
+      "version": "0.3.22",
+      "checkout": "v0.3.22"
+    },
+    {
       "id": "ms-kubernetes-tools.vscode-kubernetes-tools",
       "repository": "https://github.com/Azure/vscode-kubernetes-tools",
       "version": "1.2.1",
