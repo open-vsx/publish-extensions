@@ -43,7 +43,7 @@ const writeFile = util.promisify(fs.writeFile);
     }
 
     // Clone the repository to determine the extension's latest version.
-    await exec(`git clone ${repository} /tmp/repository`);
+    await exec(`git clone --recurse-submodules ${repository} /tmp/repository`);
 
     // Locate and parse package.json.
     let location = argv.location;

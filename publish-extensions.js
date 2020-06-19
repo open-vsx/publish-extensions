@@ -55,7 +55,7 @@ const readFile = util.promisify(fs.readFile);
       console.log(`Attempting to publish ${id} to Open VSX`);
 
       // Clone and set up the repository.
-      await exec(`git clone ${repository} /tmp/repository`);
+      await exec(`git clone --recurse-submodules ${repository} /tmp/repository`);
       if (extension.checkout) {
         await exec(`git checkout ${extension.checkout}`, { cwd: '/tmp/repository' });
       }
