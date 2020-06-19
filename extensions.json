@@ -409,6 +409,12 @@
       "location": "editors/code"
     },
     {
+      "id": "medo64.render-crlf",
+      "repository": "https://github.com/medo64/render-crlf",
+      "version": "1.5.3",
+      "checkout": "v1.5.3"
+    },
+    {
       "id": "MehediDracula.php-namespace-resolver",
       "repository": "https://github.com/MehediDracula/PHP-Namespace-Resolver",
       "version": "1.1.8"
