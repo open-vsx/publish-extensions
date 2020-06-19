@@ -22,6 +22,9 @@ const readFile = util.promisify(fs.readFile);
   const { extensions } = JSON.parse(await readFile('./extensions.json', 'utf-8'));
   const registry = new ovsx.Registry();
 
+  // Also install extensions' devDependencies when using `npm install` or `yarn install`.
+  process.env.NODE_ENV = 'development';
+
   for (const extension of extensions) {
     console.log(`\nProcessing extension: ${JSON.stringify(extension, null, 2)}`);
     try {
