@@ -615,6 +615,10 @@
       "checkout": "v1.14.5"
     },
     {
+      "id": "vsls-contrib.codetour",
+      "repository": "https://github.com/vsls-contrib/codetour"
+    },
+    {
       "id": "wayou.vscode-todo-highlight",
       "repository": "https://github.com/wayou/vscode-todo-highlight",
       "version": "1.0.4"
