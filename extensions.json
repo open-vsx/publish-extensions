@@ -688,6 +688,11 @@
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3",
       "version": "0.4.2"
+    },
+    {
+      "id": "platformio.platformio-ide",
+      "repository": "https://github.com/platformio/platformio-vscode-ide",
+      "version": "1.10.0"
     }
   ]
 }
