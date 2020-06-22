@@ -26,7 +26,11 @@ const writeFile = util.promisify(fs.writeFile);
   const registry = new ovsx.Registry();
 
   if (argv._.length !== 1) {
-    console.log('Usage: node add-extension [--location=LOCATION] REPOSITORY');
+    console.log(`Usage: node add-extension REPOSITORY [OPTIONS]
+OPTIONS:
+    --checkout=CHECKOUT
+    --location=LOCATION
+    --prepublish=PREPUBLISH`);
     process.exit();
   }
 
@@ -44,6 +48,9 @@ const writeFile = util.promisify(fs.writeFile);
 
     // Clone the repository to determine the extension's latest version.
     await exec(`git clone --recurse-submodules ${repository} /tmp/repository`);
+    if (argv.checkout) {
+        await exec(`git checkout ${argv.checkout}`, { cwd: '/tmp/repository' });
+    }
 
     // Locate and parse package.json.
     let location = argv.location;
@@ -81,8 +88,14 @@ const writeFile = util.promisify(fs.writeFile);
 
     // Add extension to the list.
     const extension = { id, repository, version: package.version };
+    if (argv.checkout) {
+        extension.checkout = argv.checkout;
+    }
     if (location !== '.') {
       extension.location = location;
+    }
+    if (argv.prepublish) {
+        extension.prepublish = argv.prepublish;
     }
     extensions.push(extension);
 
