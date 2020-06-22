@@ -19,6 +19,8 @@ const dontUpgrade = [
   'felixfbecker.php-debug', // https://github.com/open-vsx/publish-extensions/issues/4
   'felixfbecker.php-intellisense', // https://github.com/open-vsx/publish-extensions/issues/4
   'Luxcium.pop-n-lock-theme-vscode', // Error: Open VSX already has a more recent version of Luxcium.pop-n-lock-theme-vscode: 3.28.5 > 3.28.0
+  'alefragnani.Bookmarks', // https://github.com/alefragnani/vscode-bookmarks/issues/315
+  'alefragnani.project-manager', // https://github.com/alefragnani/vscode-bookmarks/issues/315
 ];
 
 (async () => {
