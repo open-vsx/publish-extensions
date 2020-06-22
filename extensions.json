@@ -512,7 +512,7 @@
     },
     {
       "id": "PKief.material-icon-theme",
-      "repository": "https://github.com/PKief/vscode-material-icon-theme",
+      "repository": "https://github.com/PKief/vscode-material-icon-theme"
     },
     {
       "id": "platformio.platformio-ide",
