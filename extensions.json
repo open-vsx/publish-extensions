@@ -694,6 +694,10 @@
       "repository": "https://github.com/platformio/platformio-vscode-ide",
       "version": "1.10.0",
       "checkout": "v1.10.0"
+    },
+    {
+      "id": "adpyke.codesnap",
+      "repository": "https://github.com/kufii/CodeSnap"
     }
   ]
 }
