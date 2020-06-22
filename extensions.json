@@ -692,7 +692,8 @@
     {
       "id": "platformio.platformio-ide",
       "repository": "https://github.com/platformio/platformio-vscode-ide",
-      "version": "1.10.0"
+      "version": "1.10.0",
+      "checkout": "v1.10.0"
     }
   ]
 }
