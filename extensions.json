@@ -513,7 +513,12 @@
     {
       "id": "PKief.material-icon-theme",
       "repository": "https://github.com/PKief/vscode-material-icon-theme",
-      "version": "4.1.0"
+    },
+    {
+      "id": "platformio.platformio-ide",
+      "repository": "https://github.com/platformio/platformio-vscode-ide",
+      "version": "1.10.0",
+      "checkout": "v1.10.0"
     },
     {
       "id": "rebornix.ruby",
@@ -691,12 +696,6 @@
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3",
       "version": "0.4.2"
-    },
-    {
-      "id": "platformio.platformio-ide",
-      "repository": "https://github.com/platformio/platformio-vscode-ide",
-      "version": "1.10.0",
-      "checkout": "v1.10.0"
     }
   ]
 }
