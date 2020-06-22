@@ -232,8 +232,8 @@
     {
       "id": "esbenp.prettier-vscode",
       "repository": "https://github.com/prettier/prettier-vscode",
-      "version": "5.0.1",
-      "checkout": "v5.0.1"
+      "version": "5.1.0",
+      "checkout": "v5.1.0"
     },
     {
       "id": "felixfbecker.php-debug",
