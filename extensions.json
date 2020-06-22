@@ -463,8 +463,8 @@
     {
       "id": "mtxr.sqltools",
       "repository": "https://github.com/mtxr/vscode-sqltools",
-      "version": "0.22.7",
-      "checkout": "v0.22.7"
+      "version": "0.22.8",
+      "checkout": "v0.22.8"
     },
     {
       "id": "naumovs.color-highlight",
