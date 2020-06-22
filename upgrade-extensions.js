@@ -26,8 +26,8 @@ const dontUpgrade = [
 (async () => {
   /** @type {{ extensions: { id: string, repository: string, version?: string, checkout?: string, location?: string, prepublish?: string }[] }} */
   const { extensions } = JSON.parse(await readFile('./extensions.json', 'utf-8'));
-  const extensionsToUpgrade = extensions.filter(e => !dontUpgrade.includes(e.id))
-  const extensionsToNotUpgrade = extensions.filter(e => dontUpgrade.includes(e.id));
+  const extensionsToUpgrade = extensions.filter(e => !dontUpgrade.includes(e.id) && !!e.version);
+  const extensionsToNotUpgrade = extensions.filter(e => !extensionsToUpgrade.map(e => e.id).includes(e.id));
 
   fs.renameSync('./extensions.json', './extensions.json.old');
   try {
