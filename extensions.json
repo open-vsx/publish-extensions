@@ -683,8 +683,7 @@
     },
     {
       "id": "zhuangtongfa.material-theme",
-      "repository": "https://github.com/Binaryify/OneDark-Pro",
-      "version": "3.8.0"
+      "repository": "https://github.com/Binaryify/OneDark-Pro"
     },
     {
       "id": "Zignd.html-css-class-completion",
