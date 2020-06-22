@@ -679,8 +679,7 @@
     },
     {
       "id": "yzhang.markdown-all-in-one",
-      "repository": "https://github.com/yzhang-gh/vscode-markdown",
-      "version": "3.0.0"
+      "repository": "https://github.com/yzhang-gh/vscode-markdown"
     },
     {
       "id": "zhuangtongfa.material-theme",
