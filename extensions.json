@@ -35,6 +35,11 @@
       "version": "0.8.2"
     },
     {
+      "id": "aliariff.vscode-erb-beautify",
+      "repository": "https://github.com/aliariff/vscode-erb-beautify",
+      "version": "0.2.0"
+    },
+    {
       "id": "almenon.arepl",
       "repository": "https://github.com/almenon/arepl-vscode",
       "version": "1.0.24"
