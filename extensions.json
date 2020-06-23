@@ -380,6 +380,11 @@
       "checkout": "v0.30.3"
     },
     {
+      "id": "kosz78.nim",
+      "repository": "https://github.com/pragmagic/vscode-nim",
+      "version": "0.6.6"
+    },
+    {
       "id": "littlefoxteam.vscode-python-test-adapter",
       "repository": "https://github.com/kondratyev-nv/vscode-python-test-adapter",
       "version": "0.4.3",
