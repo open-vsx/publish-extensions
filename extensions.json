@@ -421,6 +421,11 @@
       "location": "editors/code"
     },
     {
+      "id": "max-SS.Cyberpunk",
+      "repository": "https://github.com/prometheux-ar/cyberpunk",
+      "version": "1.2.5"
+    },
+    {
       "id": "medo64.render-crlf",
       "repository": "https://github.com/medo64/render-crlf",
       "version": "1.5.3",
