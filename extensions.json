@@ -106,6 +106,11 @@
       "checkout": "0.3.2"
     },
     {
+      "id": "castwide.solargraph",
+      "repository": "https://github.com/castwide/vscode-solargraph",
+      "version": "0.22.0"
+    },
+    {
       "id": "christian-kohler.npm-intellisense",
       "repository": "https://github.com/ChristianKohler/NpmIntellisense",
       "version": "1.2.1"
