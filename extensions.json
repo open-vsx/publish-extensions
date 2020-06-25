@@ -296,7 +296,8 @@
       "id": "GitHub.github-vscode-theme",
       "repository": "https://github.com/primer/github-vscode-theme",
       "version": "1.1.2",
-      "checkout": "v1.1.2"
+      "checkout": "v1.1.2",
+      "prepublish": "npm run build"
     },
     {
       "id": "golang.Go",
