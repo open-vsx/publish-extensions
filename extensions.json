@@ -380,6 +380,11 @@
       "checkout": "v0.30.3"
     },
     {
+      "id": "korekontrol.saltstack",
+      "repository": "https://github.com/korekontrol/vscode-saltstack",
+      "version": "0.0.8"
+    },
+    {
       "id": "littlefoxteam.vscode-python-test-adapter",
       "repository": "https://github.com/kondratyev-nv/vscode-python-test-adapter",
       "version": "0.4.3",
