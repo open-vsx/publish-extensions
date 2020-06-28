@@ -477,6 +477,12 @@
       "version": "2.1.0"
     },
     {
+      "id": "notskm.clang-tidy",
+      "repository": "https://github.com/notskm/vscode-clang-tidy",
+      "version": "0.5.1",
+      "checkout": "v0.5.1"
+    },
+    {
       "id": "octref.vetur",
       "repository": "https://github.com/vuejs/vetur",
       "version": "0.24.0",
