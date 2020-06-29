@@ -31,6 +31,7 @@ OPTIONS:
     --checkout=CHECKOUT
     --location=LOCATION
     --prepublish=PREPUBLISH`);
+    process.exitCode = 1;
     process.exit();
   }
 
