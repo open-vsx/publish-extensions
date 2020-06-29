@@ -54,7 +54,7 @@ OPTIONS:
         await exec(`git checkout ${argv.checkout}`, { cwd: '/tmp/repository' });
     } else if (argv.checkout === true) {
         // If --checkout is passed without a value, set its value to the repository's default Git branch.
-        const { stdout: defaultBranch } = await exec(`git rev-parse --abbrev-ref HEAD`);
+        const { stdout: defaultBranch } = await exec(`git rev-parse --abbrev-ref HEAD`, { cwd: '/tmp/repository' });
         argv.checkout = defaultBranch.trim();
     }
 
