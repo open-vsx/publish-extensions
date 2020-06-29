@@ -402,14 +402,14 @@
       "checkout": "v0.30.3"
     },
     {
+      "id": "korekontrol.saltstack",
+      "repository": "https://github.com/korekontrol/vscode-saltstack"
+    },
+    {
       "id": "kosz78.nim",
       "repository": "https://github.com/pragmagic/vscode-nim",
       "version": "0.6.6",
       "checkout": "v0.6.6"
-    },
-    {
-      "id": "korekontrol.saltstack",
-      "repository": "https://github.com/korekontrol/vscode-saltstack"
     },
     {
       "id": "littlefoxteam.vscode-python-test-adapter",
@@ -492,8 +492,8 @@
     {
       "id": "ms-python.python",
       "repository": "https://github.com/Microsoft/vscode-python",
-      "version": "2020.6.0",
-      "checkout": "2020.6.88468",
+      "version": "2020.6.2",
+      "checkout": "2020.6.90262",
       "prepublish": "npm run package"
     },
     {
