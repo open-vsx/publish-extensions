@@ -596,8 +596,7 @@
     },
     {
       "id": "serayuzgur.crates",
-      "repository": "https://github.com/serayuzgur/crates",
-      "version": "0.5.0"
+      "repository": "https://github.com/serayuzgur/crates"
     },
     {
       "id": "Shan.code-settings-sync",
