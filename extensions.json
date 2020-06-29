@@ -106,6 +106,10 @@
       "checkout": "0.3.2"
     },
     {
+      "id": "castwide.solargraph",
+      "repository": "https://github.com/castwide/vscode-solargraph"
+    },
+    {
       "id": "ccls-project.ccls",
       "repository": "https://github.com/MaskRay/vscode-ccls"
     },
