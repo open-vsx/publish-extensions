@@ -381,8 +381,7 @@
     },
     {
       "id": "korekontrol.saltstack",
-      "repository": "https://github.com/korekontrol/vscode-saltstack",
-      "version": "0.0.8"
+      "repository": "https://github.com/korekontrol/vscode-saltstack"
     },
     {
       "id": "littlefoxteam.vscode-python-test-adapter",
