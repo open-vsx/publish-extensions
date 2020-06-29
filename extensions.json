@@ -382,6 +382,10 @@
       "version": "0.0.29"
     },
     {
+      "id": "karunamurti.haml",
+      "repository": "https://github.com/karuna/haml-vscode"
+    },
+    {
       "id": "KnisterPeter.vscode-github",
       "repository": "https://github.com/KnisterPeter/vscode-github",
       "version": "0.30.3",
