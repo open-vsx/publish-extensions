@@ -382,7 +382,8 @@
     {
       "id": "kosz78.nim",
       "repository": "https://github.com/pragmagic/vscode-nim",
-      "version": "0.6.6"
+      "version": "0.6.6",
+      "checkout": "v0.6.6"
     },
     {
       "id": "littlefoxteam.vscode-python-test-adapter",
@@ -422,8 +423,7 @@
     },
     {
       "id": "max-SS.Cyberpunk",
-      "repository": "https://github.com/prometheux-ar/cyberpunk",
-      "version": "1.2.5"
+      "repository": "https://github.com/prometheux-ar/cyberpunk"
     },
     {
       "id": "medo64.render-crlf",
