@@ -532,7 +532,6 @@
     {
       "id": "onecentlin.laravel-blade",
       "repository": "https://github.com/onecentlin/laravel-blade-snippets-vscode",
-      "version": "1.21.0",
       "prepublish": "npm config set script-shell /bin/bash"
     },
     {
