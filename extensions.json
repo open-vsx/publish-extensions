@@ -537,7 +537,6 @@
     {
       "id": "patcx.vscode-nuget-gallery",
       "repository": "https://github.com/pcislo/vscode-nuget-gallery",
-      "version": "0.0.19",
       "checkout": "master"
     },
     {
