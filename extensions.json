@@ -140,10 +140,6 @@
       "version": "0.1.4"
     },
     {
-      "id": "csstools.postcss",
-      "repository": "https://github.com/csstools/postcss-language"
-    },
-    {
       "id": "connorshea.vscode-ruby-test-adapter",
       "repository": "https://github.com/connorshea/vscode-ruby-test-adapter",
       "version": "0.7.1",
@@ -155,10 +151,14 @@
       "version": "0.6.0"
     },
     {
+      "id": "csstools.postcss",
+      "repository": "https://github.com/csstools/postcss-language"
+    },
+    {
       "id": "Dart-Code.dart-code",
       "repository": "https://github.com/Dart-Code/Dart-Code",
-      "version": "3.11.0",
-      "checkout": "v3.11.0"
+      "version": "3.12.0",
+      "checkout": "v3.12.0"
     },
     {
       "id": "Dart-Code.flutter",
