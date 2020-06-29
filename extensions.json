@@ -52,8 +52,8 @@
     {
       "id": "Angular.ng-template",
       "repository": "https://github.com/angular/vscode-ng-language-service",
-      "version": "0.901.11",
-      "checkout": "v0.901.11"
+      "version": "0.1000.1",
+      "checkout": "v0.1000.1"
     },
     {
       "id": "anseki.vscode-color",
