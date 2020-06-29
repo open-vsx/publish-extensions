@@ -107,8 +107,7 @@
     },
     {
       "id": "ccls-project.ccls",
-      "repository": "https://github.com/MaskRay/vscode-ccls",
-      "version": "0.1.10"
+      "repository": "https://github.com/MaskRay/vscode-ccls"
     },
     {
       "id": "christian-kohler.npm-intellisense",
