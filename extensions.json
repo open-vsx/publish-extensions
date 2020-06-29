@@ -127,8 +127,7 @@
     },
     {
       "id": "csstools.postcss",
-      "repository": "https://github.com/csstools/postcss-language",
-      "version": "0.27.0"
+      "repository": "https://github.com/csstools/postcss-language"
     },
     {
       "id": "connorshea.vscode-ruby-test-adapter",
