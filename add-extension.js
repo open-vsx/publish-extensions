@@ -49,8 +49,13 @@ OPTIONS:
 
     // Clone the repository to determine the extension's latest version.
     await exec(`git clone --recurse-submodules ${repository} /tmp/repository`);
-    if (argv.checkout) {
+    if (typeof argv.checkout === 'string') {
+        // Check out the specified Git branch, tag, or commit.
         await exec(`git checkout ${argv.checkout}`, { cwd: '/tmp/repository' });
+    } else if (argv.checkout === true) {
+        // If --checkout is passed without a value, set its value to the repository's default Git branch.
+        const { stdout: defaultBranch } = await exec(`git rev-parse --abbrev-ref HEAD`);
+        argv.checkout = defaultBranch.trim();
     }
 
     // Locate and parse package.json.
