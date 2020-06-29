@@ -384,6 +384,12 @@
       "checkout": "v0.30.3"
     },
     {
+      "id": "kosz78.nim",
+      "repository": "https://github.com/pragmagic/vscode-nim",
+      "version": "0.6.6",
+      "checkout": "v0.6.6"
+    },
+    {
       "id": "korekontrol.saltstack",
       "repository": "https://github.com/korekontrol/vscode-saltstack"
     },
@@ -422,6 +428,10 @@
       "repository": "https://github.com/rust-analyzer/rust-analyzer",
       "version": "0.4.0-dev",
       "location": "editors/code"
+    },
+    {
+      "id": "max-SS.Cyberpunk",
+      "repository": "https://github.com/prometheux-ar/cyberpunk"
     },
     {
       "id": "medo64.render-crlf",
