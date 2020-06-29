@@ -310,8 +310,8 @@
     {
       "id": "GrapeCity.gc-excelviewer",
       "repository": "https://github.com/jjuback/gc-excelviewer",
-      "version": "2.1.35",
-      "checkout": "v2.1.35"
+      "version": "3.0.37",
+      "checkout": "v3.0.37"
     },
     {
       "id": "hbenl.vscode-test-explorer",
