@@ -34,7 +34,18 @@ const dontUpgrade = [
     await writeFile('./extensions.json', JSON.stringify({ extensions: extensionsToNotUpgrade }, null, 2), 'utf-8');
 
     for (const extension of extensionsToUpgrade) {
-      await exec(`node add-extension${extension.location ? ' --location=' + extension.location : ''} ${extension.repository}`);
+      let command = 'node add-extension ' + extension.repository;
+      if (extension.checkout) {
+          // Since we're upgrading, don't use the currently pinned Git branch, tag, or commit. Use the default Git branch instead.
+          command += ' --checkout';
+      }
+      if (extension.location) {
+          command += ' --location=' + JSON.stringify(extension.location);
+      }
+      if (extension.prepublish) {
+          command += ' --prepublish=' + JSON.stringify(extension.prepublish);
+      }
+      await exec(command);
     }
   } catch (error) {
     console.error(`[FAIL] Could not upgrade extensions.json!`);
