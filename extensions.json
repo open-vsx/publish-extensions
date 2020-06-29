@@ -106,6 +106,10 @@
       "checkout": "0.3.2"
     },
     {
+      "id": "ccls-project.ccls",
+      "repository": "https://github.com/MaskRay/vscode-ccls"
+    },
+    {
       "id": "christian-kohler.npm-intellisense",
       "repository": "https://github.com/ChristianKohler/NpmIntellisense",
       "version": "1.2.1"
@@ -386,6 +390,10 @@
       "checkout": "v0.6.6"
     },
     {
+      "id": "korekontrol.saltstack",
+      "repository": "https://github.com/korekontrol/vscode-saltstack"
+    },
+    {
       "id": "littlefoxteam.vscode-python-test-adapter",
       "repository": "https://github.com/kondratyev-nv/vscode-python-test-adapter",
       "version": "0.4.3",
@@ -485,6 +493,12 @@
       "id": "neilbrayfield.php-docblocker",
       "repository": "https://github.com/neild3r/vscode-php-docblocker",
       "version": "2.1.0"
+    },
+    {
+      "id": "notskm.clang-tidy",
+      "repository": "https://github.com/notskm/vscode-clang-tidy",
+      "version": "0.5.1",
+      "checkout": "v0.5.1"
     },
     {
       "id": "octref.vetur",
