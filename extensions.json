@@ -107,8 +107,7 @@
     },
     {
       "id": "castwide.solargraph",
-      "repository": "https://github.com/castwide/vscode-solargraph",
-      "version": "0.22.0"
+      "repository": "https://github.com/castwide/vscode-solargraph"
     },
     {
       "id": "christian-kohler.npm-intellisense",
