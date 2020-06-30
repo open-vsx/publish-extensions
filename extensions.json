@@ -212,11 +212,6 @@
       "version": "2.8.0"
     },
     {
-      "id": "eamodio.gitlens",
-      "repository": "https://github.com/eamodio/vscode-gitlens.git",
-      "version": "10.2.2"
-    },
-    {
       "id": "ecmel.vscode-html-css",
       "repository": "https://github.com/ecmel/vscode-html-css",
       "version": "0.2.3"
@@ -277,7 +272,8 @@
     {
       "id": "foam.foam-vscode",
       "repository": "https://github.com/foambubble/foam-vscode",
-      "version": "0.1.4"
+      "version": "0.1.5",
+      "checkout": "v0.1.5"
     },
     {
       "id": "formulahendry.auto-close-tag",
@@ -372,8 +368,9 @@
     },
     {
       "id": "ivangabriele.vscode-git-add-and-commit",
-      "repository": "https://github.com/ivangabriele/vscode-git-automator-legacy.git",
-      "version": "2.1.1"
+      "repository": "https://github.com/ivangabriele/vscode-git-automator-legacy",
+      "version": "2.1.1",
+      "checkout": "v2.1.1"
     },
     {
       "id": "James-Yu.latex-workshop",
@@ -419,11 +416,6 @@
     {
       "id": "korekontrol.saltstack",
       "repository": "https://github.com/korekontrol/vscode-saltstack"
-    },
-    {
-      "id": "kortina.vscode-markdown-notes",
-      "repository": "https://github.com/kortina/vscode-markdown-notes.git",
-      "version": "0.0.9"
     },
     {
       "id": "kosz78.nim",
@@ -656,8 +648,7 @@
     },
     {
       "id": "tchayen.markdown-links",
-      "repository": "https://github.com/tchayen/markdown-links",
-      "version": "0.6.0"
+      "repository": "https://github.com/tchayen/markdown-links"
     },
     {
       "id": "timonwong.shellcheck",
