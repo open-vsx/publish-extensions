@@ -213,8 +213,7 @@
     },
     {
       "id": "dylan-foundry.vscode-dylan",
-      "repository": "https://github.com/dylan-lang/vscode-dylan",
-      "version": "0.2.1"
+      "repository": "https://github.com/dylan-lang/vscode-dylan"
     },
     {
       "id": "ecmel.vscode-html-css",
