@@ -274,6 +274,12 @@
       "version": "1.0.2"
     },
     {
+      "id": "foam.foam-vscode",
+      "repository": "https://github.com/foambubble/foam-vscode",
+      "version": "0.1.5",
+      "checkout": "v0.1.5"
+    },
+    {
       "id": "formulahendry.auto-close-tag",
       "repository": "https://github.com/formulahendry/vscode-auto-close-tag",
       "version": "0.5.7"
@@ -363,6 +369,12 @@
       "version": "4.14.0",
       "checkout": "4.14.0",
       "location": "release"
+    },
+    {
+      "id": "ivangabriele.vscode-git-add-and-commit",
+      "repository": "https://github.com/ivangabriele/vscode-git-automator-legacy",
+      "version": "2.1.1",
+      "checkout": "v2.1.1"
     },
     {
       "id": "James-Yu.latex-workshop",
@@ -637,6 +649,10 @@
       "id": "Swellaby.vscode-rust-test-adapter",
       "repository": "https://github.com/swellaby/vscode-rust-test-adapter",
       "version": "0.11.0"
+    },
+    {
+      "id": "tchayen.markdown-links",
+      "repository": "https://github.com/tchayen/markdown-links"
     },
     {
       "id": "timonwong.shellcheck",
