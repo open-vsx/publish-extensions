@@ -313,6 +313,12 @@
       "prepublish": "npm run build"
     },
     {
+      "id": "GitLab.gitlab-workflow",
+      "repository": "https://gitlab.com/gitlab-org/gitlab-vscode-extension",
+      "version": "3.0.3",
+      "checkout": "v3.0.3"
+    },
+    {
       "id": "golang.Go",
       "repository": "https://github.com/golang/vscode-go",
       "checkout": "latest"
