@@ -422,6 +422,10 @@
       "repository": "https://github.com/korekontrol/vscode-saltstack"
     },
     {
+      "id": "kortina.vscode-markdown-notes",
+      "repository": "https://github.com/kortina/vscode-markdown-notes"
+    },
+    {
       "id": "kosz78.nim",
       "repository": "https://github.com/pragmagic/vscode-nim",
       "version": "0.6.6",
