@@ -654,6 +654,11 @@
       "location": "packages/client"
     },
     {
+      "id": "svipas.control-snippets",
+      "repository": "https://github.com/svipas/vscode-control-snippets",
+      "version": "1.9.0"
+    },
+    {
       "id": "Swellaby.vscode-rust-test-adapter",
       "repository": "https://github.com/swellaby/vscode-rust-test-adapter",
       "version": "0.11.0"
