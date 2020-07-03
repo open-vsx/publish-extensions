@@ -606,8 +606,7 @@
     },
     {
       "id": "scala-lang.scala",
-      "repository": "https://github.com/scala/vscode-scala-syntax",
-      "version": "0.3.9"
+      "repository": "https://github.com/scala/vscode-scala-syntax"
     },
     {
       "id": "scalameta.metals",
