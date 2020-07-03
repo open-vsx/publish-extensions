@@ -276,8 +276,8 @@
     {
       "id": "foam.foam-vscode",
       "repository": "https://github.com/foambubble/foam-vscode",
-      "version": "0.1.5",
-      "checkout": "v0.1.5"
+      "version": "0.1.6",
+      "checkout": "v0.1.6"
     },
     {
       "id": "formulahendry.auto-close-tag",
