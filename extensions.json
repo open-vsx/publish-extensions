@@ -463,6 +463,10 @@
       "checkout": "v1.1.1"
     },
     {
+      "id": "bltg-team.masm",
+      "repository": "https://github.com/9176324/bltg-team.masm"
+    },
+    {
       "id": "mathiasfrohlich.Kotlin",
       "repository": "https://github.com/mathiasfrohlich/vscode-kotlin",
       "version": "1.7.1",
