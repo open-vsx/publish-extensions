@@ -284,8 +284,7 @@
     },
     {
       "id": "formulahendry.auto-close-tag",
-      "repository": "https://github.com/formulahendry/vscode-auto-close-tag",
-      "version": "0.5.7"
+      "repository": "https://github.com/formulahendry/vscode-auto-close-tag"
     },
     {
       "id": "formulahendry.auto-rename-tag",
