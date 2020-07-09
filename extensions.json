@@ -86,6 +86,10 @@
       "version": "1.2.1"
     },
     {
+      "id": "bltg-team.masm",
+      "repository": "https://github.com/9176324/bltg-team.masm"
+    },
+    {
       "id": "bmewburn.vscode-intelephense-client",
       "repository": "https://github.com/bmewburn/vscode-intelephense",
       "version": "1.4.1",
@@ -157,8 +161,8 @@
     {
       "id": "Dart-Code.dart-code",
       "repository": "https://github.com/Dart-Code/Dart-Code",
-      "version": "3.12.1",
-      "checkout": "v3.12.1"
+      "version": "3.12.2",
+      "checkout": "v3.12.2"
     },
     {
       "id": "Dart-Code.flutter",
@@ -460,10 +464,6 @@
       "repository": "https://github.com/MagicStack/MagicPython",
       "version": "1.1.1",
       "checkout": "v1.1.1"
-    },
-    {
-      "id": "bltg-team.masm",
-      "repository": "https://github.com/9176324/bltg-team.masm"
     },
     {
       "id": "mathiasfrohlich.Kotlin",
