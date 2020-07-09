@@ -293,8 +293,7 @@
     },
     {
       "id": "formulahendry.code-runner",
-      "repository": "https://github.com/formulahendry/vscode-code-runner",
-      "version": "0.10.0"
+      "repository": "https://github.com/formulahendry/vscode-code-runner"
     },
     {
       "id": "formulahendry.vscode-mysql",
