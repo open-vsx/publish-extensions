@@ -506,8 +506,8 @@
     {
       "id": "mp.oradew-vscode",
       "repository": "https://github.com/mickeypearce/oradew-vscode",
-      "version": "0.3.22",
-      "checkout": "v0.3.22"
+      "version": "0.3.23",
+      "checkout": "v0.3.23"
     },
     {
       "id": "ms-kubernetes-tools.vscode-kubernetes-tools",
