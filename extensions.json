@@ -662,8 +662,8 @@
     {
       "id": "svipas.control-snippets",
       "repository": "https://github.com/svipas/vscode-control-snippets",
-      "version": "1.9.0",
-      "checkout": "1.9.0"
+      "version": "1.9.1",
+      "checkout": "1.9.1"
     },
     {
       "id": "Swellaby.vscode-rust-test-adapter",
