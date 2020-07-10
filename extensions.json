@@ -273,14 +273,14 @@
       "version": "1.13.0",
       "repository": "https://github.com/felixfbecker/vscode-php-debug",
       "checkout": "v1.13.0",
-      "prepublish": "sed -ri \"s/\"version\":[^,]*/\"version\": \"1.13.0\"/g\" package.json"
+      "prepublish": "sed -ri \"s/\\\"version\\\":[^,]*/\\\"version\\\": \\\"1.13.0\\\"/g\" package.json"
     },
     {
       "id": "felixfbecker.php-intellisense",
       "version": "2.3.14",
       "repository": "https://github.com/felixfbecker/vscode-php-intellisense",
       "checkout": "v2.3.14",
-      "prepublish": "sed -ri \"s/\"version\":[^,]*/\"version\": \"2.3.14\"/g\" package.json"
+      "prepublish": "sed -ri \"s/\\\"version\\\":[^,]*/\\\"version\\\": \\\"2.3.14\\\"/g\" package.json"
     },
     {
       "id": "felixfbecker.php-pack",
