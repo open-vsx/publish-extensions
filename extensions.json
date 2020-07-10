@@ -62,6 +62,13 @@
       "checkout": "0.4.5"
     },
     {
+      "id": "apollographql.vscode-apollo",
+      "repository": "https://github.com/apollographql/apollo-tooling",
+      "version": "1.16.3",
+      "checkout": "vscode-apollo@1.16.3",
+      "location": "packages/vscode-apollo"
+    },
+    {
       "id": "appulate.filewatcher",
       "repository": "https://github.com/appulate/vscode-file-watcher",
       "version": "1.0.3"
