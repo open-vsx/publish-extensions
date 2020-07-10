@@ -67,7 +67,7 @@
       "version": "1.16.3",
       "checkout": "vscode-apollo@1.16.3",
       "location": "packages/vscode-apollo",
-      "prepublish": "cd packages/vscode-apollo/ && npm install"
+      "prepublish": "cd packages/vscode-apollo/ && npm install && npx npm-install-peers"
     },
     {
       "id": "appulate.filewatcher",
