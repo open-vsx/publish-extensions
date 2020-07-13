@@ -36,7 +36,7 @@ OPTIONS:
   }
 
   const repository = argv._[0].replace(/\/*$/, '');
-  const existing = extensions.find(extension => extension.repository.toLowerCase() === repository.toLowerCase());
+  const existing = extensions.find(e => e.repository.toLowerCase() === repository.toLowerCase() && e.location === argv.location);
   if (existing) {
     console.log(`[SKIPPED] Repository already in extensions.json: ${JSON.stringify(existing, null, 2)}`);
     return;
