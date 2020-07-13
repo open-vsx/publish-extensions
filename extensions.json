@@ -704,8 +704,8 @@
     {
       "id": "vscode-icons-team.vscode-icons",
       "repository": "https://github.com/vscode-icons/vscode-icons",
-      "version": "10.1.1",
-      "checkout": "v10.1.1"
+      "version": "10.2.0",
+      "checkout": "v10.2.0"
     },
     {
       "id": "vscodevim.vim",
