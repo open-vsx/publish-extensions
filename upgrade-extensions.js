@@ -47,6 +47,25 @@ const dontUpgrade = [
       }
       await exec(command);
     }
+
+    // One last pass to clean up results with a few helpful heuristics.
+    const { extensions: upgradedExtensions } = JSON.parse(await readFile('./extensions.json', 'utf-8'));
+    for (const upgradedExtension of upgradedExtensions) {
+        const originalExtension = extensionsToUpgrade.find(extension => extension.id === upgradedExtension.id);
+        if (!originalExtension) {
+            // This extension likely wasn't actually upgraded, leave it as is.
+            continue;
+        }
+        if (upgradedExtension.version && upgradedExtension.version !== originalExtension.version && !upgradedExtension.checkout) {
+            // If "version" was bumped, but we're publishing from the default branch, it's probably better to just unpin the version.
+            delete upgradedExtension.version;
+        }
+        if (upgradedExtension.checkout !== originalExtension.checkout && upgradedExtension.version === originalExtension.version) {
+            // If "checkout" was modified, but "version" stayed the same, the change of "checkout" is unhelpful. Reset it.
+            upgradedExtension.checkout = originalExtension.checkout;
+        }
+    }
+    await writeFile('./extensions.json', JSON.stringify({ extensions: upgradedExtensions }, null, 2), 'utf-8');
   } catch (error) {
     console.error(`[FAIL] Could not upgrade extensions.json!`);
     console.error(error);
