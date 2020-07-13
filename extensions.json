@@ -651,8 +651,8 @@
     {
       "id": "sketchbuch.vsc-packages",
       "repository": "https://github.com/sketchbuch/vsc-packages",
-      "version": "1.4.1",
-      "checkout": "v1.4.1"
+      "version": "1.4.2",
+      "checkout": "v1.4.2"
     },
     {
       "id": "steoates.autoimport",
