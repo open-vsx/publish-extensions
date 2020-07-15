@@ -2,8 +2,7 @@
   "extensions": [
     {
       "id": "aaron-bond.better-comments",
-      "repository": "https://github.com/aaron-bond/better-comments",
-      "version": "2.0.5"
+      "repository": "https://github.com/aaron-bond/better-comments"
     },
     {
       "id": "abusaidm.html-snippets",
