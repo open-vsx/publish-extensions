@@ -522,6 +522,12 @@
       "checkout": "v0.3.24"
     },
     {
+      "id": "mpty.pack-arduino",
+      "repository": "https://github.com/mpty-ltd/vscode-pack-arduino",
+      "version": "0.1.0",
+      "checkout": "0.1.0"
+    },
+    {
       "id": "ms-kubernetes-tools.vscode-kubernetes-tools",
       "repository": "https://github.com/Azure/vscode-kubernetes-tools",
       "version": "1.2.1",
