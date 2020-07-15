@@ -62,8 +62,8 @@
     {
       "id": "apollographql.vscode-apollo",
       "repository": "https://github.com/apollographql/apollo-tooling",
-      "version": "1.16.5",
-      "checkout": "vscode-apollo@1.16.5",
+      "version": "1.16.6",
+      "checkout": "vscode-apollo@1.16.6",
       "location": "packages/vscode-apollo",
       "prepublish": "npx lerna bootstrap --hoist"
     },
