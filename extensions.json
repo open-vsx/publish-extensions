@@ -272,14 +272,15 @@
     },
     {
       "id": "ethan-reesor.vscode-go-test-adapter",
-      "repository": "https://gitlab.com/firelizzard/vscode-go-test-adapter"
+      "repository": "https://gitlab.com/firelizzard/vscode-go-test-adapter",
+      "prepublish": "sed -ri \"s_]\\(img/_](https://gitlab.com/firelizzard/vscode-go-test-adapter/-/raw/master/img/_g\" README.md"
     },
     {
       "id": "felixfbecker.php-debug",
       "version": "1.13.0",
       "repository": "https://github.com/felixfbecker/vscode-php-debug",
       "checkout": "v1.13.0",
-      "prepublish": "sed -ri \"s/\\\"version\\\":[^,]*/\\\"version\\\": \\\"1.13.0\\\"/g\" package.json"
+      "prepublish": "sed -ri \"s_\\\"version\\\":[^,]*_\\\"version\\\": \\\"1.13.0\\\"_g\" package.json"
     },
     {
       "id": "felixfbecker.php-intellisense",
