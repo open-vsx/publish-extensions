@@ -716,7 +716,8 @@
       "id": "vscjava.vscode-java-debug",
       "repository": "https://github.com/Microsoft/vscode-java-debug",
       "version": "0.26.0",
-      "checkout": "0.26.0"
+      "checkout": "0.26.0",
+      "prepublish": "git clone https://github.com/Microsoft/java-debug ../java-debug && npx gulp build_server"
     },
     {
       "id": "vscode-icons-team.vscode-icons",
