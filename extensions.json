@@ -552,6 +552,11 @@
       "checkout": "0.14.3"
     },
     {
+      "id": "ms-vscode.node-debug",
+      "repository": "https://github.com/microsoft/vscode-node-debug",
+      "checkout": "db03e9be45df19fbb7346dfddb73b43a3ef80a10"
+    },
+    {
       "id": "mtxr.sqltools",
       "repository": "https://github.com/mtxr/vscode-sqltools",
       "version": "0.22.10",
