@@ -731,6 +731,12 @@
       "checkout": "v10.2.0"
     },
     {
+      "id": "vscode.smali",
+      "repository": "https://github.com/ViRb3/vscode-smali",
+      "version": "1.0.0",
+      "location": "smali"
+    },
+    {
       "id": "vscodevim.vim",
       "repository": "https://github.com/VSCodeVim/Vim",
       "version": "1.15.0",
