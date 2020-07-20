@@ -733,8 +733,8 @@
     {
       "id": "vscode.smali",
       "repository": "https://github.com/ViRb3/vscode-smali",
-      "version": "1.0.0",
-      "location": "smali"
+      "location": "smali",
+      "prepublish": "cd smali && npm install"
     },
     {
       "id": "vscodevim.vim",
