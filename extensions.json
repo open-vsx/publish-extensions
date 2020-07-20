@@ -721,7 +721,8 @@
     {
       "id": "vscjava.vscode-java-debug",
       "repository": "https://github.com/Microsoft/vscode-java-debug",
-      "checkout": "0.25.1",
+      "version": "0.27.0",
+      "checkout": "0.27.0",
       "prepublish": "git clone https://github.com/Microsoft/java-debug ../java-debug && npx gulp build_server"
     },
     {
