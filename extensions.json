@@ -732,6 +732,12 @@
       "checkout": "v10.2.0"
     },
     {
+      "id": "vscode.smali",
+      "repository": "https://github.com/ViRb3/vscode-smali",
+      "location": "smali",
+      "prepublish": "cd smali && npm install"
+    },
+    {
       "id": "vscodevim.vim",
       "repository": "https://github.com/VSCodeVim/Vim",
       "version": "1.15.0",
