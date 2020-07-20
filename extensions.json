@@ -553,7 +553,8 @@
     {
       "id": "ms-vscode.node-debug",
       "repository": "https://github.com/microsoft/vscode-node-debug",
-      "checkout": "db03e9be45df19fbb7346dfddb73b43a3ef80a10",
+      "version": "1.44.7",
+      "checkout": "v1.44.7",
       "prepublish": "yarn prepublish && yarn package"
     },
     {
