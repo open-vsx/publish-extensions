@@ -208,8 +208,8 @@
     {
       "id": "DotJoshJohnson.xml",
       "repository": "https://github.com/DotJoshJohnson/vscode-xml",
-      "version": "2.5.0",
-      "checkout": "v2.5.0"
+      "version": "2.5.1",
+      "checkout": "v2.5.1"
     },
     {
       "id": "dracula-theme.theme-dracula",
