@@ -542,7 +542,7 @@
       "id": "ms-python.python",
       "repository": "https://github.com/Microsoft/vscode-python",
       "checkout": "2020.6.89148",
-      "prepublish": "python3 -m pip --disable-pip-version-check install -t ./pythonFiles/lib/python --no-cache-dir --no-deps --upgrade -r requirements.txt && python3 -m pip --disable-pip-version-check install -r build/debugger-install-requirements.txt && python3 ./pythonFiles/install_debugpy.py && npm run clean && npm run package"
+      "prepublish": "python -m pip install -U pip && python -m pip --disable-pip-version-check install -t ./pythonFiles/lib/python --no-cache-dir --implementation py --no-deps --upgrade -r requirements.txt && python -m pip install wheel && python -m pip --disable-pip-version-check install -r build/debugger-install-requirements.txt && python ./pythonFiles/install_debugpy.py && npm run clean && npm run package"
     },
     {
       "id": "ms-vscode.Go",
