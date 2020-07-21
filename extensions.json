@@ -744,8 +744,8 @@
     {
       "id": "vscodevim.vim",
       "repository": "https://github.com/VSCodeVim/Vim",
-      "version": "1.15.0",
-      "checkout": "v1.15.0"
+      "version": "1.16.0",
+      "checkout": "v1.16.0"
     },
     {
       "id": "vsls-contrib.codetour",
