@@ -606,6 +606,10 @@
       "version": "0.3.0"
     },
     {
+      "id": "pdconsec.vscode-print",
+      "repository": "https://github.com/PeterWone/vsc-print"
+    },
+    {
       "id": "pflannery.vscode-versionlens",
       "repository": "https://gitlab.com/versionlens/vscode-versionlens",
       "version": "1.0.8",
