@@ -262,8 +262,7 @@
     },
     {
       "id": "equinusocio.vsc-material-theme-icons",
-      "repository": "https://github.com/material-theme/vsc-material-theme-icons",
-      "version": "1.1.4"
+      "repository": "https://github.com/material-theme/vsc-material-theme-icons"
     },
     {
       "id": "esbenp.prettier-vscode",
