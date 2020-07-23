@@ -532,6 +532,12 @@
       "checkout": "0.1.0"
     },
     {
+      "id": "ms-azuretools.vscode-docker",
+      "repository": "https://github.com/microsoft/vscode-docker",
+      "version": "1.4.1",
+      "checkout": "v1.4.1"
+    },
+    {
       "id": "ms-kubernetes-tools.vscode-kubernetes-tools",
       "repository": "https://github.com/Azure/vscode-kubernetes-tools",
       "version": "1.2.1",
