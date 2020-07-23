@@ -1,6 +1,10 @@
 {
   "extensions": [
     {
+      "id": "moshfeu.compare-folders",
+      "repository": "https://github.com/moshfeu/vscode-compare-folders"
+    },
+    {
       "id": "aaron-bond.better-comments",
       "repository": "https://github.com/aaron-bond/better-comments"
     },
