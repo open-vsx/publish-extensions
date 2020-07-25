@@ -330,6 +330,12 @@
       "prepublish": "npm run build"
     },
     {
+      "id": "GitHub.vscode-pull-request-github",
+      "repository": "https://github.com/microsoft/vscode-pull-request-github",
+      "version": "0.18.1",
+      "checkout": "0.18.1"
+    },
+    {
       "id": "golang.Go",
       "repository": "https://github.com/golang/vscode-go",
       "checkout": "latest"
