@@ -65,7 +65,7 @@
       "version": "1.16.6",
       "checkout": "vscode-apollo@1.16.6",
       "location": "packages/vscode-apollo",
-      "prepublish": "npx lerna bootstrap --hoist"
+      "prepublish": "npm --prefix ../.. install && npm run _internal:prepare-extension"
     },
     {
       "id": "appulate.filewatcher",
