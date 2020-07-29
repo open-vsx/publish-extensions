@@ -545,6 +545,12 @@
       "prepublish": "python -m pip install -U pip && python -m pip --disable-pip-version-check install -t ./pythonFiles/lib/python --no-cache-dir --implementation py --no-deps --upgrade -r requirements.txt && python -m pip install wheel && python -m pip --disable-pip-version-check install -r build/debugger-install-requirements.txt && python ./pythonFiles/install_debugpy.py && npm run clean && npm run package"
     },
     {
+      "id": "ms-vscode.cpptools",
+      "repository": "https://github.com/microsoft/vscode-cpptools",
+      "version": "0.29.0",
+      "checkout": "0.29.0"
+    },
+    {
       "id": "ms-vscode.Go",
       "repository": "https://github.com/microsoft/vscode-go",
       "version": "0.14.3",
