@@ -736,6 +736,13 @@
       "prepublish": "git clone https://github.com/Microsoft/java-debug ../java-debug && npx gulp build_server"
     },
     {
+      "id": "vscjava.vscode-java-test",
+      "repository": "https://github.com/Microsoft/vscode-java-test",
+      "version": "0.24.0",
+      "checkout": "0.24.0",
+      "prepublish": "npm run build-plugin"
+    },
+    {
       "id": "vscode-icons-team.vscode-icons",
       "repository": "https://github.com/vscode-icons/vscode-icons",
       "version": "10.2.0",
