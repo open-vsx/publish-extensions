@@ -688,6 +688,11 @@
       "checkout": "v1.5.3"
     },
     {
+      "id": "stkb.rewrap",
+      "repository": "https://github.com/stkb/Rewrap",
+      "version": "1.13.0"
+    },
+    {
       "id": "streetsidesoftware.code-spell-checker",
       "repository": "https://github.com/streetsidesoftware/vscode-spell-checker",
       "version": "1.9.0",
