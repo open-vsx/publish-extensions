@@ -31,7 +31,7 @@ const dontUpgrade = [
 
   fs.renameSync('./extensions.json', './extensions.json.old');
   try {
-    await writeFile('./extensions.json', JSON.stringify({ extensions: extensionsToNotUpgrade }, null, 2), 'utf-8');
+    await writeFile('./extensions.json', JSON.stringify({ extensions: extensionsToNotUpgrade }, null, 2) + '\n', 'utf-8');
 
     for (const extension of extensionsToUpgrade) {
       let command = 'node add-extension ' + extension.repository;
@@ -65,7 +65,7 @@ const dontUpgrade = [
             upgradedExtension.checkout = originalExtension.checkout;
         }
     }
-    await writeFile('./extensions.json', JSON.stringify({ extensions: upgradedExtensions }, null, 2), 'utf-8');
+    await writeFile('./extensions.json', JSON.stringify({ extensions: upgradedExtensions }, null, 2) + '\n', 'utf-8');
   } catch (error) {
     console.error(`[FAIL] Could not upgrade extensions.json!`);
     console.error(error);
