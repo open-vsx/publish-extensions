@@ -113,7 +113,7 @@ OPTIONS:
     });
 
     // Save new extensions list.
-    await writeFile('./extensions.json', JSON.stringify({ extensions }, null, 2), 'utf-8');
+    await writeFile('./extensions.json', JSON.stringify({ extensions }, null, 2) + '\n', 'utf-8');
     console.log(`[OK] Succesfully added new extension: ${JSON.stringify(extension, null, 2)}`);
   } catch (error) {
     console.error(`[FAIL] Could not add ${repository}!`);
