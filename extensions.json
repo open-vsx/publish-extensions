@@ -645,6 +645,11 @@
       "checkout": "v5.6.1"
     },
     {
+      "id": "rokoroku.vscode-theme-darcula",
+      "repository": "https://github.com/rokoroku/vscode-theme-darcula",
+      "version": "1.2.1"
+    },
+    {
       "id": "rust-lang.rust",
       "repository": "https://github.com/rust-lang/rls-vscode",
       "version": "0.7.8",
