@@ -349,7 +349,6 @@
     {
       "id": "hbenl.vscode-test-explorer",
       "repository": "https://github.com/hbenl/vscode-test-explorer",
-      "version": "2.19.1",
       "prepublish": "npm run build"
     },
     {
