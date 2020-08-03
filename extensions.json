@@ -65,7 +65,7 @@
       "version": "1.16.6",
       "checkout": "vscode-apollo@1.16.6",
       "location": "packages/vscode-apollo",
-      "prepublish": "npm --prefix ../.. install && npm run _internal:prepare-extension"
+      "prepublish": "cd packages/vscode-apollo && npm --prefix ../.. install && npm run _internal:prepare-extension"
     },
     {
       "id": "appulate.filewatcher",
