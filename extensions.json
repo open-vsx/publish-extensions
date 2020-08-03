@@ -668,6 +668,10 @@
       "repository": "https://github.com/serayuzgur/crates"
     },
     {
+      "id": "shalldie.background",
+      "repository": "https://github.com/shalldie/vscode-background"
+    },
+    {
       "id": "Shan.code-settings-sync",
       "repository": "https://github.com/shanalikhan/code-settings-sync",
       "version": "3.4.3",
@@ -833,10 +837,6 @@
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3",
       "version": "0.4.2"
-    },
-    {
-      "id": "shalldie.background",
-      "repository": "https://github.com/shalldie/vscode-background"
     }
   ]
 }
