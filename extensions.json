@@ -167,8 +167,8 @@
     {
       "id": "Dart-Code.dart-code",
       "repository": "https://github.com/Dart-Code/Dart-Code",
-      "version": "3.12.2",
-      "checkout": "v3.12.2"
+      "version": "3.13.1",
+      "checkout": "v3.13.1"
     },
     {
       "id": "Dart-Code.flutter",
