@@ -353,8 +353,7 @@
     },
     {
       "id": "hollowtree.vue-snippets",
-      "repository": "https://github.com/hollowtree/vscode-vue-snippets",
-      "version": "0.1.11"
+      "repository": "https://github.com/hollowtree/vscode-vue-snippets"
     },
     {
       "id": "HookyQR.beautify",
