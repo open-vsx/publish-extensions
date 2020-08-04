@@ -361,6 +361,10 @@
       "version": "1.4.11"
     },
     {
+      "id": "hoovercj.vscode-power-mode",
+      "repository": "https://github.com/hoovercj/vscode-power-mode"
+    },
+    {
       "id": "humao.rest-client",
       "repository": "https://github.com/Huachao/vscode-restclient",
       "version": "0.24.1",
