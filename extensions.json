@@ -841,6 +841,11 @@
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3",
       "version": "0.4.2"
+    },
+    {
+      "id": "asvetliakov.vscode-neovim",
+      "repository": "https://github.com/asvetliakov/vscode-neovim",
+      "version": "0.0.50"
     }
   ]
 }
