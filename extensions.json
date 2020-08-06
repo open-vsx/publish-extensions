@@ -73,6 +73,12 @@
       "version": "1.0.3"
     },
     {
+      "id": "asvetliakov.vscode-neovim",
+      "repository": "https://github.com/asvetliakov/vscode-neovim",
+      "version": "0.0.50",
+      "checkout": "v0.0.50"
+    },
+    {
       "id": "austin.code-gnu-global",
       "repository": "https://github.com/austin-----/code-gnu-global",
       "version": "0.2.2"
