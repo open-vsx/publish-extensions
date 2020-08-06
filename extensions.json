@@ -73,6 +73,11 @@
       "version": "1.0.3"
     },
     {
+      "id": "asvetliakov.vscode-neovim",
+      "repository": "https://github.com/asvetliakov/vscode-neovim",
+      "version": "0.0.50"
+    },
+    {
       "id": "austin.code-gnu-global",
       "repository": "https://github.com/austin-----/code-gnu-global",
       "version": "0.2.2"
@@ -841,11 +846,6 @@
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3",
       "version": "0.4.2"
-    },
-    {
-      "id": "asvetliakov.vscode-neovim",
-      "repository": "https://github.com/asvetliakov/vscode-neovim",
-      "version": "0.0.50"
     }
   ]
 }
