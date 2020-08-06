@@ -646,9 +646,7 @@
     },
     {
       "id": "rokoroku.vscode-theme-darcula",
-      "repository": "https://github.com/rokoroku/vscode-theme-darcula",
-      "version": "1.2.1",
-      "checkout": "v1.2.1"
+      "repository": "https://github.com/rokoroku/vscode-theme-darcula"
     },
     {
       "id": "rust-lang.rust",
