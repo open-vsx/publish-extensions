@@ -191,9 +191,7 @@
     },
     {
       "id": "denoland.vscode-deno",
-      "repository": "https://github.com/denoland/vscode_deno",
-      "version": "1.25.0",
-      "checkout": "v1.25.0"
+      "repository": "https://github.com/denoland/vscode_deno"
     },
     {
       "id": "docsmsft.docs-markdown",
