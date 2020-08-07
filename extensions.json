@@ -348,7 +348,9 @@
     },
     {
       "id": "hashicorp.vscode-terraform",
-      "repository": "https://github.com/hashicorp/vscode-terraform"
+      "repository": "https://github.com/hashicorp/vscode-terraform",
+      "version": "2.1.1",
+      "checkout": "v2.1.1"
     },
     {
       "id": "hbenl.vscode-test-explorer",
