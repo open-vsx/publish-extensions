@@ -716,6 +716,12 @@
       "checkout": "v1.4.2"
     },
     {
+      "id": "skn0tt.markdown-link-expander",
+      "repository": "https://github.com/Skn0tt/markdown-link-expander",
+      "version": "0.1.1",
+      "checkout": "v0.1.1"
+    },
+    {
       "id": "steoates.autoimport",
       "repository": "https://github.com/soates/Auto-Import",
       "version": "1.5.3",
