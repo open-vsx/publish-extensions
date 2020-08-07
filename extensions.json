@@ -353,7 +353,7 @@
       "checkout": "v3.0.39"
     },
     {
-      "id": "hashicorp.vscode-terraform",
+      "id": "hashicorp.terraform",
       "repository": "https://github.com/hashicorp/vscode-terraform",
       "version": "2.1.1",
       "checkout": "v2.1.1"
