@@ -353,6 +353,12 @@
       "checkout": "v3.0.39"
     },
     {
+      "id": "hashicorp.vscode-terraform",
+      "repository": "https://github.com/hashicorp/vscode-terraform",
+      "version": "2.1.1",
+      "checkout": "v2.1.1"
+    },
+    {
       "id": "hbenl.vscode-test-explorer",
       "repository": "https://github.com/hbenl/vscode-test-explorer",
       "prepublish": "npm run build"
