@@ -179,8 +179,8 @@
     {
       "id": "Dart-Code.flutter",
       "repository": "https://github.com/Dart-Code/Flutter",
-      "version": "3.13.1",
-      "checkout": "v3.13.1"
+      "version": "3.13.2",
+      "checkout": "v3.13.2"
     },
     {
       "id": "DavidAnson.vscode-markdownlint",
