@@ -621,6 +621,11 @@
       "prepublish": "npm config set script-shell /bin/bash"
     },
     {
+      "id": "Orta.vscode-jest",
+      "repository": "https://github.com/jest-community/vscode-jest",
+      "checkout": "v3.2.0"
+    },
+    {
       "id": "patcx.vscode-nuget-gallery",
       "repository": "https://github.com/pcislo/vscode-nuget-gallery",
       "checkout": "master"
