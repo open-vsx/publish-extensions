@@ -361,6 +361,12 @@
       "checkout": "v2.1.1"
     },
     {
+      "id": "haskell.haskell",
+      "repository": "https://github.com/haskell/vscode-haskell",
+      "version": "1.0.1",
+      "checkout": "1.0.1"
+    },
+    {
       "id": "hbenl.vscode-test-explorer",
       "repository": "https://github.com/hbenl/vscode-test-explorer",
       "prepublish": "npm run build"
