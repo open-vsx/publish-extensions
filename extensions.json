@@ -730,6 +730,12 @@
       "checkout": "v1.4.0"
     },
     {
+      "id": "shufo.vscode-blade-formatter",
+      "repository": "https://github.com/shufo/vscode-blade-formatter",
+      "version": "0.4.4",
+      "checkout": "v0.4.4"
+    },
+    {
       "id": "sketchbuch.vsc-packages",
       "repository": "https://github.com/sketchbuch/vsc-packages",
       "version": "1.4.2",
