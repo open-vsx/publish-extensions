@@ -625,6 +625,12 @@
       "checkout": "v0.5.1"
     },
     {
+      "id": "nwolverson.ide-purescript",
+      "repository": "https://github.com/nwolverson/vscode-ide-purescript",
+      "version": "0.21.2",
+      "checkout": "v0.21.2"
+    },
+    {
       "id": "octref.vetur",
       "repository": "https://github.com/vuejs/vetur",
       "version": "0.26.1",
