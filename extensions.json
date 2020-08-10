@@ -327,6 +327,10 @@
       "repository": "https://gitlab.com/fr43nk/seito-openfile"
     },
     {
+      "id": "giscafer.leek-fund",
+      "repository": "https://github.com/giscafer/leek-fund"
+    },
+    {
       "id": "GitHub.github-vscode-theme",
       "repository": "https://github.com/primer/github-vscode-theme",
       "version": "1.1.3",
