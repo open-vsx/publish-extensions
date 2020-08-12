@@ -36,7 +36,7 @@ Here are all the supported values, including optional ones:
       "id": "rebornix.ruby",
       // Repository URL to clone and publish from
       "repository": "https://github.com/rubyide/vscode-ruby",
-      // (RECOMMENDED) The version that should be published on Open VSX (defaults to the package.json version)
+      // (RECOMMENDED) The version that should be published; the script compares this version with the latest published version
       "version": "0.27.0",
       // (RECOMMENDED) The Git branch, tag, or commit to check out before publishing (defaults to the repository's default branch)
       "checkout": "v0.27.0",
@@ -44,6 +44,19 @@ Here are all the supported values, including optional ones:
       "location": "packages/vscode-ruby-client",
       // (OPTIONAL) Extra commands to run just before publishing to Open VSX (i.e. after "yarn/npm install", but before "vscode:prepublish")
       "prepublish": "npm run build"
+    },
+```
+
+In cases where it is not feasible to build the extension from source, a download URL can be given instead:
+
+```js
+    {
+      // Unique Open VSX extension ID in the form "<namespace>.<name>"
+      "id": "rebornix.ruby",
+      // (RECOMMENDED) The version that should be published; the script compares this version with the latest published version
+      "version": "0.25.0",
+      // A full URL from which to download the extension package
+      "download": "https://github.com/rubyide/vscode-ruby/releases/download/v0.25.0/ruby-0.25.0.vsix",
     },
 ```
 

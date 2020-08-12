@@ -585,10 +585,8 @@
     },
     {
       "id": "ms-python.python",
-      "repository": "https://github.com/Microsoft/vscode-python",
       "version": "2020.7.1",
-      "checkout": "2020.7.96456",
-      "prepublish": "python -m pip install -U pip && python -m pip --disable-pip-version-check install -t ./pythonFiles/lib/python --no-cache-dir --implementation py --no-deps --upgrade -r requirements.txt && python -m pip install wheel && python -m pip --disable-pip-version-check install -r build/debugger-install-requirements.txt && python ./pythonFiles/install_debugpy.py && npm run clean && npm run package"
+      "download": "https://github.com/Microsoft/vscode-python/releases/download/2020.7.96456/ms-python-release.vsix"
     },
     {
       "id": "ms-vscode.atom-keybindings",
