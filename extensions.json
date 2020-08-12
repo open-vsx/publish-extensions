@@ -18,6 +18,10 @@
       "repository": "https://github.com/akamud/vscode-theme-onedark"
     },
     {
+      "id": "akamud.vscode-theme-onelight",
+      "repository": "https://github.com/akamud/vscode-theme-onelight"
+    },
+    {
       "id": "alefragnani.Bookmarks",
       "repository": "https://github.com/alefragnani/vscode-bookmarks",
       "version": "11.3.0"
