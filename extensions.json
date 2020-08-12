@@ -629,7 +629,7 @@
       "repository": "https://github.com/nwolverson/vscode-ide-purescript",
       "version": "0.21.2",
       "checkout": "v0.21.2",
-      "prepublish": "npm install purescript-spago"
+      "prepublish": "npm install spago"
     },
     {
       "id": "octref.vetur",
