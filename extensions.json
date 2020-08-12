@@ -585,7 +585,6 @@
     },
     {
       "id": "ms-python.python",
-      "version": "2020.7.1",
       "download": "https://github.com/Microsoft/vscode-python/releases/download/2020.7.96456/ms-python-release.vsix"
     },
     {

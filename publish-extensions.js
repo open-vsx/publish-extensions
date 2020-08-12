@@ -89,7 +89,7 @@ const readFile = util.promisify(fs.readFile);
           console.warn('[WARN] Ignoring `location` property because `download` was given.')
         }
 
-        // Download the extension package from a GitHub release
+        // Download the extension package, e.g. from a GitHub release
         console.log(`Downloading ${extension.download}`);
         await download(extension.download, '/tmp/download', { filename: 'extension.vsix' });
 
@@ -97,7 +97,6 @@ const readFile = util.promisify(fs.readFile);
         /** @type {import('ovsx').PublishOptions} */
         const options = { extensionFile: '/tmp/download/extension.vsix' };
         await ovsx.publish(options);
-        console.log(`[OK] Successfully published ${id} to Open VSX!`)
 
       } else {
         // Clone and set up the repository.
@@ -120,8 +119,9 @@ const readFile = util.promisify(fs.readFile);
             options.yarn = true;
         }
         await ovsx.publish(options);
-        console.log(`[OK] Successfully published ${id} to Open VSX!`)
+
       }
+      console.log(`[OK] Successfully published ${id} to Open VSX!`)
     } catch (error) {
       console.error(`[FAIL] Could not process extension: ${JSON.stringify(extension, null, 2)}`);
       console.error(error);

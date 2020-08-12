@@ -53,10 +53,10 @@ In cases where it is not feasible to build the extension from source, a download
     {
       // Unique Open VSX extension ID in the form "<namespace>.<name>"
       "id": "rebornix.ruby",
-      // (RECOMMENDED) The version that should be published; the script compares this version with the latest published version
-      "version": "0.25.0",
       // A full URL from which to download the extension package
       "download": "https://github.com/rubyide/vscode-ruby/releases/download/v0.25.0/ruby-0.25.0.vsix",
+      // (RECOMMENDED) The version that should be published; the script compares this version with the latest published version
+      "version": "0.25.0"
     },
 ```
 
