@@ -188,8 +188,8 @@
     {
       "id": "DavidAnson.vscode-markdownlint",
       "repository": "https://github.com/DavidAnson/vscode-markdownlint",
-      "version": "0.36.2",
-      "checkout": "v0.36.2",
+      "version": "0.36.3",
+      "checkout": "v0.36.3",
       "prepublish": "npm run compile"
     },
     {
