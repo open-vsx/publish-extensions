@@ -687,6 +687,10 @@
       "checkout": "v1.10.0"
     },
     {
+      "id": "pmbenjamin.vscode-snyk",
+      "repository": "https://github.com/pbnj/vscode-snyk"
+    },
+    {
       "id": "puppet.puppet-vscode",
       "repository": "https://github.com/puppetlabs/puppet-vscode",
       "version": "0.28.0",
