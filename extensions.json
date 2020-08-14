@@ -167,8 +167,7 @@
     },
     {
       "id": "cschleiden.vscode-github-actions",
-      "repository": "https://github.com/cschleiden/vscode-github-actions",
-      "version": "0.6.0"
+      "repository": "https://github.com/cschleiden/vscode-github-actions"
     },
     {
       "id": "csstools.postcss",
