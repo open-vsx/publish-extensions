@@ -260,8 +260,7 @@
     },
     {
       "id": "Equinusocio.vsc-community-material-theme",
-      "repository": "https://github.com/material-theme/vsc-community-material-theme",
-      "version": "1.4.1"
+      "repository": "https://github.com/material-theme/vsc-community-material-theme"
     },
     {
       "id": "Equinusocio.vsc-material-theme",
