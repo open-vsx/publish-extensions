@@ -20,11 +20,23 @@ const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
 (async () => {
-  const argv = minimist(process.argv.slice(2));
-  /** @type {{ extensions: { id: string, repository: string, version?: string, checkout?: string, location?: string, prepublish?: string }[] }} */
+  /**
+   * @type {{
+   *    extensions: {
+   *        id: string,
+   *        repository: string,
+   *        version?: string,
+   *        checkout?: string,
+   *        location?: string,
+   *        prepublish?: string,
+   *        download?: string
+   *    }[]
+   * }}
+   */
   const { extensions } = JSON.parse(await readFile('./extensions.json', 'utf-8'));
   const registry = new ovsx.Registry();
 
+  const argv = minimist(process.argv.slice(2));
   if (argv._.length !== 1) {
     console.log(`Usage: node add-extension REPOSITORY [OPTIONS]
 OPTIONS:
@@ -36,7 +48,7 @@ OPTIONS:
   }
 
   const repository = argv._[0].replace(/\/*$/, '');
-  const existing = extensions.find(e => e.repository.toLowerCase() === repository.toLowerCase() && e.location === argv.location);
+  const existing = extensions.find(e => e.repository && e.repository.toLowerCase() === repository.toLowerCase() && e.location === argv.location);
   if (existing) {
     console.log(`[SKIPPED] Repository already in extensions.json: ${JSON.stringify(existing, null, 2)}`);
     return;
