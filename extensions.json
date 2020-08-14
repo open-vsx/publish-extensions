@@ -719,8 +719,7 @@
     },
     {
       "id": "samuelcolvin.jinjahtml",
-      "repository": "https://github.com/samuelcolvin/jinjahtml-vscode",
-      "version": "0.12.0"
+      "repository": "https://github.com/samuelcolvin/jinjahtml-vscode"
     },
     {
       "id": "scala-lang.scala",
