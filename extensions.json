@@ -915,15 +915,21 @@
     },
     {
       "id":"dawidd6.debian-vscode",
-      "repository": "https://github.com/dawidd6/debian-vscode"
+      "repository": "https://github.com/dawidd6/debian-vscode",
+      "version": "0.1.2",
+      "checkout": "0.1.2"
     },
     {
       "id":"cschlosser.doxdocgen",
-      "repository": "https://github.com/christophschlosser/doxdocgen"
+      "repository": "https://github.com/christophschlosser/doxdocgen",
+      "version": "0.7.2",
+      "checkout": "0.7.2"
     },
     {
       "id":"bbenoist.Doxygen",
-      "repository": "https://github.com/bbenoist/vscode-doxygen"
+      "repository": "https://github.com/bbenoist/vscode-doxygen",
+      "version": "1.0.0",
+      "checkout": "1.0.0"
     },
     {
       "id":"twxs.cmake",
