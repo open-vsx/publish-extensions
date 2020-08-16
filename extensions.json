@@ -916,6 +916,14 @@
     {
       "id":"dawidd6.debian-vscode",
       "repository": "https://github.com/dawidd6/debian-vscode"
+    },
+    {
+      "id":"cschlosser.doxdocgen",
+      "repository": "https://github.com/christophschlosser/doxdocgen"
+    },
+    {
+      "id":"bbenoist.Doxygen",
+      "repository": "https://github.com/bbenoist/vscode-doxygen"
     }
   ]
 }
