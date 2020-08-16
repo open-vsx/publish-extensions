@@ -912,6 +912,10 @@
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3",
       "version": "0.4.2"
+    },
+    {
+      "id":"dawidd6.debian-vscode",
+      "repository": "https://github.com/dawidd6/debian-vscode"
     }
   ]
 }
