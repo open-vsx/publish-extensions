@@ -525,9 +525,7 @@
     },
     {
       "id": "matklad.rust-analyzer",
-      "repository": "https://github.com/rust-analyzer/rust-analyzer",
-      "location": "editors/code",
-      "prepublish": "cd editors/code/ && npm install"
+      "download": "https://github.com/rust-analyzer/rust-analyzer/releases/download/2020-08-10/rust-analyzer.vsix"
     },
     {
       "id": "max-SS.Cyberpunk",
