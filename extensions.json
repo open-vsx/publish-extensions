@@ -358,9 +358,8 @@
     },
     {
       "id": "hashicorp.terraform",
-      "repository": "https://github.com/hashicorp/vscode-terraform",
-      "version": "2.1.1",
-      "checkout": "v2.1.1"
+      "download": "https://github.com/hashicorp/vscode-terraform/releases/download/v2.1.1/terraform-2.1.1.vsix",
+      "version": "2.1.1"
     },
     {
       "id": "haskell.haskell",
@@ -526,9 +525,7 @@
     },
     {
       "id": "matklad.rust-analyzer",
-      "repository": "https://github.com/rust-analyzer/rust-analyzer",
-      "location": "editors/code",
-      "prepublish": "cd editors/code/ && npm install"
+      "download": "https://github.com/rust-analyzer/rust-analyzer/releases/download/2020-08-10/rust-analyzer.vsix"
     },
     {
       "id": "max-SS.Cyberpunk",
@@ -912,6 +909,28 @@
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3",
       "version": "0.4.2"
+    },
+    {
+      "id": "dawidd6.debian-vscode",
+      "repository": "https://github.com/dawidd6/debian-vscode",
+      "version": "0.1.2",
+      "checkout": "0.1.2"
+    },
+    {
+      "id": "cschlosser.doxdocgen",
+      "repository": "https://github.com/christophschlosser/doxdocgen",
+      "version": "0.7.2",
+      "checkout": "0.7.2"
+    },
+    {
+      "id": "bbenoist.Doxygen",
+      "repository": "https://github.com/bbenoist/vscode-doxygen",
+      "version": "1.0.0",
+      "checkout": "1.0.0"
+    },
+    {
+      "id": "twxs.cmake",
+      "repository": "https://github.com/twxs/vs.language.cmake"
     }
   ]
 }
