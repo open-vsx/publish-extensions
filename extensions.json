@@ -931,6 +931,10 @@
     {
       "id": "twxs.cmake",
       "repository": "https://github.com/twxs/vs.language.cmake"
+    },
+    {
+      "id": "asabil.meson",
+      "repository": "https://github.com/asabil/vscode-meson"
     }
   ]
 }
