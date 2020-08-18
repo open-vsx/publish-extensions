@@ -911,26 +911,30 @@
       "version": "0.4.2"
     },
     {
-      "id":"dawidd6.debian-vscode",
+      "id": "dawidd6.debian-vscode",
       "repository": "https://github.com/dawidd6/debian-vscode",
       "version": "0.1.2",
       "checkout": "0.1.2"
     },
     {
-      "id":"cschlosser.doxdocgen",
+      "id": "cschlosser.doxdocgen",
       "repository": "https://github.com/christophschlosser/doxdocgen",
       "version": "0.7.2",
       "checkout": "0.7.2"
     },
     {
-      "id":"bbenoist.Doxygen",
+      "id": "bbenoist.Doxygen",
       "repository": "https://github.com/bbenoist/vscode-doxygen",
       "version": "1.0.0",
       "checkout": "1.0.0"
     },
     {
-      "id":"twxs.cmake",
+      "id": "twxs.cmake",
       "repository": "https://github.com/twxs/vs.language.cmake"
+    },
+    {
+      "id": "asabil.meson",
+      "repository": "https://github.com/asabil/vscode-meson"
     }
   ]
 }
