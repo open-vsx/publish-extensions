@@ -934,6 +934,11 @@
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3",
       "version": "0.4.2"
+    },
+    {
+      "id": "alexcvzz.vscode-sqlite",
+      "repository": "https://github.com/AlexCovizzi/vscode-sqlite",
+      "version": "0.8.2"
     }
   ]
 }
