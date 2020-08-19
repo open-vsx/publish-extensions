@@ -935,6 +935,10 @@
     {
       "id": "asabil.meson",
       "repository": "https://github.com/asabil/vscode-meson"
+    },
+    {
+      "id": "itsmajestix.vscode-ti",
+      "repository": "https://github.com/ItsMajestiX/VSCode-Ti"
     }
   ]
 }
