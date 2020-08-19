@@ -77,6 +77,10 @@
       "version": "1.0.3"
     },
     {
+      "id": "asabil.meson",
+      "repository": "https://github.com/asabil/vscode-meson"
+    },
+    {
       "id": "asvetliakov.vscode-neovim",
       "repository": "https://github.com/asvetliakov/vscode-neovim",
       "version": "0.0.50",
@@ -95,6 +99,12 @@
       "id": "batisteo.vscode-django",
       "repository": "https://github.com/vscode-django/vscode-django",
       "version": "0.20.0"
+    },
+    {
+      "id": "bbenoist.Doxygen",
+      "repository": "https://github.com/bbenoist/vscode-doxygen",
+      "version": "1.0.0",
+      "checkout": "1.0.0"
     },
     {
       "id": "belfz.search-crates-io",
@@ -170,6 +180,12 @@
       "repository": "https://github.com/cschleiden/vscode-github-actions"
     },
     {
+      "id": "cschlosser.doxdocgen",
+      "repository": "https://github.com/christophschlosser/doxdocgen",
+      "version": "0.7.2",
+      "checkout": "0.7.2"
+    },
+    {
       "id": "csstools.postcss",
       "repository": "https://github.com/csstools/postcss-language"
     },
@@ -191,6 +207,12 @@
       "version": "0.36.3",
       "checkout": "v0.36.3",
       "prepublish": "npm run compile"
+    },
+    {
+      "id": "dawidd6.debian-vscode",
+      "repository": "https://github.com/dawidd6/debian-vscode",
+      "version": "0.1.2",
+      "checkout": "0.1.2"
     },
     {
       "id": "denoland.vscode-deno",
@@ -805,6 +827,10 @@
       "repository": "https://github.com/HondryTravis/simple-dark"
     },
     {
+      "id": "twxs.cmake",
+      "repository": "https://github.com/twxs/vs.language.cmake"
+    },
+    {
       "id": "vortizhe.simple-ruby-erb",
       "repository": "https://github.com/vortizhe/vscode-ruby-erb"
     },
@@ -909,32 +935,6 @@
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3",
       "version": "0.4.2"
-    },
-    {
-      "id": "dawidd6.debian-vscode",
-      "repository": "https://github.com/dawidd6/debian-vscode",
-      "version": "0.1.2",
-      "checkout": "0.1.2"
-    },
-    {
-      "id": "cschlosser.doxdocgen",
-      "repository": "https://github.com/christophschlosser/doxdocgen",
-      "version": "0.7.2",
-      "checkout": "0.7.2"
-    },
-    {
-      "id": "bbenoist.Doxygen",
-      "repository": "https://github.com/bbenoist/vscode-doxygen",
-      "version": "1.0.0",
-      "checkout": "1.0.0"
-    },
-    {
-      "id": "twxs.cmake",
-      "repository": "https://github.com/twxs/vs.language.cmake"
-    },
-    {
-      "id": "asabil.meson",
-      "repository": "https://github.com/asabil/vscode-meson"
     }
   ]
 }
