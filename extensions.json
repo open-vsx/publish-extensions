@@ -593,6 +593,11 @@
       "checkout": "0.1.0"
     },
     {
+      "id": "mrmlnc.vscode-duplicate",
+      "repository": "https://github.com/mrmlnc/vscode-duplicate.git",
+      "version": "1.2.1"
+    },
+    {
       "id": "ms-azuretools.vscode-docker",
       "repository": "https://github.com/microsoft/vscode-docker",
       "version": "1.5.0",
