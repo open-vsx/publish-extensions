@@ -482,8 +482,9 @@
     {
       "id": "justusadam.language-haskell",
       "repository": "https://github.com/JustusAdam/language-haskell",
-      "checkout": "v3.0.3",
-      "prepublish": "npm i --save-dev @types/node@10"
+      "version": "3.3.0",
+      "checkout": "v3.3.0",
+      "prepublish": "npm i --save-dev @types/node@10 && make all"
     },
     {
       "id": "karunamurti.haml",
