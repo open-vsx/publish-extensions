@@ -595,7 +595,8 @@
     {
       "id": "mrmlnc.vscode-duplicate",
       "repository": "https://github.com/mrmlnc/vscode-duplicate.git",
-      "version": "1.2.1"
+      "version": "1.2.1",
+      "checkout": "1.2.1"
     },
     {
       "id": "ms-azuretools.vscode-docker",
