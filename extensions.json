@@ -940,6 +940,11 @@
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3",
       "version": "0.4.2"
+    },
+    {
+      "id": "wix.vscode-import-cost",
+      "repository": "https://github.com/wix/import-cost",
+      "version": "2.12.0"
     }
   ]
 }
