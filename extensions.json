@@ -35,7 +35,7 @@
       "id": "alexcvzz.vscode-sqlite",
       "repository": "https://github.com/AlexCovizzi/vscode-sqlite",
       "version": "0.8.2",
-      "prepublish": "npm install preact-cli"
+      "prepublish": "npm run install-html"
     },
     {
       "id": "aliariff.vscode-erb-beautify",
