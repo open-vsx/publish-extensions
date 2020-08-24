@@ -1178,6 +1178,10 @@
       "repository": "https://github.com/influrium/vscode-haxe-jsx"
     },
     {
+      "id": "jarrio.hxmanager",
+      "repository": "https://github.com/Jarrio/Haxe-Manager.git"
+    },
+    {
       "id": "openfl.lime-vscode-extension",
       "repository": "https://github.com/openfl/lime-vscode-extension"
     },
