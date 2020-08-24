@@ -1156,6 +1156,38 @@
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3",
       "version": "0.4.2"
+    },
+    {
+      "id": "nadako.vshaxe",
+      "repository": "https://github.com/vshaxe/vshaxe.git"
+    },
+    {
+      "id": "vshaxe.haxe-checkstyle",
+      "repository": "https://github.com/vshaxe/vscode-checkstyle"
+    },
+    {
+      "id": "vshaxe.haxe-extension-pack",
+      "repository": "https://github.com/vshaxe/vshaxe-extension-pack.git"
+    },
+    {
+      "id": "vshaxe.haxe-test-adapter",
+      "repository": "https://github.com/vshaxe/haxe-test-adapter.git"
+    },
+    {
+      "id": "influrium.haxe-jsx",
+      "repository": "https://github.com/influrium/vscode-haxe-jsx"
+    },
+    {
+      "id": "openfl.lime-vscode-extension",
+      "repository": "https://github.com/openfl/lime-vscode-extension"
+    },
+    {
+      "id": "kodetech.kha",
+      "repository": "https://github.com/Kode/vscode-kha"
+    },
+    {
+      "id": "kodetech.kha-extension-pack",
+      "repository": "https://github.com/Kode/vscode-kha-extension-pack"
     }
   ]
 }
