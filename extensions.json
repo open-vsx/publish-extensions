@@ -791,6 +791,11 @@
       "checkout": "v0.1.1"
     },
     {
+      "id": "SonarSource.sonarlint-vscode",
+      "repository": "https://github.com/SonarSource/sonarlint-vscode",
+      "version": "1.18.0"
+    },
+    {
       "id": "steoates.autoimport",
       "repository": "https://github.com/soates/Auto-Import",
       "version": "1.5.3",
