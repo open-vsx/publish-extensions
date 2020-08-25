@@ -221,7 +221,9 @@
     },
     {
       "id": "DigitalBrainstem.javascript-ejs-support",
-      "repository": "https://github.com/Digitalbrainstem/ejs-grammar"
+      "repository": "https://github.com/Digitalbrainstem/ejs-grammar",
+      "version": "1.2.1",
+      "checkout": "v1.2.1"
     },
     {
       "id": "docsmsft.docs-markdown",
