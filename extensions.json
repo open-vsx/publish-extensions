@@ -522,12 +522,6 @@
       "version": "0.2.3"
     },
     {
-      "id": "Luxcium.pop-n-lock-theme-vscode",
-      "version": "3.28.5",
-      "repository": "https://github.com/luxcium/pop-n-lock-theme-vscode",
-      "checkout": "v3.28.5"
-    },
-    {
       "id": "mads-hartmann.bash-ide-vscode",
       "repository": "https://github.com/bash-lsp/bash-language-server",
       "version": "1.10.2",
