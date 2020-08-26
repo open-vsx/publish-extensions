@@ -220,6 +220,12 @@
       "repository": "https://github.com/denoland/vscode_deno"
     },
     {
+      "id": "DigitalBrainstem.javascript-ejs-support",
+      "repository": "https://github.com/Digitalbrainstem/ejs-grammar",
+      "version": "1.2.1",
+      "checkout": "v1.2.1"
+    },
+    {
       "id": "docsmsft.docs-markdown",
       "repository": "https://github.com/Microsoft/vscode-docs-authoring",
       "location": "docs-markdown"
