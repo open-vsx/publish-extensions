@@ -529,8 +529,8 @@
     {
       "id": "mads-hartmann.bash-ide-vscode",
       "repository": "https://github.com/bash-lsp/bash-language-server",
-      "version": "1.10.2",
-      "checkout": "vscode-client-1.10.2",
+      "version": "1.11.0",
+      "checkout": "vscode-client-1.11.0",
       "location": "vscode-client"
     },
     {
