@@ -443,8 +443,8 @@
     {
       "id": "Ionide.Ionide-fsharp",
       "repository": "https://github.com/ionide/ionide-vscode-fsharp",
-      "version": "4.15.0",
-      "checkout": "4.15.0",
+      "version": "4.16.0",
+      "checkout": "4.16.0",
       "location": "release"
     },
     {
