@@ -556,8 +556,8 @@
     {
       "id": "medo64.render-crlf",
       "repository": "https://github.com/medo64/render-crlf",
-      "version": "1.5.10",
-      "checkout": "v1.5.10"
+      "version": "1.5.11",
+      "checkout": "v1.5.11"
     },
     {
       "id": "MehediDracula.php-namespace-resolver",
