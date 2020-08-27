@@ -284,7 +284,6 @@
     {
       "id": "emmanuelbeziat.vscode-great-icons",
       "repository": "https://github.com/EmmanuelBeziat/vscode-great-icons",
-      "version": "2.1.48",
       "prepublish": "sed -ri \"s_git\\+https://_https://_g\" package.json"
     },
     {
