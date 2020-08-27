@@ -426,8 +426,8 @@
     {
       "id": "IBMBlockchain.ibm-blockchain-platform",
       "repository": "https://github.com/IBM-Blockchain/blockchain-vscode-extension",
-      "version": "1.0.36",
-      "checkout": "v1.0.36",
+      "version": "1.0.37",
+      "checkout": "v1.0.37",
       "location": "packages/blockchain-extension"
     },
     {
