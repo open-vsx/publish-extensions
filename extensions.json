@@ -820,8 +820,8 @@
     {
       "id": "timonwong.shellcheck",
       "repository": "https://github.com/timonwong/vscode-shellcheck",
-      "version": "0.9.0",
-      "checkout": "v0.9.0"
+      "version": "0.10.1",
+      "checkout": "v0.10.1"
     },
     {
       "id": "tombonnike.vscode-status-bar-format-toggle",
