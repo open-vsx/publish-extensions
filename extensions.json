@@ -569,8 +569,7 @@
     },
     {
       "id": "Mikael.Angular-BeastCode",
-      "repository": "https://github.com/BeastCode/VSCode-Angular-TypeScript-Snippets",
-      "version": "8.1.1"
+      "repository": "https://github.com/BeastCode/VSCode-Angular-TypeScript-Snippets"
     },
     {
       "id": "mikestead.dotenv",
