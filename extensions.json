@@ -39,7 +39,6 @@
     {
       "id": "alexcvzz.vscode-sqlite",
       "repository": "https://github.com/AlexCovizzi/vscode-sqlite",
-      "version": "0.8.2",
       "prepublish": "npm run install-html"
     },
     {
