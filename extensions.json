@@ -2,7 +2,7 @@
   "extensions": [
     {
       "id": "0x9ef.vscode-vlang",
-      "repository": "https://github.com/vlang/vscode-vlang",
+      "download": "https://github.com/vlang/vscode-vlang/releases/download/0.1.12/vscode-vlang-0.1.2.vsix",
       "version": "0.1.2"
     },
     {
