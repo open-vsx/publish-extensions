@@ -715,9 +715,8 @@
     },
     {
       "id": "puppet.puppet-vscode",
-      "repository": "https://github.com/puppetlabs/puppet-vscode",
-      "version": "0.28.0",
-      "checkout": "0.28.0"
+      "download": "https://github.com/puppetlabs/puppet-vscode/releases/download/0.28.0/puppet-vscode-0.28.0.vsix",
+      "version": "0.28.0"
     },
     {
       "id": "rebornix.ruby",
