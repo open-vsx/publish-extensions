@@ -520,9 +520,8 @@
     },
     {
       "id": "littlefoxteam.vscode-python-test-adapter",
-      "repository": "https://github.com/kondratyev-nv/vscode-python-test-adapter",
-      "version": "0.4.5",
-      "checkout": "v0.4.5"
+      "download": "https://github.com/kondratyev-nv/vscode-python-test-adapter/releases/download/v0.4.5/vscode-python-test-adapter-0.4.5.vsix",
+      "version": "0.4.5"
     },
     {
       "id": "lonefy.vscode-JS-CSS-HTML-formatter",
