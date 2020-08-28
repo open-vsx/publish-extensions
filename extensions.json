@@ -549,7 +549,8 @@
     },
     {
       "id": "matklad.rust-analyzer",
-      "download": "https://github.com/rust-analyzer/rust-analyzer/releases/download/2020-08-10/rust-analyzer.vsix"
+      "download": "https://github.com/rust-analyzer/rust-analyzer/releases/download/2020-08-24/rust-analyzer.vsix",
+      "version": "0.2.289"
     },
     {
       "id": "max-SS.Cyberpunk",
