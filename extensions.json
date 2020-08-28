@@ -70,8 +70,8 @@
     {
       "id": "apollographql.vscode-apollo",
       "repository": "https://github.com/apollographql/apollo-tooling",
-      "version": "1.16.7",
-      "checkout": "vscode-apollo@1.16.7",
+      "version": "1.16.8",
+      "checkout": "vscode-apollo@1.16.8",
       "location": "packages/vscode-apollo",
       "prepublish": "cd packages/vscode-apollo && npm --prefix ../.. install && npm run _internal:prepare-extension"
     },
