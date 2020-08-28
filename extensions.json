@@ -219,6 +219,11 @@
       "checkout": "0.1.2"
     },
     {
+      "id": "dbaeumer.vscode-eslint",
+      "download": "https://github.com/microsoft/vscode-eslint/releases/download/release%2F2.1.8/dbaeumer.vscode-eslint-2.1.8.vsix",
+      "version": "2.1.8"
+    },
+    {
       "id": "denoland.vscode-deno",
       "repository": "https://github.com/denoland/vscode_deno"
     },
