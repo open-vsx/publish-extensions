@@ -915,7 +915,8 @@
     {
       "id": "wix.vscode-import-cost",
       "repository": "https://github.com/wix/import-cost",
-      "location": "packages/vscode-import-cost"
+      "location": "packages/vscode-import-cost",
+      "prepublish": "cd packages/vscode-import-cost && git clean -xdf && npm install"
     },
     {
       "id": "Wscats.omi-snippets",
