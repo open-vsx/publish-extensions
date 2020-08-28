@@ -1,6 +1,11 @@
 {
   "extensions": [
     {
+      "id": "0x9ef.vscode-vlang",
+      "repository": "https://github.com/vlang/vscode-vlang",
+      "version": "0.1.2"
+    },
+    {
       "id": "aaron-bond.better-comments",
       "repository": "https://github.com/aaron-bond/better-comments"
     },
