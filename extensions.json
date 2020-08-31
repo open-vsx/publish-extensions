@@ -664,6 +664,12 @@
       "prepublish": "npm install spago purescript"
     },
     {
+      "id": "ocamllabs.ocaml-platform",
+      "repository": "https://github.com/ocamllabs/vscode-ocaml-platform.git",
+      "version": "0.9.0",
+      "checkout": "v0.9.0"
+    },
+    {
       "id": "octref.vetur",
       "repository": "https://github.com/vuejs/vetur",
       "version": "0.26.1",
@@ -740,6 +746,12 @@
       "repository": "https://github.com/rust-lang/rls-vscode",
       "version": "0.7.8",
       "checkout": "v0.7.8"
+    },
+    {
+      "id": "ryanolsonx.zenburn",
+      "repository": "https://github.com/ryanolsonx/vscode-zenburn-theme.git",
+      "version": "1.0.1",
+      "checkout": "8d0ea180bd58cdf2a1b88250b44ee71fb80326b6"
     },
     {
       "id": "samuelcolvin.jinjahtml",
