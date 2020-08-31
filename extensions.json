@@ -37,11 +37,6 @@
       "version": "11.0.1"
     },
     {
-      "id": "alexcvzz.vscode-sqlite",
-      "repository": "https://github.com/AlexCovizzi/vscode-sqlite",
-      "prepublish": "npm run install-html"
-    },
-    {
       "id": "aliariff.vscode-erb-beautify",
       "repository": "https://github.com/aliariff/vscode-erb-beautify",
       "version": "0.2.0",
