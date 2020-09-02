@@ -430,8 +430,8 @@
     {
       "id": "humao.rest-client",
       "repository": "https://github.com/Huachao/vscode-restclient",
-      "version": "0.24.1",
-      "checkout": "v0.24.1"
+      "version": "0.24.2",
+      "checkout": "v0.24.2"
     },
     {
       "id": "IBMBlockchain.ibm-blockchain-platform",
