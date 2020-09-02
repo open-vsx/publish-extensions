@@ -367,6 +367,10 @@
       "version": "1.0.1"
     },
     {
+      "id": "neikeq.godot-csharp-vscode",
+      "repository": "https://github.com/godotengine/godot-csharp-vscode"
+    },
+    {
       "id": "giscafer.leek-fund",
       "repository": "https://github.com/giscafer/leek-fund"
     },
