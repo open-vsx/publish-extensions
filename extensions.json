@@ -499,6 +499,11 @@
       "repository": "https://github.com/karuna/haml-vscode"
     },
     {
+      "id": "k--kato.docomment",
+      "download": "https://github.com/kasecato/vscode-docomment/releases/download/v0.1.18/docomment-0.1.18.vsix",
+      "version": "0.1.18"
+    },
+    {
       "id": "KnisterPeter.vscode-github",
       "repository": "https://github.com/KnisterPeter/vscode-github",
       "version": "0.30.3",
