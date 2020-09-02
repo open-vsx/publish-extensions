@@ -62,7 +62,7 @@ const dontUpgrade = [
     for (const extension of extensionDownloadsToUpgrade) {
         // Scrape the latest GitHub releases to check for updates.
         const releases = await get(extension.download.replace(/\/releases\/download\/.*$/, '/releases'));
-        const latest = releases.match(/\/releases\/download\/[-._a-zA-Z0-9\/]*\.vsix/g).filter(release => !/(nightly|-rc|-alpha|-beta)/.test(release)).shift();
+        const latest = releases.match(/\/releases\/download\/[-._a-zA-Z0-9\/%]*\.vsix/g).filter(release => !/(nightly|-rc|-alpha|-beta)/.test(release)).shift();
         await exec('node add-extension --download=' + (latest ? extension.download.replace(/\/releases\/download\/.*$/, latest) : extension.download));
     }
 
