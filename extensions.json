@@ -484,8 +484,7 @@
     },
     {
       "id": "jpoissonnier.vscode-styled-components",
-      "repository": "https://github.com/styled-components/vscode-styled-components",
-      "version": "0.0.29"
+      "repository": "https://github.com/styled-components/vscode-styled-components"
     },
     {
       "id": "justusadam.language-haskell",
