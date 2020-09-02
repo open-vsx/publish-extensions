@@ -611,8 +611,8 @@
     },
     {
       "id": "ms-python.python",
-      "download": "https://github.com/Microsoft/vscode-python/releases/download/2020.8.105045/ms-python-release.vsix",
-      "version": "2020.8.105045"
+      "download": "https://github.com/Microsoft/vscode-python/releases/download/2020.8.105369/ms-python-release.vsix",
+      "version": "2020.8.105369"
     },
     {
       "id": "ms-vscode.atom-keybindings",
