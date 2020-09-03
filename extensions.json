@@ -675,9 +675,8 @@
     },
     {
       "id": "octref.vetur",
-      "repository": "https://github.com/vuejs/vetur",
-      "version": "0.26.1",
-      "checkout": "v0.26.1"
+      "download": "https://github.com/vuejs/vetur/releases/download/v0.27.0/vetur-0.27.0.vsix",
+      "version": "0.27.0"
     },
     {
       "id": "oderwat.indent-rainbow",
