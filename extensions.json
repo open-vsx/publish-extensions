@@ -519,6 +519,10 @@
       "checkout": "v0.6.6"
     },
     {
+      "id": "lextudio.restructuredtext",
+      "repository": "https://github.com/vscode-restructuredtext/vscode-restructuredtext"
+    },
+    {
       "id": "lintangwisesa.arduino",
       "repository": "https://github.com/LintangWisesa/VScode-Arduino-Theme"
     },
