@@ -76,6 +76,10 @@
       "version": "1.0.3"
     },
     {
+      "id": "arjun.swagger-viewer",
+      "repository": "https://github.com/arjun-g/vs-swagger-viewer"
+    },
+    {
       "id": "asabil.meson",
       "repository": "https://github.com/asabil/vscode-meson"
     },
