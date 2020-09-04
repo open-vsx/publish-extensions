@@ -806,6 +806,10 @@
       "checkout": "v0.4.4"
     },
     {
+      "id": "shuworks.vscode-table-formatter",
+      "repository": "https://github.com/shuGH/vscode-table-formatter"
+    },
+    {
       "id": "sketchbuch.vsc-packages",
       "repository": "https://github.com/sketchbuch/vsc-packages",
       "version": "1.5.1",
