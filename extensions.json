@@ -172,7 +172,8 @@
       "repository": "https://github.com/christianvoigt/argdown",
       "version": "1.5.0",
       "checkout": "be86c880e39da3d963b2f63855f30616a1704703",
-      "location": "packages/argdown-vscode"
+      "location": "packages/argdown-vscode",
+      "prepublish": "cd packages/argdown-vscode && yarn install"
     },
     {
       "id": "CoenraadS.bracket-pair-colorizer",
