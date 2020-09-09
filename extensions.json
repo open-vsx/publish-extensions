@@ -803,6 +803,10 @@
       "checkout": "v3.4.3"
     },
     {
+      "id": "shardulm94.trailing-spaces",
+      "repository": "https://github.com/shardulm94/vscode-trailingspaces"
+    },
+    {
       "id": "shinichi-takii.sql-bigquery",
       "repository": "https://github.com/shinichi-takii/vscode-language-sql-bigquery",
       "version": "1.4.0",
