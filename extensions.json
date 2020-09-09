@@ -468,6 +468,14 @@
       "repository": "https://github.com/Ikuyadeu/vscode-R"
     },
     {
+      "id": "iocave.customize-ui",
+      "repository": "https://github.com/iocave/customize-ui"
+    },
+    {
+      "id": "iocave.monkey-patch",
+      "repository": "https://github.com/iocave/monkey-patch"
+    },
+    {
       "id": "ivangabriele.vscode-git-add-and-commit",
       "repository": "https://github.com/ivangabriele/vscode-git-automator-legacy",
       "version": "2.1.1",
