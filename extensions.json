@@ -798,9 +798,8 @@
     },
     {
       "id": "shan.code-settings-sync",
-      "repository": "https://github.com/shanalikhan/code-settings-sync",
-      "version": "3.4.3",
-      "checkout": "v3.4.3"
+      "download": "https://github.com/shanalikhan/code-settings-sync/releases/download/v3.4.3/code-settings-sync-3.4.3.vsix",
+      "version": "3.4.3"
     },
     {
       "id": "shinichi-takii.sql-bigquery",
