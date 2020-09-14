@@ -185,11 +185,6 @@
       "version": "1.0.61"
     },
     {
-      "id": "CoenraadS.bracket-pair-colorizer-2",
-      "repository": "https://github.com/CoenraadS/Bracket-Pair-Colorizer-2",
-      "version": "0.1.4"
-    },
-    {
       "id": "connorshea.vscode-ruby-test-adapter",
       "repository": "https://github.com/connorshea/vscode-ruby-test-adapter",
       "version": "0.7.1",
