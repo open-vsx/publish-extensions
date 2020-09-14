@@ -205,6 +205,11 @@
       "repository": "https://github.com/csstools/postcss-language"
     },
     {
+      "id": "danielgjackson.auto-dark-mode-windows",
+      "repository": "https://github.com/danielgjackson/vscode-auto-dark-mode-windows"
+    },
+    
+    {
       "id": "Dart-Code.dart-code",
       "repository": "https://github.com/Dart-Code/Dart-Code",
       "version": "3.13.2",
@@ -381,6 +386,10 @@
     {
       "id": "neikeq.godot-csharp-vscode",
       "repository": "https://github.com/godotengine/godot-csharp-vscode"
+    },
+    {
+      "id": "gharveymn.nightswitch-lite",
+      "repository": "https://github.com/gharveymn/nightswitch-lite"
     },
     {
       "id": "giscafer.leek-fund",
