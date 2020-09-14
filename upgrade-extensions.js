@@ -19,6 +19,7 @@ const writeFile = util.promisify(fs.writeFile);
 const dontUpgrade = [
   'alefragnani.Bookmarks', // https://github.com/alefragnani/vscode-bookmarks/issues/315
   'alefragnani.project-manager', // https://github.com/alefragnani/vscode-bookmarks/issues/315
+  'chenglou.rescript-language-server', // .vsix releases are no longer available under https://github.com/rescript-lang/rescript-vscode/releases
 ];
 
 (async () => {
