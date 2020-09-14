@@ -943,11 +943,6 @@
       "version": "1.0.4"
     },
     {
-      "id": "webfreak.debug",
-      "repository": "https://github.com/WebFreak001/code-debug",
-      "version": "0.25.0"
-    },
-    {
       "id": "wholroyd.jinja",
       "repository": "https://github.com/wholroyd/vscode-jinja",
       "version": "0.0.8"
