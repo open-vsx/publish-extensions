@@ -211,9 +211,7 @@
     },
     {
       "id": "danielgjackson.auto-dark-mode-windows",
-      "repository": "https://github.com/danielgjackson/vscode-auto-dark-mode-windows",
-      "version": "1.0.8",
-      "checkout": "v1.0.8"
+      "repository": "https://github.com/danielgjackson/vscode-auto-dark-mode-windows"
     },
     
     {
@@ -396,9 +394,7 @@
     },
     {
       "id": "gharveymn.nightswitch-lite",
-      "repository": "https://github.com/gharveymn/nightswitch-lite",
-      "version": "2.2.2",
-      "checkout": "v2.2.2"
+      "repository": "https://github.com/gharveymn/nightswitch-lite"
     },
     {
       "id": "giscafer.leek-fund",
