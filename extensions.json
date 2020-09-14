@@ -375,6 +375,11 @@
       "checkout": "0.4.0"
     },
     {
+      "id": "formulahendry.vscode-node-red",
+      "download": "https://github.com/formulahendry/vscode-node-red/releases/download/0.0.2/vscode-node-red-0.0.2.vsix",
+      "version": "0.0.2"
+    },
+    {
       "id": "Fr43nk.seito-openfile",
       "repository": "https://gitlab.com/fr43nk/seito-openfile"
     },
@@ -382,10 +387,6 @@
       "id": "geequlim.godot-tools",
       "download": "https://github.com/godotengine/godot-vscode-plugin/releases/download/1.0.1/godot-tools-1.0.1.vsix",
       "version": "1.0.1"
-    },
-    {
-      "id": "neikeq.godot-csharp-vscode",
-      "repository": "https://github.com/godotengine/godot-csharp-vscode"
     },
     {
       "id": "gharveymn.nightswitch-lite",
@@ -687,6 +688,10 @@
       "id": "naumovs.color-highlight",
       "repository": "https://github.com/egonyans/vscode-ext-color-highlight",
       "version": "2.3.0"
+    },
+    {
+      "id": "neikeq.godot-csharp-vscode",
+      "repository": "https://github.com/godotengine/godot-csharp-vscode"
     },
     {
       "id": "neilbrayfield.php-docblocker",
