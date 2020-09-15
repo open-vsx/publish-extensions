@@ -1010,6 +1010,12 @@
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3",
       "version": "0.4.2"
+    },
+    {
+      "id": "ginfuru.ginfuru-better-solarized-dark-theme",
+      "repository": "https://github.com/ginfuru/vscode-better-solarized",
+      "version": "0.9.4",
+      "checkout": "v0.9.4"
     }
   ]
 }
