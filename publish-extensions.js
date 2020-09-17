@@ -28,7 +28,8 @@ const readFile = util.promisify(fs.readFile);
    *        checkout?: string,
    *        location?: string,
    *        prepublish?: string,
-   *        download?: string
+   *        download?: string,
+   *        extensionFile?: string
    *    }[]
    * }}
    */
@@ -88,6 +89,9 @@ const readFile = util.promisify(fs.readFile);
         if (extension.location) {
           console.warn('[WARN] Ignoring `location` property because `download` was given.')
         }
+        if (extension.extensionFile) {
+          console.warn('[WARN] Ignoring `extensionFile` property because `download` was given.')
+        }
 
         // Download the extension package, e.g. from a GitHub release
         console.log(`Downloading ${extension.download}`);
@@ -114,7 +118,15 @@ const readFile = util.promisify(fs.readFile);
 
         // Publish the extension.
         /** @type {import('ovsx').PublishOptions} */
-        const options = { packagePath: path.join('/tmp/repository', extension.location || '.') };
+        let options;
+        if (extension.extensionFile) {
+          if (extension.location) {
+            console.warn('[WARN] Ignoring `location` property because `extensionFile` was given.')
+          }
+          options = {extensionFile: path.join('/tmp/repository', extension.extensionFile)};
+        } else {
+          options = {packagePath: path.join('/tmp/repository', extension.location || '.')};
+        }
         if (yarn) {
             options.yarn = true;
         }
