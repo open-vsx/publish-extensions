@@ -644,6 +644,101 @@
       "checkout": "1.2.1"
     },
     {
+      "id": "MS-CEINTL.vscode-language-pack-bg",
+      "repository": "https://github.com/microsoft/vscode-loc",
+      "location": "i18n/vscode-language-pack-bg"
+    },
+    {
+      "id": "MS-CEINTL.vscode-language-pack-cs",
+      "repository": "https://github.com/microsoft/vscode-loc",
+      "location": "i18n/vscode-language-pack-cd"
+    },
+    {
+      "id": "MS-CEINTL.vscode-language-pack-de",
+      "repository": "https://github.com/microsoft/vscode-loc",
+      "location": "i18n/vscode-language-pack-de"
+    },
+    {
+      "id": "MS-CEINTL.vscode-language-pack-en-GB",
+      "repository": "https://github.com/microsoft/vscode-loc",
+      "location": "i18n/vscode-language-pack-en-GB"
+    },
+    {
+      "id": "MS-CEINTL.vscode-language-pack-es",
+      "repository": "https://github.com/microsoft/vscode-loc",
+      "location": "i18n/vscode-language-pack-es"
+    },
+    {
+      "id": "MS-CEINTL.vscode-language-pack-fr",
+      "repository": "https://github.com/microsoft/vscode-loc",
+      "location": "i18n/vscode-language-pack-fr"
+    },
+    {
+      "id": "MS-CEINTL.vscode-language-pack-hu",
+      "repository": "https://github.com/microsoft/vscode-loc",
+      "location": "i18n/vscode-language-pack-hu"
+    },
+    {
+      "id": "MS-CEINTL.vscode-language-pack-id",
+      "repository": "https://github.com/microsoft/vscode-loc",
+      "location": "i18n/vscode-language-pack-id"
+    },
+    {
+      "id": "MS-CEINTL.vscode-language-pack-it",
+      "repository": "https://github.com/microsoft/vscode-loc",
+      "location": "i18n/vscode-language-pack-it"
+    },
+    {
+      "id": "MS-CEINTL.vscode-language-pack-ja",
+      "repository": "https://github.com/microsoft/vscode-loc",
+      "location": "i18n/vscode-language-pack-ja"
+    },
+    {
+      "id": "MS-CEINTL.vscode-language-pack-ko",
+      "repository": "https://github.com/microsoft/vscode-loc",
+      "location": "i18n/vscode-language-pack-ko"
+    },
+    {
+      "id": "MS-CEINTL.vscode-language-pack-nl",
+      "repository": "https://github.com/microsoft/vscode-loc",
+      "location": "i18n/vscode-language-pack-nl"
+    },
+    {
+      "id": "MS-CEINTL.vscode-language-pack-pl",
+      "repository": "https://github.com/microsoft/vscode-loc",
+      "location": "i18n/vscode-language-pack-pl"
+    },
+    {
+      "id": "MS-CEINTL.vscode-language-pack-pt-BR",
+      "repository": "https://github.com/microsoft/vscode-loc",
+      "location": "i18n/vscode-language-pack-pt-BR"
+    },
+    {
+      "id": "MS-CEINTL.vscode-language-pack-ru",
+      "repository": "https://github.com/microsoft/vscode-loc",
+      "location": "i18n/vscode-language-pack-ru"
+    },
+    {
+      "id": "MS-CEINTL.vscode-language-pack-tr",
+      "repository": "https://github.com/microsoft/vscode-loc",
+      "location": "i18n/vscode-language-pack-tr"
+    },
+    {
+      "id": "MS-CEINTL.vscode-language-pack-uk",
+      "repository": "https://github.com/microsoft/vscode-loc",
+      "location": "i18n/vscode-language-pack-uk"
+    },
+    {
+      "id": "MS-CEINTL.vscode-language-pack-zh-hans",
+      "repository": "https://github.com/microsoft/vscode-loc",
+      "location": "i18n/vscode-language-pack-zh-hans"
+    },
+    {
+      "id": "MS-CEINTL.vscode-language-pack-zh-hant",
+      "repository": "https://github.com/microsoft/vscode-loc",
+      "location": "i18n/vscode-language-pack-zh-hant"
+    },
+    {
       "id": "ms-azuretools.vscode-docker",
       "download": "https://github.com/microsoft/vscode-docker/releases/download/v1.5.0/vscode-docker-1.5.0.vsix",
       "version": "1.5.0"
