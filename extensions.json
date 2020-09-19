@@ -493,8 +493,8 @@
     {
       "id": "James-Yu.latex-workshop",
       "repository": "https://github.com/James-Yu/LaTeX-Workshop",
-      "version": "8.11.1",
-      "checkout": "v8.11.1"
+      "version": "8.13.2",
+      "checkout": "v8.13.2"
     },
     {
       "id": "jchannon.csharpextensions",
