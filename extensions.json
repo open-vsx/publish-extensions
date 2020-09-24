@@ -1,5 +1,9 @@
 {
   "extensions": [
+     {
+      "id": "vhdlwhiz.vhdl-by-vhdlwhiz",
+      "download": "https://github.com/jonasjj/awesome-vhdl"
+    },
     {
       "id": "0x9ef.vscode-vlang",
       "download": "https://github.com/vlang/vscode-vlang/releases/download/0.1.12/vscode-vlang-0.1.2.vsix",
