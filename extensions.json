@@ -27,6 +27,11 @@
       "repository": "https://github.com/akamud/vscode-theme-onelight"
     },
     {
+      "id": "albymor.increment-selection",
+      "repository": "https://github.com/albymor/Increment-Selection",
+      "version": "0.2.0"
+    },
+    {
       "id": "alefragnani.Bookmarks",
       "repository": "https://github.com/alefragnani/vscode-bookmarks",
       "version": "11.3.0"
@@ -208,7 +213,6 @@
       "id": "danielgjackson.auto-dark-mode-windows",
       "repository": "https://github.com/danielgjackson/vscode-auto-dark-mode-windows"
     },
-    
     {
       "id": "Dart-Code.dart-code",
       "repository": "https://github.com/Dart-Code/Dart-Code",
@@ -391,6 +395,12 @@
     {
       "id": "gharveymn.nightswitch-lite",
       "repository": "https://github.com/gharveymn/nightswitch-lite"
+    },
+    {
+      "id": "ginfuru.ginfuru-better-solarized-dark-theme",
+      "repository": "https://github.com/ginfuru/vscode-better-solarized",
+      "version": "0.9.4",
+      "checkout": "v0.9.4"
     },
     {
       "id": "giscafer.leek-fund",
@@ -645,6 +655,11 @@
       "checkout": "1.2.1"
     },
     {
+      "id": "ms-azuretools.vscode-docker",
+      "download": "https://github.com/microsoft/vscode-docker/releases/download/v1.5.0/vscode-docker-1.5.0.vsix",
+      "version": "1.5.0"
+    },
+    {
       "id": "MS-CEINTL.vscode-language-pack-bg",
       "repository": "https://github.com/microsoft/vscode-loc",
       "location": "i18n/vscode-language-pack-bg"
@@ -740,11 +755,6 @@
       "location": "i18n/vscode-language-pack-zh-hant"
     },
     {
-      "id": "ms-azuretools.vscode-docker",
-      "download": "https://github.com/microsoft/vscode-docker/releases/download/v1.5.0/vscode-docker-1.5.0.vsix",
-      "version": "1.5.0"
-    },
-    {
       "id": "ms-kubernetes-tools.vscode-kubernetes-tools",
       "repository": "https://github.com/Azure/vscode-kubernetes-tools",
       "version": "1.2.1",
@@ -768,19 +778,19 @@
       "checkout": "0.14.3"
     },
     {
-      "id": "ms-vscode.node-debug",
-      "repository": "https://github.com/microsoft/vscode-node-debug",
-      "version": "1.44.8",
-      "checkout": "v1.44.8",
-      "prepublish": "yarn prepublish && yarn package"
-    },
-    {
       "id": "ms-vscode.js-debug",
       "repository": "https://github.com/microsoft/vscode-js-debug",
       "version": "1.49.8",
       "checkout": "v1.49.8",
       "prepublish": "npm run compile && npm run package",
       "extensionFile": "dist/js-debug.vsix"
+    },
+    {
+      "id": "ms-vscode.node-debug",
+      "repository": "https://github.com/microsoft/vscode-node-debug",
+      "version": "1.44.8",
+      "checkout": "v1.44.8",
+      "prepublish": "yarn prepublish && yarn package"
     },
     {
       "id": "mtxr.sqltools",
@@ -1114,12 +1124,6 @@
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3",
       "version": "0.4.2"
-    },
-    {
-      "id": "ginfuru.ginfuru-better-solarized-dark-theme",
-      "repository": "https://github.com/ginfuru/vscode-better-solarized",
-      "version": "0.9.4",
-      "checkout": "v0.9.4"
     }
   ]
 }
