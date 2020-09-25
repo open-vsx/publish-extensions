@@ -337,6 +337,11 @@
       "prepublish": "sed -ri \"s_]\\(img/_](https://gitlab.com/firelizzard/vscode-go-test-adapter/-/raw/master/img/_g\" README.md"
     },
     {
+      "id": "exiasr.hadolint",
+      "download": "https://github.com/ExiaSR/vscode-hadolint/releases/download/0.3.0/exiasr.hadolint-0.3.0.vsix",
+      "version": "0.3.0"
+    },
+    {
       "id": "felixfbecker.php-debug",
       "download": "https://github.com/felixfbecker/vscode-php-debug/releases/download/v1.13.0/php-debug.vsix",
       "version": "1.13.0"
