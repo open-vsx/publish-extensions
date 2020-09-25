@@ -43,7 +43,9 @@ Here are all the supported values, including optional ones:
       // (OPTIONAL) Location of the extension's package.json in the repository (defaults to the repository's root directory)
       "location": "packages/vscode-ruby-client",
       // (OPTIONAL) Extra commands to run just before publishing to Open VSX (i.e. after "yarn/npm install", but before "vscode:prepublish")
-      "prepublish": "npm run build"
+      "prepublish": "npm run build",
+       // (OPTIONAL) Relative path of the extension vsix file inside the git repo (i.e. when it is built by prepublish commands
+       "extensionFile": "dist/js-debug.vsix"
     },
 ```
 

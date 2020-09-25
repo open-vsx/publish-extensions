@@ -10,17 +10,16 @@
 
 // @ts-check
 const fs = require('fs');
+const https = require('https');
 const util = require('util');
 const exec = require('./lib/exec');
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
 const dontUpgrade = [
-  'felixfbecker.php-debug', // https://github.com/open-vsx/publish-extensions/issues/4
-  'felixfbecker.php-intellisense', // https://github.com/open-vsx/publish-extensions/issues/4
-  'Luxcium.pop-n-lock-theme-vscode', // Error: Open VSX already has a more recent version of Luxcium.pop-n-lock-theme-vscode: 3.28.5 > 3.28.0
   'alefragnani.Bookmarks', // https://github.com/alefragnani/vscode-bookmarks/issues/315
   'alefragnani.project-manager', // https://github.com/alefragnani/vscode-bookmarks/issues/315
+  'chenglou.rescript-language-server', // .vsix releases are no longer available under https://github.com/rescript-lang/rescript-vscode/releases
 ];
 
 (async () => {
@@ -38,14 +37,15 @@ const dontUpgrade = [
    * }}
    */
   const { extensions } = JSON.parse(await readFile('./extensions.json', 'utf-8'));
-  const extensionsToUpgrade = extensions.filter(e => !dontUpgrade.includes(e.id) && !!e.version && !e.download);
-  const extensionsToNotUpgrade = extensions.filter(e => !extensionsToUpgrade.map(e => e.id).includes(e.id));
+  const extensionRepositoriesToUpgrade = extensions.filter(e => !dontUpgrade.includes(e.id) && !!e.version && !e.download);
+  const extensionDownloadsToUpgrade = extensions.filter(e => !dontUpgrade.includes(e.id) && /https:\/\/github.com\/.*\/releases\/download\//.test(e.download));
+  const extensionsToNotUpgrade = extensions.filter(e => !extensionRepositoriesToUpgrade.concat(extensionDownloadsToUpgrade).map(e => e.id).includes(e.id));
 
   fs.renameSync('./extensions.json', './extensions.json.old');
   try {
     await writeFile('./extensions.json', JSON.stringify({ extensions: extensionsToNotUpgrade }, null, 2) + '\n', 'utf-8');
 
-    for (const extension of extensionsToUpgrade) {
+    for (const extension of extensionRepositoriesToUpgrade) {
       let command = 'node add-extension ' + extension.repository;
       if (extension.checkout) {
           // Since we're upgrading, don't use the currently pinned Git branch, tag, or commit. Use the default Git branch instead.
@@ -60,10 +60,19 @@ const dontUpgrade = [
       await exec(command);
     }
 
+    for (const extension of extensionDownloadsToUpgrade) {
+        // Scrape the latest GitHub releases to check for updates.
+        const releasesUrl = extension.download.replace(/\/releases\/download\/.*$/, '/releases');
+        console.log(`Scraping ${releasesUrl} to check for updates...`);
+        const releases = await get(releasesUrl);
+        const latest = releases.match(/\/releases\/download\/[-._a-zA-Z0-9\/%]*\.vsix/g).filter(release => !/(nightly|-rc|-alpha|-beta)/.test(release)).shift();
+        await exec('node add-extension --download=' + (latest ? extension.download.replace(/\/releases\/download\/.*$/, latest) : extension.download));
+    }
+
     // One last pass to clean up results with a few helpful heuristics.
     const { extensions: upgradedExtensions } = JSON.parse(await readFile('./extensions.json', 'utf-8'));
     for (const upgradedExtension of upgradedExtensions) {
-        const originalExtension = extensionsToUpgrade.find(extension => extension.id === upgradedExtension.id);
+        const originalExtension = extensionRepositoriesToUpgrade.find(extension => extension.id === upgradedExtension.id);
         if (!originalExtension) {
             // This extension likely wasn't actually upgraded, leave it as is.
             continue;
@@ -85,3 +94,20 @@ const dontUpgrade = [
     fs.renameSync('./extensions.json.old', './extensions.json');
   }
 })();
+
+function get(url) {
+  return new Promise((resolve, reject) => {
+    https.get(url, res => {
+      if (res.statusCode >= 400) {
+        reject(new Error(`Couldn't get ${url} - Response status: ${res.statusCode}`));
+        return;
+      }
+      let body = '';
+      res.on('data', chunk => { body += chunk; });
+      res.on('error', error => { reject(error); });
+      res.on('end', () => { resolve(body); });
+    }).on('error', error => {
+      reject(error);
+    });
+  });
+}

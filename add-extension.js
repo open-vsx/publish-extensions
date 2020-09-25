@@ -37,16 +37,40 @@ const writeFile = util.promisify(fs.writeFile);
   const registry = new ovsx.Registry();
 
   const argv = minimist(process.argv.slice(2));
-  if (argv._.length !== 1) {
+  if (argv._.length !== (!!argv.download ? 0 : 1)) {
     console.log(`Usage: node add-extension REPOSITORY [OPTIONS]
 OPTIONS:
     --checkout=CHECKOUT
     --location=LOCATION
-    --prepublish=PREPUBLISH`);
+    --prepublish=PREPUBLISH
+
+Alternative usage: node add-extension --download=VSIX_URL`);
     process.exitCode = 1;
     process.exit();
   }
 
+  // Handle 'node add-extension --download=VSIX_URL':
+  if (argv.download) {
+    try {
+      await exec('mkdir -p /tmp/vsix');
+      await exec(`wget -O extension.vsix ${argv.download}`, { cwd: '/tmp/vsix' });
+      await exec('unzip extension.vsix', { cwd: '/tmp/vsix' });
+      /** @type {{ publisher: string, name: string, version: string }} */
+      const package = JSON.parse(await readFile('/tmp/vsix/extension/package.json', 'utf-8'));
+      await ensureNotAlreadyOnOpenVSX(package, registry);
+      const extension = { id: `${package.publisher}.${package.name}`, download: argv.download, version: package.version };
+      await addNewExtension(extension, extensions);
+    } catch (error) {
+      console.error(`[FAIL] Could not add ${argv.download}!`);
+      console.error(error);
+      process.exitCode = -1;
+    } finally {
+      await exec('rm -rf /tmp/vsix');
+      process.exit();
+    }
+  }
+
+  // Handle 'node add-extension REPOSITORY [OPTIONS]':
   const repository = argv._[0].replace(/\/*$/, '');
   const existing = extensions.find(e => e.repository && e.repository.toLowerCase() === repository.toLowerCase() && e.location === argv.location);
   if (existing) {
@@ -92,20 +116,10 @@ OPTIONS:
     });
 
     // Check whether the extension is already published on Open VSX.
-    const id = `${package.publisher}.${package.name}`;
-    const metadata = await registry.getMetadata(package.publisher, package.name);
-    if (metadata.error) {
-      console.warn(`[WARNING] Could not check Open VSX version of ${id}:`);
-      console.warn(metadata.error);
-    } else if (metadata.version) {
-      if (semver.gt(metadata.version, package.version)) {
-        throw new Error(`Open VSX already has a more recent version of ${id}: ${metadata.version} > ${package.version}`);
-      }
-      console.warn(`[WARNING] Open VSX already has ${id} in version ${metadata.version}. Adding ${package.version} here anyway.`);
-    }
+    await ensureNotAlreadyOnOpenVSX(package, registry);
 
     // Add extension to the list.
-    const extension = { id, repository, version: package.version };
+    const extension = { id: `${package.publisher}.${package.name}`, repository, version: package.version };
     if (argv.checkout) {
         extension.checkout = argv.checkout;
     }
@@ -115,18 +129,7 @@ OPTIONS:
     if (argv.prepublish) {
         extension.prepublish = argv.prepublish;
     }
-    extensions.push(extension);
-
-    // Sort extensions alphabetically by ID (not case-sensitive).
-    extensions.sort((a, b) => {
-      if (b.id.toLowerCase() > a.id.toLowerCase()) return -1;
-      if (b.id.toLowerCase() < a.id.toLowerCase()) return 1;
-      return 0;
-    });
-
-    // Save new extensions list.
-    await writeFile('./extensions.json', JSON.stringify({ extensions }, null, 2) + '\n', 'utf-8');
-    console.log(`[OK] Succesfully added new extension: ${JSON.stringify(extension, null, 2)}`);
+    await addNewExtension(extension, extensions);
   } catch (error) {
     console.error(`[FAIL] Could not add ${repository}!`);
     console.error(error);
@@ -135,3 +138,32 @@ OPTIONS:
     await exec('rm -rf /tmp/repository');
   }
 })();
+
+async function ensureNotAlreadyOnOpenVSX(package, registry) {
+  const id = `${package.publisher}.${package.name}`;
+  const metadata = await registry.getMetadata(package.publisher, package.name);
+  if (metadata.error) {
+    console.warn(`[WARNING] Could not check Open VSX version of ${id}:`);
+    console.warn(metadata.error);
+  } else if (metadata.version) {
+    if (semver.gt(metadata.version, package.version)) {
+      throw new Error(`Open VSX already has a more recent version of ${id}: ${metadata.version} > ${package.version}`);
+    }
+    console.warn(`[WARNING] Open VSX already has ${id} in version ${metadata.version}. Adding ${package.version} here anyway.`);
+  }
+}
+
+async function addNewExtension(extension, extensions) {
+  extensions.push(extension);
+
+  // Sort extensions alphabetically by ID (not case-sensitive).
+  extensions.sort((a, b) => {
+    if (b.id.toLowerCase() > a.id.toLowerCase()) return -1;
+    if (b.id.toLowerCase() < a.id.toLowerCase()) return 1;
+    return 0;
+  });
+
+  // Save new extensions list.
+  await writeFile('./extensions.json', JSON.stringify({ extensions }, null, 2) + '\n', 'utf-8');
+  console.log(`[OK] Succesfully added new extension: ${JSON.stringify(extension, null, 2)}`);
+}
