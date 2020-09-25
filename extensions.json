@@ -793,6 +793,12 @@
       "checkout": "0.14.3"
     },
     {
+      "id": "ms-vscode.hexeditor",
+      "repository": "https://github.com/microsoft/vscode-hexeditor",
+      "version": "1.3.0",
+      "checkout": "1.3.0"
+    },
+    {
       "id": "ms-vscode.js-debug",
       "repository": "https://github.com/microsoft/vscode-js-debug",
       "version": "1.49.8",
