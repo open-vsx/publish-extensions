@@ -244,6 +244,11 @@
       "version": "2.1.8"
     },
     {
+      "id": "deibit.devdocs",
+      "repository": "https://github.com/deibit/vscode-devdocs",
+      "version": "0.2.0"
+    },
+    {
       "id": "denoland.vscode-deno",
       "repository": "https://github.com/denoland/vscode_deno"
     },
