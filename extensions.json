@@ -501,6 +501,10 @@
       "repository": "https://github.com/iocave/monkey-patch"
     },
     {
+      "id": "itsmajestix.vscode-ti",
+      "repository": "https://github.com/ItsMajestiX/VSCode-Ti"
+    },
+    {
       "id": "ivangabriele.vscode-git-add-and-commit",
       "repository": "https://github.com/ivangabriele/vscode-git-automator-legacy",
       "version": "2.1.1",
@@ -562,6 +566,11 @@
     {
       "id": "korekontrol.saltstack",
       "repository": "https://github.com/korekontrol/vscode-saltstack"
+    },
+    {
+      "id": "kortina.vscode-markdown-notes",
+      "download": "https://github.com/kortina/vscode-markdown-notes/releases/download/v0.0.20/vscode-markdown-notes-0.0.20.vsix",
+      "version": "0.0.20"
     },
     {
       "id": "kosz78.nim",
@@ -1135,10 +1144,6 @@
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3",
       "version": "0.4.2"
-    },
-    {
-      "id": "itsmajestix.vscode-ti",
-      "repository": "https://github.com/ItsMajestiX/VSCode-Ti"
     }
   ]
 }
