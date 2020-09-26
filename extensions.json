@@ -1,9 +1,5 @@
 {
   "extensions": [
-     {
-      "id": "vhdlwhiz.vhdl-by-vhdlwhiz",
-      "download": "https://github.com/jonasjj/awesome-vhdl"
-    },
     {
       "id": "0x9ef.vscode-vlang",
       "download": "https://github.com/vlang/vscode-vlang/releases/download/0.1.12/vscode-vlang-0.1.2.vsix",
@@ -797,6 +793,18 @@
       "checkout": "v3.0.6"
     },
     {
+      "id": "ms-vscode.cpptools",
+      "repository": "https://github.com/Microsoft/vscode-cpptools",
+      "version": "1.1.0-master",
+      "location": "Extension",
+    },
+    {
+      "id": "ms-vscode.cpptools-themes",
+      "repository": "https://github.com/Microsoft/vscode-cpptools",
+      "version": "1.0.0",
+      "location": "Themes",
+    },
+    {
       "id": "ms-vscode.Go",
       "repository": "https://github.com/microsoft/vscode-go",
       "version": "0.14.3",
@@ -1050,6 +1058,11 @@
     {
       "id": "twxs.cmake",
       "repository": "https://github.com/twxs/vs.language.cmake"
+    },
+    {
+      "id": "vhdlwhiz.vhdl-by-vhdlwhiz",
+      "repository": "https://github.com/jonasjj/awesome-vhdl",
+      "version": "1.2.4"
     },
     {
       "id": "vortizhe.simple-ruby-erb",
