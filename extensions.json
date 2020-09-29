@@ -484,10 +484,8 @@
     },
     {
       "id": "IBMBlockchain.ibm-blockchain-platform",
-      "repository": "https://github.com/IBM-Blockchain/blockchain-vscode-extension",
-      "version": "1.0.37",
-      "checkout": "v1.0.37",
-      "location": "packages/blockchain-extension"
+      "download": "https://github.com/IBM-Blockchain/blockchain-vscode-extension/releases/download/v1.0.37/ibm-blockchain-platform-1.0.37.vsix",
+      "version": "1.0.37"
     },
     {
       "id": "ikappas.phpcs",
