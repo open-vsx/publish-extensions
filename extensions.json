@@ -691,7 +691,7 @@
     {
       "id": "MS-CEINTL.vscode-language-pack-cs",
       "repository": "https://github.com/microsoft/vscode-loc",
-      "location": "i18n/vscode-language-pack-cd"
+      "location": "i18n/vscode-language-pack-cs"
     },
     {
       "id": "MS-CEINTL.vscode-language-pack-de",
