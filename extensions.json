@@ -420,9 +420,8 @@
     },
     {
       "id": "GitHub.vscode-pull-request-github",
-      "repository": "https://github.com/microsoft/vscode-pull-request-github",
-      "version": "0.20.0",
-      "checkout": "0.20.0"
+      "download": "https://github.com/microsoft/vscode-pull-request-github/releases/download/0.20.0/vscode-pull-request-github-0.20.0.vsix",
+      "version": "0.20.0"
     },
     {
       "id": "golang.Go",
