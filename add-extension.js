@@ -54,7 +54,7 @@ Alternative usage: node add-extension --download=VSIX_URL`);
     try {
       await exec('mkdir -p /tmp/vsix');
       await exec(`wget -O extension.vsix ${argv.download}`, { cwd: '/tmp/vsix' });
-      await exec('unzip extension.vsix', { cwd: '/tmp/vsix' });
+      await exec('unzip -q extension.vsix', { cwd: '/tmp/vsix' });
       /** @type {{ publisher: string, name: string, version: string }} */
       const package = JSON.parse(await readFile('/tmp/vsix/extension/package.json', 'utf-8'));
       await ensureNotAlreadyOnOpenVSX(package, registry);
