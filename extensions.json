@@ -245,8 +245,7 @@
     },
     {
       "id": "deibit.devdocs",
-      "repository": "https://github.com/deibit/vscode-devdocs",
-      "version": "0.2.0"
+      "repository": "https://github.com/deibit/vscode-devdocs"
     },
     {
       "id": "denoland.vscode-deno",
