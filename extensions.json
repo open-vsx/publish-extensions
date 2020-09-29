@@ -58,8 +58,8 @@
     },
     {
       "id": "Angular.ng-template",
-      "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v0.1000.8/ngls.vsix",
-      "version": "0.1000.8"
+      "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v0.1001.0/ngls.vsix",
+      "version": "0.1001.0"
     },
     {
       "id": "anseki.vscode-color",
@@ -363,9 +363,9 @@
     {
       "id": "foam.foam-vscode",
       "repository": "https://github.com/foambubble/foam",
-      "location": "packages/foam-vscode",
       "version": "0.3.1",
       "checkout": "v0.3.1",
+      "location": "packages/foam-vscode",
       "prepublish": "yarn build:core"
     },
     {
@@ -502,6 +502,10 @@
       "repository": "https://github.com/Ikuyadeu/vscode-R"
     },
     {
+      "id": "influrium.haxe-jsx",
+      "repository": "https://github.com/influrium/vscode-haxe-jsx"
+    },
+    {
       "id": "iocave.customize-ui",
       "repository": "https://github.com/iocave/customize-ui"
     },
@@ -571,6 +575,14 @@
       "repository": "https://github.com/KnisterPeter/vscode-github",
       "version": "0.30.4",
       "checkout": "v0.30.4"
+    },
+    {
+      "id": "kodetech.kha",
+      "repository": "https://github.com/Kode/vscode-kha"
+    },
+    {
+      "id": "kodetech.kha-extension-pack",
+      "repository": "https://github.com/Kode/vscode-kha-extension-pack"
     },
     {
       "id": "korekontrol.saltstack",
@@ -829,6 +841,10 @@
       "checkout": "v0.23.0"
     },
     {
+      "id": "nadako.vshaxe",
+      "repository": "https://github.com/vshaxe/vshaxe.git"
+    },
+    {
       "id": "naumovs.color-highlight",
       "repository": "https://github.com/egonyans/vscode-ext-color-highlight",
       "version": "2.3.0"
@@ -875,6 +891,10 @@
       "id": "onecentlin.laravel-blade",
       "repository": "https://github.com/onecentlin/laravel-blade-snippets-vscode",
       "prepublish": "npm config set script-shell /bin/bash"
+    },
+    {
+      "id": "openfl.lime-vscode-extension",
+      "repository": "https://github.com/openfl/lime-vscode-extension"
     },
     {
       "id": "patcx.vscode-nuget-gallery",
@@ -961,7 +981,7 @@
       "prepublish": "sed -ri \"s_git\\+https://_https://_g\" package.json"
     },
     {
-      "id": "shan.code-settings-sync",
+      "id": "Shan.code-settings-sync",
       "download": "https://github.com/shanalikhan/code-settings-sync/releases/download/v3.4.3/code-settings-sync-3.4.3.vsix",
       "version": "3.4.3"
     },
@@ -1089,6 +1109,18 @@
       "checkout": "v1.17.1"
     },
     {
+      "id": "vshaxe.haxe-checkstyle",
+      "repository": "https://github.com/vshaxe/vscode-checkstyle"
+    },
+    {
+      "id": "vshaxe.haxe-extension-pack",
+      "repository": "https://github.com/vshaxe/vshaxe-extension-pack.git"
+    },
+    {
+      "id": "vshaxe.haxe-test-adapter",
+      "repository": "https://github.com/vshaxe/haxe-test-adapter.git"
+    },
+    {
       "id": "vsls-contrib.codetour",
       "repository": "https://github.com/vsls-contrib/codetour"
     },
@@ -1158,38 +1190,6 @@
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3",
       "version": "0.4.2"
-    },
-    {
-      "id": "nadako.vshaxe",
-      "repository": "https://github.com/vshaxe/vshaxe.git"
-    },
-    {
-      "id": "vshaxe.haxe-checkstyle",
-      "repository": "https://github.com/vshaxe/vscode-checkstyle"
-    },
-    {
-      "id": "vshaxe.haxe-extension-pack",
-      "repository": "https://github.com/vshaxe/vshaxe-extension-pack.git"
-    },
-    {
-      "id": "vshaxe.haxe-test-adapter",
-      "repository": "https://github.com/vshaxe/haxe-test-adapter.git"
-    },
-    {
-      "id": "influrium.haxe-jsx",
-      "repository": "https://github.com/influrium/vscode-haxe-jsx"
-    },
-    {
-      "id": "openfl.lime-vscode-extension",
-      "repository": "https://github.com/openfl/lime-vscode-extension"
-    },
-    {
-      "id": "kodetech.kha",
-      "repository": "https://github.com/Kode/vscode-kha"
-    },
-    {
-      "id": "kodetech.kha-extension-pack",
-      "repository": "https://github.com/Kode/vscode-kha-extension-pack"
     }
   ]
 }
