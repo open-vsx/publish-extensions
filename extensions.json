@@ -931,6 +931,12 @@
       "version": "0.28.0"
     },
     {
+      "id": "rafaelmaiolla.diff",
+      "repository": "https://github.com/rafaelmaiolla/diff-vscode/",
+      "version": "0.0.1",
+      "checkout": "f9fef4e2e6867f9850809f9a7f54e700e17fc7d5"
+    },
+    {
       "id": "rebornix.ruby",
       "repository": "https://github.com/rubyide/vscode-ruby",
       "version": "0.27.0",
