@@ -172,8 +172,7 @@
     },
     {
       "id": "christian-kohler.path-intellisense",
-      "repository": "https://github.com/ChristianKohler/PathIntellisense",
-      "version": "2.2.1"
+      "repository": "https://github.com/ChristianKohler/PathIntellisense"
     },
     {
       "id": "christianvoigt.argdown-vscode",
