@@ -168,8 +168,7 @@
     },
     {
       "id": "christian-kohler.npm-intellisense",
-      "repository": "https://github.com/ChristianKohler/NpmIntellisense",
-      "version": "1.2.1"
+      "repository": "https://github.com/ChristianKohler/NpmIntellisense"
     },
     {
       "id": "christian-kohler.path-intellisense",
