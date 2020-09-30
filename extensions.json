@@ -804,18 +804,6 @@
       "checkout": "v3.0.6"
     },
     {
-      "id": "ms-vscode.cpptools",
-      "repository": "https://github.com/Microsoft/vscode-cpptools",
-      "version": "1.1.0-master",
-      "location": "Extension",
-    },
-    {
-      "id": "ms-vscode.cpptools-themes",
-      "repository": "https://github.com/Microsoft/vscode-cpptools",
-      "version": "1.0.0",
-      "location": "Themes",
-    },
-    {
       "id": "ms-vscode.Go",
       "repository": "https://github.com/microsoft/vscode-go",
       "version": "0.14.3",
