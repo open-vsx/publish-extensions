@@ -1186,6 +1186,12 @@
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3",
       "version": "0.4.2"
+    },
+    {
+      "id": "bceskavich.theme-dracula-at-night",
+      "repository": "https://github.com/bceskavich/dracula-at-night",
+      "version": "2.6.0",
+      "checkout": "v2.6.0"
     }
   ]
 }
