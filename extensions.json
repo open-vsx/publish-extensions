@@ -567,6 +567,10 @@
       "repository": "https://github.com/karuna/haml-vscode"
     },
     {
+      "id": "karunamurti.rspec-snippets",
+      "repository": "https://github.com/karuna/vscode-rspec-snippets"
+    },
+    {
       "id": "KnisterPeter.vscode-github",
       "repository": "https://github.com/KnisterPeter/vscode-github",
       "version": "0.30.4",
