@@ -677,6 +677,10 @@
       "repository": "https://github.com/BeastCode/VSCode-Angular-TypeScript-Snippets"
     },
     {
+      "id": "microsoft.vscode-cmake-tools",
+      "repository": "https://github.com/microsoft/vscode-cmake-tools"
+    },
+    {
       "id": "mikestead.dotenv",
       "repository": "https://github.com/mikestead/vscode-dotenv",
       "version": "1.0.1"
