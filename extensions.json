@@ -1181,6 +1181,10 @@
       "checkout": "v1.8.0"
     },
     {
+      "id": "xxamxx.vscode-rubygems",
+      "repository": "https://github.com/xxamxx/vscode-rubygems"
+    },
+    {
       "id": "xyz.local-history",
       "repository": "https://github.com/zabel-xyz/local-history"
     },
