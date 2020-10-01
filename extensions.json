@@ -681,6 +681,31 @@
       "repository": "https://github.com/microsoft/vscode-cmake-tools"
     },
     {
+      "id": "microsoft.vscode-cpptools-linux",
+      "download": "https://github.com/microsoft/vscode-cpptools/releases/download/1.0.1/cpptools-linux.vsix",
+      "version": "1.0.1"
+    },
+    {
+      "id": "microsoft.vscode-cpptools-linuxARM32",
+      "download": "https://github.com/microsoft/vscode-cpptools/releases/download/1.0.1/cpptools-linux-armhf.vsix",
+      "version": "1.0.1"
+    },
+    {
+      "id": "microsoft.vscode-cpptools-linuxARM64",
+      "download": "https://github.com/microsoft/vscode-cpptools/releases/download/1.0.1/cpptools-linux-aarch64.vsix",
+      "version": "1.0.1"
+    },
+    {
+      "id": "microsoft.vscode-cpptools-macOS",
+      "download": "https://github.com/microsoft/vscode-cpptools/releases/download/1.0.1/cpptools-osx.vsix",
+      "version": "1.0.1"
+    },
+    {
+      "id": "microsoft.vscode-cpptools-windows",
+      "download": "https://github.com/microsoft/vscode-cpptools/releases/download/1.0.1/cpptools-win32.vsix",
+      "version": "1.0.1"
+    },
+    {
       "id": "mikestead.dotenv",
       "repository": "https://github.com/mikestead/vscode-dotenv",
       "version": "1.0.1"
