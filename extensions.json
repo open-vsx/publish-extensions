@@ -1126,6 +1126,10 @@
       "version": "1.0.4"
     },
     {
+      "id": "wesbos.theme-cobalt2",
+      "repository": "https://github.com/wesbos/cobalt2-vscode"
+    },
+    {
       "id": "wholroyd.jinja",
       "repository": "https://github.com/wholroyd/vscode-jinja",
       "version": "0.0.8"
