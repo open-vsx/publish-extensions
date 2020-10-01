@@ -1071,6 +1071,10 @@
       "repository": "https://github.com/tchayen/markdown-links"
     },
     {
+      "id": "teabyii.ayu",
+      "repository": "https://github.com/ayu-theme/vscode-ayu"
+    },
+    {
       "id": "timonwong.shellcheck",
       "repository": "https://github.com/timonwong/vscode-shellcheck",
       "version": "0.10.1",
