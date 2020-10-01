@@ -42,6 +42,10 @@
       "version": "11.0.1"
     },
     {
+      "id": "alexkrechik.cucumberautocomplete",
+      "repository": "https://github.com/alexkrechik/VSCucumberAutoComplete"
+    },
+    {
       "id": "aliariff.vscode-erb-beautify",
       "repository": "https://github.com/aliariff/vscode-erb-beautify",
       "version": "0.2.0",
