@@ -26,7 +26,7 @@
   "dependencies": {
     "download": "^8.0.0",
     "minimist": "^1.2.5",
-    "ovsx": "0.1.0-next.bcce4bc",
+    "ovsx": "0.1.0-next.e000fdb",
     "semver": "^7.1.3"
   },
   "devDependencies": {}
