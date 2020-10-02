@@ -1068,7 +1068,8 @@
     {
       "id": "vhdlwhiz.vhdl-by-vhdlwhiz",
       "repository": "https://github.com/jonasjj/awesome-vhdl",
-      "version": "1.2.4"
+      "version": "1.2.4",
+      "checkout": "v1.2.4"
     },
     {
       "id": "vortizhe.simple-ruby-erb",
