@@ -119,6 +119,12 @@
       "checkout": "1.0.0"
     },
     {
+      "id": "bceskavich.theme-dracula-at-night",
+      "repository": "https://github.com/bceskavich/dracula-at-night",
+      "version": "2.6.0",
+      "checkout": "v2.6.0"
+    },
+    {
       "id": "belfz.search-crates-io",
       "repository": "https://github.com/belfz/search-crates-io",
       "version": "1.2.1"
@@ -1109,6 +1115,10 @@
       "repository": "https://github.com/vshaxe/vscode-checkstyle"
     },
     {
+      "id": "vshaxe.haxe-debug",
+      "repository": "https://github.com/vshaxe/flash-debugger"
+    },
+    {
       "id": "vshaxe.haxe-extension-pack",
       "repository": "https://github.com/vshaxe/vshaxe-extension-pack.git"
     },
@@ -1186,12 +1196,6 @@
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3",
       "version": "0.4.2"
-    },
-    {
-      "id": "bceskavich.theme-dracula-at-night",
-      "repository": "https://github.com/bceskavich/dracula-at-night",
-      "version": "2.6.0",
-      "checkout": "v2.6.0"
     }
   ]
 }
