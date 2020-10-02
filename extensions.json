@@ -1115,6 +1115,12 @@
       "prepublish": "npm run build-plugin"
     },
     {
+      "id": "vscjava.vscode-spring-initializr",
+      "repository": "https://github.com/microsoft/vscode-spring-initializr",
+      "version": "0.5.0",
+      "checkout": "v0.5.0"
+    },
+    {
       "id": "vscode-icons-team.vscode-icons",
       "repository": "https://github.com/vscode-icons/vscode-icons",
       "version": "11.0.0",
