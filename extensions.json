@@ -958,6 +958,10 @@
       "location": "packages/vscode-ruby-client"
     },
     {
+      "id": "richie5um2.vscode-sort-json",
+      "repository": "https://github.com/richie5um/vscode-sort-json"
+    },
+    {
       "id": "ritwickdey.LiveServer",
       "repository": "https://github.com/ritwickdey/vscode-live-server",
       "version": "5.6.1",
