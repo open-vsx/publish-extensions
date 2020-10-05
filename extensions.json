@@ -43,7 +43,8 @@
     },
     {
       "id": "alexkrechik.cucumberautocomplete",
-      "repository": "https://github.com/alexkrechik/VSCucumberAutoComplete"
+      "repository": "https://github.com/alexkrechik/VSCucumberAutoComplete",
+      "location": "gclient"
     },
     {
       "id": "aliariff.vscode-erb-beautify",
