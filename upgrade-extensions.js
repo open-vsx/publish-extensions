@@ -57,6 +57,9 @@ const dontUpgrade = [
       if (extension.prepublish) {
           command += ' --prepublish=' + JSON.stringify(extension.prepublish);
       }
+      if (extension.extensionFile) {
+        command += ' --extensionFile=' + JSON.stringify(extension.extensionFile);
+      }
       await exec(command);
     }
 

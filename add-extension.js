@@ -29,6 +29,7 @@ const writeFile = util.promisify(fs.writeFile);
    *        checkout?: string,
    *        location?: string,
    *        prepublish?: string,
+   *        extensionFile?: string,
    *        download?: string
    *    }[]
    * }}
@@ -43,6 +44,7 @@ OPTIONS:
     --checkout=CHECKOUT
     --location=LOCATION
     --prepublish=PREPUBLISH
+    --extensionFile=EXTENSION_FILE
 
 Alternative usage: node add-extension --download=VSIX_URL`);
     process.exitCode = 1;
@@ -128,6 +130,9 @@ Alternative usage: node add-extension --download=VSIX_URL`);
     }
     if (argv.prepublish) {
         extension.prepublish = argv.prepublish;
+    }
+    if (argv.extensionFile) {
+      extension.extensionFile = argv.extensionFile;
     }
     await addNewExtension(extension, extensions);
   } catch (error) {
