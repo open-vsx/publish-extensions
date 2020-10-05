@@ -1246,6 +1246,10 @@
       "repository": "https://github.com/hsen-dev/vscode-elastic"
     },
     {
+      "id": "richie5um2.vscode-sort-json",
+      "repository": "https://github.com/richie5um/vscode-sort-json"
+    },
+    {
       "id": "ritwickdey.LiveServer",
       "download": "https://github.com/ritwickdey/vscode-live-server/releases/download/v5.6.1/LiveServer-v5.6.1-linux.vsix",
       "version": "5.6.1"
