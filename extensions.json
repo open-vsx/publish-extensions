@@ -644,7 +644,7 @@
     },
     {
       "id": "marus25.cortex-debug",
-      "repository": "https://github.com/Marus/cortex-debug",
+      "download": "https://github.com/Marus/cortex-debug/releases/download/v0.3.7/cortex-debug-0.3.7.vsix",
       "version": "0.3.7"
     },
     {
