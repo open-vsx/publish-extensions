@@ -850,6 +850,12 @@
       "prepublish": "yarn prepublish && yarn package"
     },
     {
+      "id": "ms-vscode.node-debug2",
+      "repository": "https://github.com/microsoft/vscode-node-debug2",
+      "version": "1.42.5",
+      "checkout": "v1.42.5"
+    },
+    {
       "id": "mtxr.sqltools",
       "repository": "https://github.com/mtxr/vscode-sqltools",
       "version": "0.23.0",
