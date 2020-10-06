@@ -643,6 +643,11 @@
       "checkout": "v1.1.1"
     },
     {
+      "id": "marus25.cortex-debug",
+      "repository": "https://github.com/Marus/cortex-debug",
+      "version": "0.3.7"
+    },
+    {
       "id": "mathiasfrohlich.Kotlin",
       "repository": "https://github.com/mathiasfrohlich/vscode-kotlin",
       "version": "1.7.1",
