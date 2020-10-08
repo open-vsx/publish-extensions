@@ -1037,6 +1037,12 @@
       "repository": "https://github.com/shuGH/vscode-table-formatter"
     },
     {
+      "id": "silvenon.mdx",
+      "repository": "https://github.com/silvenon/vscode-mdx",
+      "version": "0.1.0",
+      "checkout": "v0.1.0"
+    },
+    {
       "id": "sketchbuch.vsc-packages",
       "repository": "https://github.com/sketchbuch/vsc-packages",
       "version": "1.5.1",
