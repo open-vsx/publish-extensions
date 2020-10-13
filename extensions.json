@@ -128,12 +128,6 @@
       "checkout": "1.0.0"
     },
     {
-      "id": "bceskavich.theme-dracula-at-night",
-      "repository": "https://github.com/bceskavich/dracula-at-night",
-      "version": "2.6.0",
-      "checkout": "v2.6.0"
-    },
-    {
       "id": "belfz.search-crates-io",
       "repository": "https://github.com/belfz/search-crates-io",
       "version": "1.2.1"
