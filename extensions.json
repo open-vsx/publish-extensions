@@ -678,7 +678,8 @@
     },
     {
       "id": "microsoft.vscode-cmake-tools",
-      "repository": "https://github.com/microsoft/vscode-cmake-tools"
+      "version": "1.4.2",
+      "download": "https://github.com/microsoft/vscode-cmake-tools/releases/download/1.4.2/cmake-tools.vsix"
     },
     {
       "id": "mikestead.dotenv",
