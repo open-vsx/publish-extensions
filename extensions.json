@@ -128,6 +128,12 @@
       "checkout": "1.0.0"
     },
     {
+      "id": "bbenoist.Nix",
+      "repository": "https://github.com/bbenoist/vscode-nix",
+      "version": "1.0.1",
+      "checkout": "1.0.1"
+    },
+    {
       "id": "belfz.search-crates-io",
       "repository": "https://github.com/belfz/search-crates-io",
       "version": "1.2.1"
