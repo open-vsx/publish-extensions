@@ -949,6 +949,13 @@
       "checkout": "1.0.8"
     },
     {
+      "id": "Pivotal.vscode-boot-dev-pack",
+      "repository": "https://github.com/spring-projects/sts4",
+      "version": "0.0.8",
+      "checkout": "4.8.0.RELEASE",
+      "location": "vscode-extensions/boot-dev-pack"
+    },
+    {
       "id": "PKief.material-icon-theme",
       "repository": "https://github.com/PKief/vscode-material-icon-theme"
     },
