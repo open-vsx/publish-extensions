@@ -1097,6 +1097,11 @@
       "checkout": "v0.10.1"
     },
     {
+      "id": "tomblind.local-lua-debugger-vscode",
+      "repository": "https://github.com/tomblind/local-lua-debugger-vscode",
+      "version": "0.2.0"
+    },
+    {
       "id": "tombonnike.vscode-status-bar-format-toggle",
       "repository": "https://github.com/Tom-Bonnike/vscode-formatting-toggle",
       "version": "2.0.0"
