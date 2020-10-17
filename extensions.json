@@ -1047,6 +1047,12 @@
       "checkout": "v0.1.0"
     },
     {
+      "id": "skellock.just",
+      "repository": "https://github.com/skellock/vscode-just",
+      "version": "2.0.0",
+      "checkout": "v2.0.0"
+    },
+    {
       "id": "sketchbuch.vsc-packages",
       "repository": "https://github.com/sketchbuch/vsc-packages",
       "version": "1.5.1",
