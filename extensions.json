@@ -1155,6 +1155,12 @@
       "prepublish": "npm run build-plugin"
     },
     {
+      "id": "vscjava.vscode-spring-boot-dashboard",
+      "repository": "https://github.com/Microsoft/vscode-spring-boot-dashboard",
+      "version": "0.1.10",
+      "checkout": "v0.1.10"
+    },
+    {
       "id": "vscjava.vscode-spring-initializr",
       "repository": "https://github.com/microsoft/vscode-spring-initializr",
       "version": "0.5.0",
