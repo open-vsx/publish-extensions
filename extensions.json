@@ -1099,7 +1099,9 @@
     {
       "id": "tomblind.local-lua-debugger-vscode",
       "repository": "https://github.com/tomblind/local-lua-debugger-vscode",
-      "version": "0.2.0"
+      "version": "0.2.0",
+      "checkout": "release-0.2.0",
+      "prepublish": "npm run build"
     },
     {
       "id": "tombonnike.vscode-status-bar-format-toggle",
