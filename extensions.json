@@ -218,6 +218,10 @@
       "repository": "https://github.com/csstools/postcss-language"
     },
     {
+      "id": "ctf0.macros",
+      "repository": "https://github.com/ctf0/macros"
+    },
+    {
       "id": "danielgjackson.auto-dark-mode-windows",
       "repository": "https://github.com/danielgjackson/vscode-auto-dark-mode-windows"
     },
