@@ -95,6 +95,12 @@
       "repository": "https://github.com/asabil/vscode-meson"
     },
     {
+      "id": "asciidoctor.asciidctor-vscode",
+      "repository": "https://github.com/asciidoctor/asciidoctor-vscode",
+      "version": "2.8.4",
+      "checkout": "v2.8.4"
+    },
+    {
       "id": "asvetliakov.vscode-neovim",
       "repository": "https://github.com/asvetliakov/vscode-neovim",
       "version": "0.0.63",
