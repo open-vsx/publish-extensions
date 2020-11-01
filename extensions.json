@@ -676,13 +676,13 @@
       "version": "1.1.8"
     },
     {
-      "id": "Mikael.Angular-BeastCode",
-      "repository": "https://github.com/BeastCode/VSCode-Angular-TypeScript-Snippets"
-    },
-    {
       "id": "microsoft.vscode-cmake-tools",
       "version": "1.4.2",
       "download": "https://github.com/microsoft/vscode-cmake-tools/releases/download/1.4.2/cmake-tools.vsix"
+    },
+    {
+      "id": "Mikael.Angular-BeastCode",
+      "repository": "https://github.com/BeastCode/VSCode-Angular-TypeScript-Snippets"
     },
     {
       "id": "mikestead.dotenv",
@@ -1109,6 +1109,11 @@
       "repository": "https://github.com/timonwong/vscode-shellcheck",
       "version": "0.10.1",
       "checkout": "v0.10.1"
+    },
+    {
+      "id": "Tobiah.unity-tools",
+      "repository": "https://github.com/TobiahZ/unity-tools",
+      "version": "1.2.12"
     },
     {
       "id": "tomblind.local-lua-debugger-vscode",
