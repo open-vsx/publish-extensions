@@ -1136,6 +1136,11 @@
       "repository": "https://github.com/twxs/vs.language.cmake"
     },
     {
+      "id": "Unity.unity-debug",
+      "repository": "https://github.com/Unity-Technologies/vscode-unity-debug",
+      "version": "3.0.0"
+    },
+    {
       "id": "vhdlwhiz.vhdl-by-vhdlwhiz",
       "repository": "https://github.com/jonasjj/awesome-vhdl",
       "version": "1.2.4",
