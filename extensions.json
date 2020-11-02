@@ -522,6 +522,10 @@
       "repository": "https://github.com/iocave/monkey-patch"
     },
     {
+      "id": "ionutvmi.reg",
+      "repository": "https://github.com/ionutvmi/reg-vscode"
+    },
+    {
       "id": "itsmajestix.vscode-ti",
       "repository": "https://github.com/ItsMajestiX/VSCode-Ti"
     },
