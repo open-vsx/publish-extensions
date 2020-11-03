@@ -139,6 +139,10 @@
       "version": "1.2.1"
     },
     {
+      "id": "bierner.color-info",
+      "repository": "https://github.com/mattbierner/vscode-color-info"
+    },
+    {
       "id": "bltg-team.masm",
       "repository": "https://github.com/9176324/bltg-team.masm"
     },
