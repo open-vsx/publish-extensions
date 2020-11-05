@@ -863,6 +863,12 @@
       "checkout": "v1.42.5"
     },
     {
+      "id": "ms-vscode.references-view",
+      "repository": "https://github.com/microsoft/vscode-references-view",
+      "version": "0.0.71",
+      "checkout": "v0.0.71"
+    },
+    {
       "id": "mtxr.sqltools",
       "repository": "https://github.com/mtxr/vscode-sqltools",
       "version": "0.23.0",
