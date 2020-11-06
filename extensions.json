@@ -949,11 +949,6 @@
       "repository": "https://github.com/PKief/vscode-material-icon-theme"
     },
     {
-      "id": "platformio.platformio-ide",
-      "download": "https://github.com/platformio/platformio-vscode-ide/releases/download/v2.1.0/platformio-ide-2.1.0.vsix",
-      "version": "2.1.0"
-    },
-    {
       "id": "pmbenjamin.vscode-snyk",
       "repository": "https://github.com/pbnj/vscode-snyk"
     },
