@@ -358,6 +358,14 @@
       "prepublish": "sed -ri \"s_]\\(img/_](https://gitlab.com/firelizzard/vscode-go-test-adapter/-/raw/master/img/_g\" README.md"
     },
     {
+      "id": "evaera.roblox-api-explorer",
+      "repository": "https://github.com/evaera/vscode-roblox-api-explorer"
+    },
+    {
+      "id": "evaera.vscode-rojo",
+      "repository": "https://github.com/rojo-rbx/vscode-rojo"
+    },
+    {
       "id": "exiasr.hadolint",
       "download": "https://github.com/ExiaSR/vscode-hadolint/releases/download/0.3.0/exiasr.hadolint-0.3.0.vsix",
       "version": "0.3.0"
@@ -885,6 +893,10 @@
       "id": "neilbrayfield.php-docblocker",
       "repository": "https://github.com/neild3r/vscode-php-docblocker",
       "version": "2.1.0"
+    },
+    {
+      "id": "Nightrains.robloxlsp",
+      "repository": "https://github.com/NightrainsRbx/RobloxLsp"
     },
     {
       "id": "notskm.clang-tidy",
