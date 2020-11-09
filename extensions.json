@@ -1074,13 +1074,6 @@
       "checkout": "v1.5.3"
     },
     {
-      "id": "streetsidesoftware.code-spell-checker",
-      "repository": "https://github.com/streetsidesoftware/vscode-spell-checker",
-      "version": "1.9.2",
-      "checkout": "v1.9.2",
-      "location": "packages/client"
-    },
-    {
       "id": "svipas.control-snippets",
       "repository": "https://github.com/svipas/vscode-control-snippets",
       "version": "1.9.1",
