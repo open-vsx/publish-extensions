@@ -665,6 +665,10 @@
       "repository": "https://github.com/prometheux-ar/cyberpunk"
     },
     {
+      "id": "mechatroner.rainbow-csv",
+      "repository": "https://github.com/mechatroner/vscode_rainbow_csv"
+    },
+    {
       "id": "medo64.render-crlf",
       "repository": "https://github.com/medo64/render-crlf",
       "version": "1.5.13",
