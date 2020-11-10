@@ -1210,6 +1210,12 @@
       "repository": "https://github.com/vshaxe/haxe-test-adapter.git"
     },
     {
+      "id": "vshaxe.hxcpp-debugger",
+      "repository": "https://github.com/vshaxe/hxcpp-debugger",
+      "version": "1.2.4",
+      "checkout": "1.2.4"
+    },
+    {
       "id": "vsls-contrib.codetour",
       "repository": "https://github.com/vsls-contrib/codetour"
     },
