@@ -228,9 +228,8 @@
     },
     {
       "id": "Dart-Code.dart-code",
-      "repository": "https://github.com/Dart-Code/Dart-Code",
-      "version": "3.15.0",
-      "checkout": "v3.15.0"
+      "download": "https://github.com/Dart-Code/Dart-Code/releases/download/v3.16.0/dart-code-3.16.0.vsix",
+      "version": "3.16.0"
     },
     {
       "id": "Dart-Code.flutter",
