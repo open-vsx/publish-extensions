@@ -189,8 +189,8 @@
     {
       "id": "christianvoigt.argdown-vscode",
       "repository": "https://github.com/christianvoigt/argdown",
-      "version": "1.5.0",
-      "checkout": "be86c880e39da3d963b2f63855f30616a1704703",
+      "version": "1.5.3",
+      "checkout": "argdown-vscode@v1.5.3",
       "location": "packages/argdown-vscode",
       "prepublish": "cd packages/argdown-vscode && yarn install"
     },
