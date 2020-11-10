@@ -74,14 +74,6 @@
       "checkout": "0.4.5"
     },
     {
-      "id": "apollographql.vscode-apollo",
-      "repository": "https://github.com/apollographql/apollo-tooling",
-      "version": "1.17.0",
-      "checkout": "vscode-apollo@1.17.0",
-      "location": "packages/vscode-apollo",
-      "prepublish": "cd packages/vscode-apollo && npm --prefix ../.. install && npm run _internal:prepare-extension"
-    },
-    {
       "id": "appulate.filewatcher",
       "repository": "https://github.com/appulate/vscode-file-watcher",
       "version": "1.0.3"
