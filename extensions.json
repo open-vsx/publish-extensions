@@ -116,8 +116,7 @@
     },
     {
       "id": "batisteo.vscode-django",
-      "repository": "https://github.com/vscode-django/vscode-django",
-      "version": "0.20.0"
+      "repository": "https://github.com/vscode-django/vscode-django"
     },
     {
       "id": "bbenoist.Doxygen",
