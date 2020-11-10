@@ -202,8 +202,8 @@
     {
       "id": "connorshea.vscode-ruby-test-adapter",
       "repository": "https://github.com/connorshea/vscode-ruby-test-adapter",
-      "version": "0.7.1",
-      "checkout": "v0.7.1"
+      "version": "0.8.0",
+      "checkout": "v0.8.0"
     },
     {
       "id": "cschleiden.vscode-github-actions",
