@@ -275,9 +275,8 @@
     },
     {
       "id": "donjayamanne.githistory",
-      "repository": "https://github.com/DonJayamanne/gitHistoryVSCode",
-      "version": "0.6.10",
-      "checkout": "v0.6.10"
+      "download": "https://github.com/DonJayamanne/gitHistoryVSCode/releases/download/v0.6.13/githistory-0.6.13.vsix",
+      "version": "0.6.13"
     },
     {
       "id": "donjayamanne.jquerysnippets",
