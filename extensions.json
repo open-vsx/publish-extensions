@@ -211,9 +211,8 @@
     },
     {
       "id": "cschlosser.doxdocgen",
-      "repository": "https://github.com/christophschlosser/doxdocgen",
-      "version": "0.7.2",
-      "checkout": "0.7.2"
+      "download": "https://github.com/cschlosser/doxdocgen/releases/download/1.1.0/doxdocgen-1.1.0.vsix",
+      "version": "1.1.0"
     },
     {
       "id": "csstools.postcss",
