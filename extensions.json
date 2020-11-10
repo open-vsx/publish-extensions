@@ -1113,7 +1113,8 @@
     {
       "id": "Tobiah.unity-tools",
       "repository": "https://github.com/TobiahZ/unity-tools",
-      "version": "1.2.12"
+      "version": "1.2.12",
+      "checkout": "v1.2.12"
     },
     {
       "id": "tomblind.local-lua-debugger-vscode",
@@ -1138,7 +1139,8 @@
     {
       "id": "Unity.unity-debug",
       "repository": "https://github.com/Unity-Technologies/vscode-unity-debug",
-      "version": "3.0.0"
+      "version": "3.0.0",
+      "checkout": "Version-3.0.1"
     },
     {
       "id": "vhdlwhiz.vhdl-by-vhdlwhiz",
