@@ -233,9 +233,8 @@
     },
     {
       "id": "Dart-Code.flutter",
-      "repository": "https://github.com/Dart-Code/Flutter",
-      "version": "3.15.0",
-      "checkout": "v3.15.0"
+      "download": "https://github.com/Dart-Code/Flutter/releases/download/v3.16.0/flutter-3.16.0.vsix",
+      "version": "3.16.0"
     },
     {
       "id": "DavidAnson.vscode-markdownlint",
