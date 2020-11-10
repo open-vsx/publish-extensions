@@ -595,6 +595,10 @@
       "checkout": "v0.30.4"
     },
     {
+      "id": "kodetech.electron-debug",
+      "repository": "https://github.com/Kode/vscode-electron-debug"
+    },
+    {
       "id": "kodetech.kha",
       "repository": "https://github.com/Kode/vscode-kha"
     },
