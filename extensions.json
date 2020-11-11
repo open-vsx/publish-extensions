@@ -1306,10 +1306,6 @@
       "version": "0.4.2"
     },
     {
-        "id": "pgourlain.erlang",
-        "repository": "https://github.com/pgourlain/vscode_erlang"
-    },
-    {
         "id": "erlang-ls.erlang-ls",
         "repository": "https://github.com/erlang-ls/vscode"
     }
