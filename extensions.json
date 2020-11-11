@@ -1223,7 +1223,8 @@
       "id": "vshaxe.hxcpp-debugger",
       "repository": "https://github.com/vshaxe/hxcpp-debugger",
       "version": "1.2.4",
-      "checkout": "1.2.4"
+      "checkout": "1.2.4",
+      "prepublish": "npm install haxe"
     },
     {
       "id": "vsls-contrib.codetour",
