@@ -64,8 +64,8 @@
     },
     {
       "id": "Angular.ng-template",
-      "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v0.1001.1/ngls.vsix",
-      "version": "0.1001.1"
+      "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v0.1100.0/ngls.vsix",
+      "version": "0.1100.0"
     },
     {
       "id": "anseki.vscode-color",
@@ -342,8 +342,8 @@
     },
     {
       "id": "esbenp.prettier-vscode",
-      "download": "https://github.com/prettier/prettier-vscode/releases/download/v5.7.1/prettier-vscode-5.7.1.vsix",
-      "version": "5.7.1"
+      "download": "https://github.com/prettier/prettier-vscode/releases/download/v5.7.2/prettier-vscode-5.7.2.vsix",
+      "version": "5.7.2"
     },
     {
       "id": "ethan-reesor.vscode-go-test-adapter",
@@ -415,6 +415,11 @@
     {
       "id": "Fr43nk.seito-openfile",
       "repository": "https://gitlab.com/fr43nk/seito-openfile"
+    },
+    {
+      "id": "fwcd.kotlin",
+      "download": "https://github.com/fwcd/vscode-kotlin/releases/download/0.2.18/kotlin-0.2.18.vsix",
+      "version": "0.2.18"
     },
     {
       "id": "geequlim.godot-tools",
@@ -536,8 +541,8 @@
     {
       "id": "James-Yu.latex-workshop",
       "repository": "https://github.com/James-Yu/LaTeX-Workshop",
-      "version": "8.13.2",
-      "checkout": "v8.13.2",
+      "version": "8.14.0",
+      "checkout": "v8.14.0",
       "prepublish": "npm run compile"
     },
     {
@@ -698,8 +703,8 @@
     {
       "id": "mp.oradew-vscode",
       "repository": "https://github.com/mickeypearce/oradew-vscode",
-      "version": "0.3.24",
-      "checkout": "v0.3.24"
+      "version": "0.3.25",
+      "checkout": "v0.3.25"
     },
     {
       "id": "mpty.pack-arduino",
@@ -715,8 +720,8 @@
     },
     {
       "id": "ms-azuretools.vscode-docker",
-      "download": "https://github.com/microsoft/vscode-docker/releases/download/v1.6.0/vscode-docker-1.6.0.vsix",
-      "version": "1.6.0"
+      "download": "https://github.com/microsoft/vscode-docker/releases/download/v1.7.0/vscode-docker-1.7.0.vsix",
+      "version": "1.7.0"
     },
     {
       "id": "MS-CEINTL.vscode-language-pack-bg",
@@ -821,8 +826,8 @@
     },
     {
       "id": "ms-python.python",
-      "download": "https://github.com/microsoft/vscode-python/releases/download/2020.10.332292344/ms-python-release.vsix",
-      "version": "2020.10.332292344"
+      "download": "https://github.com/microsoft/vscode-python/releases/download/2020.11.358366026/ms-python-release.vsix",
+      "version": "2020.11.358366026"
     },
     {
       "id": "ms-vscode.atom-keybindings",
@@ -871,8 +876,8 @@
     {
       "id": "ms-vscode.references-view",
       "repository": "https://github.com/microsoft/vscode-references-view",
-      "version": "0.0.71",
-      "checkout": "v0.0.71"
+      "version": "0.0.72",
+      "checkout": "v0.0.72"
     },
     {
       "id": "mtxr.sqltools",
@@ -918,13 +923,13 @@
     {
       "id": "ocamllabs.ocaml-platform",
       "repository": "https://github.com/ocamllabs/vscode-ocaml-platform.git",
-      "version": "1.2.0",
-      "checkout": "v1.2.0"
+      "version": "1.4.0",
+      "checkout": "v1.4.0"
     },
     {
       "id": "octref.vetur",
-      "download": "https://github.com/vuejs/vetur/releases/download/v0.29.0/vetur-0.29.0.vsix",
-      "version": "0.29.0"
+      "download": "https://github.com/vuejs/vetur/releases/download/v0.30.0/vetur-0.30.0.vsix",
+      "version": "0.30.0"
     },
     {
       "id": "oderwat.indent-rainbow",
@@ -970,12 +975,12 @@
     },
     {
       "id": "puppet.puppet-vscode",
-      "download": "https://github.com/puppetlabs/puppet-vscode/releases/download/0.28.0/puppet-vscode-0.28.0.vsix",
-      "version": "0.28.0"
+      "download": "https://github.com/puppetlabs/puppet-vscode/releases/download/1.0.0/puppet-vscode-1.0.0.vsix",
+      "version": "1.0.0"
     },
     {
       "id": "rafaelmaiolla.diff",
-      "repository": "https://github.com/rafaelmaiolla/diff-vscode/",
+      "repository": "https://github.com/rafaelmaiolla/diff-vscode",
       "version": "0.0.1",
       "checkout": "f9fef4e2e6867f9850809f9a7f54e700e17fc7d5"
     },
@@ -1047,8 +1052,8 @@
     {
       "id": "shufo.vscode-blade-formatter",
       "repository": "https://github.com/shufo/vscode-blade-formatter",
-      "version": "0.4.4",
-      "checkout": "v0.4.4"
+      "version": "0.6.1",
+      "checkout": "v0.6.1"
     },
     {
       "id": "shuworks.vscode-table-formatter",
@@ -1080,8 +1085,8 @@
     },
     {
       "id": "SonarSource.sonarlint-vscode",
-      "download": "https://github.com/SonarSource/sonarlint-vscode/releases/download/1.17.0/sonarlint-vscode-1.17.0.vsix",
-      "version": "1.17.0"
+      "download": "https://github.com/SonarSource/sonarlint-vscode/releases/download/1.18.0/sonarlint-vscode-1.18.0.vsix",
+      "version": "1.18.0"
     },
     {
       "id": "steoates.autoimport",
@@ -1110,9 +1115,8 @@
     },
     {
       "id": "timonwong.shellcheck",
-      "repository": "https://github.com/timonwong/vscode-shellcheck",
-      "version": "0.10.1",
-      "checkout": "v0.10.1"
+      "download": "https://github.com/timonwong/vscode-shellcheck/releases/download/v0.12.1/shellcheck-0.12.1.vsix",
+      "version": "0.12.1"
     },
     {
       "id": "Tobiah.unity-tools",
@@ -1142,15 +1146,14 @@
     },
     {
       "id": "Unity.unity-debug",
-      "repository": "https://github.com/Unity-Technologies/vscode-unity-debug",
-      "version": "3.0.0",
-      "checkout": "Version-3.0.1"
+      "download": "https://github.com/Unity-Technologies/vscode-unity-debug/releases/download/Version-2.7.2/unity-debug-2.7.2.vsix",
+      "version": "2.7.2"
     },
     {
       "id": "vhdlwhiz.vhdl-by-vhdlwhiz",
       "repository": "https://github.com/jonasjj/awesome-vhdl",
-      "version": "1.2.4",
-      "checkout": "v1.2.4"
+      "version": "1.2.6",
+      "checkout": "v1.2.6"
     },
     {
       "id": "vortizhe.simple-ruby-erb",
@@ -1158,20 +1161,18 @@
     },
     {
       "id": "vscjava.vscode-java-debug",
-      "download": "https://github.com/microsoft/vscode-java-debug/releases/download/0.28.0/vscjava.vscode-java-debug-0.28.0.vsix",
-      "version": "0.28.0"
+      "download": "https://github.com/microsoft/vscode-java-debug/releases/download/0.29.0/vscjava.vscode-java-debug-0.29.0.vsix",
+      "version": "0.29.0"
     },
     {
       "id": "vscjava.vscode-java-dependency",
-      "download": "https://github.com/microsoft/vscode-java-dependency/releases/download/0.13.0/vscjava.vscode-java-dependency-0.13.0.vsix",
-      "version": "0.13.0"
+      "download": "https://github.com/microsoft/vscode-java-dependency/releases/download/0.14.0/vscjava.vscode-java-dependency-0.14.0.vsix",
+      "version": "0.14.0"
     },
     {
       "id": "vscjava.vscode-java-test",
-      "repository": "https://github.com/Microsoft/vscode-java-test",
-      "version": "0.24.2",
-      "checkout": "0.24.2",
-      "prepublish": "npm run build-plugin"
+      "download": "https://github.com/microsoft/vscode-java-test/releases/download/0.26.0/vscjava.vscode-java-test-0.26.0.vsix",
+      "version": "0.26.0"
     },
     {
       "id": "vscjava.vscode-spring-boot-dashboard",
@@ -1224,7 +1225,7 @@
       "repository": "https://github.com/vshaxe/hxcpp-debugger",
       "version": "1.2.4",
       "checkout": "1.2.4",
-      "prepublish": "npm install haxe"
+      "prepublish": "npm install haxe  && npx haxelib install vscode-debugadapter"
     },
     {
       "id": "vsls-contrib.codetour",
@@ -1302,8 +1303,7 @@
     },
     {
       "id": "zxh404.vscode-proto3",
-      "repository": "https://github.com/zxh0/vscode-proto3",
-      "version": "0.4.2"
+      "repository": "https://github.com/zxh0/vscode-proto3"
     },
     {
         "id": "erlang-ls.erlang-ls",
