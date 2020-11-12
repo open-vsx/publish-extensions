@@ -1304,6 +1304,10 @@
     {
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3"
+    },
+    {
+        "id": "erlang-ls.erlang-ls",
+        "repository": "https://github.com/erlang-ls/vscode"
     }
   ]
 }
