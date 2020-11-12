@@ -975,8 +975,8 @@
     },
     {
       "id": "puppet.puppet-vscode",
-      "download": "https://github.com/puppetlabs/puppet-vscode/releases/download/0.28.0/puppet-vscode-0.28.0.vsix",
-      "version": "0.28.0"
+      "download": "https://github.com/puppetlabs/puppet-vscode/releases/download/1.0.0/puppet-vscode-1.0.0.vsix",
+      "version": "1.0.0"
     },
     {
       "id": "rafaelmaiolla.diff",
