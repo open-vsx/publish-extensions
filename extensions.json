@@ -703,8 +703,8 @@
     {
       "id": "mp.oradew-vscode",
       "repository": "https://github.com/mickeypearce/oradew-vscode",
-      "version": "0.3.24",
-      "checkout": "v0.3.24"
+      "version": "0.3.25",
+      "checkout": "v0.3.25"
     },
     {
       "id": "mpty.pack-arduino",
