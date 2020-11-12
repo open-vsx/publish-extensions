@@ -1146,9 +1146,8 @@
     },
     {
       "id": "Unity.unity-debug",
-      "repository": "https://github.com/Unity-Technologies/vscode-unity-debug",
-      "version": "3.0.0",
-      "checkout": "Version-3.0.1"
+      "download": "https://github.com/Unity-Technologies/vscode-unity-debug/releases/download/Version-2.7.2/unity-debug-2.7.2.vsix",
+      "version": "2.7.2"
     },
     {
       "id": "vhdlwhiz.vhdl-by-vhdlwhiz",
