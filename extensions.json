@@ -923,8 +923,8 @@
     {
       "id": "ocamllabs.ocaml-platform",
       "repository": "https://github.com/ocamllabs/vscode-ocaml-platform.git",
-      "version": "1.2.0",
-      "checkout": "v1.2.0"
+      "version": "1.4.0",
+      "checkout": "v1.4.0"
     },
     {
       "id": "octref.vetur",
