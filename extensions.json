@@ -1172,10 +1172,8 @@
     },
     {
       "id": "vscjava.vscode-java-test",
-      "repository": "https://github.com/Microsoft/vscode-java-test",
-      "version": "0.24.2",
-      "checkout": "0.24.2",
-      "prepublish": "npm run build-plugin"
+      "download": "https://github.com/microsoft/vscode-java-test/releases/download/0.26.0/vscjava.vscode-java-test-0.26.0.vsix",
+      "version": "0.26.0"
     },
     {
       "id": "vscjava.vscode-spring-boot-dashboard",
