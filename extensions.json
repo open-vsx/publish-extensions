@@ -980,7 +980,7 @@
     },
     {
       "id": "rafaelmaiolla.diff",
-      "repository": "https://github.com/rafaelmaiolla/diff-vscode/",
+      "repository": "https://github.com/rafaelmaiolla/diff-vscode",
       "version": "0.0.1",
       "checkout": "f9fef4e2e6867f9850809f9a7f54e700e17fc7d5"
     },
@@ -1052,8 +1052,8 @@
     {
       "id": "shufo.vscode-blade-formatter",
       "repository": "https://github.com/shufo/vscode-blade-formatter",
-      "version": "0.4.4",
-      "checkout": "v0.4.4"
+      "version": "0.6.1",
+      "checkout": "v0.6.1"
     },
     {
       "id": "shuworks.vscode-table-formatter",
