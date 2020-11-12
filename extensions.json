@@ -541,8 +541,8 @@
     {
       "id": "James-Yu.latex-workshop",
       "repository": "https://github.com/James-Yu/LaTeX-Workshop",
-      "version": "8.13.2",
-      "checkout": "v8.13.2",
+      "version": "8.14.0",
+      "checkout": "v8.14.0",
       "prepublish": "npm run compile"
     },
     {
