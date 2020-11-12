@@ -417,6 +417,11 @@
       "repository": "https://gitlab.com/fr43nk/seito-openfile"
     },
     {
+      "id": "fwcd.kotlin",
+      "download": "https://github.com/fwcd/vscode-kotlin/releases/download/0.2.18/kotlin-0.2.18.vsix",
+      "version": "0.2.18"
+    },
+    {
       "id": "geequlim.godot-tools",
       "download": "https://github.com/godotengine/godot-vscode-plugin/releases/download/1.0.1/godot-tools-1.0.1.vsix",
       "version": "1.0.1"
