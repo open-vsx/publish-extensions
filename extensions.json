@@ -6,6 +6,11 @@
       "version": "0.1.2"
     },
     {
+      "id": "42Crunch.vscode-openapi",
+      "repository": "https://github.com/42Crunch/vscode-openapi.git",
+      "version": "3.8.0"
+    },
+    {
       "id": "aaron-bond.better-comments",
       "repository": "https://github.com/aaron-bond/better-comments"
     },
@@ -339,6 +344,10 @@
     {
       "id": "equinusocio.vsc-material-theme-icons",
       "repository": "https://github.com/material-theme/vsc-material-theme-icons"
+    },
+    {
+      "id": "erlang-ls.erlang-ls",
+      "repository": "https://github.com/erlang-ls/vscode"
     },
     {
       "id": "esbenp.prettier-vscode",
@@ -1304,10 +1313,6 @@
     {
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3"
-    },
-    {
-        "id": "erlang-ls.erlang-ls",
-        "repository": "https://github.com/erlang-ls/vscode"
     }
   ]
 }
