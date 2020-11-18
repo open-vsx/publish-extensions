@@ -1001,7 +1001,9 @@
     },
     {
       "id": "reduckted.vscode-gitweblinks",
-      "repository": "https://github.com/reduckted/vscode-gitweblinks"
+      "repository": "https://github.com/reduckted/vscode-gitweblinks",
+      "version": "1.9.0",
+      "checkout": "v1.9.0"
     },
     {
       "id": "ritwickdey.LiveServer",
