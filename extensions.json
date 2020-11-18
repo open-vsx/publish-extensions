@@ -108,6 +108,10 @@
       "repository": "https://github.com/atishay/vscode-allautocomplete"
     },
     {
+      "id": "attilabuti.brainfuck-syntax",
+      "repository": "https://github.com/attilabuti/brainfuck-syntax"
+    },
+    {
       "id": "aurorabiz.blade-ui-kit",
       "repository": "https://github.com/Y-open/blade-ui-kit-vscode"
     },
