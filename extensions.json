@@ -1000,6 +1000,10 @@
       "location": "packages/vscode-ruby-client"
     },
     {
+      "id": "reduckted.vscode-gitweblinks",
+      "repository": "https://github.com/reduckted/vscode-gitweblinks"
+    },
+    {
       "id": "ritwickdey.LiveServer",
       "repository": "https://github.com/ritwickdey/vscode-live-server",
       "version": "5.6.1",
