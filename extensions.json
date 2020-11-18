@@ -1170,6 +1170,10 @@
       "checkout": "v1.2.6"
     },
     {
+      "id": "vinliao.fast-arrow",
+      "repository": "https://github.com/vinliao/fast-arrow"
+    },
+    {
       "id": "vortizhe.simple-ruby-erb",
       "repository": "https://github.com/vortizhe/vscode-ruby-erb"
     },
