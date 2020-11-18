@@ -224,8 +224,7 @@
     },
     {
       "id": "damonsk.vscode-wardley-maps",
-      "repository": "https://github.com/damonsk/vscode-wardley-maps.git",
-      "version": "1.0.7"
+      "repository": "https://github.com/damonsk/vscode-wardley-maps"
     },
     {
       "id": "danielgjackson.auto-dark-mode-windows",
