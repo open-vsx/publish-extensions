@@ -7,8 +7,9 @@
     },
     {
       "id": "42Crunch.vscode-openapi",
-      "repository": "https://github.com/42Crunch/vscode-openapi.git",
-      "version": "3.8.0"
+      "repository": "https://github.com/42Crunch/vscode-openapi",
+      "version": "3.8.0",
+      "checkout": "v3.8.0"
     },
     {
       "id": "aaron-bond.better-comments",
