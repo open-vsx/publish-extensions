@@ -6,6 +6,12 @@
       "version": "0.1.2"
     },
     {
+      "id": "42Crunch.vscode-openapi",
+      "repository": "https://github.com/42Crunch/vscode-openapi",
+      "version": "3.8.0",
+      "checkout": "v3.8.0"
+    },
+    {
       "id": "aaron-bond.better-comments",
       "repository": "https://github.com/aaron-bond/better-comments"
     },
@@ -479,8 +485,8 @@
     {
       "id": "haskell.haskell",
       "repository": "https://github.com/haskell/vscode-haskell",
-      "version": "1.1.0",
-      "checkout": "1.1.0"
+      "version": "1.2.0",
+      "checkout": "1.2.0"
     },
     {
       "id": "hbenl.vscode-test-explorer",
@@ -929,12 +935,6 @@
       "prepublish": "npm install spago purescript"
     },
     {
-      "id": "ocamllabs.ocaml-platform",
-      "repository": "https://github.com/ocamllabs/vscode-ocaml-platform.git",
-      "version": "1.4.0",
-      "checkout": "v1.4.0"
-    },
-    {
       "id": "octref.vetur",
       "download": "https://github.com/vuejs/vetur/releases/download/v0.30.0/vetur-0.30.0.vsix",
       "version": "0.30.0"
@@ -1166,6 +1166,10 @@
       "repository": "https://github.com/jonasjj/awesome-vhdl",
       "version": "1.2.6",
       "checkout": "v1.2.6"
+    },
+    {
+      "id": "vinliao.fast-arrow",
+      "repository": "https://github.com/vinliao/fast-arrow"
     },
     {
       "id": "vortizhe.simple-ruby-erb",
