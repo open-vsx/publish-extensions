@@ -33,6 +33,10 @@
       "repository": "https://github.com/akamud/vscode-theme-onelight"
     },
     {
+      "id": "aki77.rails-db-schema",
+      "repository" : "https://github.com/aki77/vscode-rails-db-schema"
+    },
+    {
       "id": "albymor.increment-selection",
       "repository": "https://github.com/albymor/Increment-Selection",
       "version": "0.2.0"
@@ -594,6 +598,10 @@
       "id": "k--kato.docomment",
       "download": "https://github.com/kasecato/vscode-docomment/releases/download/v0.1.18/docomment-0.1.18.vsix",
       "version": "0.1.18"
+    },
+    {
+      "id": "kaiwood.endwise",
+      "repository" : "https://github.com/kaiwood/vscode-endwise"
     },
     {
       "id": "karunamurti.haml",
