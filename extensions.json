@@ -601,7 +601,9 @@
     },
     {
       "id": "kaiwood.endwise",
-      "repository" : "https://github.com/kaiwood/vscode-endwise"
+      "repository" : "https://github.com/kaiwood/vscode-endwise",
+      "version": "1.4.2",
+      "checkout": "v1.4.2"
     },
     {
       "id": "karunamurti.haml",
