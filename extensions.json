@@ -932,8 +932,8 @@
     {
       "id": "nwolverson.ide-purescript",
       "repository": "https://github.com/nwolverson/vscode-ide-purescript",
-      "version": "0.23.0",
-      "checkout": "v0.23.0",
+      "version": "0.23.3",
+      "checkout": "v0.23.3",
       "prepublish": "npm install spago purescript"
     },
     {
