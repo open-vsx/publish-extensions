@@ -1186,8 +1186,8 @@
     },
     {
       "id": "vscjava.vscode-java-dependency",
-      "download": "https://github.com/microsoft/vscode-java-dependency/releases/download/0.14.0/vscjava.vscode-java-dependency-0.14.0.vsix",
-      "version": "0.14.0"
+      "download": "https://github.com/microsoft/vscode-java-dependency/releases/download/0.15.0/vscjava.vscode-java-dependency-0.15.0.vsix",
+      "version": "0.15.0"
     },
     {
       "id": "vscjava.vscode-java-test",
