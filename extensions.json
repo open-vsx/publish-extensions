@@ -853,8 +853,8 @@
     },
     {
       "id": "ms-vscode.cmake-tools",
-      "download": "https://github.com/microsoft/vscode-cmake-tools/releases/download/v1.5.2/cmake-tools.vsix",
-      "version": "1.5.2"
+      "download": "https://github.com/microsoft/vscode-cmake-tools/releases/download/1.5.3/cmake-tools.vsix",
+      "version": "1.5.3"
     },
     {
       "id": "ms-vscode.Go",
