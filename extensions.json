@@ -481,8 +481,8 @@
     },
     {
       "id": "hashicorp.terraform",
-      "download": "https://github.com/hashicorp/vscode-terraform/releases/download/v2.2.3/terraform-2.2.3.vsix",
-      "version": "2.2.3"
+      "download": "https://github.com/hashicorp/vscode-terraform/releases/download/v2.3.0/terraform-2.3.0.vsix",
+      "version": "2.3.0"
     },
     {
       "id": "haskell.haskell",
