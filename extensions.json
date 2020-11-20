@@ -304,8 +304,8 @@
     {
       "id": "dracula-theme.theme-dracula",
       "repository": "https://github.com/dracula/visual-studio-code",
-      "version": "2.22.1",
-      "checkout": "v2.22.1"
+      "version": "2.22.2",
+      "checkout": "v2.22.2"
     },
     {
       "id": "dsznajder.es7-react-js-snippets",
