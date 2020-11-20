@@ -61,8 +61,7 @@
     },
     {
       "id": "almenon.arepl",
-      "repository": "https://github.com/almenon/arepl-vscode",
-      "version": "1.0.24"
+      "repository": "https://github.com/almenon/arepl-vscode"
     },
     {
       "id": "alonski.prettier-for-handlebars-vscode",
