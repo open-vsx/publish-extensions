@@ -34,7 +34,7 @@
     },
     {
       "id": "aki77.rails-db-schema",
-      "repository" : "https://github.com/aki77/vscode-rails-db-schema"
+      "repository": "https://github.com/aki77/vscode-rails-db-schema"
     },
     {
       "id": "albymor.increment-selection",
@@ -603,7 +603,7 @@
     },
     {
       "id": "kaiwood.endwise",
-      "repository" : "https://github.com/kaiwood/vscode-endwise",
+      "repository": "https://github.com/kaiwood/vscode-endwise",
       "version": "1.4.2",
       "checkout": "v1.4.2"
     },
@@ -910,6 +910,10 @@
       "repository": "https://github.com/mtxr/vscode-sqltools",
       "version": "0.23.0",
       "checkout": "v0.23.0"
+    },
+    {
+      "id": "mushan.vscode-paste-image",
+      "repository": "https://github.com/mushanshitiancai/vscode-paste-image"
     },
     {
       "id": "nadako.vshaxe",
