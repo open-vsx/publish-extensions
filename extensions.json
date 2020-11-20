@@ -373,8 +373,8 @@
     {
       "id": "evaera.vscode-rojo",
       "repository": "https://github.com/rojo-rbx/vscode-rojo",
-      "version": "1.12.2",
-      "checkout": "v1.12.2"
+      "version": "1.12.3",
+      "checkout": "v1.12.3"
     },
     {
       "id": "exiasr.hadolint",
