@@ -1340,11 +1340,9 @@
       "repository": "https://github.com/zxh0/vscode-proto3"
     },
     {
-        "id": "erlang-ls.erlang-ls",
-        "repository": "https://github.com/erlang-ls/vscode",
-        "checkout": "master",
-        "prepublish": "npm run compile",
-        "extensionFile": "erlang-ls-*.vsix"
+      "id": "erlang-ls.erlang-ls",
+      "repository": "https://github.com/erlang-ls/vscode",
+      "prepublish": "npm run compile"
     }
   ]
 }
