@@ -157,9 +157,8 @@
     },
     {
       "id": "bradlc.vscode-tailwindcss",
-      "repository": "https://github.com/bradlc/vscode-tailwindcss",
-      "version": "0.4.3",
-      "checkout": "v0.4.3"
+      "download": "https://github.com/tailwindlabs/tailwindcss-intellisense/releases/download/v0.4.3/vscode-tailwindcss-0.4.3.vsix",
+      "version": "0.4.3"
     },
     {
       "id": "bung87.rails",
