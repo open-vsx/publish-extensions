@@ -1338,6 +1338,10 @@
     {
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3"
+    },
+    {
+      "id": "shyykoserhiy.git-autoconfig",
+      "repository": "https://github.com/ShyykoSerhiy/git-autoconfig"
     }
   ]
 }
