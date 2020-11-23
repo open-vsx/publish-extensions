@@ -358,7 +358,8 @@
     },
     {
       "id": "erlang-ls.erlang-ls",
-      "repository": "https://github.com/erlang-ls/vscode"
+      "repository": "https://github.com/erlang-ls/vscode",
+      "prepublish": "npm run compile"
     },
     {
       "id": "esbenp.prettier-vscode",
@@ -1340,9 +1341,8 @@
       "repository": "https://github.com/zxh0/vscode-proto3"
     },
     {
-      "id": "erlang-ls.erlang-ls",
-      "repository": "https://github.com/erlang-ls/vscode",
-      "prepublish": "npm run compile"
+      "id": "shyykoserhiy.git-autoconfig",
+      "repository": "https://github.com/ShyykoSerhiy/git-autoconfig"
     }
   ]
 }
