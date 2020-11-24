@@ -1343,6 +1343,10 @@
     {
       "id": "shyykoserhiy.git-autoconfig",
       "repository": "https://github.com/ShyykoSerhiy/git-autoconfig"
+    },
+    {
+      "id": "ahmadawais.emoji-log",
+      "repository": "https://github.com/ahmadawais/Emoji-Log"
     }
   ]
 }
