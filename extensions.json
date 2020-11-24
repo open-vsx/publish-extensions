@@ -72,6 +72,12 @@
       "repository": "https://github.com/ember-tooling/prettier-for-handlebars-vscode"
     },
     {
+      "id": "AmazonWebServices.aws-toolkit-vscode",
+      "repository": "https://github.com/aws/aws-toolkit-vscode",
+      "version": "1.15.0",
+      "checkout": "v1.15.0"
+    },
+    {
       "id": "Angular.ng-template",
       "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v0.1100.1/ngls.vsix",
       "version": "0.1100.1"
