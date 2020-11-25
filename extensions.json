@@ -1348,6 +1348,12 @@
     {
       "id": "shyykoserhiy.git-autoconfig",
       "repository": "https://github.com/ShyykoSerhiy/git-autoconfig"
+    },
+    {	
+      "id": "ahmadawais.emoji-log",	
+      "repository": "https://github.com/ahmadawais/Emoji-Log-VSCode",	
+      "version": "1.0.0",	
+      "checkout": "v1.0.0"	
     }
   ]
 }
