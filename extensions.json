@@ -407,14 +407,6 @@
       "version": "1.0.2"
     },
     {
-      "id": "foam.foam-vscode",
-      "repository": "https://github.com/foambubble/foam",
-      "version": "0.6.0",
-      "checkout": "v0.6.0",
-      "location": "packages/foam-vscode",
-      "prepublish": "yarn build:core"
-    },
-    {
       "id": "formulahendry.auto-close-tag",
       "repository": "https://github.com/formulahendry/vscode-auto-close-tag"
     },
