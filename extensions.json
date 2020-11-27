@@ -25,6 +25,12 @@
       "repository": "https://github.com/kufii/CodeSnap"
     },
     {
+      "id": "ahmadawais.emoji-log",
+      "repository": "https://github.com/ahmadawais/Emoji-Log-VSCode",
+      "version": "1.0.0",
+      "checkout": "v1.0.0"
+    },
+    {
       "id": "akamud.vscode-theme-onedark",
       "repository": "https://github.com/akamud/vscode-theme-onedark"
     },
@@ -1088,6 +1094,10 @@
       "repository": "https://github.com/shuGH/vscode-table-formatter"
     },
     {
+      "id": "shyykoserhiy.git-autoconfig",
+      "repository": "https://github.com/ShyykoSerhiy/git-autoconfig"
+    },
+    {
       "id": "silvenon.mdx",
       "repository": "https://github.com/silvenon/vscode-mdx",
       "version": "0.1.0",
@@ -1336,16 +1346,6 @@
     {
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3"
-    },
-    {
-      "id": "shyykoserhiy.git-autoconfig",
-      "repository": "https://github.com/ShyykoSerhiy/git-autoconfig"
-    },
-    {	
-      "id": "ahmadawais.emoji-log",	
-      "repository": "https://github.com/ahmadawais/Emoji-Log-VSCode",	
-      "version": "1.0.0",	
-      "checkout": "v1.0.0"	
     }
   ]
 }
