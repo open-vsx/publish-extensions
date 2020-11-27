@@ -25,10 +25,10 @@
       "repository": "https://github.com/kufii/CodeSnap"
     },
     {
-      "id": "ahmadawais.emoji-log",
+      "id": "ahmadawais.emoji-log-vscode",
       "repository": "https://github.com/ahmadawais/Emoji-Log-VSCode",
       "version": "1.0.0",
-      "checkout": "v1.0.0"
+      "checkout": "1.0.0"
     },
     {
       "id": "akamud.vscode-theme-onedark",
