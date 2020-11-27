@@ -1300,8 +1300,7 @@
     },
     {
       "id": "Wscats.omi-snippets",
-      "repository": "https://github.com/Wscats/omi-snippets",
-      "version": "2.2.1"
+      "repository": "https://github.com/Wscats/omi-snippets"
     },
     {
       "id": "wwm.better-align",
