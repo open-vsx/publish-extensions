@@ -341,8 +341,7 @@
     },
     {
       "id": "EditorConfig.EditorConfig",
-      "repository": "https://github.com/editorconfig/editorconfig-vscode",
-      "version": "0.15.1"
+      "repository": "https://github.com/editorconfig/editorconfig-vscode"
     },
     {
       "id": "efoerster.texlab",
