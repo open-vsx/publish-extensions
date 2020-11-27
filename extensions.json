@@ -988,9 +988,8 @@
     },
     {
       "id": "pflannery.vscode-versionlens",
-      "repository": "https://gitlab.com/versionlens/vscode-versionlens",
-      "version": "1.0.8",
-      "checkout": "1.0.8"
+      "download": "https://gitlab.com/versionlens/vscode-versionlens/uploads/f27e3b7101dbf62dcc54884374870095/vscode-versionlens-1.0.9.vsix",
+      "version": "1.0.9"
     },
     {
       "id": "PKief.material-icon-theme",
