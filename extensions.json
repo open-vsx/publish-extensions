@@ -589,6 +589,10 @@
       "version": "1.4.3"
     },
     {
+      "id": "jonhue.vscode-cyp",
+      "repository": "https://github.com/jonhue/vscode-cyp"
+    },
+    {
       "id": "jpoissonnier.vscode-styled-components",
       "repository": "https://github.com/styled-components/vscode-styled-components"
     },
