@@ -1270,7 +1270,7 @@
       "repository": "https://github.com/vshaxe/hxcpp-debugger",
       "version": "1.2.4",
       "checkout": "1.2.4",
-      "prepublish": "npm install haxe && npx haxelib install vscode-debugadapter && npx haxelib install vscode"
+      "prepublish": "lix download"
     },
     {
       "id": "vsls-contrib.codetour",
