@@ -1200,6 +1200,11 @@
       "repository": "https://github.com/vortizhe/vscode-ruby-erb"
     },
     {
+      "id": "vsciot-vscode.vscode-arduino",
+      "download": "https://github.com/microsoft/vscode-arduino/releases/download/v0.3.4/vscode-arduino-0.3.4.vsix",
+      "version": "0.3.4"
+    },
+    {
       "id": "vscjava.vscode-java-debug",
       "download": "https://github.com/microsoft/vscode-java-debug/releases/download/0.29.0/vscjava.vscode-java-debug-0.29.0.vsix",
       "version": "0.29.0"
