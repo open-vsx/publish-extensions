@@ -446,8 +446,8 @@
     },
     {
       "id": "geequlim.godot-tools",
-      "download": "https://github.com/godotengine/godot-vscode-plugin/releases/download/1.0.1/godot-tools-1.0.1.vsix",
-      "version": "1.0.1"
+      "download": "https://github.com/godotengine/godot-vscode-plugin/releases/download/1.1.2/godot-tools-1.1.2.vsix",
+      "version": "1.1.2"
     },
     {
       "id": "gharveymn.nightswitch-lite",
