@@ -1201,7 +1201,7 @@
     },
     {
       "id": "vsciot-vscode.vscode-arduino",
-      "repository": "https://github.com/microsoft/vscode-arduino",
+      "download": "https://github.com/microsoft/vscode-arduino/releases/download/v0.3.4/vscode-arduino-0.3.4.vsix",
       "version": "0.3.4"
     },
     {
