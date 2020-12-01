@@ -17,9 +17,7 @@
       "url": "https://www.typefox.io"
     }
   ],
-  "bin": {
-    "publish-to-open-vsx": "bin/publish-extensions"
-  },
+  "bin": "bin/publish-extensions",
   "main": "publish-extensions",
   "scripts": {
     "add": "node add-extension",
