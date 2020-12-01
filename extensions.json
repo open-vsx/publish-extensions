@@ -974,8 +974,7 @@
     },
     {
       "id": "paiqo.databricks-vscode",
-      "repository" : "https://github.com/paiqo/Databricks-VSCode",
-      "checkout": "v0.6.0",
+      "download" : "https://github.com/paiqo/Databricks-VSCode/releases/download/v0.6.0/databricks-vscode-0.6.0.vsix",
       "version": "0.6.0"
     },
     {
