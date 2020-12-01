@@ -973,6 +973,11 @@
       "repository": "https://github.com/openfl/lime-vscode-extension"
     },
     {
+      "id": "paiqo.databricks-vscode",
+      "download" : "https://github.com/paiqo/Databricks-VSCode/releases/download/v0.6.0/databricks-vscode-0.6.0.vsix",
+      "version": "0.6.0"
+    },
+    {
       "id": "patcx.vscode-nuget-gallery",
       "repository": "https://github.com/pcislo/vscode-nuget-gallery",
       "checkout": "master"
