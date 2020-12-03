@@ -21,7 +21,8 @@
   "main": "publish-extensions",
   "scripts": {
     "add": "node add-extension",
-    "publish": "node publish-extensions"
+    "publish": "node publish-extensions",
+    "upgrade": "node upgrade-extensions"
   },
   "dependencies": {
     "download": "^8.0.0",
