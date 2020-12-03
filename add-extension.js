@@ -146,7 +146,14 @@ Alternative usage: node add-extension --download=VSIX_URL`);
 
 async function ensureNotAlreadyOnOpenVSX(package, registry) {
   const id = `${package.publisher}.${package.name}`;
-  const metadata = await registry.getMetadata(package.publisher, package.name);
+  let metadata;
+  try {
+    metadata = await registry.getMetadata(package.publisher, package.name);
+  } catch (error) {
+    console.warn(`[WARNING] Could not check Open VSX version of ${id}:`);
+    console.warn(error);
+    return;
+  }
   if (metadata.error) {
     console.warn(`[WARNING] Could not check Open VSX version of ${id}:`);
     console.warn(metadata.error);
