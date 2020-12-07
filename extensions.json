@@ -1007,6 +1007,11 @@
       "version": "1.0.9"
     },
     {
+      "id": "philosowaffle.openapi-designer",
+      "download": "https://github.com/philosowaffle/vs-openapi-designer/releases/download/v0.3.0/openapi-designer-0.3.0.vsix",
+      "version": "0.3.0"
+    },
+    {
       "id": "PKief.material-icon-theme",
       "repository": "https://github.com/PKief/vscode-material-icon-theme"
     },
