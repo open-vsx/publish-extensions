@@ -12,6 +12,10 @@
       "checkout": "v3.8.0"
     },
     {
+      "id": "a-wart.ariake-dark",
+      "repository": "https://github.com/a-wart/ariake-dark"
+    },
+    {
       "id": "aaron-bond.better-comments",
       "repository": "https://github.com/aaron-bond/better-comments"
     },
