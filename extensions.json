@@ -197,9 +197,9 @@
       "repository": "https://github.com/MaskRay/vscode-ccls"
     },
     {
-      "id": "chenglou.rescript-language-server",
-      "download": "https://github.com/rescript-lang/rescript-vscode/releases/download/0.0.3/rescript-language-server-0.0.3.vsix",
-      "version": "0.0.3"
+      "id": "chenglou92.rescript-vscode",
+      "download": "https://github.com/rescript-lang/rescript-vscode/releases/download/1.0.2/rescript-vscode-1.0.2.vsix",
+      "version": "1.0.2"
     },
     {
       "id": "christian-kohler.npm-intellisense",
