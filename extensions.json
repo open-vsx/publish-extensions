@@ -887,8 +887,8 @@
     {
       "id": "ms-vscode.js-debug",
       "repository": "https://github.com/microsoft/vscode-js-debug",
-      "version": "1.51.0",
-      "checkout": "v1.51.0",
+      "version": "1.52.2",
+      "checkout": "v1.52.2",
       "prepublish": "npm run compile && npm run package",
       "extensionFile": "dist/js-debug.vsix"
     },
