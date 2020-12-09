@@ -1103,8 +1103,8 @@
     {
       "id": "shufo.vscode-blade-formatter",
       "repository": "https://github.com/shufo/vscode-blade-formatter",
-      "version": "0.6.1",
-      "checkout": "v0.6.1"
+      "version": "0.6.3",
+      "checkout": "v0.6.3"
     },
     {
       "id": "shuworks.vscode-table-formatter",
