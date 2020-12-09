@@ -584,8 +584,7 @@
     },
     {
       "id": "johnpapa.Angular2",
-      "repository": "https://github.com/johnpapa/vscode-angular-snippets",
-      "version": "9.1.2"
+      "repository": "https://github.com/johnpapa/vscode-angular-snippets"
     },
     {
       "id": "johnpapa.winteriscoming",
