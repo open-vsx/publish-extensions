@@ -1362,6 +1362,10 @@
       "version": "1.19.0"
     },
     {
+      "id": "ziyasal.vscode-open-in-github",
+      "repository": "https://github.com/ziyasal/vscode-open-in-github"
+    },
+    {
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3"
     }
