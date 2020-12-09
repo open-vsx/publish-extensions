@@ -908,8 +908,8 @@
     {
       "id": "ms-vscode.references-view",
       "repository": "https://github.com/microsoft/vscode-references-view",
-      "version": "0.0.73",
-      "checkout": "v0.0.73"
+      "version": "0.0.75",
+      "checkout": "v0.0.75"
     },
     {
       "id": "mtxr.sqltools",
