@@ -1207,8 +1207,8 @@
     {
       "id": "vhdlwhiz.vhdl-by-vhdlwhiz",
       "repository": "https://github.com/jonasjj/awesome-vhdl",
-      "version": "1.2.6",
-      "checkout": "v1.2.6"
+      "version": "1.2.7",
+      "checkout": "v1.2.7"
     },
     {
       "id": "vinliao.fast-arrow",
