@@ -1129,8 +1129,8 @@
     {
       "id": "sketchbuch.vsc-packages",
       "repository": "https://github.com/sketchbuch/vsc-packages",
-      "version": "1.5.1",
-      "checkout": "v1.5.1"
+      "version": "1.6.6",
+      "checkout": "v1.6.6"
     },
     {
       "id": "skn0tt.markdown-link-expander",
