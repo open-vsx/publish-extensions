@@ -1,11 +1,6 @@
 {
   "extensions": [
     {
-      "id": "0x9ef.vscode-vlang",
-      "download": "https://github.com/vlang/vscode-vlang/releases/download/0.1.12/vscode-vlang-0.1.2.vsix",
-      "version": "0.1.2"
-    },
-    {
       "id": "42Crunch.vscode-openapi",
       "repository": "https://github.com/42Crunch/vscode-openapi",
       "version": "3.9.0",
@@ -1213,6 +1208,11 @@
     {
       "id": "vinliao.fast-arrow",
       "repository": "https://github.com/vinliao/fast-arrow"
+    },
+    {
+      "id": "vlang-vscode.vscode-vlang",
+      "download": "https://github.com/vlang/vscode-vlang/releases/download/0.1.4/vscode-vlang-0.1.4.vsix",
+      "version": "0.1.4"
     },
     {
       "id": "vortizhe.simple-ruby-erb",
