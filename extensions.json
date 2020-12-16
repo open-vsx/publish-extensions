@@ -1242,8 +1242,8 @@
     {
       "id": "vscjava.vscode-spring-boot-dashboard",
       "repository": "https://github.com/Microsoft/vscode-spring-boot-dashboard",
-      "version": "0.1.10",
-      "checkout": "v0.1.10"
+      "version": "0.2.0",
+      "checkout": "v0.2.0"
     },
     {
       "id": "vscjava.vscode-spring-initializr",
