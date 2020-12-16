@@ -748,8 +748,8 @@
     },
     {
       "id": "ms-azuretools.vscode-docker",
-      "download": "https://github.com/microsoft/vscode-docker/releases/download/v1.8.1/vscode-docker-1.8.1.vsix",
-      "version": "1.8.1"
+      "download": "https://github.com/microsoft/vscode-docker/releases/download/v1.9.0/vscode-docker-1.9.0.vsix",
+      "version": "1.9.0"
     },
     {
       "id": "MS-CEINTL.vscode-language-pack-bg",
