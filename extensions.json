@@ -166,8 +166,8 @@
     },
     {
       "id": "bradlc.vscode-tailwindcss",
-      "download": "https://github.com/tailwindlabs/tailwindcss-intellisense/releases/download/v0.5.4/vscode-tailwindcss-0.5.4.vsix",
-      "version": "0.5.4"
+      "download": "https://github.com/tailwindlabs/tailwindcss-intellisense/releases/download/v0.5.6/vscode-tailwindcss-0.5.6.vsix",
+      "version": "0.5.6"
     },
     {
       "id": "bung87.rails",
