@@ -397,6 +397,10 @@
       "version": "0.3.0"
     },
     {
+      "id": "fabiospampinato.vscode-open-in-npm",
+      "repository": "https://github.com/fabiospampinato/vscode-open-in-npm"
+    },
+    {
       "id": "felixfbecker.php-debug",
       "download": "https://github.com/felixfbecker/vscode-php-debug/releases/download/v1.13.0/php-debug.vsix",
       "version": "1.13.0"
@@ -552,6 +556,10 @@
       "repository": "https://github.com/iocave/monkey-patch"
     },
     {
+      "id": "ipedrazas.kubernetes-snippets",
+      "repository": "https://github.com/ipedrazas/kubernetes-snippets"
+    },
+    {
       "id": "itsmajestix.vscode-ti",
       "repository": "https://github.com/ItsMajestiX/VSCode-Ti"
     },
@@ -682,6 +690,10 @@
       "repository": "https://github.com/MagicStack/MagicPython",
       "version": "1.1.1",
       "checkout": "v1.1.1"
+    },
+    {
+      "id": "marcostazi.VS-code-vagrantfile",
+      "repository": "https://github.com/mastazi/VS-code-vagrantfile"
     },
     {
       "id": "marus25.cortex-debug",
@@ -974,6 +986,10 @@
       "prepublish": "npm config set script-shell /bin/bash"
     },
     {
+      "id": "oouo-diogo-perdigao.docthis",
+      "repository": "https://github.com/oouo-diogo-perdigao/vscode-docthis"
+    },
+    {
       "id": "openfl.lime-vscode-extension",
       "repository": "https://github.com/openfl/lime-vscode-extension"
     },
@@ -995,6 +1011,10 @@
     {
       "id": "pdconsec.vscode-print",
       "repository": "https://github.com/PeterWone/vsc-print"
+    },
+    {
+      "id": "peterj.proto",
+      "repository": "https://github.com/pj3677/vscode-protobuf"
     },
     {
       "id": "pflannery.vscode-versionlens",
@@ -1037,6 +1057,10 @@
       "repository": "https://github.com/reduckted/vscode-gitweblinks",
       "version": "1.9.0",
       "checkout": "v1.9.0"
+    },
+    {
+      "id": "ria.elastic",
+      "repository": "https://github.com/hsen-dev/vscode-elastic"
     },
     {
       "id": "ritwickdey.LiveServer",
@@ -1319,6 +1343,12 @@
       "prepublish": "cd packages/vscode-import-cost && git clean -xdf && npm install"
     },
     {
+      "id": "wmaurer.change-case",
+      "repository": "https://github.com/wmaurer/vscode-change-case",
+      "version": "0.3.2",
+      "checkout": "v0.3.2"
+    },
+    {
       "id": "Wscats.omi-snippets",
       "repository": "https://github.com/Wscats/omi-snippets"
     },
@@ -1346,6 +1376,12 @@
       "id": "xyz.plsql-language",
       "repository": "https://github.com/zabel-xyz/plsql-language",
       "version": "1.8.2"
+    },
+    {
+      "id": "yatki.vscode-surround",
+      "repository": "https://github.com/yatki/vscode-surround",
+      "version": "1.0.2",
+      "checkout": "v1.0.2"
     },
     {
       "id": "yzhang.markdown-all-in-one",
