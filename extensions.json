@@ -398,8 +398,7 @@
     },
     {
       "id": "fabiospampinato.vscode-open-in-npm",
-      "repository": "https://github.com/fabiospampinato/vscode-open-in-npm.git",
-      "version": "1.0.4"
+      "repository": "https://github.com/fabiospampinato/vscode-open-in-npm"
     },
     {
       "id": "felixfbecker.php-debug",
@@ -558,8 +557,7 @@
     },
     {
       "id": "ipedrazas.kubernetes-snippets",
-      "repository": "https://github.com/ipedrazas/kubernetes-snippets",
-      "version": "0.1.9"
+      "repository": "https://github.com/ipedrazas/kubernetes-snippets"
     },
     {
       "id": "itsmajestix.vscode-ti",
@@ -989,8 +987,7 @@
     },
     {
       "id": "oouo-diogo-perdigao.docthis",
-      "repository": "https://github.com/oouo-diogo-perdigao/vscode-docthis",
-      "version": "0.8.2"
+      "repository": "https://github.com/oouo-diogo-perdigao/vscode-docthis"
     },
     {
       "id": "openfl.lime-vscode-extension",
@@ -1063,8 +1060,7 @@
     },
     {
       "id": "ria.elastic",
-      "repository": "https://github.com/hsen-dev/vscode-elastic.git",
-      "version": "0.13.2"
+      "repository": "https://github.com/hsen-dev/vscode-elastic"
     },
     {
       "id": "ritwickdey.LiveServer",
@@ -1348,7 +1344,9 @@
     },
     {
       "id": "wmaurer.change-case",
-      "repository": "https://github.com/wmaurer/vscode-change-case"
+      "repository": "https://github.com/wmaurer/vscode-change-case",
+      "version": "0.3.2",
+      "checkout": "v0.3.2"
     },
     {
       "id": "Wscats.omi-snippets",
@@ -1381,8 +1379,9 @@
     },
     {
       "id": "yatki.vscode-surround",
-      "repository": "https://github.com/yatki/vscode-surround.git",
-      "version": "1.0.2"
+      "repository": "https://github.com/yatki/vscode-surround",
+      "version": "1.0.2",
+      "checkout": "v1.0.2"
     },
     {
       "id": "yzhang.markdown-all-in-one",
