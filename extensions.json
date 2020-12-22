@@ -735,6 +735,10 @@
       "repository": "https://github.com/BeastCode/VSCode-Angular-TypeScript-Snippets"
     },
     {
+      "id": "mike-flanigan.daobeam",
+      "repository": "https://github.com/76784/Daobeam"
+    },
+    {
       "id": "mikestead.dotenv",
       "repository": "https://github.com/mikestead/vscode-dotenv",
       "version": "1.0.1"
