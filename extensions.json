@@ -665,8 +665,8 @@
     {
       "id": "lextudio.restructuredtext",
       "repository": "https://github.com/vscode-restructuredtext/vscode-restructuredtext",
-      "version": "133.0.0",
-      "checkout": "133.0.0"
+      "version": "141.0.0",
+      "checkout": "141.0.0"
     },
     {
       "id": "lintangwisesa.arduino",
