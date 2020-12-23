@@ -1403,6 +1403,12 @@
     {
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3"
+    },
+    {
+      "id": "ms-vscode.cpptools",
+      "repository": "https://github.com/microsoft/vscode-cpptools",
+      "checkout": "release",
+      "location": "/Extension"
     }
   ]
 }
