@@ -155,6 +155,11 @@
       "checkout": "0.5.1"
     },
     {
+      "id": "bierner.docs-view",
+      "repository": "https://github.com/mattbierner/vscode-docs-view.git",
+      "version": "0.0.8"
+    },
+    {
       "id": "bltg-team.masm",
       "repository": "https://github.com/9176324/bltg-team.masm"
     },
