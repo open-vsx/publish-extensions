@@ -94,6 +94,12 @@
       "version": "1.0.3"
     },
     {
+      "id": "arcanis.vscode-zipfs",
+      "repository": "https://github.com/yarnpkg/berry.git",
+      "version": "2.2.4",
+      "location": "packages/vscode-zipfs/"
+    },
+    {
       "id": "arjun.swagger-viewer",
       "repository": "https://github.com/arjun-g/vs-swagger-viewer"
     },
