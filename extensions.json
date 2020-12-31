@@ -1237,7 +1237,8 @@
     },
     {
       "id": "tuxtina.json2yaml",
-      "repository": "https://github.com/tuxtina/json2yaml"
+      "download": "https://github.com/tuxtina/json2yaml/releases/download/v0.2.0/json2yaml-0.2.0.vsix",
+      "version": "0.2.0"
     },
     {
       "id": "twxs.cmake",
