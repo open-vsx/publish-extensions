@@ -89,6 +89,10 @@
       "checkout": "0.4.5"
     },
     {
+      "id": "apollographql.apollo-midnight-color-theme",
+      "repository": "https://github.com/apollographql/apollo-midnight"
+    },
+    {
       "id": "appulate.filewatcher",
       "repository": "https://github.com/appulate/vscode-file-watcher",
       "version": "1.0.3"
