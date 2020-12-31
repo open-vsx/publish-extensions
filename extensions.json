@@ -90,8 +90,7 @@
     },
     {
       "id": "apollographql.apollo-midnight-color-theme",
-      "repository": "https://github.com/apollographql/apollo-midnight",
-      "version": "0.9.0"
+      "repository": "https://github.com/apollographql/apollo-midnight"
     },
     {
       "id": "appulate.filewatcher",
