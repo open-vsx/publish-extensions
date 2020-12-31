@@ -102,6 +102,11 @@ const dontUpgrade = [
 function get(url) {
   return new Promise((resolve, reject) => {
     https.get(url, res => {
+      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+        // Follow HTTP redirections
+        get(res.headers.location).then(resolve, reject);
+        return;
+      }
       if (res.statusCode >= 400) {
         reject(new Error(`Couldn't get ${url} - Response status: ${res.statusCode}`));
         return;
