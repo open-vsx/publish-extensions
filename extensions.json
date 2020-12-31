@@ -997,8 +997,7 @@
     },
     {
       "id": "oderwat.indent-rainbow",
-      "repository": "https://github.com/oderwat/vscode-indent-rainbow",
-      "version": "7.4.0"
+      "repository": "https://github.com/oderwat/vscode-indent-rainbow"
     },
     {
       "id": "onecentlin.laravel-blade",
