@@ -461,8 +461,8 @@
     },
     {
       "id": "fwcd.kotlin",
-      "download": "https://github.com/fwcd/vscode-kotlin/releases/download/0.2.18/kotlin-0.2.18.vsix",
-      "version": "0.2.18"
+      "download": "https://github.com/fwcd/vscode-kotlin/releases/download/0.2.20/kotlin-refs.tags.0.2.20.vsix",
+      "version": "0.2.20"
     },
     {
       "id": "geequlim.godot-tools",
