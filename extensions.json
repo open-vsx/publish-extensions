@@ -1255,8 +1255,8 @@
     },
     {
       "id": "vlang-vscode.vscode-vlang",
-      "download": "https://github.com/vlang/vscode-vlang/releases/download/0.1.4/vscode-vlang-0.1.4.vsix",
-      "version": "0.1.4"
+      "download": "https://github.com/vlang/vscode-vlang/releases/download/0.1.6/vscode-vlang-0.1.6.vsix",
+      "version": "0.1.6"
     },
     {
       "id": "vortizhe.simple-ruby-erb",
