@@ -1236,6 +1236,10 @@
       "repository": "https://github.com/HondryTravis/simple-dark"
     },
     {
+      "id": "tuxtina.json2yaml",
+      "repository": "https://github.com/tuxtina/json2yaml"
+    },
+    {
       "id": "twxs.cmake",
       "repository": "https://github.com/twxs/vs.language.cmake"
     },
