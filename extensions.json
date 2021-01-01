@@ -977,6 +977,11 @@
       "repository": "https://github.com/NightrainsRbx/RobloxLsp"
     },
     {
+      "id": "njpwerner.autodocstring",
+      "respository": "https://github.com/NilsJPWerner/autoDocstring",
+      "version": "0.5.4"
+    },
+    {
       "id": "nonoroazoro.syncing",
       "repository": "https://github.com/nonoroazoro/vscode-syncing",
       "version": "3.1.0",
