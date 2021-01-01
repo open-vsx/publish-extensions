@@ -376,11 +376,13 @@
     },
     {
       "id": "Equinusocio.vsc-material-theme",
-      "repository": "https://github.com/material-theme/vsc-material-theme"
+      "repository": "https://github.com/material-theme/vsc-material-theme",
+      "prepublish": "yarn build"
     },
     {
       "id": "equinusocio.vsc-material-theme-icons",
-      "repository": "https://github.com/material-theme/vsc-material-theme-icons"
+      "repository": "https://github.com/material-theme/vsc-material-theme-icons",
+      "prepublish": "sed -i 's+git@github.com:material-theme/vsc-material-theme-icons-src.git+https://github.com/material-theme/vsc-material-theme-icons-src.git+g' build/get-remote-icons.ts && yarn build"
     },
     {
       "id": "erlang-ls.erlang-ls",
