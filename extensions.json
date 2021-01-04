@@ -181,8 +181,8 @@
     {
       "id": "bmewburn.vscode-intelephense-client",
       "repository": "https://github.com/bmewburn/vscode-intelephense",
-      "version": "1.5.4",
-      "checkout": "v1.5.4"
+      "version": "1.6.1",
+      "checkout": "v1.6.1"
     },
     {
       "id": "bradlc.vscode-tailwindcss",
