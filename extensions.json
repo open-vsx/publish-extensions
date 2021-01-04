@@ -484,18 +484,6 @@
       "repository": "https://github.com/giscafer/leek-fund"
     },
     {
-      "id": "GitHub.github-vscode-theme",
-      "repository": "https://github.com/primer/github-vscode-theme",
-      "version": "1.1.5",
-      "checkout": "v1.1.5",
-      "prepublish": "npm run build"
-    },
-    {
-      "id": "GitHub.vscode-pull-request-github",
-      "download": "https://github.com/microsoft/vscode-pull-request-github/releases/download/0.22.0/vscode-pull-request-github-0.22.0.vsix",
-      "version": "0.22.0"
-    },
-    {
       "id": "golang.go",
       "download": "https://github.com/golang/vscode-go/releases/download/v0.20.1/go-0.20.1.vsix",
       "version": "0.20.1"
