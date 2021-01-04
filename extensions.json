@@ -616,11 +616,6 @@
       "checkout": "v3.3.0",
       "prepublish": "npm i --save-dev @types/node@10 && make all"
     },
-    {   
-        "id": "KevinRose.vsc-python-indent",
-        "repository": "https://github.com/kbrose/vsc-python-indent/releases/download/v1.12.0/vsc-python-indent-1.12.0.vsix",
-        "version": "v1.12.0"
-    },
     {
       "id": "k--kato.docomment",
       "download": "https://github.com/kasecato/vscode-docomment/releases/download/v0.1.20/docomment-0.1.20.vsix",
@@ -639,6 +634,11 @@
     {
       "id": "karunamurti.rspec-snippets",
       "repository": "https://github.com/karuna/vscode-rspec-snippets"
+    },
+    {
+      "id": "KevinRose.vsc-python-indent",
+      "download": "https://github.com/kbrose/vsc-python-indent/releases/download/v1.12.0/vsc-python-indent-1.12.0.vsix",
+      "version": "1.12.0"
     },
     {
       "id": "KnisterPeter.vscode-github",
