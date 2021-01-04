@@ -616,6 +616,11 @@
       "checkout": "v3.3.0",
       "prepublish": "npm i --save-dev @types/node@10 && make all"
     },
+    {   
+        "id": "KevinRose.vsc-python-indent",
+        "repository": "https://github.com/kbrose/vsc-python-indent/releases/download/v1.12.0/vsc-python-indent-1.12.0.vsix",
+        "version": "v1.12.0"
+    },
     {
       "id": "k--kato.docomment",
       "download": "https://github.com/kasecato/vscode-docomment/releases/download/v0.1.20/docomment-0.1.20.vsix",
@@ -964,6 +969,10 @@
     {
       "id": "Nightrains.robloxlsp",
       "repository": "https://github.com/NightrainsRbx/RobloxLsp"
+    },
+    {
+      "id": "njpwerner.autodocstring",
+      "respository": "https://github.com/NilsJPWerner/autoDocstring"
     },
     {
       "id": "nonoroazoro.syncing",
