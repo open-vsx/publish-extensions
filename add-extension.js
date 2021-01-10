@@ -165,7 +165,7 @@ async function ensureNotAlreadyOnOpenVSX(package, registry) {
   }
 }
 
-async function addNewExtension(extension, extensions) {
+export async function addNewExtension(extension, extensions) {
   extensions.push(extension);
 
   // Sort extensions alphabetically by ID (not case-sensitive).
