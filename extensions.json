@@ -78,8 +78,8 @@
     },
     {
       "id": "amazonwebservices.aws-toolkit-vscode",
-      "download": "https://github.com/aws/aws-toolkit-vscode/releases/download/v1.17.0/aws-toolkit-vscode-1.17.0.vsix",
-      "version": "1.17.0"
+      "download": "https://github.com/aws/aws-toolkit-vscode/releases/download/v1.18.0/aws-toolkit-vscode-1.18.0.vsix",
+      "version": "1.18.0"
     },
     {
       "id": "Angular.ng-template",
