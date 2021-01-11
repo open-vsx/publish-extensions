@@ -213,8 +213,8 @@
     },
     {
       "id": "chenglou92.rescript-vscode",
-      "download": "https://github.com/rescript-lang/rescript-vscode/releases/download/1.0.2/rescript-vscode-1.0.2.vsix",
-      "version": "1.0.2"
+      "download": "https://github.com/rescript-lang/rescript-vscode/releases/download/1.0.4/rescript-vscode-1.0.4.vsix",
+      "version": "1.0.4"
     },
     {
       "id": "christian-kohler.npm-intellisense",
