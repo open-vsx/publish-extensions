@@ -1261,9 +1261,9 @@
       "repository": "https://github.com/vinliao/fast-arrow"
     },
     {
-      "id": "vlang-vscode.vscode-vlang",
-      "download": "https://github.com/vlang/vscode-vlang/releases/download/0.1.6/vscode-vlang-0.1.6.vsix",
-      "version": "0.1.6"
+      "id": "vlanguage.vscode-vlang",
+      "download": "https://github.com/vlang/vscode-vlang/releases/download/0.1.7/vscode-vlang-0.1.7.vsix",
+      "version": "0.1.7"
     },
     {
       "id": "vortizhe.simple-ruby-erb",
