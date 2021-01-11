@@ -1358,8 +1358,8 @@
     {
       "id": "wingrunr21.vscode-ruby",
       "repository": "https://github.com/rubyide/vscode-ruby",
-      "version": "0.27.0",
-      "checkout": "v0.27.0",
+      "version": "0.28.0",
+      "checkout": "v0.28.0",
       "location": "packages/vscode-ruby"
     },
     {
