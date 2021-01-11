@@ -1069,8 +1069,8 @@
     {
       "id": "rebornix.ruby",
       "repository": "https://github.com/rubyide/vscode-ruby",
-      "version": "0.27.0",
-      "checkout": "v0.27.0",
+      "version": "0.28.1",
+      "checkout": "v0.28.1",
       "location": "packages/vscode-ruby-client"
     },
     {
