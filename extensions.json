@@ -356,8 +356,8 @@
     {
       "id": "ecmel.vscode-html-css",
       "repository": "https://github.com/ecmel/vscode-html-css",
-      "version": "1.6.2",
-      "checkout": "1.6.2"
+      "version": "1.8.0",
+      "checkout": "1.8.0"
     },
     {
       "id": "EditorConfig.EditorConfig",
