@@ -365,9 +365,8 @@
     },
     {
       "id": "efoerster.texlab",
-      "repository": "https://github.com/latex-lsp/texlab-vscode",
-      "version": "2.2.0",
-      "checkout": "v2.2.0"
+      "download": "https://github.com/latex-lsp/texlab-vscode/releases/download/v2.2.1/texlab.vsix",
+      "version": "2.2.1"
     },
     {
       "id": "emmanuelbeziat.vscode-great-icons",
