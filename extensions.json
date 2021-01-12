@@ -49,7 +49,9 @@
     {
       "id": "alefragnani.Bookmarks",
       "repository": "https://github.com/alefragnani/vscode-bookmarks",
-      "version": "11.3.0"
+      "version": "12.1.0",
+      "checkout": "v12.1.0",
+      "prepublish": "npm run compile"
     },
     {
       "id": "alefragnani.project-manager",
@@ -134,6 +136,12 @@
     {
       "id": "attilabuti.brainfuck-syntax",
       "repository": "https://github.com/attilabuti/brainfuck-syntax"
+    },
+    {
+      "id": "auchenberg.vscode-browser-preview",
+      "repository": "https://github.com/auchenberg/vscode-browser-preview",
+      "version": "0.6.6",
+      "checkout": "v0.6.6"
     },
     {
       "id": "aurorabiz.blade-ui-kit",
@@ -437,6 +445,11 @@
       "version": "1.0.2"
     },
     {
+      "id": "file-icons.file-icons",
+      "repository": "https://github.com/file-icons/vscode",
+      "version": "1.0.28"
+    },
+    {
       "id": "formulahendry.auto-close-tag",
       "repository": "https://github.com/formulahendry/vscode-auto-close-tag"
     },
@@ -569,6 +582,12 @@
       "repository": "https://github.com/ipedrazas/kubernetes-snippets"
     },
     {
+      "id": "itsjonq.owlet",
+      "repository": "https://github.com/ItsJonQ/owlet",
+      "version": "0.1.21",
+      "checkout": "v0.1.21"
+    },
+    {
       "id": "itsmajestix.vscode-ti",
       "repository": "https://github.com/ItsMajestiX/VSCode-Ti"
     },
@@ -589,6 +608,11 @@
       "id": "JeffersonQin.latex-snippets-jeff",
       "repository": "https://github.com/JeffersonQin/VSCode-LaTeX-Snippets",
       "version": "1.2.3"
+    },
+    {
+      "id": "joelday.docthis",
+      "repository": "https://github.com/joelday/vscode-docthis",
+      "version": "0.8.2"
     },
     {
       "id": "johnpapa.Angular2",
@@ -736,6 +760,11 @@
       "version": "1.1.8"
     },
     {
+      "id": "mgmcdermott.vscode-language-babel",
+      "repository": "https://github.com/michaelgmcd/vscode-language-babel",
+      "version": "0.0.30"
+    },
+    {
       "id": "Mikael.Angular-BeastCode",
       "repository": "https://github.com/BeastCode/VSCode-Angular-TypeScript-Snippets"
     },
@@ -752,6 +781,11 @@
       "id": "mitaki28.vscode-clang",
       "repository": "https://github.com/mitaki28/vscode-clang",
       "version": "0.2.3"
+    },
+    {
+      "id": "mitchdenny.ecdc",
+      "repository": "https://github.com/mitchdenny/ecdc",
+      "version": "1.4.0"
     },
     {
       "id": "mp.oradew-vscode",
