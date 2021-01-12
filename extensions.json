@@ -933,6 +933,10 @@
       "checkout": "v0.0.77"
     },
     {
+      "id": "ms-vscode.sublime-keybindings",
+      "repository": "https://github.com/Microsoft/vscode-sublime-keybindings"
+    },
+    {
       "id": "mtxr.sqltools",
       "repository": "https://github.com/mtxr/vscode-sqltools",
       "version": "0.23.0",
