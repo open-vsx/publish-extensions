@@ -108,7 +108,8 @@
       "repository": "https://github.com/yarnpkg/berry",
       "version": "2.2.4",
       "checkout": "vscode-zipfs/2.2.4",
-      "location": "packages/vscode-zipfs"
+      "location": "packages/vscode-zipfs",
+      "prepublish": "sed -ri \"s_git\\+https://_https://_g\" package.json"
     },
     {
       "id": "arjun.swagger-viewer",
