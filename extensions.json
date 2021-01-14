@@ -75,10 +75,6 @@
       "repository": "https://github.com/almenon/arepl-vscode"
     },
     {
-      "id": "embertooling.prettier-for-handlebars-vscode",
-      "repository": "https://github.com/ember-tooling/prettier-for-handlebars-vscode"
-    },
-    {
       "id": "amazonwebservices.aws-toolkit-vscode",
       "download": "https://github.com/aws/aws-toolkit-vscode/releases/download/v1.18.0/aws-toolkit-vscode-1.18.0.vsix",
       "version": "1.18.0"
@@ -377,6 +373,10 @@
       "version": "2.2.1"
     },
     {
+      "id": "embertooling.prettier-for-handlebars-vscode",
+      "repository": "https://github.com/ember-tooling/prettier-for-handlebars-vscode"
+    },
+    {
       "id": "emmanuelbeziat.vscode-great-icons",
       "repository": "https://github.com/EmmanuelBeziat/vscode-great-icons",
       "prepublish": "sed -ri \"s_git\\+https://_https://_g\" package.json"
@@ -452,6 +452,11 @@
     {
       "id": "formulahendry.auto-close-tag",
       "repository": "https://github.com/formulahendry/vscode-auto-close-tag"
+    },
+    {
+      "id": "formulahendry.auto-complete-tag",
+      "repository": "https://github.com/formulahendry/vscode-auto-complete-tag",
+      "version": "0.2.0"
     },
     {
       "id": "formulahendry.auto-rename-tag",
