@@ -75,6 +75,12 @@
       "repository": "https://github.com/almenon/arepl-vscode"
     },
     {
+      "id": "amiralizadeh9480.laravel-extra-intellisense",
+      "repository": "https://github.com/amir9480/vscode-laravel-extra-intellisense",
+      "version": "0.4.1",
+      "checkout": "v0.4.1"
+    },
+    {
       "id": "amazonwebservices.aws-toolkit-vscode",
       "download": "https://github.com/aws/aws-toolkit-vscode/releases/download/v1.18.0/aws-toolkit-vscode-1.18.0.vsix",
       "version": "1.18.0"
@@ -184,6 +190,11 @@
       "repository": "https://github.com/9176324/bltg-team.masm"
     },
     {
+      "id": "bmalehorn.vscode-fish",
+      "repository": "https://github.com/bmalehorn/vscode-fish",
+      "version": "1.0.20"
+    },
+    {
       "id": "bmewburn.vscode-intelephense-client",
       "repository": "https://github.com/bmewburn/vscode-intelephense",
       "version": "1.6.1",
@@ -215,6 +226,11 @@
     {
       "id": "ccls-project.ccls",
       "repository": "https://github.com/MaskRay/vscode-ccls"
+    },
+    {
+      "id": "ChakrounAnas.turbo-console-log",
+      "repository": "https://github.com/Chakroun-Anas/turbo-console-log",
+      "version": "2.1.6"
     },
     {
       "id": "chenglou92.rescript-vscode",
@@ -394,6 +410,11 @@
       "prepublish": "sed -ri \"s_git\\+https://_https://_g\" package.json"
     },
     {
+      "id": "enkia.tokyo-night",
+      "repository": "https://github.com/enkia/tokyo-night-vscode-theme",
+      "version": "0.6.7"
+    },
+    {
       "id": "Equinusocio.vsc-community-material-theme",
       "repository": "https://github.com/material-theme/vsc-community-material-theme"
     },
@@ -533,6 +554,12 @@
       "repository": "https://github.com/jjuback/gc-excelviewer",
       "version": "3.0.40",
       "checkout": "v3.0.40"
+    },
+    {
+      "id": "HansUXdev.bootstrap5-snippets",
+      "repository": "https://github.com/HansUXdev/B5-Snippets",
+      "version": "1.2.5",
+      "prepublish": "npm run concat"
     },
     {
       "id": "hashicorp.terraform",
@@ -709,6 +736,11 @@
       "repository": "https://github.com/karuna/vscode-rspec-snippets"
     },
     {
+      "id": "Kelvin.vscode-sshfs",
+      "download": "https://github.com/SchoofsKelvin/vscode-sshfs/releases/download/v1.19.1/vscode-sshfs-1.19.1.vsix",
+      "version": "1.19.1"
+    },
+    {
       "id": "KevinRose.vsc-python-indent",
       "download": "https://github.com/kbrose/vsc-python-indent/releases/download/v1.12.0/vsc-python-indent-1.12.0.vsix",
       "version": "1.12.0"
@@ -822,7 +854,7 @@
     {
       "id": "meganrogge.template-string-converter",
       "repository": "https://github.com/meganrogge/template-string-converter",
-      "version": "0.4.5"
+      "version": "0.4.6"
     },
     {
       "id": "MehediDracula.php-namespace-resolver",
