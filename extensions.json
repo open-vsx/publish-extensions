@@ -665,6 +665,13 @@
       "version": "1.2.3"
     },
     {
+      "id": "jebbs.plantuml",
+      "version": "2.14.0",
+      "checkout": "v2.14.0",
+      "repository": "https://github.com/qjebbs/vscode-plantuml.git",
+      "prepublish": "wget -O plantuml.zip https://sourceforge.net/projects/plantuml/files/1.2021.0/plantuml-jar-mit-1.2021.0.zip/download && unzip plantuml.zip && rm plantuml.zip && mv COPYING COPYING.plantuml-jar"
+    },
+    {
       "id": "jock.svg",
       "repository": "https://github.com/lishu/vscode-svg2",
       "version": "1.4.3"
