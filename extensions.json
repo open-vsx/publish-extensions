@@ -186,6 +186,16 @@
       "version": "0.0.8"
     },
     {
+      "id": "bitlang.cobol",
+      "repository": "https://github.com/spgennard/vscode_cobol",
+      "version": "7.0.1"
+    },
+    {
+      "id": "bitlang.gnucobol",
+      "repository": "https://github.com/spgennard/vscode_cobol4gnucobol",
+      "version": "0.1.4"
+    },
+    {
       "id": "bltg-team.masm",
       "repository": "https://github.com/9176324/bltg-team.masm"
     },
