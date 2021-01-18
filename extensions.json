@@ -75,15 +75,15 @@
       "repository": "https://github.com/almenon/arepl-vscode"
     },
     {
+      "id": "amazonwebservices.aws-toolkit-vscode",
+      "download": "https://github.com/aws/aws-toolkit-vscode/releases/download/v1.18.0/aws-toolkit-vscode-1.18.0.vsix",
+      "version": "1.18.0"
+    },
+    {
       "id": "amiralizadeh9480.laravel-extra-intellisense",
       "repository": "https://github.com/amir9480/vscode-laravel-extra-intellisense",
       "version": "0.4.1",
       "checkout": "v0.4.1"
-    },
-    {
-      "id": "amazonwebservices.aws-toolkit-vscode",
-      "download": "https://github.com/aws/aws-toolkit-vscode/releases/download/v1.18.0/aws-toolkit-vscode-1.18.0.vsix",
-      "version": "1.18.0"
     },
     {
       "id": "Angular.ng-template",
@@ -1146,6 +1146,11 @@
     {
       "id": "oderwat.indent-rainbow",
       "repository": "https://github.com/oderwat/vscode-indent-rainbow"
+    },
+    {
+      "id": "oguhpereira.spotify-color-theme",
+      "repository": "https://github.com/oguhpereira/vscode-spotify-theme",
+      "version": "1.2.9"
     },
     {
       "id": "onecentlin.laravel-blade",
