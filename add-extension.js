@@ -115,6 +115,8 @@ Alternative usage: node add-extension --download=VSIX_URL`);
     const package = JSON.parse(await readFile(packagePath, 'utf-8'));
     if (registry.requiresLicense && !(await ovsx.isLicenseOk(packagePath, package))) {
       throw new Error(`License must be present, please ask author of extension to add license (${repository})`)
+    } else {
+      ovsx.validateManifest(package)
     }
 
     // Check whether the extension is already published on Open VSX.
