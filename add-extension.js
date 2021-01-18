@@ -16,6 +16,7 @@ const path = require('path');
 const util = require('util');
 const semver = require('semver');
 const exec = require('./lib/exec');
+const { DH_UNABLE_TO_CHECK_GENERATOR } = require('constants');
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
@@ -109,13 +110,12 @@ Alternative usage: node add-extension --download=VSIX_URL`);
         }
         location = path.dirname(locations[0]);
     }
+    const packagePath = path.join('/tmp/repository', location, 'package.json')
     /** @type {{ publisher: string, name: string, version: string }} */
-    const package = JSON.parse(await readFile(path.join('/tmp/repository', location, 'package.json'), 'utf-8'));
-    ['publisher', 'name', 'version'].forEach(key => {
-      if (!(key in package)) {
-        throw new Error(`Expected "${key}" in ${location}/package.json: ${JSON.stringify(package, null, 2)}`);
-      }
-    });
+    const package = JSON.parse(await readFile(packagePath, 'utf-8'));
+    if (registry.requiresLicense && !(await ovsx.isLicenseOk(packagePath, package))) {
+      throw new Error(`License must be present, please ask author of extension to add license (${repository})`)
+    }
 
     // Check whether the extension is already published on Open VSX.
     await ensureNotAlreadyOnOpenVSX(package, registry);
