@@ -386,6 +386,12 @@
       "repository": "https://github.com/dylan-lang/vscode-dylan"
     },
     {
+      "id": "eamodio.vscode-gitlens",
+      "repository": "https://github.com/eamodio/vscode-gitlens",
+      "version": "10.2.3",
+      "checkout": "v10.2.3"
+    },
+    {
       "id": "ecmel.vscode-html-css",
       "repository": "https://github.com/ecmel/vscode-html-css",
       "version": "1.8.0",
