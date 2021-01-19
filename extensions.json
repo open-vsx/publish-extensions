@@ -1131,6 +1131,14 @@
       "version": "2021.5.842923320"
     },
     {
+      "id": "ms-toolsai.jupyter",
+      "repository": "https://github.com/microsoft/vscode-jupyter",
+      "version": "2020.12.1",
+      "checkout": "2020.12.1",
+      "prepublish": "PIP_USER=no python3 -m pip --disable-pip-version-check install -t ./pythonFiles/lib/python --no-cache-dir --implementation py --no-deps --upgrade -r requirements.txt && npm run package",
+      "extensionFile": "ms-toolsai-jupyter-insiders.vsix"
+    },
+    {
       "id": "ms-vscode.atom-keybindings",
       "repository": "https://github.com/Microsoft/vscode-atom-keybindings",
       "version": "3.0.6",
