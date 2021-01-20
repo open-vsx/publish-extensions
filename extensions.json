@@ -903,6 +903,11 @@
       "version": "1.4.0"
     },
     {
+      "id": "bierner.markdown-image-size",
+      "repository": "https://github.com/mjbvz/vscode-markdown-image-size",
+      "version": "0.0.4"
+    },
+    {
       "id": "mp.oradew-vscode",
       "repository": "https://github.com/mickeypearce/oradew-vscode",
       "version": "0.3.27",
