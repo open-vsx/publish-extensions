@@ -64,7 +64,7 @@ if (!module.parent) {
         await exec(`wget -O extension.vsix ${argv.download}`, { cwd: '/tmp/vsix' });
         await exec('unzip -q extension.vsix', { cwd: '/tmp/vsix' });
         /** @type {{ publisher: string, name: string, version: string }} */
-        const package = JSON.parse(await readFile('/tmp/vsix/extension/package.json', 'utf-8'));
+        const package = await ovsx.readManifest('/tmp/vsix/extension/package.json');
         ovsx.validateManifest(package)
         const extension = { id: `${package.publisher}.${package.name}`, download: argv.download, version: package.version };
         await addNewExtension(extension, package, extensions);
@@ -108,16 +108,12 @@ async function fetchExtInfoFromClonedRepo(repository, { checkout, location, exte
   try {
     const { packagePath }  = await cloneRepo(tmpRepoFolder, repository, checkout, location)
     /** @type {{ publisher: string, name: string, version: string }} */
-    const package = JSON.parse(await readFile(packagePath, 'utf-8'));
+    const package = await ovsx.readManifest(packagePath)
     if (registry.requiresLicense && !(await ovsx.isLicenseOk(packagePath, package))) {
       throw new Error(`License must be present, please ask author of extension to add license (${repository})`)
     } else {
       ovsx.validateManifest(package)
     }
-  
-    // Check whether the extension is already published on Open VSX.
-    await ensureNotAlreadyOnOpenVSX(package, registry);
-  
     // Add extension to the list.
     const extension = { id: `${package.publisher}.${package.name}`, repository, version: package.version };
     if (checkout) {
@@ -166,7 +162,7 @@ async function cloneRepo(tmpRepoFolder, repository, checkout, location) {
     }
     location = path.dirname(locations[0]);
   }
-  return { packagePath: path.join(tmpRepoFolder, location, 'package.json') };
+  return { packagePath: path.join(tmpRepoFolder, location) };
 }
 
 async function ensureNotAlreadyOnOpenVSX(package, registry) {
