@@ -16,6 +16,7 @@ const path = require('path');
 const util = require('util');
 const semver = require('semver');
 const exec = require('./lib/exec');
+const { DH_UNABLE_TO_CHECK_GENERATOR } = require('constants');
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
@@ -119,8 +120,9 @@ async function fetchExtInfoFromClonedRepo (repository, { checkout, location, ext
   }
 
   // Locate and parse package.json.
+  let location = argv.location;
   if (!location) {
-      const { stdout: files } = await exec('ls package.json 2>/dev/null || git ls-files | grep package\\.json', { cwd: tmpRepoFolder });
+      const { stdout: files } = await exec('ls package.json 2>/dev/null || git ls-files | grep package\\.json', { cwd: '/tmp/repository' });
       if (!files.trim()) {
           throw new Error(`No package.json found in repository!`);
       }
@@ -130,9 +132,17 @@ async function fetchExtInfoFromClonedRepo (repository, { checkout, location, ext
       }
       location = path.dirname(locations[0]);
   }
+  const packagePath = path.join('/tmp/repository', location, 'package.json')
   /** @type {{ publisher: string, name: string, version: string }} */
-  const package = JSON.parse(await readFile(path.join(tmpRepoFolder, location, 'package.json'), 'utf-8'));
-  validatePackage(package)
+  const package = JSON.parse(await readFile(packagePath, 'utf-8'));
+  if (registry.requiresLicense && !(await ovsx.isLicenseOk(packagePath, package))) {
+    throw new Error(`License must be present, please ask author of extension to add license (${repository})`)
+  } else {
+    ovsx.validateManifest(package)
+  }
+
+  // Check whether the extension is already published on Open VSX.
+  await ensureNotAlreadyOnOpenVSX(package, registry);
 
   // Add extension to the list.
   const extension = { id: `${package.publisher}.${package.name}`, repository, version: package.version };

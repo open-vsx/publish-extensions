@@ -75,13 +75,15 @@
       "repository": "https://github.com/almenon/arepl-vscode"
     },
     {
-      "id": "embertooling.prettier-for-handlebars-vscode",
-      "repository": "https://github.com/ember-tooling/prettier-for-handlebars-vscode"
-    },
-    {
       "id": "amazonwebservices.aws-toolkit-vscode",
       "download": "https://github.com/aws/aws-toolkit-vscode/releases/download/v1.18.0/aws-toolkit-vscode-1.18.0.vsix",
       "version": "1.18.0"
+    },
+    {
+      "id": "amiralizadeh9480.laravel-extra-intellisense",
+      "repository": "https://github.com/amir9480/vscode-laravel-extra-intellisense",
+      "version": "0.4.1",
+      "checkout": "v0.4.1"
     },
     {
       "id": "Angular.ng-template",
@@ -108,7 +110,8 @@
       "repository": "https://github.com/yarnpkg/berry",
       "version": "2.2.4",
       "checkout": "vscode-zipfs/2.2.4",
-      "location": "packages/vscode-zipfs"
+      "location": "packages/vscode-zipfs",
+      "prepublish": "sed -ri \"s_ssh://git@github.com/yarnpkg/berry.git_https://github.com/yarnpkg/berry_g\" package.json"
     },
     {
       "id": "arjun.swagger-viewer",
@@ -187,6 +190,11 @@
       "repository": "https://github.com/9176324/bltg-team.masm"
     },
     {
+      "id": "bmalehorn.vscode-fish",
+      "repository": "https://github.com/bmalehorn/vscode-fish",
+      "version": "1.0.20"
+    },
+    {
       "id": "bmewburn.vscode-intelephense-client",
       "repository": "https://github.com/bmewburn/vscode-intelephense",
       "version": "1.6.1",
@@ -220,6 +228,11 @@
       "repository": "https://github.com/MaskRay/vscode-ccls"
     },
     {
+      "id": "ChakrounAnas.turbo-console-log",
+      "repository": "https://github.com/Chakroun-Anas/turbo-console-log",
+      "version": "2.1.6"
+    },
+    {
       "id": "chenglou92.rescript-vscode",
       "download": "https://github.com/rescript-lang/rescript-vscode/releases/download/1.0.4/rescript-vscode-1.0.4.vsix",
       "version": "1.0.4"
@@ -239,6 +252,12 @@
       "checkout": "argdown-vscode@v1.5.3",
       "location": "packages/argdown-vscode",
       "prepublish": "cd packages/argdown-vscode && yarn install"
+    },
+    {
+      "id": "ckolkman.vscode-postgres",
+      "repository": "https://github.com/Borvik/vscode-postgres",
+      "version": "1.1.13",
+      "checkout": "v1.1.13"
     },
     {
       "id": "CoenraadS.bracket-pair-colorizer",
@@ -303,6 +322,11 @@
       "id": "dbaeumer.vscode-eslint",
       "download": "https://github.com/microsoft/vscode-eslint/releases/download/release%2F2.1.8/dbaeumer.vscode-eslint-2.1.8.vsix",
       "version": "2.1.8"
+    },
+    {
+      "id": "deerawan.vscode-faker",
+      "repository": "https://github.com/deerawan/vscode-faker",
+      "version": "1.5.0"
     },
     {
       "id": "deibit.devdocs",
@@ -377,9 +401,18 @@
       "version": "2.2.1"
     },
     {
+      "id": "embertooling.prettier-for-handlebars-vscode",
+      "repository": "https://github.com/ember-tooling/prettier-for-handlebars-vscode"
+    },
+    {
       "id": "emmanuelbeziat.vscode-great-icons",
       "repository": "https://github.com/EmmanuelBeziat/vscode-great-icons",
       "prepublish": "sed -ri \"s_git\\+https://_https://_g\" package.json"
+    },
+    {
+      "id": "enkia.tokyo-night",
+      "repository": "https://github.com/enkia/tokyo-night-vscode-theme",
+      "version": "0.6.7"
     },
     {
       "id": "Equinusocio.vsc-community-material-theme",
@@ -454,6 +487,11 @@
       "repository": "https://github.com/formulahendry/vscode-auto-close-tag"
     },
     {
+      "id": "formulahendry.auto-complete-tag",
+      "repository": "https://github.com/formulahendry/vscode-auto-complete-tag",
+      "version": "0.2.0"
+    },
+    {
       "id": "formulahendry.auto-rename-tag",
       "repository": "https://github.com/formulahendry/vscode-auto-rename-tag",
       "location": "packages/extension"
@@ -476,6 +514,11 @@
     {
       "id": "Fr43nk.seito-openfile",
       "repository": "https://gitlab.com/fr43nk/seito-openfile"
+    },
+    {
+      "id": "fterrag.vscode-php-cs-fixer",
+      "repository": "https://github.com/fterrag/vscode-php-cs-fixer",
+      "version": "0.4.0"
     },
     {
       "id": "fwcd.kotlin",
@@ -513,6 +556,12 @@
       "checkout": "v3.0.40"
     },
     {
+      "id": "HansUXdev.bootstrap5-snippets",
+      "repository": "https://github.com/HansUXdev/B5-Snippets",
+      "version": "1.2.5",
+      "prepublish": "npm run concat"
+    },
+    {
       "id": "hashicorp.terraform",
       "download": "https://github.com/hashicorp/vscode-terraform/releases/download/v2.4.0/terraform-2.4.0.vsix",
       "version": "2.4.0"
@@ -527,6 +576,12 @@
       "id": "hbenl.vscode-test-explorer",
       "repository": "https://github.com/hbenl/vscode-test-explorer",
       "prepublish": "npm run build"
+    },
+    {
+      "id": "higoka.php-cs-fixer",
+      "repository": "https://github.com/higoka/php-cs-fixer",
+      "version": "1.2.7",
+      "checkout": "v1.2.7"
     },
     {
       "id": "hollowtree.vue-snippets",
@@ -610,6 +665,18 @@
       "version": "1.2.3"
     },
     {
+      "id": "jebbs.plantuml",
+      "version": "2.14.0",
+      "checkout": "v2.14.0",
+      "repository": "https://github.com/qjebbs/vscode-plantuml.git",
+      "prepublish": "wget -O plantuml.zip https://sourceforge.net/projects/plantuml/files/1.2021.0/plantuml-jar-mit-1.2021.0.zip/download && unzip plantuml.zip && rm plantuml.zip && mv COPYING COPYING.plantuml-jar"
+    },
+    {
+      "id": "jock.svg",
+      "repository": "https://github.com/lishu/vscode-svg2",
+      "version": "1.4.3"
+    },
+    {
       "id": "joelday.docthis",
       "repository": "https://github.com/joelday/vscode-docthis",
       "version": "0.8.2"
@@ -619,13 +686,30 @@
       "repository": "https://github.com/johnpapa/vscode-angular-snippets"
     },
     {
+      "id": "johnpapa.vscode-peacock",
+      "repository": "https://github.com/johnpapa/vscode-peacock",
+      "version": "3.9.1"
+    },
+    {
       "id": "johnpapa.winteriscoming",
       "repository": "https://github.com/johnpapa/vscode-winteriscoming",
       "version": "1.4.3"
     },
     {
+      "id": "jolaleye.horizon-theme-vscode",
+      "repository": "https://github.com/jolaleye/horizon-theme-vscode",
+      "version": "2.0.1",
+      "checkout": "v2.0.1",
+      "prepublish": "npm run build"
+    },
+    {
       "id": "jpoissonnier.vscode-styled-components",
       "repository": "https://github.com/styled-components/vscode-styled-components"
+    },
+    {
+      "id": "junstyle.php-cs-fixer",
+      "repository": "https://github.com/junstyle/vscode-php-cs-fixer",
+      "version": "0.1.157"
     },
     {
       "id": "justusadam.language-haskell",
@@ -638,6 +722,11 @@
       "id": "k--kato.docomment",
       "download": "https://github.com/kasecato/vscode-docomment/releases/download/v0.1.20/docomment-0.1.20.vsix",
       "version": "0.1.20"
+    },
+    {
+      "id": "k--kato.intellij-idea-keybindings",
+      "download": "https://github.com/kasecato/vscode-intellij-idea-keybindings/releases/download/v0.2.40/intellij-idea-keybindings-0.2.40.vsix",
+      "version": "0.2.40"
     },
     {
       "id": "kaiwood.endwise",
@@ -654,9 +743,20 @@
       "repository": "https://github.com/karuna/vscode-rspec-snippets"
     },
     {
+      "id": "Kelvin.vscode-sshfs",
+      "download": "https://github.com/SchoofsKelvin/vscode-sshfs/releases/download/v1.19.1/vscode-sshfs-1.19.1.vsix",
+      "version": "1.19.1"
+    },
+    {
       "id": "KevinRose.vsc-python-indent",
       "download": "https://github.com/kbrose/vsc-python-indent/releases/download/v1.12.0/vsc-python-indent-1.12.0.vsix",
       "version": "1.12.0"
+    },
+    {
+      "id": "kisstkondoros.vscode-gutter-preview",
+      "repository": "https://github.com/kisstkondoros/gutter-preview",
+      "version": "0.26.1",
+      "checkout": "v0.26.1"
     },
     {
       "id": "KnisterPeter.vscode-github",
@@ -696,6 +796,10 @@
       "repository": "https://github.com/vscode-restructuredtext/vscode-restructuredtext",
       "version": "141.0.0",
       "checkout": "141.0.0"
+    },
+    {
+      "id": "lgalabru.clarity-lsp",
+      "download": "https://github.com/lgalabru/clarity-lsp/releases/download/2020-12-16/clarity-lsp.vsix"
     },
     {
       "id": "lintangwisesa.arduino",
@@ -755,6 +859,11 @@
       "checkout": "v1.5.16"
     },
     {
+      "id": "meganrogge.template-string-converter",
+      "repository": "https://github.com/meganrogge/template-string-converter",
+      "version": "0.4.6"
+    },
+    {
       "id": "MehediDracula.php-namespace-resolver",
       "repository": "https://github.com/MehediDracula/PHP-Namespace-Resolver",
       "version": "1.1.8"
@@ -804,6 +913,11 @@
       "repository": "https://github.com/mrmlnc/vscode-duplicate.git",
       "version": "1.2.1",
       "checkout": "1.2.1"
+    },
+    {
+      "id": "mrmlnc.vscode-scss",
+      "download": "https://github.com/mrmlnc/vscode-scss/releases/download/0.9.0/vscode-scss-0.9.0.vsix",
+      "version": "0.9.0"
     },
     {
       "id": "ms-azuretools.vscode-docker",
@@ -910,6 +1024,12 @@
       "repository": "https://github.com/Azure/vscode-kubernetes-tools",
       "version": "1.2.1",
       "checkout": "1.2.1"
+    },
+    {
+      "id": "ms-pyright.pyright",
+      "repository": "https://github.com/Microsoft/pyright",
+      "version": "1.1.101",
+      "checkout": "v1.1.101"
     },
     {
       "id": "ms-python.python",
@@ -1035,6 +1155,12 @@
       "repository": "https://github.com/oderwat/vscode-indent-rainbow"
     },
     {
+      "id": "oguhpereira.spotify-color-theme",
+      "repository": "https://github.com/oguhpereira/vscode-spotify-theme",
+      "version": "1.2.9",
+      "checkout": "v1.2.9"
+    },
+    {
       "id": "onecentlin.laravel-blade",
       "repository": "https://github.com/onecentlin/laravel-blade-snippets-vscode",
       "prepublish": "npm config set script-shell /bin/bash"
@@ -1087,6 +1213,11 @@
     {
       "id": "pmbenjamin.vscode-snyk",
       "repository": "https://github.com/pbnj/vscode-snyk"
+    },
+    {
+      "id": "pucelle.vscode-css-navigation",
+      "repository": "https://github.com/pucelle/vscode-css-navigation",
+      "version": "1.10.3"
     },
     {
       "id": "puppet.puppet-vscode",
@@ -1145,6 +1276,11 @@
     {
       "id": "scala-lang.scala",
       "repository": "https://github.com/scala/vscode-scala-syntax"
+    },
+    {
+      "id": "sdras.night-owl",
+      "repository": "https://github.com/sdras/night-owl-vscode-theme",
+      "version": "2.0.0"
     },
     {
       "id": "serayuzgur.crates",
@@ -1209,8 +1345,8 @@
     {
       "id": "skn0tt.markdown-link-expander",
       "repository": "https://github.com/Skn0tt/markdown-link-expander",
-      "version": "0.1.1",
-      "checkout": "v0.1.1"
+      "version": "0.1.2",
+      "checkout": "v0.1.2"
     },
     {
       "id": "SonarSource.sonarlint-vscode",
@@ -1222,6 +1358,12 @@
       "repository": "https://github.com/soates/Auto-Import",
       "version": "1.5.3",
       "checkout": "v1.5.3"
+    },
+    {
+      "id": "stylelint.vscode-stylelint",
+      "repository": "https://github.com/stylelint/vscode-stylelint",
+      "version": "0.85.0",
+      "checkout": "v0.85.0"
     },
     {
       "id": "svipas.control-snippets",
@@ -1288,6 +1430,11 @@
       "repository": "https://github.com/jonasjj/awesome-vhdl",
       "version": "1.2.10",
       "checkout": "v1.2.10"
+    },
+    {
+      "id": "vincaslt.highlight-matching-tag",
+      "repository": "https://github.com/vincaslt/vscode-highlight-matching-tag",
+      "version": "0.10.0"
     },
     {
       "id": "vinliao.fast-arrow",
@@ -1406,6 +1553,17 @@
       "repository": "https://github.com/wmaurer/vscode-change-case",
       "version": "0.3.2",
       "checkout": "v0.3.2"
+    },
+    {
+      "id": "wongjn.php-sniffer",
+      "repository": "https://github.com/wongjn/vscode-php-sniffer",
+      "version": "1.3.0"
+    },
+    {
+      "id": "Wscats.eno",
+      "repository": "https://github.com/Wscats/compile-hero",
+      "version": "2.3.53",
+      "prepublish": "npm run build"
     },
     {
       "id": "Wscats.omi-snippets",
