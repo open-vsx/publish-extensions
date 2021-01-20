@@ -633,6 +633,10 @@
       "repository": "https://github.com/iocave/monkey-patch"
     },
     {
+      "id": "Ionide.Ionide-fsharp",
+      "repository": "https://github.com/ionide/ionide-vscode-fsharp"
+    },
+    {
       "id": "ipedrazas.kubernetes-snippets",
       "repository": "https://github.com/ipedrazas/kubernetes-snippets"
     },
