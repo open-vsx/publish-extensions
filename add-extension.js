@@ -65,7 +65,7 @@ if (!module.parent) {
         await exec('unzip -q extension.vsix', { cwd: '/tmp/vsix' });
         /** @type {{ publisher: string, name: string, version: string }} */
         const package = JSON.parse(await readFile('/tmp/vsix/extension/package.json', 'utf-8'));
-        validatePackage(package)
+        ovsx.validateManifest(package)
         const extension = { id: `${package.publisher}.${package.name}`, download: argv.download, version: package.version };
         await addNewExtension(extension, package, extensions);
         onDidAddExtension(extension);
@@ -102,64 +102,71 @@ if (!module.parent) {
   })();
 }
 
-async function fetchExtInfoFromClonedRepo (repository, { checkout, location, extensionFile, prepublish }) {
+async function fetchExtInfoFromClonedRepo(repository, { checkout, location, extensionFile, prepublish }) {
+  const tmpRepoFolder = '/tmp/repository';
+  
+  try {
+    const { packagePath }  = await cloneRepo(tmpRepoFolder, repository, checkout, location)
+    /** @type {{ publisher: string, name: string, version: string }} */
+    const package = JSON.parse(await readFile(packagePath, 'utf-8'));
+    if (registry.requiresLicense && !(await ovsx.isLicenseOk(packagePath, package))) {
+      throw new Error(`License must be present, please ask author of extension to add license (${repository})`)
+    } else {
+      ovsx.validateManifest(package)
+    }
+  
+    // Check whether the extension is already published on Open VSX.
+    await ensureNotAlreadyOnOpenVSX(package, registry);
+  
+    // Add extension to the list.
+    const extension = { id: `${package.publisher}.${package.name}`, repository, version: package.version };
+    if (checkout) {
+        extension.checkout = checkout;
+    }
+    if (location !== '.') {
+      extension.location = location;
+    }
+    if (prepublish) {
+        extension.prepublish = prepublish;
+    }
+    if (extensionFile) {
+      extension.extensionFile = extensionFile;
+    }
+    return { extension, package }
+  } finally {
+    await exec(`rm -rf ${tmpRepoFolder}`);
+  }
+}
+
+async function cloneRepo(tmpRepoFolder, repository, checkout, location) {
   if (!new URL(repository)) {
     throw new Error(`Invalid repository URL: ${repository}`);
   }
 
-  const tmpRepoFolder = '/tmp/repository'
   // Clone the repository to determine the extension's latest version.
-  await exec(`git clone --recurse-submodules ${repository} /tmp/repository`);
+  await exec(`git clone --recurse-submodules ${repository} ${tmpRepoFolder}`);
   if (typeof checkout === 'string') {
-      // Check out the specified Git branch, tag, or commit.
-      await exec(`git checkout ${checkout}`, { cwd: tmpRepoFolder });
+    // Check out the specified Git branch, tag, or commit.
+    await exec(`git checkout ${checkout}`, { cwd: tmpRepoFolder });
   } else if (checkout === true) {
-      // If --checkout is passed without a value, set its value to the repository's default Git branch.
-      const { stdout: defaultBranch } = await exec(`git rev-parse --abbrev-ref HEAD`, { cwd: tmpRepoFolder });
-      checkout = defaultBranch.trim();
+    // If --checkout is passed without a value, set its value to the repository's default Git branch.
+    const { stdout: defaultBranch } = await exec(`git rev-parse --abbrev-ref HEAD`, { cwd: tmpRepoFolder });
+    checkout = defaultBranch.trim();
   }
 
   // Locate and parse package.json.
-  let location = argv.location;
   if (!location) {
-      const { stdout: files } = await exec('ls package.json 2>/dev/null || git ls-files | grep package\\.json', { cwd: '/tmp/repository' });
-      if (!files.trim()) {
-          throw new Error(`No package.json found in repository!`);
-      }
-      const locations = files.trim().split('\n');
-      if (locations.length > 1) {
-          console.warn(`[WARNING] Multiple package.json found in repository, arbitrarily using the first one:\n> ${locations[0]}\n${locations.slice(1).map(l => '  ' + l).join('\n')}`);
-      }
-      location = path.dirname(locations[0]);
+    const { stdout: files } = await exec('ls package.json 2>/dev/null || git ls-files | grep package\\.json', { cwd: '/tmp/repository' });
+    if (!files.trim()) {
+      throw new Error(`No package.json found in repository!`);
+    }
+    const locations = files.trim().split('\n');
+    if (locations.length > 1) {
+      console.warn(`[WARNING] Multiple package.json found in repository, arbitrarily using the first one:\n> ${locations[0]}\n${locations.slice(1).map(l => '  ' + l).join('\n')}`);
+    }
+    location = path.dirname(locations[0]);
   }
-  const packagePath = path.join('/tmp/repository', location, 'package.json')
-  /** @type {{ publisher: string, name: string, version: string }} */
-  const package = JSON.parse(await readFile(packagePath, 'utf-8'));
-  if (registry.requiresLicense && !(await ovsx.isLicenseOk(packagePath, package))) {
-    throw new Error(`License must be present, please ask author of extension to add license (${repository})`)
-  } else {
-    ovsx.validateManifest(package)
-  }
-
-  // Check whether the extension is already published on Open VSX.
-  await ensureNotAlreadyOnOpenVSX(package, registry);
-
-  // Add extension to the list.
-  const extension = { id: `${package.publisher}.${package.name}`, repository, version: package.version };
-  if (checkout) {
-      extension.checkout = checkout;
-  }
-  if (location !== '.') {
-    extension.location = location;
-  }
-  if (prepublish) {
-      extension.prepublish = prepublish;
-  }
-  if (extensionFile) {
-    extension.extensionFile = extensionFile;
-  }
-  await exec('rm -rf /tmp/repository');
-  return { extension, package }
+  return { packagePath: path.join(tmpRepoFolder, location, 'package.json') };
 }
 
 async function ensureNotAlreadyOnOpenVSX(package, registry) {
@@ -196,14 +203,6 @@ async function readExtensionsFromFile (extensionFilePath) {
   return JSON.parse(await readFile(extensionFilePath, 'utf-8'));
 }
 
-function validatePackage (package) {
-  ['publisher', 'name', 'version'].forEach(key => {
-    if (!(key in package)) {
-      throw new Error(`Expected "${key}" in ${location}/package.json: ${JSON.stringify(package, null, 2)}`);
-    }
-  });
-}
-
 async function addNewExtension(extension, package, extensions) {
   // Check whether the extension is already published on Open VSX.
   await ensureNotAlreadyOnOpenVSX(package, registry);
@@ -223,5 +222,6 @@ module.exports = {
   onDidAddExtension,
   writeToExtensionsFile,
   readExtensionsFromFile,
-  fetchExtInfoFromClonedRepo
+  fetchExtInfoFromClonedRepo,
+  cloneRepo
 }
