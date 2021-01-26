@@ -175,10 +175,6 @@
       "version": "0.0.8"
     },
     {
-      "id": "bltg-team.masm",
-      "repository": "https://github.com/9176324/bltg-team.masm"
-    },
-    {
       "id": "bmalehorn.vscode-fish",
       "repository": "https://github.com/bmalehorn/vscode-fish",
       "version": "1.0.20"
