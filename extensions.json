@@ -80,6 +80,12 @@
       "checkout": "v0.4.1"
     },
     {
+      "id": "andreweinand.mock-debug",
+      "repository": "https://github.com/microsoft/vscode-mock-debug",
+      "version": "0.43.0",
+      "checkout": "354c0e93c966a498360c660805d7f2b18d76b2a5"
+    },
+    {
       "id": "Angular.ng-template",
       "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v0.1100.2/ngls.vsix",
       "version": "0.1100.2"
