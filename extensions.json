@@ -483,11 +483,6 @@
       "version": "0.2.0"
     },
     {
-      "id": "formulahendry.auto-rename-tag",
-      "repository": "https://github.com/formulahendry/vscode-auto-rename-tag",
-      "location": "packages/extension"
-    },
-    {
       "id": "formulahendry.code-runner",
       "repository": "https://github.com/formulahendry/vscode-code-runner"
     },
