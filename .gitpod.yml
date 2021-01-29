@@ -1,2 +1,6 @@
 tasks:
   - init: npm install
+
+vscode:
+  extensions:
+  - editorconfig.editorconfig
