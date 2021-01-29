@@ -181,6 +181,11 @@
       "version": "0.0.8"
     },
     {
+      "id": "bierner.markdown-image-size",
+      "repository": "https://github.com/mjbvz/vscode-markdown-image-size",
+      "version": "0.0.4"
+    },
+    {
       "id": "bmalehorn.vscode-fish",
       "repository": "https://github.com/bmalehorn/vscode-fish",
       "version": "1.0.20"
@@ -652,16 +657,16 @@
       "prepublish": "npm run compile"
     },
     {
-      "id": "JeffersonQin.latex-snippets-jeff",
-      "repository": "https://github.com/JeffersonQin/VSCode-LaTeX-Snippets",
-      "version": "1.2.3"
-    },
-    {
       "id": "jebbs.plantuml",
       "version": "2.14.0",
       "checkout": "v2.14.0",
       "repository": "https://github.com/qjebbs/vscode-plantuml.git",
       "prepublish": "wget -O plantuml.zip https://sourceforge.net/projects/plantuml/files/1.2021.0/plantuml-jar-mit-1.2021.0.zip/download && unzip plantuml.zip && rm plantuml.zip && mv COPYING COPYING.plantuml-jar"
+    },
+    {
+      "id": "JeffersonQin.latex-snippets-jeff",
+      "repository": "https://github.com/JeffersonQin/VSCode-LaTeX-Snippets",
+      "version": "1.2.3"
     },
     {
       "id": "jock.svg",
@@ -889,9 +894,10 @@
       "version": "1.4.0"
     },
     {
-      "id": "bierner.markdown-image-size",
-      "repository": "https://github.com/mjbvz/vscode-markdown-image-size",
-      "version": "0.0.4"
+      "id": "mongodb.mongodb-vscode",
+      "repository": "https://github.com/mongodb-js/vscode",
+      "version": "0.4.0",
+      "checkout": "v0.4.0"
     },
     {
       "id": "mp.oradew-vscode",
