@@ -1,12 +1,6 @@
 {
   "extensions": [
     {
-      "id": "42Crunch.vscode-openapi",
-      "repository": "https://github.com/42Crunch/vscode-openapi",
-      "version": "3.10.0",
-      "checkout": "v3.10.0"
-    },
-    {
       "id": "aaron-bond.better-comments",
       "repository": "https://github.com/aaron-bond/better-comments"
     },
@@ -86,6 +80,12 @@
       "checkout": "v0.4.1"
     },
     {
+      "id": "andreweinand.mock-debug",
+      "repository": "https://github.com/microsoft/vscode-mock-debug",
+      "version": "0.43.0",
+      "checkout": "354c0e93c966a498360c660805d7f2b18d76b2a5"
+    },
+    {
       "id": "Angular.ng-template",
       "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v0.1100.2/ngls.vsix",
       "version": "0.1100.2"
@@ -151,11 +151,6 @@
       "repository": "https://github.com/Y-open/blade-ui-kit-vscode"
     },
     {
-      "id": "austin.code-gnu-global",
-      "repository": "https://github.com/austin-----/code-gnu-global",
-      "version": "0.2.2"
-    },
-    {
       "id": "bajdzis.vscode-database",
       "repository": "https://github.com/Bajdzis/vscode-database"
     },
@@ -184,10 +179,6 @@
       "id": "bierner.docs-view",
       "repository": "https://github.com/mattbierner/vscode-docs-view",
       "version": "0.0.8"
-    },
-    {
-      "id": "bltg-team.masm",
-      "repository": "https://github.com/9176324/bltg-team.masm"
     },
     {
       "id": "bmalehorn.vscode-fish",
@@ -386,6 +377,12 @@
       "repository": "https://github.com/dylan-lang/vscode-dylan"
     },
     {
+      "id": "eamodio.vscode-gitlens",
+      "repository": "https://github.com/eamodio/vscode-gitlens",
+      "version": "10.2.3",
+      "checkout": "v10.2.3"
+    },
+    {
       "id": "ecmel.vscode-html-css",
       "repository": "https://github.com/ecmel/vscode-html-css",
       "version": "1.8.0",
@@ -490,11 +487,6 @@
       "id": "formulahendry.auto-complete-tag",
       "repository": "https://github.com/formulahendry/vscode-auto-complete-tag",
       "version": "0.2.0"
-    },
-    {
-      "id": "formulahendry.auto-rename-tag",
-      "repository": "https://github.com/formulahendry/vscode-auto-rename-tag",
-      "location": "packages/extension"
     },
     {
       "id": "formulahendry.code-runner",
@@ -895,6 +887,11 @@
       "id": "mitchdenny.ecdc",
       "repository": "https://github.com/mitchdenny/ecdc",
       "version": "1.4.0"
+    },
+    {
+      "id": "bierner.markdown-image-size",
+      "repository": "https://github.com/mjbvz/vscode-markdown-image-size",
+      "version": "0.0.4"
     },
     {
       "id": "mp.oradew-vscode",

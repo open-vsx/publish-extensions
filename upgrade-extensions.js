@@ -20,6 +20,7 @@ const dontUpgrade = [
   'alefragnani.Bookmarks', // https://github.com/alefragnani/vscode-bookmarks/issues/315
   'alefragnani.project-manager', // https://github.com/alefragnani/vscode-bookmarks/issues/315
   'ms-vscode.js-debug', // Version on master (1.52.1) is older than the latest release (1.52.2)
+  'file-icons.file-icons', // Git submodule uses unsupported 'git@github.com' URL format
 ];
 
 (async () => {

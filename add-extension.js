@@ -107,7 +107,6 @@ async function fetchExtInfoFromClonedRepo(repository, { checkout, location, exte
   
   try {
     const { packagePath }  = await cloneRepo(tmpRepoFolder, repository, checkout, location)
-    /** @type {{ publisher: string, name: string, version: string }} */
     const package = await ovsx.readManifest(packagePath)
     if (registry.requiresLicense && !(await ovsx.isLicenseOk(packagePath, package))) {
       throw new Error(`License must be present, please ask author of extension to add license (${repository})`)
