@@ -113,7 +113,7 @@ Alternative usage: node add-extension --download=VSIX_URL`);
     const packagePath = path.join('/tmp/repository', location, 'package.json')
     /** @type {{ publisher: string, name: string, version: string }} */
     const package = JSON.parse(await readFile(packagePath, 'utf-8'));
-    if (registry.requiresLicense && !(await ovsx.isLicenseOk(packagePath, package))) {
+    if (registry.requiresLicense && !(await ovsx.isLicenseOk(path.dirname(packagePath), package))) {
       throw new Error(`License must be present, please ask author of extension to add license (${repository})`)
     } else {
       ovsx.validateManifest(package)
