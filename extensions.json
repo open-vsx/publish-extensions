@@ -1276,6 +1276,12 @@
       "repository": "https://github.com/shardulm94/vscode-trailingspaces"
     },
     {
+      "id": "shd101wyy.markdown-preview-enhanced",
+      "repository": "https://github.com/shd101wyy/vscode-markdown-preview-enhanced",
+      "version": "0.5.16",
+      "checkout": "v0.5.16"
+    },
+    {
       "id": "shinichi-takii.sql-bigquery",
       "repository": "https://github.com/shinichi-takii/vscode-language-sql-bigquery",
       "version": "1.4.0",
