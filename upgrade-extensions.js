@@ -48,11 +48,7 @@ const dontUpgrade = [
     await writeFile('./extensions.json', JSON.stringify({ extensions: extensionsToNotUpgrade }, null, 2) + '\n', 'utf-8');
 
     for (const extension of extensionRepositoriesToUpgrade) {
-      let command = 'node add-extension ' + extension.repository;
-      if (extension.checkout) {
-          // Since we're upgrading, don't use the currently pinned Git branch, tag, or commit. Use the default Git branch instead.
-          command += ' --checkout';
-      }
+      let command = 'node add-extension ' + extension.repository + ' --checkout'; // Always try to auto-detect a suitable "checkout" value.
       if (extension.location) {
           command += ' --location=' + JSON.stringify(extension.location);
       }
@@ -80,7 +76,11 @@ const dontUpgrade = [
             // This extension likely wasn't actually upgraded, leave it as is.
             continue;
         }
-        if (upgradedExtension.version && upgradedExtension.version !== originalExtension.version && !upgradedExtension.checkout && !upgradedExtension.download) {
+        if (upgradedExtension.download) {
+            // If we're using (or have switched to) VSIX re-publishing, the following heuristics are unhelpful.
+            continue;
+        }
+        if (upgradedExtension.version && upgradedExtension.version !== originalExtension.version && !upgradedExtension.checkout) {
             // If "version" was bumped, but we're publishing from the default branch, it's probably better to just unpin the version.
             delete upgradedExtension.version;
         }
