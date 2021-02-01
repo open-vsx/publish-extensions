@@ -580,8 +580,7 @@
     },
     {
       "id": "HookyQR.beautify",
-      "repository": "https://github.com/HookyQR/VSCodeBeautify",
-      "version": "1.4.11"
+      "repository": "https://github.com/HookyQR/VSCodeBeautify"
     },
     {
       "id": "hoovercj.haskell-linter",
