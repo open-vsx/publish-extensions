@@ -743,8 +743,8 @@
     {
       "id": "kisstkondoros.vscode-gutter-preview",
       "repository": "https://github.com/kisstkondoros/gutter-preview",
-      "version": "0.26.1",
-      "checkout": "v0.26.1"
+      "version": "0.26.2",
+      "checkout": "v0.26.2"
     },
     {
       "id": "KnisterPeter.vscode-github",
