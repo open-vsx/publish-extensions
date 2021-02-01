@@ -296,8 +296,8 @@
     },
     {
       "id": "Dart-Code.flutter",
-      "download": "https://github.com/Dart-Code/Flutter/releases/download/v3.18.0/flutter-3.18.0.vsix",
-      "version": "3.18.0"
+      "download": "https://github.com/Dart-Code/Flutter/releases/download/v3.19.0/flutter-3.19.0.vsix",
+      "version": "3.19.0"
     },
     {
       "id": "DavidAnson.vscode-markdownlint",
