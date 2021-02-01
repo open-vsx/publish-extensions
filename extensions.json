@@ -1023,7 +1023,8 @@
       "id": "ms-pyright.pyright",
       "repository": "https://github.com/Microsoft/pyright",
       "version": "1.1.101",
-      "checkout": "v1.1.101"
+      "checkout": "v1.1.101",
+      "location": "packages/vscode-pyright"
     },
     {
       "id": "ms-python.python",
