@@ -664,8 +664,7 @@
     },
     {
       "id": "jock.svg",
-      "repository": "https://github.com/lishu/vscode-svg2",
-      "version": "1.4.3"
+      "repository": "https://github.com/lishu/vscode-svg2"
     },
     {
       "id": "joelday.docthis",
