@@ -123,8 +123,8 @@
     },
     {
       "id": "asciidoctor.asciidoctor-vscode",
-      "download": "https://github.com/asciidoctor/asciidoctor-vscode/releases/download/v2.8.4/asciidoctor-vscode-2.8.4.vsix",
-      "version": "2.8.4"
+      "download": "https://github.com/asciidoctor/asciidoctor-vscode/releases/download/v2.8.7/asciidoctor-vscode-2.8.7.vsix",
+      "version": "2.8.7"
     },
     {
       "id": "asvetliakov.vscode-neovim",
