@@ -145,13 +145,16 @@ Alternative usage: node add-extension --download=VSIX_URL`);
     // Add extension to the list.
     const extension = { id: `${package.publisher}.${package.name}`, repository, version: package.version };
     if (argv.checkout) {
-        extension.checkout = argv.checkout;
+      extension.checkout = argv.checkout;
+    } else {
+      // No need to pin a specific version if we're not also using "checkout".
+      delete extension.version;
     }
     if (location !== '.') {
       extension.location = location;
     }
     if (argv.prepublish) {
-        extension.prepublish = argv.prepublish;
+      extension.prepublish = argv.prepublish;
     }
     if (argv.extensionFile) {
       extension.extensionFile = argv.extensionFile;
