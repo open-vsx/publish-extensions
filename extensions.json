@@ -1521,8 +1521,7 @@
     },
     {
       "id": "wayou.vscode-todo-highlight",
-      "repository": "https://github.com/wayou/vscode-todo-highlight",
-      "version": "1.0.4"
+      "repository": "https://github.com/wayou/vscode-todo-highlight"
     },
     {
       "id": "wholroyd.jinja",
