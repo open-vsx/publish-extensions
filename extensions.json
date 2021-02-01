@@ -713,8 +713,8 @@
     },
     {
       "id": "k--kato.intellij-idea-keybindings",
-      "download": "https://github.com/kasecato/vscode-intellij-idea-keybindings/releases/download/v0.2.40/intellij-idea-keybindings-0.2.40.vsix",
-      "version": "0.2.40"
+      "download": "https://github.com/kasecato/vscode-intellij-idea-keybindings/releases/download/v1.3.0/intellij-idea-keybindings-1.3.0.vsix",
+      "version": "1.3.0"
     },
     {
       "id": "kaiwood.endwise",
