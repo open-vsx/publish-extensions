@@ -13,6 +13,7 @@ const minimist = require('minimist');
 const ovsx = require('ovsx');
 const exec = require('./lib/exec');
 const { readExtensionsFromFile, addNewExtension, onDidAddExtension, writeToExtensionsFile, fetchExtInfoFromClonedRepo } = require('./lib/utils');
+const gitHubScraper = require('./lib/github-scraper');
 
 (async () => {
   const extensionFilePath = './extensions.json'
@@ -46,6 +47,21 @@ Alternative usage: node add-extension --download=VSIX_URL`);
     process.exit();
   }
 
+  const repository = (argv._[0] || '').replace(/(\.git)?\/*$/, '');
+
+  // If possible, always prefer re-publishing an official VSIX release over trying to re-package ourselves.
+  if (repository && !argv.download) {
+    const latestVSIXRelease = await gitHubScraper.findLatestVSIXRelease(repository);
+    if (latestVSIXRelease) {
+      // Simulate a 'node add-extension --download=VSIX_URL' CLI call.
+      argv.download = latestVSIXRelease;
+      delete argv.checkout;
+      delete argv.location;
+      delete argv.prepublish;
+      delete argv.extensionFile;
+    }
+  }
+
   // Handle 'node add-extension --download=VSIX_URL':
   if (argv.download) {
     try {
@@ -70,7 +86,6 @@ Alternative usage: node add-extension --download=VSIX_URL`);
   }
 
   // Handle 'node add-extension REPOSITORY [OPTIONS]':
-  const repository = argv._[0].replace(/\/*$/, '');
   const existing = extensions.find(e => e.repository && e.repository.toLowerCase() === repository.toLowerCase() && e.location === argv.location);
   if (existing) {
     console.log(`[SKIPPED] Repository already in extensions.json: ${JSON.stringify(existing, null, 2)}`);
