@@ -181,15 +181,19 @@
       "version": "0.0.8"
     },
     {
+      "id": "bierner.markdown-image-size",
+      "repository": "https://github.com/mjbvz/vscode-markdown-image-size",
+      "version": "0.0.4"
+    },
+    {
       "id": "bmalehorn.vscode-fish",
       "repository": "https://github.com/bmalehorn/vscode-fish",
       "version": "1.0.20"
     },
     {
       "id": "bmewburn.vscode-intelephense-client",
-      "repository": "https://github.com/bmewburn/vscode-intelephense",
-      "version": "1.6.1",
-      "checkout": "v1.6.1"
+      "download": "https://github.com/bmewburn/vscode-intelephense/releases/download/v1.6.3/vscode-intelephense-client-1.6.3.vsix",
+      "version": "1.6.3"
     },
     {
       "id": "bradlc.vscode-tailwindcss",
@@ -884,11 +888,6 @@
       "id": "mitchdenny.ecdc",
       "repository": "https://github.com/mitchdenny/ecdc",
       "version": "1.4.0"
-    },
-    {
-      "id": "bierner.markdown-image-size",
-      "repository": "https://github.com/mjbvz/vscode-markdown-image-size",
-      "version": "0.0.4"
     },
     {
       "id": "mp.oradew-vscode",
