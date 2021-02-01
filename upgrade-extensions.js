@@ -10,9 +10,9 @@
 
 // @ts-check
 const fs = require('fs');
-const https = require('https');
 const util = require('util');
 const exec = require('./lib/exec');
+const gitHubScraper = require('./lib/github-scraper');
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
@@ -67,11 +67,9 @@ const dontUpgrade = [
 
     for (const extension of extensionDownloadsToUpgrade) {
         // Scrape the latest GitHub releases to check for updates.
-        const releasesUrl = extension.download.replace(/\/releases\/download\/.*$/, '/releases');
-        console.log(`Scraping ${releasesUrl} to check for updates...`);
-        const releases = await get(releasesUrl);
-        const latest = releases.match(/\/releases\/download\/[-._a-zA-Z0-9\/%]*\.vsix/g).filter(release => !/(nightly|-rc|-alpha|-dev|-next|-[iI]nsider|-beta)/.test(release)).shift();
-        await exec('node add-extension --download=' + (latest ? extension.download.replace(/\/releases\/download\/.*$/, latest) : extension.download));
+        const repository = extension.download.replace(/\/releases\/download\/.*$/, '');
+        const latest = await gitHubScraper.findLatestVSIXRelease(repository);
+        await exec('node add-extension --download=' + (latest || extension.download));
     }
 
     // One last pass to clean up results with a few helpful heuristics.
@@ -82,7 +80,7 @@ const dontUpgrade = [
             // This extension likely wasn't actually upgraded, leave it as is.
             continue;
         }
-        if (upgradedExtension.version && upgradedExtension.version !== originalExtension.version && !upgradedExtension.checkout) {
+        if (upgradedExtension.version && upgradedExtension.version !== originalExtension.version && !upgradedExtension.checkout && !upgradedExtension.download) {
             // If "version" was bumped, but we're publishing from the default branch, it's probably better to just unpin the version.
             delete upgradedExtension.version;
         }
@@ -99,25 +97,3 @@ const dontUpgrade = [
     fs.renameSync('./extensions.json.old', './extensions.json');
   }
 })();
-
-function get(url) {
-  return new Promise((resolve, reject) => {
-    https.get(url, res => {
-      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-        // Follow HTTP redirections
-        get(res.headers.location).then(resolve, reject);
-        return;
-      }
-      if (res.statusCode >= 400) {
-        reject(new Error(`Couldn't get ${url} - Response status: ${res.statusCode}`));
-        return;
-      }
-      let body = '';
-      res.on('data', chunk => { body += chunk; });
-      res.on('error', error => { reject(error); });
-      res.on('end', () => { resolve(body); });
-    }).on('error', error => {
-      reject(error);
-    });
-  });
-}
