@@ -544,9 +544,8 @@
     },
     {
       "id": "GrapeCity.gc-excelviewer",
-      "repository": "https://github.com/jjuback/gc-excelviewer",
-      "version": "3.0.40",
-      "checkout": "v3.0.40"
+      "download": "https://github.com/jjuback/gc-excelviewer/releases/download/v3.0.40/gc-excelviewer-3.0.40.vsix",
+      "version": "3.0.40"
     },
     {
       "id": "HansUXdev.bootstrap5-snippets",
