@@ -697,8 +697,7 @@
     },
     {
       "id": "junstyle.php-cs-fixer",
-      "repository": "https://github.com/junstyle/vscode-php-cs-fixer",
-      "version": "0.1.157"
+      "repository": "https://github.com/junstyle/vscode-php-cs-fixer"
     },
     {
       "id": "justusadam.language-haskell",
