@@ -897,9 +897,8 @@
     },
     {
       "id": "mrmlnc.vscode-duplicate",
-      "repository": "https://github.com/mrmlnc/vscode-duplicate.git",
-      "version": "1.2.1",
-      "checkout": "1.2.1"
+      "download": "https://github.com/mrmlnc/vscode-duplicate/releases/download/1.2.1/vscode-duplicate-1.2.1.vsix",
+      "version": "1.2.1"
     },
     {
       "id": "ms-azuretools.vscode-docker",
