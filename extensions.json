@@ -87,8 +87,8 @@
     },
     {
       "id": "Angular.ng-template",
-      "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v0.1100.2/ngls.vsix",
-      "version": "0.1100.2"
+      "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v11.1.1/ng-template-11.1.1.vsix",
+      "version": "11.1.1"
     },
     {
       "id": "anseki.vscode-color",
