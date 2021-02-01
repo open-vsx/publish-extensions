@@ -1463,6 +1463,10 @@
       "checkout": "v.11.1.0"
     },
     {
+      "id": "vscode.cpp",
+      "download": "https://openvsxorg.blob.core.windows.net/resources/vscode/cpp/1.44.2/vscode.cpp-1.44.2.vsix"
+    },
+    {
       "id": "vscode.smali",
       "repository": "https://github.com/ViRb3/vscode-smali",
       "location": "smali",
