@@ -1007,10 +1007,10 @@
       "version": "1.2.3"
     },
     {
-      "id": "ms-pyright.pyright",
+      "id": "ms-pyright.vscode-pyright",
       "repository": "https://github.com/Microsoft/pyright",
-      "version": "1.1.101",
-      "checkout": "v1.1.101",
+      "version": "1.1.107",
+      "checkout": "1.1.107",
       "location": "packages/vscode-pyright"
     },
     {
