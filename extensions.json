@@ -786,7 +786,8 @@
     },
     {
       "id": "lgalabru.clarity-lsp",
-      "download": "https://github.com/lgalabru/clarity-lsp/releases/download/2020-12-16/clarity-lsp.vsix"
+      "download": "https://github.com/lgalabru/clarity-lsp/releases/download/2020-12-16/clarity-lsp.vsix",
+      "version": "0.2.272"
     },
     {
       "id": "lintangwisesa.arduino",
