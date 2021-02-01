@@ -1127,8 +1127,8 @@
     },
     {
       "id": "octref.vetur",
-      "download": "https://github.com/vuejs/vetur/releases/download/v0.31.3/vetur-0.31.3.vsix",
-      "version": "0.31.3"
+      "download": "https://github.com/vuejs/vetur/releases/download/v0.32.0/vetur-0.32.0.vsix",
+      "version": "0.32.0"
     },
     {
       "id": "oderwat.indent-rainbow",
