@@ -129,8 +129,8 @@
     {
       "id": "asvetliakov.vscode-neovim",
       "repository": "https://github.com/asvetliakov/vscode-neovim",
-      "version": "0.0.77",
-      "checkout": "v0.0.77"
+      "version": "0.0.78",
+      "checkout": "v0.0.78"
     },
     {
       "id": "atishay-jain.all-autocomplete",
