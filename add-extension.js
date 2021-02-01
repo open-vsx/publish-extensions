@@ -53,7 +53,7 @@ Alternative usage: node add-extension --download=VSIX_URL`);
     process.exit();
   }
 
-  const repository = (argv._[0] || '').replace(/\/*$/, '');
+  const repository = (argv._[0] || '').replace(/(\.git)?\/*$/, '');
 
   // If possible, always prefer re-publishing an official VSIX release over trying to re-package ourselves.
   if (repository && !argv.download) {
