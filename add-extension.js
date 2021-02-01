@@ -68,8 +68,7 @@ Alternative usage: node add-extension --download=VSIX_URL`);
       await exec('mkdir -p /tmp/vsix');
       await exec(`wget -O extension.vsix ${argv.download}`, { cwd: '/tmp/vsix' });
       await exec('unzip -q extension.vsix', { cwd: '/tmp/vsix' });
-      /** @type {{ publisher: string, name: string, version: string }} */
-      const package = await ovsx.readManifest('/tmp/vsix/extension/package.json');
+      const package = await ovsx.readManifest('/tmp/vsix/extension');
       ovsx.validateManifest(package)
       const extension = { id: `${package.publisher}.${package.name}`, download: argv.download, version: package.version };
       await addNewExtension(extension, package, extensions);
