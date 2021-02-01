@@ -687,8 +687,8 @@
     {
       "id": "jolaleye.horizon-theme-vscode",
       "repository": "https://github.com/jolaleye/horizon-theme-vscode",
-      "version": "2.0.1",
-      "checkout": "v2.0.1",
+      "version": "2.0.2",
+      "checkout": "v2.0.2",
       "prepublish": "npm run build"
     },
     {
