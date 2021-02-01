@@ -1240,7 +1240,7 @@
     },
     {
       "id": "ryanolsonx.zenburn",
-      "repository": "https://github.com/ryanolsonx/vscode-zenburn-theme.git",
+      "repository": "https://github.com/ryanolsonx/vscode-zenburn-theme",
       "version": "1.0.1",
       "checkout": "8d0ea180bd58cdf2a1b88250b44ee71fb80326b6"
     },
