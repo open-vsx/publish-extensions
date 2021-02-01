@@ -885,9 +885,8 @@
     },
     {
       "id": "mongodb.mongodb-vscode",
-      "repository": "https://github.com/mongodb-js/vscode",
-      "version": "0.4.0",
-      "checkout": "v0.4.0"
+      "repository": "https://github.com/mongodb-js/vscode/releases/download/v0.4.0/mongodb-vscode-0.4.0.vsix",
+      "version": "0.4.0"
     },
     {
       "id": "mp.oradew-vscode",
