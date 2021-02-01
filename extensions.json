@@ -827,9 +827,8 @@
     },
     {
       "id": "mathiasfrohlich.Kotlin",
-      "repository": "https://github.com/mathiasfrohlich/vscode-kotlin",
-      "version": "1.7.1",
-      "checkout": "1.7.1"
+      "download": "https://github.com/mathiasfrohlich/vscode-kotlin/releases/download/1.7.1/Kotlin-1.7.1.vsix",
+      "version": "1.7.1"
     },
     {
       "id": "matklad.rust-analyzer",
