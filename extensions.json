@@ -496,9 +496,8 @@
     },
     {
       "id": "formulahendry.vscode-mysql",
-      "repository": "https://github.com/formulahendry/vscode-mysql",
-      "version": "0.4.0",
-      "checkout": "0.4.0"
+      "download": "https://github.com/formulahendry/vscode-mysql/releases/download/0.4.0/vscode-mysql-0.4.0.vsix",
+      "version": "0.4.0"
     },
     {
       "id": "formulahendry.vscode-node-red",
