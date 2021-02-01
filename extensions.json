@@ -1003,9 +1003,8 @@
     },
     {
       "id": "ms-kubernetes-tools.vscode-kubernetes-tools",
-      "repository": "https://github.com/Azure/vscode-kubernetes-tools",
-      "version": "1.2.1",
-      "checkout": "1.2.1"
+      "download": "https://github.com/Azure/vscode-kubernetes-tools/releases/download/1.2.3/vscode-kubernetes-tools-1.2.3.vsix",
+      "version": "1.2.3"
     },
     {
       "id": "ms-pyright.pyright",
