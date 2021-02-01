@@ -10,9 +10,9 @@
 
 // @ts-check
 const fs = require('fs');
-const https = require('https');
 const util = require('util');
 const exec = require('./lib/exec');
+const gitHubScraper = require('./lib/github-scraper');
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
@@ -21,6 +21,9 @@ const dontUpgrade = [
   'alefragnani.project-manager', // https://github.com/alefragnani/vscode-bookmarks/issues/315
   'ms-vscode.js-debug', // Version on master (1.52.1) is older than the latest release (1.52.2)
   'file-icons.file-icons', // Git submodule uses unsupported 'git@github.com' URL format
+  'DotJoshJohnson.xml', // https://github.com/DotJoshJohnson/vscode-xml/issues/345
+  'dracula-theme.theme-dracula', // https://github.com/dracula/visual-studio-code/issues/168
+  'wingrunr21.vscode-ruby', // This script gets confused and switches to rebornix.Ruby .vsix release (same repo)
 ];
 
 (async () => {
@@ -48,11 +51,7 @@ const dontUpgrade = [
     await writeFile('./extensions.json', JSON.stringify({ extensions: extensionsToNotUpgrade }, null, 2) + '\n', 'utf-8');
 
     for (const extension of extensionRepositoriesToUpgrade) {
-      let command = 'node add-extension ' + extension.repository;
-      if (extension.checkout) {
-          // Since we're upgrading, don't use the currently pinned Git branch, tag, or commit. Use the default Git branch instead.
-          command += ' --checkout';
-      }
+      let command = 'node add-extension ' + extension.repository + ' --checkout'; // Always try to auto-detect a suitable "checkout" value.
       if (extension.location) {
           command += ' --location=' + JSON.stringify(extension.location);
       }
@@ -67,11 +66,9 @@ const dontUpgrade = [
 
     for (const extension of extensionDownloadsToUpgrade) {
         // Scrape the latest GitHub releases to check for updates.
-        const releasesUrl = extension.download.replace(/\/releases\/download\/.*$/, '/releases');
-        console.log(`Scraping ${releasesUrl} to check for updates...`);
-        const releases = await get(releasesUrl);
-        const latest = releases.match(/\/releases\/download\/[-._a-zA-Z0-9\/%]*\.vsix/g).filter(release => !/(nightly|-rc|-alpha|-dev|-next|-[iI]nsider|-beta)/.test(release)).shift();
-        await exec('node add-extension --download=' + (latest ? extension.download.replace(/\/releases\/download\/.*$/, latest) : extension.download));
+        const repository = extension.download.replace(/\/releases\/download\/.*$/, '');
+        const latest = await gitHubScraper.findLatestVSIXRelease(repository);
+        await exec('node add-extension --download=' + (latest || extension.download));
     }
 
     // One last pass to clean up results with a few helpful heuristics.
@@ -80,6 +77,10 @@ const dontUpgrade = [
         const originalExtension = extensionRepositoriesToUpgrade.find(extension => extension.id === upgradedExtension.id);
         if (!originalExtension) {
             // This extension likely wasn't actually upgraded, leave it as is.
+            continue;
+        }
+        if (upgradedExtension.download) {
+            // If we're using (or have switched to) VSIX re-publishing, the following heuristics are unhelpful.
             continue;
         }
         if (upgradedExtension.version && upgradedExtension.version !== originalExtension.version && !upgradedExtension.checkout) {
@@ -99,25 +100,3 @@ const dontUpgrade = [
     fs.renameSync('./extensions.json.old', './extensions.json');
   }
 })();
-
-function get(url) {
-  return new Promise((resolve, reject) => {
-    https.get(url, res => {
-      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-        // Follow HTTP redirections
-        get(res.headers.location).then(resolve, reject);
-        return;
-      }
-      if (res.statusCode >= 400) {
-        reject(new Error(`Couldn't get ${url} - Response status: ${res.statusCode}`));
-        return;
-      }
-      let body = '';
-      res.on('data', chunk => { body += chunk; });
-      res.on('error', error => { reject(error); });
-      res.on('end', () => { resolve(body); });
-    }).on('error', error => {
-      reject(error);
-    });
-  });
-}

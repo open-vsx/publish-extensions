@@ -23,7 +23,18 @@ Click the button below to start a [Gitpod](https://gitpod.io) workspace where yo
 
 ## Publishing Options
 
-Here is the expected format of an [`extensions.json`](./extensions.json) entry:
+The best way to add an extension here is to open this repository in Gitpod (using the blue button above) and to run this helper script:
+
+```bash
+node add-extension $REPOSITORY_URL --checkout
+```
+
+Notes:
+- Simply replace `$REPOSITORY_URL` with the extension's actual repository URL
+- This will update `extensions.json` automatically, which you can commit to send a Pull Request
+- Adding `--checkout` (without an explicit value) will auto-detect the latest available Git release tag or branch
+
+If you're curious, here is the expected format of an [`extensions.json`](./extensions.json) entry:
 
 ```js
     {

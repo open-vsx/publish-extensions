@@ -87,8 +87,8 @@
     },
     {
       "id": "Angular.ng-template",
-      "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v0.1100.2/ngls.vsix",
-      "version": "0.1100.2"
+      "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v11.1.1/ng-template-11.1.1.vsix",
+      "version": "11.1.1"
     },
     {
       "id": "anseki.vscode-color",
@@ -111,7 +111,7 @@
       "version": "2.2.4",
       "checkout": "vscode-zipfs/2.2.4",
       "location": "packages/vscode-zipfs",
-      "prepublish": "sed -ri \"s_ssh://git@github.com/yarnpkg/berry.git_https://github.com/yarnpkg/berry_g\" package.json"
+      "prepublish": "sed -ri \"s_ssh://git@github.com/yarnpkg/berry.git_https://github.com/yarnpkg/berry_g\" packages/vscode-zipfs/package.json"
     },
     {
       "id": "arjun.swagger-viewer",
@@ -123,14 +123,14 @@
     },
     {
       "id": "asciidoctor.asciidoctor-vscode",
-      "download": "https://github.com/asciidoctor/asciidoctor-vscode/releases/download/v2.8.4/asciidoctor-vscode-2.8.4.vsix",
-      "version": "2.8.4"
+      "download": "https://github.com/asciidoctor/asciidoctor-vscode/releases/download/v2.8.7/asciidoctor-vscode-2.8.7.vsix",
+      "version": "2.8.7"
     },
     {
       "id": "asvetliakov.vscode-neovim",
       "repository": "https://github.com/asvetliakov/vscode-neovim",
-      "version": "0.0.77",
-      "checkout": "v0.0.77"
+      "version": "0.0.78",
+      "checkout": "v0.0.78"
     },
     {
       "id": "atishay-jain.all-autocomplete",
@@ -143,8 +143,8 @@
     {
       "id": "auchenberg.vscode-browser-preview",
       "repository": "https://github.com/auchenberg/vscode-browser-preview",
-      "version": "0.6.6",
-      "checkout": "v0.6.6"
+      "version": "0.6.7",
+      "checkout": "v0.6.7"
     },
     {
       "id": "aurorabiz.blade-ui-kit",
@@ -192,14 +192,13 @@
     },
     {
       "id": "bmewburn.vscode-intelephense-client",
-      "repository": "https://github.com/bmewburn/vscode-intelephense",
-      "version": "1.6.1",
-      "checkout": "v1.6.1"
+      "download": "https://github.com/bmewburn/vscode-intelephense/releases/download/v1.6.3/vscode-intelephense-client-1.6.3.vsix",
+      "version": "1.6.3"
     },
     {
       "id": "bradlc.vscode-tailwindcss",
-      "download": "https://github.com/tailwindlabs/tailwindcss-intellisense/releases/download/v0.5.6/vscode-tailwindcss-0.5.6.vsix",
-      "version": "0.5.6"
+      "download": "https://github.com/tailwindlabs/tailwindcss-intellisense/releases/download/v0.5.8/vscode-tailwindcss-0.5.8.vsix",
+      "version": "0.5.8"
     },
     {
       "id": "bung87.rails",
@@ -252,13 +251,12 @@
     {
       "id": "ckolkman.vscode-postgres",
       "repository": "https://github.com/Borvik/vscode-postgres",
-      "version": "1.1.13",
-      "checkout": "v1.1.13"
+      "version": "1.1.17",
+      "checkout": "v1.1.17"
     },
     {
       "id": "CoenraadS.bracket-pair-colorizer",
-      "repository": "https://github.com/CoenraadS/BracketPair",
-      "version": "1.0.61"
+      "repository": "https://github.com/CoenraadS/BracketPair"
     },
     {
       "id": "connorshea.vscode-ruby-test-adapter",
@@ -293,13 +291,13 @@
     },
     {
       "id": "Dart-Code.dart-code",
-      "download": "https://github.com/Dart-Code/Dart-Code/releases/download/v3.18.0/dart-code-3.18.0.vsix",
-      "version": "3.18.0"
+      "download": "https://github.com/Dart-Code/Dart-Code/releases/download/v3.19.1/dart-code-3.19.1.vsix",
+      "version": "3.19.1"
     },
     {
       "id": "Dart-Code.flutter",
-      "download": "https://github.com/Dart-Code/Flutter/releases/download/v3.18.0/flutter-3.18.0.vsix",
-      "version": "3.18.0"
+      "download": "https://github.com/Dart-Code/Flutter/releases/download/v3.19.0/flutter-3.19.0.vsix",
+      "version": "3.19.0"
     },
     {
       "id": "DavidAnson.vscode-markdownlint",
@@ -382,16 +380,15 @@
       "repository": "https://github.com/dylan-lang/vscode-dylan"
     },
     {
-      "id": "eamodio.vscode-gitlens",
-      "repository": "https://github.com/eamodio/vscode-gitlens",
-      "version": "10.2.3",
-      "checkout": "v10.2.3"
+      "id": "eamodio.gitlens",
+      "download": "https://github.com/eamodio/vscode-gitlens/releases/download/v11.1.3/gitlens-11.1.3.vsix",
+      "version": "11.1.3"
     },
     {
       "id": "ecmel.vscode-html-css",
       "repository": "https://github.com/ecmel/vscode-html-css",
-      "version": "1.8.0",
-      "checkout": "1.8.0"
+      "version": "1.9.1",
+      "checkout": "1.9.1"
     },
     {
       "id": "EditorConfig.EditorConfig",
@@ -499,9 +496,8 @@
     },
     {
       "id": "formulahendry.vscode-mysql",
-      "repository": "https://github.com/formulahendry/vscode-mysql",
-      "version": "0.4.0",
-      "checkout": "0.4.0"
+      "download": "https://github.com/formulahendry/vscode-mysql/releases/download/0.4.0/vscode-mysql-0.4.0.vsix",
+      "version": "0.4.0"
     },
     {
       "id": "formulahendry.vscode-node-red",
@@ -543,14 +539,13 @@
     },
     {
       "id": "golang.go",
-      "download": "https://github.com/golang/vscode-go/releases/download/v0.20.2/go-0.20.2.vsix",
-      "version": "0.20.2"
+      "download": "https://github.com/golang/vscode-go/releases/download/v0.22.0/go-0.22.0.vsix",
+      "version": "0.22.0"
     },
     {
       "id": "GrapeCity.gc-excelviewer",
-      "repository": "https://github.com/jjuback/gc-excelviewer",
-      "version": "3.0.40",
-      "checkout": "v3.0.40"
+      "download": "https://github.com/jjuback/gc-excelviewer/releases/download/v3.0.40/gc-excelviewer-3.0.40.vsix",
+      "version": "3.0.40"
     },
     {
       "id": "HansUXdev.bootstrap5-snippets",
@@ -586,8 +581,7 @@
     },
     {
       "id": "HookyQR.beautify",
-      "repository": "https://github.com/HookyQR/VSCodeBeautify",
-      "version": "1.4.11"
+      "repository": "https://github.com/HookyQR/VSCodeBeautify"
     },
     {
       "id": "hoovercj.haskell-linter",
@@ -604,8 +598,8 @@
     },
     {
       "id": "IBMBlockchain.ibm-blockchain-platform",
-      "download": "https://github.com/IBM-Blockchain/blockchain-vscode-extension/releases/download/v1.0.40/ibm-blockchain-platform-1.0.40.vsix",
-      "version": "1.0.40"
+      "download": "https://github.com/IBM-Blockchain/blockchain-vscode-extension/releases/download/v2.0.0/ibm-blockchain-platform-2.0.0.vsix",
+      "version": "2.0.0"
     },
     {
       "id": "ikappas.phpcs",
@@ -636,8 +630,8 @@
     {
       "id": "itsjonq.owlet",
       "repository": "https://github.com/ItsJonQ/owlet",
-      "version": "0.1.21",
-      "checkout": "v0.1.21"
+      "version": "0.1.22",
+      "checkout": "v0.1.22"
     },
     {
       "id": "itsmajestix.vscode-ti",
@@ -658,9 +652,9 @@
     },
     {
       "id": "jebbs.plantuml",
+      "repository": "https://github.com/qjebbs/vscode-plantuml",
       "version": "2.14.0",
       "checkout": "v2.14.0",
-      "repository": "https://github.com/qjebbs/vscode-plantuml.git",
       "prepublish": "wget -O plantuml.zip https://sourceforge.net/projects/plantuml/files/1.2021.0/plantuml-jar-mit-1.2021.0.zip/download && unzip plantuml.zip && rm plantuml.zip && mv COPYING COPYING.plantuml-jar"
     },
     {
@@ -670,8 +664,7 @@
     },
     {
       "id": "jock.svg",
-      "repository": "https://github.com/lishu/vscode-svg2",
-      "version": "1.4.3"
+      "repository": "https://github.com/lishu/vscode-svg2"
     },
     {
       "id": "joelday.docthis",
@@ -684,8 +677,7 @@
     },
     {
       "id": "johnpapa.vscode-peacock",
-      "repository": "https://github.com/johnpapa/vscode-peacock",
-      "version": "3.9.1"
+      "repository": "https://github.com/johnpapa/vscode-peacock"
     },
     {
       "id": "johnpapa.winteriscoming",
@@ -695,8 +687,8 @@
     {
       "id": "jolaleye.horizon-theme-vscode",
       "repository": "https://github.com/jolaleye/horizon-theme-vscode",
-      "version": "2.0.1",
-      "checkout": "v2.0.1",
+      "version": "2.0.2",
+      "checkout": "v2.0.2",
       "prepublish": "npm run build"
     },
     {
@@ -705,8 +697,7 @@
     },
     {
       "id": "junstyle.php-cs-fixer",
-      "repository": "https://github.com/junstyle/vscode-php-cs-fixer",
-      "version": "0.1.157"
+      "repository": "https://github.com/junstyle/vscode-php-cs-fixer"
     },
     {
       "id": "justusadam.language-haskell",
@@ -722,8 +713,8 @@
     },
     {
       "id": "k--kato.intellij-idea-keybindings",
-      "download": "https://github.com/kasecato/vscode-intellij-idea-keybindings/releases/download/v0.2.40/intellij-idea-keybindings-0.2.40.vsix",
-      "version": "0.2.40"
+      "download": "https://github.com/kasecato/vscode-intellij-idea-keybindings/releases/download/v1.3.0/intellij-idea-keybindings-1.3.0.vsix",
+      "version": "1.3.0"
     },
     {
       "id": "kaiwood.endwise",
@@ -752,8 +743,8 @@
     {
       "id": "kisstkondoros.vscode-gutter-preview",
       "repository": "https://github.com/kisstkondoros/gutter-preview",
-      "version": "0.26.1",
-      "checkout": "v0.26.1"
+      "version": "0.26.2",
+      "checkout": "v0.26.2"
     },
     {
       "id": "KnisterPeter.vscode-github",
@@ -779,14 +770,13 @@
     },
     {
       "id": "kortina.vscode-markdown-notes",
-      "download": "https://github.com/kortina/vscode-markdown-notes/releases/download/v0.0.20/vscode-markdown-notes-0.0.20.vsix",
-      "version": "0.0.20"
+      "download": "https://github.com/kortina/vscode-markdown-notes/releases/download/v0.0.22/vscode-markdown-notes-0.0.22.vsix",
+      "version": "0.0.22"
     },
     {
       "id": "kosz78.nim",
-      "repository": "https://github.com/pragmagic/vscode-nim",
-      "version": "0.6.6",
-      "checkout": "v0.6.6"
+      "download": "https://github.com/pragmagic/vscode-nim/releases/download/v0.6.6/nim-0.6.6.vsix",
+      "version": "0.6.6"
     },
     {
       "id": "lextudio.restructuredtext",
@@ -796,7 +786,8 @@
     },
     {
       "id": "lgalabru.clarity-lsp",
-      "download": "https://github.com/lgalabru/clarity-lsp/releases/download/2020-12-16/clarity-lsp.vsix"
+      "download": "https://github.com/lgalabru/clarity-lsp/releases/download/2020-12-16/clarity-lsp.vsix",
+      "version": "0.2.272"
     },
     {
       "id": "lintangwisesa.arduino",
@@ -804,8 +795,8 @@
     },
     {
       "id": "littlefoxteam.vscode-python-test-adapter",
-      "download": "https://github.com/kondratyev-nv/vscode-python-test-adapter/releases/download/v0.6.5/vscode-python-test-adapter-0.6.5.vsix",
-      "version": "0.6.5"
+      "download": "https://github.com/kondratyev-nv/vscode-python-test-adapter/releases/download/v0.6.6/vscode-python-test-adapter-0.6.6.vsix",
+      "version": "0.6.6"
     },
     {
       "id": "lonefy.vscode-JS-CSS-HTML-formatter",
@@ -831,19 +822,18 @@
     },
     {
       "id": "marus25.cortex-debug",
-      "download": "https://github.com/Marus/cortex-debug/releases/download/v0.3.7/cortex-debug-0.3.7.vsix",
-      "version": "0.3.7"
+      "download": "https://github.com/Marus/cortex-debug/releases/download/v0.3.10/cortex-debug-0.3.10.vsix",
+      "version": "0.3.10"
     },
     {
       "id": "mathiasfrohlich.Kotlin",
-      "repository": "https://github.com/mathiasfrohlich/vscode-kotlin",
-      "version": "1.7.1",
-      "checkout": "1.7.1"
+      "download": "https://github.com/mathiasfrohlich/vscode-kotlin/releases/download/1.7.1/Kotlin-1.7.1.vsix",
+      "version": "1.7.1"
     },
     {
       "id": "matklad.rust-analyzer",
-      "download": "https://github.com/rust-analyzer/rust-analyzer/releases/download/2021-01-11/rust-analyzer.vsix",
-      "version": "0.2.449"
+      "download": "https://github.com/rust-analyzer/rust-analyzer/releases/download/2021-02-01/rust-analyzer.vsix",
+      "version": "0.2.473"
     },
     {
       "id": "max-SS.Cyberpunk",
@@ -913,19 +903,13 @@
     },
     {
       "id": "mrmlnc.vscode-duplicate",
-      "repository": "https://github.com/mrmlnc/vscode-duplicate.git",
-      "version": "1.2.1",
-      "checkout": "1.2.1"
-    },
-    {
-      "id": "mrmlnc.vscode-scss",
-      "download": "https://github.com/mrmlnc/vscode-scss/releases/download/0.9.0/vscode-scss-0.9.0.vsix",
-      "version": "0.9.0"
+      "download": "https://github.com/mrmlnc/vscode-duplicate/releases/download/1.2.1/vscode-duplicate-1.2.1.vsix",
+      "version": "1.2.1"
     },
     {
       "id": "ms-azuretools.vscode-docker",
-      "download": "https://github.com/microsoft/vscode-docker/releases/download/v1.9.0/vscode-docker-1.9.0.vsix",
-      "version": "1.9.0"
+      "download": "https://github.com/microsoft/vscode-docker/releases/download/v1.9.1/vscode-docker-1.9.1.vsix",
+      "version": "1.9.1"
     },
     {
       "id": "MS-CEINTL.vscode-language-pack-bg",
@@ -1024,20 +1008,20 @@
     },
     {
       "id": "ms-kubernetes-tools.vscode-kubernetes-tools",
-      "repository": "https://github.com/Azure/vscode-kubernetes-tools",
-      "version": "1.2.1",
-      "checkout": "1.2.1"
+      "download": "https://github.com/Azure/vscode-kubernetes-tools/releases/download/1.2.3/vscode-kubernetes-tools-1.2.3.vsix",
+      "version": "1.2.3"
     },
     {
-      "id": "ms-pyright.pyright",
+      "id": "ms-pyright.vscode-pyright",
       "repository": "https://github.com/Microsoft/pyright",
-      "version": "1.1.101",
-      "checkout": "v1.1.101"
+      "version": "1.1.107",
+      "checkout": "1.1.107",
+      "location": "packages/vscode-pyright"
     },
     {
       "id": "ms-python.python",
-      "download": "https://github.com/microsoft/vscode-python/releases/download/2020.12.424452561/ms-python-release.vsix",
-      "version": "2020.12.424452561"
+      "download": "https://github.com/microsoft/vscode-python/releases/download/2021.1.502429796/ms-python-release.vsix",
+      "version": "2021.1.502429796"
     },
     {
       "id": "ms-vscode.atom-keybindings",
@@ -1052,9 +1036,8 @@
     },
     {
       "id": "ms-vscode.Go",
-      "repository": "https://github.com/microsoft/vscode-go",
-      "version": "0.14.3",
-      "checkout": "0.14.3"
+      "download": "https://github.com/microsoft/vscode-go/releases/download/0.14.3/Go-0.14.3.vsix",
+      "version": "0.14.3"
     },
     {
       "id": "ms-vscode.hexeditor",
@@ -1137,9 +1120,8 @@
     },
     {
       "id": "notskm.clang-tidy",
-      "repository": "https://github.com/notskm/vscode-clang-tidy",
-      "version": "0.5.1",
-      "checkout": "v0.5.1"
+      "download": "https://github.com/notskm/vscode-clang-tidy/releases/download/v0.5.1/clang-tidy-0.5.1.vsix",
+      "version": "0.5.1"
     },
     {
       "id": "nwolverson.ide-purescript",
@@ -1150,8 +1132,8 @@
     },
     {
       "id": "octref.vetur",
-      "download": "https://github.com/vuejs/vetur/releases/download/v0.31.3/vetur-0.31.3.vsix",
-      "version": "0.31.3"
+      "download": "https://github.com/vuejs/vetur/releases/download/v0.32.0/vetur-0.32.0.vsix",
+      "version": "0.32.0"
     },
     {
       "id": "oderwat.indent-rainbow",
@@ -1224,8 +1206,8 @@
     },
     {
       "id": "puppet.puppet-vscode",
-      "download": "https://github.com/puppetlabs/puppet-vscode/releases/download/1.0.0/puppet-vscode-1.0.0.vsix",
-      "version": "1.0.0"
+      "download": "https://github.com/puppetlabs/puppet-vscode/releases/download/1.1.0/puppet-vscode-1.1.0.vsix",
+      "version": "1.1.0"
     },
     {
       "id": "rafaelmaiolla.diff",
@@ -1235,16 +1217,14 @@
     },
     {
       "id": "rebornix.ruby",
-      "repository": "https://github.com/rubyide/vscode-ruby",
-      "version": "0.28.1",
-      "checkout": "v0.28.1",
-      "location": "packages/vscode-ruby-client"
+      "download": "https://github.com/rubyide/vscode-ruby/releases/download/v0.28.0/ruby-0.28.0.vsix",
+      "version": "0.28.0"
     },
     {
       "id": "reduckted.vscode-gitweblinks",
       "repository": "https://github.com/reduckted/vscode-gitweblinks",
-      "version": "2.0.0",
-      "checkout": "v2.0.0"
+      "version": "2.2.0",
+      "checkout": "v2.2.0"
     },
     {
       "id": "ria.elastic",
@@ -1252,9 +1232,8 @@
     },
     {
       "id": "ritwickdey.LiveServer",
-      "repository": "https://github.com/ritwickdey/vscode-live-server",
-      "version": "5.6.1",
-      "checkout": "v5.6.1"
+      "download": "https://github.com/ritwickdey/vscode-live-server/releases/download/v5.6.1/LiveServer-v5.6.1-linux.vsix",
+      "version": "5.6.1"
     },
     {
       "id": "rokoroku.vscode-theme-darcula",
@@ -1262,13 +1241,12 @@
     },
     {
       "id": "rust-lang.rust",
-      "repository": "https://github.com/rust-lang/rls-vscode",
-      "version": "0.7.8",
-      "checkout": "v0.7.8"
+      "download": "https://github.com/rust-lang/rls-vscode/releases/download/v0.7.8/rust.vsix",
+      "version": "0.7.8"
     },
     {
       "id": "ryanolsonx.zenburn",
-      "repository": "https://github.com/ryanolsonx/vscode-zenburn-theme.git",
+      "repository": "https://github.com/ryanolsonx/vscode-zenburn-theme",
       "version": "1.0.1",
       "checkout": "8d0ea180bd58cdf2a1b88250b44ee71fb80326b6"
     },
@@ -1316,8 +1294,8 @@
     {
       "id": "shufo.vscode-blade-formatter",
       "repository": "https://github.com/shufo/vscode-blade-formatter",
-      "version": "0.6.3",
-      "checkout": "v0.6.3"
+      "version": "0.6.7",
+      "checkout": "v0.6.7"
     },
     {
       "id": "shuworks.vscode-table-formatter",
@@ -1348,8 +1326,8 @@
     {
       "id": "skn0tt.markdown-link-expander",
       "repository": "https://github.com/Skn0tt/markdown-link-expander",
-      "version": "0.1.2",
-      "checkout": "v0.1.2"
+      "version": "0.1.3",
+      "checkout": "v0.1.3"
     },
     {
       "id": "SonarSource.sonarlint-vscode",
@@ -1431,8 +1409,8 @@
     {
       "id": "vhdlwhiz.vhdl-by-vhdlwhiz",
       "repository": "https://github.com/jonasjj/awesome-vhdl",
-      "version": "1.2.10",
-      "checkout": "v1.2.10"
+      "version": "1.2.11",
+      "checkout": "v1.2.11"
     },
     {
       "id": "vincaslt.highlight-matching-tag",
@@ -1464,8 +1442,8 @@
     },
     {
       "id": "vscjava.vscode-java-dependency",
-      "download": "https://github.com/microsoft/vscode-java-dependency/releases/download/0.16.0/vscjava.vscode-java-dependency-0.16.0.vsix",
-      "version": "0.16.0"
+      "download": "https://github.com/microsoft/vscode-java-dependency/releases/download/0.17.0/vscjava.vscode-java-dependency-0.17.0.vsix",
+      "version": "0.17.0"
     },
     {
       "id": "vscjava.vscode-java-test",
@@ -1489,6 +1467,10 @@
       "repository": "https://github.com/vscode-icons/vscode-icons",
       "version": "11.1.0",
       "checkout": "v.11.1.0"
+    },
+    {
+      "id": "vscode.cpp",
+      "download": "https://openvsxorg.blob.core.windows.net/resources/vscode/cpp/1.44.2/vscode.cpp-1.44.2.vsix"
     },
     {
       "id": "vscode.smali",
@@ -1530,8 +1512,7 @@
     },
     {
       "id": "wayou.vscode-todo-highlight",
-      "repository": "https://github.com/wayou/vscode-todo-highlight",
-      "version": "1.0.4"
+      "repository": "https://github.com/wayou/vscode-todo-highlight"
     },
     {
       "id": "wholroyd.jinja",
