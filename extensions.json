@@ -1115,9 +1115,8 @@
     },
     {
       "id": "notskm.clang-tidy",
-      "repository": "https://github.com/notskm/vscode-clang-tidy",
-      "version": "0.5.1",
-      "checkout": "v0.5.1"
+      "download": "https://github.com/notskm/vscode-clang-tidy/releases/download/v0.5.1/clang-tidy-0.5.1.vsix",
+      "version": "0.5.1"
     },
     {
       "id": "nwolverson.ide-purescript",
