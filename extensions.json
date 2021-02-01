@@ -1321,8 +1321,8 @@
     {
       "id": "skn0tt.markdown-link-expander",
       "repository": "https://github.com/Skn0tt/markdown-link-expander",
-      "version": "0.1.2",
-      "checkout": "v0.1.2"
+      "version": "0.1.3",
+      "checkout": "v0.1.3"
     },
     {
       "id": "SonarSource.sonarlint-vscode",
