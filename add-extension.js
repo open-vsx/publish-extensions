@@ -16,6 +16,7 @@ const path = require('path');
 const util = require('util');
 const semver = require('semver');
 const exec = require('./lib/exec');
+const gitHubScraper = require('./lib/github-scraper');
 const { DH_UNABLE_TO_CHECK_GENERATOR } = require('constants');
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
@@ -52,6 +53,21 @@ Alternative usage: node add-extension --download=VSIX_URL`);
     process.exit();
   }
 
+  const repository = (argv._[0] || '').replace(/\/*$/, '');
+
+  // If possible, always prefer re-publishing an official VSIX release over trying to re-package ourselves.
+  if (repository && !argv.download) {
+    const latestVSIXRelease = await gitHubScraper.findLatestVSIXRelease(repository);
+    if (latestVSIXRelease) {
+      // Simulate a 'node add-extension --download=VSIX_URL' CLI call.
+      argv.download = latestVSIXRelease;
+      delete argv.checkout;
+      delete argv.location;
+      delete argv.prepublish;
+      delete argv.extensionFile;
+    }
+  }
+
   // Handle 'node add-extension --download=VSIX_URL':
   if (argv.download) {
     try {
@@ -74,7 +90,6 @@ Alternative usage: node add-extension --download=VSIX_URL`);
   }
 
   // Handle 'node add-extension REPOSITORY [OPTIONS]':
-  const repository = argv._[0].replace(/\/*$/, '');
   const existing = extensions.find(e => e.repository && e.repository.toLowerCase() === repository.toLowerCase() && e.location === argv.location);
   if (existing) {
     console.log(`[SKIPPED] Repository already in extensions.json: ${JSON.stringify(existing, null, 2)}`);
