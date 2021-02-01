@@ -677,8 +677,7 @@
     },
     {
       "id": "johnpapa.vscode-peacock",
-      "repository": "https://github.com/johnpapa/vscode-peacock",
-      "version": "3.9.1"
+      "repository": "https://github.com/johnpapa/vscode-peacock"
     },
     {
       "id": "johnpapa.winteriscoming",
