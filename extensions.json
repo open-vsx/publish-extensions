@@ -1404,8 +1404,8 @@
     {
       "id": "vhdlwhiz.vhdl-by-vhdlwhiz",
       "repository": "https://github.com/jonasjj/awesome-vhdl",
-      "version": "1.2.10",
-      "checkout": "v1.2.10"
+      "version": "1.2.11",
+      "checkout": "v1.2.11"
     },
     {
       "id": "vincaslt.highlight-matching-tag",
