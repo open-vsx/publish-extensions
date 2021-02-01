@@ -630,8 +630,8 @@
     {
       "id": "itsjonq.owlet",
       "repository": "https://github.com/ItsJonQ/owlet",
-      "version": "0.1.21",
-      "checkout": "v0.1.21"
+      "version": "0.1.22",
+      "checkout": "v0.1.22"
     },
     {
       "id": "itsmajestix.vscode-ti",
