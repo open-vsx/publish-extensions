@@ -775,9 +775,8 @@
     },
     {
       "id": "kosz78.nim",
-      "repository": "https://github.com/pragmagic/vscode-nim",
-      "version": "0.6.6",
-      "checkout": "v0.6.6"
+      "download": "https://github.com/pragmagic/vscode-nim/releases/download/v0.6.6/nim-0.6.6.vsix",
+      "version": "0.6.6"
     },
     {
       "id": "lextudio.restructuredtext",
