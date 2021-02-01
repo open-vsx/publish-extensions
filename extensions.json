@@ -143,8 +143,8 @@
     {
       "id": "auchenberg.vscode-browser-preview",
       "repository": "https://github.com/auchenberg/vscode-browser-preview",
-      "version": "0.6.6",
-      "checkout": "v0.6.6"
+      "version": "0.6.7",
+      "checkout": "v0.6.7"
     },
     {
       "id": "aurorabiz.blade-ui-kit",
