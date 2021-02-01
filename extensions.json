@@ -111,7 +111,7 @@
       "version": "2.2.4",
       "checkout": "vscode-zipfs/2.2.4",
       "location": "packages/vscode-zipfs",
-      "prepublish": "sed -ri \"s_ssh://git@github.com/yarnpkg/berry.git_https://github.com/yarnpkg/berry_g\" package.json"
+      "prepublish": "sed -ri \"s_ssh://git@github.com/yarnpkg/berry.git_https://github.com/yarnpkg/berry_g\" packages/vscode-zipfs/package.json"
     },
     {
       "id": "arjun.swagger-viewer",
