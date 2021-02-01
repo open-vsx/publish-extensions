@@ -1031,9 +1031,8 @@
     },
     {
       "id": "ms-vscode.Go",
-      "repository": "https://github.com/microsoft/vscode-go",
-      "version": "0.14.3",
-      "checkout": "0.14.3"
+      "download": "https://github.com/microsoft/vscode-go/releases/download/0.14.3/Go-0.14.3.vsix",
+      "version": "0.14.3"
     },
     {
       "id": "ms-vscode.hexeditor",
