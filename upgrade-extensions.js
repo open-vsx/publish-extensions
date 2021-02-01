@@ -23,6 +23,7 @@ const dontUpgrade = [
   'file-icons.file-icons', // Git submodule uses unsupported 'git@github.com' URL format
   'DotJoshJohnson.xml', // https://github.com/DotJoshJohnson/vscode-xml/issues/345
   'dracula-theme.theme-dracula', // https://github.com/dracula/visual-studio-code/issues/168
+  'wingrunr21.vscode-ruby', // This script gets confused and switches to rebornix.Ruby .vsix release (same repo)
 ];
 
 (async () => {
