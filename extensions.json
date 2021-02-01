@@ -1227,9 +1227,8 @@
     },
     {
       "id": "ritwickdey.LiveServer",
-      "repository": "https://github.com/ritwickdey/vscode-live-server",
-      "version": "5.6.1",
-      "checkout": "v5.6.1"
+      "download": "https://github.com/ritwickdey/vscode-live-server/releases/download/v5.6.1/LiveServer-v5.6.1-linux.vsix",
+      "version": "5.6.1"
     },
     {
       "id": "rokoroku.vscode-theme-darcula",
