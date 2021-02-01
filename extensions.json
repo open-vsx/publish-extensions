@@ -539,8 +539,8 @@
     },
     {
       "id": "golang.go",
-      "download": "https://github.com/golang/vscode-go/releases/download/v0.20.2/go-0.20.2.vsix",
-      "version": "0.20.2"
+      "download": "https://github.com/golang/vscode-go/releases/download/v0.22.0/go-0.22.0.vsix",
+      "version": "0.22.0"
     },
     {
       "id": "GrapeCity.gc-excelviewer",
