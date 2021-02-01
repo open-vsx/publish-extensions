@@ -909,11 +909,6 @@
       "checkout": "1.2.1"
     },
     {
-      "id": "mrmlnc.vscode-scss",
-      "download": "https://github.com/mrmlnc/vscode-scss/releases/download/0.9.0/vscode-scss-0.9.0.vsix",
-      "version": "0.9.0"
-    },
-    {
       "id": "ms-azuretools.vscode-docker",
       "download": "https://github.com/microsoft/vscode-docker/releases/download/v1.9.0/vscode-docker-1.9.0.vsix",
       "version": "1.9.0"
