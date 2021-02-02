@@ -1341,6 +1341,11 @@
       "checkout": "v1.5.3"
     },
     {
+      "id": "stripe.vscode-stripe",
+      "download": "https://github.com/stripe/vscode-stripe/releases/download/v0.5.1/vscode-stripe-0.5.1.vsix",
+      "version": "0.5.1"
+    },
+    {
       "id": "stylelint.vscode-stylelint",
       "repository": "https://github.com/stylelint/vscode-stylelint",
       "version": "0.85.0",
