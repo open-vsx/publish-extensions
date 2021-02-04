@@ -159,6 +159,12 @@
       "repository": "https://github.com/vscode-django/vscode-django"
     },
     {
+      "id": "BazelBuild.vscode-bazel",
+      "repository": "https://github.com/bazelbuild/vscode-bazel",
+      "version": "0.4.0",
+      "checkout": "0.4.0"
+    },
+    {
       "id": "bbenoist.Doxygen",
       "repository": "https://github.com/bbenoist/vscode-doxygen",
       "version": "1.0.0",
