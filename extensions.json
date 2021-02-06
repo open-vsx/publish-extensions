@@ -1245,6 +1245,12 @@
       "version": "5.6.1"
     },
     {
+      "id": "RobbOwen.synthwave-vscode",
+      "repository": "https://github.com/robb0wen/synthwave-vscode",
+      "version": "0.1.8",
+      "checkout": "v0.1.8"
+    },
+    {
       "id": "rokoroku.vscode-theme-darcula",
       "repository": "https://github.com/rokoroku/vscode-theme-darcula"
     },
