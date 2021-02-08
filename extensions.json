@@ -1,6 +1,11 @@
 {
   "extensions": [
     {
+      "id": "small.php-ci",
+      "download": "https://github.com/smallp/vscode-ci/releases/download/0.4.2/php-ci-0.4.2.vsix",
+      "version": "0.4.2"
+    },
+    {
       "id": "aaron-bond.better-comments",
       "repository": "https://github.com/aaron-bond/better-comments"
     },
