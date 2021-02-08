@@ -1392,8 +1392,8 @@
     },
     {
       "id": "timonwong.shellcheck",
-      "download": "https://github.com/timonwong/vscode-shellcheck/releases/download/v0.12.3/shellcheck-0.12.3.vsix",
-      "version": "0.12.3"
+      "download": "https://github.com/timonwong/vscode-shellcheck/releases/download/v0.13.1/shellcheck-0.13.1.vsix",
+      "version": "0.13.1"
     },
     {
       "id": "Tobiah.unity-tools",
