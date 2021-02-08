@@ -846,8 +846,8 @@
     {
       "id": "medo64.render-crlf",
       "repository": "https://github.com/medo64/render-crlf",
-      "version": "1.5.16",
-      "checkout": "v1.5.16"
+      "version": "1.5.17",
+      "checkout": "v1.5.17"
     },
     {
       "id": "meganrogge.template-string-converter",
