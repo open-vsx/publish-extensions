@@ -1462,8 +1462,8 @@
     },
     {
       "id": "vscjava.vscode-java-debug",
-      "download": "https://github.com/microsoft/vscode-java-debug/releases/download/0.30.0/vscjava.vscode-java-debug-0.30.0.vsix",
-      "version": "0.30.0"
+      "download": "https://github.com/microsoft/vscode-java-debug/releases/download/0.31.0/vscjava.vscode-java-debug-0.31.0.vsix",
+      "version": "0.31.0"
     },
     {
       "id": "vscjava.vscode-java-dependency",
