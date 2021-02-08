@@ -1505,8 +1505,8 @@
     },
     {
       "id": "vscodevim.vim",
-      "download": "https://github.com/VSCodeVim/Vim/releases/download/v1.18.5/vim-1.18.5.vsix",
-      "version": "1.18.5"
+      "download": "https://github.com/VSCodeVim/Vim/releases/download/v1.18.9/vim-1.18.9.vsix",
+      "version": "1.18.9"
     },
     {
       "id": "vshaxe.haxe-checkstyle",
