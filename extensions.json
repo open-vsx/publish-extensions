@@ -438,8 +438,8 @@
     },
     {
       "id": "esbenp.prettier-vscode",
-      "download": "https://github.com/prettier/prettier-vscode/releases/download/v5.8.0/prettier-vscode-5.8.0.vsix",
-      "version": "5.8.0"
+      "download": "https://github.com/prettier/prettier-vscode/releases/download/v5.9.1/prettier-vscode-5.9.1.vsix",
+      "version": "5.9.1"
     },
     {
       "id": "ethan-reesor.vscode-go-test-adapter",
