@@ -182,8 +182,7 @@
     },
     {
       "id": "bierner.docs-view",
-      "repository": "https://github.com/mattbierner/vscode-docs-view",
-      "version": "0.0.8"
+      "repository": "https://github.com/mattbierner/vscode-docs-view"
     },
     {
       "id": "bierner.markdown-image-size",
