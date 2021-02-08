@@ -1472,8 +1472,8 @@
     },
     {
       "id": "vscjava.vscode-java-test",
-      "download": "https://github.com/microsoft/vscode-java-test/releases/download/0.27.0/vscjava.vscode-java-test-0.27.0.vsix",
-      "version": "0.27.0"
+      "download": "https://github.com/microsoft/vscode-java-test/releases/download/0.28.0/vscjava.vscode-java-test-0.28.0.vsix",
+      "version": "0.28.0"
     },
     {
       "id": "vscjava.vscode-spring-boot-dashboard",
