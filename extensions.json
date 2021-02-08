@@ -1362,8 +1362,8 @@
     },
     {
       "id": "stripe.vscode-stripe",
-      "download": "https://github.com/stripe/vscode-stripe/releases/download/v0.5.1/vscode-stripe-0.5.1.vsix",
-      "version": "0.5.1"
+      "download": "https://github.com/stripe/vscode-stripe/releases/download/v1.7.0/vscode-stripe-1.7.0.vsix",
+      "version": "1.7.0"
     },
     {
       "id": "stylelint.vscode-stylelint",
