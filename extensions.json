@@ -385,8 +385,8 @@
     },
     {
       "id": "eamodio.gitlens",
-      "download": "https://github.com/eamodio/vscode-gitlens/releases/download/v11.1.3/gitlens-11.1.3.vsix",
-      "version": "11.1.3"
+      "download": "https://github.com/eamodio/vscode-gitlens/releases/download/v11.2.1/gitlens-11.2.1.vsix",
+      "version": "11.2.1"
     },
     {
       "id": "ecmel.vscode-html-css",
