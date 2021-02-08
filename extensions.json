@@ -160,9 +160,8 @@
     },
     {
       "id": "BazelBuild.vscode-bazel",
-      "repository": "https://github.com/bazelbuild/vscode-bazel",
-      "version": "0.4.0",
-      "checkout": "0.4.0"
+      "download": "https://github.com/bazelbuild/vscode-bazel/releases/download/0.4.0/vscode-bazel-0.4.0.vsix",
+      "version": "0.4.0"
     },
     {
       "id": "bbenoist.Doxygen",
