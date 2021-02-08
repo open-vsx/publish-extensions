@@ -24,6 +24,12 @@ const dontUpgrade = [
   'DotJoshJohnson.xml', // https://github.com/DotJoshJohnson/vscode-xml/issues/345
   'dracula-theme.theme-dracula', // https://github.com/dracula/visual-studio-code/issues/168
   'wingrunr21.vscode-ruby', // This script gets confused and switches to rebornix.Ruby .vsix release (same repo)
+  'andreweinand.mock-debug', // https://github.com/open-vsx/publish-extensions/pull/274#issue-562452193
+  'DigitalBrainstem.javascript-ejs-support', // https://github.com/Digitalbrainstem/ejs-grammar tagged 1.3.1 but hasn't had a new release tag in over year
+  'ecmel.vscode-html-css', // https://github.com/ecmel/vscode-html-css/issues/213
+  'ms-vscode.atom-keybindings', // https://github.com/microsoft/vscode-atom-keybindings/releases didn't have a release in 2 years
+  'ms-vscode.node-debug', // Recent releases are not being tagged in https://github.com/microsoft/vscode-node-debug
+  'wmaurer.change-case', // https://github.com/wmaurer/vscode-change-case/releases didn't have a release in 6 years
 ];
 
 (async () => {
