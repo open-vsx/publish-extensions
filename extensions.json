@@ -785,8 +785,8 @@
     {
       "id": "lextudio.restructuredtext",
       "repository": "https://github.com/vscode-restructuredtext/vscode-restructuredtext",
-      "version": "141.0.0",
-      "checkout": "141.0.0"
+      "version": "143.0.0",
+      "checkout": "143.0.0"
     },
     {
       "id": "lgalabru.clarity-lsp",
