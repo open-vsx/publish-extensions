@@ -1457,8 +1457,8 @@
     },
     {
       "id": "vsciot-vscode.vscode-arduino",
-      "download": "https://github.com/microsoft/vscode-arduino/releases/download/v0.3.4/vscode-arduino-0.3.4.vsix",
-      "version": "0.3.4"
+      "download": "https://github.com/microsoft/vscode-arduino/releases/download/v0.3.5/vscode-arduino-0.3.5.vsix",
+      "version": "0.3.5"
     },
     {
       "id": "vscjava.vscode-java-debug",
