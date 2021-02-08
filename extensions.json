@@ -467,8 +467,8 @@
     },
     {
       "id": "felixfbecker.php-debug",
-      "download": "https://github.com/xdebug/vscode-php-debug/releases/download/v1.14.5/php-debug.vsix",
-      "version": "1.14.5"
+      "download": "https://github.com/xdebug/vscode-php-debug/releases/download/v1.14.9/php-debug.vsix",
+      "version": "1.14.9"
     },
     {
       "id": "felixfbecker.php-intellisense",
