@@ -389,6 +389,10 @@
       "version": "11.2.1"
     },
     {
+      "id": "eclipse-cdt.cdt-gdb-vscode",
+      "repository": "https://github.com/eclipse-cdt/cdt-gdb-vscode"
+    },
+    {
       "id": "ecmel.vscode-html-css",
       "repository": "https://github.com/ecmel/vscode-html-css",
       "version": "1.9.1",
