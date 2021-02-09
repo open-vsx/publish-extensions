@@ -390,9 +390,7 @@
     },
     {
       "id": "eclipse-cdt.cdt-gdb-vscode",
-      "repository": "https://github.com/eclipse-cdt/cdt-gdb-vscode",
-      "version": "0.0.91",
-      "checkout": "master"
+      "repository": "https://github.com/eclipse-cdt/cdt-gdb-vscode"
     },
     {
       "id": "ecmel.vscode-html-css",
