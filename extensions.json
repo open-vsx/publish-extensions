@@ -470,6 +470,10 @@
       "repository": "https://github.com/fabiospampinato/vscode-open-in-npm"
     },
     {
+      "id": "fabiospampinato.vscode-todo-plus",
+      "repository": "https://github.com/fabiospampinato/vscode-todo-plus"
+    },
+    {
       "id": "felixfbecker.php-debug",
       "download": "https://github.com/xdebug/vscode-php-debug/releases/download/v1.14.9/php-debug.vsix",
       "version": "1.14.9"
