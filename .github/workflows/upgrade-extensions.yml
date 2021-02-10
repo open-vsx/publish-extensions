@@ -1,0 +1,31 @@
+name: Upgrade extensions
+
+on:
+  schedule:
+    # Run at 04:05 UTC every night from saturday on sunday.
+    - cron:  '5 4 * * 0'
+
+jobs:
+  upgrade_extensions:
+    name: node upgrade-extensions
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - run: npm install
+    - run: npm install --global yarn
+    - run: node upgrade-extensions
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
+      with:
+        commit-message: upgrade extensions versions
+        title: Upgrade extensions.json
+        body: Upgrade extensions to their latest available release version
+        branch: upgrade-extensions
+        delete-branch: true
+        base: master
