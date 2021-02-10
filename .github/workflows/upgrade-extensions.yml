@@ -1,9 +1,12 @@
 name: Upgrade extensions
 
 on:
+  workflow_dispatch:
+  
   schedule:
     # Run at 04:05 UTC every night from saturday on sunday.
     - cron:  '5 4 * * 0'
+    
 
 jobs:
   upgrade_extensions:
