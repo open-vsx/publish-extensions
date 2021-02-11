@@ -466,6 +466,10 @@
       "version": "0.3.0"
     },
     {
+      "id": "fabiospampinato.vscode-highlight",
+      "repository": "https://github.com/fabiospampinato/vscode-highlight"
+    },
+    {
       "id": "fabiospampinato.vscode-open-in-npm",
       "repository": "https://github.com/fabiospampinato/vscode-open-in-npm"
     },
