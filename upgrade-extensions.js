@@ -10,16 +10,26 @@
 
 // @ts-check
 const fs = require('fs');
-const https = require('https');
 const util = require('util');
 const exec = require('./lib/exec');
+const gitHubScraper = require('./lib/github-scraper');
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
 const dontUpgrade = [
   'alefragnani.Bookmarks', // https://github.com/alefragnani/vscode-bookmarks/issues/315
   'alefragnani.project-manager', // https://github.com/alefragnani/vscode-bookmarks/issues/315
-  'chenglou.rescript-language-server', // .vsix releases are no longer available under https://github.com/rescript-lang/rescript-vscode/releases
+  'ms-vscode.js-debug', // Version on master (1.52.1) is older than the latest release (1.52.2)
+  'file-icons.file-icons', // Git submodule uses unsupported 'git@github.com' URL format
+  'DotJoshJohnson.xml', // https://github.com/DotJoshJohnson/vscode-xml/issues/345
+  'dracula-theme.theme-dracula', // https://github.com/dracula/visual-studio-code/issues/168
+  'wingrunr21.vscode-ruby', // This script gets confused and switches to rebornix.Ruby .vsix release (same repo)
+  'andreweinand.mock-debug', // https://github.com/open-vsx/publish-extensions/pull/274#issue-562452193
+  'DigitalBrainstem.javascript-ejs-support', // https://github.com/Digitalbrainstem/ejs-grammar tagged 1.3.1 but hasn't had a new release tag in over year
+  'ecmel.vscode-html-css', // https://github.com/ecmel/vscode-html-css/issues/213
+  'ms-vscode.atom-keybindings', // https://github.com/microsoft/vscode-atom-keybindings/releases didn't have a release in 2 years
+  'ms-vscode.node-debug', // Recent releases are not being tagged in https://github.com/microsoft/vscode-node-debug
+  'wmaurer.change-case', // https://github.com/wmaurer/vscode-change-case/releases didn't have a release in 6 years
 ];
 
 (async () => {
@@ -32,6 +42,7 @@ const dontUpgrade = [
    *        checkout?: string,
    *        location?: string,
    *        prepublish?: string,
+   *        extensionFile?: string,
    *        download?: string
    *    }[]
    * }}
@@ -46,27 +57,24 @@ const dontUpgrade = [
     await writeFile('./extensions.json', JSON.stringify({ extensions: extensionsToNotUpgrade }, null, 2) + '\n', 'utf-8');
 
     for (const extension of extensionRepositoriesToUpgrade) {
-      let command = 'node add-extension ' + extension.repository;
-      if (extension.checkout) {
-          // Since we're upgrading, don't use the currently pinned Git branch, tag, or commit. Use the default Git branch instead.
-          command += ' --checkout';
-      }
+      let command = 'node add-extension ' + extension.repository + ' --checkout'; // Always try to auto-detect a suitable "checkout" value.
       if (extension.location) {
           command += ' --location=' + JSON.stringify(extension.location);
       }
       if (extension.prepublish) {
           command += ' --prepublish=' + JSON.stringify(extension.prepublish);
       }
+      if (extension.extensionFile) {
+        command += ' --extensionFile=' + JSON.stringify(extension.extensionFile);
+      }
       await exec(command);
     }
 
     for (const extension of extensionDownloadsToUpgrade) {
         // Scrape the latest GitHub releases to check for updates.
-        const releasesUrl = extension.download.replace(/\/releases\/download\/.*$/, '/releases');
-        console.log(`Scraping ${releasesUrl} to check for updates...`);
-        const releases = await get(releasesUrl);
-        const latest = releases.match(/\/releases\/download\/[-._a-zA-Z0-9\/%]*\.vsix/g).filter(release => !/(nightly|-rc|-alpha|-beta)/.test(release)).shift();
-        await exec('node add-extension --download=' + (latest ? extension.download.replace(/\/releases\/download\/.*$/, latest) : extension.download));
+        const repository = extension.download.replace(/\/releases\/download\/.*$/, '');
+        const latest = await gitHubScraper.findLatestVSIXRelease(repository);
+        await exec('node add-extension --download=' + (latest || extension.download));
     }
 
     // One last pass to clean up results with a few helpful heuristics.
@@ -75,6 +83,10 @@ const dontUpgrade = [
         const originalExtension = extensionRepositoriesToUpgrade.find(extension => extension.id === upgradedExtension.id);
         if (!originalExtension) {
             // This extension likely wasn't actually upgraded, leave it as is.
+            continue;
+        }
+        if (upgradedExtension.download) {
+            // If we're using (or have switched to) VSIX re-publishing, the following heuristics are unhelpful.
             continue;
         }
         if (upgradedExtension.version && upgradedExtension.version !== originalExtension.version && !upgradedExtension.checkout) {
@@ -94,20 +106,3 @@ const dontUpgrade = [
     fs.renameSync('./extensions.json.old', './extensions.json');
   }
 })();
-
-function get(url) {
-  return new Promise((resolve, reject) => {
-    https.get(url, res => {
-      if (res.statusCode >= 400) {
-        reject(new Error(`Couldn't get ${url} - Response status: ${res.statusCode}`));
-        return;
-      }
-      let body = '';
-      res.on('data', chunk => { body += chunk; });
-      res.on('error', error => { reject(error); });
-      res.on('end', () => { resolve(body); });
-    }).on('error', error => {
-      reject(error);
-    });
-  });
-}

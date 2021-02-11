@@ -16,6 +16,8 @@ const path = require('path');
 const util = require('util');
 const semver = require('semver');
 const exec = require('./lib/exec');
+const gitHubScraper = require('./lib/github-scraper');
+const { DH_UNABLE_TO_CHECK_GENERATOR } = require('constants');
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
@@ -29,6 +31,7 @@ const writeFile = util.promisify(fs.writeFile);
    *        checkout?: string,
    *        location?: string,
    *        prepublish?: string,
+   *        extensionFile?: string,
    *        download?: string
    *    }[]
    * }}
@@ -43,10 +46,26 @@ OPTIONS:
     --checkout=CHECKOUT
     --location=LOCATION
     --prepublish=PREPUBLISH
+    --extensionFile=EXTENSION_FILE
 
 Alternative usage: node add-extension --download=VSIX_URL`);
     process.exitCode = 1;
     process.exit();
+  }
+
+  const repository = (argv._[0] || '').replace(/(\.git)?\/*$/, '');
+
+  // If possible, always prefer re-publishing an official VSIX release over trying to re-package ourselves.
+  if (repository && !argv.download) {
+    const latestVSIXRelease = await gitHubScraper.findLatestVSIXRelease(repository);
+    if (latestVSIXRelease) {
+      // Simulate a 'node add-extension --download=VSIX_URL' CLI call.
+      argv.download = latestVSIXRelease;
+      delete argv.checkout;
+      delete argv.location;
+      delete argv.prepublish;
+      delete argv.extensionFile;
+    }
   }
 
   // Handle 'node add-extension --download=VSIX_URL':
@@ -71,7 +90,6 @@ Alternative usage: node add-extension --download=VSIX_URL`);
   }
 
   // Handle 'node add-extension REPOSITORY [OPTIONS]':
-  const repository = argv._[0].replace(/\/*$/, '');
   const existing = extensions.find(e => e.repository && e.repository.toLowerCase() === repository.toLowerCase() && e.location === argv.location);
   if (existing) {
     console.log(`[SKIPPED] Repository already in extensions.json: ${JSON.stringify(existing, null, 2)}`);
@@ -88,10 +106,6 @@ Alternative usage: node add-extension --download=VSIX_URL`);
     if (typeof argv.checkout === 'string') {
         // Check out the specified Git branch, tag, or commit.
         await exec(`git checkout ${argv.checkout}`, { cwd: '/tmp/repository' });
-    } else if (argv.checkout === true) {
-        // If --checkout is passed without a value, set its value to the repository's default Git branch.
-        const { stdout: defaultBranch } = await exec(`git rev-parse --abbrev-ref HEAD`, { cwd: '/tmp/repository' });
-        argv.checkout = defaultBranch.trim();
     }
 
     // Locate and parse package.json.
@@ -107,27 +121,43 @@ Alternative usage: node add-extension --download=VSIX_URL`);
         }
         location = path.dirname(locations[0]);
     }
+    const packagePath = path.join('/tmp/repository', location, 'package.json')
     /** @type {{ publisher: string, name: string, version: string }} */
-    const package = JSON.parse(await readFile(path.join('/tmp/repository', location, 'package.json'), 'utf-8'));
-    ['publisher', 'name', 'version'].forEach(key => {
-      if (!(key in package)) {
-        throw new Error(`Expected "${key}" in ${location}/package.json: ${JSON.stringify(package, null, 2)}`);
-      }
-    });
+    const package = JSON.parse(await readFile(packagePath, 'utf-8'));
+    if (registry.requiresLicense && !(await ovsx.isLicenseOk(path.dirname(packagePath), package))) {
+      throw new Error(`License must be present, please ask author of extension to add license (${repository})`)
+    } else {
+      ovsx.validateManifest(package)
+    }
 
     // Check whether the extension is already published on Open VSX.
     await ensureNotAlreadyOnOpenVSX(package, registry);
 
+    // If --checkout is passed without a value, set its value to an appropriate-looking release tag (if available) or to the repository's default Git branch.
+    if (argv.checkout === true) {
+      // Non-failing grep, source: https://unix.stackexchange.com/a/330662
+      const { stdout: releaseTags } = await exec(`git tag | { grep ${package.version} || true; }`, { cwd: '/tmp/repository' });
+      const releaseTag = releaseTags.split('\n')[0].trim();
+      const { stdout: defaultBranch } = await exec(`git rev-parse --abbrev-ref HEAD`, { cwd: '/tmp/repository' });
+      argv.checkout = releaseTag || defaultBranch.trim();
+    }
+
     // Add extension to the list.
     const extension = { id: `${package.publisher}.${package.name}`, repository, version: package.version };
     if (argv.checkout) {
-        extension.checkout = argv.checkout;
+      extension.checkout = argv.checkout;
+    } else {
+      // No need to pin a specific version if we're not also using "checkout".
+      delete extension.version;
     }
     if (location !== '.') {
       extension.location = location;
     }
     if (argv.prepublish) {
-        extension.prepublish = argv.prepublish;
+      extension.prepublish = argv.prepublish;
+    }
+    if (argv.extensionFile) {
+      extension.extensionFile = argv.extensionFile;
     }
     await addNewExtension(extension, extensions);
   } catch (error) {
@@ -141,7 +171,14 @@ Alternative usage: node add-extension --download=VSIX_URL`);
 
 async function ensureNotAlreadyOnOpenVSX(package, registry) {
   const id = `${package.publisher}.${package.name}`;
-  const metadata = await registry.getMetadata(package.publisher, package.name);
+  let metadata;
+  try {
+    metadata = await registry.getMetadata(package.publisher, package.name);
+  } catch (error) {
+    console.warn(`[WARNING] Could not check Open VSX version of ${id}:`);
+    console.warn(error);
+    return;
+  }
   if (metadata.error) {
     console.warn(`[WARNING] Could not check Open VSX version of ${id}:`);
     console.warn(metadata.error);

@@ -47,8 +47,15 @@ const readFile = util.promisify(fs.readFile);
       console.log(`Checking Open VSX version of ${id}`);
       let ovsxVersion;
       const [namespace, name] = id.split('.');
-      const metadata = await registry.getMetadata(namespace, name);
-      if (metadata.error) {
+      let metadata;
+      try {
+        metadata = await registry.getMetadata(namespace, name);
+      } catch (error) {
+        console.warn(error);
+      }
+      if (!metadata) {
+        console.warn(`[WARNING] Could not check Open VSX version of ${id}`);
+      } else if (metadata.error) {
         console.error(metadata.error);
       } else {
         console.log(`Found version: ${metadata.version}`);

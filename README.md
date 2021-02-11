@@ -3,21 +3,38 @@
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/open-vsx/publish-extensions)
 [![GitHub Workflow Status](https://github.com/open-vsx/publish-extensions/workflows/Publish%20extensions%20to%20open-vsx.org/badge.svg)](https://github.com/open-vsx/publish-extensions/actions?query=workflow%3A%22Publish+extensions+to+open-vsx.org%22)
 
-A CI for publishing open-source VS Code extensions to https://open-vsx.org
+A CI script for publishing open-source VS Code extensions to [open-vsx.org](https://open-vsx.org).
+
+## When to Add an Extension?
+
+One goal of Open VSX is to have extension maintainers publish their extensions [according to the documentation](https://github.com/eclipse/openvsx/wiki/Publishing-Extensions). However, you may be missing specific extensions that have not been published by their maintainers: either they are not willing to do it, or they haven't found time to do it, or simply they haven't heard about Open VSX yet. Though the preferred solution for such a situation is to convince the maintainers to start publishing themselves, you can add the extensions here to have them published by our CI workflow.
+
+⚠️ We accept only extensions with [OSI-approved open source licenses](https://opensource.org/licenses) here. If you want to have an extension with a proprietary or non-approved license, please ask its maintainers to publish it.
 
 ## How to Add an Extension?
 
-⚠️ _If you maintain an extension, you probably want to [publish it yourself with the `ovsx` CLI](https://github.com/eclipse/openvsx/blob/master/cli/README.md) instead of adding it here._ ⚠️
+To automatically publish an extension to Open VSX, simply add it to [`extensions.json`](./extensions.json) with the [options described below](#publishing-options). You can run `node add-extension [REPOSITORY]` to create an entry automatically.
 
-To automatically publish an extension to Open VSX, simply add it to [`extensions.json`](./extensions.json).
+⚠️ Some extensions require additional build steps, and failing to execute them may lead to a broken extension published to Open VSX. Please check the extension's `scripts` section in the package.json file to find such steps; usually they are named `build` or similar. In case the build steps are included in the [vscode:prepublish](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#prepublish-step) script, they are executed automatically, so it's not necessary to mention them explicitly. Otherwise, please include them in the `prepublish` value, e.g. `"prepublish": "npm run build"`.
 
-You can also run `node add-extension [REPOSITORY]` to add it automatically.
+Click the button below to start a [Gitpod](https://gitpod.io) workspace where you can run the scripts contained in this repository:
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/open-vsx/publish-extensions)
 
 ## Publishing Options
 
-Here is the expected format of an [`extensions.json`](./extensions.json) entry:
+The best way to add an extension here is to open this repository in Gitpod (using the blue button above) and to run this helper script:
+
+```bash
+node add-extension $REPOSITORY_URL --checkout
+```
+
+Notes:
+- Simply replace `$REPOSITORY_URL` with the extension's actual repository URL
+- This will update `extensions.json` automatically, which you can commit to send a Pull Request
+- Adding `--checkout` (without an explicit value) will auto-detect the latest available Git release tag or branch
+
+If you're curious, here is the expected format of an [`extensions.json`](./extensions.json) entry:
 
 ```js
     {
