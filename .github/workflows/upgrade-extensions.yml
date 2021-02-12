@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   
   schedule:
-    # Run at 04:05 UTC every night from saturday on sunday.
+    # Run at 04:05 UTC on every Sunday.
     - cron:  '5 4 * * 0'
     
 
@@ -26,7 +26,7 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3
       with:
-        commit-message: upgrade extensions versions
+        commit-message: Upgrade extensions.json
         title: Upgrade extensions.json
         body: Upgrade extensions to their latest available release version
         branch: upgrade-extensions
