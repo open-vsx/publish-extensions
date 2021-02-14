@@ -87,8 +87,8 @@
     },
     {
       "id": "Angular.ng-template",
-      "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v11.1.3/ng-template-11.1.3.vsix",
-      "version": "11.1.3"
+      "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v11.2.0/ng-template-11.2.0.vsix",
+      "version": "11.2.0"
     },
     {
       "id": "anseki.vscode-color",
@@ -233,8 +233,8 @@
     },
     {
       "id": "chenglou92.rescript-vscode",
-      "download": "https://github.com/rescript-lang/rescript-vscode/releases/download/1.0.5/rescript-vscode-1.0.5.vsix",
-      "version": "1.0.5"
+      "download": "https://github.com/rescript-lang/rescript-vscode/releases/download/1.0.6/rescript-vscode-1.0.6.vsix",
+      "version": "1.0.6"
     },
     {
       "id": "christian-kohler.npm-intellisense",
@@ -442,8 +442,8 @@
     },
     {
       "id": "esbenp.prettier-vscode",
-      "download": "https://github.com/prettier/prettier-vscode/releases/download/v5.9.1/prettier-vscode-5.9.1.vsix",
-      "version": "5.9.1"
+      "download": "https://github.com/prettier/prettier-vscode/releases/download/v5.9.2/prettier-vscode-5.9.2.vsix",
+      "version": "5.9.2"
     },
     {
       "id": "ethan-reesor.vscode-go-test-adapter",
@@ -555,8 +555,8 @@
     },
     {
       "id": "golang.go",
-      "download": "https://github.com/golang/vscode-go/releases/download/v0.22.0/go-0.22.0.vsix",
-      "version": "0.22.0"
+      "download": "https://github.com/golang/vscode-go/releases/download/v0.22.1/go-0.22.1.vsix",
+      "version": "0.22.1"
     },
     {
       "id": "GrapeCity.gc-excelviewer",
@@ -571,8 +571,8 @@
     },
     {
       "id": "hashicorp.terraform",
-      "download": "https://github.com/hashicorp/vscode-terraform/releases/download/v2.4.0/terraform-2.4.0.vsix",
-      "version": "2.4.0"
+      "download": "https://github.com/hashicorp/vscode-terraform/releases/download/v2.6.0/terraform-2.6.0.vsix",
+      "version": "2.6.0"
     },
     {
       "id": "haskell.haskell",
@@ -614,8 +614,8 @@
     },
     {
       "id": "IBMBlockchain.ibm-blockchain-platform",
-      "download": "https://github.com/IBM-Blockchain/blockchain-vscode-extension/releases/download/v2.0.0/ibm-blockchain-platform-2.0.0.vsix",
-      "version": "2.0.0"
+      "download": "https://github.com/IBM-Blockchain/blockchain-vscode-extension/releases/download/v2.0.1/ibm-blockchain-platform-2.0.1.vsix",
+      "version": "2.0.1"
     },
     {
       "id": "ikappas.phpcs",
@@ -669,8 +669,8 @@
     {
       "id": "jebbs.plantuml",
       "repository": "https://github.com/qjebbs/vscode-plantuml",
-      "version": "2.14.0",
-      "checkout": "v2.14.0",
+      "version": "2.14.2",
+      "checkout": "master",
       "prepublish": "wget -O plantuml.zip https://sourceforge.net/projects/plantuml/files/1.2021.0/plantuml-jar-mit-1.2021.0.zip/download && unzip plantuml.zip && rm plantuml.zip && mv COPYING COPYING.plantuml-jar"
     },
     {
@@ -748,8 +748,8 @@
     },
     {
       "id": "Kelvin.vscode-sshfs",
-      "download": "https://github.com/SchoofsKelvin/vscode-sshfs/releases/download/v1.19.1/vscode-sshfs-1.19.1.vsix",
-      "version": "1.19.1"
+      "download": "https://github.com/SchoofsKelvin/vscode-sshfs/releases/download/v1.19.2/vscode-sshfs-1.19.2.vsix",
+      "version": "1.19.2"
     },
     {
       "id": "KevinRose.vsc-python-indent",
@@ -848,8 +848,8 @@
     },
     {
       "id": "matklad.rust-analyzer",
-      "download": "https://github.com/rust-analyzer/rust-analyzer/releases/download/2021-02-01/rust-analyzer.vsix",
-      "version": "0.2.473"
+      "download": "https://github.com/rust-analyzer/rust-analyzer/releases/download/2021-02-08/rust-analyzer.vsix",
+      "version": "0.2.481"
     },
     {
       "id": "max-SS.Cyberpunk",
@@ -901,8 +901,8 @@
     },
     {
       "id": "mongodb.mongodb-vscode",
-      "download": "https://github.com/mongodb-js/vscode/releases/download/v0.4.0/mongodb-vscode-0.4.0.vsix",
-      "version": "0.4.0"
+      "download": "https://github.com/mongodb-js/vscode/releases/download/v0.4.1/mongodb-vscode-0.4.1.vsix",
+      "version": "0.4.1"
     },
     {
       "id": "mp.oradew-vscode",
@@ -1023,8 +1023,8 @@
     },
     {
       "id": "ms-kubernetes-tools.vscode-kubernetes-tools",
-      "download": "https://github.com/Azure/vscode-kubernetes-tools/releases/download/1.2.3/vscode-kubernetes-tools-1.2.3.vsix",
-      "version": "1.2.3"
+      "download": "https://github.com/Azure/vscode-kubernetes-tools/releases/download/1.2.4/vscode-kubernetes-tools-1.2.4.vsix",
+      "version": "1.2.4"
     },
     {
       "id": "ms-pyright.vscode-pyright",
@@ -1046,8 +1046,8 @@
     },
     {
       "id": "ms-vscode.cmake-tools",
-      "download": "https://github.com/microsoft/vscode-cmake-tools/releases/download/1.5.3/cmake-tools.vsix",
-      "version": "1.5.3"
+      "download": "https://github.com/microsoft/vscode-cmake-tools/releases/download/v1.6.0/cmake-tools.vsix",
+      "version": "1.6.0"
     },
     {
       "id": "ms-vscode.Go",
@@ -1057,8 +1057,8 @@
     {
       "id": "ms-vscode.hexeditor",
       "repository": "https://github.com/microsoft/vscode-hexeditor",
-      "version": "1.3.0",
-      "checkout": "1.3.0"
+      "version": "1.4.0",
+      "checkout": "master"
     },
     {
       "id": "ms-vscode.js-debug",
@@ -1094,8 +1094,8 @@
     {
       "id": "mtxr.sqltools",
       "repository": "https://github.com/mtxr/vscode-sqltools",
-      "version": "0.23.0",
-      "checkout": "v0.23.0"
+      "version": "1.0.0",
+      "checkout": "log/v1.0.0"
     },
     {
       "id": "mushan.vscode-paste-image",
@@ -1408,8 +1408,8 @@
     },
     {
       "id": "timonwong.shellcheck",
-      "download": "https://github.com/timonwong/vscode-shellcheck/releases/download/v0.13.1/shellcheck-0.13.1.vsix",
-      "version": "0.13.1"
+      "download": "https://github.com/timonwong/vscode-shellcheck/releases/download/v0.13.2/shellcheck-0.13.2.vsix",
+      "version": "0.13.2"
     },
     {
       "id": "Tobiah.unity-tools",
