@@ -679,6 +679,11 @@
       "version": "1.2.3"
     },
     {
+      "id": "jianbingfang.dupchecker",
+      "download": "https://github.com/jianbingfang/vscode-dup-checker/releases/download/v0.1.6/dupchecker-0.1.6.vsix",
+      "version": "0.1.6"
+    },
+    {
       "id": "jock.svg",
       "repository": "https://github.com/lishu/vscode-svg2"
     },
