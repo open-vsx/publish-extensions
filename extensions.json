@@ -1035,8 +1035,11 @@
     },
     {
       "id": "ms-python.python",
-      "download": "https://github.com/microsoft/vscode-python/releases/download/2021.1.502429796/ms-python-release.vsix",
-      "version": "2021.1.502429796"
+      "repository": "https://github.com/microsoft/vscode-python",
+      "version": "2021.1.502429796+nojupyter",
+      "checkout": "2021.1.502429796",
+      "prepublish": "%SELF%/prepublish-scripts/ms-python.python.sh 502429796",
+      "extensionFile": "ms-python-insiders.vsix"
     },
     {
       "id": "ms-vscode.atom-keybindings",
