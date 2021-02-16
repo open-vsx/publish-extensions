@@ -1027,11 +1027,12 @@
       "version": "1.2.4"
     },
     {
-      "id": "ms-pyright.vscode-pyright",
+      "id": "ms-pyright.pyright",
       "repository": "https://github.com/Microsoft/pyright",
-      "version": "1.1.109",
-      "checkout": "1.1.109",
-      "location": "packages/vscode-pyright"
+      "version": "1.1.111",
+      "checkout": "1.1.111",
+      "location": "packages/vscode-pyright",
+      "prepublish": "cd packages/vscode-pyright && npm run prepackage"
     },
     {
       "id": "ms-python.python",
