@@ -1107,6 +1107,10 @@
       "repository": "https://github.com/vshaxe/vshaxe.git"
     },
     {
+      "id": "nalabdou.Symfony-code-snippets",
+      "repository": "https://github.com/nalabdou/Symfony-code-snippets"
+    },
+    {
       "id": "naumovs.color-highlight",
       "repository": "https://github.com/egonyans/vscode-ext-color-highlight",
       "version": "2.3.0"
