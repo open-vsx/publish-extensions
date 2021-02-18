@@ -810,6 +810,12 @@
       "repository": "https://github.com/LintangWisesa/VScode-Arduino-Theme"
     },
     {
+      "id": "liqube.theme-liqube-dark",
+      "repository": "https://github.com/liqube/liqube-dark-vscode",
+      "version": "1.0.5",
+      "checkout": "master"
+    },
+    {
       "id": "littlefoxteam.vscode-python-test-adapter",
       "download": "https://github.com/kondratyev-nv/vscode-python-test-adapter/releases/download/v0.6.6/vscode-python-test-adapter-0.6.6.vsix",
       "version": "0.6.6"
