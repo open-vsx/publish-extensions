@@ -811,9 +811,7 @@
     },
     {
       "id": "liqube.theme-liqube-dark",
-      "repository": "https://github.com/liqube/liqube-dark-vscode",
-      "version": "1.0.5",
-      "checkout": "master"
+      "repository": "https://github.com/liqube/liqube-dark-vscode"
     },
     {
       "id": "littlefoxteam.vscode-python-test-adapter",
