@@ -36,6 +36,9 @@ const readFile = util.promisify(fs.readFile);
   const { extensions } = JSON.parse(await readFile('./extensions.json', 'utf-8'));
   const registry = new ovsx.Registry();
 
+  // Used to substitute the path in prepublish script.
+  const cwd = process.cwd();
+
   // Also install extensions' devDependencies when using `npm install` or `yarn install`.
   process.env.NODE_ENV = 'development';
 
@@ -120,7 +123,8 @@ const readFile = util.promisify(fs.readFile);
         });
         await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: '/tmp/repository' });
         if (extension.prepublish) {
-            await exec(extension.prepublish, { cwd: '/tmp/repository' })
+            const script = extension.prepublish.replace('%SELF%', cwd);
+            await exec(script, { cwd: '/tmp/repository' })
         }
 
         // Publish the extension.
