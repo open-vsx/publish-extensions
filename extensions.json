@@ -1036,9 +1036,9 @@
     {
       "id": "ms-python.python",
       "repository": "https://github.com/microsoft/vscode-python",
-      "version": "2021.1.502429796+nojupyter",
-      "checkout": "2021.1.502429796",
-      "prepublish": "%SELF%/prepublish-scripts/ms-python.python.sh 502429796",
+      "version": "2021.2.576481509+nojupyter",
+      "checkout": "2021.2.576481509",
+      "prepublish": "%SELF%/prepublish-scripts/ms-python.python.sh 576481509",
       "extensionFile": "ms-python-insiders.vsix"
     },
     {
