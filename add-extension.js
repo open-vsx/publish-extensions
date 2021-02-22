@@ -133,13 +133,16 @@ Alternative usage: node add-extension --download=VSIX_URL`);
     // Check whether the extension is already published on Open VSX.
     await ensureNotAlreadyOnOpenVSX(package, registry);
 
-    // If --checkout is passed without a value, set its value to an appropriate-looking release tag (if available) or to the repository's default Git branch.
+    // If --checkout is passed without a value, try to find an appropriate-looking release tag if available.
     if (argv.checkout === true) {
       // Non-failing grep, source: https://unix.stackexchange.com/a/330662
       const { stdout: releaseTags } = await exec(`git tag | { grep ${package.version} || true; }`, { cwd: '/tmp/repository' });
       const releaseTag = releaseTags.split('\n')[0].trim();
-      const { stdout: defaultBranch } = await exec(`git rev-parse --abbrev-ref HEAD`, { cwd: '/tmp/repository' });
-      argv.checkout = releaseTag || defaultBranch.trim();
+      if (releaseTag) {
+        argv.checkout = releaseTag;
+      } else {
+        delete argv.checkout;
+      }
     }
 
     // Add extension to the list.
