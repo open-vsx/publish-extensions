@@ -886,6 +886,10 @@
       "version": "0.0.30"
     },
     {
+      "id": "miguel-savignano.ruby-symbols",
+      "repository": "https://github.com/MiguelSavignano/vscode-ruby-symbols"
+    },
+    {
       "id": "Mikael.Angular-BeastCode",
       "repository": "https://github.com/BeastCode/VSCode-Angular-TypeScript-Snippets"
     },
