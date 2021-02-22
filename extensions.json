@@ -887,9 +887,7 @@
     },
     {
       "id": "miguel-savignano.ruby-symbols",
-      "repository": "https://github.com/MiguelSavignano/vscode-ruby-symbols",
-      "version": "0.1.8",
-      "checkout": "master"
+      "repository": "https://github.com/MiguelSavignano/vscode-ruby-symbols"
     },
     {
       "id": "Mikael.Angular-BeastCode",
