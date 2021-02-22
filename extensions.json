@@ -900,9 +900,7 @@
     },
     {
       "id": "mindaro-dev.file-downloader",
-      "repository": "https://github.com/microsoft/vscode-file-downloader",
-      "version": "1.0.10",
-      "checkout": "master"
+      "repository": "https://github.com/microsoft/vscode-file-downloader"
     },
     {
       "id": "mitaki28.vscode-clang",
