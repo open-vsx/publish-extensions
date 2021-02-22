@@ -1194,9 +1194,7 @@
     },
     {
       "id": "patbenatar.advanced-new-file",
-      "repository": "https://github.com/patbenatar/vscode-advanced-new-file",
-      "version": "1.2.2",
-      "checkout": "master"
+      "repository": "https://github.com/patbenatar/vscode-advanced-new-file"
     },
     {
       "id": "patcx.vscode-nuget-gallery",
