@@ -1422,9 +1422,7 @@
     },
     {
       "id": "tiehuis.zig",
-      "repository": "https://github.com/ziglang/vscode-zig",
-      "version": "0.2.5",
-      "checkout": "master"
+      "repository": "https://github.com/ziglang/vscode-zig"
     },
     {
       "id": "timonwong.shellcheck",
