@@ -1201,6 +1201,10 @@
       "version": "0.6.0"
     },
     {
+      "id": "patbenatar.advanced-new-file",
+      "repository": "https://github.com/patbenatar/vscode-advanced-new-file"
+    },
+    {
       "id": "patcx.vscode-nuget-gallery",
       "repository": "https://github.com/pcislo/vscode-nuget-gallery",
       "checkout": "master"
