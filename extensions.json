@@ -155,6 +155,10 @@
       "repository": "https://github.com/Bajdzis/vscode-database"
     },
     {
+      "id": "ban.spellright",
+      "repository": "https://github.com/bartosz-antosik/vscode-spellright"
+    },
+    {
       "id": "batisteo.vscode-django",
       "repository": "https://github.com/vscode-django/vscode-django"
     },
