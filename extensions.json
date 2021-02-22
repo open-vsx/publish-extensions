@@ -478,6 +478,11 @@
       "repository": "https://github.com/fabiospampinato/vscode-todo-plus"
     },
     {
+      "id": "fbaligand.vscode-logstash-editor",
+      "repository": "https://github.com/fbaligand/vscode-logstash-editor",
+      "version": "0.4.0"
+    },
+    {
       "id": "felixfbecker.php-debug",
       "download": "https://github.com/xdebug/vscode-php-debug/releases/download/v1.14.9/php-debug.vsix",
       "version": "1.14.9"
@@ -1255,6 +1260,11 @@
       "repository": "https://github.com/rafaelmaiolla/diff-vscode",
       "version": "0.0.1",
       "checkout": "f9fef4e2e6867f9850809f9a7f54e700e17fc7d5"
+    },
+    {
+      "id": "RandomChance.logstash",
+      "repository": "https://github.com/randomchance/vscode-logstash-configuration-syntax",
+      "version": "0.0.4"
     },
     {
       "id": "rebornix.ruby",
