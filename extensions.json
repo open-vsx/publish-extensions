@@ -1425,6 +1425,10 @@
       "repository": "https://github.com/ayu-theme/vscode-ayu"
     },
     {
+      "id": "tiehuis.zig",
+      "repository": "https://github.com/ziglang/vscode-zig"
+    },
+    {
       "id": "timonwong.shellcheck",
       "download": "https://github.com/timonwong/vscode-shellcheck/releases/download/v0.13.2/shellcheck-0.13.2.vsix",
       "version": "0.13.2"
