@@ -903,6 +903,10 @@
       "version": "1.0.1"
     },
     {
+      "id": "mindaro-dev.file-downloader",
+      "repository": "https://github.com/microsoft/vscode-file-downloader"
+    },
+    {
       "id": "mitaki28.vscode-clang",
       "repository": "https://github.com/mitaki28/vscode-clang",
       "version": "0.2.3"
