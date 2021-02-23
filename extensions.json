@@ -51,6 +51,11 @@
       "version": "11.0.1"
     },
     {
+      "id": "alefragnani.project-manager",
+      "download": "https://github.com/alefragnani/vscode-project-manager/releases/download/v12.0.1/project-manager-12.0.1.vsix",
+      "version": "12.0.1"
+    },
+    {
       "id": "alexkrechik.cucumberautocomplete",
       "repository": "https://github.com/alexkrechik/VSCucumberAutoComplete",
       "location": "gclient",
