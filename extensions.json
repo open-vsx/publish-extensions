@@ -474,7 +474,8 @@
     {
       "id": "fbaligand.vscode-logstash-editor",
       "repository": "https://github.com/fbaligand/vscode-logstash-editor",
-      "version": "0.4.0"
+      "version": "0.4.0",
+      "checkout": "v0.4.0"
     },
     {
       "id": "felixfbecker.php-debug",
