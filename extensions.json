@@ -1241,8 +1241,7 @@
     },
     {
       "id": "RandomChance.logstash",
-      "repository": "https://github.com/randomchance/vscode-logstash-configuration-syntax",
-      "version": "0.0.4"
+      "repository": "https://github.com/randomchance/vscode-logstash-configuration-syntax"
     },
     {
       "id": "rebornix.ruby",
