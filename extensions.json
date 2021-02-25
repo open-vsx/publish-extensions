@@ -563,6 +563,11 @@
       "version": "0.22.1"
     },
     {
+      "id": "GustavoASC.google-drive-vscode",
+      "download": "https://github.com/GustavoASC/google-drive-vscode/releases/download/v1.1.1/google-drive-vscode-1.1.1.vsix",
+      "version": "1.1.1"
+    },
+    {
       "id": "GrapeCity.gc-excelviewer",
       "download": "https://github.com/jjuback/gc-excelviewer/releases/download/v3.0.41/gc-excelviewer-3.0.41.vsix",
       "version": "3.0.41"
