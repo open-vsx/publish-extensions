@@ -1230,11 +1230,6 @@
       "repository": "https://github.com/pucelle/vscode-css-navigation"
     },
     {
-      "id": "puppet.puppet-vscode",
-      "download": "https://github.com/puppetlabs/puppet-vscode/releases/download/1.1.0/puppet-vscode-1.1.0.vsix",
-      "version": "1.1.0"
-    },
-    {
       "id": "rafaelmaiolla.diff",
       "repository": "https://github.com/rafaelmaiolla/diff-vscode"
     },
