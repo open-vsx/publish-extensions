@@ -1297,7 +1297,6 @@
     },
     {
       "id": "SASjs.sasjs-for-vscode",
-      "download": "https://github.com/sasjs/vscode-extension/releases/download/v1.1.1/sasjs-for-vscode-1.1.1.vsix",
       "repository": "https://github.com/sasjs/vscode-extension"
     },
     {
