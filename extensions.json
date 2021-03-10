@@ -245,7 +245,7 @@
       "id": "christianvoigt.argdown-vscode",
       "repository": "https://github.com/christianvoigt/argdown",
       "version": "1.7.0",
-      "checkout": "@argdown/cli@v1.7.0",
+      "checkout": "argdown-vscode@1.7.0",
       "location": "packages/argdown-vscode",
       "prepublish": "cd packages/argdown-vscode && yarn install"
     },
@@ -797,7 +797,9 @@
     },
     {
       "id": "lextudio.restructuredtext",
-      "repository": "https://github.com/vscode-restructuredtext/vscode-restructuredtext"
+      "repository": "https://github.com/vscode-restructuredtext/vscode-restructuredtext",
+      "version": "145.0.0",
+      "checkout": "145.0.0"
     },
     {
       "id": "lgalabru.clarity-lsp",
@@ -1150,6 +1152,8 @@
     {
       "id": "nwolverson.ide-purescript",
       "repository": "https://github.com/nwolverson/vscode-ide-purescript",
+      "version": "0.23.3",
+      "checkout": "v0.23.3",
       "prepublish": "npm install spago purescript"
     },
     {
