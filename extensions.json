@@ -90,8 +90,8 @@
     },
     {
       "id": "Angular.ng-template",
-      "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v11.2.5/ng-template-11.2.5.vsix",
-      "version": "11.2.5"
+      "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v11.2.7/ng-template-11.2.7.vsix",
+      "version": "11.2.7"
     },
     {
       "id": "anseki.vscode-color",
@@ -441,8 +441,8 @@
     },
     {
       "id": "esbenp.prettier-vscode",
-      "download": "https://github.com/prettier/prettier-vscode/releases/download/v5.9.2/prettier-vscode-5.9.2.vsix",
-      "version": "5.9.2"
+      "download": "https://github.com/prettier/prettier-vscode/releases/download/v6.2.0/prettier-vscode-6.2.0.vsix",
+      "version": "6.2.0"
     },
     {
       "id": "ethan-reesor.vscode-go-test-adapter",
@@ -479,8 +479,8 @@
     {
       "id": "fbaligand.vscode-logstash-editor",
       "repository": "https://github.com/fbaligand/vscode-logstash-editor",
-      "version": "0.4.0",
-      "checkout": "v0.4.0"
+      "version": "0.5.0",
+      "checkout": "v0.5.0"
     },
     {
       "id": "felixfbecker.php-debug",
@@ -561,8 +561,8 @@
     },
     {
       "id": "golang.go",
-      "download": "https://github.com/golang/vscode-go/releases/download/v0.23.0/go-0.23.0.vsix",
-      "version": "0.23.0"
+      "download": "https://github.com/golang/vscode-go/releases/download/v0.23.2/go-0.23.2.vsix",
+      "version": "0.23.2"
     },
     {
       "id": "GrapeCity.gc-excelviewer",
@@ -581,14 +581,12 @@
     },
     {
       "id": "hashicorp.terraform",
-      "download": "https://github.com/hashicorp/vscode-terraform/releases/download/v2.7.0/terraform-2.7.0.vsix",
-      "version": "2.7.0"
+      "download": "https://github.com/hashicorp/vscode-terraform/releases/download/v2.8.2/terraform-2.8.2.vsix",
+      "version": "2.8.2"
     },
     {
       "id": "haskell.haskell",
-      "repository": "https://github.com/haskell/vscode-haskell",
-      "version": "1.2.0",
-      "checkout": "1.2.0"
+      "repository": "https://github.com/haskell/vscode-haskell"
     },
     {
       "id": "hbenl.vscode-test-explorer",
@@ -771,8 +769,8 @@
     {
       "id": "kisstkondoros.vscode-gutter-preview",
       "repository": "https://github.com/kisstkondoros/gutter-preview",
-      "version": "0.26.2",
-      "checkout": "v0.26.2"
+      "version": "0.27.1",
+      "checkout": "v0.27.1"
     },
     {
       "id": "KnisterPeter.vscode-github",
@@ -808,9 +806,7 @@
     },
     {
       "id": "lextudio.restructuredtext",
-      "repository": "https://github.com/vscode-restructuredtext/vscode-restructuredtext",
-      "version": "145.0.0",
-      "checkout": "145.0.0"
+      "repository": "https://github.com/vscode-restructuredtext/vscode-restructuredtext"
     },
     {
       "id": "lgalabru.clarity-lsp",
@@ -920,8 +916,8 @@
     },
     {
       "id": "mongodb.mongodb-vscode",
-      "download": "https://github.com/mongodb-js/vscode/releases/download/v0.4.2/mongodb-vscode-0.4.2.vsix",
-      "version": "0.4.2"
+      "download": "https://github.com/mongodb-js/vscode/releases/download/v0.5.0/mongodb-vscode-0.5.0.vsix",
+      "version": "0.5.0"
     },
     {
       "id": "mp.oradew-vscode",
@@ -1048,15 +1044,15 @@
     {
       "id": "ms-pyright.vscode-pyright",
       "repository": "https://github.com/Microsoft/pyright",
-      "version": "1.1.119",
-      "checkout": "1.1.119",
+      "version": "1.1.121",
+      "checkout": "1.1.121",
       "location": "packages/vscode-pyright",
       "prepublish": "cd packages/vscode-pyright && npm run prepackage"
     },
     {
       "id": "ms-python.python",
-      "download": "https://github.com/microsoft/vscode-python/releases/download/2021.2.633441544/ms-python-release.vsix",
-      "version": "2021.2.633441544"
+      "download": "https://github.com/microsoft/vscode-python/releases/download/2021.2.636928669/ms-python-release.vsix",
+      "version": "2021.2.636928669"
     },
     {
       "id": "ms-vscode.atom-keybindings",
@@ -1163,8 +1159,6 @@
     {
       "id": "nwolverson.ide-purescript",
       "repository": "https://github.com/nwolverson/vscode-ide-purescript",
-      "version": "0.23.3",
-      "checkout": "v0.23.3",
       "prepublish": "npm install spago purescript"
     },
     {
@@ -1260,8 +1254,8 @@
     {
       "id": "reduckted.vscode-gitweblinks",
       "repository": "https://github.com/reduckted/vscode-gitweblinks",
-      "version": "2.3.0",
-      "checkout": "v2.3.0"
+      "version": "2.4.0",
+      "checkout": "v2.4.0"
     },
     {
       "id": "ria.elastic",
@@ -1424,8 +1418,8 @@
     },
     {
       "id": "timonwong.shellcheck",
-      "download": "https://github.com/timonwong/vscode-shellcheck/releases/download/v0.13.2/shellcheck-0.13.2.vsix",
-      "version": "0.13.2"
+      "download": "https://github.com/timonwong/vscode-shellcheck/releases/download/v0.13.4/shellcheck-0.13.4.vsix",
+      "version": "0.13.4"
     },
     {
       "id": "Tobiah.unity-tools",
