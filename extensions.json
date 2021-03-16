@@ -586,7 +586,9 @@
     },
     {
       "id": "haskell.haskell",
-      "repository": "https://github.com/haskell/vscode-haskell"
+      "repository": "https://github.com/haskell/vscode-haskell",
+      "version": "1.2.0",
+      "checkout": "1.2.0"
     },
     {
       "id": "hbenl.vscode-test-explorer",
@@ -806,7 +808,9 @@
     },
     {
       "id": "lextudio.restructuredtext",
-      "repository": "https://github.com/vscode-restructuredtext/vscode-restructuredtext"
+      "repository": "https://github.com/vscode-restructuredtext/vscode-restructuredtext",
+      "version": "145.0.0",
+      "checkout": "145.0.0"
     },
     {
       "id": "lgalabru.clarity-lsp",
