@@ -13,7 +13,7 @@ One goal of Open VSX is to have extension maintainers publish their extensions [
 
 ## How to Add an Extension?
 
-To automatically publish an extension to Open VSX, simply add it to [`extensions.json`](./extensions.json) with the [options described below](#publishing-options). You can run `node add-extension [REPOSITORY]` to create an entry automatically.
+To automatically publish an extension to Open VSX, simply add it to [`extensions.json`](./extensions.json) with the [options described below](#publishing-options). You can run `node add-extension [REPOSITORY] --checkout` to create an entry automatically.
 
 ⚠️ Some extensions require additional build steps, and failing to execute them may lead to a broken extension published to Open VSX. Please check the extension's `scripts` section in the package.json file to find such steps; usually they are named `build` or similar. In case the build steps are included in the [vscode:prepublish](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#prepublish-step) script, they are executed automatically, so it's not necessary to mention them explicitly. Otherwise, please include them in the `prepublish` value, e.g. `"prepublish": "npm run build"`.
 
@@ -34,7 +34,21 @@ Notes:
 - This will update `extensions.json` automatically, which you can commit to send a Pull Request
 - Adding `--checkout` (without an explicit value) will auto-detect the latest available Git release tag or branch
 
-If you're curious, here is the expected format of an [`extensions.json`](./extensions.json) entry:
+If you're curious, here are the expected formats of an [`extensions.json`](./extensions.json) entry:
+
+```js
+    {
+      // Unique Open VSX extension ID in the form "<namespace>.<name>"
+      "id": "rebornix.ruby",
+      // A full URL from which to download the extension package
+      "download": "https://github.com/rubyide/vscode-ruby/releases/download/v0.25.0/ruby-0.25.0.vsix",
+      // (RECOMMENDED) The version that should be published; the script compares this version with the latest published version
+      "version": "0.25.0"
+    },
+```
+
+Or, in cases where the extension maintainers don't provide a `.vsix` release to download, you can build the extension from source instead:
+
 
 ```js
     {
@@ -45,7 +59,7 @@ If you're curious, here is the expected format of an [`extensions.json`](./exten
     },
 ```
 
-Here are all the supported values, including optional ones:
+Here are all the supported values, including optional ones, to build extensions from source:
 
 ```js
     {
@@ -61,23 +75,11 @@ Here are all the supported values, including optional ones:
       "location": "packages/vscode-ruby-client",
       // (OPTIONAL) Extra commands to run just before publishing to Open VSX (i.e. after "yarn/npm install", but before "vscode:prepublish")
       "prepublish": "npm run build",
-       // (OPTIONAL) Relative path of the extension vsix file inside the git repo (i.e. when it is built by prepublish commands
-       "extensionFile": "dist/js-debug.vsix"
+      // (OPTIONAL) Relative path of the extension vsix file inside the git repo (i.e. when it is built by prepublish commands
+      "extensionFile": "dist/js-debug.vsix"
     },
 ```
 
-In cases where it is not feasible to build the extension from source, a download URL can be given instead:
-
-```js
-    {
-      // Unique Open VSX extension ID in the form "<namespace>.<name>"
-      "id": "rebornix.ruby",
-      // A full URL from which to download the extension package
-      "download": "https://github.com/rubyide/vscode-ruby/releases/download/v0.25.0/ruby-0.25.0.vsix",
-      // (RECOMMENDED) The version that should be published; the script compares this version with the latest published version
-      "version": "0.25.0"
-    },
-```
 
 ## How are Extensions Published?
 
