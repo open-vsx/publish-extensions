@@ -1639,6 +1639,10 @@
       "checkout": "v1.0.2"
     },
     {
+      "id": "ybaumes.highlight-trailing-white-spaces",
+      "repository": "https://github.com/yifu/highlight-trailing-whitespaces"
+    },
+    {
       "id": "yzhang.markdown-all-in-one",
       "repository": "https://github.com/yzhang-gh/vscode-markdown"
     },
