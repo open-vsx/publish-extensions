@@ -34,6 +34,7 @@ const dontUpgrade = [
   'ms-vscode.hexeditor', // https://github.com/open-vsx/publish-extensions/pull/290/files#r576063874
   'mtxr.sqltools', // https://github.com/open-vsx/publish-extensions/pull/290/files#r576067381
   'lextudio.restructuredtext', // https://github.com/open-vsx/publish-extensions/pull/317#discussion_r598852958
+  'haskell.haskell', // https://github.com/open-vsx/publish-extensions/pull/317#discussion_r598852958
 ];
 
 (async () => {
