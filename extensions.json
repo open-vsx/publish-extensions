@@ -256,6 +256,12 @@
       "checkout": "v1.1.17"
     },
     {
+      "id": "codezombiech.gitignore",
+      "repository": "https://github.com/CodeZombieCH/vscode-gitignore",
+      "version": "0.6.0",
+      "checkout": "v0.6.0"
+    },
+    {
       "id": "CoenraadS.bracket-pair-colorizer",
       "repository": "https://github.com/CoenraadS/BracketPair"
     },
