@@ -189,6 +189,12 @@
       "repository": "https://github.com/mjbvz/vscode-markdown-image-size"
     },
     {
+      "id": "bierner.markdown-mermaid",
+      "repository": "https://github.com/mjbvz/vscode-markdown-mermaid",
+      "version": "1.9.2",
+      "checkout": "1.9.2"
+    },
+    {
       "id": "bmalehorn.vscode-fish",
       "repository": "https://github.com/bmalehorn/vscode-fish"
     },
