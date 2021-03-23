@@ -314,6 +314,12 @@
       "checkout": "0.1.2"
     },
     {
+      "id": "daylerees.rainglow",
+      "repository": "https://github.com/rainglow/vscode",
+      "version": "1.5.2",
+      "checkout": "1.5.2"
+    },
+    {
       "id": "dbaeumer.vscode-eslint",
       "download": "https://github.com/microsoft/vscode-eslint/releases/download/release%2F2.1.8/dbaeumer.vscode-eslint-2.1.8.vsix",
       "version": "2.1.8"
