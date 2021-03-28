@@ -85,8 +85,8 @@
     },
     {
       "id": "Angular.ng-template",
-      "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v11.2.8/ng-template-11.2.8.vsix",
-      "version": "11.2.8"
+      "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v11.2.9/ng-template-11.2.9.vsix",
+      "version": "11.2.9"
     },
     {
       "id": "anseki.vscode-color",
@@ -497,8 +497,8 @@
     },
     {
       "id": "felixfbecker.php-debug",
-      "download": "https://github.com/xdebug/vscode-php-debug/releases/download/v1.14.9/php-debug.vsix",
-      "version": "1.14.9"
+      "download": "https://github.com/xdebug/vscode-php-debug/releases/download/v1.14.12/php-debug.vsix",
+      "version": "1.14.12"
     },
     {
       "id": "felixfbecker.php-intellisense",
@@ -579,8 +579,8 @@
     },
     {
       "id": "golang.go",
-      "download": "https://github.com/golang/vscode-go/releases/download/v0.23.2/go-0.23.2.vsix",
-      "version": "0.23.2"
+      "download": "https://github.com/golang/vscode-go/releases/download/v0.23.3/go-0.23.3.vsix",
+      "version": "0.23.3"
     },
     {
       "id": "GrapeCity.gc-excelviewer",
@@ -599,8 +599,8 @@
     },
     {
       "id": "hashicorp.terraform",
-      "download": "https://github.com/hashicorp/vscode-terraform/releases/download/v2.8.3/terraform-2.8.3.vsix",
-      "version": "2.8.3"
+      "download": "https://github.com/hashicorp/vscode-terraform/releases/download/v2.9.1/terraform-2.9.1.vsix",
+      "version": "2.9.1"
     },
     {
       "id": "haskell.haskell",
@@ -816,8 +816,8 @@
     },
     {
       "id": "kortina.vscode-markdown-notes",
-      "download": "https://github.com/kortina/vscode-markdown-notes/releases/download/v0.0.23/vscode-markdown-notes-0.0.23.vsix",
-      "version": "0.0.23"
+      "download": "https://github.com/kortina/vscode-markdown-notes/releases/download/v0.0.24/vscode-markdown-notes-0.0.24.vsix",
+      "version": "0.0.24"
     },
     {
       "id": "kosz78.nim",
@@ -881,8 +881,8 @@
     },
     {
       "id": "matklad.rust-analyzer",
-      "download": "https://github.com/rust-analyzer/rust-analyzer/releases/download/2021-03-15/rust-analyzer.vsix",
-      "version": "0.2.521"
+      "download": "https://github.com/rust-analyzer/rust-analyzer/releases/download/2021-03-22/rust-analyzer.vsix",
+      "version": "0.2.529"
     },
     {
       "id": "max-SS.Cyberpunk",
@@ -1066,15 +1066,15 @@
     {
       "id": "ms-pyright.vscode-pyright",
       "repository": "https://github.com/Microsoft/pyright",
-      "version": "1.1.123",
-      "checkout": "1.1.123",
+      "version": "1.1.126",
+      "checkout": "1.1.126",
       "location": "packages/vscode-pyright",
       "prepublish": "cd packages/vscode-pyright && npm run prepackage"
     },
     {
       "id": "ms-python.python",
-      "download": "https://github.com/microsoft/vscode-python/releases/download/2021.3.658691958/ms-python-release.vsix",
-      "version": "2021.3.658691958"
+      "download": "https://github.com/microsoft/vscode-python/releases/download/2021.3.680753044/ms-python-release.vsix",
+      "version": "2021.3.680753044"
     },
     {
       "id": "ms-vscode.atom-keybindings",
@@ -1405,8 +1405,8 @@
     },
     {
       "id": "SonarSource.sonarlint-vscode",
-      "download": "https://github.com/SonarSource/sonarlint-vscode/releases/download/1.20.1/sonarlint-vscode-1.20.1.vsix",
-      "version": "1.20.1"
+      "download": "https://github.com/SonarSource/sonarlint-vscode/releases/download/1.21.0/sonarlint-vscode-1.21.0.vsix",
+      "version": "1.21.0"
     },
     {
       "id": "steoates.autoimport",
@@ -1414,8 +1414,8 @@
     },
     {
       "id": "stripe.vscode-stripe",
-      "download": "https://github.com/stripe/vscode-stripe/releases/download/v1.7.1/vscode-stripe-1.7.1.vsix",
-      "version": "1.7.1"
+      "download": "https://github.com/stripe/vscode-stripe/releases/download/v1.7.2/vscode-stripe-1.7.2.vsix",
+      "version": "1.7.2"
     },
     {
       "id": "stylelint.vscode-stylelint",
@@ -1502,8 +1502,8 @@
     },
     {
       "id": "vlanguage.vscode-vlang",
-      "download": "https://github.com/vlang/vscode-vlang/releases/download/0.1.7/vscode-vlang-0.1.7.vsix",
-      "version": "0.1.7"
+      "download": "https://github.com/vlang/vscode-vlang/releases/download/0.1.8/vscode-vlang-0.1.8.vsix",
+      "version": "0.1.8"
     },
     {
       "id": "vortizhe.simple-ruby-erb",
@@ -1511,18 +1511,18 @@
     },
     {
       "id": "vsciot-vscode.vscode-arduino",
-      "download": "https://github.com/microsoft/vscode-arduino/releases/download/v0.3.5/vscode-arduino-0.3.5.vsix",
-      "version": "0.3.5"
+      "download": "https://github.com/microsoft/vscode-arduino/releases/download/v0.4.0/vscode-arduino-0.4.0.vsix",
+      "version": "0.4.0"
     },
     {
       "id": "vscjava.vscode-java-debug",
-      "download": "https://github.com/microsoft/vscode-java-debug/releases/download/0.32.0/vscjava.vscode-java-debug-0.32.0.vsix",
-      "version": "0.32.0"
+      "download": "https://github.com/microsoft/vscode-java-debug/releases/download/0.32.1/vscjava.vscode-java-debug-0.32.1.vsix",
+      "version": "0.32.1"
     },
     {
       "id": "vscjava.vscode-java-dependency",
-      "download": "https://github.com/microsoft/vscode-java-dependency/releases/download/0.18.1/vscjava.vscode-java-dependency-0.18.1.vsix",
-      "version": "0.18.1"
+      "download": "https://github.com/microsoft/vscode-java-dependency/releases/download/0.18.2/vscjava.vscode-java-dependency-0.18.2.vsix",
+      "version": "0.18.2"
     },
     {
       "id": "vscjava.vscode-java-test",
@@ -1558,8 +1558,8 @@
     },
     {
       "id": "vscodevim.vim",
-      "download": "https://github.com/VSCodeVim/Vim/releases/download/v1.19.0/vim-1.19.0.vsix",
-      "version": "1.19.0"
+      "download": "https://github.com/VSCodeVim/Vim/releases/download/v1.19.2/vim-1.19.2.vsix",
+      "version": "1.19.2"
     },
     {
       "id": "vshaxe.haxe-checkstyle",
