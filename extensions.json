@@ -1525,6 +1525,10 @@
       "version": "0.18.2"
     },
     {
+      "id": "vscjava.vscode-java-pack",
+      "repository": "https://github.com/microsoft/vscode-java-pack"
+    },
+    {
       "id": "vscjava.vscode-java-test",
       "download": "https://github.com/microsoft/vscode-java-test/releases/download/0.28.1/vscjava.vscode-java-test-0.28.1.vsix",
       "version": "0.28.1"
