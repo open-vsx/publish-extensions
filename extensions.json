@@ -1547,8 +1547,8 @@
     {
       "id": "vscode-icons-team.vscode-icons",
       "repository": "https://github.com/vscode-icons/vscode-icons",
-      "version": "11.2.0",
-      "checkout": "v11.2.0"
+      "version": "11.4.0",
+      "checkout": "v11.4.0"
     },
     {
       "id": "vscode.cpp",
