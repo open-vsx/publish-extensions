@@ -1249,6 +1249,10 @@
       "version": "1.0.9"
     },
     {
+      "id": "ph-hawkins.arc-plus",
+      "repository": "https://github.com/phil-harmoniq/arc-plus"
+    },
+    {
       "id": "philosowaffle.openapi-designer",
       "download": "https://github.com/philosowaffle/vs-openapi-designer/releases/download/v0.3.0/openapi-designer-0.3.0.vsix",
       "version": "0.3.0"
