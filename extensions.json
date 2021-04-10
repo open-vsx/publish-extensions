@@ -1266,6 +1266,10 @@
       "repository": "https://github.com/pbnj/vscode-snyk"
     },
     {
+      "id": "pomdtr.excalidraw-editor",
+      "repository": "https://github.com/pomdtr/vscode-excalidraw-embed"
+    },
+    {
       "id": "pucelle.vscode-css-navigation",
       "repository": "https://github.com/pucelle/vscode-css-navigation"
     },
