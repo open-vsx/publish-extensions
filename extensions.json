@@ -1482,6 +1482,13 @@
       "version": "0.2.0"
     },
     {
+      "id": "Tyriar.sort-lines",
+      "repository": "https://github.com/Tyriar/vscode-sort-lines",
+      "version": "1.9.0",
+      "prepublish": "npx vsce package",
+      "extensionFile": "sort-lines-1.9.0.vsix"
+    },
+    {
       "id": "twxs.cmake",
       "repository": "https://github.com/twxs/vs.language.cmake"
     },
