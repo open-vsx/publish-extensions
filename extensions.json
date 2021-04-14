@@ -1258,10 +1258,6 @@
       "version": "0.3.0"
     },
     {
-      "id": "PKief.material-icon-theme",
-      "repository": "https://github.com/PKief/vscode-material-icon-theme"
-    },
-    {
       "id": "pmbenjamin.vscode-snyk",
       "repository": "https://github.com/pbnj/vscode-snyk"
     },
