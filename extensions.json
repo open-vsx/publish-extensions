@@ -404,7 +404,7 @@
     {
       "id": "eamodio.eamodio.tsl-problem-matcher",
       "repository": "https://github.com/eamodio/vscode-tsl-problem-matcher",
-      "checkout": "af5c9c21ff58e4bf52cee53096190de877d0d718"
+      "checkout": "af5c9c21ff58e4bf52cee53096190de877d0d718",
       "version": "0.4.0"
     },
     {
