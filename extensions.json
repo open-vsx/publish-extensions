@@ -402,6 +402,12 @@
       "version": "11.4.0"
     },
     {
+      "id": "eamodio.eamodio.tsl-problem-matcher",
+      "repository": "https://github.com/eamodio/vscode-tsl-problem-matcher",
+      "checkout": "af5c9c21ff58e4bf52cee53096190de877d0d718"
+      "version": "0.4.0"
+    },
+    {
       "id": "eclipse-cdt.cdt-gdb-vscode",
       "repository": "https://github.com/eclipse-cdt/cdt-gdb-vscode"
     },
@@ -909,6 +915,12 @@
     {
       "id": "miguel-savignano.ruby-symbols",
       "repository": "https://github.com/MiguelSavignano/vscode-ruby-symbols"
+    },
+    {
+      "id": "miguelsolorio.fluent-icons",
+      "repository": "https://github.com/misolori/vscode-fluent-icons",
+      "checkout": "0.0.7",
+      "version": "0.0.7"
     },
     {
       "id": "Mikael.Angular-BeastCode",
