@@ -30,11 +30,11 @@ const dontUpgrade = [
   'ms-vscode.atom-keybindings', // https://github.com/microsoft/vscode-atom-keybindings/releases didn't have a release in 2 years
   'ms-vscode.node-debug', // Recent releases are not being tagged in https://github.com/microsoft/vscode-node-debug
   'wmaurer.change-case', // https://github.com/wmaurer/vscode-change-case/releases didn't have a release in 6 years
-  'jebbs.plantuml', // https://github.com/open-vsx/publish-extensions/issues/272 and https://github.com/open-vsx/publish-extensions/pull/290/files#r576063404
-  'ms-vscode.hexeditor', // https://github.com/open-vsx/publish-extensions/pull/290/files#r576063874
-  'mtxr.sqltools', // https://github.com/open-vsx/publish-extensions/pull/290/files#r576067381
+  'jebbs.plantuml', // https://github.com/open-vsx/publish-extensions/pull/290/files#r576063404
+  'ms-vscode.hexeditor', // https://github.com/open-vsx/publish-extensions/pull/290#discussion_r576063874
+  'mtxr.sqltools', // https://github.com/open-vsx/publish-extensions/pull/290#discussion_r576067381
   'lextudio.restructuredtext', // https://github.com/open-vsx/publish-extensions/pull/317#discussion_r598852958
-  'haskell.haskell', // https://github.com/open-vsx/publish-extensions/pull/317#discussion_r598852958
+  'haskell.haskell', // https://github.com/open-vsx/publish-extensions/pull/317#discussion_r598852655
 ];
 
 (async () => {
