@@ -32,6 +32,7 @@ const dontUpgrade = [
   'mtxr.sqltools', // https://github.com/open-vsx/publish-extensions/pull/290#discussion_r576067381
   'lextudio.restructuredtext', // https://github.com/open-vsx/publish-extensions/pull/317#discussion_r598852958
   'haskell.haskell', // https://github.com/open-vsx/publish-extensions/pull/317#discussion_r598852655
+  'dbaeumer.vscode-eslint', // https://github.com/microsoft/vscode-eslint/releases/ currently has only Insider releases
 ];
 
 (async () => {
