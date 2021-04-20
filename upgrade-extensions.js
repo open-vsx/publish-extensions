@@ -19,7 +19,6 @@ const writeFile = util.promisify(fs.writeFile);
 const dontUpgrade = [
   'alefragnani.Bookmarks', // https://github.com/alefragnani/vscode-bookmarks/issues/315
   'alefragnani.project-manager', // https://github.com/alefragnani/vscode-bookmarks/issues/315
-  'ms-vscode.js-debug', // Version on master (1.52.1) is older than the latest release (1.52.2)
   'file-icons.file-icons', // Git submodule uses unsupported 'git@github.com' URL format
   'DotJoshJohnson.xml', // https://github.com/DotJoshJohnson/vscode-xml/issues/345
   'wingrunr21.vscode-ruby', // This script gets confused and switches to rebornix.Ruby .vsix release (same repo)
