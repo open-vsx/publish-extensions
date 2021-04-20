@@ -22,7 +22,6 @@ const dontUpgrade = [
   'ms-vscode.js-debug', // Version on master (1.52.1) is older than the latest release (1.52.2)
   'file-icons.file-icons', // Git submodule uses unsupported 'git@github.com' URL format
   'DotJoshJohnson.xml', // https://github.com/DotJoshJohnson/vscode-xml/issues/345
-  'dracula-theme.theme-dracula', // https://github.com/dracula/visual-studio-code/issues/168
   'wingrunr21.vscode-ruby', // This script gets confused and switches to rebornix.Ruby .vsix release (same repo)
   'andreweinand.mock-debug', // https://github.com/open-vsx/publish-extensions/pull/274#issue-562452193
   'DigitalBrainstem.javascript-ejs-support', // https://github.com/Digitalbrainstem/ejs-grammar tagged 1.3.1 but hasn't had a new release tag in over year
