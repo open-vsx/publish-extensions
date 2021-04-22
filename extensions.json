@@ -1672,11 +1672,6 @@
       "repository": "https://github.com/zabel-xyz/plsql-language"
     },
     {
-      "id": "yatki.vscode-surround",
-      "download": "https://github.com/yatki/vscode-surround/releases/download/v1.1.2/vscode-surround-1.1.2.vsix",
-      "version": "1.1.2"
-    },
-    {
       "id": "ybaumes.highlight-trailing-white-spaces",
       "repository": "https://github.com/yifu/highlight-trailing-whitespaces"
     },
