@@ -1567,8 +1567,10 @@
       "checkout": "v11.4.0"
     },
     {
-      "id": "tootone.org-mode",
-      "repository": "https://github.com/vscode-org-mode/vscode-org-mode"
+      "id": "vscode-org-mode.org-mode",
+      "repository": "https://github.com/vscode-org-mode/vscode-org-mode",
+      "version": "1.0.0",
+      "checkout": "e8cc69868af427f5fd03c8ad125b493cbf2e8292"
     },
     {
       "id": "vscode.cpp",
