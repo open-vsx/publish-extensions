@@ -588,6 +588,11 @@
       "version": "0.24.1"
     },
     {
+      "id": "goodbaikin.org-preview",
+      "download": "https://github.com/goodbaikin/VSC-Org-Preview/releases/download/1.0.0/org-preview-1.0.0.vsix",
+      "version": "1.0.0"
+    },
+    {
       "id": "GrapeCity.gc-excelviewer",
       "download": "https://github.com/jjuback/gc-excelviewer/releases/download/v3.0.41/gc-excelviewer-3.0.41.vsix",
       "version": "3.0.41"
