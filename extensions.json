@@ -1169,6 +1169,10 @@
       "repository": "https://github.com/nalabdou/Symfony-code-snippets"
     },
     {
+      "id": "nadim-vscode.symfony-super-console",
+      "repository": "https://github.com/nalabdou/Symfony-super-console"
+    },
+    {
       "id": "naumovs.color-highlight",
       "repository": "https://github.com/egonyans/vscode-ext-color-highlight"
     },
