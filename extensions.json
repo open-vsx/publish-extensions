@@ -1165,10 +1165,6 @@
       "repository": "https://github.com/vshaxe/vshaxe.git"
     },
     {
-      "id": "nadim-vscode.Symfony-code-snippets",
-      "repository": "https://github.com/nalabdou/Symfony-code-snippets"
-    },
-    {
       "id": "naumovs.color-highlight",
       "repository": "https://github.com/egonyans/vscode-ext-color-highlight"
     },
