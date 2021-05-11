@@ -35,6 +35,7 @@ const dontUpgrade = [
   'dbaeumer.vscode-eslint', // https://github.com/microsoft/vscode-eslint/releases/ currently has only Insider releases
   'miguelsolorio.fluent-icons', // Latest release (0.0.1) is way behind latest tag (0.0.7)
   'eamodio.tsl-problem-matcher', // Latest release (0.0.4) was never published to https://github.com/eamodio/vscode-tsl-problem-matcher/releases
+  'vscode-org-mode.org-mode', // https://github.com/vscode-org-mode/vscode-org-mode doesn't have releases or tags, so we've pinned the 1.0.0 commit
 ];
 
 (async () => {
