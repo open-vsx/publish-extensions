@@ -34,6 +34,7 @@ const dontUpgrade = [
   'haskell.haskell', // https://github.com/open-vsx/publish-extensions/pull/317#discussion_r598852655
   'dbaeumer.vscode-eslint', // https://github.com/microsoft/vscode-eslint/releases/ currently has only Insider releases
   'miguelsolorio.fluent-icons', // Latest release (0.0.1) is way behind latest tag (0.0.7)
+  'eamodio.tsl-problem-matcher', // Latest release (0.0.4) was never published to https://github.com/eamodio/vscode-tsl-problem-matcher/releases
 ];
 
 (async () => {
