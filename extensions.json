@@ -1705,7 +1705,7 @@
     },
     {
       "id": "rechinformatica.rech-cobol-debugger",
-      "download": "https://github.com/RechInformatica/rech-cobol-debugger"
+      "repository": "https://github.com/RechInformatica/rech-cobol-debugger"
     }
   ]
 }
