@@ -821,6 +821,10 @@
       "repository": "https://github.com/Kode/vscode-kha-extension-pack"
     },
     {
+      "id": "kodetech.krafix",
+      "repository": "https://github.com/Kode/vscode-krafix"
+    },
+    {
       "id": "korekontrol.saltstack",
       "repository": "https://github.com/korekontrol/vscode-saltstack"
     },
