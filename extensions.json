@@ -154,6 +154,10 @@
       "repository": "https://github.com/bartosz-antosik/vscode-spellright"
     },
     {
+      "id": "barrettotte.ibmi-languages",
+      "download": "https://github.com/barrettotte/vscode-ibmi-languages/releases/download/v0.5.5/ibmi-languages-0.5.5.vsix",
+      "version": "0.5.5"
+    },    {
       "id": "batisteo.vscode-django",
       "repository": "https://github.com/vscode-django/vscode-django"
     },
@@ -608,6 +612,11 @@
       "version": "1.2.0"
     },
     {
+      "id": "halcyontechltd.code-for-ibmi",
+      "repository": "https://github.com/halcyon-tech/code-for-ibmi",
+      "version": "0.4.2",
+      "checkout": "0.4.2"
+    },    {
       "id": "HansUXdev.bootstrap5-snippets",
       "repository": "https://github.com/HansUXdev/B5-Snippets",
       "prepublish": "npm run concat"
