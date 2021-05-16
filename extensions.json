@@ -580,6 +580,8 @@
     {
       "id": "GitHub.github-vscode-theme",
       "repository": "https://github.com/primer/github-vscode-theme",
+      "version": "4.1.1",
+      "checkout": "v4.1.1",
       "prepublish": "npm run build"
     },
     {
