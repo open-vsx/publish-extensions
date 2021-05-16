@@ -85,8 +85,8 @@
     },
     {
       "id": "Angular.ng-template",
-      "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v11.2.14/ng-template-11.2.14.vsix",
-      "version": "11.2.14"
+      "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v12.0.0/ng-template-12.0.0.vsix",
+      "version": "12.0.0"
     },
     {
       "id": "anseki.vscode-color",
@@ -105,8 +105,8 @@
     {
       "id": "arcanis.vscode-zipfs",
       "repository": "https://github.com/yarnpkg/berry",
-      "version": "2.2.4",
-      "checkout": "vscode-zipfs/2.2.4",
+      "version": "2.3.0-rc.2",
+      "checkout": "vscode-zipfs/2.3.0-rc.2",
       "location": "packages/vscode-zipfs",
       "prepublish": "sed -ri \"s_ssh://git@github.com/yarnpkg/berry.git_https://github.com/yarnpkg/berry_g\" packages/vscode-zipfs/package.json"
     },
@@ -264,8 +264,8 @@
     {
       "id": "codezombiech.gitignore",
       "repository": "https://github.com/CodeZombieCH/vscode-gitignore",
-      "version": "0.6.0",
-      "checkout": "v0.6.0"
+      "version": "0.7.0",
+      "checkout": "v0.7.0"
     },
     {
       "id": "CoenraadS.bracket-pair-colorizer",
@@ -274,8 +274,8 @@
     {
       "id": "connorshea.vscode-ruby-test-adapter",
       "repository": "https://github.com/connorshea/vscode-ruby-test-adapter",
-      "version": "0.8.0",
-      "checkout": "v0.8.0"
+      "version": "0.9.0",
+      "checkout": "v0.9.0"
     },
     {
       "id": "cschleiden.vscode-github-actions",
@@ -283,8 +283,8 @@
     },
     {
       "id": "cschlosser.doxdocgen",
-      "download": "https://github.com/cschlosser/doxdocgen/releases/download/1.2.2/doxdocgen-1.2.2.vsix",
-      "version": "1.2.2"
+      "download": "https://github.com/cschlosser/doxdocgen/releases/download/1.3.0/doxdocgen-1.3.0.vsix",
+      "version": "1.3.0"
     },
     {
       "id": "csstools.postcss",
@@ -584,8 +584,8 @@
     },
     {
       "id": "golang.go",
-      "download": "https://github.com/golang/vscode-go/releases/download/v0.24.2/go-0.24.2.vsix",
-      "version": "0.24.2"
+      "download": "https://github.com/golang/vscode-go/releases/download/v0.25.0/go-0.25.0.vsix",
+      "version": "0.25.0"
     },
     {
       "id": "goodbaikin.org-preview",
@@ -700,8 +700,8 @@
     {
       "id": "James-Yu.latex-workshop",
       "repository": "https://github.com/James-Yu/LaTeX-Workshop",
-      "version": "8.17.0",
-      "checkout": "v8.17.0",
+      "version": "8.18.0",
+      "checkout": "v8.18.0",
       "prepublish": "npm run compile"
     },
     {
@@ -885,8 +885,8 @@
     },
     {
       "id": "marus25.cortex-debug",
-      "download": "https://github.com/Marus/cortex-debug/releases/download/v0.3.10/cortex-debug-0.3.10.vsix",
-      "version": "0.3.10"
+      "download": "https://github.com/Marus/cortex-debug/releases/download/v0.3.12-pre1/cortex-debug-0.3.12-pre1.vsix",
+      "version": "0.3.12-pre1"
     },
     {
       "id": "mathiasfrohlich.Kotlin",
@@ -1087,15 +1087,15 @@
     {
       "id": "ms-pyright.vscode-pyright",
       "repository": "https://github.com/Microsoft/pyright",
-      "version": "1.1.138",
-      "checkout": "1.1.138",
+      "version": "1.1.139",
+      "checkout": "1.1.139",
       "location": "packages/vscode-pyright",
       "prepublish": "cd packages/vscode-pyright && npm run prepackage"
     },
     {
       "id": "ms-python.python",
-      "download": "https://github.com/microsoft/vscode-python/releases/download/2021.5.829140558/ms-python-release.vsix",
-      "version": "2021.5.829140558"
+      "download": "https://github.com/microsoft/vscode-python/releases/download/2021.5.842923320/ms-python-release.vsix",
+      "version": "2021.5.842923320"
     },
     {
       "id": "ms-vscode.atom-keybindings",
@@ -1105,8 +1105,8 @@
     },
     {
       "id": "ms-vscode.cmake-tools",
-      "download": "https://github.com/microsoft/vscode-cmake-tools/releases/download/v1.7.2/cmake-tools.vsix",
-      "version": "1.7.2"
+      "download": "https://github.com/microsoft/vscode-cmake-tools/releases/download/v1.7.3/cmake-tools.vsix",
+      "version": "1.7.3"
     },
     {
       "id": "ms-vscode.Go",
@@ -1129,8 +1129,8 @@
     },
     {
       "id": "ms-vscode.makefile-tools",
-      "download": "https://github.com/microsoft/vscode-makefile-tools/releases/download/v0.2.1/makefile-tools.vsix",
-      "version": "0.2.1"
+      "download": "https://github.com/microsoft/vscode-makefile-tools/releases/download/v0.2.2/makefile-tools.vsix",
+      "version": "0.2.2"
     },
     {
       "id": "ms-vscode.node-debug",
@@ -1422,8 +1422,8 @@
     },
     {
       "id": "SonarSource.sonarlint-vscode",
-      "download": "https://github.com/SonarSource/sonarlint-vscode/releases/download/1.21.0/sonarlint-vscode-1.21.0.vsix",
-      "version": "1.21.0"
+      "download": "https://github.com/SonarSource/sonarlint-vscode/releases/download/1.22.0%2B31988/sonarlint-vscode-1.22.0.vsix",
+      "version": "1.22.0"
     },
     {
       "id": "steoates.autoimport",
@@ -1533,8 +1533,8 @@
     },
     {
       "id": "vsciot-vscode.vscode-arduino",
-      "download": "https://github.com/microsoft/vscode-arduino/releases/download/v0.4.2/vscode-arduino-0.4.2.vsix",
-      "version": "0.4.2"
+      "download": "https://github.com/microsoft/vscode-arduino/releases/download/v0.4.3/vscode-arduino-0.4.3.vsix",
+      "version": "0.4.3"
     },
     {
       "id": "vscjava.vscode-java-debug",
