@@ -40,10 +40,8 @@
     },
     {
       "id": "alefragnani.Bookmarks",
-      "repository": "https://github.com/alefragnani/vscode-bookmarks",
-      "version": "12.1.0",
-      "checkout": "v12.1.0",
-      "prepublish": "npm run compile"
+      "download": "https://github.com/alefragnani/vscode-bookmarks/releases/download/v13.0.1/Bookmarks-13.0.1.vsix",
+      "version": "13.0.1"
     },
     {
       "id": "alefragnani.project-manager",

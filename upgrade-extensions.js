@@ -17,7 +17,6 @@ const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
 const dontUpgrade = [
-  'alefragnani.Bookmarks', // https://github.com/alefragnani/vscode-bookmarks/issues/315
   'alefragnani.project-manager', // https://github.com/alefragnani/vscode-bookmarks/issues/315
   'file-icons.file-icons', // Git submodule uses unsupported 'git@github.com' URL format
   'DotJoshJohnson.xml', // https://github.com/DotJoshJohnson/vscode-xml/issues/345
