@@ -885,8 +885,8 @@
     },
     {
       "id": "marus25.cortex-debug",
-      "download": "https://github.com/Marus/cortex-debug/releases/download/v0.3.12-pre1/cortex-debug-0.3.12-pre1.vsix",
-      "version": "0.3.12-pre1"
+      "download": "https://github.com/Marus/cortex-debug/releases/download/v0.3.10/cortex-debug-0.3.10.vsix",
+      "version": "0.3.10"
     },
     {
       "id": "mathiasfrohlich.Kotlin",
