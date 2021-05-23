@@ -83,8 +83,8 @@
     },
     {
       "id": "Angular.ng-template",
-      "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v12.0.0/ng-template-12.0.0.vsix",
-      "version": "12.0.0"
+      "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v12.0.2/ng-template-12.0.2.vsix",
+      "version": "12.0.2"
     },
     {
       "id": "anseki.vscode-color",
@@ -103,8 +103,8 @@
     {
       "id": "arcanis.vscode-zipfs",
       "repository": "https://github.com/yarnpkg/berry",
-      "version": "2.2.4",
-      "checkout": "vscode-zipfs/2.2.4",
+      "version": "2.3.0-rc.2",
+      "checkout": "vscode-zipfs/2.3.0-rc.2",
       "location": "packages/vscode-zipfs",
       "prepublish": "sed -ri \"s_ssh://git@github.com/yarnpkg/berry.git_https://github.com/yarnpkg/berry_g\" packages/vscode-zipfs/package.json"
     },
@@ -203,8 +203,8 @@
     },
     {
       "id": "bradlc.vscode-tailwindcss",
-      "download": "https://github.com/tailwindlabs/tailwindcss-intellisense/releases/download/v0.6.4/vscode-tailwindcss-0.6.4.vsix",
-      "version": "0.6.4"
+      "download": "https://github.com/tailwindlabs/tailwindcss-intellisense/releases/download/v0.6.6/vscode-tailwindcss-0.6.6.vsix",
+      "version": "0.6.6"
     },
     {
       "id": "bung87.rails",
@@ -420,8 +420,8 @@
     },
     {
       "id": "efoerster.texlab",
-      "download": "https://github.com/latex-lsp/texlab-vscode/releases/download/v2.2.1/texlab.vsix",
-      "version": "2.2.1"
+      "download": "https://github.com/latex-lsp/texlab-vscode/releases/download/v3.0.1/texlab.vsix",
+      "version": "3.0.1"
     },
     {
       "id": "embertooling.prettier-for-handlebars-vscode",
@@ -472,8 +472,8 @@
     {
       "id": "evaera.vscode-rojo",
       "repository": "https://github.com/rojo-rbx/vscode-rojo",
-      "version": "1.13.1",
-      "checkout": "v1.13.1"
+      "version": "1.13.2",
+      "checkout": "v1.13.2"
     },
     {
       "id": "exiasr.hadolint",
@@ -614,8 +614,8 @@
     },
     {
       "id": "hashicorp.terraform",
-      "download": "https://github.com/hashicorp/vscode-terraform/releases/download/v2.10.2/terraform-2.10.2.vsix",
-      "version": "2.10.2"
+      "download": "https://github.com/hashicorp/vscode-terraform/releases/download/v2.11.0/terraform-2.11.0.vsix",
+      "version": "2.11.0"
     },
     {
       "id": "haskell.haskell",
@@ -890,8 +890,8 @@
     },
     {
       "id": "marus25.cortex-debug",
-      "download": "https://github.com/Marus/cortex-debug/releases/download/v0.3.10/cortex-debug-0.3.10.vsix",
-      "version": "0.3.10"
+      "download": "https://github.com/Marus/cortex-debug/releases/download/v0.3.12-pre1/cortex-debug-0.3.12-pre1.vsix",
+      "version": "0.3.12-pre1"
     },
     {
       "id": "mathiasfrohlich.Kotlin",
@@ -1086,14 +1086,14 @@
     },
     {
       "id": "ms-kubernetes-tools.vscode-kubernetes-tools",
-      "download": "https://github.com/Azure/vscode-kubernetes-tools/releases/download/1.3.2/vscode-kubernetes-tools-1.3.2.vsix",
-      "version": "1.3.2"
+      "download": "https://github.com/Azure/vscode-kubernetes-tools/releases/download/1.3.3/vscode-kubernetes-tools-1.3.3.vsix",
+      "version": "1.3.3"
     },
     {
       "id": "ms-pyright.vscode-pyright",
       "repository": "https://github.com/Microsoft/pyright",
-      "version": "1.1.140",
-      "checkout": "1.1.140",
+      "version": "1.1.142",
+      "checkout": "1.1.142",
       "location": "packages/vscode-pyright",
       "prepublish": "cd packages/vscode-pyright && npm run prepackage"
     },
@@ -1140,15 +1140,15 @@
     {
       "id": "ms-vscode.node-debug",
       "repository": "https://github.com/microsoft/vscode-node-debug",
-      "version": "1.44.27",
-      "checkout": "v1.44.27",
+      "version": "1.44.28",
+      "checkout": "v1.44.28",
       "prepublish": "yarn prepublish && yarn package"
     },
     {
       "id": "ms-vscode.node-debug2",
       "repository": "https://github.com/microsoft/vscode-node-debug2",
-      "version": "1.42.6",
-      "checkout": "v1.42.6"
+      "version": "1.42.7",
+      "checkout": "v1.42.7"
     },
     {
       "id": "ms-vscode.references-view",
@@ -1375,8 +1375,8 @@
     {
       "id": "shinichi-takii.sql-bigquery",
       "repository": "https://github.com/shinichi-takii/vscode-language-sql-bigquery",
-      "version": "1.6.1",
-      "checkout": "v1.6.1"
+      "version": "1.7.0",
+      "checkout": "v1.7.0"
     },
     {
       "id": "shrey150.javafx-support",
@@ -1436,8 +1436,8 @@
     },
     {
       "id": "stripe.vscode-stripe",
-      "download": "https://github.com/stripe/vscode-stripe/releases/download/v1.7.5/vscode-stripe-1.7.5.vsix",
-      "version": "1.7.5"
+      "download": "https://github.com/stripe/vscode-stripe/releases/download/v1.7.6/vscode-stripe-1.7.6.vsix",
+      "version": "1.7.6"
     },
     {
       "id": "stylelint.vscode-stylelint",
@@ -1595,8 +1595,8 @@
     },
     {
       "id": "vscodevim.vim",
-      "download": "https://github.com/VSCodeVim/Vim/releases/download/v1.20.2/vim-1.20.2.vsix",
-      "version": "1.20.2"
+      "download": "https://github.com/VSCodeVim/Vim/releases/download/v1.20.3/vim-1.20.3.vsix",
+      "version": "1.20.3"
     },
     {
       "id": "vshaxe.haxe-checkstyle",
