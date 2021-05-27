@@ -730,6 +730,12 @@
       "repository": "https://github.com/JeffersonQin/VSCode-LaTeX-Snippets"
     },
     {
+      "id": "jeroen-meijer.pubspec-assist",
+      "repository": "https://github.com/jeroen-meijer/pubspec-assist",
+      "version": "2.1.0",
+      "checkout": "v2.1.0"
+    },
+    {
       "id": "jianbingfang.dupchecker",
       "download": "https://github.com/jianbingfang/vscode-dup-checker/releases/download/v0.1.7/dupchecker-0.1.7.vsix",
       "version": "0.1.7"
