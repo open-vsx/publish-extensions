@@ -157,7 +157,8 @@
       "id": "barrettotte.ibmi-languages",
       "download": "https://github.com/barrettotte/vscode-ibmi-languages/releases/download/v0.5.5/ibmi-languages-0.5.5.vsix",
       "version": "0.5.5"
-    },    {
+    },
+    {
       "id": "batisteo.vscode-django",
       "repository": "https://github.com/vscode-django/vscode-django"
     },
@@ -337,6 +338,12 @@
       "id": "dbaeumer.vscode-eslint",
       "download": "https://github.com/microsoft/vscode-eslint/releases/download/release%2F2.1.8/dbaeumer.vscode-eslint-2.1.8.vsix",
       "version": "2.1.8"
+    },
+    {
+      "id": "dcasella.monokai-plusplus",
+      "repository": "https://github.com/dcasella/monokai-plusplus",
+      "version": "1.9.1",
+      "checkout": "v1.9.1"
     },
     {
       "id": "deerawan.vscode-faker",
@@ -616,7 +623,8 @@
       "repository": "https://github.com/halcyon-tech/code-for-ibmi",
       "version": "0.4.2",
       "checkout": "0.4.2"
-    },    {
+    },
+    {
       "id": "HansUXdev.bootstrap5-snippets",
       "repository": "https://github.com/HansUXdev/B5-Snippets",
       "prepublish": "npm run concat"
