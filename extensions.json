@@ -722,7 +722,9 @@
     },
     {
       "id": "jeroen-meijer.pubspec-assist",
-      "repository": "https://github.com/jeroen-meijer/pubspec-assist"
+      "repository": "https://github.com/jeroen-meijer/pubspec-assist",
+      "version": "2.1.0",
+      "checkout": "v2.1.0"
     },
     {
       "id": "jianbingfang.dupchecker",
