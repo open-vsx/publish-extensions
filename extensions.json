@@ -103,8 +103,8 @@
     {
       "id": "arcanis.vscode-zipfs",
       "repository": "https://github.com/yarnpkg/berry",
-      "version": "2.3.0-rc.2",
-      "checkout": "vscode-zipfs/2.3.0-rc.2",
+      "version": "2.2.4",
+      "checkout": "vscode-zipfs/2.2.4",
       "location": "packages/vscode-zipfs",
       "prepublish": "sed -ri \"s_ssh://git@github.com/yarnpkg/berry.git_https://github.com/yarnpkg/berry_g\" packages/vscode-zipfs/package.json"
     },
@@ -890,8 +890,8 @@
     },
     {
       "id": "marus25.cortex-debug",
-      "download": "https://github.com/Marus/cortex-debug/releases/download/v0.3.12-pre1/cortex-debug-0.3.12-pre1.vsix",
-      "version": "0.3.12-pre1"
+      "download": "https://github.com/Marus/cortex-debug/releases/download/v0.3.10/cortex-debug-0.3.10.vsix",
+      "version": "0.3.10"
     },
     {
       "id": "mathiasfrohlich.Kotlin",
