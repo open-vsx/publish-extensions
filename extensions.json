@@ -510,6 +510,11 @@
       "checkout": "v1.1.2"
     },
     {
+      "id": "felipecaputo.git-project-manager",
+      "download": "https://github.com/felipecaputo/git-project-manager/releases/download/v1.5.0/git-project-manager-1.5.0.vsix",
+      "version": "1.5.0"
+    },
+    {
       "id": "felixfbecker.php-debug",
       "download": "https://github.com/xdebug/vscode-php-debug/releases/download/v1.15.1/php-debug-1.15.1.vsix",
       "version": "1.15.1"
