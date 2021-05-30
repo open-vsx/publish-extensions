@@ -1476,7 +1476,8 @@
     },
     {
       "id": "Swellaby.vscode-rust-test-adapter",
-      "repository": "https://github.com/swellaby/vscode-rust-test-adapter"
+      "repository": "https://github.com/swellaby/vscode-rust-test-adapter",
+      "prepublish": "npm update vscode && npm install && npm run build"
     },
     {
       "id": "tchayen.markdown-links",
