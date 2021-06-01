@@ -621,8 +621,8 @@
     {
       "id": "halcyontechltd.code-for-ibmi",
       "repository": "https://github.com/halcyon-tech/code-for-ibmi",
-      "version": "0.4.2",
-      "checkout": "0.4.2"
+      "version": "0.5.1",
+      "checkout": "0.5.1"
     },
     {
       "id": "HansUXdev.bootstrap5-snippets",
