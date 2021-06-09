@@ -1156,6 +1156,12 @@
       "extensionFile": "dist/js-debug.vsix"
     },
     {
+      "id": "ms-vscode.js-debug-companion",
+      "repository": "https://github.com/microsoft/vscode-js-debug-companion",
+      "version": "1.0.13",
+      "checkout": "v1.0.13"
+    },
+    {
       "id": "ms-vscode.makefile-tools",
       "download": "https://github.com/microsoft/vscode-makefile-tools/releases/download/v0.2.2/makefile-tools.vsix",
       "version": "0.2.2"
