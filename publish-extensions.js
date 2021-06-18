@@ -30,6 +30,7 @@ const readFile = util.promisify(fs.readFile);
    *        prepublish?: string,
    *        download?: string,
    *        extensionFile?: string
+   *        web?: boolean
    *    }[]
    * }}
    */
@@ -107,20 +108,21 @@ const readFile = util.promisify(fs.readFile);
         // Publish the extension.
         /** @type {import('ovsx').PublishOptions} */
         const options = { extensionFile: '/tmp/download/extension.vsix' };
+        options.web = extension.web;
         await ovsx.publish(options);
 
       } else {
         // Clone and set up the repository.
         await exec(`git clone --recurse-submodules ${extension.repository} /tmp/repository`);
         if (extension.checkout) {
-            await exec(`git checkout ${extension.checkout}`, { cwd: '/tmp/repository' });
+          await exec(`git checkout ${extension.checkout}`, { cwd: '/tmp/repository' });
         }
         let yarn = await new Promise(resolve => {
-            fs.access(path.join('/tmp/repository', 'yarn.lock'), error => resolve(!error));
+          fs.access(path.join('/tmp/repository', 'yarn.lock'), error => resolve(!error));
         });
         await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: '/tmp/repository' });
         if (extension.prepublish) {
-            await exec(extension.prepublish, { cwd: '/tmp/repository' })
+          await exec(extension.prepublish, { cwd: '/tmp/repository' })
         }
 
         // Publish the extension.
@@ -130,13 +132,14 @@ const readFile = util.promisify(fs.readFile);
           if (extension.location) {
             console.warn('[WARN] Ignoring `location` property because `extensionFile` was given.')
           }
-          options = {extensionFile: path.join('/tmp/repository', extension.extensionFile)};
+          options = { extensionFile: path.join('/tmp/repository', extension.extensionFile) };
         } else {
-          options = {packagePath: path.join('/tmp/repository', extension.location || '.')};
+          options = { packagePath: path.join('/tmp/repository', extension.location || '.') };
         }
         if (yarn) {
-            options.yarn = true;
+          options.yarn = true;
         }
+        options.web = extension.web;
         await ovsx.publish(options);
 
       }

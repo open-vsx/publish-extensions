@@ -1637,8 +1637,9 @@
     },
     {
       "id": "vscodevim.vim",
-      "download": "https://github.com/VSCodeVim/Vim/releases/download/v1.21.2/vim-1.21.2.vsix",
-      "version": "1.21.2"
+      "download": "https://github.com/VSCodeVim/Vim/releases/download/v1.21.3/vim-1.21.3.vsix",
+      "version": "1.21.3",
+      "web": true
     },
     {
       "id": "vshaxe.haxe-checkstyle",
