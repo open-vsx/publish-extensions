@@ -20,6 +20,7 @@ const cp = require('child_process');
 
   for (const extension of extensions) {
     try {
+      let timeout;
       await new Promise((resolve, reject) => {
         const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify(extension)], {
           stdio: ['ignore', 'inherit', 'inherit'],
@@ -28,7 +29,16 @@ const cp = require('child_process');
         })
         p.on('error', reject);
         p.on('close', resolve);
+        timeout = setTimeout(() => {
+          try {
+            p.kill('SIGKILL');
+          } catch { }
+          reject(new Error('timeout after 5 mins'));
+        }, 5 * 60 * 1000);
       });
+      if (timeout !== undefined) {
+        clearTimeout(timeout);
+      }
     } catch (error) {
       console.error(`[FAIL] Could not process extension: ${JSON.stringify(extension, null, 2)}`);
       console.error(error);
