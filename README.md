@@ -76,7 +76,9 @@ Here are all the supported values, including optional ones, to build extensions 
       // (OPTIONAL) Extra commands to run just before publishing to Open VSX (i.e. after "yarn/npm install", but before "vscode:prepublish")
       "prepublish": "npm run build",
       // (OPTIONAL) Relative path of the extension vsix file inside the git repo (i.e. when it is built by prepublish commands
-      "extensionFile": "dist/js-debug.vsix"
+      "extensionFile": "dist/js-debug.vsix",
+      // (OPTIONAL) Enables publishing of web extensions.
+      "web": true
     },
 ```
 
