@@ -93,6 +93,16 @@
       "checkout": "0.4.5"
     },
     {
+      "id": "Antyos.openscad",
+      "download": "https://github.com/Antyos/vscode-openscad/releases/download/v1.1.1/Antyos.openscad-1.1.1.vsix",
+      "version": "1.1.1"
+    },
+    {
+      "id": "Antyos.vscode-mlog",
+      "download": "https://github.com/Antyos/vscode-mlog/releases/download/v0.0.2/vscode-mlog-0.0.2.vsix",
+      "version": "0.0.2"
+    },
+    {
       "id": "apollographql.apollo-midnight-color-theme",
       "repository": "https://github.com/apollographql/apollo-midnight"
     },
