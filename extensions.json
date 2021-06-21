@@ -1203,6 +1203,11 @@
       "repository": "https://github.com/Microsoft/vscode-sublime-keybindings"
     },
     {
+      "id": "msjsdiag.debugger-for-edge",
+      "download": "https://github.com/Microsoft/vscode-edge-debug2/releases/download/v1.0.10/debugger-for-edge-1.0.10.vsix",
+      "version": "1.0.10"
+    },
+    {
       "id": "mtxr.sqltools",
       "repository": "https://github.com/mtxr/vscode-sqltools",
       "version": "0.23.0",
