@@ -1021,6 +1021,11 @@
       "checkout": "0.1.0"
     },
     {
+      "id": "mrmlnc.vscode-apache",
+      "download": "https://github.com/mrmlnc/vscode-apache/releases/download/1.2.0/vscode-apache-1.2.0.vsix",
+      "version": "1.2.0"
+    },
+    {
       "id": "mrmlnc.vscode-duplicate",
       "download": "https://github.com/mrmlnc/vscode-duplicate/releases/download/1.2.1/vscode-duplicate-1.2.1.vsix",
       "version": "1.2.1"
