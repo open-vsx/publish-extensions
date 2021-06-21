@@ -1397,6 +1397,11 @@
       "repository": "https://github.com/serayuzgur/crates"
     },
     {
+      "id": "Serpen.vbsvscode",
+      "download": "https://github.com/Serpen/VBS-VSCode/releases/download/1.2.1/vbsvscode-1.2.1.vsix",
+      "version": "1.2.1"
+    },
+    {
       "id": "shalldie.background",
       "repository": "https://github.com/shalldie/vscode-background",
       "prepublish": "sed -ri \"s_git\\+https://_https://_g\" package.json"
