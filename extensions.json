@@ -732,6 +732,11 @@
       "prepublish": "npm run compile"
     },
     {
+      "id": "janisdd.vscode-edit-csv",
+      "download": "https://github.com/janisdd/vscode-edit-csv/releases/download/v6.0.0/vscode-edit-csv-0.6.0.vsix",
+      "version": "0.6.0"
+    },
+    {
       "id": "jebbs.plantuml",
       "repository": "https://github.com/qjebbs/vscode-plantuml",
       "version": "2.14.0",
