@@ -17,6 +17,10 @@
       "repository": "https://github.com/kufii/CodeSnap"
     },
     {
+      "id": "adrianhumphreys.silverstripe",
+      "repository": "https://github.com/adrhumphreys/vscode-silverstripe"
+    },
+    {
       "id": "ahmadawais.emoji-log-vscode",
       "repository": "https://github.com/ahmadawais/Emoji-Log-VSCode",
       "version": "1.0.0",
