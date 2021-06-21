@@ -207,6 +207,10 @@
       "version": "1.7.1"
     },
     {
+      "id": "bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+      "repository": "https://github.com/bpruitt-goddard/vscode-mermaid-syntax-highlight"
+    },
+    {
       "id": "bradlc.vscode-tailwindcss",
       "download": "https://github.com/tailwindlabs/tailwindcss-intellisense/releases/download/v0.6.11/vscode-tailwindcss-0.6.11.vsix",
       "version": "0.6.11"
