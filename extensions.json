@@ -1245,6 +1245,10 @@
       "repository": "https://github.com/neild3r/vscode-php-docblocker"
     },
     {
+      "id": "nick-rudenko.back-n-forth",
+      "repository": "https://github.com/nikita-rudenko/back-n-forth"
+    },
+    {
       "id": "Nightrains.robloxlsp",
       "repository": "https://github.com/NightrainsRbx/RobloxLsp"
     },
