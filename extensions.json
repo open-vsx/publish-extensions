@@ -1329,6 +1329,10 @@
       "version": "0.8.0"
     },
     {
+      "id": "paragdiwan.gitpatch",
+      "repository": "https://github.com/paragdiwan/vscode-git-patch"
+    },
+    {
       "id": "patbenatar.advanced-new-file",
       "repository": "https://github.com/patbenatar/vscode-advanced-new-file"
     },
