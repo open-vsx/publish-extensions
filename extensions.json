@@ -103,8 +103,8 @@
     {
       "id": "arcanis.vscode-zipfs",
       "repository": "https://github.com/yarnpkg/berry",
-      "version": "2.3.0-rc.5",
-      "checkout": "vscode-zipfs/2.3.0-rc.5",
+      "version": "2.2.4",
+      "checkout": "vscode-zipfs/2.2.4",
       "location": "packages/vscode-zipfs",
       "prepublish": "sed -ri \"s_ssh://git@github.com/yarnpkg/berry.git_https://github.com/yarnpkg/berry_g\" packages/vscode-zipfs/package.json"
     },
@@ -744,7 +744,9 @@
     },
     {
       "id": "jeroen-meijer.pubspec-assist",
-      "repository": "https://github.com/jeroen-meijer/pubspec-assist"
+      "repository": "https://github.com/jeroen-meijer/pubspec-assist",
+      "version": "2.1.0",
+      "checkout": "v2.1.0"
     },
     {
       "id": "jianbingfang.dupchecker",
@@ -789,6 +791,8 @@
     {
       "id": "justusadam.language-haskell",
       "repository": "https://github.com/JustusAdam/language-haskell",
+      "version": "3.4.0",
+      "checkout": "v3.4.0",
       "prepublish": "npm i --save-dev @types/node@10 && make all"
     },
     {
@@ -914,8 +918,8 @@
     },
     {
       "id": "marus25.cortex-debug",
-      "download": "https://github.com/Marus/cortex-debug/releases/download/v0.3.12-pre1/cortex-debug-0.3.12-pre1.vsix",
-      "version": "0.3.12-pre1"
+      "download": "https://github.com/Marus/cortex-debug/releases/download/v0.3.10/cortex-debug-0.3.10.vsix",
+      "version": "0.3.10"
     },
     {
       "id": "mathiasfrohlich.Kotlin",
@@ -1129,6 +1133,8 @@
     {
       "id": "ms-toolsai.jupyter",
       "repository": "https://github.com/microsoft/vscode-jupyter",
+      "version": "2021.6.0",
+      "checkout": "2021.6.0",
       "prepublish": "PIP_USER=no python3 -m pip --disable-pip-version-check install -t ./pythonFiles/lib/python --no-cache-dir --implementation py --no-deps --upgrade -r requirements.txt && npm run package",
       "extensionFile": "ms-toolsai-jupyter-insiders.vsix"
     },
@@ -1632,7 +1638,8 @@
     {
       "id": "vscodevim.vim",
       "download": "https://github.com/VSCodeVim/Vim/releases/download/v1.21.3/vim-1.21.3.vsix",
-      "version": "1.21.3"
+      "version": "1.21.3",
+      "web": true
     },
     {
       "id": "vshaxe.haxe-checkstyle",
