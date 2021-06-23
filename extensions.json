@@ -1525,6 +1525,10 @@
       "version": "2.0.0"
     },
     {
+      "id": "stef-k.laravel-goto-controller",
+      "repository": "https://github.com/stef-k/laravel-goto-controller"
+    },
+    {
       "id": "steoates.autoimport",
       "repository": "https://github.com/soates/Auto-Import"
     },
