@@ -17,6 +17,10 @@
       "repository": "https://github.com/kufii/CodeSnap"
     },
     {
+      "id": "adrianhumphreys.silverstripe",
+      "repository": "https://github.com/adrhumphreys/vscode-silverstripe"
+    },
+    {
       "id": "ahmadawais.emoji-log-vscode",
       "repository": "https://github.com/ahmadawais/Emoji-Log-VSCode",
       "version": "1.0.0",
@@ -205,6 +209,10 @@
       "id": "bmewburn.vscode-intelephense-client",
       "download": "https://github.com/bmewburn/vscode-intelephense/releases/download/v1.7.1/vscode-intelephense-client-1.7.1.vsix",
       "version": "1.7.1"
+    },
+    {
+      "id": "bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+      "repository": "https://github.com/bpruitt-goddard/vscode-mermaid-syntax-highlight"
     },
     {
       "id": "bradlc.vscode-tailwindcss",
@@ -732,6 +740,11 @@
       "prepublish": "npm run compile"
     },
     {
+      "id": "janisdd.vscode-edit-csv",
+      "download": "https://github.com/janisdd/vscode-edit-csv/releases/download/v6.0.0/vscode-edit-csv-0.6.0.vsix",
+      "version": "0.6.0"
+    },
+    {
       "id": "jebbs.plantuml",
       "repository": "https://github.com/qjebbs/vscode-plantuml",
       "version": "2.14.0",
@@ -1008,6 +1021,11 @@
       "checkout": "0.1.0"
     },
     {
+      "id": "mrmlnc.vscode-apache",
+      "download": "https://github.com/mrmlnc/vscode-apache/releases/download/1.2.0/vscode-apache-1.2.0.vsix",
+      "version": "1.2.0"
+    },
+    {
       "id": "mrmlnc.vscode-duplicate",
       "download": "https://github.com/mrmlnc/vscode-duplicate/releases/download/1.2.1/vscode-duplicate-1.2.1.vsix",
       "version": "1.2.1"
@@ -1208,6 +1226,22 @@
       "version": "1.0.10"
     },
     {
+      "id": "ms-vscode.vscode-js-profile-flame",
+      "repository": "https://github.com/microsoft/vscode-js-profile-visualizer",
+      "version": "0.0.21",
+      "checkout": "v0.0.21",
+      "prepublish": "npm run compile",
+      "location": "packages/vscode-js-profile-flame"
+    },
+    {
+      "id": "ms-vscode.vscode-js-profile-table",
+      "repository": "https://github.com/microsoft/vscode-js-profile-visualizer",
+      "version": "0.0.21",
+      "checkout": "v0.0.21",
+      "prepublish": "npm run compile",
+      "location": "packages/vscode-js-profile-table"
+    },
+    {
       "id": "mtxr.sqltools",
       "repository": "https://github.com/mtxr/vscode-sqltools",
       "version": "0.23.0",
@@ -1232,6 +1266,10 @@
     {
       "id": "neilbrayfield.php-docblocker",
       "repository": "https://github.com/neild3r/vscode-php-docblocker"
+    },
+    {
+      "id": "nick-rudenko.back-n-forth",
+      "repository": "https://github.com/nikita-rudenko/back-n-forth"
     },
     {
       "id": "Nightrains.robloxlsp",
