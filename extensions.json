@@ -1207,6 +1207,7 @@
       "repository": "https://github.com/microsoft/vscode-js-profile-visualizer",
       "version": "0.0.21",
       "checkout": "v0.0.21",
+      "prepublish": "npm run compile",
       "location": "packages/vscode-js-profile-flame"
     },
     {
@@ -1214,6 +1215,7 @@
       "repository": "https://github.com/microsoft/vscode-js-profile-visualizer",
       "version": "0.0.21",
       "checkout": "v0.0.21",
+      "prepublish": "npm run compile",
       "location": "packages/vscode-js-profile-table"
     },
     {
