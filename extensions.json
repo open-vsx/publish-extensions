@@ -1321,6 +1321,10 @@
       "prepublish": "npm config set script-shell /bin/bash"
     },
     {
+      "id": "onecentlin.laravel5-snippets",
+      "repository": "https://github.com/onecentlin/laravel5-snippets-vscode"
+    },
+    {
       "id": "oouo-diogo-perdigao.docthis",
       "repository": "https://github.com/oouo-diogo-perdigao/vscode-docthis"
     },
