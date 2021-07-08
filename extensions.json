@@ -649,12 +649,6 @@
       "checkout": "0.5.8"
     },
     {
-      "id": "halcyontechltd.git-client-ibmi",
-      "repository": "https://github.com/halcyon-tech/git-client-ibmi",
-      "version": "0.0.4",
-      "checkout": "0.0.4"
-    },
-    {
       "id": "HansUXdev.bootstrap5-snippets",
       "repository": "https://github.com/HansUXdev/B5-Snippets",
       "prepublish": "npm run concat"
