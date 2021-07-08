@@ -1418,6 +1418,11 @@
       "version": "0.3.0"
     },
     {
+      "id": "platformio.platformio-ide",
+      "download": "https://github.com/platformio/platformio-vscode-ide/releases/download/v2.2.0/platformio-ide-2.2.0.vsix",
+      "version": "2.2.0"
+    },
+    {
       "id": "pmbenjamin.vscode-snyk",
       "repository": "https://github.com/pbnj/vscode-snyk"
     },
