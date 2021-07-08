@@ -1238,11 +1238,6 @@
       "repository": "https://github.com/Microsoft/vscode-sublime-keybindings"
     },
     {
-      "id": "msjsdiag.debugger-for-edge",
-      "download": "https://github.com/Microsoft/vscode-edge-debug2/releases/download/v1.0.10/debugger-for-edge-1.0.10.vsix",
-      "version": "1.0.10"
-    },
-    {
       "id": "ms-vscode.vscode-js-profile-core",
       "repository": "https://github.com/microsoft/vscode-js-profile-visualizer",
       "version": "0.0.21",
@@ -1273,6 +1268,11 @@
       "checkout": "v0.0.21",
       "prepublish": "npm run compile",
       "location": "packages/vscode-js-profile-table"
+    },
+    {
+      "id": "msjsdiag.debugger-for-edge",
+      "download": "https://github.com/Microsoft/vscode-edge-debug2/releases/download/v1.0.10/debugger-for-edge-1.0.10.vsix",
+      "version": "1.0.10"
     },
     {
       "id": "mtxr.sqltools",
@@ -1526,6 +1526,10 @@
     {
       "id": "shyykoserhiy.git-autoconfig",
       "repository": "https://github.com/ShyykoSerhiy/git-autoconfig"
+    },
+    {
+      "id": "shyykoserhiy.vscode-spotify",
+      "repository": "https://github.com/ShyykoSerhiy/vscode-spotify"
     },
     {
       "id": "silvenon.mdx",
