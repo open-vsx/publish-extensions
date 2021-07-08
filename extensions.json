@@ -1238,11 +1238,6 @@
       "repository": "https://github.com/Microsoft/vscode-sublime-keybindings"
     },
     {
-      "id": "msjsdiag.debugger-for-edge",
-      "download": "https://github.com/Microsoft/vscode-edge-debug2/releases/download/v1.0.10/debugger-for-edge-1.0.10.vsix",
-      "version": "1.0.10"
-    },
-    {
       "id": "ms-vscode.vscode-js-profile-core",
       "repository": "https://github.com/microsoft/vscode-js-profile-visualizer",
       "version": "0.0.21",
@@ -1273,6 +1268,11 @@
       "checkout": "v0.0.21",
       "prepublish": "npm run compile",
       "location": "packages/vscode-js-profile-table"
+    },
+    {
+      "id": "msjsdiag.debugger-for-edge",
+      "download": "https://github.com/Microsoft/vscode-edge-debug2/releases/download/v1.0.10/debugger-for-edge-1.0.10.vsix",
+      "version": "1.0.10"
     },
     {
       "id": "mtxr.sqltools",
@@ -1404,6 +1404,11 @@
       "id": "philosowaffle.openapi-designer",
       "download": "https://github.com/philosowaffle/vs-openapi-designer/releases/download/v0.3.0/openapi-designer-0.3.0.vsix",
       "version": "0.3.0"
+    },
+    {
+      "id": "platformio.platformio-ide",
+      "download": "https://github.com/platformio/platformio-vscode-ide/releases/download/v2.2.0/platformio-ide-2.2.0.vsix",
+      "version": "2.2.0"
     },
     {
       "id": "pmbenjamin.vscode-snyk",
