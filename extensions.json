@@ -1188,6 +1188,10 @@
       "checkout": "v3.0.6"
     },
     {
+      "id": "ms-vscode.brackets-pack",
+      "repository": "https://github.com/microsoft/vscode-brackets-pack"
+    },
+    {
       "id": "ms-vscode.cmake-tools",
       "download": "https://github.com/microsoft/vscode-cmake-tools/releases/download/v1.7.3/cmake-tools.vsix",
       "version": "1.7.3"
