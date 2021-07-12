@@ -1210,6 +1210,10 @@
       "checkout": "v1.0.13"
     },
     {
+      "id": "ms-vscode.live-server",
+      "repository": "https://github.com/microsoft/vscode-livepreview"
+    },
+    {
       "id": "ms-vscode.makefile-tools",
       "download": "https://github.com/microsoft/vscode-makefile-tools/releases/download/v0.2.2/makefile-tools.vsix",
       "version": "0.2.2"
