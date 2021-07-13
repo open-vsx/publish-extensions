@@ -637,6 +637,10 @@
       "version": "1.1.0"
     },
     {
+      "id": "google-java-format",
+      "repository": "https://github.com/ilkka/vscode-google-java-format"
+    },
+    {
       "id": "GrapeCity.gc-excelviewer",
       "download": "https://github.com/jjuback/gc-excelviewer/releases/download/v3.0.42/gc-excelviewer-3.0.42.vsix",
       "version": "3.0.42"
