@@ -1651,6 +1651,12 @@
       "version": "2.0.0"
     },
     {
+      "id": "tonsky.theme-alabaster",
+      "repository": "https://github.com/tonsky/vscode-theme-alabaster",
+      "version": "0.2.9",
+      "checkout": "0.2.9"
+    },
+    {
       "id": "travis.simple-dark",
       "repository": "https://github.com/HondryTravis/simple-dark"
     },
