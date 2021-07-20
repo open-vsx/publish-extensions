@@ -1254,14 +1254,6 @@
       "repository": "https://github.com/Microsoft/vscode-sublime-keybindings"
     },
     {
-      "id": "ms-vscode.vscode-js-profile-core",
-      "repository": "https://github.com/microsoft/vscode-js-profile-visualizer",
-      "version": "0.0.21",
-      "checkout": "v0.0.21",
-      "prepublish": "npm run compile",
-      "location": "packages/vscode-js-profile-core"
-    },
-    {
       "id": "ms-vscode.vscode-js-profile-flame",
       "repository": "https://github.com/microsoft/vscode-js-profile-visualizer",
       "version": "0.0.21",
