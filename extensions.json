@@ -329,6 +329,10 @@
       "repository": "https://github.com/danielgjackson/vscode-auto-dark-mode-windows"
     },
     {
+      "id": "Dannark.AndroidLauncher",
+      "repository": "https://github.com/Dannark/Android-Launcher-for-VSCode"
+    },
+    {
       "id": "Dart-Code.dart-code",
       "download": "https://github.com/Dart-Code/Dart-Code/releases/download/v3.24.2/dart-code-3.24.2.vsix",
       "version": "3.24.2"
