@@ -17,6 +17,10 @@
       "repository": "https://github.com/adamhartford/vscode-base64"
     },
     {
+      "id": "adelphes.android-dev-ext",
+      "repository": "https://github.com/adelphes/android-dev-ext"
+    },
+    {
       "id": "adpyke.codesnap",
       "repository": "https://github.com/kufii/CodeSnap"
     },
