@@ -674,6 +674,10 @@
       "prepublish": "npm run concat"
     },
     {
+      "id": "HanWang.android-adb-wlan",
+      "repository": "https://github.com/deskbtm/android-adb-wlan"
+    },
+    {
       "id": "hashicorp.terraform",
       "download": "https://github.com/hashicorp/vscode-terraform/releases/download/v2.13.2/terraform-2.13.2.vsix",
       "version": "2.13.2"
