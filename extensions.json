@@ -18,7 +18,9 @@
     },
     {
       "id": "adelphes.android-dev-ext",
-      "repository": "https://github.com/adelphes/android-dev-ext"
+      "repository": "https://github.com/adelphes/android-dev-ext",
+      "version": "1.3.2",
+      "checkout": "v1.3.2"
     },
     {
       "id": "adpyke.codesnap",
