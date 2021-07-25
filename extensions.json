@@ -1442,6 +1442,10 @@
       "repository": "https://github.com/pbnj/vscode-snyk"
     },
     {
+      "id": "potigol.potigol-language",
+      "repository": "https://github.com/potigol/potigol-language"
+    },
+    {
       "id": "pucelle.vscode-css-navigation",
       "repository": "https://github.com/pucelle/vscode-css-navigation"
     },
