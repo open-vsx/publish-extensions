@@ -1801,7 +1801,8 @@
     },
     {
       "id": "vsls-contrib.codetour",
-      "repository": "https://github.com/vsls-contrib/codetour"
+      "repository": "https://github.com/vsls-contrib/codetour",
+      "web": true
     },
     {
       "id": "wayou.vscode-todo-highlight",
