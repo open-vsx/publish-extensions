@@ -1716,6 +1716,11 @@
       "repository": "https://github.com/yifu/highlight-trailing-whitespaces"
     },
     {
+      "id": "yzane.markdown-pdf",
+      "download": "https://github.com/yzane/vscode-markdown-pdf/releases/download/1.4.4/markdown-pdf-1.4.4.vsix",
+      "version": "1.4.4"
+    },
+    {
       "id": "yzhang.markdown-all-in-one",
       "repository": "https://github.com/yzhang-gh/vscode-markdown"
     },
