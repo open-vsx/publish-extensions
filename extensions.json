@@ -1894,6 +1894,10 @@
     {
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3"
+    },
+    {
+      "id": "fraser.live-coder",
+      "repository": "https://gitlab.com/Fraser-Greenlee/live-coder-vscode-extension"
     }
   ]
 }
