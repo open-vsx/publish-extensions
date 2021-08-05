@@ -1856,6 +1856,10 @@
       "checkout": "v1.8.0"
     },
     {
+      "id": "xirider.livecode",
+      "repository": "https://github.com/xirider/livecode"
+    },
+    {
       "id": "xxamxx.vscode-rubygems",
       "repository": "https://github.com/xxamxx/vscode-rubygems"
     },
