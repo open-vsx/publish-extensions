@@ -35,6 +35,7 @@ const dontUpgrade = [
   'eamodio.tsl-problem-matcher', // Latest release (0.0.4) was never published to https://github.com/eamodio/vscode-tsl-problem-matcher/releases
   'vscode-org-mode.org-mode', // https://github.com/vscode-org-mode/vscode-org-mode doesn't have releases or tags, so we've pinned the 1.0.0 commit
   'halcyontechltd.git-client-ibmi', // https://github.com/halcyon-tech/git-client-ibmi/pull/1 / https://github.com/eclipse/openvsx/pull/307
+  'amazonwebservices.aws-toolkit-vscode', // Latest release in https://github.com/aws/aws-toolkit-vscode/releases is an experimental pre-release, causing this script to fail with "Error: Open VSX already has a more recent version of amazonwebservices.aws-toolkit-vscode: 1.27.0 > 1.27.0-6c4644db65c7"
 ];
 
 (async () => {
