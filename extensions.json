@@ -261,6 +261,11 @@
       "version": "1.1.3"
     },
     {
+      "id": "cheshirekow.cmake-format",
+      "download": "https://github.com/cheshirekow/cmake_format/releases/download/pseudo-staging/cmake-format-0.6.13.vsix",
+      "version": "0.6.13"
+    },
+    {
       "id": "christian-kohler.npm-intellisense",
       "repository": "https://github.com/ChristianKohler/NpmIntellisense"
     },
