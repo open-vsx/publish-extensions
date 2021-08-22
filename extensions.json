@@ -739,6 +739,12 @@
       "version": "2.0.4"
     },
     {
+      "id": "ikappas.composer",
+      "repository": "https://github.com/ikappas/vscode-composer",
+      "version": "0.7.1",
+      "checkout": "0.7.1"
+    },
+    {
       "id": "ikappas.phpcs",
       "repository": "https://github.com/ikappas/vscode-phpcs",
       "version": "1.0.5",
