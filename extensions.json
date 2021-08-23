@@ -933,6 +933,10 @@
       "version": "0.6.6"
     },
     {
+      "id": "laradump.laradump",
+      "repository": "https://github.com/TheJenos/laradump-vscode"
+    },
+    {
       "id": "lextudio.restructuredtext",
       "repository": "https://github.com/vscode-restructuredtext/vscode-restructuredtext",
       "version": "147.0.0",
