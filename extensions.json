@@ -715,6 +715,7 @@
     {
       "id": "Hirse.vscode-ungit",
       "download": "https://github.com/Hirse/vscode-ungit/releases/download/v2.2.3/vscode-ungit-2.2.3.vsix",
+      "version": "2.2.3"
     },
     {
       "id": "hollowtree.vue-snippets",
