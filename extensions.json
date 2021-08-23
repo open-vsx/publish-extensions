@@ -1663,7 +1663,8 @@
     },
     {
       "id": "torn4dom4n.latex-support",
-      "repository": "https://github.com/AREA44/vscode-LaTeX-support"
+      "download": "https://github.com/AREA44/vscode-LaTeX-support/releases/download/v3.9.0/latex-support-3.9.0.vsix",
+      "version": "3.9.0"
     },
     {
       "id": "tonsky.theme-alabaster",
