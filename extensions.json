@@ -1190,6 +1190,11 @@
       "prepublish": "cd packages/vscode-pyright && npm run prepackage"
     },
     {
+      "id": "ms-python.devicesimulatorexpress",
+      "download": "https://github.com/microsoft/vscode-python-devicesimulator/releases/download/36321-staging/devicesimulatorexpress-2020.0.36321.vsix",
+      "version": "2020.0.36321"
+    },
+    {
       "id": "ms-python.python",
       "download": "https://github.com/microsoft/vscode-python/releases/download/2021.7.1060902895/ms-python-release.vsix",
       "version": "2021.7.1060902895"
