@@ -580,6 +580,11 @@
       "repository": "https://github.com/formulahendry/vscode-auto-complete-tag"
     },
     {
+      "id": "formulahendry.auto-rename-tag",
+      "download": "https://github.com/formulahendry/vscode-auto-rename-tag/releases/download/0.1.0/auto-rename-tag-0.1.0.vsix",
+      "version": "0.1.0"
+    },
+    {
       "id": "formulahendry.code-runner",
       "repository": "https://github.com/formulahendry/vscode-code-runner"
     },
