@@ -1294,6 +1294,10 @@
       "checkout": "v1.43.0"
     },
     {
+      "id": "ms-vscode.notepadplusplus-keybindings",
+      "repository": "https://github.com/microsoft/vscode-notepadplusplus-keybindings"
+    },
+    {
       "id": "ms-vscode.references-view",
       "repository": "https://github.com/microsoft/vscode-references-view",
       "version": "0.0.80",
