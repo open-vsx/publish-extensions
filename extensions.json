@@ -330,6 +330,10 @@
       "repository": "https://github.com/damonsk/vscode-wardley-maps"
     },
     {
+      "id": "dancermak.vscode-rke-cluster-config",
+      "repository": "https://github.com/dcermak/vscode-rke-cluster-config"
+    },
+    {
       "id": "danielgjackson.auto-dark-mode-windows",
       "repository": "https://github.com/danielgjackson/vscode-auto-dark-mode-windows"
     },
