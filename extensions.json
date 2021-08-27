@@ -1253,7 +1253,7 @@
     },
     {
       "id": "ms-vscode.hexeditor",
-      "repository": "https://github.com/microsoft/vscode-hexeditor",
+      "repository": "https://github.com/microsoft/vscode-hexeditor"
     },
     {
       "id": "ms-vscode.js-debug",
