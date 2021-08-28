@@ -101,6 +101,12 @@
       "version": "12.2.0"
     },
     {
+      "id": "anhthang.vscode-gitflow",
+      "repository": "https://github.com/anhthang/vscode-gitflow",
+      "version": "2.1.0",
+      "checkout": "2.1.0"
+    },
+    {
       "id": "anseki.vscode-color",
       "repository": "https://github.com/anseki/vscode-color",
       "version": "0.4.5",
