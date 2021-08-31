@@ -1339,6 +1339,10 @@
       "prepublish": "npm run compile"
     },
     {
+      "id": "ms-vscode.vscode-smoketest-check",
+      "repository": "https://github.com/microsoft/vscode-smoketest-check"
+    },
+    {
       "id": "msjsdiag.debugger-for-edge",
       "download": "https://github.com/Microsoft/vscode-edge-debug2/releases/download/v1.0.10/debugger-for-edge-1.0.10.vsix",
       "version": "1.0.10"
@@ -1704,15 +1708,15 @@
       "version": "2.0.0"
     },
     {
-      "id": "torn4dom4n.latex-support",
-      "download": "https://github.com/AREA44/vscode-LaTeX-support/releases/download/v3.9.0/latex-support-3.9.0.vsix",
-      "version": "3.9.0"
-    },
-    {
       "id": "tonsky.theme-alabaster",
       "repository": "https://github.com/tonsky/vscode-theme-alabaster",
       "version": "0.2.9",
       "checkout": "0.2.9"
+    },
+    {
+      "id": "torn4dom4n.latex-support",
+      "download": "https://github.com/AREA44/vscode-LaTeX-support/releases/download/v3.9.0/latex-support-3.9.0.vsix",
+      "version": "3.9.0"
     },
     {
       "id": "travis.simple-dark",
