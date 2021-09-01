@@ -23,7 +23,7 @@ Click the button below to start a [Gitpod](https://gitpod.io) workspace where yo
 
 ## Publishing Options
 
-The best way to add an extension here is to open this repository in Gitpod (using the blue button above) and to run this helper script:
+The best way to add an extension here is to open this repository in Gitpod (using the orange button above) and to run this helper script:
 
 ```bash
 node add-extension $REPOSITORY_URL --checkout
