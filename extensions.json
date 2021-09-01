@@ -117,8 +117,8 @@
     {
       "id": "arcanis.vscode-zipfs",
       "repository": "https://github.com/yarnpkg/berry",
-      "version": "2.3.1-rc.1",
-      "checkout": "@yarnpkg/parsers/2.3.1-rc.1",
+      "version": "2.3.0",
+      "checkout": "vscode-zipfs/2.3.0",
       "location": "packages/vscode-zipfs",
       "prepublish": "sed -ri \"s_ssh://git@github.com/yarnpkg/berry.git_https://github.com/yarnpkg/berry_g\" packages/vscode-zipfs/package.json"
     },
@@ -875,6 +875,8 @@
     {
       "id": "justusadam.language-haskell",
       "repository": "https://github.com/JustusAdam/language-haskell",
+      "version": "3.4.0",
+      "checkout": "v3.4.0",
       "prepublish": "npm i --save-dev @types/node@10 && make all"
     },
     {
@@ -1233,6 +1235,8 @@
     {
       "id": "ms-toolsai.jupyter",
       "repository": "https://github.com/microsoft/vscode-jupyter",
+      "version": "2021.8.12",
+      "checkout": "2021.8.12",
       "prepublish": "PIP_USER=no python3 -m pip --disable-pip-version-check install -t ./pythonFiles/lib/python --no-cache-dir --implementation py --no-deps --upgrade -r requirements.txt && npm run package",
       "extensionFile": "ms-toolsai-jupyter-insiders.vsix"
     },
@@ -1816,7 +1820,8 @@
     {
       "id": "vscodevim.vim",
       "download": "https://github.com/VSCodeVim/Vim/releases/download/v1.21.6/vim-1.21.6.vsix",
-      "version": "1.21.6"
+      "version": "1.21.6",
+      "web": true
     },
     {
       "id": "vshaxe.haxe-checkstyle",
