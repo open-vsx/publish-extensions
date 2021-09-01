@@ -1025,6 +1025,11 @@
       "repository": "https://github.com/prometheux-ar/cyberpunk"
     },
     {
+      "id": "maziac.asm-code-lens",
+      "download": "https://github.com/maziac/asm-code-lens/releases/download/v1.8.1/asm-code-lens-1.8.1.vsix",
+      "version": "1.8.1"
+    },
+    {
       "id": "medo64.render-crlf",
       "repository": "https://github.com/medo64/render-crlf",
       "version": "1.5.20",
