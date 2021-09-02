@@ -1554,6 +1554,12 @@
       "version": "0.7.8"
     },
     {
+      "id": "saltud.type4py",
+      "repository": "https://github.com/saltudelft/type4py-vscode-ext",
+      "version": "0.1.6",
+      "checkout": "v0.1.6"
+    },
+    {
       "id": "samuelcolvin.jinjahtml",
       "repository": "https://github.com/samuelcolvin/jinjahtml-vscode"
     },
