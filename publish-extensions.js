@@ -21,6 +21,10 @@ const cp = require('child_process');
   const failed = [];
 
   for (const extension of extensions) {
+    let timeoutDelay = 5;
+    if (typeof extension.timeout === 'number') {
+      timeoutDelay = extension.timeout;
+    }
     try {
       let timeout;
       await new Promise((resolve, reject) => {
@@ -35,8 +39,8 @@ const cp = require('child_process');
           try {
             p.kill('SIGKILL');
           } catch { }
-          reject(new Error('timeout after 5 mins'));
-        }, 5 * 60 * 1000);
+          reject(new Error(`timeout after ${timeoutDelay} mins`));
+        }, timeoutDelay * 60 * 1000);
       });
       if (timeout !== undefined) {
         clearTimeout(timeout);
