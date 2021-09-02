@@ -1352,7 +1352,8 @@
     },
     {
       "id": "ms-vscode.vscode-smoketest-check",
-      "repository": "https://github.com/microsoft/vscode-smoketest-check"
+      "repository": "https://github.com/microsoft/vscode-smoketest-check",
+      "web": true
     },
     {
       "id": "msjsdiag.debugger-for-edge",
