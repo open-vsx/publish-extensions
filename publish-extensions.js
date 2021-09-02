@@ -18,6 +18,8 @@ const cp = require('child_process');
   // Also install extensions' devDependencies when using `npm install` or `yarn install`.
   process.env.NODE_ENV = 'development';
 
+  const failed = [];
+
   for (const extension of extensions) {
     try {
       let timeout;
@@ -40,9 +42,11 @@ const cp = require('child_process');
         clearTimeout(timeout);
       }
     } catch (error) {
+      failed.push(extension.id);
       console.error(`[FAIL] Could not process extension: ${JSON.stringify(extension, null, 2)}`);
       console.error(error);
-      process.exitCode = -1;
     }
   }
+
+  await fs.promises.writeFile("/tmp/failed-extensions.log", failed.join(', '), { encoding: 'utf8' });
 })();
