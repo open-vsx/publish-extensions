@@ -21,9 +21,9 @@ const cp = require('child_process');
   const failed = [];
 
   for (const extension of extensions) {
-    let timeoutDelay = 5;
-    if (typeof extension.timeout === 'number') {
-      timeoutDelay = extension.timeout;
+    let timeoutDelay = Number(extension.timeout);
+    if (!Number.isInteger(timeoutDelay)) {
+      timeoutDelay = 5;
     }
     try {
       let timeout;

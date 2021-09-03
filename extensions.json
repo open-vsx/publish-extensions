@@ -1250,7 +1250,7 @@
       "checkout": "2021.8.12",
       "prepublish": "PIP_USER=no python3 -m pip --disable-pip-version-check install -t ./pythonFiles/lib/python --no-cache-dir --implementation py --no-deps --upgrade -r requirements.txt && npm run package",
       "extensionFile": "ms-toolsai-jupyter-insiders.vsix",
-      "timeout": "30"
+      "timeout": 30
     },
     {
       "id": "ms-vscode.atom-keybindings",
