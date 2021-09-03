@@ -4,6 +4,7 @@ on:
   schedule:
     # Run at 03:03 UTC every day.
     - cron:  '3 3 * * *'
+  workflow_dispatch:
 
 jobs:
   publish_extensions:

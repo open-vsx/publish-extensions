@@ -13,6 +13,13 @@ const fs = require('fs');
 const cp = require('child_process');
 
 (async () => {
+  /**
+   * @type {string[] | undefined}
+   */
+  let toVerify = undefined;
+  if (process.env.FAILED_EXTENSIONS) {
+    toVerify = process.env.FAILED_EXTENSIONS.split(', ')
+  }
   const { extensions } = JSON.parse(await fs.promises.readFile('./extensions.json', 'utf-8'));
 
   // Also install extensions' devDependencies when using `npm install` or `yarn install`.
@@ -21,8 +28,11 @@ const cp = require('child_process');
   const failed = [];
 
   for (const extension of extensions) {
+    if (toVerify && toVerify.indexOf(extension.id) === -1) {
+      continue;
+    }
     let timeoutDelay = Number(extension.timeout);
-    if (!Number.isInteger(timeoutDelay)) {
+    if (!Number.isInteger(timeoutDelay)) {
       timeoutDelay = 5;
     }
     try {
