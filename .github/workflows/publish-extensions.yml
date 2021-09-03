@@ -8,8 +8,8 @@ on:
 
 jobs:
   publish_extensions:
-    env:
-      FAILED_EXTENSIONS: justusadam.language-haskell, ms-toolsai.jupyter
+    # env:
+    #  FAILED_EXTENSIONS: justusadam.language-haskell, ms-toolsai.jupyter
     name: node publish-extensions
     runs-on: ubuntu-latest
     steps:
