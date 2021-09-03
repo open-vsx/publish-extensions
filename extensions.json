@@ -883,7 +883,8 @@
       "repository": "https://github.com/JustusAdam/language-haskell",
       "version": "3.4.0",
       "checkout": "v3.4.0",
-      "prepublish": "npm i --save-dev @types/node@10 && make all"
+      "prepublish": "npm i --save-dev @types/node@10 && make all",
+      "timeout": 15
     },
     {
       "id": "k--kato.docomment",
