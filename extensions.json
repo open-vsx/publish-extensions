@@ -1515,8 +1515,10 @@
     },
     {
       "id": "rebornix.ruby",
-      "download": "https://github.com/rubyide/vscode-ruby/releases/download/v0.28.0/ruby-0.28.0.vsix",
-      "version": "0.28.0"
+      "repository": "https://github.com/rubyide/vscode-ruby",
+      "version": "0.28.1",
+      "checkout": "v0.28.1",
+      "location": "packages/vscode-ruby-client"
     },
     {
       "id": "reduckted.vscode-gitweblinks",
@@ -1886,8 +1888,8 @@
     {
       "id": "wingrunr21.vscode-ruby",
       "repository": "https://github.com/rubyide/vscode-ruby",
-      "version": "0.28.0",
-      "checkout": "v0.28.0",
+      "version": "0.28.1",
+      "checkout": "v0.28.1",
       "location": "packages/vscode-ruby"
     },
     {
