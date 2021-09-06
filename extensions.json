@@ -720,6 +720,10 @@
       "prepublish": "npm run build"
     },
     {
+      "id": "heybourn.headwind",
+      "repository": "https://github.com/heybourn/headwind"
+    },
+    {
       "id": "higoka.php-cs-fixer",
       "repository": "https://github.com/higoka/php-cs-fixer",
       "version": "1.2.7",
