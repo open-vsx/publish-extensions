@@ -44,7 +44,12 @@ const cp = require('child_process');
           env: process.env
         })
         p.on('error', reject);
-        p.on('close', resolve);
+        p.on('exit', code => {
+          if (code) {
+            return reject(new Error('failed with exit status: ' + code));
+          }
+          resolve();
+        });
         timeout = setTimeout(() => {
           try {
             p.kill('SIGKILL');

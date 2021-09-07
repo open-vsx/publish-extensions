@@ -5,11 +5,16 @@ on:
     # Run at 03:03 UTC every day.
     - cron:  '3 3 * * *'
   workflow_dispatch:
+    inputs:
+      failedExtensions:
+        description: "Comma separated list of failed extensions to retry"
+        required: false
+        default: ""
 
 jobs:
   publish_extensions:
-    # env:
-    #  FAILED_EXTENSIONS: justusadam.language-haskell, ms-toolsai.jupyter
+    env:
+      FAILED_EXTENSIONS: ${{ github.event.inputs.failedExtensions }}
     name: node publish-extensions
     runs-on: ubuntu-latest
     steps:
