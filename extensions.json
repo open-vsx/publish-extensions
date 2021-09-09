@@ -69,6 +69,11 @@
       "prepublish": "cd gclient && npm install"
     },
     {
+      "id": "alexkrechik.cucumberautocomplete",
+      "repository": "https://github.com/alexkrechik/VSCucumberAutoComplete",
+      "location": "gclient"
+    },
+    {
       "id": "aliariff.vscode-erb-beautify",
       "repository": "https://github.com/aliariff/vscode-erb-beautify",
       "version": "0.2.0",
