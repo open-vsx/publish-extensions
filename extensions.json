@@ -1249,7 +1249,7 @@
       "repository": "https://github.com/microsoft/vscode-jupyter",
       "version": "2021.8.12",
       "checkout": "2021.8.12",
-      "prepublish": "PIP_USER=no python3 -m pip --disable-pip-version-check install -t ./pythonFiles/lib/python --no-cache-dir --implementation py --no-deps --upgrade -r requirements.txt && npm run package",
+      "prepublish": "PIP_USER=no python3 -m pip --disable-pip-version-check install -t ./pythonFiles/lib/python --no-cache-dir --implementation py --no-deps --upgrade -r requirements.txt && yarn run package --yarn",
       "extensionFile": "ms-toolsai-jupyter-insiders.vsix",
       "timeout": 30
     },
