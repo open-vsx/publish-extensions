@@ -28,7 +28,6 @@ const exec = require('./lib/exec');
      *        prepublish?: string,
      *        download?: string,
      *        extensionFile?: string
-     *        web?: boolean
      *    }}
      */
     const extension = JSON.parse(process.argv[2]);
@@ -100,9 +99,7 @@ const exec = require('./lib/exec');
             // Publish the extension.
             /** @type {import('ovsx').PublishOptions} */
             const options = { extensionFile: '/tmp/download/extension.vsix' };
-            options.web = extension.web;
             await ovsx.publish(options);
-
         } else {
             // Clone and set up the repository.
             await exec(`git clone --recurse-submodules ${extension.repository} /tmp/repository`);
@@ -131,9 +128,7 @@ const exec = require('./lib/exec');
             if (yarn) {
                 options.yarn = true;
             }
-            options.web = extension.web;
             await ovsx.publish(options);
-
         }
         console.log(`[OK] Successfully published ${id} to Open VSX!`)
     } catch (error) {
