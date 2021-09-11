@@ -1353,8 +1353,7 @@
     },
     {
       "id": "ms-vscode.vscode-smoketest-check",
-      "repository": "https://github.com/microsoft/vscode-smoketest-check",
-      "web": true
+      "repository": "https://github.com/microsoft/vscode-smoketest-check"
     },
     {
       "id": "msjsdiag.debugger-for-edge",
@@ -1844,8 +1843,7 @@
     {
       "id": "vscodevim.vim",
       "download": "https://github.com/VSCodeVim/Vim/releases/download/v1.21.6/vim-1.21.6.vsix",
-      "version": "1.21.6",
-      "web": true
+      "version": "1.21.6"
     },
     {
       "id": "vshaxe.haxe-checkstyle",
@@ -1872,8 +1870,7 @@
     },
     {
       "id": "vsls-contrib.codetour",
-      "repository": "https://github.com/vsls-contrib/codetour",
-      "web": true
+      "repository": "https://github.com/vsls-contrib/codetour"
     },
     {
       "id": "wayou.vscode-todo-highlight",
