@@ -137,9 +137,14 @@ const exec = require('./lib/exec');
         }
         console.log(`[OK] Successfully published ${id} to Open VSX!`)
     } catch (error) {
-        console.error(`[FAIL] Could not process extension: ${JSON.stringify(extension, null, 2)}`);
-        console.error(error);
-        process.exitCode = -1;
+        if (error && String(error).indexOf('is already published.') != -1) {
+            console.log(`Could not process extension -- assuming that it already exists`);
+            console.log(error);
+        } else {
+            console.error(`[FAIL] Could not process extension: ${JSON.stringify(extension, null, 2)}`);
+            console.error(error);
+            process.exitCode = -1;
+        }
     } finally {
         await exec('rm -rf /tmp/repository /tmp/download');
     }
