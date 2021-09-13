@@ -864,6 +864,10 @@
       "repository": "https://github.com/johnpapa/vscode-winteriscoming"
     },
     {
+      "id": "johnsoncodehk.volar",
+      "repository": "https://github.com/johnsoncodehk/volar"
+    },
+    {
       "id": "jolaleye.horizon-theme-vscode",
       "repository": "https://github.com/jolaleye/horizon-theme-vscode",
       "version": "2.0.2",
