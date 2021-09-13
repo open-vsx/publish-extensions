@@ -661,6 +661,10 @@
       "version": "0.29.2"
     },
     {
+      "id": "goessner.mdmath",
+      "repository": "https://github.com/goessner/mdmath"
+    },
+    {
       "id": "golang.go",
       "download": "https://github.com/golang/vscode-go/releases/download/v0.27.1/go-0.27.1.vsix",
       "version": "0.27.1"
