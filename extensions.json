@@ -1888,6 +1888,10 @@
       "repository": "https://github.com/vsls-contrib/codetour"
     },
     {
+      "id": "vsls-contrib.gitdoc",
+      "repository": "https://github.com/lostintangent/gitdoc"
+    },
+    {
       "id": "wayou.vscode-todo-highlight",
       "repository": "https://github.com/wayou/vscode-todo-highlight"
     },
