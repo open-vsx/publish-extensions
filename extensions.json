@@ -700,6 +700,12 @@
       "checkout": "0.0.4"
     },
     {
+      "id": "halcyontechltd.vscode-ibmi-walkthroughs",
+      "repository": "https://github.com/halcyon-tech/vscode-ibmi-walkthroughs",
+      "version": "0.0.6",
+      "checkout": "0.0.6"
+    },
+    {
       "id": "HansUXdev.bootstrap5-snippets",
       "repository": "https://github.com/HansUXdev/B5-Snippets",
       "prepublish": "npm run concat"
