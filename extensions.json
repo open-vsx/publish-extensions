@@ -314,11 +314,6 @@
       "repository": "https://github.com/cschleiden/vscode-github-actions"
     },
     {
-      "id": "cschlosser.doxdocgen",
-      "download": "https://github.com/cschlosser/doxdocgen/releases/download/1.3.2/doxdocgen-1.3.2.vsix",
-      "version": "1.3.2"
-    },
-    {
       "id": "csstools.postcss",
       "repository": "https://github.com/csstools/postcss-language"
     },
