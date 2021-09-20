@@ -867,6 +867,22 @@
       "repository": "https://github.com/johnpapa/vscode-winteriscoming"
     },
     {
+      "id": "johnsoncodehk.volar",
+      "repository": "https://github.com/johnsoncodehk/volar",
+      "version": "0.27.23",
+      "checkout": "v0.27.23",
+      "prepublish": "yarn compile",
+      "location": "extensions/vscode-vue-language-features"
+    },
+    {
+      "id": "johnsoncodehk.vscode-typescript-vue-plugin",
+      "repository": "https://github.com/johnsoncodehk/volar",
+      "version": "0.27.23",
+      "checkout": "v0.27.23",
+      "prepublish": "yarn compile",
+      "location": "extensions/vscode-typescript-vue-plugin"
+    },
+    {
       "id": "jolaleye.horizon-theme-vscode",
       "repository": "https://github.com/jolaleye/horizon-theme-vscode",
       "version": "2.0.2",
