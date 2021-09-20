@@ -30,7 +30,6 @@ const dontUpgrade = [
   'mtxr.sqltools', // https://github.com/open-vsx/publish-extensions/pull/290#discussion_r576067381
   'lextudio.restructuredtext', // https://github.com/open-vsx/publish-extensions/pull/317#discussion_r598852958
   'haskell.haskell', // https://github.com/open-vsx/publish-extensions/pull/317#discussion_r598852655
-  'dbaeumer.vscode-eslint', // https://github.com/microsoft/vscode-eslint/releases/ currently has only Insider releases
   'miguelsolorio.fluent-icons', // Latest release (0.0.1) is way behind latest tag (0.0.7)
   'eamodio.tsl-problem-matcher', // Latest release (0.0.4) was never published to https://github.com/eamodio/vscode-tsl-problem-matcher/releases
   'vscode-org-mode.org-mode', // https://github.com/vscode-org-mode/vscode-org-mode doesn't have releases or tags, so we've pinned the 1.0.0 commit
