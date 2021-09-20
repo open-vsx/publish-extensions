@@ -239,14 +239,6 @@
       "checkout": "2.1.0"
     },
     {
-      "id": "bung87.rails",
-      "repository": "https://github.com/bung87/vscode-rails"
-    },
-    {
-      "id": "bung87.vscode-gemfile",
-      "repository": "https://github.com/bung87/vscode-gemfile"
-    },
-    {
       "id": "bungcip.better-toml",
       "repository": "https://github.com/bungcip/better-toml",
       "version": "0.3.2",
