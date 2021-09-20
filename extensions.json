@@ -118,7 +118,7 @@
       "id": "arcanis.vscode-zipfs",
       "repository": "https://github.com/yarnpkg/berry",
       "version": "2.4.0-rc.2",
-      "checkout": "@yarnpkg/parsers/2.4.0-rc.2",
+      "checkout": "vscode-zipfs/2.4.0-rc.2",
       "location": "packages/vscode-zipfs",
       "prepublish": "sed -ri \"s_ssh://git@github.com/yarnpkg/berry.git_https://github.com/yarnpkg/berry_g\" packages/vscode-zipfs/package.json"
     },
@@ -1003,8 +1003,8 @@
     },
     {
       "id": "marus25.cortex-debug",
-      "download": "https://github.com/Marus/cortex-debug/releases/download/V0.4.5-pre1/cortex-debug-0.4.5-pre1.vsix",
-      "version": "0.4.5-pre1"
+      "download": "https://github.com/Marus/cortex-debug/releases/download/V0.4.4/cortex-debug-0.4.4.vsix",
+      "version": "0.4.4"
     },
     {
       "id": "mathiasfrohlich.Kotlin",
@@ -1507,7 +1507,9 @@
     {
       "id": "rebornix.ruby",
       "download": "https://github.com/rubyide/vscode-ruby/releases/download/v0.28.0/ruby-0.28.0.vsix",
-      "version": "0.28.0"
+      "version": "0.28.1",
+      "checkout": "v0.28.1",
+      "location": "packages/vscode-ruby-client"
     },
     {
       "id": "reduckted.vscode-gitweblinks",
