@@ -368,8 +368,8 @@
     },
     {
       "id": "dbaeumer.vscode-eslint",
-      "download": "https://github.com/microsoft/vscode-eslint/releases/download/release%2F2.1.8/dbaeumer.vscode-eslint-2.1.8.vsix",
-      "version": "2.1.8"
+      "download": "https://github.com/microsoft/vscode-eslint/releases/download/insider%2F2.1.20/vscode-eslint-2.1.20.vsix",
+      "version": "2.1.20"
     },
     {
       "id": "dcasella.monokai-plusplus",
