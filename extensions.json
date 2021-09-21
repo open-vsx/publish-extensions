@@ -1712,11 +1712,6 @@
       "repository": "https://github.com/ziglang/vscode-zig"
     },
     {
-      "id": "timonwong.shellcheck",
-      "download": "https://github.com/timonwong/vscode-shellcheck/releases/download/v0.16.2/shellcheck-0.16.2.vsix",
-      "version": "0.16.2"
-    },
-    {
       "id": "Tobiah.unity-tools",
       "repository": "https://github.com/TobiahZ/unity-tools",
       "version": "1.2.12",
