@@ -718,6 +718,10 @@
       "prepublish": "npm run build"
     },
     {
+      "id": "heptio.jsonnet",
+      "repository": "https://github.com/heptio/vscode-jsonnet"
+    },
+    {
       "id": "heybourn.headwind",
       "repository": "https://github.com/heybourn/headwind"
     },
