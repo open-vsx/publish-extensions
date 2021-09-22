@@ -1978,6 +1978,11 @@
     {
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3"
+    },
+    {
+      "id": "ms-vscode.Theme-TomorrowKit",
+      "repository": "https://github.com/microsoft/vscode-themes/",
+      "location": "tomorrow"
     }
   ]
 }
