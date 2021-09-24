@@ -1983,6 +1983,10 @@
       "id": "ms-vscode.Theme-TomorrowKit",
       "repository": "https://github.com/microsoft/vscode-themes/",
       "location": "tomorrow"
+    },
+    {
+      "id": "slevesque.vscode-3dviewer",
+      "repository": "https://github.com/stef-levesque/vscode-3dviewer"
     }
   ]
 }
