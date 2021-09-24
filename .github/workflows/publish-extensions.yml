@@ -18,6 +18,13 @@ jobs:
     name: node publish-extensions
     runs-on: ubuntu-latest
     steps:
+    # rebornix.ruby 0.28.1 requires emcc 2.0.0
+    - run: |
+        git clone https://github.com/emscripten-core/emsdk /tmp/emsdk
+        cd /tmp/emsdk
+        ./emsdk install 2.0.0
+        ./emsdk activate 2.0.0 --global
+        echo "/tmp/emsdk/upstream/emscripten" >> $GITHUB_PATH
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
       with:
