@@ -1258,14 +1258,15 @@
     },
     {
       "id": "ms-python.python",
-      "download": "https://github.com/microsoft/vscode-python/releases/download/2021.9.1230869389/ms-python-release.vsix",
-      "version": "2021.9.1230869389"
+      "download": "https://github.com/microsoft/vscode-python/releases/download/2021.9.1246542782/ms-python-release.vsix",
+      "version": "2021.9.1246542782"
     },
     {
       "id": "ms-toolsai.jupyter",
       "repository": "https://github.com/microsoft/vscode-jupyter",
       "prepublish": "PIP_USER=no python3 -m pip --disable-pip-version-check install -t ./pythonFiles/lib/python --no-cache-dir --implementation py --no-deps --upgrade -r requirements.txt && yarn run package --yarn",
-      "extensionFile": "ms-toolsai-jupyter-insiders.vsix"
+      "extensionFile": "ms-toolsai-jupyter-insiders.vsix",
+      "timeout": 30
     },
     {
       "id": "ms-vscode.atom-keybindings",
