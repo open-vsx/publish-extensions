@@ -1760,6 +1760,11 @@
       "repository": "https://github.com/HondryTravis/simple-dark"
     },
     {
+      "id": "trond-snekvik.simple-rst",
+      "download": "https://github.com/trond-snekvik/vscode-rst/releases/download/v1.5.0/simple-rst-1.5.0.vsix",
+      "version": "1.5.0"
+    },
+    {
       "id": "tuxtina.json2yaml",
       "download": "https://github.com/tuxtina/json2yaml/releases/download/v0.2.0/json2yaml-0.2.0.vsix",
       "version": "0.2.0"
