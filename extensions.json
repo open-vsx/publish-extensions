@@ -607,6 +607,11 @@
       "repository": "https://gitlab.com/Fraser-Greenlee/live-coder-vscode-extension"
     },
     {
+      "id": "fredericbonnet.cmake-test-adapter",
+      "download": "https://github.com/fredericbonnet/cmake-test-explorer/releases/download/v0.14.1/cmake-test-adapter-0.14.1.vsix",
+      "version": "0.14.1"
+    },
+    {
       "id": "fterrag.vscode-php-cs-fixer",
       "repository": "https://github.com/fterrag/vscode-php-cs-fixer"
     },
