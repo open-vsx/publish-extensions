@@ -1641,6 +1641,10 @@
       "repository": "https://github.com/shd101wyy/vscode-markdown-preview-enhanced"
     },
     {
+      "id": "sheaf.groovy-lambda",
+      "repository": "https://github.com/sheaf/groovy-lambda"
+    },
+    {
       "id": "shinichi-takii.sql-bigquery",
       "repository": "https://github.com/shinichi-takii/vscode-language-sql-bigquery",
       "version": "1.9.0",
