@@ -677,20 +677,20 @@
     {
       "id": "halcyontechltd.code-for-ibmi",
       "repository": "https://github.com/halcyon-tech/code-for-ibmi",
-      "version": "0.7.7",
-      "checkout": "0.7.7"
+      "version": "0.7.11",
+      "checkout": "0.7.11"
     },
     {
       "id": "halcyontechltd.git-client-ibmi",
       "repository": "https://github.com/halcyon-tech/git-client-ibmi",
-      "version": "0.0.4",
-      "checkout": "0.0.4"
+      "version": "0.0.6",
+      "checkout": "0.0.6"
     },
     {
       "id": "halcyontechltd.vscode-ibmi-walkthroughs",
       "repository": "https://github.com/halcyon-tech/vscode-ibmi-walkthroughs",
-      "version": "0.0.6",
-      "checkout": "0.0.6"
+      "version": "0.0.7",
+      "checkout": "0.0.7"
     },
     {
       "id": "HansUXdev.bootstrap5-snippets",
