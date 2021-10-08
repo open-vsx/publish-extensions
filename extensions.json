@@ -1112,11 +1112,6 @@
       "repository": "https://github.com/mickeypearce/oradew-vscode"
     },
     {
-      "id": "mpotthoff.vscode-android-webview-debug",
-      "download": "https://github.com/mpotthoff/vscode-android-webview-debug/releases/download/v1.2.0/vscode-android-webview-debug-1.2.0.vsix",
-      "version": "1.2.0"
-    },
-    {
       "id": "mpty.pack-arduino",
       "repository": "https://github.com/mpty-ltd/vscode-pack-arduino",
       "version": "0.1.0",
