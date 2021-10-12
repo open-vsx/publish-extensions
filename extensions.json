@@ -1715,6 +1715,11 @@
       "repository": "https://github.com/ayu-theme/vscode-ayu"
     },
     {
+      "id": "Telerik.nativescript",
+      "download": "https://github.com/NativeScript/nativescript-vscode-extension/releases/download/v0.11.0/nativescript.vsix",
+      "version": "0.11.0"
+    },
+    {
       "id": "tiehuis.zig",
       "repository": "https://github.com/ziglang/vscode-zig"
     },
