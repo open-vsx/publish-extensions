@@ -607,6 +607,11 @@
       "repository": "https://gitlab.com/Fraser-Greenlee/live-coder-vscode-extension"
     },
     {
+      "id": "fredericbonnet.cmake-test-adapter",
+      "download": "https://github.com/fredericbonnet/cmake-test-explorer/releases/download/v0.14.1/cmake-test-adapter-0.14.1.vsix",
+      "version": "0.14.1"
+    },
+    {
       "id": "fterrag.vscode-php-cs-fixer",
       "repository": "https://github.com/fterrag/vscode-php-cs-fixer"
     },
@@ -1027,6 +1032,11 @@
       "id": "marus25.cortex-debug",
       "download": "https://github.com/Marus/cortex-debug/releases/download/V0.4.7/cortex-debug-0.4.7.vsix",
       "version": "0.4.7"
+    },
+    {
+      "id": "matepek.vscode-catch2-test-adapter",
+      "download": "https://github.com/matepek/vscode-catch2-test-adapter/releases/download/v3.6.31/matepek-vscode-catch2-test-adapter-3.6.31.vsix",
+      "version": "3.6.31"
     },
     {
       "id": "matepek.vscode-catch2-test-adapter",
