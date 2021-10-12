@@ -13,3 +13,9 @@ jobs:
         node-version: '14.x'
     - run: npm install
     - run: node validate-extensions
+    - name: Slack Notification
+      if: always()
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_WEBHOOK: ${{ secrets.GITPOD_SLACK_WEBHOOK }}
+        SLACK_COLOR: ${{ job.status }}
