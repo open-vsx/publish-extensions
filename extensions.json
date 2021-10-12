@@ -1029,6 +1029,11 @@
       "version": "0.4.7"
     },
     {
+      "id": "matepek.vscode-catch2-test-adapter",
+      "download": "https://github.com/matepek/vscode-catch2-test-adapter/releases/download/v3.6.31/matepek-vscode-catch2-test-adapter-3.6.31.vsix",
+      "version": "3.6.31"
+    },
+    {
       "id": "mathiasfrohlich.Kotlin",
       "download": "https://github.com/mathiasfrohlich/vscode-kotlin/releases/download/1.7.1/Kotlin-1.7.1.vsix",
       "version": "1.7.1"
