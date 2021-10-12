@@ -688,8 +688,8 @@
     {
       "id": "halcyontechltd.git-client-ibmi",
       "repository": "https://github.com/halcyon-tech/git-client-ibmi",
-      "version": "0.0.4",
-      "checkout": "0.0.4"
+      "version": "0.0.6",
+      "checkout": "0.0.6"
     },
     {
       "id": "halcyontechltd.vscode-ibmi-walkthroughs",
