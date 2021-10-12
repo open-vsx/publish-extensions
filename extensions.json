@@ -69,11 +69,6 @@
       "prepublish": "cd gclient && npm install"
     },
     {
-      "id": "alexkrechik.cucumberautocomplete",
-      "repository": "https://github.com/alexkrechik/VSCucumberAutoComplete",
-      "location": "gclient"
-    },
-    {
       "id": "aliariff.vscode-erb-beautify",
       "repository": "https://github.com/aliariff/vscode-erb-beautify",
       "version": "0.3.5",
@@ -1032,16 +1027,6 @@
       "id": "marus25.cortex-debug",
       "download": "https://github.com/Marus/cortex-debug/releases/download/V0.4.7/cortex-debug-0.4.7.vsix",
       "version": "0.4.7"
-    },
-    {
-      "id": "matepek.vscode-catch2-test-adapter",
-      "download": "https://github.com/matepek/vscode-catch2-test-adapter/releases/download/v3.6.31/matepek-vscode-catch2-test-adapter-3.6.31.vsix",
-      "version": "3.6.31"
-    },
-    {
-      "id": "matepek.vscode-catch2-test-adapter",
-      "download": "https://github.com/matepek/vscode-catch2-test-adapter/releases/download/v3.6.31/matepek-vscode-catch2-test-adapter-3.6.31.vsix",
-      "version": "3.6.31"
     },
     {
       "id": "matepek.vscode-catch2-test-adapter",
