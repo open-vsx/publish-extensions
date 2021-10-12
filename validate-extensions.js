@@ -36,6 +36,10 @@ const readFile = util.promisify(fs.readFile);
         console.error("[ERROR] Found entry without id: " + JSON.stringify(extension));
         process.exit(1);
       }
+      if(extensions.filter((e) => e.id === extension.id).length > 1) {
+        console.error(`[ERROR] Extension ${extension.id} has duplicate entries.`);
+        process.exit(1);
+      }
       if (extension.download) {
         if (extension.repository) {
           console.warn('[WARN] Ignoring `repository` property because `download` was given.')
