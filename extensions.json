@@ -1267,6 +1267,9 @@
   "xabikos.JavaScriptSnippets": {
     "repository": "https://github.com/xabikos/vscode-javascript"
   },
+  "xaver.clang-format": {
+    "repository": "https://github.com/xaverh/vscode-clang-format-provider"
+  },
   "xirider.livecode": {
     "repository": "https://github.com/xirider/livecode"
   },
