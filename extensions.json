@@ -1981,6 +1981,10 @@
     {
       "id": "zxh404.vscode-proto3",
       "repository": "https://github.com/zxh0/vscode-proto3"
+    },
+    {
+      "id": "slevesque.vscode-3dviewer",
+      "repository": "https://github.com/stef-levesque/vscode-3dviewer"
     }
   ]
 }
