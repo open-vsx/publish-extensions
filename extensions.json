@@ -169,8 +169,8 @@
     },
     {
       "id": "barrettotte.ibmi-languages",
-      "download": "https://github.com/barrettotte/vscode-ibmi-languages/releases/download/v0.5.5/ibmi-languages-0.5.5.vsix",
-      "version": "0.5.5"
+      "repository": "https://github.com/barrettotte/vscode-ibmi-languages",
+      "version": "0.6.0"
     },
     {
       "id": "batisteo.vscode-django",
