@@ -1682,6 +1682,11 @@
       "version": "0.4.2"
     },
     {
+      "id": "sodatea.velocity",
+      "download": "https://github.com/trilogy-group/vscode-velocity/releases/download/v0.2.0/sodatea.velocity-0.2.0.vsix",
+      "version": "0.2.0"
+    },
+    {
       "id": "SonarSource.sonarlint-vscode",
       "download": "https://github.com/SonarSource/sonarlint-vscode/releases/download/3.0.0%2B37760/sonarlint-vscode-3.0.0.vsix",
       "version": "3.0.0"
