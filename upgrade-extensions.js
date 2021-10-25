@@ -11,6 +11,7 @@
 // @ts-check
 const fs = require('fs');
 const util = require('util');
+const minimist = require('minimist');
 const exec = require('./lib/exec');
 const gitHubScraper = require('./lib/github-scraper');
 const readFile = util.promisify(fs.readFile);
@@ -54,8 +55,9 @@ const dontUpgrade = [
    * }}
    */
   const { extensions } = JSON.parse(await readFile('./extensions.json', 'utf-8'));
-  const extensionRepositoriesToUpgrade = extensions.filter(e => !dontUpgrade.includes(e.id) && !!e.version && !e.download);
-  const extensionDownloadsToUpgrade = extensions.filter(e => !dontUpgrade.includes(e.id) && /https:\/\/github.com\/.*\/releases\/download\//.test(e.download));
+  const cliCommandFlags = minimist(process.argv.slice(2));
+  const extensionRepositoriesToUpgrade = extensions.filter(e => (!cliCommandFlags.extension || e.id.includes(cliCommandFlags.extension)) && !dontUpgrade.includes(e.id) && !!e.version && !e.download);
+  const extensionDownloadsToUpgrade = extensions.filter(e => (!cliCommandFlags.extension || e.id.includes(cliCommandFlags.extension)) && !dontUpgrade.includes(e.id) && /https:\/\/github.com\/.*\/releases\/download\//.test(e.download));
   const extensionsToNotUpgrade = extensions.filter(e => !extensionRepositoriesToUpgrade.concat(extensionDownloadsToUpgrade).map(e => e.id).includes(e.id));
 
   fs.renameSync('./extensions.json', './extensions.json.old');
