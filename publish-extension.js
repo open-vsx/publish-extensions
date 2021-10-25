@@ -128,6 +128,14 @@ const exec = require('./lib/exec');
             if (yarn) {
                 options.yarn = true;
             }
+
+            const { version }  = require('/tmp/repository/package.json');
+
+            // If the version in the branch is not the same as given in the extensions.json
+            if (semver.neq(version, extension.version)) {
+                throw new Error(`The version: ${version} found in the downloaded package.json is not the same as found in ${extension.version}`);
+            }
+
             await ovsx.publish(options);
         }
         console.log(`[OK] Successfully published ${id} to Open VSX!`)
