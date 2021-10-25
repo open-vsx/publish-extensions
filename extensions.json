@@ -170,7 +170,7 @@
     {
       "id": "barrettotte.ibmi-languages",
       "repository": "https://github.com/barrettotte/vscode-ibmi-languages",
-      "version": "0.6.0"
+      "version": "0.6.2"
     },
     {
       "id": "batisteo.vscode-django",
