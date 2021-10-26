@@ -1021,8 +1021,8 @@
     },
     {
       "id": "marus25.cortex-debug",
-      "download": "https://github.com/Marus/cortex-debug/releases/download/V0.4.8.pre3/cortex-debug-0.4.8-pre3.vsix",
-      "version": "0.4.8-pre3"
+      "download": "https://github.com/Marus/cortex-debug/releases/download/V0.4.7/cortex-debug-0.4.7.vsix",
+      "version": "0.4.7"
     },
     {
       "id": "matepek.vscode-catch2-test-adapter",
