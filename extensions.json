@@ -1472,6 +1472,10 @@
       "repository": "https://github.com/paragdiwan/vscode-git-patch"
     },
     {
+      "id": "PascalReitermann93.vscode-yaml-sort",
+      "repository": "https://github.com/pascalre/vscode-yaml-sort"
+    },
+    {
       "id": "patbenatar.advanced-new-file",
       "repository": "https://github.com/patbenatar/vscode-advanced-new-file"
     },
