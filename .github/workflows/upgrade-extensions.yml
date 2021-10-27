@@ -23,6 +23,8 @@ jobs:
     - run: npm install
     - run: npm install --global yarn
     - run: node upgrade-extensions
+      env: 
+        GH_PAT: ${{ secrets.GH_PAT }}
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3
       with:
