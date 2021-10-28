@@ -125,5 +125,7 @@ const dontUpgrade = [
     console.error(error);
     process.exitCode = -1;
     fs.renameSync('./extensions.json.old', './extensions.json');
+  } finally {
+    await fs.promises.writeFile("/tmp/failed-extensions.log", failedExtensions.join(', '), { encoding: 'utf8' });
   }
 })();
