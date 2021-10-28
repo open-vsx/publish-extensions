@@ -57,6 +57,7 @@ const dontUpgrade = [
   const extensionRepositoriesToUpgrade = extensions.filter(e => !dontUpgrade.includes(e.id) && !!e.version && !e.download);
   const extensionDownloadsToUpgrade = extensions.filter(e => !dontUpgrade.includes(e.id) && /https:\/\/github.com\/.*\/releases\/download\//.test(e.download));
   const extensionsToNotUpgrade = extensions.filter(e => !extensionRepositoriesToUpgrade.concat(extensionDownloadsToUpgrade).map(e => e.id).includes(e.id));
+  /** @type {string[]} */
   const failedExtensions = [];
   fs.renameSync('./extensions.json', './extensions.json.old');
   try {
@@ -76,20 +77,21 @@ const dontUpgrade = [
         }
         await exec(command);
       } catch (e) {
-        console.error(e);
-        failedExtensions.push(extension);
+        console.error(`${extension.id}: failed to upgrade repository:`, e);
+
+        failedExtensions.push(extension.id);
       }
     }
 
     for (const extension of extensionDownloadsToUpgrade) {
-      // Scrape the latest GitHub releases to check for updates.
-      const repository = extension.download.replace(/\/releases\/download\/.*$/, '');
-      const latest = await gitHubScraper.findLatestVSIXRelease(repository);
       try {
+        // Scrape the latest GitHub releases to check for updates.
+        const repository = extension.download.replace(/\/releases\/download\/.*$/, '');
+        const latest = await gitHubScraper.findLatestVSIXRelease(repository);
         await exec('node add-extension --download=' + (latest || extension.download));
       } catch (e) {
-        console.error(e);
-        failedExtensions.push(extension);
+        console.error(`${extension.id}: failed to upgrade downloads:`, e);
+        failedExtensions.push(extension.id);
       }
     }
 
@@ -115,8 +117,9 @@ const dontUpgrade = [
       }
     }
     await writeFile('./extensions.json', JSON.stringify({ extensions: upgradedExtensions }, null, 2) + '\n', 'utf-8');
-    console.log("Failed extensions:");
-    console.log(failedExtensions);
+    if (failedExtensions.length) {
+      console.error('failed extensions: ' + failedExtensions);
+    }
   } catch (error) {
     console.error(`[FAIL] Could not upgrade extensions.json!`);
     console.error(error);
