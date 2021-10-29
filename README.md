@@ -82,6 +82,11 @@ Here are all the supported values, including optional ones, to build extensions 
     },
 ```
 
+## How do extensions get updated?
+
+Every week [a job is ran which checks for updated versions][upgrade-extensions-job]. These changes are reviewed manually, and merged by a maintainer. Once merged, these upgrades are [published nightly][publish-extensions-job]. There should be no reason to raise a PR to update an extension. It could be that the extension is failing to update. 
+
+To debug, try running `node upgrade-extensions.js --extension=the-extension-id`, which will try to run the upgrade only for that one extension, providing an error report/reason for why the extension is not updating. 
 
 ## How are Extensions Published?
 
@@ -97,3 +102,6 @@ The [publishing process](https://github.com/open-vsx/publish-extensions/blob/d2d
 6. [`ovsx publish`](https://github.com/open-vsx/publish-extensions/blob/d2df425a84093023f4ee164592f2491c32166297/publish-extensions.js#L86) (with `--yarn` if a `yarn.lock` file was detected earlier)
 
 See all `ovsx` CLI options [here](https://github.com/eclipse/openvsx/blob/master/cli/README.md).
+
+[upgrade-extensions-job]: https://github.com/open-vsx/publish-extensions/blob/master/.github/workflows/upgrade-extensions.yml
+[publish-extensions-job]: https://github.com/open-vsx/publish-extensions/blob/master/.github/workflows/publish-extensions.yml
