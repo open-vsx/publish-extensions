@@ -12,7 +12,7 @@
 const fs = require('fs');
 const util = require('util');
 const exec = require('./lib/exec');
-const gitHubScraper = require('./lib/github-scraper');
+const getReleases = require('./lib/getReleases');
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
@@ -87,7 +87,7 @@ const dontUpgrade = [
       try {
         // Scrape the latest GitHub releases to check for updates.
         const repository = extension.download.replace(/\/releases\/download\/.*$/, '');
-        const latest = await gitHubScraper.findLatestVSIXRelease(repository, extension.version);
+        const latest = await getReleases.findLatestVSIXRelease(repository, extension.version);
         await exec('node add-extension --download=' + (latest || extension.download));
       } catch (e) {
         console.error(`${extension.id}: failed to upgrade downloads:`, e);
