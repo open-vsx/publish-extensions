@@ -87,7 +87,7 @@ const dontUpgrade = [
       try {
         // Scrape the latest GitHub releases to check for updates.
         const repository = extension.download.replace(/\/releases\/download\/.*$/, '');
-        const latest = await gitHubScraper.findLatestVSIXRelease(repository);
+        const latest = await gitHubScraper.findLatestVSIXRelease(repository, extension.version);
         await exec('node add-extension --download=' + (latest || extension.download));
       } catch (e) {
         console.error(`${extension.id}: failed to upgrade downloads:`, e);
