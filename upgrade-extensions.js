@@ -100,20 +100,20 @@ const dontUpgrade = [
     for (const upgradedExtension of upgradedExtensions) {
       const originalExtension = extensionRepositoriesToUpgrade.find(extension => extension.id === upgradedExtension.id);
       if (!originalExtension) {
-        // This extension likely wasn't actually upgraded, leave it as is.
-        continue;
+          // This extension likely wasn't actually upgraded, leave it as is.
+          continue;
       }
       if (upgradedExtension.download) {
-        // If we're using (or have switched to) VSIX re-publishing, the following heuristics are unhelpful.
-        continue;
+          // If we're using (or have switched to) VSIX re-publishing, the following heuristics are unhelpful.
+          continue;
       }
       if (upgradedExtension.version && upgradedExtension.version !== originalExtension.version && !upgradedExtension.checkout) {
-        // If "version" was bumped, but we're publishing from the default branch, it's probably better to just unpin the version.
-        delete upgradedExtension.version;
+          // If "version" was bumped, but we're publishing from the default branch, it's probably better to just unpin the version.
+          delete upgradedExtension.version;
       }
       if (upgradedExtension.checkout !== originalExtension.checkout && upgradedExtension.version === originalExtension.version) {
-        // If "checkout" was modified, but "version" stayed the same, the change of "checkout" is unhelpful. Reset it.
-        upgradedExtension.checkout = originalExtension.checkout;
+          // If "checkout" was modified, but "version" stayed the same, the change of "checkout" is unhelpful. Reset it.
+          upgradedExtension.checkout = originalExtension.checkout;
       }
     }
     await writeFile('./extensions.json', JSON.stringify({ extensions: upgradedExtensions }, null, 2) + '\n', 'utf-8');
