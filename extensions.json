@@ -567,6 +567,10 @@
       "version": "1.0.28"
     },
     {
+      "id": "folke.vscode-monorepo-workspace",
+      "repository": "https://github.com/folke/vscode-monorepo-workspace"
+    },
+    {
       "id": "formulahendry.auto-close-tag",
       "repository": "https://github.com/formulahendry/vscode-auto-close-tag"
     },
