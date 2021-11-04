@@ -1713,7 +1713,8 @@
     },
     {
       "id": "Swellaby.vscode-rust-test-adapter",
-      "repository": "https://github.com/swellaby/vscode-rust-test-adapter"
+      "download": "https://github.com/swellaby/vscode-rust-test-adapter/releases/download/v0.11.1/vscode-rust-test-adapter-0.11.1.vsix",
+      "version": "0.11.1"
     },
     {
       "id": "tchayen.markdown-links",
