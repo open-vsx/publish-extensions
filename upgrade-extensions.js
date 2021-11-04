@@ -85,7 +85,7 @@ const dontUpgrade = [
 
     for (const extension of extensionDownloadsToUpgrade) {
       try {
-        // Scrape the latest GitHub releases to check for updates.
+        // Fetch the latest GitHub releases to check for updates.
         const repository = extension.download.replace(/\/releases\/download\/.*$/, '');
         const latest = await getReleases.findLatestVSIXRelease(repository, extension.version);
         await exec('node add-extension --download=' + (latest || extension.download));
