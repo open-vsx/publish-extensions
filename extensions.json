@@ -168,11 +168,6 @@
       "repository": "https://github.com/bartosz-antosik/vscode-spellright"
     },
     {
-      "id": "barrettotte.ibmi-languages",
-      "repository": "https://github.com/barrettotte/vscode-ibmi-languages",
-      "version": "0.6.2"
-    },
-    {
       "id": "batisteo.vscode-django",
       "repository": "https://github.com/vscode-django/vscode-django"
     },
