@@ -714,6 +714,9 @@
   "mitchdenny.ecdc": {
     "repository": "https://github.com/mitchdenny/ecdc"
   },
+  "mjcrouch.perforce": {
+    "repository": "https://github.com/mjcrouch/vscode-perforce"
+  },
   "mongodb.mongodb-vscode": {
     "repository": "https://github.com/mongodb-js/vscode"
   },
