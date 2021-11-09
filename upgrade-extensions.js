@@ -92,6 +92,9 @@ const dontUpgrade = [
       } catch (e) {
         console.error(`${extension.id}: failed to upgrade downloads:`, e);
         failedExtensions.push(extension.id);
+        try {
+          await exec('node add-extension --download=' + (extension.download));
+        } catch (e) { }
       }
     }
 
