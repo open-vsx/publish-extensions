@@ -31,6 +31,13 @@ jobs:
       env:
         OVSX_PAT: ${{ secrets.OVSX_PAT }}
     - run: node report-extensions
+    - uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: report
+        path: |
+          /tmp/stat.json
+          /tmp/result.log
     - name: Slack Notification
       if: always()
       uses: rtCamp/action-slack-notify@v2

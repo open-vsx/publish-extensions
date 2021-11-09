@@ -10,7 +10,28 @@
 
 // @ts-check
 const fs = require('fs');
+const ovsx = require('ovsx');
 const cp = require('child_process');
+const { getPublicGalleryAPI } = require('vsce/out/util');
+const { PublicGalleryAPI } = require('vsce/out/publicgalleryapi');
+const { ExtensionQueryFlags, PublishedExtension } = require('azure-devops-node-api/interfaces/GalleryInterfaces');
+const semver = require('semver');
+
+const msGalleryApi = getPublicGalleryAPI();
+msGalleryApi.client['_allowRetries'] = true;
+msGalleryApi.client['_maxRetries'] = 5;
+
+const openGalleryApi = new PublicGalleryAPI('https://open-vsx.org/vscode', '3.0-preview.1');
+openGalleryApi.client['_allowRetries'] = true;
+openGalleryApi.client['_maxRetries'] = 5;
+openGalleryApi.post = (url, data, additionalHeaders) =>
+  openGalleryApi.client.post(`${openGalleryApi.baseUrl}${url}`, data, additionalHeaders);
+
+const flags = [
+  ExtensionQueryFlags.IncludeStatistics,
+  ExtensionQueryFlags.IncludeVersions,
+];
+
 
 (async () => {
   /**
@@ -18,15 +39,28 @@ const cp = require('child_process');
    */
   let toVerify = undefined;
   if (process.env.FAILED_EXTENSIONS) {
-    toVerify = process.env.FAILED_EXTENSIONS.split(', ')
+    toVerify = process.env.FAILED_EXTENSIONS.split(',').map(s => s.trim());
   }
   const { extensions } = JSON.parse(await fs.promises.readFile('./extensions.json', 'utf-8'));
 
   // Also install extensions' devDependencies when using `npm install` or `yarn install`.
   process.env.NODE_ENV = 'development';
 
-  const failed = [];
+  /** @type{import('./types').PublishStat}*/
+  const stat = {
+    upToDate: {},
+    outdated: {},
+    unstable: {},
+    notInOpen: {},
+    notInMS: [],
 
+    msPublished: {},
+    hitMiss: {},
+    failed: []
+  }
+  const msPublishers = new Set(['ms-python', 'ms-toolsai', 'ms-vscode', 'dbaeumer', 'GitHub', 'Tyriar', 'ms-azuretools', 'msjsdiag', 'ms-mssql', 'vscjava', 'ms-vsts']);
+  const monthAgo = new Date()
+  monthAgo.setMonth(monthAgo.getMonth() - 1);
   for (const extension of extensions) {
     if (toVerify && toVerify.indexOf(extension.id) === -1) {
       continue;
@@ -36,6 +70,70 @@ const cp = require('child_process');
       timeoutDelay = 5;
     }
     try {
+      /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
+      let [msExtension] = await Promise.allSettled([msGalleryApi.getExtension(extension.id, flags)]);
+      let msVersion;
+      /** @type{Date | undefined} */
+      let msLastUpdated;
+      let msInstalls;
+      let msPublisher;
+      if (msExtension.status === 'fulfilled') {
+        msVersion = msExtension.value?.versions[0]?.version;
+        msLastUpdated = msExtension.value?.versions[0]?.lastUpdated;
+        msInstalls = msExtension.value?.statistics?.find(s => s.statisticName === 'install')?.value;
+        msPublisher = msExtension.value?.publisher.publisherName;
+      }
+      if (msPublishers.has(msPublisher)) {
+        stat.msPublished[extension.id] = { msInstalls, msVersion };
+      }
+
+      async function updateStat() {
+        /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
+        const [openExtension] = await Promise.allSettled([openGalleryApi.getExtension(extension.id, flags)]);
+        let openVersion;
+        let openLastUpdated;
+        if (openExtension.status === 'fulfilled') {
+          openVersion = openExtension.value?.versions[0]?.version;
+          openLastUpdated = openExtension.value?.versions[0]?.lastUpdated;
+        }
+        const daysInBetween = openLastUpdated && msLastUpdated ? ((openLastUpdated.getTime() - msLastUpdated.getTime()) / (1000 * 3600 * 24)) : undefined;
+        const extStat = { msInstalls, msVersion, openVersion, daysInBetween };
+
+        const i = stat.notInMS.indexOf(extension.id);
+        if (i !== -1) {
+          stat.notInMS.splice(i, 1);
+        }
+        delete stat.notInOpen[extension.id];
+        delete stat.upToDate[extension.id];
+        delete stat.outdated[extension.id];
+        delete stat.unstable[extension.id];
+        delete stat.hitMiss[extension.id];
+
+        if (!msVersion) {
+          stat.notInMS.push(extension.id);
+        } else if (!openVersion) {
+          stat.notInOpen[extension.id] = extStat;
+        } else if (semver.eq(msVersion, openVersion)) {
+          stat.upToDate[extension.id] = extStat;
+        } else if (semver.gt(msVersion, openVersion)) {
+          stat.outdated[extension.id] = extStat;
+        } else if (semver.lt(msVersion, openVersion)) {
+          stat.unstable[extension.id] = extStat;
+        }
+
+        if (msVersion && msLastUpdated && monthAgo.getTime() <= msLastUpdated.getTime()) {
+          stat.hitMiss[extension.id] = {
+            ...extStat,
+            hit: typeof daysInBetween === 'number' && 0 < daysInBetween && daysInBetween <= 2
+          }
+        }
+      }
+
+      await updateStat();
+      if (stat.upToDate[extension.id] || stat.unstable[extension.id]) {
+        continue;
+      }
+
       let timeout;
       await new Promise((resolve, reject) => {
         const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify(extension)], {
@@ -60,12 +158,14 @@ const cp = require('child_process');
       if (timeout !== undefined) {
         clearTimeout(timeout);
       }
+
+      await updateStat();
     } catch (error) {
-      failed.push(extension.id);
+      stat.failed.push(extension.id);
       console.error(`[FAIL] Could not process extension: ${JSON.stringify(extension, null, 2)}`);
       console.error(error);
     }
   }
 
-  await fs.promises.writeFile("/tmp/failed-extensions.log", failed.join(', '), { encoding: 'utf8' });
+  await fs.promises.writeFile("/tmp/stat.json", JSON.stringify(stat), { encoding: 'utf8' });
 })();
