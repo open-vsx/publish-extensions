@@ -358,8 +358,9 @@
     },
     {
       "id": "dbaeumer.vscode-eslint",
-      "download": "https://github.com/microsoft/vscode-eslint/releases/download/insider%2F2.1.20/vscode-eslint-2.1.20.vsix",
-      "version": "2.1.20"
+      "repository": "https://github.com/microsoft/vscode-eslint",
+      "version": "2.2.2",
+      "checkout": "release/2.2.2"
     },
     {
       "id": "dcasella.monokai-plusplus",
