@@ -103,9 +103,9 @@ const flags = [
         stat.msPublished[extension.id] = { msInstalls, msVersion };
       }
 
-      async function updateStat() {
+      async function updateStat(customExtension = extension) {
         /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
-        const [openExtension] = await Promise.allSettled([openGalleryApi.getExtension(extension.id, flags)]);
+        const [openExtension] = await Promise.allSettled([openGalleryApi.getExtension(customExtension.id, flags)]);
         let openVersion;
         let openLastUpdated;
         if (openExtension.status === 'fulfilled') {
@@ -115,30 +115,30 @@ const flags = [
         const daysInBetween = openLastUpdated && msLastUpdated ? ((openLastUpdated.getTime() - msLastUpdated.getTime()) / (1000 * 3600 * 24)) : undefined;
         const extStat = { msInstalls, msVersion, openVersion, daysInBetween };
 
-        const i = stat.notInMS.indexOf(extension.id);
+        const i = stat.notInMS.indexOf(customExtension.id);
         if (i !== -1) {
           stat.notInMS.splice(i, 1);
         }
-        delete stat.notInOpen[extension.id];
-        delete stat.upToDate[extension.id];
-        delete stat.outdated[extension.id];
-        delete stat.unstable[extension.id];
-        delete stat.hitMiss[extension.id];
+        delete stat.notInOpen[customExtension.id];
+        delete stat.upToDate[customExtension.id];
+        delete stat.outdated[customExtension.id];
+        delete stat.unstable[customExtension.id];
+        delete stat.hitMiss[customExtension.id];
 
         if (!msVersion) {
-          stat.notInMS.push(extension.id);
+          stat.notInMS.push(customExtension.id);
         } else if (!openVersion) {
-          stat.notInOpen[extension.id] = extStat;
+          stat.notInOpen[customExtension.id] = extStat;
         } else if (semver.eq(msVersion, openVersion)) {
-          stat.upToDate[extension.id] = extStat;
+          stat.upToDate[customExtension.id] = extStat;
         } else if (semver.gt(msVersion, openVersion)) {
-          stat.outdated[extension.id] = extStat;
+          stat.outdated[customExtension.id] = extStat;
         } else if (semver.lt(msVersion, openVersion)) {
-          stat.unstable[extension.id] = extStat;
+          stat.unstable[customExtension.id] = extStat;
         }
 
         if (msVersion && msLastUpdated && monthAgo.getTime() <= msLastUpdated.getTime()) {
-          stat.hitMiss[extension.id] = {
+          stat.hitMiss[customExtension.id] = {
             ...extStat,
             hit: typeof daysInBetween === 'number' && 0 < daysInBetween && daysInBetween <= 2
           }
@@ -152,6 +152,7 @@ const flags = [
           const repository = extension.download.replace(/\/releases\/download\/.*$/, '');
           const latest = await getReleases.findLatestVSIXRelease(repository, extension.version, msVersion || undefined);
           await exec('node add-extension --download=' + (latest || extension.download));
+          return { id: extension.id, download: latest || extension.download, version: msVersion || extension.version };
         } catch (e) {
           console.error(`${extension.id}: failed to upgrade downloads:`, e);
           stat.failed.push(extension.id);
@@ -162,9 +163,8 @@ const flags = [
 
       }
 
-      await upgradeExtension();
-
-      await updateStat();
+      // @ts-ignore
+      await updateStat((await upgradeExtension()));
 
       if (stat.upToDate[extension.id] || stat.unstable[extension.id]) {
         continue;
