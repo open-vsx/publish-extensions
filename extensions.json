@@ -400,6 +400,9 @@
   "GabrielBB.vscode-lombok": {
     "repository": "https://github.com/GabrielBB/vscode-lombok"
   },
+  "GabrielNordeborn.vscode-rescript-relay": {
+    "repository": "https://github.com/zth/vscode-rescript-relay"
+  },
   "geequlim.godot-tools": {
     "repository": "https://github.com/godotengine/godot-vscode-plugin"
   },
