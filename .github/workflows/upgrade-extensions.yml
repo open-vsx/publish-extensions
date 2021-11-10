@@ -42,4 +42,3 @@ jobs:
         SLACK_COLOR: ${{ job.status }}
     - name: Report failed extensions
       run: node report-extensions
-
