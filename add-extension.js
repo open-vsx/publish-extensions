@@ -16,7 +16,7 @@ const path = require('path');
 const util = require('util');
 const semver = require('semver');
 const exec = require('./lib/exec');
-const gitHubScraper = require('./lib/github-scraper');
+const getReleases = require('./lib/getReleases');
 const { DH_UNABLE_TO_CHECK_GENERATOR } = require('constants');
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
@@ -57,7 +57,7 @@ Alternative usage: node add-extension --download=VSIX_URL`);
 
   // If possible, always prefer re-publishing an official VSIX release over trying to re-package ourselves.
   if (repository && !argv.download) {
-    const latestVSIXRelease = await gitHubScraper.findLatestVSIXRelease(repository);
+    const latestVSIXRelease = await getReleases.findLatestVSIXRelease(repository);
     if (latestVSIXRelease) {
       // Simulate a 'node add-extension --download=VSIX_URL' CLI call.
       argv.download = latestVSIXRelease;

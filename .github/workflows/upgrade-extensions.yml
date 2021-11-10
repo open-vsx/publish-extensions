@@ -23,6 +23,8 @@ jobs:
     - run: npm install
     - run: npm install --global yarn
     - run: node upgrade-extensions
+      env: 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3
       with:
@@ -38,3 +40,5 @@ jobs:
       env:
         SLACK_WEBHOOK: ${{ secrets.GITPOD_SLACK_WEBHOOK }}
         SLACK_COLOR: ${{ job.status }}
+    - name: Report failed extensions
+      run: node report-extensions

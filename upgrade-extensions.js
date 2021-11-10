@@ -13,7 +13,7 @@ const fs = require('fs');
 const util = require('util');
 const minimist = require('minimist');
 const exec = require('./lib/exec');
-const gitHubScraper = require('./lib/github-scraper');
+const getReleases = require('./lib/getReleases');
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
@@ -59,58 +59,78 @@ const dontUpgrade = [
   const extensionRepositoriesToUpgrade = extensions.filter(e => (!cliCommandFlags.extension || e.id.includes(cliCommandFlags.extension)) && !dontUpgrade.includes(e.id) && !!e.version && !e.download);
   const extensionDownloadsToUpgrade = extensions.filter(e => (!cliCommandFlags.extension || e.id.includes(cliCommandFlags.extension)) && !dontUpgrade.includes(e.id) && /https:\/\/github.com\/.*\/releases\/download\//.test(e.download));
   const extensionsToNotUpgrade = extensions.filter(e => !extensionRepositoriesToUpgrade.concat(extensionDownloadsToUpgrade).map(e => e.id).includes(e.id));
-
+  /** @type {string[]} */
+  const failedExtensions = [];
   fs.renameSync('./extensions.json', './extensions.json.old');
   try {
     await writeFile('./extensions.json', JSON.stringify({ extensions: extensionsToNotUpgrade }, null, 2) + '\n', 'utf-8');
 
     for (const extension of extensionRepositoriesToUpgrade) {
-      let command = 'node add-extension ' + extension.repository + ' --checkout'; // Always try to auto-detect a suitable "checkout" value.
-      if (extension.location) {
+      try {
+        let command = 'node add-extension ' + extension.repository + ' --checkout'; // Always try to auto-detect a suitable "checkout" value.
+        if (extension.location) {
           command += ' --location=' + JSON.stringify(extension.location);
-      }
-      if (extension.prepublish) {
+        }
+        if (extension.prepublish) {
           command += ' --prepublish=' + JSON.stringify(extension.prepublish);
+        }
+        if (extension.extensionFile) {
+          command += ' --extensionFile=' + JSON.stringify(extension.extensionFile);
+        }
+        await exec(command);
+      } catch (e) {
+        console.error(`${extension.id}: failed to upgrade repository:`, e);
+
+        failedExtensions.push(extension.id);
       }
-      if (extension.extensionFile) {
-        command += ' --extensionFile=' + JSON.stringify(extension.extensionFile);
-      }
-      await exec(command);
     }
 
     for (const extension of extensionDownloadsToUpgrade) {
-        // Scrape the latest GitHub releases to check for updates.
+      try {
+        // Fetch the latest GitHub releases to check for updates.
         const repository = extension.download.replace(/\/releases\/download\/.*$/, '');
-        const latest = await gitHubScraper.findLatestVSIXRelease(repository);
+        const latest = await getReleases.findLatestVSIXRelease(repository, extension.version);
         await exec('node add-extension --download=' + (latest || extension.download));
+      } catch (e) {
+        console.error(`${extension.id}: failed to upgrade downloads:`, e);
+        failedExtensions.push(extension.id);
+        try {
+          await exec('node add-extension --download=' + (extension.download));
+        } catch (e) { }
+      }
     }
 
     // One last pass to clean up results with a few helpful heuristics.
     const { extensions: upgradedExtensions } = JSON.parse(await readFile('./extensions.json', 'utf-8'));
     for (const upgradedExtension of upgradedExtensions) {
-        const originalExtension = extensionRepositoriesToUpgrade.find(extension => extension.id === upgradedExtension.id);
-        if (!originalExtension) {
-            // This extension likely wasn't actually upgraded, leave it as is.
-            continue;
-        }
-        if (upgradedExtension.download) {
-            // If we're using (or have switched to) VSIX re-publishing, the following heuristics are unhelpful.
-            continue;
-        }
-        if (upgradedExtension.version && upgradedExtension.version !== originalExtension.version && !upgradedExtension.checkout) {
-            // If "version" was bumped, but we're publishing from the default branch, it's probably better to just unpin the version.
-            delete upgradedExtension.version;
-        }
-        if (upgradedExtension.checkout !== originalExtension.checkout && upgradedExtension.version === originalExtension.version) {
-            // If "checkout" was modified, but "version" stayed the same, the change of "checkout" is unhelpful. Reset it.
-            upgradedExtension.checkout = originalExtension.checkout;
-        }
+      const originalExtension = extensionRepositoriesToUpgrade.find(extension => extension.id === upgradedExtension.id);
+      if (!originalExtension) {
+          // This extension likely wasn't actually upgraded, leave it as is.
+          continue;
+      }
+      if (upgradedExtension.download) {
+          // If we're using (or have switched to) VSIX re-publishing, the following heuristics are unhelpful.
+          continue;
+      }
+      if (upgradedExtension.version && upgradedExtension.version !== originalExtension.version && !upgradedExtension.checkout) {
+          // If "version" was bumped, but we're publishing from the default branch, it's probably better to just unpin the version.
+          delete upgradedExtension.version;
+      }
+      if (upgradedExtension.checkout !== originalExtension.checkout && upgradedExtension.version === originalExtension.version) {
+          // If "checkout" was modified, but "version" stayed the same, the change of "checkout" is unhelpful. Reset it.
+          upgradedExtension.checkout = originalExtension.checkout;
+      }
     }
     await writeFile('./extensions.json', JSON.stringify({ extensions: upgradedExtensions }, null, 2) + '\n', 'utf-8');
+    if (failedExtensions.length) {
+      console.error('failed extensions: ' + failedExtensions);
+    }
   } catch (error) {
     console.error(`[FAIL] Could not upgrade extensions.json!`);
     console.error(error);
     process.exitCode = -1;
     fs.renameSync('./extensions.json.old', './extensions.json');
+  } finally {
+    await fs.promises.writeFile("/tmp/failed-extensions.log", failedExtensions.join(', '), { encoding: 'utf8' });
   }
 })();
