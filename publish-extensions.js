@@ -10,6 +10,7 @@
 
 // @ts-check
 const fs = require('fs');
+const util = require('util');
 const cp = require('child_process');
 const { getPublicGalleryAPI } = require('vsce/out/util');
 const { PublicGalleryAPI } = require('vsce/out/publicgalleryapi');
@@ -17,6 +18,8 @@ const { ExtensionQueryFlags, PublishedExtension } = require('azure-devops-node-a
 const semver = require('semver');
 const getReleases = require('./lib/getReleases');
 const exec = require('./lib/exec');
+const minimist = require('minimist');
+const writeFile = util.promisify(fs.writeFile);
 
 const msGalleryApi = getPublicGalleryAPI();
 msGalleryApi.client['_allowRetries'] = true;
@@ -42,6 +45,28 @@ const flags = [
     toVerify = process.env.FAILED_EXTENSIONS.split(',').map(s => s.trim());
   }
 
+  const dontUpgrade = [
+    'file-icons.file-icons', // Git submodule uses unsupported 'git@github.com' URL format
+    'DotJoshJohnson.xml', // https://github.com/DotJoshJohnson/vscode-xml/issues/345
+    'wingrunr21.vscode-ruby', // This script gets confused and switches to rebornix.Ruby .vsix release (same repo)
+    'andreweinand.mock-debug', // https://github.com/open-vsx/publish-extensions/pull/274#issue-562452193
+    'DigitalBrainstem.javascript-ejs-support', // https://github.com/Digitalbrainstem/ejs-grammar tagged 1.3.1 but hasn't had a new release tag in over year
+    'ecmel.vscode-html-css', // https://github.com/ecmel/vscode-html-css/issues/213
+    'ms-vscode.atom-keybindings', // https://github.com/microsoft/vscode-atom-keybindings/releases didn't have a release in 2 years
+    'wmaurer.change-case', // https://github.com/wmaurer/vscode-change-case/releases didn't have a release in 6 years
+    'jebbs.plantuml', // https://github.com/open-vsx/publish-extensions/pull/290/files#r576063404
+    'ms-vscode.hexeditor', // https://github.com/open-vsx/publish-extensions/pull/290#discussion_r576063874
+    'mtxr.sqltools', // https://github.com/open-vsx/publish-extensions/pull/290#discussion_r576067381
+    'lextudio.restructuredtext', // https://github.com/open-vsx/publish-extensions/pull/317#discussion_r598852958
+    'haskell.haskell', // https://github.com/open-vsx/publish-extensions/pull/317#discussion_r598852655
+    'miguelsolorio.fluent-icons', // Latest release (0.0.1) is way behind latest tag (0.0.7)
+    'eamodio.tsl-problem-matcher', // Latest release (0.0.4) was never published to https://github.com/eamodio/vscode-tsl-problem-matcher/releases
+    'vscode-org-mode.org-mode', // https://github.com/vscode-org-mode/vscode-org-mode doesn't have releases or tags, so we've pinned the 1.0.0 commit
+    'amazonwebservices.aws-toolkit-vscode', // Latest release in https://github.com/aws/aws-toolkit-vscode/releases is an experimental pre-release, causing this script to fail with "Error: Open VSX already has a more recent version of amazonwebservices.aws-toolkit-vscode: 1.27.0 > 1.27.0-6c4644db65c7"
+    "johnsoncodehk.vscode-typescript-vue-plugin", // Failing in update build for missing license https://github.com/open-vsx/publish-extensions/runs/3849684249?check_suite_focus=true
+    "johnsoncodehk.volar", // Failing in update build for missing license: https://github.com/open-vsx/publish-extensions/runs/3849684249?check_suite_focus=true
+  ];
+
   /**
  * @type {{
    *    extensions: {
@@ -58,6 +83,13 @@ const flags = [
    * }}
    */
   const { extensions } = JSON.parse(await fs.promises.readFile('./extensions.json', 'utf-8'));
+  fs.renameSync('./extensions.json', './extensions.json.old');
+
+  const cliCommandFlags = minimist(process.argv.slice(2));
+
+  const extensionRepositoriesToUpgrade = extensions.filter(e => (!cliCommandFlags.extension || e.id.includes(cliCommandFlags.extension)) && !dontUpgrade.includes(e.id) && !!e.version && !e.download);
+  const extensionDownloadsToUpgrade = extensions.filter(e => (!cliCommandFlags.extension || e.id.includes(cliCommandFlags.extension)) && !dontUpgrade.includes(e.id) && /https:\/\/github.com\/.*\/releases\/download\//.test(e.download));
+  const extensionsToNotUpgrade = extensions.filter(e => !extensionRepositoriesToUpgrade.concat(extensionDownloadsToUpgrade).map(e => e.id).includes(e.id));
 
   // Also install extensions' devDependencies when using `npm install` or `yarn install`.
   process.env.NODE_ENV = 'development';
@@ -77,6 +109,8 @@ const flags = [
   const msPublishers = new Set(['ms-python', 'ms-toolsai', 'ms-vscode', 'dbaeumer', 'GitHub', 'Tyriar', 'ms-azuretools', 'msjsdiag', 'ms-mssql', 'vscjava', 'ms-vsts']);
   const monthAgo = new Date();
   monthAgo.setMonth(monthAgo.getMonth() - 1);
+  await writeFile('./extensions.json', JSON.stringify({ extensions: extensionsToNotUpgrade }, null, 2) + '\n', 'utf-8');
+
   for (const extension of extensions) {
     if (toVerify && toVerify.indexOf(extension.id) === -1) {
       continue;
@@ -145,7 +179,7 @@ const flags = [
         }
       }
 
-      async function upgradeExtension() {
+      async function upgradeExtensionDownload() {
         try {
           // Fetch the latest GitHub releases to check for updates.
 
@@ -163,8 +197,12 @@ const flags = [
 
       }
 
-      // @ts-ignore
-      await updateStat((await upgradeExtension()));
+      if (extensionDownloadsToUpgrade.includes(extension)) {
+        // @ts-ignore
+        await updateStat((await upgradeExtensionDownload()));
+      } else {
+        continue;
+      }
 
       if (stat.upToDate[extension.id] || stat.unstable[extension.id]) {
         continue;
