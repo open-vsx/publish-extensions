@@ -15,6 +15,8 @@ const { getPublicGalleryAPI } = require('vsce/out/util');
 const { PublicGalleryAPI } = require('vsce/out/publicgalleryapi');
 const { ExtensionQueryFlags, PublishedExtension } = require('azure-devops-node-api/interfaces/GalleryInterfaces');
 const semver = require('semver');
+const getReleases = require('./lib/getReleases');
+const exec = require('./lib/exec');
 
 const msGalleryApi = getPublicGalleryAPI();
 msGalleryApi.client['_allowRetries'] = true;
@@ -31,7 +33,6 @@ const flags = [
   ExtensionQueryFlags.IncludeVersions,
 ];
 
-
 (async () => {
   /**
    * @type {string[] | undefined}
@@ -40,6 +41,22 @@ const flags = [
   if (process.env.FAILED_EXTENSIONS) {
     toVerify = process.env.FAILED_EXTENSIONS.split(',').map(s => s.trim());
   }
+
+  /**
+ * @type {{
+   *    extensions: {
+   *        id: string,
+   *        repository: string,
+   *        version?: string,
+   *        checkout?: string,
+   *        location?: string,
+   *        prepublish?: string,
+   *        extensionFile?: string,
+   *        download?: string,
+   *        timeout?: number;
+   *    }[]
+   * }}
+   */
   const { extensions } = JSON.parse(await fs.promises.readFile('./extensions.json', 'utf-8'));
 
   // Also install extensions' devDependencies when using `npm install` or `yarn install`.
@@ -128,7 +145,36 @@ const flags = [
         }
       }
 
+      async function upgradeExtension(extension) {
+        try {
+          // Fetch the latest GitHub releases to check for updates.
+
+          /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
+          const [msExtension] = await Promise.allSettled([msGalleryApi.getExtension(extension.id, flags)]);
+          let msVersion;
+          /** @type{Date | undefined} */
+          if (msExtension.status === 'fulfilled') {
+            msVersion = msExtension.value?.versions[0]?.version;
+          }
+
+          const repository = extension.download.replace(/\/releases\/download\/.*$/, '');
+          const latest = await getReleases.findLatestVSIXRelease(repository, extension.version, msVersion || undefined);
+          await exec('node add-extension --download=' + (latest || extension.download));
+        } catch (e) {
+          console.error(`${extension.id}: failed to upgrade downloads:`, e);
+          stat.failed.push(extension.id);
+          try {
+            await exec('node add-extension --download=' + (extension.download));
+          } catch (e) { }
+        }
+
+      }
+
       await updateStat();
+
+      if (stat.upToDate[extension.id] || stat.unstable[extension.id]) {
+        continue;
+      }
 
       let timeout;
       await new Promise((resolve, reject) => {
