@@ -145,17 +145,9 @@ const flags = [
         }
       }
 
-      async function upgradeExtension(extension) {
+      async function upgradeExtension() {
         try {
           // Fetch the latest GitHub releases to check for updates.
-
-          /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
-          const [msExtension] = await Promise.allSettled([msGalleryApi.getExtension(extension.id, flags)]);
-          let msVersion;
-          /** @type{Date | undefined} */
-          if (msExtension.status === 'fulfilled') {
-            msVersion = msExtension.value?.versions[0]?.version;
-          }
 
           const repository = extension.download.replace(/\/releases\/download\/.*$/, '');
           const latest = await getReleases.findLatestVSIXRelease(repository, extension.version, msVersion || undefined);
@@ -169,6 +161,8 @@ const flags = [
         }
 
       }
+
+      await upgradeExtension();
 
       await updateStat();
 
