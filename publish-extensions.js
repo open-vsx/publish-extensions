@@ -10,7 +10,6 @@
 
 // @ts-check
 const fs = require('fs');
-const ovsx = require('ovsx');
 const cp = require('child_process');
 const { getPublicGalleryAPI } = require('vsce/out/util');
 const { PublicGalleryAPI } = require('vsce/out/publicgalleryapi');
@@ -59,7 +58,7 @@ const flags = [
     failed: []
   }
   const msPublishers = new Set(['ms-python', 'ms-toolsai', 'ms-vscode', 'dbaeumer', 'GitHub', 'Tyriar', 'ms-azuretools', 'msjsdiag', 'ms-mssql', 'vscjava', 'ms-vsts']);
-  const monthAgo = new Date()
+  const monthAgo = new Date();
   monthAgo.setMonth(monthAgo.getMonth() - 1);
   for (const extension of extensions) {
     if (toVerify && toVerify.indexOf(extension.id) === -1) {
@@ -71,7 +70,7 @@ const flags = [
     }
     try {
       /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
-      let [msExtension] = await Promise.allSettled([msGalleryApi.getExtension(extension.id, flags)]);
+      const [msExtension] = await Promise.allSettled([msGalleryApi.getExtension(extension.id, flags)]);
       let msVersion;
       /** @type{Date | undefined} */
       let msLastUpdated;
@@ -130,9 +129,6 @@ const flags = [
       }
 
       await updateStat();
-      if (stat.upToDate[extension.id] || stat.unstable[extension.id]) {
-        continue;
-      }
 
       let timeout;
       await new Promise((resolve, reject) => {
