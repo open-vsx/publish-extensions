@@ -572,8 +572,7 @@
     },
     {
       "id": "formulahendry.auto-rename-tag",
-      "download": "https://github.com/formulahendry/vscode-auto-rename-tag/releases/download/0.1.0/auto-rename-tag-0.1.0.vsix",
-      "version": "0.1.0"
+      "repository": "https://github.com/formulahendry/vscode-auto-rename-tag"
     },
     {
       "id": "formulahendry.code-runner",
