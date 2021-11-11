@@ -11,100 +11,30 @@
 // @ts-check
 const fs = require('fs');
 const ovsx = require('ovsx');
+const readVSIXPackage = require('vsce/out/zip').readVSIXPackage;
 const path = require('path');
-const util = require('util');
 const semver = require('semver');
-const download = require('download');
 const exec = require('./lib/exec');
 
 (async () => {
     /**
-     * @type {{
-     *        id: string,
-     *        repository: string,
-     *        version?: string,
-     *        checkout?: string,
-     *        location?: string,
-     *        prepublish?: string,
-     *        download?: string,
-     *        extensionFile?: string
-     *    }}
+     * @type {{extension: import('./types').Extension, context: import('./types').PublishContext}}
      */
-    const extension = JSON.parse(process.argv[2]);
-    const registry = new ovsx.Registry();
-    console.log(`\nProcessing extension: ${JSON.stringify(extension, null, 2)}`);
+    const { extension, context } = JSON.parse(process.argv[2]);
+    console.log(`\nProcessing extension: ${JSON.stringify({ extension, context }, undefined, 2)}`);
     try {
         const { id } = extension;
+        const [namespace] = id.split('.');
 
-        console.log(`Checking Open VSX version of ${id}`);
-        let ovsxVersion;
-        const [namespace, name] = id.split('.');
-        let metadata;
-        try {
-            metadata = await registry.getMetadata(namespace, name);
-        } catch (error) {
-            console.warn(error);
-        }
-        if (!metadata) {
-            console.warn(`[WARNING] Could not check Open VSX version of ${id}`);
-        } else if (metadata.error) {
-            console.error(metadata.error);
-        } else {
-            console.log(`Found version: ${metadata.version}`);
-            ovsxVersion = metadata.version;
-        }
-
-        // Check if the requested version is greater than the one on Open VSX.
-        if (ovsxVersion && extension.version) {
-            if (semver.gt(ovsxVersion, extension.version)) {
-                throw new Error(`extensions.json is out-of-date: Open VSX version ${ovsxVersion} is already greater than specified version ${extension.version}`);
-            }
-            if (semver.eq(ovsxVersion, extension.version)) {
-                console.log(`[SKIPPED] Requested version ${extension.version} is already published on Open VSX`);
-                return;
-            }
-        }
-
-        console.log(`Attempting to publish ${id} to Open VSX`);
-
-        // Create a public Open VSX namespace if needed.
-        try {
-            await ovsx.createNamespace({ name: namespace });
-        } catch (error) {
-            console.log(`Creating Open VSX namespace failed -- assuming that it already exists`);
-            console.log(error);
-        }
-
-        if (extension.download) {
-            if (extension.repository) {
-                console.warn('[WARN] Ignoring `repository` property because `download` was given.')
-            }
-            if (extension.checkout) {
-                console.warn('[WARN] Ignoring `checkout` property because `download` was given.')
-            }
-            if (extension.prepublish) {
-                console.warn('[WARN] Ignoring `prepublish` property because `download` was given.')
-            }
-            if (extension.location) {
-                console.warn('[WARN] Ignoring `location` property because `download` was given.')
-            }
-            if (extension.extensionFile) {
-                console.warn('[WARN] Ignoring `extensionFile` property because `download` was given.')
-            }
-
-            // Download the extension package, e.g. from a GitHub release
-            console.log(`Downloading ${extension.download}`);
-            await download(extension.download, '/tmp/download', { filename: 'extension.vsix' });
-
-            // Publish the extension.
-            /** @type {import('ovsx').PublishOptions} */
-            const options = { extensionFile: '/tmp/download/extension.vsix' };
-            await ovsx.publish(options);
-        } else {
+        /** @type {import('ovsx').PublishOptions} */
+        let options;
+        if (context.file) {
+            options = { extensionFile: context.file };
+        } else if (context.ref) {
             // Clone and set up the repository.
             await exec(`git clone --recurse-submodules ${extension.repository} /tmp/repository`);
-            if (extension.checkout) {
-                await exec(`git checkout ${extension.checkout}`, { cwd: '/tmp/repository' });
+            if (context.ref) {
+                await exec(`git checkout ${context.ref}`, { cwd: '/tmp/repository' });
             }
             let yarn = await new Promise(resolve => {
                 fs.access(path.join('/tmp/repository', 'yarn.lock'), error => resolve(!error));
@@ -114,9 +44,6 @@ const exec = require('./lib/exec');
                 await exec(extension.prepublish, { cwd: '/tmp/repository' })
             }
 
-            // Publish the extension.
-            /** @type {import('ovsx').PublishOptions} */
-            let options;
             if (extension.extensionFile) {
                 if (extension.location) {
                     console.warn('[WARN] Ignoring `location` property because `extensionFile` was given.')
@@ -128,19 +55,54 @@ const exec = require('./lib/exec');
             if (yarn) {
                 options.yarn = true;
             }
-            await ovsx.publish(options);
         }
-        console.log(`[OK] Successfully published ${id} to Open VSX!`)
+
+        // Check if the requested version is greater than the one on Open VSX.        
+        let version;
+        if (options.extensionFile) {
+            version = (await readVSIXPackage(options.extensionFile)).manifest.version;
+        } else if (options.packagePath) {
+            version = JSON.parse(await fs.promises.readFile(path.join(options.packagePath, 'package.json'), 'utf-8')).version;
+        }
+        context.version = version;
+
+        if (!version) {
+            throw new Error(`${extension.id}: version is not resolved`);
+        }
+        if (context.ovsxVersion) {
+            if (semver.gt(context.ovsxVersion, version)) {
+                throw new Error(`extensions.json is out-of-date: Open VSX version ${context.ovsxVersion} is already greater than specified version ${version}`);
+            }
+            if (semver.eq(context.ovsxVersion, version)) {
+                console.log(`[SKIPPED] Requested version ${version} is already published on Open VSX`);
+                return;
+            }
+        }
+
+        if (Boolean(process.env.SKIP_PUBLISH)) {
+            return;
+        }
+        console.log(`Attempting to publish ${id} to Open VSX`);
+
+        // Create a public Open VSX namespace if needed.
+        try {
+            await ovsx.createNamespace({ name: namespace });
+        } catch (error) {
+            console.log(`Creating Open VSX namespace failed -- assuming that it already exists`);
+            console.log(error);
+        }
+
+        await ovsx.publish(options);
+        console.log(`[OK] Successfully published ${id} to Open VSX!`);
+
     } catch (error) {
-        if (error && String(error).indexOf('is already published.') != -1) {
+        if (error && String(error).indexOf('is already published.') !== -1) {
             console.log(`Could not process extension -- assuming that it already exists`);
             console.log(error);
         } else {
-            console.error(`[FAIL] Could not process extension: ${JSON.stringify(extension, null, 2)}`);
+            console.error(`[FAIL] Could not process extension: ${JSON.stringify({ extension, context }, null, 2)}`);
             console.error(error);
             process.exitCode = -1;
         }
-    } finally {
-        await exec('rm -rf /tmp/repository /tmp/download');
     }
 })();
