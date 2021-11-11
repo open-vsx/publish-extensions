@@ -16,6 +16,7 @@ const { getPublicGalleryAPI } = require('vsce/out/util');
 const { PublicGalleryAPI } = require('vsce/out/publicgalleryapi');
 const { ExtensionQueryFlags, PublishedExtension } = require('azure-devops-node-api/interfaces/GalleryInterfaces');
 const semver = require('semver');
+const getReleases = require('./lib/getReleases');
 
 const msGalleryApi = getPublicGalleryAPI();
 msGalleryApi.client['_allowRetries'] = true;
@@ -135,8 +136,10 @@ const flags = [
       }
 
       let timeout;
-      await new Promise((resolve, reject) => {
-        const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify(extension)], {
+      await new Promise(async (resolve, reject) => {
+        const repository = extension.download && extension.download.replace(/\/releases\/download\/.*$/, '');
+        const newExtension = extension.download ? { id: extension.id, download: await getReleases.findLatestVSIXRelease(repository, extension.version, msVersion), version: msVersion } : extension;
+        const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify(newExtension)], {
           stdio: ['ignore', 'inherit', 'inherit'],
           cwd: process.cwd(),
           env: process.env
