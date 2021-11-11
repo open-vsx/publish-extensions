@@ -102,10 +102,7 @@ const exec = require('./lib/exec');
             await ovsx.publish(options);
         } else {
             // Clone and set up the repository.
-            await exec(`git clone --recurse-submodules ${extension.repository} /tmp/repository`);
-            if (extension.checkout) {
-                await exec(`git checkout ${extension.checkout}`, { cwd: '/tmp/repository' });
-            }
+            await exec(`git clone --depth=1${extension.checkout ? `--branch ${extension.checkout}` : ''} --recurse-submodules ${extension.repository} /tmp/repository`);
             let yarn = await new Promise(resolve => {
                 fs.access(path.join('/tmp/repository', 'yarn.lock'), error => resolve(!error));
             });

@@ -102,11 +102,7 @@ Alternative usage: node add-extension --download=VSIX_URL`);
     }
 
     // Clone the repository to determine the extension's latest version.
-    await exec(`git clone --recurse-submodules ${repository} /tmp/repository`);
-    if (typeof argv.checkout === 'string') {
-        // Check out the specified Git branch, tag, or commit.
-        await exec(`git checkout ${argv.checkout}`, { cwd: '/tmp/repository' });
-    }
+    await exec(`git clone --depth=1${typeof argv.checkout === 'string' ? `--branch ${argv.checkout}` : ''} --recurse-submodules ${repository} /tmp/repository`);
 
     // Locate and parse package.json.
     let location = argv.location;
