@@ -106,7 +106,7 @@ const exec = require('./lib/exec');
             if (extension.checkout) {
                 await exec(`git checkout ${extension.checkout}`, { cwd: '/tmp/repository' });
             }
-            let yarn = await new Promise(resolve => {
+            const yarn = await new Promise(resolve => {
                 fs.access(path.join('/tmp/repository', 'yarn.lock'), error => resolve(!error));
             });
             await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: '/tmp/repository' });
@@ -132,7 +132,7 @@ const exec = require('./lib/exec');
         }
         console.log(`[OK] Successfully published ${id} to Open VSX!`)
     } catch (error) {
-        if (error && String(error).indexOf('is already published.') != -1) {
+        if (error && error.toString().includes('is already published.')) {
             console.log(`Could not process extension -- assuming that it already exists`);
             console.log(error);
         } else {
