@@ -109,7 +109,7 @@ const exec = require('./lib/exec');
             let yarn = await new Promise(resolve => {
                 fs.access(path.join('/tmp/repository', 'yarn.lock'), error => resolve(!error));
             });
-            await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: '/tmp/repository' });
+            await exec(yarn ? 'yarn install --frozen-lockfile --ignore-engines' : 'npm ci', { cwd: '/tmp/repository' });
             if (extension.prepublish) {
                 await exec(extension.prepublish, { cwd: '/tmp/repository' })
             }
