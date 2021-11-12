@@ -138,6 +138,9 @@ const flags = [
       let timeout;
       await new Promise(async (resolve, reject) => {
         const repository = extension.download && extension.download.replace(/\/releases\/download\/.*$/, '');
+        if (msVersion && !repository) {
+          reject(new Error("Repository not found, you should add it to extensions.json"));
+        }
         const newExtension = extension.download ? { id: extension.id, download: await getReleases.findLatestVSIXRelease(repository, extension.version, msVersion), version: msVersion } : extension;
         const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify(newExtension)], {
           stdio: ['ignore', 'inherit', 'inherit'],
