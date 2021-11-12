@@ -142,13 +142,13 @@ const flags = [
           reject(new Error("Repository not found, you should add it to extensions.json"));
         }
 
-        const vsixDownloadLink = await getReleases.findLatestVSIXRelease(repository || extension.repository, extension.version, msVersion);
+        const vsixDownloadLink = extension.download && await getReleases.findLatestVSIXRelease(repository || extension.repository, extension.version, msVersion);
         if(repository && !vsixDownloadLink) {
           reject(new Error("Specified release not found"));
         }
 
-        const newExtension = extension.download ? { id: extension.id, download: vsixDownloadLink, version: msVersion } : extension;
-        const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify(newExtension)], {
+        const extensionWithNewDownloadLink = extension.download ? { id: extension.id, download: vsixDownloadLink, version: msVersion } : extension;
+        const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify(extension.download ? extensionWithNewDownloadLink : extension)], {
           stdio: ['ignore', 'inherit', 'inherit'],
           cwd: process.cwd(),
           env: process.env
