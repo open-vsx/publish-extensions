@@ -147,8 +147,8 @@ const flags = [
           reject(new Error("Specified release not found"));
         }
 
-        const extensionWithNewDownloadLink = extension.download ? { id: extension.id, download: vsixDownloadLink, version: msVersion } : extension;
-        const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify(extension.download ? extensionWithNewDownloadLink : extension)], {
+        const updatedExtension = extension.download ? { id: extension.id, download: vsixDownloadLink, version: msVersion } : extension;
+        const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify(updatedExtension)], {
           stdio: ['ignore', 'inherit', 'inherit'],
           cwd: process.cwd(),
           env: process.env
