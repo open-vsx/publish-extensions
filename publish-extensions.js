@@ -137,12 +137,17 @@ const flags = [
 
       let timeout;
       await new Promise(async (resolve, reject) => {
-        const repository = extension.download && extension.download.replace(/\/releases\/download\/.*$/, '');
-        if (msVersion && (!repository && !extension.repository)) {
+        const repository = extension.repository || extension.download.replace(/\/releases\/download\/.*$/, '');
+        if (msVersion && !repository) {
           reject(new Error("Repository not found, you should add it to extensions.json"));
         }
+        
+        if (!repository) {
+          reject(new Error("No repository provided"));
+        }
+        const vsixDownloadLink = await getReleases.findLatestVSIXRelease(repository, extension.version, msVersion);
 
-        const vsixDownloadLink = extension.download && await getReleases.findLatestVSIXRelease(repository || extension.repository, extension.version, msVersion);
+
         if(repository && !vsixDownloadLink) {
           reject(new Error("Specified release not found"));
         }
