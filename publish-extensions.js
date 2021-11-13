@@ -164,7 +164,7 @@ const flags = [
         if (!repository) {
           reject(new Error("No repository provided"));
         }
-        const vsixDownloadLink = await getReleases.findLatestVSIXRelease(repository, extension.version, msVersion);
+        const vsixDownloadLink = await getReleases.resolveFromRelease(repository, extension.version, msVersion);
 
 
         if(repository && !vsixDownloadLink) {

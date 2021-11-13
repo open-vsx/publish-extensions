@@ -123,7 +123,7 @@ const exec = require('./lib/exec');
         }
         console.log(`[OK] Successfully published ${id} to Open VSX!`)
     } catch (error) {
-        if (error && String(error).indexOf('is already published.') != -1) {
+        if (error && String(error).indexOf('is already published.') !== -1) {
             console.log(`Could not process extension -- assuming that it already exists`);
             console.log(error);
         } else {
