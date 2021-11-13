@@ -36,93 +36,97 @@ function sortedKeys(s) {
     const notInOpen = Object.keys(stat.notInOpen).length;
     const notInMS = stat.notInMS.length;
     const total = upToDate + notInOpen + outdated + unstable + notInMS;
-    const hitMiss = Object.keys(stat.hitMiss).length;
-    const hit = Object.keys(stat.hitMiss).filter(id => stat.hitMiss[id].hit).length;
+    const updatedInMTD = Object.keys(stat.hitMiss).length;
+    const updatedInOpen = Object.keys(stat.hitMiss).filter(id => stat.hitMiss[id].hit).length;
     const msPublished = Object.keys(stat.msPublished).length;
 
     let summary = '----- Summary -----\r\n';
+    summary += `Total: ${total}\r\n`;
     summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%)\r\n`;
     summary += `Outdated (Not in OpenVSX, but in MS marketplace): ${notInOpen} (${(notInOpen / total * 100).toFixed(0)}%)\r\n`;
     summary += `Outdated (MS marketplace > Open VSX): ${outdated} (${(outdated / total * 100).toFixed(0)}%)\r\n`;
     summary += `Unstable (MS marketplace < Open VSX): ${unstable} (${(unstable / total * 100).toFixed(0)}%)\r\n`;
     summary += `Not in MS marketplace: ${notInMS} (${(notInMS / total * 100).toFixed(0)}%)\r\n`;
+    summary += `Failed to publish: ${stat.failed.length} (${(stat.failed.length / total * 100).toFixed(0)}%) \r\n`
     summary += `MS is publisher: ${msPublished} (${(msPublished / total * 100).toFixed(0)}%)\r\n`;
-    summary += `Published to OpenVSX within 2 days after in MS for last 30 days: ${hit} (${(hit / hitMiss * 100).toFixed(0)}%)\r\n`;
-    if (stat.failed.length) {
-        process.exitCode = -1;
-        summary += 'Following extensions failed to publish:\r\n';
-        summary += stat.failed.join(', ') + '\r\n';
-    } else {
-        summary += 'All extensions published successfully.\r\n';
-    }
-    summary += '-------------------\r\n\r\n';
+    summary += `\r\n`;
+    summary += `Updated in MS marketplace in month-to-date: ${updatedInMTD}\r\n`;
+    summary += `Of which updated in Open VSX within 2 days: ${updatedInOpen} (${(updatedInOpen / updatedInMTD * 100).toFixed(0)}%)\r\n`;
+    summary += '-------------------\r\n';
     console.log(summary);
 
     let content = summary;
     if (outdated) {
         process.exitCode = -1;
-        content += '----- Outdated (MS marketplace > Open VSX version) -----\r\n';
+        content += '\r\n----- Outdated (MS marketplace > Open VSX version) -----\r\n';
         for (const id of sortedKeys(stat.outdated)) {
             const r = stat.outdated[id];
             content += `${id} (installs: ${r.msInstalls}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.msVersion} > ${r.openVersion}\r\n`;
         }
-        content += '-------------------\r\n\r\n';
+        content += '-------------------\r\n';
     }
 
     if (notInOpen) {
         process.exitCode = -1;
-        content += '----- Not published to Open VSX, but in MS marketplace -----\r\n';
+        content += '\r\n----- Not published to Open VSX, but in MS marketplace -----\r\n';
         for (const id of Object.keys(stat.notInOpen).sort((a, b) => stat.notInOpen[b].msInstalls - stat.notInOpen[a].msInstalls)) {
             const r = stat.notInOpen[id];
             content += `${id} (installs: ${r.msInstalls}): ${r.msVersion}\r\n`;
         }
-        content += '-------------------\r\n\r\n';
+        content += '-------------------\r\n';
     }
 
     if (unstable) {
         process.exitCode = -1;
-        content += '----- Unstable (Open VSX > MS marketplace version) -----\r\n';
+        content += '\r\n----- Unstable (Open VSX > MS marketplace version) -----\r\n';
         for (const id of sortedKeys(stat.unstable)) {
             const r = stat.unstable[id];
             content += `${id} (installs: ${r.msInstalls}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion} > ${r.msVersion}\r\n`;
         }
-        content += '-------------------\r\n\r\n';
+        content += '-------------------\r\n';
     }
 
     if (notInMS) {
         process.exitCode = -1;
-        content += '----- Not published to MS marketplace -----\r\n';
+        content += '\r\n----- Not published to MS marketplace -----\r\n';
         content += stat.notInMS.join(', ') + '\r\n';
-        content += '-------------------\r\n\r\n';
+        content += '-------------------\r\n';
+    }   
+
+    if (stat.failed.length) {
+        process.exitCode = -1;
+        content += '\r\n----- Failed to publish -----\r\n';
+        content += stat.failed.join(', ') + '\r\n';
+        content += '-------------------\r\n';
     }
 
     if (msPublished) {
-        content += '----- MS extensions -----\r\n'
+        content += '\r\n----- MS extensions -----\r\n'
         for (const id of Object.keys(stat.msPublished).sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls)) {
             const r = stat.msPublished[id];
             content += `${id} (installs: ${r.msInstalls})\r\n`;
         }
-        content += '-------------------\r\n\r\n';
+        content += '-------------------\r\n';
     }
 
-    if (hitMiss) {
-        content += '----- Published to OpenVSX within 2 days after in MS for last 30 days -----\r\n';
+    if (updatedInMTD) {
+        content += '\r\n----- Updated in Open VSX within 2 days after in MS marketplace in MTD -----\r\n';
         for (const id of sortedKeys(stat.hitMiss)) {
             const r = stat.hitMiss[id];
             content += `${r.hit ? '+' : '-'} ${id}: installs: ${r.msInstalls}; daysInBetween: ${r.daysInBetween?.toFixed(0)}; MS marketplace: ${r.msVersion}; Open VSX: ${r.openVersion}\r\n`;
         }
-        content += '-------------------\r\n\r\n';
+        content += '-------------------\r\n';
     }
 
     if (upToDate) {
-        content += '----- Up-to-date (Open VSX = MS marketplace version) -----\r\n';
+        content += '\r\n----- Up-to-date (Open VSX = MS marketplace version) -----\r\n';
         for (const id of Object.keys(stat.upToDate).sort((a, b) => stat.upToDate[b].msInstalls - stat.upToDate[a].msInstalls)) {
             const r = stat.upToDate[id];
             content += `${id} (installs: ${r.msInstalls}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion}\r\n`;
         }
-        content += '-------------------\r\n\r\n';
+        content += '-------------------\r\n';
     }
 
     await fs.promises.writeFile("/tmp/result.log", content, { encoding: 'utf8' });
-    console.log('See /tmp/result.log for detailed report.')
+    console.log('See result output for the detailed report.')
 })();

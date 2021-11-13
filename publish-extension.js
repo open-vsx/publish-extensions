@@ -19,16 +19,7 @@ const exec = require('./lib/exec');
 
 (async () => {
     /**
-     * @type {{
-     *        id: string,
-     *        repository: string,
-     *        version?: string,
-     *        checkout?: string,
-     *        location?: string,
-     *        prepublish?: string,
-     *        download?: string,
-     *        extensionFile?: string
-     *    }}
+     * @type {import('./types').Extension}
      */
     const extension = JSON.parse(process.argv[2]);
     const registry = new ovsx.Registry();

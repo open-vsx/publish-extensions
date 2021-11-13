@@ -1250,8 +1250,7 @@
     },
     {
       "id": "ms-python.python",
-      "download": "https://github.com/microsoft/vscode-python/releases/download/2021.10.1365161279/ms-python-release.vsix",
-      "version": "2021.10.1365161279"
+      "repository": "https://github.com/microsoft/vscode-python"
     },
     {
       "id": "ms-toolsai.jupyter",
