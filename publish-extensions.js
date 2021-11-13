@@ -42,6 +42,9 @@ const flags = [
   if (process.env.FAILED_EXTENSIONS) {
     toVerify = process.env.FAILED_EXTENSIONS.split(',').map(s => s.trim());
   }
+  /**
+   * @type {{extensions:import('./types').Extension[]}}
+   */
   const { extensions } = JSON.parse(await fs.promises.readFile('./extensions.json', 'utf-8'));
 
   // Also install extensions' devDependencies when using `npm install` or `yarn install`.
@@ -135,25 +138,25 @@ const flags = [
         continue;
       }
 
+      if (msVersion) {
+        if (!extension.repository) {
+          throw new Error(`${extension.id}: repository not specified`);
+        }
+        const download = await getReleases.resolveFromRelease(extension.repository, extension.version, msVersion);
+        if (!download) {
+          throw new Error(`${extension.id}: failed to resolve from releases`);
+        }
+        extension.version = msVersion;
+        extension.download = download;
+      }
+
+      if (Boolean(process.env.DRY_RUN)) {
+        continue;
+      }
+
       let timeout;
-      await new Promise(async (resolve, reject) => {
-        const repository = extension.repository || extension.download.replace(/\/releases\/download\/.*$/, '');
-        if (msVersion && !repository) {
-          reject(new Error("Repository not found, you should add it to extensions.json"));
-        }
-        
-        if (!repository) {
-          reject(new Error("No repository provided"));
-        }
-        const vsixDownloadLink = await getReleases.findLatestVSIXRelease(repository, extension.version, msVersion);
-
-
-        if(repository && !vsixDownloadLink) {
-          reject(new Error("Specified release not found"));
-        }
-
-        const updatedExtension = extension.download ? { id: extension.id, download: vsixDownloadLink, version: msVersion } : extension;
-        const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify(updatedExtension)], {
+      await new Promise((resolve, reject) => {
+        const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify(extension)], {
           stdio: ['ignore', 'inherit', 'inherit'],
           cwd: process.cwd(),
           env: process.env
@@ -185,4 +188,5 @@ const flags = [
   }
 
   await fs.promises.writeFile("/tmp/stat.json", JSON.stringify(stat), { encoding: 'utf8' });
+  process.exit();
 })();
