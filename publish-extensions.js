@@ -10,7 +10,6 @@
 
 // @ts-check
 const fs = require('fs');
-const ovsx = require('ovsx');
 const cp = require('child_process');
 const { getPublicGalleryAPI } = require('vsce/out/util');
 const { PublicGalleryAPI } = require('vsce/out/publicgalleryapi');
@@ -140,6 +139,7 @@ const flags = [
 
       if (msVersion) {
         if (!extension.repository) {
+          if (extension.download) ()
           throw new Error(`${extension.id}: repository not specified`);
         }
         const download = await getReleases.resolveFromRelease(extension.repository, extension.version, msVersion);
