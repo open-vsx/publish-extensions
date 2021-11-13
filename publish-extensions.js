@@ -10,14 +10,13 @@
 
 // @ts-check
 const fs = require('fs');
+const ovsx = require('ovsx');
 const cp = require('child_process');
-const util = require('util');
 const { getPublicGalleryAPI } = require('vsce/out/util');
 const { PublicGalleryAPI } = require('vsce/out/publicgalleryapi');
 const { ExtensionQueryFlags, PublishedExtension } = require('azure-devops-node-api/interfaces/GalleryInterfaces');
 const semver = require('semver');
 const getReleases = require('./lib/getReleases');
-const writeFile = util.promisify(fs.writeFile);
 
 const msGalleryApi = getPublicGalleryAPI();
 msGalleryApi.client['_allowRetries'] = true;
@@ -141,15 +140,6 @@ const flags = [
 
       if (msVersion) {
         if (!extension.repository) {
-          if (extension.download) {
-            const extensionIndex = extensions.indexOf(extension);
-            const repository = extension.download.replace(/\/releases\/download\/.*$/, '');
-            delete extension.download;
-            extensions[extensionIndex].repository = repository;
-            extensions[extensionIndex].version = msVersion;
-            extension.repository = repository;
-            await writeFile('./extensions.json', JSON.stringify({ extensions }, null, 2) + '\n', 'utf-8');
-          }
           throw new Error(`${extension.id}: repository not specified`);
         }
         const download = await getReleases.resolveFromRelease(extension.repository, extension.version, msVersion);
@@ -175,6 +165,7 @@ const flags = [
           reject(new Error("No repository provided"));
         }
         const vsixDownloadLink = await getReleases.resolveFromRelease(repository, extension.version, msVersion);
+
 
         if(repository && !vsixDownloadLink) {
           reject(new Error("Specified release not found"));
