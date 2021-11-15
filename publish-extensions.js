@@ -15,7 +15,7 @@ const { getPublicGalleryAPI } = require('vsce/out/util');
 const { PublicGalleryAPI } = require('vsce/out/publicgalleryapi');
 const { ExtensionQueryFlags, PublishedExtension } = require('azure-devops-node-api/interfaces/GalleryInterfaces');
 const semver = require('semver');
-const getReleases = require('./lib/getReleases');
+const resolveFromRelease = require('./lib/getReleases').resolveFromRelease;
 
 const msGalleryApi = getPublicGalleryAPI();
 msGalleryApi.client['_allowRetries'] = true;
@@ -141,7 +141,7 @@ const flags = [
         if (!extension.repository) {
           throw new Error(`${extension.id}: repository not specified`);
         }
-        const download = await getReleases.resolveFromRelease(extension.repository, extension.version, msVersion);
+        const download = await resolveFromRelease(extension.repository, extension.version, msVersion);
         if (!download) {
           throw new Error(`${extension.id}: failed to resolve from releases`);
         }
