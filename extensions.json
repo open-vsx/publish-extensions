@@ -201,6 +201,9 @@
   "ctf0.macros": {
     "repository": "https://github.com/ctf0/macros"
   },
+  "damc.textpad-color-theme": {
+    "repository": "https://github.com/damc-code/themes"
+  },
   "damonsk.vscode-wardley-maps": {
     "repository": "https://github.com/damonsk/vscode-wardley-maps"
   },
