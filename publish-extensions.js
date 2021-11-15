@@ -139,7 +139,6 @@ const flags = [
 
       if (msVersion) {
         if (!extension.repository) {
-          if (extension.download) ()
           throw new Error(`${extension.id}: repository not specified`);
         }
         const download = await getReleases.resolveFromRelease(extension.repository, extension.version, msVersion);
