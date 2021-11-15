@@ -154,28 +154,12 @@ const flags = [
       }
 
       let timeout;
-      await new Promise(async (resolve, reject) => {
-        const repository = extension.repository || extension.download.replace(/\/releases\/download\/.*$/, '');
-        if (msVersion && !repository) {
-          reject(new Error("Repository not found, you should add it to extensions.json"));
-        }
-        
-        if (!repository) {
-          reject(new Error("No repository provided"));
-        }
-        const vsixDownloadLink = await getReleases.resolveFromRelease(repository, extension.version, msVersion);
-
-
-        if(repository && !vsixDownloadLink) {
-          reject(new Error("Specified release not found"));
-        }
-
-        const updatedExtension = extension.download ? { id: extension.id, download: vsixDownloadLink, version: msVersion } : extension;
-        const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify(updatedExtension)], {
+      await new Promise((resolve, reject) => {
+        const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify(extension)], {
           stdio: ['ignore', 'inherit', 'inherit'],
           cwd: process.cwd(),
           env: process.env
-        })
+        });
         p.on('error', reject);
         p.on('exit', code => {
           if (code) {
