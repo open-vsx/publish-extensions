@@ -57,7 +57,7 @@ Alternative usage: node add-extension --download=VSIX_URL`);
 
   // If possible, always prefer re-publishing an official VSIX release over trying to re-package ourselves.
   if (repository && !argv.download) {
-    const latestVSIXRelease = await getReleases.findLatestVSIXRelease(repository);
+    const latestVSIXRelease = await getReleases.resolveFromRelease(repository, argv.version);
     if (latestVSIXRelease) {
       // Simulate a 'node add-extension --download=VSIX_URL' CLI call.
       argv.download = latestVSIXRelease;

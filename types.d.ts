@@ -39,7 +39,19 @@ export interface PublishStat {
         [id: string]: MSExtensionStat
     }
     hitMiss: {
-        [id: string]: (ExtensionStat | ExtensionStat) & { hit: boolean }
+        [id: string]: (ExtensionStat | ExtensionStat) & { hit: boolean }
     }
     failed: string[]
+}
+
+export interface Extension {
+    id: string,
+    repository?: string
+    version?: string
+    checkout?: string
+    location?: string
+    prepublish?: string
+    download?: string
+    extensionFile?: string
+    timeout?: unknown
 }

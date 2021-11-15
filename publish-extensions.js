@@ -10,12 +10,12 @@
 
 // @ts-check
 const fs = require('fs');
-const ovsx = require('ovsx');
 const cp = require('child_process');
 const { getPublicGalleryAPI } = require('vsce/out/util');
 const { PublicGalleryAPI } = require('vsce/out/publicgalleryapi');
 const { ExtensionQueryFlags, PublishedExtension } = require('azure-devops-node-api/interfaces/GalleryInterfaces');
 const semver = require('semver');
+const resolveFromRelease = require('./lib/getReleases').resolveFromRelease;
 
 const msGalleryApi = getPublicGalleryAPI();
 msGalleryApi.client['_allowRetries'] = true;
@@ -41,6 +41,9 @@ const flags = [
   if (process.env.FAILED_EXTENSIONS) {
     toVerify = process.env.FAILED_EXTENSIONS.split(',').map(s => s.trim());
   }
+  /**
+   * @type {{extensions:import('./types').Extension[]}}
+   */
   const { extensions } = JSON.parse(await fs.promises.readFile('./extensions.json', 'utf-8'));
 
   // Also install extensions' devDependencies when using `npm install` or `yarn install`.
@@ -134,13 +137,29 @@ const flags = [
         continue;
       }
 
+      if (msVersion) {
+        if (!extension.repository) {
+          throw new Error(`${extension.id}: repository not specified`);
+        }
+        const download = await resolveFromRelease(extension.repository, extension.version, msVersion);
+        if (!download) {
+          throw new Error(`${extension.id}: failed to resolve from releases`);
+        }
+        extension.version = msVersion;
+        extension.download = download;
+      }
+
+      if (Boolean(process.env.DRY_RUN)) {
+        continue;
+      }
+
       let timeout;
       await new Promise((resolve, reject) => {
         const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify(extension)], {
           stdio: ['ignore', 'inherit', 'inherit'],
           cwd: process.cwd(),
           env: process.env
-        })
+        });
         p.on('error', reject);
         p.on('exit', code => {
           if (code) {
@@ -168,4 +187,5 @@ const flags = [
   }
 
   await fs.promises.writeFile("/tmp/stat.json", JSON.stringify(stat), { encoding: 'utf8' });
+  process.exit();
 })();

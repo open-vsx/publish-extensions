@@ -1258,8 +1258,7 @@
     },
     {
       "id": "ms-python.python",
-      "repository": "https://github.com/microsoft/vscode-python",
-      "version": "2021.11.1422169775"
+      "repository": "https://github.com/microsoft/vscode-python"
     },
     {
       "id": "ms-toolsai.jupyter",

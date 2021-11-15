@@ -19,16 +19,7 @@ const exec = require('./lib/exec');
 
 (async () => {
     /**
-     * @type {{
-     *        id: string,
-     *        repository: string,
-     *        version?: string,
-     *        checkout?: string,
-     *        location?: string,
-     *        prepublish?: string,
-     *        download?: string,
-     *        extensionFile?: string
-     *    }}
+     * @type {import('./types').Extension}
      */
     const extension = JSON.parse(process.argv[2]);
     const registry = new ovsx.Registry();
@@ -132,7 +123,7 @@ const exec = require('./lib/exec');
         }
         console.log(`[OK] Successfully published ${id} to Open VSX!`)
     } catch (error) {
-        if (error && String(error).indexOf('is already published.') != -1) {
+        if (error && String(error).indexOf('is already published.') !== -1) {
             console.log(`Could not process extension -- assuming that it already exists`);
             console.log(error);
         } else {
