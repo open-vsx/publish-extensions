@@ -54,13 +54,15 @@
     },
     {
       "id": "alefragnani.Bookmarks",
-      "download": "https://github.com/alefragnani/vscode-bookmarks/releases/download/v13.0.1/Bookmarks-13.0.1.vsix",
-      "version": "13.0.1"
+      "version": "13.2.2",
+      "repository": "https://github.com/alefragnani/vscode-bookmarks",
+      "checkout": "68b085a2154666471d261eb376c22c984818f98f"
     },
     {
       "id": "alefragnani.project-manager",
-      "download": "https://github.com/alefragnani/vscode-project-manager/releases/download/v12.0.1/project-manager-12.0.1.vsix",
-      "version": "12.0.1"
+      "version": "12.4.0",
+      "repository": "https://github.com/alefragnani/vscode-project-manager",
+      "checkout": "c6fbd389dc85137e65752287a131391c52bb35bd"
     },
     {
       "id": "alexkrechik.cucumberautocomplete",
@@ -80,8 +82,8 @@
     },
     {
       "id": "amazonwebservices.aws-toolkit-vscode",
-      "download": "https://github.com/aws/aws-toolkit-vscode/releases/download/v1.27.0/aws-toolkit-vscode-1.27.0.vsix",
-      "version": "1.27.0"
+      "version": "1.33.0",
+      "repository": "https://github.com/aws/aws-toolkit-vscode"
     },
     {
       "id": "amiralizadeh9480.laravel-extra-intellisense",
@@ -97,8 +99,8 @@
     },
     {
       "id": "Angular.ng-template",
-      "download": "https://github.com/angular/vscode-ng-language-service/releases/download/v12.2.2/ng-template-12.2.2.vsix",
-      "version": "12.2.2"
+      "version": "13.0.0",
+      "repository": "https://github.com/angular/vscode-ng-language-service"
     },
     {
       "id": "anseki.vscode-color",
@@ -173,8 +175,8 @@
     },
     {
       "id": "BazelBuild.vscode-bazel",
-      "download": "https://github.com/bazelbuild/vscode-bazel/releases/download/0.4.1/vscode-bazel-0.4.1.vsix",
-      "version": "0.4.1"
+      "version": "0.5.0",
+      "repository": "https://github.com/bazelbuild/vscode-bazel"
     },
     {
       "id": "bbenoist.Doxygen",
@@ -219,8 +221,8 @@
     },
     {
       "id": "bradlc.vscode-tailwindcss",
-      "download": "https://github.com/tailwindlabs/tailwindcss-intellisense/releases/download/v0.7.1/vscode-tailwindcss-0.7.1.vsix",
-      "version": "0.7.1"
+      "version": "0.7.2",
+      "repository": "https://github.com/tailwindlabs/tailwindcss-intellisense"
     },
     {
       "id": "buianhthang.gitflow",
@@ -378,7 +380,9 @@
     },
     {
       "id": "denoland.vscode-deno",
-      "repository": "https://github.com/denoland/vscode_deno"
+      "repository": "https://github.com/denoland/vscode_deno",
+      "version": "3.9.2",
+      "download": "https://github.com/denoland/vscode_deno/releases/download/3.9.2/vscode-deno.vsix"
     },
     {
       "id": "DigitalBrainstem.javascript-ejs-support",
@@ -397,8 +401,8 @@
     },
     {
       "id": "donjayamanne.githistory",
-      "download": "https://github.com/DonJayamanne/gitHistoryVSCode/releases/download/v0.6.18/githistory-0.6.18.vsix",
-      "version": "0.6.18"
+      "version": "0.6.19",
+      "repository": "https://github.com/DonJayamanne/gitHistoryVSCode"
     },
     {
       "id": "donjayamanne.jquerysnippets",
@@ -429,8 +433,9 @@
     },
     {
       "id": "eamodio.gitlens",
-      "download": "https://github.com/eamodio/vscode-gitlens/releases/download/v11.6.0/gitlens-11.6.0.vsix",
-      "version": "11.6.0"
+      "version": "11.6.1",
+      "repository": "https://github.com/eamodio/vscode-gitlens",
+      "checkout": " v11.6.1"
     },
     {
       "id": "eamodio.tsl-problem-matcher",
@@ -454,8 +459,8 @@
     },
     {
       "id": "efoerster.texlab",
-      "download": "https://github.com/latex-lsp/texlab-vscode/releases/download/v3.2.0/texlab.vsix",
-      "version": "3.2.0"
+      "version": "3.3.1",
+      "repository": "https://github.com/latex-lsp/texlab-vscode"
     },
     {
       "id": "embertooling.prettier-for-handlebars-vscode",
@@ -539,8 +544,8 @@
     },
     {
       "id": "felixfbecker.php-debug",
-      "download": "https://github.com/xdebug/vscode-php-debug/releases/download/v1.21.0/php-debug-1.21.0.vsix",
-      "version": "1.21.0"
+      "version": "1.22.0",
+      "repository": "https://github.com/xdebug/vscode-php-debug"
     },
     {
       "id": "felixfbecker.php-intellisense",
@@ -572,8 +577,8 @@
     },
     {
       "id": "formulahendry.auto-rename-tag",
-      "download": "https://github.com/formulahendry/vscode-auto-rename-tag/releases/download/0.1.0/auto-rename-tag-0.1.0.vsix",
-      "version": "0.1.0"
+      "version": "0.1.9",
+      "repository": "https://github.com/formulahendry/vscode-auto-rename-tag"
     },
     {
       "id": "formulahendry.code-runner",
@@ -581,13 +586,15 @@
     },
     {
       "id": "formulahendry.vscode-mysql",
-      "download": "https://github.com/formulahendry/vscode-mysql/releases/download/0.4.0/vscode-mysql-0.4.0.vsix",
-      "version": "0.4.0"
+      "version": "0.4.1",
+      "repository": "https://github.com/formulahendry/vscode-mysql",
+      "checkout": "21e6646c2868180a5a7f8141b4018d165fa9ad64"
     },
     {
       "id": "formulahendry.vscode-node-red",
-      "download": "https://github.com/formulahendry/vscode-node-red/releases/download/0.0.2/vscode-node-red-0.0.2.vsix",
-      "version": "0.0.2"
+      "version": "0.2.0",
+      "repository": "https://github.com/formulahendry/vscode-node-red",
+      "checkout": "ffcb7263ddcbedb50655f14f3c2b8a7df7cdbf4b"
     },
     {
       "id": "Fr43nk.seito-openfile",
@@ -599,8 +606,8 @@
     },
     {
       "id": "fredericbonnet.cmake-test-adapter",
-      "download": "https://github.com/fredericbonnet/cmake-test-explorer/releases/download/v0.14.1/cmake-test-adapter-0.14.1.vsix",
-      "version": "0.14.1"
+      "version": "0.14.2",
+      "repository": "https://github.com/fredericbonnet/cmake-test-explorer"
     },
     {
       "id": "fterrag.vscode-php-cs-fixer",
@@ -643,13 +650,13 @@
     },
     {
       "id": "GitHub.vscode-pull-request-github",
-      "download": "https://github.com/microsoft/vscode-pull-request-github/releases/download/v0.31.1/vscode-pull-request-github-0.31.1.vsix",
-      "version": "0.31.1"
+      "version": "0.32.0",
+      "repository": "https://github.com/microsoft/vscode-pull-request-github"
     },
     {
       "id": "golang.go",
-      "download": "https://github.com/golang/vscode-go/releases/download/v0.28.1/go-0.28.1.vsix",
-      "version": "0.28.1"
+      "version": "0.29.0",
+      "repository": "https://github.com/golang/vscode-go"
     },
     {
       "id": "goodbaikin.org-preview",
@@ -699,8 +706,8 @@
     },
     {
       "id": "hashicorp.terraform",
-      "download": "https://github.com/hashicorp/vscode-terraform/releases/download/v2.14.0/terraform-2.14.0.vsix",
-      "version": "2.14.0"
+      "version": "2.16.0",
+      "repository": "https://github.com/hashicorp/vscode-terraform"
     },
     {
       "id": "haskell.haskell",
@@ -729,8 +736,9 @@
     },
     {
       "id": "hirosystems.clarity-lsp",
-      "download": "https://github.com/lgalabru/clarity-lsp/releases/download/v0.5.1/clarity-lsp.vsix",
-      "version": "0.5.1"
+      "version": "0.5.3",
+      "repository": "https://github.com/lgalabru/clarity-lsp",
+      "checkout": "001bc06e128404ce94ba16d771e0fdf9355b4c02"
     },
     {
       "id": "Hirse.vscode-ungit",
@@ -899,13 +907,13 @@
     },
     {
       "id": "k--kato.docomment",
-      "download": "https://github.com/kasecato/vscode-docomment/releases/download/v0.1.20/docomment-0.1.20.vsix",
-      "version": "0.1.20"
+      "version": "0.1.30",
+      "repository": "https://github.com/kasecato/vscode-docomment"
     },
     {
       "id": "k--kato.intellij-idea-keybindings",
-      "download": "https://github.com/kasecato/vscode-intellij-idea-keybindings/releases/download/v1.4.5/intellij-idea-keybindings-1.4.5.vsix",
-      "version": "1.4.5"
+      "version": "1.5.0",
+      "repository": "https://github.com/kasecato/vscode-intellij-idea-keybindings"
     },
     {
       "id": "kaiwood.endwise",
@@ -968,8 +976,8 @@
     },
     {
       "id": "kosz78.nim",
-      "download": "https://github.com/pragmagic/vscode-nim/releases/download/v0.6.6/nim-0.6.6.vsix",
-      "version": "0.6.6"
+      "version": "0.6.6",
+      "repository": "https://github.com/pragmagic/vscode-nim"
     },
     {
       "id": "laradump.laradump",
@@ -1032,8 +1040,8 @@
     },
     {
       "id": "matklad.rust-analyzer",
-      "download": "https://github.com/rust-analyzer/rust-analyzer/releases/download/2021-10-18/rust-analyzer.vsix",
-      "version": "0.2.784"
+      "version": "0.2.817",
+      "repository": "https://github.com/rust-analyzer/rust-analyzer"
     },
     {
       "id": "max-SS.Cyberpunk",
@@ -1101,8 +1109,8 @@
     },
     {
       "id": "mongodb.mongodb-vscode",
-      "download": "https://github.com/mongodb-js/vscode/releases/download/v0.6.12/mongodb-vscode-0.6.12.vsix",
-      "version": "0.6.12"
+      "version": "0.6.14",
+      "repository": "https://github.com/mongodb-js/vscode"
     },
     {
       "id": "mp.oradew-vscode",
@@ -1232,8 +1240,8 @@
     },
     {
       "id": "ms-kubernetes-tools.vscode-kubernetes-tools",
-      "download": "https://github.com/Azure/vscode-kubernetes-tools/releases/download/1.3.3/vscode-kubernetes-tools-1.3.3.vsix",
-      "version": "1.3.3"
+      "version": "1.3.4",
+      "repository": "https://github.com/Azure/vscode-kubernetes-tools"
     },
     {
       "id": "ms-pyright.vscode-pyright",
@@ -1250,8 +1258,8 @@
     },
     {
       "id": "ms-python.python",
-      "download": "https://github.com/microsoft/vscode-python/releases/download/2021.10.1365161279/ms-python-release.vsix",
-      "version": "2021.10.1365161279"
+      "repository": "https://github.com/microsoft/vscode-python",
+      "version": "2021.11.1422169775"
     },
     {
       "id": "ms-toolsai.jupyter",
@@ -1272,8 +1280,8 @@
     },
     {
       "id": "ms-vscode.cmake-tools",
-      "download": "https://github.com/microsoft/vscode-cmake-tools/releases/download/v1.9.0/cmake-tools.vsix",
-      "version": "1.9.0"
+      "version": "1.9.1",
+      "repository": "https://github.com/microsoft/vscode-cmake-tools"
     },
     {
       "id": "ms-vscode.Go",
@@ -1369,8 +1377,9 @@
     },
     {
       "id": "msjsdiag.debugger-for-edge",
-      "download": "https://github.com/Microsoft/vscode-edge-debug2/releases/download/v1.0.10/debugger-for-edge-1.0.10.vsix",
-      "version": "1.0.10"
+      "version": "1.0.15",
+      "repository": "https://github.com/Microsoft/vscode-edge-debug2",
+      "checkout": "c12eb8c816739e10179786de1dbc0d2ff2e8d4cf"
     },
     {
       "id": "mtxr.sqltools",
@@ -1460,8 +1469,9 @@
     },
     {
       "id": "paiqo.databricks-vscode",
-      "download": "https://github.com/paiqo/Databricks-VSCode/releases/download/v0.8.0/databricks-vscode-0.8.0.vsix",
-      "version": "0.8.0"
+      "version": "0.8.9",
+      "repository": "https://github.com/paiqo/Databricks-VSCode",
+      "checkout": "a6929bd7850b2b89b381563e8d3928252594768b"
     },
     {
       "id": "paragdiwan.gitpatch",
@@ -1505,8 +1515,8 @@
     },
     {
       "id": "platformio.platformio-ide",
-      "download": "https://github.com/platformio/platformio-vscode-ide/releases/download/v2.2.0/platformio-ide-2.2.0.vsix",
-      "version": "2.2.0"
+      "version": "2.4.0",
+      "repository": "https://github.com/platformio/platformio-vscode-ide"
     },
     {
       "id": "pmbenjamin.vscode-snyk",
@@ -1526,8 +1536,8 @@
     },
     {
       "id": "rebornix.ruby",
-      "download": "https://github.com/rubyide/vscode-ruby/releases/download/v0.28.0/ruby-0.28.0.vsix",
-      "version": "0.28.0"
+      "version": "0.28.1",
+      "repository": "https://github.com/rubyide/vscode-ruby"
     },
     {
       "id": "reduckted.vscode-gitweblinks",
@@ -1684,8 +1694,8 @@
     },
     {
       "id": "SonarSource.sonarlint-vscode",
-      "download": "https://github.com/SonarSource/sonarlint-vscode/releases/download/3.0.0%2B37760/sonarlint-vscode-3.0.0.vsix",
-      "version": "3.0.0"
+      "version": "3.1.0",
+      "repository": "https://github.com/SonarSource/sonarlint-vscode"
     },
     {
       "id": "steoates.autoimport",
@@ -1693,13 +1703,13 @@
     },
     {
       "id": "stripe.vscode-stripe",
-      "download": "https://github.com/stripe/vscode-stripe/releases/download/v2.0.7/vscode-stripe-2.0.7.vsix",
-      "version": "2.0.7"
+      "version": "2.0.9",
+      "repository": "https://github.com/stripe/vscode-stripe"
     },
     {
       "id": "stylelint.vscode-stylelint",
-      "download": "https://github.com/stylelint/vscode-stylelint/releases/download/v1.0.0/vscode-stylelint-1.0.0.vsix",
-      "version": "1.0.0"
+      "version": "1.1.0",
+      "repository": "https://github.com/stylelint/vscode-stylelint"
     },
     {
       "id": "svipas.control-snippets",
@@ -1783,8 +1793,9 @@
     },
     {
       "id": "Unity.unity-debug",
-      "download": "https://github.com/Unity-Technologies/vscode-unity-debug/releases/download/Version-3.0.1/unity-debug-3.0.1.vsix",
-      "version": "3.0.1"
+      "version": "3.0.2",
+      "repository": "https://github.com/Unity-Technologies/vscode-unity-debug",
+      "checkout": "Version-3.0.2"
     },
     {
       "id": "vhdlwhiz.vhdl-by-vhdlwhiz",
@@ -1811,13 +1822,14 @@
     },
     {
       "id": "vsciot-vscode.vscode-arduino",
-      "download": "https://github.com/microsoft/vscode-arduino/releases/download/v0.4.6/vscode-arduino-0.4.6.vsix",
-      "version": "0.4.6"
+      "version": "0.4.8",
+      "repository": "https://github.com/microsoft/vscode-arduino"
     },
     {
       "id": "vscjava.vscode-java-debug",
-      "download": "https://github.com/microsoft/vscode-java-debug/releases/download/0.35.0/vscjava.vscode-java-debug-0.35.0.vsix",
-      "version": "0.35.0"
+      "version": "0.36.0",
+      "repository": "https://github.com/microsoft/vscode-java-debug",
+      "checkout": "92542b6db2af3c03bb956e3abbb613b68ae6e1d8"
     },
     {
       "id": "vscjava.vscode-java-dependency",
