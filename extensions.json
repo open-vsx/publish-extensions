@@ -1127,8 +1127,7 @@
     {
       "id": "mrorz.language-gettext",
       "repository": "https://github.com/MrOrz/vscode-gettext",
-      "version": "0.2.0",
-      "checkout": "0.2.0"
+      "version": "0.2.1"
     },
     {
       "id": "ms-azuretools.vscode-docker",
