@@ -31,9 +31,10 @@ const exec = require('./lib/exec');
         if (context.file) {
             options = { extensionFile: context.file };
         } else if (context.ref) {
+            console.log(`${id}: preparing from ${context.ref}...`);
             const repoPath = '/tmp/repository';
             let packagePath = repoPath;
-            if (extension.location) {
+            if (extension.location) {
                 packagePath = path.join(packagePath, extension.location);
             }
             // Clone and set up the repository.
@@ -44,7 +45,22 @@ const exec = require('./lib/exec');
             let yarn = await new Promise(resolve => {
                 fs.access(path.join(repoPath, 'yarn.lock'), error => resolve(!error));
             });
-            await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: packagePath });
+            try {
+                await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: packagePath });
+            } catch (e) {
+                const pck = JSON.parse(await fs.promises.readFile(path.join(packagePath, 'package.json'), 'utf-8'));
+                // try to auto migrate from vscode: https://code.visualstudio.com/api/working-with-extensions/testing-extension#migrating-from-vscode
+                if (pck.scripts?.postinstall === 'node ./node_modules/vscode/bin/install') {
+                    delete pck.scripts['postinstall'];
+                    const devDependencies = pck.devDependencies || {};
+                    delete pck.devDependencies['vscode'];
+                    pck.devDependencies['@types/vscode'] = 'latest';
+                    await fs.promises.writeFile(path.join(packagePath, 'package.json'), JSON.stringify(pck, undefined, 2), 'utf-8')
+                    await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: packagePath });
+                } else {
+                    throw e;
+                }
+            }
             if (extension.prepublish) {
                 await exec(extension.prepublish, { cwd: repoPath })
             }
@@ -57,6 +73,7 @@ const exec = require('./lib/exec');
             if (yarn) {
                 options.yarn = true;
             }
+            console.log(`${id}: prepared from ${context.ref}`);
         }
 
         // Check if the requested version is greater than the one on Open VSX.        
