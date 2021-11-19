@@ -862,6 +862,9 @@
     "repository": "https://github.com/microsoft/vscode-themes/",
     "location": "tomorrow"
   },
+  "ms-vscode.vscode-github-issue-notebooks": {
+    "repository": "https://github.com/microsoft/vscode-github-issue-notebooks"
+  },
   "ms-vscode.vscode-js-profile-flame": {
     "repository": "https://github.com/microsoft/vscode-js-profile-visualizer",
     "location": "packages/vscode-js-profile-flame",
