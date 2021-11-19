@@ -79,7 +79,7 @@ const exec = require('./lib/exec');
             }
         }
 
-        if (Boolean(process.env.SKIP_PUBLISH)) {
+        if (process.env.SKIP_PUBLISH === 'true') {
             return;
         }
         console.log(`Attempting to publish ${id} to Open VSX`);

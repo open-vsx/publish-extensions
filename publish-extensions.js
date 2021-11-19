@@ -65,7 +65,7 @@ const flags = [
   const monthAgo = new Date();
   monthAgo.setMonth(monthAgo.getMonth() - 1);
   for (const id in extensions) {
-    if (id === '$schema') {
+    if (id === '$schema') {
       continue;
     }
     if (toVerify && toVerify.indexOf(id) === -1) {
@@ -132,13 +132,15 @@ const flags = [
       }
 
       await updateStat();
-      if (stat.upToDate[extension.id]) {
-        console.log(`${extension.id}: skipping, since up-to-date`);
-        continue;
-      }
-      if (stat.unstable[extension.id]) {
-        console.log(`${extension.id}: skipping, since version in Open VSX is never than in MS marketplace`);
-        continue;
+      if (process.env.FORCE !== 'true') {
+        if (stat.upToDate[extension.id]) {
+          console.log(`${extension.id}: skipping, since up-to-date`);
+          continue;
+        }
+        if (stat.unstable[extension.id]) {
+          console.log(`${extension.id}: skipping, since version in Open VSX is never than in MS marketplace`);
+          continue;
+        }
       }
 
       if (!extension.repository) {
@@ -180,7 +182,7 @@ const flags = [
         throw `${extension.id}: failed to resolve`;
       }
 
-      if (Boolean(process.env.SKIP_BUILD)) {
+      if (process.env.SKIP_BUILD === 'true') {
         continue;
       }
 

@@ -31,7 +31,7 @@ Click the button below to start a [Gitpod](https://gitpod.io) workspace where yo
 
 The best way to add an extension here is to [open this repository in Gitpod](https://gitpod.io/#https://github.com/open-vsx/publish-extensions) and add a new entry to `extensions.json`. To test run:
 ```
-EXTENSIONS=rebornix.ruby SKIP_PUBLISH=1 node publish-extensions.js
+EXTENSIONS=rebornix.ruby SKIP_PUBLISH=true node publish-extensions.js
 ```
 
 Notes:
