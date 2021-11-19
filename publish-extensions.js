@@ -147,7 +147,7 @@ const flags = [
         throw `${extension.id}: repository not specified`;
       }
 
-      await exec('rm -rf /tmp/repository /tmp/download');
+      await exec('rm -rf /tmp/repository /tmp/download', { quiet: true });
 
       const resolved = await resolveExtension(extension, context.msVersion && {
         version: context.msVersion,
@@ -155,7 +155,7 @@ const flags = [
       });
       context.version = resolved?.version;
 
-      if (process.env.FORCE !== 'true' && resolved?.latest && context.version === context.ovsxVersion) {
+      if (process.env.FORCE !== 'true' && resolved?.ref?.latest && context.version === context.ovsxVersion) {
         console.log(`${extension.id}: skipping, since very latest commit already published to Open VSX`);
         stat.upToDate[extension.id] = stat.outdated[extension.id];
         delete stat.outdated[extension.id];
@@ -166,26 +166,31 @@ const flags = [
       if (resolved?.release) {
         console.log(`${extension.id}: resolved ${resolved.release.link} from release`);
         context.file = resolved.release.file;
-      } else if (resolved?.releaseTag) {
-        console.log(`${extension.id}: resolved ${resolved.releaseTag} from release tag`);
-        context.ref = resolved.releaseTag;
-      } else if (resolved?.tag) {
-        console.log(`${extension.id}: resolved ${resolved.tag} from tags`);
-        context.ref = resolved.tag;
-      } else if (resolved?.latest) {
+      } else if (resolved?.ref?.releaseTag) {
+        console.log(`${extension.id}: resolved ${resolved.ref.releaseTag} from release tag`);
+        context.repo = resolved.ref.path;
+        context.ref = resolved.ref.releaseTag;
+      } else if (resolved?.ref?.tag) {
+        console.log(`${extension.id}: resolved ${resolved.ref.tag} from tags`);
+        context.repo = resolved.ref.path;
+        context.ref = resolved.ref.tag;
+      } else if (resolved?.ref?.latest) {
         if (context.msVersion) {
           // TODO(ak) report as not actively maintained
-          console.log(`${extension.id}: resolved ${resolved.latest} from the very latest commit, since it is not actively maintained`);
+          console.log(`${extension.id}: resolved ${resolved.ref.latest} from the very latest commit, since it is not actively maintained`);
         } else {
-          console.log(`${extension.id}: resolved ${resolved.latest} from the very latest commit, since it is not published to MS marketplace`);
+          console.log(`${extension.id}: resolved ${resolved.ref.latest} from the very latest commit, since it is not published to MS marketplace`);
         }
-        context.ref = resolved.latest;
-      } else if (resolved?.matchedLatest) {
-        console.log(`${extension.id}: resolved ${resolved?.matchedLatest} from the very latest commit`);
-        context.ref = resolved.matchedLatest;
-      } else if (resolved?.matched) {
-        console.log(`${extension.id}: resolved ${resolved.matched} from the latest commit on the last update date`);
-        context.ref = resolved.matched;
+        context.repo = resolved.ref.path;
+        context.ref = resolved.ref.latest;
+      } else if (resolved?.ref?.matchedLatest) {
+        console.log(`${extension.id}: resolved ${resolved.ref.matchedLatest} from the very latest commit`);
+        context.repo = resolved.ref.path;
+        context.ref = resolved.ref.matchedLatest;
+      } else if (resolved?.ref?.matched) {
+        console.log(`${extension.id}: resolved ${resolved.ref.matched} from the latest commit on the last update date`);
+        context.repo = resolved.ref.path;
+        context.ref = resolved.ref.matched;
       } else {
         throw `${extension.id}: failed to resolve`;
       }

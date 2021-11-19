@@ -60,11 +60,14 @@ export interface Extension {
 export interface ResolvedExtension {
     version: string
     release?: { file: string, link: string }
-    releaseTag?: string
-    tag?: string
-    latest?: string
-    matchedLatest?: string
-    matched?: string
+    ref?: {
+        path: string
+        releaseTag?: string
+        tag?: string
+        latest?: string
+        matchedLatest?: string
+        matched?: string
+    }
 }
 
 export interface PublishContext {
@@ -78,5 +81,6 @@ export interface PublishContext {
 
     version?: string
     file?: string
+    repo?: string
     ref?: string
 }

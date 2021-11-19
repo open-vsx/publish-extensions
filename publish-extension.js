@@ -30,20 +30,15 @@ const exec = require('./lib/exec');
         let options;
         if (context.file) {
             options = { extensionFile: context.file };
-        } else if (context.ref) {
-            console.log(`${id}: preparing from ${context.ref}...`);
-            const repoPath = '/tmp/repository';
-            let packagePath = repoPath;
+        } else if (context.repo && context.ref) {
+            console.log(`${id}: preparing from ${context.repo}...`);
+            let packagePath = context.repo;
             if (extension.location) {
                 packagePath = path.join(packagePath, extension.location);
             }
-            // Clone and set up the repository.
-            await exec(`git clone --recurse-submodules ${extension.repository} ${repoPath}`);
-            if (context.ref) {
-                await exec(`git checkout ${context.ref}`, { cwd: repoPath });
-            }
+            await exec(`git checkout ${context.ref}`, { cwd: context.repo });
             let yarn = await new Promise(resolve => {
-                fs.access(path.join(repoPath, 'yarn.lock'), error => resolve(!error));
+                fs.access(path.join(context.repo, 'yarn.lock'), error => resolve(!error));
             });
             try {
                 await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: packagePath });
@@ -62,18 +57,18 @@ const exec = require('./lib/exec');
                 }
             }
             if (extension.prepublish) {
-                await exec(extension.prepublish, { cwd: repoPath })
+                await exec(extension.prepublish, { cwd: context.repo })
             }
 
             if (extension.extensionFile) {
-                options = { extensionFile: path.join(repoPath, extension.extensionFile) };
+                options = { extensionFile: path.join(context.repo, extension.extensionFile) };
             } else {
                 options = { packagePath };
             }
             if (yarn) {
                 options.yarn = true;
             }
-            console.log(`${id}: prepared from ${context.ref}`);
+            console.log(`${id}: prepared from ${context.repo}`);
         }
 
         // Check if the requested version is greater than the one on Open VSX.        
