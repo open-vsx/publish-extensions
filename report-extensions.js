@@ -57,7 +57,9 @@ function sortedKeys(s) {
 
     let content = summary;
     if (outdated) {
-        process.exitCode = -1;
+        if (process.env.VALIDATE_PR !== 'true') {
+            process.exitCode = -1;
+        }
         content += '\r\n----- Outdated (MS marketplace > Open VSX version) -----\r\n';
         for (const id of sortedKeys(stat.outdated)) {
             const r = stat.outdated[id];
@@ -67,7 +69,9 @@ function sortedKeys(s) {
     }
 
     if (notInOpen) {
-        process.exitCode = -1;
+        if (process.env.VALIDATE_PR !== 'true') {
+            process.exitCode = -1;
+        }
         content += '\r\n----- Not published to Open VSX, but in MS marketplace -----\r\n';
         for (const id of Object.keys(stat.notInOpen).sort((a, b) => stat.notInOpen[b].msInstalls - stat.notInOpen[a].msInstalls)) {
             const r = stat.notInOpen[id];
@@ -77,7 +81,9 @@ function sortedKeys(s) {
     }
 
     if (unstable) {
-        process.exitCode = -1;
+        if (process.env.VALIDATE_PR !== 'true') {
+            process.exitCode = -1;
+        }
         content += '\r\n----- Unstable (Open VSX > MS marketplace version) -----\r\n';
         for (const id of sortedKeys(stat.unstable)) {
             const r = stat.unstable[id];
@@ -91,7 +97,7 @@ function sortedKeys(s) {
         content += '\r\n----- Not published to MS marketplace -----\r\n';
         content += stat.notInMS.join(', ') + '\r\n';
         content += '-------------------\r\n';
-    }   
+    }
 
     if (stat.failed.length) {
         process.exitCode = -1;
