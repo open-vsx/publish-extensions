@@ -31,26 +31,28 @@ const exec = require('./lib/exec');
         if (context.file) {
             options = { extensionFile: context.file };
         } else if (context.ref) {
+            const repoPath = '/tmp/repository';
+            let packagePath = repoPath;
+            if (extension.location) {
+                packagePath = path.join(packagePath, extension.location);
+            }
             // Clone and set up the repository.
-            await exec(`git clone --recurse-submodules ${extension.repository} /tmp/repository`);
+            await exec(`git clone --recurse-submodules ${extension.repository} ${repoPath}`);
             if (context.ref) {
-                await exec(`git checkout ${context.ref}`, { cwd: '/tmp/repository' });
+                await exec(`git checkout ${context.ref}`, { cwd: repoPath });
             }
             let yarn = await new Promise(resolve => {
-                fs.access(path.join('/tmp/repository', 'yarn.lock'), error => resolve(!error));
+                fs.access(path.join(repoPath, 'yarn.lock'), error => resolve(!error));
             });
-            await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: '/tmp/repository' });
+            await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: packagePath });
             if (extension.prepublish) {
-                await exec(extension.prepublish, { cwd: '/tmp/repository' })
+                await exec(extension.prepublish, { cwd: repoPath })
             }
 
             if (extension.extensionFile) {
-                if (extension.location) {
-                    console.warn('[WARN] Ignoring `location` property because `extensionFile` was given.')
-                }
-                options = { extensionFile: path.join('/tmp/repository', extension.extensionFile) };
+                options = { extensionFile: path.join(repoPath, extension.extensionFile) };
             } else {
-                options = { packagePath: path.join('/tmp/repository', extension.location || '.') };
+                options = { packagePath };
             }
             if (yarn) {
                 options.yarn = true;
