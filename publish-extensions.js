@@ -154,6 +154,14 @@ const flags = [
         lastUpdated: context.msLastUpdated
       });
       context.version = resolved?.version;
+
+      if (process.env.FORCE !== 'true' && resolved?.latest && context.version === context.ovsxVersion) {
+        console.log(`${extension.id}: skipping, since very latest commit already published to Open VSX`);
+        stat.upToDate[extension.id] = stat.outdated[extension.id];
+        delete stat.outdated[extension.id];
+        continue;
+      }
+
       // TODO(ak) incorporate into reporting
       if (resolved?.release) {
         console.log(`${extension.id}: resolved ${resolved.release.link} from release`);
