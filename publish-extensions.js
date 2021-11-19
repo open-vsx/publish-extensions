@@ -15,6 +15,7 @@ const { getPublicGalleryAPI } = require('vsce/out/util');
 const { PublicGalleryAPI } = require('vsce/out/publicgalleryapi');
 const { ExtensionQueryFlags, PublishedExtension } = require('azure-devops-node-api/interfaces/GalleryInterfaces');
 const semver = require('semver');
+const Ajv = require("ajv").default;
 const resolveExtension = require('./lib/resolveExtension').resolveExtension;
 const exec = require('./lib/exec');
 
@@ -45,6 +46,18 @@ const flags = [
    * @type {Readonly<import('./types').Extensions>}
    */
   const extensions = JSON.parse(await fs.promises.readFile('./extensions.json', 'utf-8'));
+  
+  // Validate that extensions.json
+  const JSONSchema = JSON.parse(await fs.promises.readFile('./extensions-schema.json', 'utf-8'));
+
+  const ajv = new Ajv();
+  const validate = ajv.compile(JSONSchema);
+  const valid = validate(extensions);
+  if (!valid) {
+    console.error('extensions.json is invalid:');
+    console.error(validate.errors);
+    process.exit(1);
+  }
 
   // Also install extensions' devDependencies when using `npm install` or `yarn install`.
   process.env.NODE_ENV = 'development';

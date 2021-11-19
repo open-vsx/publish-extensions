@@ -23,6 +23,7 @@
     "publish": "node publish-extensions"
   },
   "dependencies": {
+    "ajv": "^8.8.1",
     "download": "^8.0.0",
     "minimist": "^1.2.5",
     "octokit": "^1.7.0",
