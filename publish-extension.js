@@ -15,6 +15,7 @@ const readVSIXPackage = require('vsce/out/zip').readVSIXPackage;
 const path = require('path');
 const semver = require('semver');
 const exec = require('./lib/exec');
+const { createVSIX } = require('vsce');
 
 (async () => {
     /**
@@ -63,7 +64,14 @@ const exec = require('./lib/exec');
             if (extension.extensionFile) {
                 options = { extensionFile: path.join(context.repo, extension.extensionFile) };
             } else {
-                options = { packagePath };
+                options = { extensionFile: path.join(context.repo, 'extension.vsix') };
+                await createVSIX({
+                    cwd: packagePath,
+                    packagePath: options.extensionFile,
+                    baseContentUrl: options.baseContentUrl,
+                    baseImagesUrl: options.baseImagesUrl,
+                    useYarn: options.yarn
+                });
             }
             if (yarn) {
                 options.yarn = true;
@@ -75,8 +83,6 @@ const exec = require('./lib/exec');
         let version;
         if (options.extensionFile) {
             version = (await readVSIXPackage(options.extensionFile)).manifest.version;
-        } else if (options.packagePath) {
-            version = JSON.parse(await fs.promises.readFile(path.join(options.packagePath, 'package.json'), 'utf-8')).version;
         }
         context.version = version;
 
