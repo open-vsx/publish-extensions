@@ -201,6 +201,9 @@
   "ctf0.macros": {
     "repository": "https://github.com/ctf0/macros"
   },
+  "cup-lang.cup": {
+    "repository": "https://github.com/cup-lang/vscode-cup"
+  },
   "damonsk.vscode-wardley-maps": {
     "repository": "https://github.com/damonsk/vscode-wardley-maps"
   },
