@@ -60,11 +60,13 @@ const { createVSIX } = require('vsce');
             if (extension.prepublish) {
                 await exec(extension.prepublish, { cwd: context.repo })
             }
-
             if (extension.extensionFile) {
                 options = { extensionFile: path.join(context.repo, extension.extensionFile) };
             } else {
                 options = { extensionFile: path.join(context.repo, 'extension.vsix') };
+                if (yarn) {
+                    options.yarn = true;
+                }
                 await createVSIX({
                     cwd: packagePath,
                     packagePath: options.extensionFile,
@@ -72,9 +74,6 @@ const { createVSIX } = require('vsce');
                     baseImagesUrl: options.baseImagesUrl,
                     useYarn: options.yarn
                 });
-            }
-            if (yarn) {
-                options.yarn = true;
             }
             console.log(`${id}: prepared from ${context.repo}`);
         }
