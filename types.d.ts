@@ -35,13 +35,17 @@ export interface PublishStat {
     }
     notInMS: string[]
 
+    resolutions: {
+        [id: string]: Partial<MSExtensionStat> & ExtensionResolution
+    }
+    failed: string[]
+
     msPublished: {
         [id: string]: MSExtensionStat
     }
     hitMiss: {
         [id: string]: (ExtensionStat | ExtensionStat) & { hit: boolean }
     }
-    failed: string[]
 }
 
 export interface Extensions {
@@ -57,17 +61,19 @@ export interface Extension {
     timeout?: number
 }
 
+export interface ExtensionResolution {
+    releaseAsset?: string
+    releaseTag?: string
+    tag?: string
+    latest?: string
+    matchedLatest?: string
+    matched?: string
+}
+
 export interface ResolvedExtension {
     version: string
-    release?: { file: string, link: string }
-    ref?: {
-        path: string
-        releaseTag?: string
-        tag?: string
-        latest?: string
-        matchedLatest?: string
-        matched?: string
-    }
+    path: string
+    resolution: ExtensionResolution
 }
 
 export interface PublishContext {

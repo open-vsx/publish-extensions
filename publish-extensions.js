@@ -46,7 +46,7 @@ const flags = [
    * @type {Readonly<import('./types').Extensions>}
    */
   const extensions = JSON.parse(await fs.promises.readFile('./extensions.json', 'utf-8'));
-  
+
   // Validate that extensions.json
   const JSONSchema = JSON.parse(await fs.promises.readFile('./extensions-schema.json', 'utf-8'));
 
@@ -69,10 +69,11 @@ const flags = [
     unstable: {},
     notInOpen: {},
     notInMS: [],
+    failed: [],
 
     msPublished: {},
     hitMiss: {},
-    failed: []
+    resolutions: {}
   }
   const msPublishers = new Set(['ms-python', 'ms-toolsai', 'ms-vscode', 'dbaeumer', 'GitHub', 'Tyriar', 'ms-azuretools', 'msjsdiag', 'ms-mssql', 'vscjava', 'ms-vsts']);
   const monthAgo = new Date();
@@ -145,6 +146,19 @@ const flags = [
       }
 
       await updateStat();
+      await exec('rm -rf /tmp/repository /tmp/download', { quiet: true });
+
+      const resolved = await resolveExtension(extension, context.msVersion && {
+        version: context.msVersion,
+        lastUpdated: context.msLastUpdated
+      });
+      stat.resolutions[extension.id] = {
+        msInstalls: context.msInstalls,
+        msVersion: context.msVersion,
+        ...resolved?.resolution
+      };
+      context.version = resolved?.version;
+
       if (process.env.FORCE !== 'true') {
         if (stat.upToDate[extension.id]) {
           console.log(`${extension.id}: skipping, since up-to-date`);
@@ -154,56 +168,41 @@ const flags = [
           console.log(`${extension.id}: skipping, since version in Open VSX is never than in MS marketplace`);
           continue;
         }
-      }
-
-      if (!extension.repository) {
-        throw `${extension.id}: repository not specified`;
-      }
-
-      await exec('rm -rf /tmp/repository /tmp/download', { quiet: true });
-
-      const resolved = await resolveExtension(extension, context.msVersion && {
-        version: context.msVersion,
-        lastUpdated: context.msLastUpdated
-      });
-      context.version = resolved?.version;
-
-      if (process.env.FORCE !== 'true' && resolved?.ref?.latest && context.version === context.ovsxVersion) {
-        console.log(`${extension.id}: skipping, since very latest commit already published to Open VSX`);
-        stat.upToDate[extension.id] = stat.outdated[extension.id];
-        delete stat.outdated[extension.id];
-        continue;
-      }
-
-      // TODO(ak) incorporate into reporting
-      if (resolved?.release) {
-        console.log(`${extension.id}: resolved ${resolved.release.link} from release`);
-        context.file = resolved.release.file;
-      } else if (resolved?.ref?.releaseTag) {
-        console.log(`${extension.id}: resolved ${resolved.ref.releaseTag} from release tag`);
-        context.repo = resolved.ref.path;
-        context.ref = resolved.ref.releaseTag;
-      } else if (resolved?.ref?.tag) {
-        console.log(`${extension.id}: resolved ${resolved.ref.tag} from tags`);
-        context.repo = resolved.ref.path;
-        context.ref = resolved.ref.tag;
-      } else if (resolved?.ref?.latest) {
-        if (context.msVersion) {
-          // TODO(ak) report as not actively maintained
-          console.log(`${extension.id}: resolved ${resolved.ref.latest} from the very latest commit, since it is not actively maintained`);
-        } else {
-          console.log(`${extension.id}: resolved ${resolved.ref.latest} from the very latest commit, since it is not published to MS marketplace`);
+        if (resolved?.resolution?.latest && context.version === context.ovsxVersion) {
+          console.log(`${extension.id}: skipping, since very latest commit already published to Open VSX`);
+          stat.upToDate[extension.id] = stat.outdated[extension.id];
+          delete stat.outdated[extension.id];
+          continue;
         }
-        context.repo = resolved.ref.path;
-        context.ref = resolved.ref.latest;
-      } else if (resolved?.ref?.matchedLatest) {
-        console.log(`${extension.id}: resolved ${resolved.ref.matchedLatest} from the very latest commit`);
-        context.repo = resolved.ref.path;
-        context.ref = resolved.ref.matchedLatest;
-      } else if (resolved?.ref?.matched) {
-        console.log(`${extension.id}: resolved ${resolved.ref.matched} from the latest commit on the last update date`);
-        context.repo = resolved.ref.path;
-        context.ref = resolved.ref.matched;
+      }
+
+      if (resolved?.resolution?.releaseAsset) {
+        console.log(`${extension.id}: resolved ${resolved.resolution.releaseAsset} from release`);
+        context.file = resolved.path;
+      } else if (resolved?.resolution?.releaseTag) {
+        console.log(`${extension.id}: resolved ${resolved.resolution.releaseTag} from release tag`);
+        context.repo = resolved.path;
+        context.ref = resolved.resolution.releaseTag;
+      } else if (resolved?.resolution?.tag) {
+        console.log(`${extension.id}: resolved ${resolved.resolution.tag} from tags`);
+        context.repo = resolved.path;
+        context.ref = resolved.resolution.tag;
+      } else if (resolved?.resolution?.latest) {
+        if (context.msVersion) {
+          console.log(`${extension.id}: resolved ${resolved.resolution.latest} from the very latest commit, since it is not actively maintained`);
+        } else {
+          console.log(`${extension.id}: resolved ${resolved.resolution.latest} from the very latest commit, since it is not published to MS marketplace`);
+        }
+        context.repo = resolved.path;
+        context.ref = resolved.resolution.latest;
+      } else if (resolved?.resolution?.matchedLatest) {
+        console.log(`${extension.id}: resolved ${resolved.resolution.matchedLatest} from the very latest commit`);
+        context.repo = resolved.path;
+        context.ref = resolved.resolution.matchedLatest;
+      } else if (resolved?.resolution?.matched) {
+        console.log(`${extension.id}: resolved ${resolved.resolution.matched} from the latest commit on the last update date`);
+        context.repo = resolved.path;
+        context.ref = resolved.resolution.matched;
       } else {
         throw `${extension.id}: failed to resolve`;
       }

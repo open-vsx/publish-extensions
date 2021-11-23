@@ -12,7 +12,7 @@
 const fs = require('fs');
 
 /**
- * @param {{ [id: string]: (import('./types').ExtensionStat | import('./types').ExtensionStat) }} s 
+ * @param {{ [id: string]: (Partial<import('./types').MSExtensionStat | import('./types').ExtensionStat>) }} s 
  */
 function sortedKeys(s) {
     return Object.keys(s).sort((a, b) => {
@@ -40,6 +40,16 @@ function sortedKeys(s) {
     const updatedInOpen = Object.keys(stat.hitMiss).filter(id => stat.hitMiss[id].hit).length;
     const msPublished = Object.keys(stat.msPublished).length;
 
+    const totalResolutions = Object.keys(stat.resolutions).length;
+    const fromReleaseAsset = Object.keys(stat.resolutions).filter(id => stat.resolutions[id].releaseAsset).length;
+    const fromReleaseTag = Object.keys(stat.resolutions).filter(id => stat.resolutions[id].releaseTag).length;
+    const fromTag = Object.keys(stat.resolutions).filter(id => stat.resolutions[id].tag).length;
+    const fromLatestUnmaintained = Object.keys(stat.resolutions).filter(id => stat.resolutions[id].latest && stat.resolutions[id].msVersion).length;
+    const fromLatestNotPublished = Object.keys(stat.resolutions).filter(id => stat.resolutions[id].latest && !stat.resolutions[id].msVersion).length;
+    const fromMatchedLatest = Object.keys(stat.resolutions).filter(id => stat.resolutions[id].matchedLatest).length;
+    const fromMatched = Object.keys(stat.resolutions).filter(id => stat.resolutions[id].matched).length;
+    const totalResolved = fromReleaseAsset + fromReleaseTag + fromTag + fromLatestUnmaintained + fromLatestNotPublished + fromMatchedLatest + fromMatched;
+
     let summary = '----- Summary -----\r\n';
     summary += `Total: ${total}\r\n`;
     summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%)\r\n`;
@@ -49,6 +59,16 @@ function sortedKeys(s) {
     summary += `Not in MS marketplace: ${notInMS} (${(notInMS / total * 100).toFixed(0)}%)\r\n`;
     summary += `Failed to publish: ${stat.failed.length} (${(stat.failed.length / total * 100).toFixed(0)}%) \r\n`
     summary += `MS is publisher: ${msPublished} (${(msPublished / total * 100).toFixed(0)}%)\r\n`;
+    summary += `\r\n`;
+    summary += `Total resolutions: ${totalResolutions}\r\n`;
+    summary += `From release asset: ${fromReleaseAsset} (${(fromReleaseAsset / totalResolutions * 100).toFixed(0)}%)\r\n`;
+    summary += `From release tag: ${fromReleaseTag} (${(fromReleaseTag / totalResolutions * 100).toFixed(0)}%)\r\n`;
+    summary += `From repo tag: ${fromTag} (${(fromTag / totalResolutions * 100).toFixed(0)}%)\r\n`;
+    summary += `From very latest repo commit of unmaintained (last update >= 2 months ago): ${fromLatestUnmaintained} (${(fromLatestUnmaintained / totalResolutions * 100).toFixed(0)}%)\r\n`;
+    summary += `From very latest repo commit of not published to MS: ${fromLatestNotPublished} (${(fromLatestNotPublished / totalResolutions * 100).toFixed(0)}%)\r\n`;
+    summary += `From very latest repo commit on the last update date: ${fromMatchedLatest} (${(fromMatchedLatest / totalResolutions * 100).toFixed(0)}%)\r\n`;
+    summary += `From latest repo commit on the last update date: ${fromMatched} (${(fromMatched / totalResolutions * 100).toFixed(0)}%)\r\n`;
+    summary += `Total resolved: ${totalResolved} (${(totalResolved / totalResolutions * 100).toFixed(0)}%)\r\n`;
     summary += `\r\n`;
     summary += `Updated in MS marketplace in month-to-date: ${updatedInMTD}\r\n`;
     summary += `Of which updated in Open VSX within 2 days: ${updatedInOpen} (${(updatedInOpen / updatedInMTD * 100).toFixed(0)}%)\r\n`;
@@ -129,6 +149,33 @@ function sortedKeys(s) {
         for (const id of Object.keys(stat.upToDate).sort((a, b) => stat.upToDate[b].msInstalls - stat.upToDate[a].msInstalls)) {
             const r = stat.upToDate[id];
             content += `${id} (installs: ${r.msInstalls}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion}\r\n`;
+        }
+        content += '-------------------\r\n';
+    }
+
+    if (totalResolutions) {
+        content += '\r\n----- Resolutions -----\r\n';
+        for (const id of sortedKeys(stat.resolutions)) {
+            const r = stat.resolutions[id];
+            if (r?.releaseAsset) {
+                content += `${id} (installs: ${r.msInstalls}): from '${r.releaseAsset}' release asset\r\n`;
+            } else if (r?.releaseTag) {
+                content += `${id} (installs: ${r.msInstalls}): from '${r.releaseTag}' release tag\r\n`;
+            } else if (r?.tag) {
+                content += `${id} (installs: ${r.msInstalls}): from '${r.tag}' release repo tag\r\n`;
+            } else if (r?.latest) {
+                if (r.msVersion) {
+                    content += `${id} (installs: ${r.msInstalls}): from '${r.latest}' the very latest repo commit, since it is not actively maintained\r\n`;
+                } else {
+                    content += `${id} (installs: ${r.msInstalls}): from '${r.latest}' the very latest repo commit, since it is not published to MS marketplace\r\n`;
+                }
+            } else if (r?.matchedLatest) {
+                content += `${id} (installs: ${r.msInstalls}): from '${r.matchedLatest}' from the very latest commit on the last update date\r\n`;
+            } else if (r?.matched) {
+                content += `${id} (installs: ${r.msInstalls}): from '${r.matched}' from the latest commit on the last update date\r\n`;
+            } else {
+                content += `${id} (installs: ${r.msInstalls}): unresolved\r\n`;
+            }
         }
         content += '-------------------\r\n';
     }
