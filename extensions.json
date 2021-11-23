@@ -1176,7 +1176,7 @@
   },
   "vscjava.vscode-java-debug": {
     "repository": "https://github.com/microsoft/vscode-java-debug",
-    "prepublish": "git clone https://github.com/Microsoft/java-debug.git ../java-debug && npx gulp build_server"
+    "prepublish": "git clone https://github.com/Microsoft/java-debug.git ../java-debug && npm run build-server"
   },
   "vscjava.vscode-java-dependency": {
     "repository": "https://github.com/microsoft/vscode-java-dependency"
