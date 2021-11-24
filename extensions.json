@@ -973,7 +973,7 @@
     "repository": "https://github.com/pj3677/vscode-protobuf"
   },
   "pflannery.vscode-versionlens": {
-    "repository": "https://gitlab.com/versionlens/vscode-versionlens/uploads/f27e3b7101dbf62dcc54884374870095/vscode-versionlens-1.0.9.vsix"
+    "repository": "https://gitlab.com/versionlens/vscode-versionlens/"
   },
   "ph-hawkins.arc-plus": {
     "repository": "https://github.com/phil-harmoniq/arc-plus"
