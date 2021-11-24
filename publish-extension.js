@@ -49,11 +49,11 @@ const { createVSIX } = require('vsce');
                 // try to auto migrate from vscode: https://code.visualstudio.com/api/working-with-extensions/testing-extension#migrating-from-vscode
                 if (pck.scripts?.postinstall === 'node ./node_modules/vscode/bin/install') {
                     delete pck.scripts['postinstall'];
-                    const devDependencies = pck.devDependencies || {};
+                    pck.devDependencies = pck.devDependencies || {};
                     delete pck.devDependencies['vscode'];
                     pck.devDependencies['@types/vscode'] = pck.engines['vscode'];
-                    const content = JSON.stringify(pck, undefined, 2).replaceAll('node ./node_modules/vscode/bin/compile', 'tsc');
-                    await fs.promises.writeFile(path.join(packagePath, 'package.json'), content, 'utf-8')
+                    const content = JSON.stringify(pck, undefined, 2).replace(/node \.\/node_modules\/vscode\/bin\/compile/g, 'tsc');
+                    await fs.promises.writeFile(path.join(packagePath, 'package.json'), content, 'utf-8');
                     await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: packagePath });
                 } else {
                     throw e;
