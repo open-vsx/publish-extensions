@@ -50,8 +50,9 @@ const { createVSIX } = require('vsce');
                     delete pck.scripts['postinstall'];
                     const devDependencies = pck.devDependencies || {};
                     delete pck.devDependencies['vscode'];
-                    pck.devDependencies['@types/vscode'] = 'latest';
-                    await fs.promises.writeFile(path.join(packagePath, 'package.json'), JSON.stringify(pck, undefined, 2), 'utf-8')
+                    pck.devDependencies['@types/vscode'] = pck.engines['vscode'];
+                    const content = JSON.stringify(pck, undefined, 2).replaceAll('node ./node_modules/vscode/bin/compile', 'tsc');
+                    await fs.promises.writeFile(path.join(packagePath, 'package.json'), content, 'utf-8')
                     await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: packagePath });
                 } else {
                     throw e;
