@@ -1159,6 +1159,9 @@
     "repository": "https://github.com/Tyriar/vscode-sort-lines",
     "prepublish": "yarn compile"
   },
+  "Tyriar.windows-terminal": {
+    "repository": "https://github.com/Tyriar/vscode-windows-terminal"
+  },
   "Unity.unity-debug": {
     "repository": "https://github.com/Unity-Technologies/vscode-unity-debug"
   },
