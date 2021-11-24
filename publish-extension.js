@@ -27,16 +27,17 @@ const { createVSIX } = require('vsce');
         const { id } = extension;
         const [namespace] = id.split('.');
 
+        let packagePath = context.repo;
+        if (extension.location) {
+            packagePath = path.join(packagePath, extension.location);
+        }
+
         /** @type {import('ovsx').PublishOptions} */
         let options;
         if (context.file) {
             options = { extensionFile: context.file };
         } else if (context.repo && context.ref) {
             console.log(`${id}: preparing from ${context.repo}...`);
-            let packagePath = context.repo;
-            if (extension.location) {
-                packagePath = path.join(packagePath, extension.location);
-            }
             await exec(`git checkout ${context.ref}`, { cwd: context.repo });
             let yarn = await new Promise(resolve => {
                 fs.access(path.join(context.repo, 'yarn.lock'), error => resolve(!error));
@@ -68,35 +69,42 @@ const { createVSIX } = require('vsce');
                 if (yarn) {
                     options.yarn = true;
                 }
-                await createVSIX({
-                    cwd: packagePath,
-                    packagePath: options.extensionFile,
-                    baseContentUrl: options.baseContentUrl,
-                    baseImagesUrl: options.baseImagesUrl,
-                    useYarn: options.yarn
-                });
+                // answer y to all quetions https://github.com/microsoft/vscode-vsce/blob/7182692b0f257dc10e7fc643269511549ca0c1db/src/util.ts#L12
+                const vsceTests = process.env['VSCE_TESTS'];
+                process.env['VSCE_TESTS'] = '1';
+                try {
+                    await createVSIX({
+                        cwd: packagePath,
+                        packagePath: options.extensionFile,
+                        baseContentUrl: options.baseContentUrl,
+                        baseImagesUrl: options.baseImagesUrl,
+                        useYarn: options.yarn
+                    });
+                } finally {
+                    process.env['VSCE_TESTS'] = vsceTests;
+                }
             }
             console.log(`${id}: prepared from ${context.repo}`);
         }
 
         // Check if the requested version is greater than the one on Open VSX.        
-        let version;
-        if (options.extensionFile) {
-            version = (await readVSIXPackage(options.extensionFile)).manifest.version;
-        }
-        context.version = version;
-
-        if (!version) {
+        const manifest = options.extensionFile && await (await readVSIXPackage(options.extensionFile)).manifest;
+        context.version = manifest?.version;
+        if (!context.version) {
             throw new Error(`${extension.id}: version is not resolved`);
         }
         if (context.ovsxVersion) {
-            if (semver.gt(context.ovsxVersion, version)) {
-                throw new Error(`extensions.json is out-of-date: Open VSX version ${context.ovsxVersion} is already greater than specified version ${version}`);
+            if (semver.gt(context.ovsxVersion, context.version)) {
+                throw new Error(`extensions.json is out-of-date: Open VSX version ${context.ovsxVersion} is already greater than specified version ${context.version}`);
             }
-            if (semver.eq(context.ovsxVersion, version)) {
-                console.log(`[SKIPPED] Requested version ${version} is already published on Open VSX`);
+            if (semver.eq(context.ovsxVersion, context.version)) {
+                console.log(`[SKIPPED] Requested version ${context.version} is already published on Open VSX`);
                 return;
             }
+        }
+        // TODO(ak) check license is open-source
+        if (!await ovsx.isLicenseOk(packagePath, manifest)) {
+            throw new Error(`${extension.id}: license is missing`);
         }
 
         if (process.env.SKIP_PUBLISH === 'true') {
