@@ -966,9 +966,6 @@
   "paulmolluzzo.convert-css-in-js": {
     "repository": "https://github.com/paulmolluzzo/convert-css-in-js"
   },
-  "pdconsec.vscode-print": {
-    "repository": "https://github.com/PeterWone/vsc-print"
-  },
   "peterj.proto": {
     "repository": "https://github.com/pj3677/vscode-protobuf"
   },
