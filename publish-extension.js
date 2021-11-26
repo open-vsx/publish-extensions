@@ -28,7 +28,7 @@ const { createVSIX } = require('vsce');
         const [namespace] = id.split('.');
 
         let packagePath = context.repo;
-        if (extension.location) {
+        if (packagePath && extension.location) {
             packagePath = path.join(packagePath, extension.location);
         }
 
@@ -103,7 +103,7 @@ const { createVSIX } = require('vsce');
             }
         }
         // TODO(ak) check license is open-source
-        if (!await ovsx.isLicenseOk(packagePath, manifest)) {
+        if (!manifest?.license && !(packagePath && await ovsx.isLicenseOk(packagePath, manifest))) {
             throw new Error(`${extension.id}: license is missing`);
         }
 
