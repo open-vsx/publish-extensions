@@ -311,7 +311,7 @@
   },
   "equinusocio.vsc-material-theme-icons": {
     "repository": "https://github.com/material-theme/vsc-material-theme-icons",
-    "prepublish": "sed -i 's+git@github.com:material-theme/vsc-material-theme-icons-src.git+https://github.com/material-theme/vsc-material-theme-icons-src.git+g' build/get-remote-icons.ts && yarn build"
+    "prepublish": "yarn build"
   },
   "erlang-ls.erlang-ls": {
     "repository": "https://github.com/erlang-ls/vscode",
