@@ -1193,6 +1193,9 @@
   "vscjava.vscode-java-test": {
     "repository": "https://github.com/microsoft/vscode-java-test"
   },
+  "vscjava.vscode-maven": {
+    "repository": "https://github.com/microsoft/vscode-maven"
+  },
   "vscjava.vscode-spring-boot-dashboard": {
     "repository": "https://github.com/Microsoft/vscode-spring-boot-dashboard"
   },
