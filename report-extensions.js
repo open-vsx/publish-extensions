@@ -37,7 +37,18 @@ function sortedKeys(s) {
     const notInMS = stat.notInMS.length;
     const total = upToDate + notInOpen + outdated + unstable + notInMS;
     const updatedInMTD = Object.keys(stat.hitMiss).length;
-    const updatedInOpen = Object.keys(stat.hitMiss).filter(id => stat.hitMiss[id].hit).length;
+    const updatedInOpenIn2Days = new Set(Object.keys(stat.hitMiss).filter(id => {
+        const { daysInBetween } = stat.hitMiss[id];
+        return typeof daysInBetween === 'number' && 0 <= Math.round(daysInBetween) && Math.round(daysInBetween) <= 2;
+    }));
+    const updatedInOpenIn2Weeks = new Set(Object.keys(stat.hitMiss).filter(id => {
+        const { daysInBetween } = stat.hitMiss[id];
+        return typeof daysInBetween === 'number' && 0 <= Math.round(daysInBetween) && Math.round(daysInBetween) <= 14;
+    }));
+    const updatedInOpenInMonth = new Set(Object.keys(stat.hitMiss).filter(id => {
+        const { daysInBetween } = stat.hitMiss[id];
+        return typeof daysInBetween === 'number' && 0 <= Math.round(daysInBetween) && Math.round(daysInBetween) <= 30;
+    }));
     const msPublished = Object.keys(stat.msPublished).length;
 
     const totalResolutions = Object.keys(stat.resolutions).length;
@@ -71,7 +82,9 @@ function sortedKeys(s) {
     summary += `Total resolved: ${totalResolved} (${(totalResolved / totalResolutions * 100).toFixed(0)}%)\r\n`;
     summary += `\r\n`;
     summary += `Updated in MS marketplace in month-to-date: ${updatedInMTD}\r\n`;
-    summary += `Of which updated in Open VSX within 2 days: ${updatedInOpen} (${(updatedInOpen / updatedInMTD * 100).toFixed(0)}%)\r\n`;
+    summary += `Of which updated in Open VSX within 2 days: ${updatedInOpenIn2Days.size} (${(updatedInOpenIn2Days.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
+    summary += `Of which updated in Open VSX within 2 weeks: ${updatedInOpenIn2Weeks.size} (${(updatedInOpenIn2Weeks.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
+    summary += `Of which updated in Open VSX within a month: ${updatedInOpenInMonth.size} (${(updatedInOpenInMonth.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
     summary += '-------------------\r\n';
     console.log(summary);
 
@@ -139,7 +152,10 @@ function sortedKeys(s) {
         content += '\r\n----- Updated in Open VSX within 2 days after in MS marketplace in MTD -----\r\n';
         for (const id of sortedKeys(stat.hitMiss)) {
             const r = stat.hitMiss[id];
-            content += `${r.hit ? '+' : '-'} ${id}: installs: ${r.msInstalls}; daysInBetween: ${r.daysInBetween?.toFixed(0)}; MS marketplace: ${r.msVersion}; Open VSX: ${r.openVersion}\r\n`;
+            const in2Days = updatedInOpenIn2Days.has(id) ? '+' : '-'; 
+            const in2Weeks = updatedInOpenIn2Weeks.has(id) ? '+' : '-';
+            const inMonth = updatedInOpenInMonth.has(id) ? '+' : '-';
+            content += `${inMonth}${in2Weeks}${in2Days} ${id}: installs: ${r.msInstalls}; daysInBetween: ${r.daysInBetween?.toFixed(0)}; MS marketplace: ${r.msVersion}; Open VSX: ${r.openVersion}\r\n`;
         }
         content += '-------------------\r\n';
     }

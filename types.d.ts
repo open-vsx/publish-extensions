@@ -44,7 +44,7 @@ export interface PublishStat {
         [id: string]: MSExtensionStat
     }
     hitMiss: {
-        [id: string]: (ExtensionStat | ExtensionStat) & { hit: boolean }
+        [id: string]: (ExtensionStat | ExtensionStat)
     }
 }
 
