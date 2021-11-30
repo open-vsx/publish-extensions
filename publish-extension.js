@@ -43,6 +43,7 @@ const { createVSIX } = require('vsce');
                 fs.access(path.join(context.repo, 'yarn.lock'), error => resolve(!error));
             });
             try {
+                await exec("echo $SHELL");
                 await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: packagePath });
             } catch (e) {
                 const pck = JSON.parse(await fs.promises.readFile(path.join(packagePath, 'package.json'), 'utf-8'));
