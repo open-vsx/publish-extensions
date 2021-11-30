@@ -417,7 +417,8 @@
     "prepublish": "npm run build"
   },
   "GitHub.vscode-pull-request-github": {
-    "repository": "https://github.com/microsoft/vscode-pull-request-github"
+    "repository": "https://github.com/microsoft/vscode-pull-request-github",
+    "prepublish": "echo 'testing...'"
   },
   "golang.go": {
     "repository": "https://github.com/golang/vscode-go"
