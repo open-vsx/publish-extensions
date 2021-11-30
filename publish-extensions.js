@@ -35,6 +35,10 @@ const flags = [
 ];
 
 (async () => {
+
+  // Make yarn use bash
+  exec('yarn config set script-shell /bin/bash');
+
   /**
    * @type {string[] | undefined}
    */
