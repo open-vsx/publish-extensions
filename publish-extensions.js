@@ -32,7 +32,18 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
 const flags = [
   ExtensionQueryFlags.IncludeStatistics,
   ExtensionQueryFlags.IncludeVersions,
+  ExtensionQueryFlags.IncludeVersionProperties
 ];
+
+/**
+ * Checks whether the provided `version` is a prerelase or not
+ * @param {Readonly<import('./types').IRawGalleryExtensionProperty[]>} version 
+ * @returns 
+ */
+function isPreReleaseVersion(version) {
+  const values = version ? version.filter(p => p.key === 'Microsoft.VisualStudio.Code.PreRelease') : [];
+  return values.length > 0 && values[0].value === 'true';
+}
 
 (async () => {
 
@@ -100,8 +111,9 @@ const flags = [
       /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
       let [msExtension] = await Promise.allSettled([msGalleryApi.getExtension(extension.id, flags)]);
       if (msExtension.status === 'fulfilled') {
-        context.msVersion = msExtension.value?.versions[0]?.version;
-        context.msLastUpdated = msExtension.value?.versions[0]?.lastUpdated;
+        const lastNonPrereleaseVersion = msExtension.value?.versions.find(version => !isPreReleaseVersion(version.properties));
+        context.msVersion = lastNonPrereleaseVersion.version;
+        context.msLastUpdated = lastNonPrereleaseVersion.lastUpdated;
         context.msInstalls = msExtension.value?.statistics?.find(s => s.statisticName === 'install')?.value;
         context.msPublisher = msExtension.value?.publisher.publisherName;
       }

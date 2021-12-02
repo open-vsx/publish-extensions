@@ -90,3 +90,8 @@ export interface PublishContext {
     repo?: string
     ref?: string
 }
+
+interface IRawGalleryExtensionProperty {
+	readonly key: string;
+	readonly value: string;
+}
