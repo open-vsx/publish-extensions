@@ -112,8 +112,8 @@ function isPreReleaseVersion(version) {
       let [msExtension] = await Promise.allSettled([msGalleryApi.getExtension(extension.id, flags)]);
       if (msExtension.status === 'fulfilled') {
         const lastNonPrereleaseVersion = msExtension.value?.versions.find(version => !isPreReleaseVersion(version.properties));
-        context.msVersion = lastNonPrereleaseVersion.version;
-        context.msLastUpdated = lastNonPrereleaseVersion.lastUpdated;
+        context.msVersion = lastNonPrereleaseVersion?.version;
+        context.msLastUpdated = lastNonPrereleaseVersion?.lastUpdated;
         context.msInstalls = msExtension.value?.statistics?.find(s => s.statisticName === 'install')?.value;
         context.msPublisher = msExtension.value?.publisher.publisherName;
       }
