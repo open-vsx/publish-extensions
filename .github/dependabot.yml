@@ -13,4 +13,4 @@ updates:
     schedule:
       interval: "daily"
     commit-message:
-      prefix: '⬆️ deps(gh actions):'
+      prefix: '⬆️ deps(gha):'
