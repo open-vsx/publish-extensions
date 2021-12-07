@@ -1302,5 +1302,8 @@
   },
   "zxh404.vscode-proto3": {
     "repository": "https://github.com/zxh0/vscode-proto3"
+  }, 
+  "astro-build.astro-vscode": {
+    "repository": "https://github.com/withastro/astro"
   }
 }
