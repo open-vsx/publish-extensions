@@ -1163,7 +1163,8 @@
     "repository": "https://github.com/Unity-Technologies/vscode-unity-debug"
   },
   "vemonet.stardog-rdf-grammars": {
-    "repository": "https://github.com/vemonet/stardog-vsc"
+    "repository": "https://github.com/vemonet/stardog-vsc",
+    "location": "stardog-rdf-grammars"
   },
   "vhdlwhiz.vhdl-by-vhdlwhiz": {
     "repository": "https://github.com/jonasjj/awesome-vhdl"
