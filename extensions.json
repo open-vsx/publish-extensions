@@ -1302,5 +1302,8 @@
   },
   "zxh404.vscode-proto3": {
     "repository": "https://github.com/zxh0/vscode-proto3"
+  },
+  "evilz.vscode-reveal": {
+    "repository": "https://github.com/evilz/vscode-reveal"
   }
 }
