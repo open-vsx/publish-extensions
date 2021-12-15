@@ -586,6 +586,12 @@
   "kaiwood.endwise": {
     "repository": "https://github.com/kaiwood/vscode-endwise"
   },
+  "kamasamak.vscode-cflint": {
+    "repository": "https://github.com/KamasamaK/vscode-cflint"
+  },
+  "kamasamak.vscode-cfml": {
+    "repository": "https://github.com/KamasamaK/vscode-cfml"
+  },
   "karunamurti.haml": {
     "repository": "https://github.com/karuna/haml-vscode"
   },
