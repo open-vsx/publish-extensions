@@ -127,6 +127,9 @@
   "bierner.docs-view": {
     "repository": "https://github.com/mattbierner/vscode-docs-view"
   },
+  "bierner.emojisense" : {
+    "repository": "https://github.com/mattbierner/vscode-emojisense"
+  },
   "bierner.markdown-image-size": {
     "repository": "https://github.com/mjbvz/vscode-markdown-image-size"
   },
