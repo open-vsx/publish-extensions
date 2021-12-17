@@ -63,7 +63,8 @@
     "repository": "https://github.com/microsoft/vscode-mock-debug"
   },
   "Angular.ng-template": {
-    "repository": "https://github.com/angular/vscode-ng-language-service"
+    "repository": "https://github.com/angular/vscode-ng-language-service",
+    "prepublish": "scripts/build.sh package.json"
   },
   "anseki.vscode-color": {
     "repository": "https://github.com/anseki/vscode-color"
