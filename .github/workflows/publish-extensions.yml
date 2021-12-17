@@ -15,12 +15,18 @@ on:
         type: boolean
         required: false
         default: "false"
+      forcefullyPublish:
+        description: 'Force publish to OpenVSX, even if version is alreaxy published to OpenVSX'
+        type: boolean
+        required: false
+        default: "false"
 
 jobs:
   publish_extensions:
     env:
       EXTENSIONS: ${{ github.event.inputs.extensions }}
       SKIP_PUBLISH: ${{ github.event.inputs.skipPublish }}
+      FORCE: ${{ github.event.inputs.forcefullyPublish }}
     name: node publish-extensions
     runs-on: ubuntu-latest
     steps:
