@@ -284,7 +284,7 @@
   "ecmel.vscode-html-css": {
     "repository": "https://github.com/ecmel/vscode-html-css"
   },
-  "EditorConfig.EditorConfig": {
+  "editorconfig.editorconfig": {
     "repository": "https://github.com/editorconfig/editorconfig-vscode"
   },
   "efoerster.texlab": {
