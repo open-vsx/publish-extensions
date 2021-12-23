@@ -559,12 +559,12 @@
   },
   "johnsoncodehk.volar": {
     "repository": "https://github.com/johnsoncodehk/volar",
-    "prepublish": "yarn compile",
+    "prepublish": "yarn install && yarn build",
     "location": "extensions/vscode-vue-language-features"
   },
   "johnsoncodehk.vscode-typescript-vue-plugin": {
     "repository": "https://github.com/johnsoncodehk/volar",
-    "prepublish": "yarn compile",
+    "prepublish": "yarn install && yarn build",
     "location": "extensions/vscode-typescript-vue-plugin"
   },
   "jolaleye.horizon-theme-vscode": {
