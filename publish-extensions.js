@@ -50,6 +50,9 @@ function isPreReleaseVersion(version) {
   // Make yarn use bash
   exec('yarn config set script-shell /bin/bash');
 
+  // Don't show large git advice blocks
+  exec('git config --global advice.detachedHead false');
+
   /**
    * @type {string[] | undefined}
    */
