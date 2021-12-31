@@ -806,7 +806,7 @@
   "ms-pyright.vscode-pyright": {
     "repository": "https://github.com/Microsoft/pyright",
     "location": "packages/vscode-pyright",
-    "prepublish": "cd packages/vscode-pyright && npm run prepackage"
+    "prepublish": "npm i && cd packages/vscode-pyright && npm run prepackage"
   },
   "ms-python.devicesimulatorexpress": {
     "repository": "https://github.com/microsoft/vscode-python-devicesimulator"
