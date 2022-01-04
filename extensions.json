@@ -1059,9 +1059,6 @@
   "shrey150.javafx-support": {
     "repository": "https://github.com/shrey150/vscode-javafx-support"
   },
-  "shufo.vscode-blade-formatter": {
-    "repository": "https://github.com/shufo/vscode-blade-formatter"
-  },
   "shuworks.vscode-table-formatter": {
     "repository": "https://github.com/shuGH/vscode-table-formatter"
   },
