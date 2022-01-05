@@ -441,6 +441,9 @@
   "halcyontechltd.vscode-ibmi-walkthroughs": {
     "repository": "https://github.com/halcyon-tech/vscode-ibmi-walkthroughs"
   },
+  "halcyontechltd.vscode-rpgle": {
+    "repository": "https://github.com/halcyon-tech/vscode-rpgle"
+  },
   "HansUXdev.bootstrap5-snippets": {
     "repository": "https://github.com/HansUXdev/B5-Snippets",
     "prepublish": "npm run concat"
