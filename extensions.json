@@ -666,10 +666,6 @@
   "mathiasfrohlich.Kotlin": {
     "repository": "https://github.com/mathiasfrohlich/vscode-kotlin"
   },
-  "matklad.rust-analyzer": {
-    "repository": "https://github.com/rust-analyzer/rust-analyzer",
-    "location": "editors/code"
-  },
   "max-SS.Cyberpunk": {
     "repository": "https://github.com/prometheux-ar/cyberpunk"
   },
