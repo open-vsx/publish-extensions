@@ -12,7 +12,7 @@
 const fs = require('fs');
 
 /**
- * @param {{ [id: string]: (Partial<import('./types').MSExtensionStat | import('./types').ExtensionStat>) }} s 
+ * @param {{ [id: string]: (Partial<import('./types').MSExtensionStat | import('./types').ExtensionStat>) }} s
  */
 function sortedKeys(s) {
     return Object.keys(s).sort((a, b) => {
@@ -152,7 +152,7 @@ function sortedKeys(s) {
         content += '\r\n----- Updated in Open VSX within 2 days after in MS marketplace in MTD -----\r\n';
         for (const id of sortedKeys(stat.hitMiss)) {
             const r = stat.hitMiss[id];
-            const in2Days = updatedInOpenIn2Days.has(id) ? '+' : '-'; 
+            const in2Days = updatedInOpenIn2Days.has(id) ? '+' : '-';
             const in2Weeks = updatedInOpenIn2Weeks.has(id) ? '+' : '-';
             const inMonth = updatedInOpenInMonth.has(id) ? '+' : '-';
             content += `${inMonth}${in2Weeks}${in2Days} ${id}: installs: ${r.msInstalls}; daysInBetween: ${r.daysInBetween?.toFixed(0)}; MS marketplace: ${r.msVersion}; Open VSX: ${r.openVersion}\r\n`;

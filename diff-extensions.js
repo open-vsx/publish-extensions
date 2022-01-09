@@ -14,9 +14,9 @@ const Octokit = require('octokit').Octokit;
 const exec = require('./lib/exec');
 
 /**
- * 
- * @param {Readonly<import('./types').Extensions>} original 
- * @param {Readonly<import('./types').Extensions>} current 
+ *
+ * @param {Readonly<import('./types').Extensions>} original
+ * @param {Readonly<import('./types').Extensions>} current
  * @returns {string[]}
  */
 function diff(original, current) {

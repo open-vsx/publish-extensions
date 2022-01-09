@@ -37,8 +37,8 @@ const flags = [
 
 /**
  * Checks whether the provided `version` is a prerelase or not
- * @param {Readonly<import('./types').IRawGalleryExtensionProperty[]>} version 
- * @returns 
+ * @param {Readonly<import('./types').IRawGalleryExtensionProperty[]>} version
+ * @returns
  */
 function isPreReleaseVersion(version) {
   const values = version ? version.filter(p => p.key === 'Microsoft.VisualStudio.Code.PreRelease') : [];
