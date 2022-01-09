@@ -87,7 +87,7 @@ const { createVSIX } = require('vsce');
             console.log(`${id}: prepared from ${context.repo}`);
         }
 
-        // Check if the requested version is greater than the one on Open VSX.        
+        // Check if the requested version is greater than the one on Open VSX.
         const manifest = options.extensionFile && await (await readVSIXPackage(options.extensionFile)).manifest;
         context.version = manifest?.version;
         if (!context.version) {
