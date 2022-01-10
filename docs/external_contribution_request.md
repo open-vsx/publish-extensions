@@ -4,10 +4,12 @@ Publish `EXTENSION_NAME` to Open VSX
 
 ## Issue body
 
-Please consider publishing the extension to the OpenVSX registry. 
+Unfortunately MS prohibits usages of MS marketplace by any other products or redistribution vsix files from it. Because of it we kindly ask you to take the ownership of your namespace in [OpenVSX](https://open-vsx.org/) and publish there as well.
 
-We are running the Web version of VS Code at Gitpod. The problem is, that only Microsoft products like VS Code may use the MS VS Code extensions Marketplace, so we must use Open VSX instead. It is a vendor neutral alternative. Also, products like VSCodium, Theia, code-server many other projects are using the registry to allow their users to install extensions. 
+OpenVSX is a vendor neutral alternative to MS marketplace used by all other derivatives of VS Code like [VSCodium](https://vscodium.com/), [Gitpod](gitpod.io), [OpenVSCode](https://github.com/gitpod-io/openvscode-server), [Theia](https://theia-ide.org/) based IDEs, and so on.
 
-Here's a couple of words about why it might not be the best idea to let someone from the community add this extension to [open-vsx/publish-extensions](https://github.com/open-vsx/publish-extensions): https://github.com/open-vsx/publish-extensions#when-to-add-an-extension.
+The docs for publishing the extension are [here](https://github.com/eclipse/openvsx/wiki/Publishing-Extensions). Technically this should be straightforward. You get a token and call `ovsx publish` with it. For example, this is how RedHat publishes their Java extension: [redhat-developer/vscode-java@ff51dbf/Jenkinsfile#L73-L82](https://github.com/redhat-developer/vscode-java/blob/5d4f8d58b8e919534800ca7bc41e8513c288f573/Jenkinsfile#L78-L82)
 
-The docs for publishing the extension are here: https://github.com/eclipse/openvsx/wiki/Publishing-Extensions. Technically this should be straightforward. You basically must get a token and call `ovsx publish` with it. For example, this is how RedHat publishes their java extension: redhat-developer/vscode-java@ff51dbf/Jenkinsfile#L73-L82
+[Here](https://github.com/PeterWone/vsc-print/pull/121) is also an example PR that contributes a release GitHub Action which can publish to GitHub, MS and OpenVSX at the same time. Let @filiptronicek or @akosyakov know if you are open to a PR contributing such GitHub Action. They would gladly help out, even if there are just some questions or suggestions.
+
+Gitpod as well supports open-source developers by providing unlimited access to their platform. Feel free to reach out via https://www.gitpod.io/docs/professional-open-source
