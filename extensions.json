@@ -21,6 +21,9 @@
   "adrianhumphreys.silverstripe": {
     "repository": "https://github.com/adrhumphreys/vscode-silverstripe"
   },
+  "adrieankhisbe.vscode-ndjson": {
+    "repository": "https://github.com/AdrieanKhisbe/vscode-ndjson"
+  },
   "ahmadawais.emoji-log-vscode": {
     "repository": "https://github.com/ahmadawais/Emoji-Log-VSCode"
   },
