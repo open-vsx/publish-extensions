@@ -4,11 +4,9 @@
   
   If you're publishing a new extension to OpenVSX, please make sure the extension has an OSI-approved open source license. If you want to have an extension with a proprietary or non-approved license, please ask its maintainers to publish it.
 -->
+<!--
 
-## What type of PR is this?
-
-- [ ] ✨ Adding a new extension
-- [ ] 📝 Updating the scripts and/or publishing workflows
+PLEASE READ THE FOLLOWING BEFORE SUBMITTING THIS PULL REQUEST:
 
 ## A note about PRs adding or fixing extensions
 
@@ -20,7 +18,11 @@ Although this repository is all about extensions, it is very hard to manage houn
 
 For the sake of efficiency and simplicity, the easiest way to publish an extension is by having it published by its official maintainers, for more info about this please refer to the [README](https://github.com/open-vsx/publish-extensions#when-to-add-an-extension). If you are the maintainer of this very extension, instead of creating a PR, publish the extension according to the [Publishing Extensions](https://github.com/eclipse/openvsx/wiki/Publishing-Extensions) guide in our project's wiki.
 
-- [ ] I have tried reaching out to the extension maintainers about publishing this extension to OpenVSX (if not, please use [this template](docs/external_contribution_request.md) and create an issue in the target repo)
+-->
+
+- [ ] I have tried reaching out to the extension maintainers about publishing this extension to OpenVSX 
+
+    - if you haven't, please create an issue in the extension's repo using [this template](docs/external_contribution_request.md).
 
 ## Description
 
