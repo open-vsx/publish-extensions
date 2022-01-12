@@ -16,10 +16,13 @@ Although this repository is all about extensions, it is very hard to manage houn
 
 ### For community contributors
 
-For the sake of efficiency and simplicity, the easiest way to publish an extension is by having it published by its official maintainers, for more info about this please refer to the [README](https://github.com/open-vsx/publish-extensions#when-to-add-an-extension). If you are the maintainer of this very extension, instead of creating a PR, publish the extension according to the [Publishing Extensions](https://github.com/eclipse/openvsx/wiki/Publishing-Extensions) guide in our project's wiki.
+For the sake of efficiency and simplicity, the easiest way to publish an extension is by having it published by its maintainers, for more info about this please refer to the [README](https://github.com/open-vsx/publish-extensions#when-to-add-an-extension). If the authors are open to publish the extension to OpenVSX, you can help them by contributing a GitHub Action using our handy-dandy [direct publish setup](docs/direct_publish_setup.md) doc. 
+
+ - If the extension is unmaintained, please create an issue for it instead.
 
 -->
 
+- [ ] I have read the note above about PRs contributing or fixing extensions
 - [ ] I have tried reaching out to the extension maintainers about publishing this extension to OpenVSX 
 
     - if you haven't, please create an issue in the extension's repo using [this template](docs/external_contribution_request.md).
