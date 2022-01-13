@@ -6,31 +6,50 @@ on:
     - cron:  '3 3 * * *'
   workflow_dispatch:
     inputs:
-      failedExtensions:
-        description: "Comma separated list of failed extensions to retry"
+      extensions:
+        description: "Comma separated list of extensions to publish"
         required: false
         default: ""
+      skipPublish:
+        description: 'Skip publishing to Open VSX, only build extensions'
+        type: boolean
+        required: false
+        default: "false"
+      forcefullyPublish:
+        description: 'Force publish to OpenVSX, even if version is alreaxy published to OpenVSX'
+        type: boolean
+        required: false
+        default: "false"
 
 jobs:
   publish_extensions:
     env:
-      FAILED_EXTENSIONS: ${{ github.event.inputs.failedExtensions }}
+      EXTENSIONS: ${{ github.event.inputs.extensions }}
+      SKIP_PUBLISH: ${{ github.event.inputs.skipPublish }}
+      FORCE: ${{ github.event.inputs.forcefullyPublish }}
     name: node publish-extensions
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v2
       with:
         node-version: '14.x'
     - uses: actions/setup-python@v2
       with:
         python-version: '3.8'
     - run: npm install
-    - run: npm install --global yarn
     - run: node publish-extensions
       env:
         OVSX_PAT: ${{ secrets.OVSX_PAT }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - run: node report-extensions
+    - uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: report
+        path: |
+          /tmp/stat.json
+          /tmp/result.log
     - name: Slack Notification
       if: always()
       uses: rtCamp/action-slack-notify@v2

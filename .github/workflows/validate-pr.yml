@@ -1,0 +1,36 @@
+name: Validate PR
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  publish_extensions:
+    env:
+      VALIDATE_PR: true
+      SKIP_PUBLISH: true
+      FORCE: true
+    name: Validate PR
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14.x"
+      - run: npm i
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+      - run: npm install
+      - run: EXTENSIONS=$(node diff-extensions) node publish-extensions
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: node report-extensions
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: report
+          path: |
+            /tmp/stat.json
+            /tmp/result.log
+
