@@ -15,14 +15,15 @@ If the extension at hand has been unmaintained for a longer period of time, plea
 
 ## Errors in the publishing process
 
-1. If an extension on OpenVSX is outdated, this is probably due to one of two things:
-    1. The extension has some abnormal build prerequisites, we build everything inside the same Ubuntu VM, which might cause problems like:
-        - a CLI tool is not installed
-        - the extension requires an older/newer version of Node.js: we are using Node 14 for everything.
-        - the extension has issues building on the latest LTS of Ubuntu server (we use `ubuntu-latest` for our jobs, you can take a look at [GitHub's Docs](https://github.com/actions/virtual-environments#available-environments) to see what that currently stands for)
-    2. The extension requires additional commands to be executed to build successfully. 
-        - if you want a quick and easy fix you can try adding a `prepublish` property to the extension in `extensions.json` to set a command to be executed before packaging up the extension, right after installing the project's depenedencies.
+If an extension on OpenVSX is outdated or never successfully been published (although listed in [`extensions.json`](https://github.com/open-vsx/publish-extensions/blob/master/extensions.json)), this is probably due to one of two things:
 
-    The best way to solve this issue is to publish the extension from its own repository, not this one. 
-    - If you are the extension author, you can use [this document](direct_publish_setup.md) for a guide on setting that up.
-    - If you are a community member you can raise an issue (if there is none discussing it already) using [this template](external_contribution_request.md). If the maintainers are willing to accept a contribution you can use the [same document listed in the point above](direct_publish_setup.md) to quickly setup a CI job with GitHub Actions.
+1. The extension has some abnormal build prerequisites, we build everything inside the same Ubuntu VM, which might cause problems like:
+    - a CLI tool is not installed
+    - the extension requires an older/newer version of Node.js: we are using Node 14 for everything.
+    - the extension has issues building on the latest LTS of Ubuntu server (we use `ubuntu-latest` for our jobs, you can take a look at [GitHub's Docs](https://github.com/actions/virtual-environments#available-environments) to see what that currently stands for)
+2. The extension requires additional commands to be executed to build successfully. 
+    - if you want a quick and easy fix you can try adding a `prepublish` property to the extension in `extensions.json` to set a command to be executed before packaging up the extension, right after installing the project's depenedencies.
+
+The best way to solve this issue is to publish the extension from its own repository, not this one. 
+- If you are the extension author, you can use [this document](direct_publish_setup.md) for a guide on setting that up.
+- If you are a community member you can raise an issue (if there is none discussing it already) using [this template](external_contribution_request.md). If the maintainers are willing to accept a contribution you can use the [same document listed in the point above](direct_publish_setup.md) to quickly setup a CI job with GitHub Actions.
