@@ -1,4 +1,4 @@
-name: Bug Report
+name: Bug Report [publish-extensions]
 description: File a bug report about something wrong in the open-vsx/publish-extensions repository
 title: "[Bug]: "
 labels: ["bug"]
