@@ -1015,6 +1015,9 @@
   "rust-lang.rust": {
     "repository": "https://github.com/rust-lang/rls-vscode"
   },
+  "ryu1kn.edit-with-shell": {
+    "repository": "https://github.com/ryu1kn/vscode-edit-with-shell"
+  },
   "saltud.type4py": {
     "repository": "https://github.com/saltudelft/type4py-vscode-ext"
   },
