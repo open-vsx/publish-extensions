@@ -2,7 +2,7 @@
 
 ## Bugs in extensions' behaviors
 
-If an extension you downloaded from OpenVSX is misbehaving, please do the following:
+If an extension you downloaded from OpenVSX isn't functioning as expected, please follow these steps to debug:
 
 1. check the extension version on [OpenVSX](https://open-vsx.org/) (you can see the latest one in the right sidebar)
 2. check the extension version on the [VS Code Marketplace](https://marketplace.visualstudio.com/) (you can find the version on the bottom of the right-hand side bar)
