@@ -6,10 +6,12 @@ body:
   - type: checkboxes
     id: terms
     attributes:
-      label: Code of Conduct
-      description: We reuqire new publication requests to be first communicated with the extension's maintainers, only if they don't want to / can't publish it on their own or are unresponsive we will accept the request
+      label: Pre-submission checklist
+      description: We require new publication requests to be first communicated with the extension's maintainers, only if they don't want to / can't publish it on their own or are unresponsive we will accept the request
       options:
-        - label: I have already reached out to the extension maintainers to publish to OpenVSX directly
+        - label: I have reached out to the extension maintainers to publish to OpenVSX directly
+          required: true
+        - label: This extension has an [OSI-approved OSS license](https://opensource.org/licenses)
           required: true
   - type: textarea
     id: notes
