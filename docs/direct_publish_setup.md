@@ -11,7 +11,7 @@ We have a simple template for setting a workflow with GitHub Actions which can h
 
 ## Setup
 
-1. The first step is is to follow the [Publishing Extensions](https://github.com/eclipse/openvsx/wiki/Publishing-Extensions) doc and take note of the access token that you get as you will need it in the next step.
+1. First, follow the [Publishing Extensions](https://github.com/eclipse/openvsx/wiki/Publishing-Extensions) doc and take note of the access token that is returned, as you will require it in the next step.
 
 2. To run the GitHub Action above, you need to setup two repository secrets for the Action to use:
 
