@@ -2,14 +2,16 @@
 
 We advise extension authors to publish their extensions to OpenVSX as a part of their CI/CD process. See [our reasoning why that is](https://github.com/open-vsx/publish-extensions#when-to-add-an-extension).
 
-We have a simple template for setting a workflow with GitHub Actions which can help you kickstart your own. This template includes some neat features like:
+To make the Open VSX publishing process easier, we have provided a template of a GitHub Actions workflow. 
+
+The template performs the following:
 
 - Publishing to GitHub Releases, the Microsoft Marketplace and OpenVSX
 - Uploading the `.vsix` package to GitHub Releases as assets
-- Manual triggers that allow you to select what places to release to
+- Manually triggers releases and publishing to Open VSX and/or Microsoft Marketplace.
 - Automatic triggers from new GitHub Releases
 
-## Setup
+## Setup VS Code extension publishing CI workflow
 
 1. First, follow the [Publishing Extensions](https://github.com/eclipse/openvsx/wiki/Publishing-Extensions) doc and take note of the access token that is returned, as you will require it in the next step.
 

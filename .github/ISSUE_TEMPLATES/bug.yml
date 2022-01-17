@@ -1,5 +1,5 @@
 name: Bug Report [publish-extensions]
-description: File a bug report about something wrong in the open-vsx/publish-extensions repository
+description: A bug report about a failure to publish via the open-vsx/publish-extensions repository
 title: "[Bug]: "
 labels: ["bug"]
 body:
@@ -10,9 +10,9 @@ body:
   - type: textarea
     id: describe
     attributes:
-      label: Describe the bug
-      description: Please tell us what went wrong
-      value: "A bug happened!"
+      label: Expected result and actual result
+      description: What actually occurred, and what did you expect?
+      value: "I expected extension X to publish successfully, but it is currently intermittently failing"
     validations:
       required: true
   - type: textarea
