@@ -26,4 +26,4 @@ If an extension on OpenVSX is outdated or never successfully been published (alt
 
 The best way to solve this issue is to publish the extension from its own repository, not this one. 
 - If you are the extension author, you can use [this document](direct_publish_setup.md) for a guide on setting that up.
-- If you are a community member you can raise an issue (if there is none discussing it already) using [this template](external_contribution_request.md). If the maintainers are willing to accept a contribution you can use the [same document listed in the point above](direct_publish_setup.md) to quickly setup a CI job with GitHub Actions.
+- If you are a community member you can raise an issue (please check for existing issues) using [this template](external_contribution_request.md). If the maintainers are willing to accept a contribution you can use the [same document listed in the point above](direct_publish_setup.md) to quickly setup a CI job with GitHub Actions.
