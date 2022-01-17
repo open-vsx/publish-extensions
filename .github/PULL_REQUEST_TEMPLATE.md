@@ -1,14 +1,4 @@
 <!--
-  For Work In Progress Pull Requests, please use the Draft PR feature,
-  see https://github.blog/2019-02-14-introducing-draft-pull-requests/ for further details.
-  
-  If you're publishing a new extension to OpenVSX, please make sure the extension has an OSI-approved open source license. If you want to have an extension with a proprietary or non-approved license, please ask its maintainers to publish it.
--->
-<!--
-
-PLEASE READ THE FOLLOWING BEFORE SUBMITTING THIS PULL REQUEST:
-
-## A note about PRs adding or fixing extensions
 
 ### For extension authors
 
@@ -26,10 +16,14 @@ For the sake of efficiency and simplicity, the easiest way to publish an extensi
 
  - If the extension is unmaintained, please create an issue for it instead.
 
+For Work In Progress Pull Requests, please use the Draft PR feature,
+see https://github.blog/2019-02-14-introducing-draft-pull-requests/ for further details.
+
 -->
 
 - [ ] I have read the note above about PRs contributing or fixing extensions
 - [ ] I have tried reaching out to the extension maintainers about publishing this extension to OpenVSX (if no, please create an issue in the extension's repo using [this template](docs/external_contribution_request.md).
+- [ ] This extension has an [OSI-approved OSS license](https://opensource.org/licenses) (we don't accept proprietary extensions in this repository)
 
 ## Description
 
