@@ -2,6 +2,7 @@ name: Add an extension
 description: I want an extension to be published via this repo
 title: "[extension.id]: Publish to OpenVSX"
 labels: ["extension"]
+assignees: ["filiptronicek"]
 body:
   - type: checkboxes
     id: terms
