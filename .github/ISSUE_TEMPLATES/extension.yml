@@ -7,7 +7,7 @@ body:
     id: terms
     attributes:
       label: Pre-submission checklist
-      description: We require new publication requests to be first communicated with the extension's maintainers, only if they don't want to / can't publish it on their own or are unresponsive we will accept the request. If you haven't made an issue yet, you can create one in the extension's repository using [this template](https://github.com/open-vsx/publish-extensions/blob/master/docs/external_contribution_request.md)
+      description: We require new publication requests to be first communicated with the extension's maintainers, only if they don't want to / can't publish it on their own or are unresponsive we will accept the request. If you haven't made an issue yet, you can create one in the extension's repository using [this template](https://github.com/open-vsx/publish-extensions/blob/master/docs/external_contribution_request.md).
       options:
         - label: I have reached out to the extension maintainers to publish to OpenVSX directly
           required: true
