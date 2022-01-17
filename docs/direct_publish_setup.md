@@ -1,6 +1,6 @@
 # Publishing an extension to OpenVSX on your own
 
-It is hightly advised that extension authors publish their extensions to OpenVSX as a part of their CI/CD process. See [our reasoning why that is](https://github.com/open-vsx/publish-extensions#when-to-add-an-extension).
+We advise extension authors to publish their extensions to OpenVSX as a part of their CI/CD process. See [our reasoning why that is](https://github.com/open-vsx/publish-extensions#when-to-add-an-extension).
 
 We have a simple template for setting a workflow with GitHub Actions which can help you kickstart your own. This template includes some neat features like:
 
