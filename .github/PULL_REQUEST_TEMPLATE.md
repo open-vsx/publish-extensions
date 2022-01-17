@@ -23,9 +23,7 @@ For the sake of efficiency and simplicity, the easiest way to publish an extensi
 -->
 
 - [ ] I have read the note above about PRs contributing or fixing extensions
-- [ ] I have tried reaching out to the extension maintainers about publishing this extension to OpenVSX 
-
-    - if you haven't, please create an issue in the extension's repo using [this template](docs/external_contribution_request.md).
+- [ ] I have tried reaching out to the extension maintainers about publishing this extension to OpenVSX (if no, please create an issue in the extension's repo using [this template](docs/external_contribution_request.md).
 
 ## Description
 
