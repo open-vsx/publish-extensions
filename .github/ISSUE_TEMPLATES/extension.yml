@@ -1,0 +1,18 @@
+name: Add an extension
+description: I want an extension to be published via this repo
+title: "[extension.id]: Publish to OpenVSX"
+labels: ["extension"]
+body:
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: We reuqire new publication requests to be first communicated with the extension's maintainers, only if they don't want to / can't publish it on their own or are unresponsive we will accept the request
+      options:
+        - label: I have already reached out to the extension maintainers to publish to OpenVSX directly
+          required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else?
+      description: If there are further details that could help with publishing the extension, put them here
