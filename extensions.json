@@ -21,6 +21,9 @@
   "adrianhumphreys.silverstripe": {
     "repository": "https://github.com/adrhumphreys/vscode-silverstripe"
   },
+  "adrieankhisbe.vscode-ndjson": {
+    "repository": "https://github.com/AdrieanKhisbe/vscode-ndjson"
+  },
   "ahmadawais.emoji-log-vscode": {
     "repository": "https://github.com/ahmadawais/Emoji-Log-VSCode"
   },
@@ -1014,6 +1017,9 @@
   },
   "rust-lang.rust": {
     "repository": "https://github.com/rust-lang/rls-vscode"
+  },
+  "ryu1kn.edit-with-shell": {
+    "repository": "https://github.com/ryu1kn/vscode-edit-with-shell"
   },
   "saltud.type4py": {
     "repository": "https://github.com/saltudelft/type4py-vscode-ext"
