@@ -31,4 +31,4 @@ For the sake of efficiency and simplicity, the easiest way to publish an extensi
 
 <!-- Please do not leave this blank -->
 
-This PR does *this* and *this*. 
+This PR introduces X change for Y reason. 
