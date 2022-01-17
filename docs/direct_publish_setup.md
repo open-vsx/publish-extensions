@@ -13,7 +13,7 @@ We have a simple template for setting a workflow with GitHub Actions which can h
 
 1. The first step is is to follow the [Publishing Extensions](https://github.com/eclipse/openvsx/wiki/Publishing-Extensions) doc and take note of the access token that you get as you will need it in the next step.
 
-2. In order to run this the Action above, you need to setup two repository secrets for the Action to use:
+2. To run the GitHub Action above, you need to setup two repository secrets for the Action to use:
 
    - `VSCE_PAT` - the token for publishing to Microsoft's Marketplace (["Get a Personal Access Token" in VS Code's docs](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#get-a-personal-access-token))
    - `OVSX_PAT` - the token for publishing to OpenVSX. You got this in the previous sttep
