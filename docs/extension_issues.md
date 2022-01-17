@@ -15,7 +15,7 @@ If the extension at hand has been unmaintained for a longer period of time, plea
 
 ## Errors in the publishing process
 
-If an extension on OpenVSX is outdated or never successfully been published (although listed in [`extensions.json`](https://github.com/open-vsx/publish-extensions/blob/master/extensions.json)), this is probably due to one of two things:
+If an extension on OpenVSX is outdated or has never been successfully published (despite being listed in [`extensions.json`](https://github.com/open-vsx/publish-extensions/blob/master/extensions.json)), the cause is likely one of the following:
 
 1. The extension has some abnormal build prerequisites, we build everything inside the same Ubuntu VM, which might cause problems like:
     - a CLI tool is not installed
