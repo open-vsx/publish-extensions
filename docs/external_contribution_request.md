@@ -1,6 +1,8 @@
 ## Issue title
 
+```md
 Publish `EXTENSION_NAME` to Open VSX
+```
 
 ## Issue body
 
