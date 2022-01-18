@@ -5,13 +5,18 @@ Publish `EXTENSION_NAME` to Open VSX
 ## Issue body
 
 ```md
-Unfortunately MS prohibits usages of MS marketplace by any other products or redistribution vsix files from it. Because of it we kindly ask you to take the ownership of your namespace in [OpenVSX](https://open-vsx.org/) and publish there as well.
+Dear extension author,
 
-OpenVSX is a vendor neutral alternative to MS marketplace used by all other derivatives of VS Code like [VSCodium](https://vscodium.com/), [Gitpod](gitpod.io), [OpenVSCode](https://github.com/gitpod-io/openvscode-server), [Theia](https://theia-ide.org/) based IDEs, and so on.
+Please publish this extension to the Open VSX marketplace. 
 
-The docs for publishing the extension are [here](https://github.com/eclipse/openvsx/wiki/Publishing-Extensions). Technically this should be straightforward. You get a token and call `ovsx publish` with it. For example, this is how RedHat publishes their Java extension: [redhat-developer/vscode-java@ff51dbf/Jenkinsfile#L73-L82](https://github.com/redhat-developer/vscode-java/blob/5d4f8d58b8e919534800ca7bc41e8513c288f573/Jenkinsfile#L78-L82)
+**Context**
+Unfortunately, as Microsoft prohibits usages of Microsoft marketplace by any other products or redistribution vsix files from it, in order to use VS Code extensions in non-Microsoft products, we kindly ask that you take ownership of the VS Code extension namespace in [OpenVSX](https://open-vsx.org/) and publish this extension on Open VSX.
 
-[Here](https://github.com/PeterWone/vsc-print/pull/121) is also an example PR that contributes a release GitHub Action which can publish to GitHub, MS and OpenVSX at the same time. Let @filiptronicek or @akosyakov know if you are open to a PR contributing such GitHub Action. They would gladly help out, even if there are just some questions or suggestions.
+**What is OpenVSX? Why does it exist?**
+OpenVSX is a vendor neutral alternative to the MS marketplace used by most other derivatives of VS Code like [VSCodium](https://vscodium.com/), [Gitpod](gitpod.io), [OpenVSCode](https://github.com/gitpod-io/openvscode-server), [Theia](https://theia-ide.org/) based IDEs, and so on.
 
-Gitpod as well supports open-source developers by providing unlimited access to their platform. Feel free to reach out via https://www.gitpod.io/docs/professional-open-source
+**How can you publish to Open VSX?**
+The docs to publish an extension can be found [here](https://github.com/eclipse/openvsx/wiki/Publishing-Extensions). This process is straightforward and shouldn't take too long. Essentially, you need an authentication token and to execute the command `ovsx publish` to publish your plugin. See this example from RedHat publishes their Java extension: [redhat-developer/vscode-java@ff51dbf/Jenkinsfile#L73-L82](https://github.com/redhat-developer/vscode-java/blob/5d4f8d58b8e919534800ca7bc41e8513c288f573/Jenkinsfile#L78-L82)
+
+You can also find [an example PR](https://github.com/PeterWone/vsc-print/pull/121) that contributes a release GitHub Action which publishes to GitHub, MS and OpenVSX at the same time. 
 ```
