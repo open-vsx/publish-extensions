@@ -6,17 +6,17 @@ on:
   workflow_dispatch:
     inputs:
       publishMS:
-        description: 'Publish to the VS Marketplace'
+        description: "Publish to the VS Marketplace"
         type: boolean
         required: true
         default: "true"
       publishOVSX:
-        description: 'Publish to OpenVSX'
+        description: "Publish to OpenVSX"
         type: boolean
         required: true
         default: "true"
       publishGH:
-        description: 'Publish to GitHub Releases'
+        description: "Publish to GitHub Releases"
         type: boolean
         required: true
         default: "true"
