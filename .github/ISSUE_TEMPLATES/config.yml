@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Bug report [extension]
+    url: https://github.com/open-vsx/publish-extensions/blob/HEAD/docs/extension_issues.md
+    about: Please see this doc about reporting issues with extensions published from here
