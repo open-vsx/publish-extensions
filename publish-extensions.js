@@ -32,9 +32,27 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
 const flags = [
   ExtensionQueryFlags.IncludeStatistics,
   ExtensionQueryFlags.IncludeVersions,
+  ExtensionQueryFlags.IncludeVersionProperties
 ];
 
+/**
+ * Checks whether the provided `version` is a prerelase or not
+ * @param {Readonly<import('./types').IRawGalleryExtensionProperty[]>} version
+ * @returns
+ */
+function isPreReleaseVersion(version) {
+  const values = version ? version.filter(p => p.key === 'Microsoft.VisualStudio.Code.PreRelease') : [];
+  return values.length > 0 && values[0].value === 'true';
+}
+
 (async () => {
+
+  // Make yarn use bash
+  exec('yarn config set script-shell /bin/bash');
+
+  // Don't show large git advice blocks
+  exec('git config --global advice.detachedHead false');
+
   /**
    * @type {string[] | undefined}
    */
@@ -93,11 +111,12 @@ const flags = [
       timeoutDelay = 5;
     }
     try {
-      /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
+      /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
       let [msExtension] = await Promise.allSettled([msGalleryApi.getExtension(extension.id, flags)]);
       if (msExtension.status === 'fulfilled') {
-        context.msVersion = msExtension.value?.versions[0]?.version;
-        context.msLastUpdated = msExtension.value?.versions[0]?.lastUpdated;
+        const lastNonPrereleaseVersion = msExtension.value?.versions.find(version => !isPreReleaseVersion(version.properties));
+        context.msVersion = lastNonPrereleaseVersion?.version;
+        context.msLastUpdated = lastNonPrereleaseVersion?.lastUpdated;
         context.msInstalls = msExtension.value?.statistics?.find(s => s.statisticName === 'install')?.value;
         context.msPublisher = msExtension.value?.publisher.publisherName;
       }
@@ -106,7 +125,7 @@ const flags = [
       }
 
       async function updateStat() {
-        /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
+        /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
         const [ovsxExtension] = await Promise.allSettled([openGalleryApi.getExtension(extension.id, flags)]);
         if (ovsxExtension.status === 'fulfilled') {
           context.ovsxVersion = ovsxExtension.value?.versions[0]?.version;
@@ -138,10 +157,7 @@ const flags = [
         }
 
         if (context.msVersion && context.msLastUpdated && monthAgo.getTime() <= context.msLastUpdated.getTime()) {
-          stat.hitMiss[extension.id] = {
-            ...extStat,
-            hit: typeof daysInBetween === 'number' && 0 < daysInBetween && daysInBetween <= 2
-          }
+          stat.hitMiss[extension.id] = extStat;
         }
       }
 

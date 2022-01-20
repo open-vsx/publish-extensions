@@ -1,0 +1,23 @@
+name: Bug Report [publish-extensions]
+description: A bug report about a failure to publish via the open-vsx/publish-extensions repository
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: textarea
+    id: describe
+    attributes:
+      label: Expected result and actual result
+      description: What actually occurred, and what did you expect?
+      value: "I expected extension X to publish successfully, but it is currently intermittently failing"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Please tell us what you did to get this error
+      description: If you can provide a simple example, please also put it below!
+      value: "1. Go to '...'\n2. Click on '....'\n3. Scroll down to '....'\n4. See error"

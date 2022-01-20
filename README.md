@@ -15,7 +15,7 @@ In the long-run it is better for extension owners to publish their own plugins b
 1. Extensions published by official authors are shown within the Open VSX marketplace as such. Whereas extensions published via publish-extensions display a warning that the publisher (this repository) is not the official author.
 1. Extension owners who publish their own extensions get greater flexibility on the publishing/release process, therefore ensure more accuracy/stability. For instance, in some cases publish-extensions has build steps within this repository, which can cause some uploaded plugin versions to break (e.g. if a plugin build step changes).
 
-⚠️ We accept only extensions with [OSI-approved open source licenses](https://opensource.org/licenses) here. If you want to have an extension with a proprietary or non-approved license, please ask its maintainers to publish it.
+⚠️ We only accept extensions with an [OSI-approved open source license](https://opensource.org/licenses) here. If you want to have an extension with a proprietary or non-approved license published, please ask its maintainers to publish it.
 
 ## How to Add an Extension?
 

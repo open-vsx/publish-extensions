@@ -44,7 +44,7 @@ export interface PublishStat {
         [id: string]: MSExtensionStat
     }
     hitMiss: {
-        [id: string]: (ExtensionStat | ExtensionStat) & { hit: boolean }
+        [id: string]: (ExtensionStat | ExtensionStat)
     }
 }
 
@@ -89,4 +89,9 @@ export interface PublishContext {
     file?: string
     repo?: string
     ref?: string
+}
+
+interface IRawGalleryExtensionProperty {
+	readonly key: string;
+	readonly value: string;
 }

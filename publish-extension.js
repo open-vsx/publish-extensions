@@ -28,7 +28,7 @@ const { createVSIX } = require('vsce');
         const [namespace] = id.split('.');
 
         let packagePath = context.repo;
-        if (extension.location) {
+        if (packagePath && extension.location) {
             packagePath = path.join(packagePath, extension.location);
         }
 
@@ -87,7 +87,7 @@ const { createVSIX } = require('vsce');
             console.log(`${id}: prepared from ${context.repo}`);
         }
 
-        // Check if the requested version is greater than the one on Open VSX.        
+        // Check if the requested version is greater than the one on Open VSX.
         const manifest = options.extensionFile && await (await readVSIXPackage(options.extensionFile)).manifest;
         context.version = manifest?.version;
         if (!context.version) {
@@ -103,7 +103,7 @@ const { createVSIX } = require('vsce');
             }
         }
         // TODO(ak) check license is open-source
-        if (!await ovsx.isLicenseOk(packagePath, manifest)) {
+        if (!manifest?.license && !(packagePath && await ovsx.isLicenseOk(packagePath, manifest))) {
             throw new Error(`${extension.id}: license is missing`);
         }
 
