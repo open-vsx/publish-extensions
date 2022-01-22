@@ -21,45 +21,45 @@ const minimist = require('minimist');
 const util = require('util');
 
 (async () => {
-    var argv = minimist(process.argv.slice(2));
-    // console.debug('args:', argv)
+    const argv = minimist(process.argv.slice(2));
+
     if (argv._.length < 2) {
-        console.error('Need two postional arguments: ext-id, repo-url')
-        process.exit(1)
+        console.error('Need two postional arguments: ext-id, repo-url');
+        process.exit(1);
     }
-    const [extID, repoURL] = argv._
-    delete argv._ // all other non-positional will be put in extension definition
+    const [extID, repoURL] = argv._;
+    delete argv._; // all other non-positional will be put in the extension's definition
     const extDefinition = {
         repository: repoURL,
         ...argv
-    }
-    console.log('Adding extension:', util.inspect(extDefinition, { colors: true, compact: false }))
+    };
+    console.log('Adding extension:', util.inspect(extDefinition, { colors: true, compact: false }));
 
     // Read current file
-    const extensions = Object.entries(JSON.parse(await fs.promises.readFile("./extensions.json", { encoding: 'utf8' })));
+    const extensions = Object.entries(JSON.parse(await fs.promises.readFile('./extensions.json', { encoding: 'utf8' })));
     // Sort extensions (most are, but not always)
-    extensions.sort(([k1], [k2]) => k1.localeCompare(k2))
+    extensions.sort(([k1], [k2]) => k1.localeCompare(k2));
 
     // Find position & insert extension
     for (let i = 0; i < extensions.length; i++) {
         const [currentID] = extensions[i];
         // console.debug(i, currentID)
-        const diff = currentID.localeCompare(extID, undefined, { sensitivity: 'base' })
+        const diff = currentID.localeCompare(extID, undefined, { sensitivity: 'base' });
         if (diff === 0) {
-            console.error('Extension already defined:', currentID)
-            process.exit(1)
+            console.error('Extension already defined:', currentID);
+            process.exit(1);
         }
         if (diff > 0) {
-            extensions.splice(i, 0, [extID, extDefinition])
-            break
+            extensions.splice(i, 0, [extID, extDefinition]);
+            break;
         }
     }
 
     // Persist changes
     await fs.promises.writeFile(
-        "./extensions.json",
+        './extensions.json',
         JSON.stringify(Object.fromEntries(extensions), undefined, 2) + '\n', // add newline at EOF
         { encoding: 'utf8' }
     );
-    console.log('Successfully added')
+    console.log(`Successfully added ${extID}`);
 })();
