@@ -1241,6 +1241,9 @@
   "wholroyd.jinja": {
     "repository": "https://github.com/wholroyd/vscode-jinja"
   },
+  "whizkydee.material-palenight-theme": {
+    "repository": "https://github.com/whizkydee/vscode-palenight-theme"
+  },
   "wingrunr21.vscode-ruby": {
     "repository": "https://github.com/rubyide/vscode-ruby",
     "location": "packages/vscode-ruby"
