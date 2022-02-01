@@ -1,0 +1,21 @@
+name: Publish an extensions from a vsix file
+
+on:
+  workflow_dispatch:
+    inputs:
+      extensions:
+        description: "URL of the `.vsix`"
+        required: true
+
+jobs:
+  publish:
+    name: node publish-extensions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14.x"
+      - name: Download extension file
+        run: wget -O extension.vsix ${{ github.event.inputs.publishMS }}
+      - name: Publish to OpenVSX
+        run: npx ovsx publish  -p ${{ secrets.OVSX_PAT }}
