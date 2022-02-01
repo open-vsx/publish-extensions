@@ -18,4 +18,4 @@ jobs:
       - name: Download extension file
         run: wget -O extension.vsix ${{ github.event.inputs.publishMS }}
       - name: Publish to OpenVSX
-        run: npx ovsx publish  -p ${{ secrets.OVSX_PAT }}
+        run: npx ovsx publish extension.vsix  -p ${{ secrets.OVSX_PAT }}
