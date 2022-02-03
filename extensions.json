@@ -364,6 +364,9 @@
   "file-icons.file-icons": {
     "repository": "https://github.com/file-icons/vscode"
   },
+  "foretag.foretag-vscode-theme": {
+    "repository": "https://github.com/ForetagInc/vscode-theme"
+  },
   "formulahendry.auto-close-tag": {
     "repository": "https://github.com/formulahendry/vscode-auto-close-tag"
   },
