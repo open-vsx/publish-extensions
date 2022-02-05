@@ -11,7 +11,6 @@
 // @ts-check
 const fs = require('fs');
 const Octokit = require('octokit').Octokit;
-const exec = require('./lib/exec');
 
 /**
  *

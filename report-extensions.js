@@ -10,9 +10,19 @@
 
 // @ts-check
 const fs = require('fs');
+const Octokit = require('octokit').Octokit;
+const download = require('download');
+const path = require('node:path');
+const exec = require('./lib/exec');
+
+const token = process.env.GITHUB_TOKEN;
+if (!token) {
+  console.error("GITHUB_TOKEN env var is not set, the week-over-week statistic won't be included");
+}
+const octokit = new Octokit({ auth: token });
 
 /**
- * @param {{ [id: string]: (Partial<import('./types').MSExtensionStat | import('./types').ExtensionStat>) }} s
+ * @param {{ [id: string]: (Partial<import('./types').MSExtensionStat | import('./types').ExtensionStat>) }} s
  */
 function sortedKeys(s) {
     return Object.keys(s).sort((a, b) => {
@@ -27,9 +37,50 @@ function sortedKeys(s) {
 }
 
 (async () => {
+    
+    let lastWeekUpToDate;
+    try {
+        if (token) {
+            const weekMilis = 7 * 86_400 * 1000 - 3600; // One hour tolerance
+            const previousReports = (await octokit.rest.actions.listArtifactsForRepo({
+                owner: 'open-vsx',
+                repo: 'publish-extensions',
+                per_page: 100
+            })).data.artifacts;
+            const previousWeekReport = previousReports.find(report => new Date().getTime() - new Date(report.created_at).getTime() > weekMilis);
+            const outputFile = '/tmp/report.zip';
+            const downloadURL = await octokit.rest.actions.downloadArtifact({
+                owner: 'open-vsx',
+                repo: 'publish-extensions',
+                artifact_id: previousWeekReport.id,
+                archive_format: 'zip',
+            });
+
+            // @ts-ignore
+            fs.appendFileSync(outputFile, Buffer.from(downloadURL.data));
+            fs.rmSync('/tmp/lastweek/', { recursive: true, force: true });
+            fs.mkdirSync('/tmp/lastweek/');
+            try {
+                await exec(`unzip ${outputFile} -d /tmp/lastweek/`, {quiet: true});
+            } catch {}
+            const stat = JSON.parse(await fs.promises.readFile("/tmp/lastweek/stat.json", { encoding: 'utf8' }));
+
+            const upToDate = Object.keys(stat.upToDate).length;
+            const unstable = Object.keys(stat.unstable).length;
+            const outdated = Object.keys(stat.outdated).length;
+            const notInOpen = Object.keys(stat.notInOpen).length;
+            const notInMS = stat.notInMS.length;
+            const total = upToDate + notInOpen + outdated + unstable + notInMS;
+
+            lastWeekUpToDate = upToDate / total * 100;
+        }
+    } catch (e) {
+        console.error(e);
+    }
+
     /** @type{import('./types').PublishStat}*/
     const stat = JSON.parse(await fs.promises.readFile("/tmp/stat.json", { encoding: 'utf8' }));
-
+    
     const upToDate = Object.keys(stat.upToDate).length;
     const unstable = Object.keys(stat.unstable).length;
     const outdated = Object.keys(stat.outdated).length;
@@ -61,9 +112,11 @@ function sortedKeys(s) {
     const fromMatched = Object.keys(stat.resolutions).filter(id => stat.resolutions[id].matched).length;
     const totalResolved = fromReleaseAsset + fromReleaseTag + fromTag + fromLatestUnmaintained + fromLatestNotPublished + fromMatchedLatest + fromMatched;
 
+    const upToDateChange = lastWeekUpToDate ? (upToDate / total * 100) - lastWeekUpToDate : undefined; 
+
     let summary = '----- Summary -----\r\n';
     summary += `Total: ${total}\r\n`;
-    summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%)\r\n`;
+    summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%) (${upToDateChange !== undefined ? `${upToDateChange ? `${Math.abs(upToDateChange).toFixed(3)}% ` : ''}${upToDateChange > 0 ? 'increase' : upToDateChange === 0 ? 'no change' : 'decrease'} since last week` : "WoW change n/a"})\r\n`;
     summary += `Outdated (Not in OpenVSX, but in MS marketplace): ${notInOpen} (${(notInOpen / total * 100).toFixed(0)}%)\r\n`;
     summary += `Outdated (MS marketplace > Open VSX): ${outdated} (${(outdated / total * 100).toFixed(0)}%)\r\n`;
     summary += `Unstable (MS marketplace < Open VSX): ${unstable} (${(unstable / total * 100).toFixed(0)}%)\r\n`;
