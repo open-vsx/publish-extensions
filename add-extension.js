@@ -46,8 +46,14 @@ const extensionsSchema = require('./extensions-schema.json');
         }
 
         // parse & validate value
-        if (['string', 'number'].includes(propDef.type)) { // numbers are parsed by minimist already
-            extDefinition[arg] = argv[arg]
+        if (propDef.type === 'string') {
+            extDefinition[arg] = String(argv[arg]) // minimist might've assumed a different type (e.g. number)
+        } else if (propDef.type === 'number') { 
+            if (typeof argv[arg] !== 'number') {
+                console.error(`argument '${arg}' should be type '${propDef.type}' but yours seems to be '${typeof argv[arg]}'`);
+                process.exit(1);
+            }
+            extDefinition[arg] = argv[arg] // numbers are parsed by minimist already
         } else {
             console.error(`argument '${arg}' is of type '${propDef.type}' which is not implemented by this script, sorry`);
             process.exit(1);
