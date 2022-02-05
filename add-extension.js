@@ -11,7 +11,7 @@
 //
 // Usage:
 //   node add-extension.js ext.id https://github.com/my-org/repo
-// Optional extra arguments:
+// Optional extra arguments [see: extensions-schema.json]:
 //   node add-extension.js abusaidm.html-snippets2 https://github.com/my-org/repo --location 'packages/xy'
 //
 
@@ -19,20 +19,40 @@
 const fs = require('fs');
 const minimist = require('minimist');
 const util = require('util');
+const extensionsSchema = require('./extensions-schema.json');
 
 (async () => {
-    const argv = minimist(process.argv.slice(2));
+    // Parse args
+    const argv = minimist(process.argv.slice(2)); // without executable & script path
 
+    // Check positional args
     if (argv._.length < 2) {
         console.error('Need two postional arguments: ext-id, repo-url');
         process.exit(1);
     }
     const [extID, repoURL] = argv._;
-    delete argv._; // all other non-positional will be put in the extension's definition
     const extDefinition = {
         repository: repoURL,
-        ...argv
     };
+
+    // Validate extra args
+    delete argv._; // delete positional arguments
+    for (const arg of Object.keys(argv)) {
+        const propDef = extensionsSchema.additionalProperties.properties[arg];
+        // console.debug(`arg=${arg}:`, argv[arg], propDef)
+        if (!propDef) {
+            console.error(`argument '${arg}' not found in ./extensions-schema.json`);
+            process.exit(1);
+        }
+
+        // parse & validate value
+        if (['string', 'number'].includes(propDef.type)) { // numbers are parsed by minimist already
+            extDefinition[arg] = argv[arg]
+        } else {
+            console.error(`argument '${arg}' is of type '${propDef.type}' which is not implemented by this script, sorry`);
+            process.exit(1);
+        }
+    }
     console.log('Adding extension:', util.inspect(extDefinition, { colors: true, compact: false }));
 
     // Read current file
