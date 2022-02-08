@@ -19,9 +19,11 @@ In the long-run it is better for extension owners to publish their own plugins b
 
 ## How to Add an Extension?
 
-To automatically publish an extension to Open VSX, add it to [`extensions.json`](./extensions.json), or run this (e.g. in [GitPod](https://gitpod.io/#https://github.com/open-vsx/publish-extensions)):
+To add an extension to this repo,  add it to the [`extensions.json`](./extensions.json) file. You can do this directly via GitHub using its web editor, or for a way simpler approach, which makes sure your extension also goes in the right place in the file, use the following command:
 
 `node add-extension.js ext.id https://github.com/x/y --optional arg`
+
+All of the arguments are also valid options if you add the extension manually to the JSON file directly. You can find them in the [extension-schema.json file](https://github.com/open-vsx/publish-extensions/blob/HEAD/extensions-schema.json).
 
 See [Publishing options](#publishing-options) below for a quick guide.
 
@@ -33,7 +35,7 @@ Click the button below to start a [Gitpod](https://gitpod.io) workspace where yo
 
 ## Publishing Options
 
-The best way to add an extension here is to [open this repository in Gitpod](https://gitpod.io/#https://github.com/open-vsx/publish-extensions) and [add a new entry to `extensions.json`](#how-to-add-an-extension). To test run:
+The best way to add an extension here is to [open this repository in Gitpod](https://gitpod.io/#https://github.com/open-vsx/publish-extensions) and [add a new entry to `extensions.json`](#how-to-add-an-extension). To test, run:
 ```
 EXTENSIONS=rebornix.ruby SKIP_PUBLISH=true node publish-extensions.js
 ```
