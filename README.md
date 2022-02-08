@@ -19,7 +19,13 @@ In the long-run it is better for extension owners to publish their own plugins b
 
 ## How to Add an Extension?
 
-To automatically publish an extension to Open VSX, simply add it to [`extensions.json`](./extensions.json) with the [options described below](#publishing-options). See [Publishing Options](#publishing-options) for a quick guide.
+To add an extension to this repo,  add it to the [`extensions.json`](./extensions.json) file. You can do this directly via GitHub using its web editor, or for a way simpler approach, which makes sure your extension also goes in the right place in the file, use the following command:
+
+`node add-extension.js ext.id https://github.com/x/y --optional arg`
+
+All of the arguments are also valid options if you add the extension manually to the JSON file directly. You can find them in the [extension-schema.json file](https://github.com/open-vsx/publish-extensions/blob/HEAD/extensions-schema.json).
+
+See [Publishing options](#publishing-options) below for a quick guide.
 
 ⚠️ Some extensions require additional build steps, and failing to execute them may lead to a broken extension published to Open VSX. Please check the extension's `scripts` section in the package.json file to find such steps; usually they are named `build` or similar. In case the build steps are included in the [vscode:prepublish](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#prepublish-step) script, they are executed automatically, so it's not necessary to mention them explicitly. Otherwise, please include them in the `prepublish` value, e.g. `"prepublish": "npm run build"`.
 
@@ -29,7 +35,7 @@ Click the button below to start a [Gitpod](https://gitpod.io) workspace where yo
 
 ## Publishing Options
 
-The best way to add an extension here is to [open this repository in Gitpod](https://gitpod.io/#https://github.com/open-vsx/publish-extensions) and add a new entry to `extensions.json`. To test run:
+The best way to add an extension here is to [open this repository in Gitpod](https://gitpod.io/#https://github.com/open-vsx/publish-extensions) and [add a new entry to `extensions.json`](#how-to-add-an-extension). To test, run:
 ```
 EXTENSIONS=rebornix.ruby SKIP_PUBLISH=true node publish-extensions.js
 ```

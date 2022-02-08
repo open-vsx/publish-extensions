@@ -62,6 +62,9 @@
   "amiralizadeh9480.laravel-extra-intellisense": {
     "repository": "https://github.com/amir9480/vscode-laravel-extra-intellisense"
   },
+  "amodio.tsl-problem-matcher": {
+    "repository": "https://github.com/eamodio/vscode-tsl-problem-matcher"
+  },
   "andreweinand.mock-debug": {
     "repository": "https://github.com/microsoft/vscode-mock-debug"
   },
@@ -131,7 +134,7 @@
   "bierner.docs-view": {
     "repository": "https://github.com/mattbierner/vscode-docs-view"
   },
-  "bierner.emojisense" : {
+  "bierner.emojisense": {
     "repository": "https://github.com/mattbierner/vscode-emojisense"
   },
   "bierner.markdown-image-size": {
@@ -278,9 +281,6 @@
   "eamodio.gitlens": {
     "repository": "https://github.com/eamodio/vscode-gitlens"
   },
-  "amodio.tsl-problem-matcher": {
-    "repository": "https://github.com/eamodio/vscode-tsl-problem-matcher"
-  },
   "eclipse-cdt.cdt-gdb-vscode": {
     "repository": "https://github.com/eclipse-cdt/cdt-gdb-vscode"
   },
@@ -426,9 +426,6 @@
   "goodbaikin.org-preview": {
     "repository": "https://github.com/goodbaikin/VSC-Org-Preview"
   },
-  "ilkka.google-java-format": {
-    "repository": "https://github.com/ilkka/vscode-google-java-format"
-  },
   "GrapeCity.gc-excelviewer": {
     "repository": "https://github.com/jjuback/gc-excelviewer"
   },
@@ -503,6 +500,9 @@
   },
   "Ikuyadeu.r": {
     "repository": "https://github.com/Ikuyadeu/vscode-R"
+  },
+  "ilkka.google-java-format": {
+    "repository": "https://github.com/ilkka/vscode-google-java-format"
   },
   "influrium.haxe-jsx": {
     "repository": "https://github.com/influrium/vscode-haxe-jsx"
@@ -898,6 +898,9 @@
   "nadako.vshaxe": {
     "repository": "https://github.com/vshaxe/vshaxe.git"
   },
+  "NativeScript.nativescript": {
+    "repository": "https://github.com/NativeScript/nativescript-vscode-extension"
+  },
   "naumovs.color-highlight": {
     "repository": "https://github.com/egonyans/vscode-ext-color-highlight"
   },
@@ -977,9 +980,6 @@
   },
   "platformio.platformio-ide": {
     "repository": "https://github.com/platformio/platformio-vscode-ide"
-  },
-  "snyk-security.vscode-vuln-cost": {
-    "repository": "https://github.com/snyk/vulncost"
   },
   "pucelle.vscode-css-navigation": {
     "repository": "https://github.com/pucelle/vscode-css-navigation"
@@ -1088,6 +1088,9 @@
   "small.php-ci": {
     "repository": "https://github.com/smallp/vscode-ci"
   },
+  "snyk-security.vscode-vuln-cost": {
+    "repository": "https://github.com/snyk/vulncost"
+  },
   "sodatea.velocity": {
     "repository": "https://github.com/trilogy-group/vscode-velocity"
   },
@@ -1114,9 +1117,6 @@
   },
   "teabyii.ayu": {
     "repository": "https://github.com/ayu-theme/vscode-ayu"
-  },
-  "NativeScript.nativescript": {
-    "repository": "https://github.com/NativeScript/nativescript-vscode-extension"
   },
   "tiehuis.zig": {
     "repository": "https://github.com/ziglang/vscode-zig"
