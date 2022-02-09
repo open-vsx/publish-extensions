@@ -37,7 +37,7 @@ function sortedKeys(s) {
 }
 
 (async () => {
-    
+
     let lastWeekUpToDate;
     try {
         if (token) {
@@ -80,7 +80,7 @@ function sortedKeys(s) {
 
     /** @type{import('./types').PublishStat}*/
     const stat = JSON.parse(await fs.promises.readFile("/tmp/stat.json", { encoding: 'utf8' }));
-    
+
     const upToDate = Object.keys(stat.upToDate).length;
     const unstable = Object.keys(stat.unstable).length;
     const outdated = Object.keys(stat.outdated).length;
@@ -112,7 +112,7 @@ function sortedKeys(s) {
     const fromMatched = Object.keys(stat.resolutions).filter(id => stat.resolutions[id].matched).length;
     const totalResolved = fromReleaseAsset + fromReleaseTag + fromTag + fromLatestUnmaintained + fromLatestNotPublished + fromMatchedLatest + fromMatched;
 
-    const upToDateChange = lastWeekUpToDate ? (upToDate / total * 100) - lastWeekUpToDate : undefined; 
+    const upToDateChange = lastWeekUpToDate ? (upToDate / total * 100) - lastWeekUpToDate : undefined;
 
     let summary = '----- Summary -----\r\n';
     summary += `Total: ${total}\r\n`;

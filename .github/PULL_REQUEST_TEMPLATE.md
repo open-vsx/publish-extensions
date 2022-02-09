@@ -12,7 +12,7 @@ If you are the author of the extension being raised in this PR, please first co
 
 ### For community contributors
 
-For the sake of efficiency and simplicity, the easiest way to publish an extension is by having it published by its maintainers, for more info about this please refer to the [README](https://github.com/open-vsx/publish-extensions#when-to-add-an-extension). If the authors are open to publish the extension to OpenVSX, you can help them by contributing a GitHub Action using our handy-dandy [direct publish setup](docs/direct_publish_setup.md) doc. 
+For the sake of efficiency and simplicity, the easiest way to publish an extension is by having it published by its maintainers, for more info about this please refer to the [README](https://github.com/open-vsx/publish-extensions#when-to-add-an-extension). If the authors are open to publish the extension to OpenVSX, you can help them by contributing a GitHub Action using our handy-dandy [direct publish setup](docs/direct_publish_setup.md) doc.
 
  - If the extension is unmaintained, please create an issue for it instead.
 
@@ -29,4 +29,4 @@ see https://github.blog/2019-02-14-introducing-draft-pull-requests/ for further 
 
 <!-- Please do not leave this blank -->
 
-This PR introduces X change for Y reason. 
+This PR introduces X change for Y reason.

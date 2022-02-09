@@ -21,9 +21,9 @@ If an extension on OpenVSX is outdated or has never been successfully published 
     - a CLI tool is not installed
     - the extension requires an older/newer version of Node.js: we are using Node 14 for everything.
     - the extension has issues building on the latest LTS of Ubuntu server (we use `ubuntu-latest` for our jobs, you can take a look at [GitHub's Docs](https://github.com/actions/virtual-environments#available-environments) to see what that currently stands for)
-2. The extension requires additional commands to be executed to build successfully. 
+2. The extension requires additional commands to be executed to build successfully.
     - if you want a quick and easy fix you can try adding a `prepublish` property to the extension in `extensions.json` to set a command to be executed before packaging up the extension, right after installing the project's dependencies.
 
-The best way to solve issues of failed publishing is to publish the extension from its own repository, not this one. 
+The best way to solve issues of failed publishing is to publish the extension from its own repository, not this one.
 - If you are the extension author, you can use [this document](direct_publish_setup.md) as a guide on how to set up a CI publishing process.
 - If you are a community member you can raise an issue (please check for existing issues) using [this template](external_contribution_request.md). If the maintainers are willing to accept a contribution you can use the [same document listed in the point above](direct_publish_setup.md) to quickly setup a CI job with GitHub Actions.
