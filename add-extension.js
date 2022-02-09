@@ -48,7 +48,7 @@ const extensionsSchema = require('./extensions-schema.json');
         // parse & validate value
         if (propDef.type === 'string') {
             extDefinition[arg] = String(argv[arg]) // minimist might've assumed a different type (e.g. number)
-        } else if (propDef.type === 'number') { 
+        } else if (propDef.type === 'number') {
             if (typeof argv[arg] !== 'number') {
                 console.error(`argument '${arg}' should be type '${propDef.type}' but yours seems to be '${typeof argv[arg]}'`);
                 process.exit(1);
