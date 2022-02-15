@@ -1094,9 +1094,6 @@
   "sodatea.velocity": {
     "repository": "https://github.com/trilogy-group/vscode-velocity"
   },
-  "SonarSource.sonarlint-vscode": {
-    "repository": "https://github.com/SonarSource/sonarlint-vscode"
-  },
   "steoates.autoimport": {
     "repository": "https://github.com/soates/Auto-Import"
   },
