@@ -88,8 +88,8 @@ const { createVSIX } = require('vsce');
         }
 
         // Check if the requested version is greater than the one on Open VSX.
-        const manifest = options.extensionFile && await (await readVSIXPackage(options.extensionFile)).manifest;
-        context.version = manifest?.version;
+        const { xmlManifest, manifest } = options.extensionFile && await readVSIXPackage(options.extensionFile);
+        context.version = xmlManifest?.PackageManifest?.Metadata[0]?.Identity[0]['$']?.Version || manifest?.version;
         if (!context.version) {
             throw new Error(`${extension.id}: version is not resolved`);
         }
@@ -103,7 +103,7 @@ const { createVSIX } = require('vsce');
             }
         }
         // TODO(ak) check license is open-source
-        if (!manifest?.license && !(packagePath && await ovsx.isLicenseOk(packagePath, manifest))) {
+        if (!xmlManifest?.PackageManifest?.Metadata[0]?.License?.[0] && !(packagePath && await ovsx.isLicenseOk(packagePath, manifest))) {
             throw new Error(`${extension.id}: license is missing`);
         }
 
