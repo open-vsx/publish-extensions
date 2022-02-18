@@ -938,6 +938,9 @@
   "oguhpereira.spotify-color-theme": {
     "repository": "https://github.com/oguhpereira/vscode-spotify-theme"
   },
+  "oleg-shilo.Favorites": {
+    "repository": "https://github.com/oleg-shilo/Favorites.vscode"
+  },
   "onecentlin.laravel-blade": {
     "repository": "https://github.com/onecentlin/laravel-blade-snippets-vscode",
     "prepublish": "npm config set script-shell /bin/bash"
