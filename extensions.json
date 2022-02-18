@@ -669,6 +669,9 @@
   "mathiasfrohlich.Kotlin": {
     "repository": "https://github.com/mathiasfrohlich/vscode-kotlin"
   },
+  "MattiasPernhult.vscode-cheatsheet": {
+    "repository": "https://github.com/MattiasPernhult/vscode-cheatsheet"
+  },
   "max-SS.Cyberpunk": {
     "repository": "https://github.com/prometheux-ar/cyberpunk"
   },
