@@ -43,6 +43,8 @@ jobs:
         OVSX_PAT: ${{ secrets.OVSX_PAT }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - run: node report-extensions
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - uses: actions/upload-artifact@v2
       if: always()
       with:
