@@ -13,7 +13,7 @@ The template performs the following:
 
 ## Setup VS Code extension publishing CI workflow
 
-1. First, follow the [Publishing Extensions](https://github.com/eclipse/openvsx/wiki/Publishing-Extensions) doc and take note of the access token that is returned, as you will require it in the next step.
+1. First, follow the [Publishing Extensions](https://github.com/eclipse/openvsx/wiki/Publishing-Extensions) doc (only steps 1-4 are required) and take note of the access token that is returned, as you will require it in the next step.
 
 2. To run the GitHub Action above, you need to setup two repository secrets for the Action to use:
 
