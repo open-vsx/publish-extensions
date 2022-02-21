@@ -16,6 +16,6 @@ jobs:
         with:
           node-version: "14.x"
       - name: Download extension file
-        run: wget -O extension.vsix ${{ github.event.inputs.publishMS }}
+        run: wget -O extension.vsix ${{ github.event.inputs.extensions }}
       - name: Publish to OpenVSX
         run: npx ovsx publish extension.vsix  -p ${{ secrets.OVSX_PAT }}
