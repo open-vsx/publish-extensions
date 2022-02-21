@@ -6,6 +6,9 @@ on:
       extensions:
         description: "URL of the `.vsix`"
         required: true
+      namespace:
+        description: "If a namespace does not exist for the author, provide it here"
+        required: false
 
 jobs:
   publish:
@@ -17,5 +20,8 @@ jobs:
           node-version: "14.x"
       - name: Download extension file
         run: wget -O extension.vsix ${{ github.event.inputs.extensions }}
+      - name: Create OpenVSX namespace
+        if: ${{ github.event.inputs.namespace }}
+        run: npx ovsx create-namespace ${{ github.event.inputs.namespace }} -p ${{ secrets.OVSX_PAT }}
       - name: Publish to OpenVSX
         run: npx ovsx publish extension.vsix  -p ${{ secrets.OVSX_PAT }}
