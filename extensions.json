@@ -881,7 +881,7 @@
   "ms-vscode.vscode-js-profile-table": {
     "repository": "https://github.com/microsoft/vscode-js-profile-visualizer",
     "location": "packages/vscode-js-profile-table",
-    "prepublish": "npm run compile"
+    "custom": "npm install && npm run compile && cd packages/vscode-js-profile-table && npx vsce package --yarn --out extension.vsix" 
   },
   "ms-vscode.vscode-smoketest-check": {
     "repository": "https://github.com/microsoft/vscode-smoketest-check"
