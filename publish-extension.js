@@ -103,7 +103,7 @@ const { createVSIX } = require('vsce');
             }
         }
         // TODO(ak) check license is open-source
-        if (!xmlManifest?.PackageManifest?.Metadata[0]?.License?.[0] && !(packagePath && await ovsx.isLicenseOk(packagePath, manifest))) {
+        if (!xmlManifest?.PackageManifest?.Metadata[0]?.License?.[0] && !manifest.license && !(packagePath && await ovsx.isLicenseOk(packagePath, manifest))) {
             throw new Error(`${extension.id}: license is missing`);
         }
 
