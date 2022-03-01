@@ -982,7 +982,8 @@
     "repository": "https://github.com/philosowaffle/vs-openapi-designer"
   },
   "platformio.platformio-ide": {
-    "repository": "https://github.com/platformio/platformio-vscode-ide"
+    "repository": "https://github.com/platformio/platformio-vscode-ide",
+    "prepublish": "npm run build"
   },
   "pucelle.vscode-css-navigation": {
     "repository": "https://github.com/pucelle/vscode-css-navigation"
