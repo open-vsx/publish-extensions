@@ -372,7 +372,8 @@
   },
   "formulahendry.auto-rename-tag": {
     "repository": "https://github.com/formulahendry/vscode-auto-rename-tag",
-    "location": "packages/extension"
+    "location": "packages/extension",
+    "custom": "npm i -g vsce && npm i && npm run package && mv dist/auto-rename-tag-*.vsix packages/extension/extension.vsix"
   },
   "formulahendry.code-runner": {
     "repository": "https://github.com/formulahendry/vscode-code-runner"
