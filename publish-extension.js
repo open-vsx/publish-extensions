@@ -43,7 +43,7 @@ const { createVSIX } = require('vsce');
                 fs.access(path.join(context.repo, 'yarn.lock'), error => resolve(!error));
             });
             try {
-                await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: packagePath });
+                await exec(`${yarn ? 'yarn' : 'npm ci'}`, { cwd: packagePath });
             } catch (e) {
                 const pck = JSON.parse(await fs.promises.readFile(path.join(packagePath, 'package.json'), 'utf-8'));
                 // try to auto migrate from vscode: https://code.visualstudio.com/api/working-with-extensions/testing-extension#migrating-from-vscode
