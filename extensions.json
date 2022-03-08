@@ -116,9 +116,6 @@
   "ban.spellright": {
     "repository": "https://github.com/bartosz-antosik/vscode-spellright"
   },
-  "batisteo.vscode-django": {
-    "repository": "https://github.com/vscode-django/vscode-django"
-  },
   "BazelBuild.vscode-bazel": {
     "repository": "https://github.com/bazelbuild/vscode-bazel"
   },
