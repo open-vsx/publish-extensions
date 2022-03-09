@@ -998,6 +998,9 @@
   "rintoj.json-organizer": {
     "repository": "https://github.com/rintoj/json-organizer"
   },
+  "rioj7.FileGroup": {
+    "repository": "https://github.com/rioj7/fileGroup"
+  },
   "ritwickdey.LiveServer": {
     "repository": "https://github.com/ritwickdey/vscode-live-server"
   },
