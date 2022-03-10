@@ -41,7 +41,9 @@ const { createVSIX } = require('vsce');
             await exec(`git checkout ${context.ref}`, { cwd: context.repo });
             if (extension.custom) {
                 try {
-                    await exec(extension.custom, { cwd: context.repo });
+                    for (const command of extension.custom) {
+                        await exec(command, { cwd: context.repo });
+                    }
                     options = { extensionFile: path.join(context.repo, extension.location, 'extension.vsix') };
                 } catch (e) {
                     throw e;

@@ -25,7 +25,7 @@
         "description": "Relative path of the extension vsix file inside the git repo (i.e. when it is built by prepublish commands"
       },
       "custom": {
-        "type": "string",
+        "type": "array",
         "description": "Build using a custom script. Must output an `extension.vsix` file in the `location` directory."
       },
       "timeout": {
