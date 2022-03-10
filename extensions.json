@@ -882,8 +882,7 @@
     "custom": [
       "npm install",
       "npm run compile",
-      "cd packages/vscode-js-profile-table",
-      "npx vsce package --yarn --out extension.vsix"
+      "cd packages/vscode-js-profile-table && npx vsce package --yarn --out extension.vsix"
     ]
   },
   "ms-vscode.vscode-smoketest-check": {
