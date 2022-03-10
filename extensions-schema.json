@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": {
+    "type": "object",
+    "properties": {
+      "repository": {
+        "type": "string",
+        "description": "Repository URL to clone and publish from. If the extension publishes `.vsix` files as release artifacts, this will determine the repo to fetch the releases from."
+      },
+      "location": {
+        "type": "string",
+        "description": "Location of the extension's package.json in the repository (defaults to the repository's root directory)"
+      },
+      "prepublish": {
+        "type": "string",
+        "description": "Extra commands to run just before publishing to Open VSX (i.e. after 'yarn/npm install', but before 'vscode:prepublish')"
+      },
+      "extensionFile": {
+        "type": "string",
+        "description": "Relative path of the extension vsix file inside the git repo (i.e. when it is built by prepublish commands"
+      },
+      "timeout": {
+        "type": "number",
+        "description": "Timeout to build the extension vsix from sources."
+      }
+    },
+    "required": ["repository"],
+    "additionalProperties": false
+  }
+}

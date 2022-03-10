@@ -7,13 +7,25 @@ A CI script for publishing open-source VS Code extensions to [open-vsx.org](http
 
 ## When to Add an Extension?
 
-One goal of Open VSX is to have extension maintainers publish their extensions [according to the documentation](https://github.com/eclipse/openvsx/wiki/Publishing-Extensions). However, you may be missing specific extensions that have not been published by their maintainers: either they are not willing to do it, or they haven't found time to do it, or simply they haven't heard about Open VSX yet. Though the preferred solution for such a situation is to convince the maintainers to start publishing themselves, you can add the extensions here to have them published by our CI workflow.
+A goal of Open VSX is to have extension maintainers publish their extensions [according to the documentation](https://github.com/eclipse/openvsx/wiki/Publishing-Extensions). The first step we recommend is to open an issue with the extension owner. If the extension owner is unresponsive for some time, this repo (publish-extensions) can be used **as a temporary workaround** to esure the extension is published to Open VSX.
 
-⚠️ We accept only extensions with [OSI-approved open source licenses](https://opensource.org/licenses) here. If you want to have an extension with a proprietary or non-approved license, please ask its maintainers to publish it.
+In the long-run it is better for extension owners to publish their own plugins because:
+
+1. Any future issues (features/bugs) with any published extensions in Open VSX will be directed to their original repo/source-control, and not confused with this repo `publish-extensions`.
+1. Extensions published by official authors are shown within the Open VSX marketplace as such. Whereas extensions published via publish-extensions display a warning that the publisher (this repository) is not the official author.
+1. Extension owners who publish their own extensions get greater flexibility on the publishing/release process, therefore ensure more accuracy/stability. For instance, in some cases publish-extensions has build steps within this repository, which can cause some uploaded plugin versions to break (e.g. if a plugin build step changes).
+
+⚠️ We only accept extensions with an [OSI-approved open source license](https://opensource.org/licenses) here. If you want to have an extension with a proprietary or non-approved license published, please ask its maintainers to publish it.
 
 ## How to Add an Extension?
 
-To automatically publish an extension to Open VSX, simply add it to [`extensions.json`](./extensions.json) with the [options described below](#publishing-options). You can run `node add-extension [REPOSITORY] --checkout` to create an entry automatically.
+To add an extension to this repo,  add it to the [`extensions.json`](./extensions.json) file. You can do this directly via GitHub using its web editor, or for a way simpler approach, which makes sure your extension also goes in the right place in the file, use the following command:
+
+`node add-extension.js ext.id https://github.com/x/y --optional arg`
+
+All of the arguments are also valid options if you add the extension manually to the JSON file directly. You can find them in the [extension-schema.json file](https://github.com/open-vsx/publish-extensions/blob/HEAD/extensions-schema.json).
+
+See [Publishing options](#publishing-options) below for a quick guide.
 
 ⚠️ Some extensions require additional build steps, and failing to execute them may lead to a broken extension published to Open VSX. Please check the extension's `scripts` section in the package.json file to find such steps; usually they are named `build` or similar. In case the build steps are included in the [vscode:prepublish](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#prepublish-step) script, they are executed automatically, so it's not necessary to mention them explicitly. Otherwise, please include them in the `prepublish` value, e.g. `"prepublish": "npm run build"`.
 
@@ -23,74 +35,29 @@ Click the button below to start a [Gitpod](https://gitpod.io) workspace where yo
 
 ## Publishing Options
 
-The best way to add an extension here is to open this repository in Gitpod (using the orange button above) and to run this helper script:
-
-```bash
-node add-extension $REPOSITORY_URL --checkout
+The best way to add an extension here is to [open this repository in Gitpod](https://gitpod.io/#https://github.com/open-vsx/publish-extensions) and [add a new entry to `extensions.json`](#how-to-add-an-extension). To test, run:
+```
+EXTENSIONS=rebornix.ruby SKIP_PUBLISH=true node publish-extensions.js
 ```
 
 Notes:
 - Simply replace `$REPOSITORY_URL` with the extension's actual repository URL
-- This will update `extensions.json` automatically, which you can commit to send a Pull Request
-- Adding `--checkout` (without an explicit value) will auto-detect the latest available Git release tag or branch
 
-If you're curious, here are the expected formats of an [`extensions.json`](./extensions.json) entry:
-
-```js
-    {
-      // Unique Open VSX extension ID in the form "<namespace>.<name>"
-      "id": "rebornix.ruby",
-      // A full URL from which to download the extension package
-      "download": "https://github.com/rubyide/vscode-ruby/releases/download/v0.25.0/ruby-0.25.0.vsix",
-      // (RECOMMENDED) The version that should be published; the script compares this version with the latest published version
-      "version": "0.25.0"
-    },
-```
-
-Or, in cases where the extension maintainers don't provide a `.vsix` release to download, you can build the extension from source instead:
-
-
-```js
-    {
-      // Unique Open VSX extension ID in the form "<namespace>.<name>"
-      "id": "redhat.vscode-yaml",
-      // Repository URL to clone and publish from
+```jsonc
+    // Unique Open VSX extension ID in the form "<publisher>.<name>"
+    "rebornix.ruby": {
+      // Repository URL to clone and publish from. If the extension publishes `.vsix` files as release artifacts, this will determine the repo to fetch the releases from.
       "repository": "https://github.com/redhat-developer/vscode-yaml"
-    },
-```
-
-Here are all the supported values, including optional ones, to build extensions from source:
-
-```js
-    {
-      // Unique Open VSX extension ID in the form "<namespace>.<name>"
-      "id": "rebornix.ruby",
-      // Repository URL to clone and publish from
-      "repository": "https://github.com/rubyide/vscode-ruby",
-      // (RECOMMENDED) The version that should be published; the script compares this version with the latest published version
-      "version": "0.27.0",
-      // (RECOMMENDED) The Git branch, tag, or commit to check out before publishing (defaults to the repository's default branch)
-      "checkout": "v0.27.0",
-      // (OPTIONAL) Location of the extension's package.json in the repository (defaults to the repository's root directory)
-      "location": "packages/vscode-ruby-client",
-      // (OPTIONAL) Extra commands to run just before publishing to Open VSX (i.e. after "yarn/npm install", but before "vscode:prepublish")
-      "prepublish": "npm run build",
-      // (OPTIONAL) Relative path of the extension vsix file inside the git repo (i.e. when it is built by prepublish commands
-      "extensionFile": "dist/js-debug.vsix",
-      // (OPTIONAL) Enables publishing of web extensions.
-      "web": true
     },
 ```
 
 ## How do extensions get updated?
 
-Every week [a job is ran which checks for updated versions][upgrade-extensions-job]. These changes are reviewed manually, and merged by a maintainer. Once merged, these upgrades are [published nightly][publish-extensions-job]. There should be no reason to raise a PR to update an extension. It could be that the extension is failing to update. 
-
-To debug, try running `node upgrade-extensions.js --extension=the-extension-id`, which will try to run the upgrade only for that one extension, providing an error report/reason for why the extension is not updating. 
+The publishing job auto infers the latest version published to MS marketplace using vsce and then tries to resolve vsix file using GitHub releases or a commit to build associated with a version using tags and commits around the last updated date.
 
 ## How are Extensions Published?
 
-Every night at [03:03 UTC](https://github.com/open-vsx/publish-extensions/blob/e70fb554a5c265e53f44605dbd826270b860694b/.github/workflows/publish-extensions.yml#L3-L6), a [GitHub workflow](https://github.com/open-vsx/publish-extensions/blob/e70fb554a5c265e53f44605dbd826270b860694b/.github/workflows/publish-extensions.yml#L9-L21) goes through all entries in [`extensions.json`](./extensions.json), and checks if the specified `"version"` needs to be published to https://open-vsx.org or not.
+Every night at [03:03 UTC](https://github.com/open-vsx/publish-extensions/blob/e70fb554a5c265e53f44605dbd826270b860694b/.github/workflows/publish-extensions.yml#L3-L6), a [GitHub workflow](https://github.com/open-vsx/publish-extensions/blob/e70fb554a5c265e53f44605dbd826270b860694b/.github/workflows/publish-extensions.yml#L9-L21) goes through all entries in [`extensions.json`](./extensions.json), and checks if it needs to be published to https://open-vsx.org or not.
 
 The [publishing process](https://github.com/open-vsx/publish-extensions/blob/d2df425a84093023f4ee164592f2491c32166297/publish-extensions.js#L58-L87) can be summarized like this:
 
@@ -103,5 +70,4 @@ The [publishing process](https://github.com/open-vsx/publish-extensions/blob/d2d
 
 See all `ovsx` CLI options [here](https://github.com/eclipse/openvsx/blob/master/cli/README.md).
 
-[upgrade-extensions-job]: https://github.com/open-vsx/publish-extensions/blob/master/.github/workflows/upgrade-extensions.yml
 [publish-extensions-job]: https://github.com/open-vsx/publish-extensions/blob/master/.github/workflows/publish-extensions.yml
