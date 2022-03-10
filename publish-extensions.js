@@ -181,7 +181,7 @@ function isPreReleaseVersion(version) {
           continue;
         }
         if (stat.unstable[extension.id]) {
-          console.log(`${extension.id}: skipping, since version in Open VSX is never than in MS marketplace`);
+          console.log(`${extension.id}: skipping, since version in Open VSX is newer than in MS marketplace`);
           continue;
         }
         if (resolved?.resolution?.latest && context.version === context.ovsxVersion) {

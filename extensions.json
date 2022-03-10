@@ -116,9 +116,6 @@
   "ban.spellright": {
     "repository": "https://github.com/bartosz-antosik/vscode-spellright"
   },
-  "batisteo.vscode-django": {
-    "repository": "https://github.com/vscode-django/vscode-django"
-  },
   "BazelBuild.vscode-bazel": {
     "repository": "https://github.com/bazelbuild/vscode-bazel"
   },
@@ -520,9 +517,6 @@
   "itsjonq.owlet": {
     "repository": "https://github.com/ItsJonQ/owlet"
   },
-  "itsmajestix.vscode-ti": {
-    "repository": "https://github.com/ItsMajestiX/VSCode-Ti"
-  },
   "ivangabriele.vscode-git-add-and-commit": {
     "repository": "https://github.com/ivangabriele/vscode-git-automator-legacy"
   },
@@ -630,9 +624,6 @@
   "kortina.vscode-markdown-notes": {
     "repository": "https://github.com/kortina/vscode-markdown-notes"
   },
-  "kosz78.nim": {
-    "repository": "https://github.com/pragmagic/vscode-nim"
-  },
   "laradump.laradump": {
     "repository": "https://github.com/TheJenos/laradump-vscode"
   },
@@ -653,7 +644,8 @@
   },
   "mads-hartmann.bash-ide-vscode": {
     "repository": "https://github.com/bash-lsp/bash-language-server",
-    "location": "vscode-client"
+    "location": "vscode-client",
+    "prepublish": "yarn"
   },
   "magicstack.MagicPython": {
     "repository": "https://github.com/MagicStack/MagicPython"
@@ -982,9 +974,6 @@
   "philosowaffle.openapi-designer": {
     "repository": "https://github.com/philosowaffle/vs-openapi-designer"
   },
-  "platformio.platformio-ide": {
-    "repository": "https://github.com/platformio/platformio-vscode-ide"
-  },
   "pucelle.vscode-css-navigation": {
     "repository": "https://github.com/pucelle/vscode-css-navigation"
   },
@@ -1174,9 +1163,6 @@
   },
   "vortizhe.simple-ruby-erb": {
     "repository": "https://github.com/vortizhe/vscode-ruby-erb"
-  },
-  "vsciot-vscode.vscode-arduino": {
-    "repository": "https://github.com/microsoft/vscode-arduino"
   },
   "vscjava.vscode-java-debug": {
     "repository": "https://github.com/microsoft/vscode-java-debug",
