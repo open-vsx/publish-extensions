@@ -361,6 +361,9 @@
   "file-icons.file-icons": {
     "repository": "https://github.com/file-icons/vscode"
   },
+  "folke.vscode-monorepo-workspace": {
+    "repository": "https://github.com/folke/vscode-monorepo-workspace"
+  },
   "formulahendry.auto-close-tag": {
     "repository": "https://github.com/formulahendry/vscode-auto-close-tag"
   },
