@@ -888,6 +888,9 @@
   "msjsdiag.debugger-for-edge": {
     "repository": "https://github.com/Microsoft/vscode-edge-debug2"
   },
+  "msjsdiag.vscode-react-native": {
+    "repository": "https://github.com/microsoft/vscode-react-native"
+  },
   "mtxr.sqltools": {
     "repository": "https://github.com/mtxr/vscode-sqltools"
   },
