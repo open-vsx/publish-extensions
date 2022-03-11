@@ -823,6 +823,10 @@
   "ms-vscode.cmake-tools": {
     "repository": "https://github.com/microsoft/vscode-cmake-tools"
   },
+  "ms-vscode.cpptools-themes": {
+    "repository": "https://github.com/microsoft/vscode-cpptools",
+    "location": "Themes/"
+  },
   "ms-vscode.hexeditor": {
     "repository": "https://github.com/microsoft/vscode-hexeditor"
   },
