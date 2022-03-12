@@ -63,7 +63,13 @@ export interface SingleExtensionQueryResult {
     releaseDate: string
     shortDescription: string
     deploymentType: number
+    statistics: Statistic[]
 };
+
+export interface Statistic {
+    statisticName: string
+    value: number
+}
 
 export interface Publisher {
     publisherId: string
