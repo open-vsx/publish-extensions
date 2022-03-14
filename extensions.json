@@ -679,9 +679,6 @@
   "MehediDracula.php-namespace-resolver": {
     "repository": "https://github.com/MehediDracula/PHP-Namespace-Resolver"
   },
-  "mgmcdermott.vscode-language-babel": {
-    "repository": "https://github.com/michaelgmcd/vscode-language-babel"
-  },
   "miguel-savignano.ruby-symbols": {
     "repository": "https://github.com/MiguelSavignano/vscode-ruby-symbols"
   },
