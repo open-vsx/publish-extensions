@@ -38,6 +38,7 @@ jobs:
       with:
         python-version: '3.8'
     - run: npm install
+    - run: npm i -g vsce
     - run: node publish-extensions
       env:
         OVSX_PAT: ${{ secrets.OVSX_PAT }}
