@@ -825,7 +825,8 @@
     "location": "Themes/"
   },
   "ms-vscode.hexeditor": {
-    "repository": "https://github.com/microsoft/vscode-hexeditor"
+    "repository": "https://github.com/microsoft/vscode-hexeditor",
+    "prepublish": "npm run compile"
   },
   "ms-vscode.js-debug": {
     "repository": "https://github.com/microsoft/vscode-js-debug",
