@@ -374,7 +374,6 @@
     "repository": "https://github.com/formulahendry/vscode-auto-rename-tag",
     "location": "packages/extension",
     "custom": [
-      "npm i -g vsce",
       "npm i",
       "npm run package",
       "mv dist/auto-rename-tag-*.vsix packages/extension/extension.vsix"
@@ -885,7 +884,7 @@
     "custom": [
       "npm install",
       "npm run compile",
-      "cd packages/vscode-js-profile-table && npx vsce package --yarn --out extension.vsix"
+      "cd packages/vscode-js-profile-table && vsce package --yarn --out extension.vsix"
     ]
   },
   "ms-vscode.vscode-smoketest-check": {
