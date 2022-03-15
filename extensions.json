@@ -1153,9 +1153,6 @@
   "Tyriar.windows-terminal": {
     "repository": "https://github.com/Tyriar/vscode-windows-terminal"
   },
-  "Unity.unity-debug": {
-    "repository": "https://github.com/Unity-Technologies/vscode-unity-debug"
-  },
   "vhdlwhiz.vhdl-by-vhdlwhiz": {
     "repository": "https://github.com/jonasjj/awesome-vhdl"
   },
