@@ -684,9 +684,6 @@
   "MehediDracula.php-namespace-resolver": {
     "repository": "https://github.com/MehediDracula/PHP-Namespace-Resolver"
   },
-  "mgmcdermott.vscode-language-babel": {
-    "repository": "https://github.com/michaelgmcd/vscode-language-babel"
-  },
   "miguel-savignano.ruby-symbols": {
     "repository": "https://github.com/MiguelSavignano/vscode-ruby-symbols"
   },
@@ -828,8 +825,13 @@
   "ms-vscode.cmake-tools": {
     "repository": "https://github.com/microsoft/vscode-cmake-tools"
   },
+  "ms-vscode.cpptools-themes": {
+    "repository": "https://github.com/microsoft/vscode-cpptools",
+    "location": "Themes/"
+  },
   "ms-vscode.hexeditor": {
-    "repository": "https://github.com/microsoft/vscode-hexeditor"
+    "repository": "https://github.com/microsoft/vscode-hexeditor",
+    "prepublish": "npm run compile"
   },
   "ms-vscode.js-debug": {
     "repository": "https://github.com/microsoft/vscode-js-debug",
@@ -892,6 +894,9 @@
   },
   "msjsdiag.debugger-for-edge": {
     "repository": "https://github.com/Microsoft/vscode-edge-debug2"
+  },
+  "msjsdiag.vscode-react-native": {
+    "repository": "https://github.com/microsoft/vscode-react-native"
   },
   "mtxr.sqltools": {
     "repository": "https://github.com/mtxr/vscode-sqltools"
