@@ -39,12 +39,6 @@
   "albymor.increment-selection": {
     "repository": "https://github.com/albymor/Increment-Selection"
   },
-  "alefragnani.Bookmarks": {
-    "repository": "https://github.com/alefragnani/vscode-bookmarks"
-  },
-  "alefragnani.project-manager": {
-    "repository": "https://github.com/alefragnani/vscode-project-manager"
-  },
   "alexkrechik.cucumberautocomplete": {
     "repository": "https://github.com/alexkrechik/VSCucumberAutoComplete",
     "location": "gclient",
