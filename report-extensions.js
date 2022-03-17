@@ -224,9 +224,8 @@ function sortedKeys(s) {
 
         const { couldPublishMs, definedInRepo } = await checkMissing(true);
 
-        for (const id of couldPublishMs) {
-            const r = stat.msPublished[id];
-            content += `${id} (installs: ${r.msInstalls})${definedInRepo.includes(id) ? ` [defined in extensions.json]` : ''}\r\n`;
+        for (const extension of couldPublishMs) {
+            content += `${`${extension.publisher.publisherName}.${extension.extensionName}`} (installs: ${extension.statistics?.find(s => s.statisticName === 'install')?.value}})${definedInRepo.includes(`${extension.publisher.publisherName}.${extension.extensionName}`) ? ` [defined in extensions.json]` : ''}\r\n`;
         }
 
         content += '-------------------\r\n';
