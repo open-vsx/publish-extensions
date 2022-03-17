@@ -11,8 +11,6 @@
 // @ts-check
 const fs = require('fs');
 const Octokit = require('octokit').Octokit;
-const download = require('download');
-const path = require('node:path');
 const exec = require('./lib/exec');
 
 const token = process.env.GITHUB_TOKEN;
@@ -101,6 +99,8 @@ function sortedKeys(s) {
         return typeof daysInBetween === 'number' && 0 <= Math.round(daysInBetween) && Math.round(daysInBetween) <= 30;
     }));
     const msPublished = Object.keys(stat.msPublished).length;
+    const msPublishedOutdated = Object.keys(stat.outdated).filter(id => Object.keys(stat.msPublished).includes(id));
+    const msPublishedUnstable = Object.keys(stat.unstable).filter(id => Object.keys(stat.msPublished).includes(id));
 
     const totalResolutions = Object.keys(stat.resolutions).length;
     const fromReleaseAsset = Object.keys(stat.resolutions).filter(id => stat.resolutions[id].releaseAsset).length;
@@ -124,8 +124,8 @@ function sortedKeys(s) {
     summary += `Failed to publish: ${stat.failed.length} (${(stat.failed.length / total * 100).toFixed(0)}%) \r\n`;
     summary += `Microsoft:\r\n`;
     summary += `Total: ${msPublished} (${(msPublished / total * 100).toFixed(0)}%)\r\n`;
-    summary += `Outdated: ${Object.keys(stat.outdated).map(id => Object.keys(stat.msPublished).includes(id)).length}\r\n`;
-    summary += `Unstable: ${Object.keys(stat.unstable).map(id => Object.keys(stat.msPublished).includes(id)).length}\r\n`;
+    summary += `Outdated: ${msPublishedOutdated.length}\r\n`;
+    summary += `Unstable: ${msPublishedUnstable.length}\r\n`;
     summary += `Total resolutions: ${totalResolutions}\r\n`;
     summary += `From release asset: ${fromReleaseAsset} (${(fromReleaseAsset / totalResolutions * 100).toFixed(0)}%)\r\n`;
     summary += `From release tag: ${fromReleaseTag} (${(fromReleaseTag / totalResolutions * 100).toFixed(0)}%)\r\n`;
@@ -200,6 +200,24 @@ function sortedKeys(s) {
             const r = stat.msPublished[id];
             content += `${id} (installs: ${r.msInstalls})\r\n`;
         }
+
+        content += '-------------------\r\n';
+        content += '\r\n----- MS Outdated -----\r\n'
+
+        for (const id of msPublishedOutdated.sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls)) {
+            const r = stat.msPublished[id];
+            content += `${id} (installs: ${r.msInstalls})\r\n`;
+        }
+
+
+        content += '-------------------\r\n';
+        content += '\r\n----- MS Unstable -----\r\n'
+
+        for (const id of msPublishedUnstable.sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls)) {
+            const r = stat.msPublished[id];
+            content += `${id} (installs: ${r.msInstalls})\r\n`;
+        }
+
         content += '-------------------\r\n';
     }
 
