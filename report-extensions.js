@@ -121,9 +121,11 @@ function sortedKeys(s) {
     summary += `Outdated (MS marketplace > Open VSX): ${outdated} (${(outdated / total * 100).toFixed(0)}%)\r\n`;
     summary += `Unstable (MS marketplace < Open VSX): ${unstable} (${(unstable / total * 100).toFixed(0)}%)\r\n`;
     summary += `Not in MS marketplace: ${notInMS} (${(notInMS / total * 100).toFixed(0)}%)\r\n`;
-    summary += `Failed to publish: ${stat.failed.length} (${(stat.failed.length / total * 100).toFixed(0)}%) \r\n`
-    summary += `MS is publisher: ${msPublished} (${(msPublished / total * 100).toFixed(0)}%)\r\n`;
-    summary += `\r\n`;
+    summary += `Failed to publish: ${stat.failed.length} (${(stat.failed.length / total * 100).toFixed(0)}%) \r\n`;
+    summary += `Microsoft:\r\n`;
+    summary += `Total: ${msPublished} (${(msPublished / total * 100).toFixed(0)}%)\r\n`;
+    summary += `Outdated: ${Object.keys(stat.outdated).map(id => Object.keys(stat.msPublished).includes(id)).length}\r\n`;
+    summary += `Unstable: ${Object.keys(stat.unstable).map(id => Object.keys(stat.msPublished).includes(id)).length}\r\n`;
     summary += `Total resolutions: ${totalResolutions}\r\n`;
     summary += `From release asset: ${fromReleaseAsset} (${(fromReleaseAsset / totalResolutions * 100).toFixed(0)}%)\r\n`;
     summary += `From release tag: ${fromReleaseTag} (${(fromReleaseTag / totalResolutions * 100).toFixed(0)}%)\r\n`;
