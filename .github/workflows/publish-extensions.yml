@@ -14,12 +14,12 @@ on:
         description: 'Skip publishing to Open VSX, only build extensions'
         type: boolean
         required: false
-        default: "false"
+        default: false
       forcefullyPublish:
         description: 'Force publish to OpenVSX, even if version is already published'
         type: boolean
         required: false
-        default: "false"
+        default: false
 
 jobs:
   publish_extensions:
@@ -38,6 +38,7 @@ jobs:
       with:
         python-version: '3.8'
     - run: npm install
+    - run: npm i -g vsce
     - run: node publish-extensions
       env:
         OVSX_PAT: ${{ secrets.OVSX_PAT }}

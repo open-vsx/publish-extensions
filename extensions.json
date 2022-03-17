@@ -39,12 +39,6 @@
   "albymor.increment-selection": {
     "repository": "https://github.com/albymor/Increment-Selection"
   },
-  "alefragnani.Bookmarks": {
-    "repository": "https://github.com/alefragnani/vscode-bookmarks"
-  },
-  "alefragnani.project-manager": {
-    "repository": "https://github.com/alefragnani/vscode-project-manager"
-  },
   "alexkrechik.cucumberautocomplete": {
     "repository": "https://github.com/alexkrechik/VSCucumberAutoComplete",
     "location": "gclient",
@@ -361,6 +355,9 @@
   "file-icons.file-icons": {
     "repository": "https://github.com/file-icons/vscode"
   },
+  "folke.vscode-monorepo-workspace": {
+    "repository": "https://github.com/folke/vscode-monorepo-workspace"
+  },
   "formulahendry.auto-close-tag": {
     "repository": "https://github.com/formulahendry/vscode-auto-close-tag"
   },
@@ -676,9 +673,6 @@
   "MehediDracula.php-namespace-resolver": {
     "repository": "https://github.com/MehediDracula/PHP-Namespace-Resolver"
   },
-  "mgmcdermott.vscode-language-babel": {
-    "repository": "https://github.com/michaelgmcd/vscode-language-babel"
-  },
   "miguel-savignano.ruby-symbols": {
     "repository": "https://github.com/MiguelSavignano/vscode-ruby-symbols"
   },
@@ -820,8 +814,13 @@
   "ms-vscode.cmake-tools": {
     "repository": "https://github.com/microsoft/vscode-cmake-tools"
   },
+  "ms-vscode.cpptools-themes": {
+    "repository": "https://github.com/microsoft/vscode-cpptools",
+    "location": "Themes/"
+  },
   "ms-vscode.hexeditor": {
-    "repository": "https://github.com/microsoft/vscode-hexeditor"
+    "repository": "https://github.com/microsoft/vscode-hexeditor",
+    "prepublish": "npm run compile"
   },
   "ms-vscode.js-debug": {
     "repository": "https://github.com/microsoft/vscode-js-debug",
@@ -880,6 +879,9 @@
   },
   "msjsdiag.debugger-for-edge": {
     "repository": "https://github.com/Microsoft/vscode-edge-debug2"
+  },
+  "msjsdiag.vscode-react-native": {
+    "repository": "https://github.com/microsoft/vscode-react-native"
   },
   "mtxr.sqltools": {
     "repository": "https://github.com/mtxr/vscode-sqltools"
@@ -1144,9 +1146,6 @@
   },
   "Tyriar.windows-terminal": {
     "repository": "https://github.com/Tyriar/vscode-windows-terminal"
-  },
-  "Unity.unity-debug": {
-    "repository": "https://github.com/Unity-Technologies/vscode-unity-debug"
   },
   "vhdlwhiz.vhdl-by-vhdlwhiz": {
     "repository": "https://github.com/jonasjj/awesome-vhdl"
