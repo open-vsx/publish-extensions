@@ -12,10 +12,11 @@
 const fs = require('fs');
 const Octokit = require('octokit').Octokit;
 const exec = require('./lib/exec');
+const { checkMissing } = require('./lib/reportStat');
 
 const token = process.env.GITHUB_TOKEN;
 if (!token) {
-  console.error("GITHUB_TOKEN env var is not set, the week-over-week statistic won't be included");
+    console.error("GITHUB_TOKEN env var is not set, the week-over-week statistic won't be included");
 }
 const octokit = new Octokit({ auth: token });
 
@@ -59,8 +60,8 @@ function sortedKeys(s) {
             fs.rmSync('/tmp/lastweek/', { recursive: true, force: true });
             fs.mkdirSync('/tmp/lastweek/');
             try {
-                await exec(`unzip ${outputFile} -d /tmp/lastweek/`, {quiet: true});
-            } catch {}
+                await exec(`unzip ${outputFile} -d /tmp/lastweek/`, { quiet: true });
+            } catch { }
             const stat = JSON.parse(await fs.promises.readFile("/tmp/lastweek/stat.json", { encoding: 'utf8' }));
 
             const upToDate = Object.keys(stat.upToDate).length;
@@ -216,6 +217,16 @@ function sortedKeys(s) {
         for (const id of msPublishedUnstable.sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls)) {
             const r = stat.msPublished[id];
             content += `${id} (installs: ${r.msInstalls})\r\n`;
+        }
+
+        content += '-------------------\r\n';
+        content += '\r\n----- MS missing from OpenVSX -----\r\n'
+
+        const { couldPublishMs, definedInRepo } = await checkMissing(true);
+
+        for (const id of couldPublishMs) {
+            const r = stat.msPublished[id];
+            content += `${id} (installs: ${r.msInstalls})${definedInRepo.includes(id) ? ` [defined in extensions.json]` : ''}\r\n`;
         }
 
         content += '-------------------\r\n';
