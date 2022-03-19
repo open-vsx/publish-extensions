@@ -1122,6 +1122,9 @@
   "tombonnike.vscode-status-bar-format-toggle": {
     "repository": "https://github.com/Tom-Bonnike/vscode-formatting-toggle"
   },
+  "tomoki1207.pdf": {
+    "repository": "https://github.com/tomoki1207/vscode-pdfviewer"
+  },
   "tonsky.theme-alabaster": {
     "repository": "https://github.com/tonsky/vscode-theme-alabaster"
   },
