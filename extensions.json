@@ -77,7 +77,8 @@
     "repository": "https://github.com/apollographql/apollo-midnight"
   },
   "appulate.filewatcher": {
-    "repository": "https://github.com/appulate/vscode-file-watcher"
+    "repository": "https://github.com/appulate/vscode-file-watcher",
+    "prepublish": "sed -i 's/\\(: \\)\\(vscode.WorkspaceFolder\\[\\]\\)/\\1readonly \\2/g' src/extension.ts"
   },
   "arcanis.vscode-zipfs": {
     "repository": "https://github.com/yarnpkg/berry",
