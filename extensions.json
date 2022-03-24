@@ -498,7 +498,7 @@
   },
   "ikappas.composer": {
     "repository": "https://github.com/ikappas/vscode-composer",
-    "prepublish": "sed -i 's/\\(\"typescript\": \"\\).*\\(\"\\)/\\1^4.6.0\\2/g' package.json && npm install"
+    "prepublish": "grep \"version\": \"0.7.1\" package.json && sed -i 's/\\(\"typescript\": \"\\).*\\(\"\\)/\\1^4.6.0\\2/g' package.json && npm install || true"
   },
   "ikappas.phpcs": {
     "repository": "https://github.com/ikappas/vscode-phpcs"
