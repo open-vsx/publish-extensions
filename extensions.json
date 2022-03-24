@@ -357,9 +357,6 @@
   "felipecaputo.git-project-manager": {
     "repository": "https://github.com/felipecaputo/git-project-manager"
   },
-  "felixfbecker.php-debug": {
-    "repository": "https://github.com/xdebug/vscode-php-debug"
-  },
   "felixfbecker.php-intellisense": {
     "repository": "https://github.com/felixfbecker/vscode-php-intellisense"
   },
@@ -1275,6 +1272,9 @@
   },
   "xaver.clang-format": {
     "repository": "https://github.com/xaverh/vscode-clang-format-provider"
+  },
+  "xdebug.php-debug": {
+    "repository": "https://github.com/xdebug/vscode-php-debug"
   },
   "xirider.livecode": {
     "repository": "https://github.com/xirider/livecode"
