@@ -597,18 +597,6 @@
   "KnisterPeter.vscode-github": {
     "repository": "https://github.com/KnisterPeter/vscode-github"
   },
-  "kodetech.electron-debug": {
-    "repository": "https://github.com/Kode/vscode-electron-debug"
-  },
-  "kodetech.kha": {
-    "repository": "https://github.com/Kode/vscode-kha"
-  },
-  "kodetech.kha-extension-pack": {
-    "repository": "https://github.com/Kode/vscode-kha-extension-pack"
-  },
-  "kodetech.krafix": {
-    "repository": "https://github.com/Kode/vscode-krafix"
-  },
   "korekontrol.saltstack": {
     "repository": "https://github.com/korekontrol/vscode-saltstack"
   },
