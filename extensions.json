@@ -39,11 +39,6 @@
   "albymor.increment-selection": {
     "repository": "https://github.com/albymor/Increment-Selection"
   },
-  "alexkrechik.cucumberautocomplete": {
-    "repository": "https://github.com/alexkrechik/VSCucumberAutoComplete",
-    "location": "gclient",
-    "prepublish": "cd gclient && npm install"
-  },
   "aliariff.vscode-erb-beautify": {
     "repository": "https://github.com/aliariff/vscode-erb-beautify"
   },
