@@ -86,7 +86,19 @@
     "prepublish": "sed -ri \"s_ssh://git@github.com/yarnpkg/berry.git_https://github.com/yarnpkg/berry_g\" packages/vscode-zipfs/package.json"
   },
   "arjun.swagger-viewer": {
-    "repository": "https://github.com/arjun-g/vs-swagger-viewer"
+    "repository": "https://github.com/arjun-g/vs-swagger-viewer",
+    "custom": [
+      "grep '\"version\": \"3.1.2\"' package.json && sed -i '/\"@types\\/socket\\.io\": \".*\"/d' package.json || true",
+      "grep '\"version\": \"3.1.2\"' package.json && sed -i 's/\\(\"typescript\": \"\\).*\\(\"\\)/\\1^4.6.0\\2/g' package.json || true",
+      "grep '\"version\": \"3.1.2\"' package.json && sed -i '/\"vscode:prepublish\": \".*\"/d' package.json || true",
+      "npm install",
+      "grep '\"version\": \"3.1.2\"' package.json && npx tsc --lib dom -p . || true",
+      "grep '\"version\": \"3.1.2\"' package.json && wget https://www.ko-fi.com/img/githubbutton_sm.svg || true",
+      "grep '\"version\": \"3.1.2\"' package.json && npx svgexport githubbutton_sm.svg githubbutton_sm.png || true",
+      "grep '\"version\": \"3.1.2\"' package.json && rm githubbutton_sm.svg || true",
+      "grep '\"version\": \"3.1.2\"' package.json && sed -i 's/\\(!\\[.*\\](\\)https:\\/\\/www\\.ko-fi\\.com\\/img\\/\\(githubbutton_sm\\.\\)svg\\()\\)/\\1.\\/\\2png\\3/g' README.md || true",
+      "vsce package -o extension.vsix"
+    ]
   },
   "asabil.meson": {
     "repository": "https://github.com/asabil/vscode-meson"
