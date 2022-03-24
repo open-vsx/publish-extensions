@@ -1198,9 +1198,6 @@
     "location": "smali",
     "prepublish": "cp LICENSE smali/ && cd smali && npm install"
   },
-  "vscodevim.vim": {
-    "repository": "https://github.com/VSCodeVim/Vim"
-  },
   "vshaxe.haxe-checkstyle": {
     "repository": "https://github.com/vshaxe/vscode-checkstyle"
   },
