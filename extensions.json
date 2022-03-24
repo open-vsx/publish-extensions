@@ -66,9 +66,6 @@
   "amodio.tsl-problem-matcher": {
     "repository": "https://github.com/eamodio/vscode-tsl-problem-matcher"
   },
-  "andreweinand.mock-debug": {
-    "repository": "https://github.com/microsoft/vscode-mock-debug"
-  },
   "Angular.ng-template": {
     "repository": "https://github.com/angular/vscode-ng-language-service",
     "prepublish": "scripts/build.sh package.json"
@@ -836,6 +833,9 @@
   },
   "ms-vscode.makefile-tools": {
     "repository": "https://github.com/microsoft/vscode-makefile-tools"
+  },
+  "ms-vscode.mock-debug": {
+    "repository": "https://github.com/microsoft/vscode-mock-debug"
   },
   "ms-vscode.node-debug": {
     "repository": "https://github.com/microsoft/vscode-node-debug",
