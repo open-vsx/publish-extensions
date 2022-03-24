@@ -487,7 +487,8 @@
     "repository": "https://github.com/IBM-Blockchain/blockchain-vscode-extension"
   },
   "ikappas.composer": {
-    "repository": "https://github.com/ikappas/vscode-composer"
+    "repository": "https://github.com/ikappas/vscode-composer",
+    "prepublish": "sed -i 's/\\(\"typescript\": \"\\).*\\(\"\\)/\\1^4.6.0\\2/g' package.json && npm install"
   },
   "ikappas.phpcs": {
     "repository": "https://github.com/ikappas/vscode-phpcs"
