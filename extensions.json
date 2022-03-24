@@ -947,7 +947,7 @@
     "repository": "https://github.com/paragdiwan/vscode-git-patch",
     "location": ".",
     "custom": [
-      "git checkout a648bb3656d0c5c9e9c8cb281eb71d56fd0e9f6a",
+      "grep '\"version\": \"0.2.1\"' package.json && git checkout a648bb3656d0c5c9e9c8cb281eb71d56fd0e9f6a",
       "npm i",
       "npx vsce package --out extension.vsix"
     ]
