@@ -949,7 +949,7 @@
     "custom": [
       "git checkout a648bb3656d0c5c9e9c8cb281eb71d56fd0e9f6a",
       "npm i",
-      "vsce package --out extension.vsix"
+      "npx vsce package --out extension.vsix"
     ]
   },
   "patbenatar.advanced-new-file": {
