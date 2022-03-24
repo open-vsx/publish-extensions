@@ -361,7 +361,12 @@
   },
   "formulahendry.auto-rename-tag": {
     "repository": "https://github.com/formulahendry/vscode-auto-rename-tag",
-    "location": "packages/extension"
+    "location": "packages/extension",
+    "custom": [
+      "npm i",
+      "npm run package",
+      "mv dist/auto-rename-tag-*.vsix packages/extension/extension.vsix"
+    ]
   },
   "formulahendry.code-runner": {
     "repository": "https://github.com/formulahendry/vscode-code-runner"
@@ -855,7 +860,11 @@
   "ms-vscode.vscode-js-profile-table": {
     "repository": "https://github.com/microsoft/vscode-js-profile-visualizer",
     "location": "packages/vscode-js-profile-table",
-    "prepublish": "npm run compile"
+    "custom": [
+      "npm install",
+      "npm run compile",
+      "cd packages/vscode-js-profile-table && vsce package --yarn --out extension.vsix"
+    ]
   },
   "ms-vscode.vscode-smoketest-check": {
     "repository": "https://github.com/microsoft/vscode-smoketest-check"

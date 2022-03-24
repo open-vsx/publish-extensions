@@ -58,6 +58,7 @@ export interface Extension {
     location?: string
     prepublish?: string
     extensionFile?: string
+    custom?: string[]
     timeout?: number
 }
 
