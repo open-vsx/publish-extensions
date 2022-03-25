@@ -22,6 +22,7 @@ jobs:
         with:
           python-version: "3.8"
       - run: npm install
+      - run: npm i -g vsce
       - run: EXTENSIONS=$(node diff-extensions) node publish-extensions
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
