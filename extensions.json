@@ -19,6 +19,7 @@
       "grep '\"version\": \"0\\.1\\.0\"' package.json && sed -i '/\"devDependencies\": {/,/}/{/\"vscode\": \".*\"/d}' package.json || true",
       "grep '\"version\": \"0\\.1\\.0\"' package.json && sed -i '/\"\\(vscode:prepublish\\|compile\\|postinstall\\)\": \".*\"/d' package.json || true",
       "grep '\"version\": \"0\\.1\\.0\"' package.json && rm -rf typings || true",
+      "grep '\"version\": \"0\\.1\\.0\"' package.json && sed -i 's/\\(: \\)\\(Selection\\[\\]\\)/\\1readonly \\2/g' src/extension.ts || true",
       "npm install",
       "grep '\"version\": \"0\\.1\\.0\"' package.json && npx tsc --noLib false -p . || true",
       "vsce package -o extension.vsix"
