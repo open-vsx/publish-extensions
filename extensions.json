@@ -12,13 +12,13 @@
   "adamhartford.vscode-base64": {
     "repository": "https://github.com/adamhartford/vscode-base64",
     "custom": [
-      "grep \"version\": \"0\\.1\\.0\" package.json && sed -i 's/\\(\"vscode\": \"\\).*\\(\"\\)/\\1^1.1.0\\2/g' package.json || true",
-      "grep \"version\": \"0\\.1\\.0\" package.json && sed -i 's/\\(\"typescript\": \"\\).*\\(\"\\)/\\1^4.6.0\\2/g' package.json || true",
-      "grep \"version\": \"0\\.1\\.0\" package.json && sed -i 's/\\(^.*\"devDependencies\": {$\\)/\\1\\n        \"@types\\/vscode\": \"^1.1.0\",        \"@types\\/node\": \"^17.0.23\",\n        \"@types\\/mocha\": \"^9.0.1\"/g' package.json || true",
-      "grep \"version\": \"0\\.1\\.0\" package.json && sed -i '/\"\\(vscode:prepublish\\|compile\\|postinstall\\)\": \".*\"/d' package.json || true",
-      "grep \"version\": \"0\\.1\\.0\" package.json && rm -rf typings || true",
+      "grep '\"version\": \"0\\.1\\.0\"' package.json && sed -i 's/\\(\"vscode\": \"\\).*\\(\"\\)/\\1^1.1.0\\2/g' package.json || true",
+      "grep '\"version\": \"0\\.1\\.0\"' package.json && sed -i 's/\\(\"typescript\": \"\\).*\\(\"\\)/\\1^4.6.0\\2/g' package.json || true",
+      "grep '\"version\": \"0\\.1\\.0\"' package.json && sed -i 's/\\(^.*\"devDependencies\": {$\\)/\\1\\n        \"@types\\/vscode\": \"^1.1.0\",        \"@types\\/node\": \"^17.0.23\",\n        \"@types\\/mocha\": \"^9.0.1\"/g' package.json || true",
+      "grep '\"version\": \"0\\.1\\.0\"' package.json && sed -i '/\"\\(vscode:prepublish\\|compile\\|postinstall\\)\": \".*\"/d' package.json || true",
+      "grep '\"version\": \"0\\.1\\.0\"' package.json && rm -rf typings || true",
       "npm install",
-      "grep \"version\": \"0\\.1\\.0\" package.json && npx tsc --noLib false -p . || true",
+      "grep '\"version\": \"0\\.1\\.0\"' package.json && npx tsc --noLib false -p . || true",
       "vsce package -o extension.vsix"
     ]
   },
@@ -76,7 +76,7 @@
   },
   "appulate.filewatcher": {
     "repository": "https://github.com/appulate/vscode-file-watcher",
-    "prepublish": "grep \"version\": \"1\\.0\\.3\" package.json && sed -i 's/\\(: \\)\\(vscode.WorkspaceFolder\\[\\]\\)/\\1readonly \\2/g' src/extension.ts || true"
+    "prepublish": "grep '\"version\": \"1\\.0\\.3\"' package.json && sed -i 's/\\(: \\)\\(vscode.WorkspaceFolder\\[\\]\\)/\\1readonly \\2/g' src/extension.ts || true"
   },
   "arcanis.vscode-zipfs": {
     "repository": "https://github.com/yarnpkg/berry",
@@ -507,7 +507,7 @@
   },
   "ikappas.composer": {
     "repository": "https://github.com/ikappas/vscode-composer",
-    "prepublish": "grep \"version\": \"0\\.7\\.1\" package.json && sed -i 's/\\(\"typescript\": \"\\).*\\(\"\\)/\\1^4.6.0\\2/g' package.json && npm install || true"
+    "prepublish": "grep '\"version\": \"0\\.7\\.1\"' package.json && sed -i 's/\\(\"typescript\": \"\\).*\\(\"\\)/\\1^4.6.0\\2/g' package.json && npm install || true"
   },
   "ikappas.phpcs": {
     "repository": "https://github.com/ikappas/vscode-phpcs"
