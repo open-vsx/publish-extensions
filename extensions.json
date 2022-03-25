@@ -63,7 +63,12 @@
     "repository": "https://github.com/amir9480/vscode-laravel-extra-intellisense"
   },
   "amodio.tsl-problem-matcher": {
-    "repository": "https://github.com/eamodio/vscode-tsl-problem-matcher"
+    "repository": "https://github.com/eamodio/vscode-tsl-problem-matcher",
+    "location": ".",
+    "custom": [
+      "yarn install",
+      "vsce package -o extension.vsix"
+    ]
   },
   "Angular.ng-template": {
     "repository": "https://github.com/angular/vscode-ng-language-service",
