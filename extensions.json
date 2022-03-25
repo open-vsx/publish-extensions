@@ -410,7 +410,17 @@
     "repository": "https://github.com/formulahendry/vscode-mysql"
   },
   "formulahendry.vscode-node-red": {
-    "repository": "https://github.com/formulahendry/vscode-node-red"
+    "repository": "https://github.com/formulahendry/vscode-node-red",
+    "location": ".",
+    "custom": [
+      "grep '\"version\": \"0\\.2\\.0\"' package.json && sed -i 's/\\(\"@types\\/node-red\": \"\\).*\\(\"\\)/\\1^1.2.0\\2/g;s/\\(\"node-red\": \"\\).*\\(\"\\)/\\1^2.0.6\\2/g' package.json || true",
+      "grep '\"version\": \"0\\.2\\.0\"' package.json && sed -i '/\"\\(postinstall\\|test\\)\": \".*\"/d;s/\\(\"watch\": \".*\"\\),/\\1/g' package.json || true",
+      "grep '\"version\": \"0\\.2\\.0\"' package.json && sed -i 's/\\(\"typescript\": \"\\).*\\(\"\\)/\\1^4.6.0\\2/g' package.json || true",
+      "grep '\"version\": \"0\\.2\\.0\"' package.json && sed -i 's/\\(\"@types\\/node\": \"\\).*\\(\"\\)/\\1^17.0.23\\2/g;s/\\(\"applicationinsights\": \"\\).*\\(\"\\)/\\1^2.2.2\\2/g' package.json || true",
+      "grep '\"version\": \"0\\.2\\.0\"' package.json && sed -i 's/\\(^.*\"devDependencies\": {$\\)/\\1\\n        \"@types\\/vscode\": \"^1.1.0\",/g' package.json || true",
+      "npm install",
+      "vsce package -o extension.vsix"
+    ]
   },
   "Fr43nk.seito-openfile": {
     "repository": "https://gitlab.com/fr43nk/seito-openfile"
