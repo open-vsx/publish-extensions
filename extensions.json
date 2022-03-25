@@ -14,7 +14,7 @@
     "custom": [
       "grep '\"version\": \"0\\.1\\.0\"' package.json && sed -i 's/\\(\"vscode\": \"\\).*\\(\"\\)/\\1^1.1.0\\2/g' package.json || true",
       "grep '\"version\": \"0\\.1\\.0\"' package.json && sed -i 's/\\(\"typescript\": \"\\).*\\(\"\\)/\\1^4.6.0\\2/g' package.json || true",
-      "grep '\"version\": \"0\\.1\\.0\"' package.json && sed -i 's/\\(^.*\"devDependencies\": {$\\)/\\1\\n        \"@types\\/vscode\": \"^1.1.0\",        \"@types\\/node\": \"^17.0.23\",\n        \"@types\\/mocha\": \"^9.0.1\"/g' package.json || true",
+      "grep '\"version\": \"0\\.1\\.0\"' package.json && sed -i 's/\\(^.*\"devDependencies\": {$\\)/\\1\\n        \"@types\\/vscode\": \"^1.1.0\",\\n        \"@types\\/node\": \"^17.0.23\",\\n        \"@types\\/mocha\": \"^9.0.1\",/g' package.json || true",
       "grep '\"version\": \"0\\.1\\.0\"' package.json && sed -i '/\"\\(vscode:prepublish\\|compile\\|postinstall\\)\": \".*\"/d' package.json || true",
       "grep '\"version\": \"0\\.1\\.0\"' package.json && rm -rf typings || true",
       "npm install",
