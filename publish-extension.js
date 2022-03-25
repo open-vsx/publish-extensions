@@ -43,7 +43,7 @@ const { createVSIX } = require('vsce');
                 try {
                     for (const command of extension.custom) {
                         const result = await exec(command, { cwd: context.repo });
-                        if (result.exitCode > 0) {
+                        if (result.exitCode != 0) {
                             throw new Error(
                                 `An error occurred during the execution of "${command}":\n` +
                                 `stdout:\n${result.stdout}\n` +
