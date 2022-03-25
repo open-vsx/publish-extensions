@@ -161,7 +161,7 @@
   },
   "bmalehorn.vscode-fish": {
     "repository": "https://github.com/bmalehorn/vscode-fish",
-    "prepublish": "grep '\"version\": \"1\\.0\\.27\" && sed -i '/\"\\(postinstall\\|test\\)\": \".*\"/d;s/\\(\"watch\": \".*\"\\),/\\1/g' package.json || true"
+    "prepublish": "grep '\"version\": \"1\\.0\\.27\"' && sed -i '/\"\\(postinstall\\|test\\)\": \".*\"/d;s/\\(\"watch\": \".*\"\\),/\\1/g' package.json || true"
   },
   "bmewburn.vscode-intelephense-client": {
     "repository": "https://github.com/bmewburn/vscode-intelephense"
