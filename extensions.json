@@ -155,7 +155,7 @@
   },
   "bierner.markdown-image-size": {
     "repository": "https://github.com/mjbvz/vscode-markdown-image-size",
-    "prepublish": "grep '\"version\": \"0\\.0\\.4\"' && sed -i 's/\\(\"vscode\": \"\\).*\\(\"\\)/\\1^1.33.0\\2/g' package.json || true"
+    "prepublish": "grep '\"version\": \"0\\.0\\.4\"' package.json && sed -i 's/\\(\"vscode\": \"\\).*\\(\"\\)/\\1^1.33.0\\2/g' package.json || true"
   },
   "bierner.markdown-mermaid": {
     "repository": "https://github.com/mjbvz/vscode-markdown-mermaid"
