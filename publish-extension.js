@@ -44,7 +44,10 @@ const { createVSIX } = require('vsce');
                     for (const command of extension.custom) {
                         const result = await exec(command, { cwd: context.repo });
                         if (result.exitCode > 0) {
-                            throw new Error(`An error occurred during the execution of "${command}":\n${result.stderr}`);
+                            throw new Error(
+                                `An error occurred during the execution of "${command}":\n` +
+                                `stdout:\n${result.stdout}\n` +
+                                `stderr:\n${result.stderr}`);
                         }
                     }
                     options = { extensionFile: path.join(context.repo, extension.location, 'extension.vsix') };
