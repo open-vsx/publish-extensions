@@ -502,7 +502,14 @@
     "repository": "https://github.com/deskbtm/android-adb-wlan"
   },
   "hashicorp.terraform": {
-    "repository": "https://github.com/hashicorp/vscode-terraform"
+    "repository": "https://github.com/hashicorp/vscode-terraform",
+    "location": ".",
+    "custom": [
+      "grep '\"version\": \"2\\.21\\.0\" package.json && npm install --no-save npm@8.5.5 || true",
+      "grep '\"version\": \"2\\.21\\.0\" package.json && npx node@16 ./node_modules/npm/bin/npm-cli.js install",
+      "grep '\"version\": \"2\\.21\\.0\" package.json || npm install",
+      "vsce package -o extension.vsix"
+    ]
   },
   "haskell.haskell": {
     "repository": "https://github.com/haskell/vscode-haskell"
