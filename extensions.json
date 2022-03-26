@@ -414,6 +414,9 @@
   "GitHub.vscode-pull-request-github": {
     "repository": "https://github.com/microsoft/vscode-pull-request-github"
   },
+  "gnat.vscode-ghostbusters": {
+    "repository": "https://github.com/gnat/vscode-ghostbusters"
+  },
   "golang.go": {
     "repository": "https://github.com/golang/vscode-go"
   },
