@@ -487,7 +487,9 @@
     "repository": "https://github.com/halcyon-tech/code-for-ibmi"
   },
   "halcyontechltd.git-client-ibmi": {
-    "repository": "https://github.com/halcyon-tech/git-client-ibmi"
+    "repository": "https://github.com/halcyon-tech/git-client-ibmi",
+    "location": ".",
+    "prepublish": "grep '\"version\": \"0\\.1\\.0\"' package.json && mv LICENCE LICENSE"
   },
   "halcyontechltd.vscode-ibmi-walkthroughs": {
     "repository": "https://github.com/halcyon-tech/vscode-ibmi-walkthroughs"
