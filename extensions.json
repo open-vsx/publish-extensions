@@ -973,7 +973,7 @@
       "wget https://dot.net/v1/dotnet-install.sh -O /tmp/dotnet-install.sh",
       "chmod +x /tmp/dotnet-install.sh",
       "/tmp/dotnet-install.sh -c Current",
-      "alias msbuild=\"dotnet ~/msbuild\"",
+      "alias msbuild=\"~/.dotnet/dotnet msbuild\"",
       "npm install",
       "vsce package -o extension.vsix"
     ]
