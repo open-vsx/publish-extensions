@@ -967,7 +967,16 @@
     "repository": "https://github.com/egonyans/vscode-ext-color-highlight"
   },
   "neikeq.godot-csharp-vscode": {
-    "repository": "https://github.com/godotengine/godot-csharp-vscode"
+    "repository": "https://github.com/godotengine/godot-csharp-vscode",
+    "location": ".",
+    "custom": [
+      "wget https://dot.net/v1/dotnet-install.sh -O /tmp/dotnet-install.sh",
+      "chmod +x /tmp/dotnet-install.sh",
+      "/tmp/dotnet-install.sh -c Current",
+      "alias msbuild=\"dotnet ~/msbuild\"",
+      "npm install",
+      "vsce package -o extension.vsix"
+    ]
   },
   "neilbrayfield.php-docblocker": {
     "repository": "https://github.com/neild3r/vscode-php-docblocker"
