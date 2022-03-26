@@ -557,7 +557,13 @@
     "prepublish": "grep '\"version\": \"0\\.7\\.1\"' package.json && sed -i 's/\\(\"typescript\": \"\\).*\\(\"\\)/\\1^4.6.0\\2/g' package.json && npm install || true"
   },
   "ikappas.phpcs": {
-    "repository": "https://github.com/ikappas/vscode-phpcs"
+    "repository": "https://github.com/ikappas/vscode-phpcs",
+    "location": ".",
+    "custom": [
+      "grep '\"version\": \"1\\.0\\.5\"' package.json && sed -i 's/\\(\"preinstall\": \"\\)\\(rimraf node_modules\"\\)/\\1npx \\2/g' package.json || true",
+      "npm install",
+      "vsce package -o extension.vsix"
+    ]
   },
   "Ikuyadeu.r": {
     "repository": "https://github.com/Ikuyadeu/vscode-R"
