@@ -558,7 +558,7 @@
   },
   "ikappas.phpcs": {
     "repository": "https://github.com/ikappas/vscode-phpcs",
-    "location": ".",
+    "location": "phpcs",
     "custom": [
       "grep '\"version\": \"1\\.0\\.5\"' ./phpcs/package.json && sed -i 's/\\(\"preinstall\": \"\\)\\(rimraf node_modules\"\\)/\\1npx --ignore-existing \\2/g' **/package.json package.json || true",
       "grep '\"version\": \"1\\.0\\.5\"' ./phpcs/package.json && sed -i '/\"categories\": \\[/,/\\]/{s/\\(\"\\)\\(Languages\"\\)/\\1Programming \\2/g}' ./phpcs/package.json || true",
@@ -568,7 +568,7 @@
       "grep '\"version\": \"1\\.0\\.5\"' ./phpcs/package.json && sed -i 's/\\(abstract \\)async/\\1/g' phpcs/src/resolvers/path-resolver-base.ts",
       "npm install",
       "npm run compile",
-      "cp LICENSE* phpcs && npx -c 'cd phpcs && vsce package -o ../extension.vsix'"
+      "cp LICENSE* phpcs && npx -c 'cd phpcs && vsce package -o extension.vsix'"
     ]
   },
   "Ikuyadeu.r": {
