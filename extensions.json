@@ -488,7 +488,7 @@
   "halcyontechltd.git-client-ibmi": {
     "repository": "https://github.com/halcyon-tech/git-client-ibmi",
     "location": ".",
-    "prepublish": "grep '\"version\": \"0\\.1\\.0\"' package.json && mv LICENCE LICENSE"
+    "prepublish": "grep '\"version\": \"0\\.1\\.0\"' package.json && mv LICENCE LICENSE || true"
   },
   "halcyontechltd.vscode-ibmi-walkthroughs": {
     "repository": "https://github.com/halcyon-tech/vscode-ibmi-walkthroughs"
@@ -584,7 +584,7 @@
   },
   "iocave.monkey-patch": {
     "repository": "https://github.com/iocave/monkey-patch",
-    "prepublish": "grep '\"version\": \"0\\.1\\.16\"' package.json && rm -rf ./src/test"
+    "prepublish": "grep '\"version\": \"0\\.1\\.16\"' package.json && rm -rf ./src/test || true"
   },
   "ipedrazas.kubernetes-snippets": {
     "repository": "https://github.com/ipedrazas/kubernetes-snippets"
