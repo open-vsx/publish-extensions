@@ -584,7 +584,8 @@
     "repository": "https://github.com/iocave/customize-ui"
   },
   "iocave.monkey-patch": {
-    "repository": "https://github.com/iocave/monkey-patch"
+    "repository": "https://github.com/iocave/monkey-patch",
+    "prepublish": "grep '\"version\": \"0\\.1\\.16\"' package.json && rm -rf ./src/test"
   },
   "ipedrazas.kubernetes-snippets": {
     "repository": "https://github.com/ipedrazas/kubernetes-snippets"
