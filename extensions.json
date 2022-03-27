@@ -563,7 +563,7 @@
       "grep '\"version\": \"1\\.0\\.5\"' ./phpcs/package.json && sed -i 's/\\(\"preinstall\": \"\\)\\(rimraf node_modules\"\\)/\\1npx --ignore-existing \\2/g' **/package.json package.json || true",
       "grep '\"version\": \"1\\.0\\.5\"' ./phpcs/package.json && sed -i '/\"categories\": \\[/,/\\]/{s/\\(\"\\)\\(Languages\"\\)/\\1Programming \\2/g}' ./phpcs/package.json || true",
       "grep '\"version\": \"1\\.0\\.5\"' ./phpcs/package.json && sed -i '/\"\\(update-vscode\\|postinstall\\)\": \".*\"/d' ./phpcs/package.json || true",
-      "grep '\"version\": \"1\\.0\\.5\"' ./phpcs/package.json && cd phpcs && npm install --save-dev @types/vscode@^1.20.0 || true",
+      "grep '\"version\": \"1\\.0\\.5\"' ./phpcs/package.json && cd phpcs && npm remove vscode && npm install --save-dev @types/vscode@^1.20.0 || true",
       "npm install",
       "npm run compile",
       "cd phpcs && vsce package -o ../extension.vsix"
