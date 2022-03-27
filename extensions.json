@@ -972,21 +972,6 @@
   "naumovs.color-highlight": {
     "repository": "https://github.com/egonyans/vscode-ext-color-highlight"
   },
-  "neikeq.godot-csharp-vscode": {
-    "repository": "https://github.com/godotengine/godot-csharp-vscode",
-    "location": ".",
-    "custom": [
-      "grep '\"version\": \"0\\.2\\.1\"' package.json && sed -i 's/\\(\\(\\s*\\)devtoolModuleFilenameTemplate.*\\),?/\\1,\\n\\2hashFunction: \"xxhash64\"/g' webpack.config.js || true",
-      "grep '\"version\": \"0\\.2\\.1\"' package.json && sed -i 's/\\(\"webpack\": \"\\).*\\(\"\\)/\\1^5.70.0\\2/g;s/\\(\"webpack-cli\": \"\\).*\\(\"\\)/\\1^4.9.2\\2/g' package.json || true",
-      "apt-get install -y apt-transport-https dirmngr gnupg ca-certificates",
-      "apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF",
-      "echo 'deb https://download.mono-project.com/repo/debian stable-buster main' |  tee /etc/apt/sources.list.d/mono-official-stable.list",
-      "apt-get update -y && apt-get install -y mono-devel && rm -rf /var/lib/apt/lists/*",
-      "npm install",
-      "npm remove --no-save make",
-      "vsce package -o extension.vsix"
-    ]
-  },
   "neilbrayfield.php-docblocker": {
     "repository": "https://github.com/neild3r/vscode-php-docblocker"
   },
