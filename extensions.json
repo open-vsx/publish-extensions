@@ -566,7 +566,7 @@
       "grep '\"version\": \"1\\.0\\.5\"' ./phpcs/package.json && cd phpcs && npm remove vscode && npm install --save-dev @types/vscode@^1.20.0 || true",
       "npm install",
       "npm run compile",
-      "cd phpcs && vsce package -o ../extension.vsix"
+      "cp LICENSE* phpcs && cd phpcs && vsce package -o ../extension.vsix"
     ]
   },
   "Ikuyadeu.r": {
