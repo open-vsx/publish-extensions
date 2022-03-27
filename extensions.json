@@ -616,7 +616,8 @@
     "repository": "https://github.com/jianbingfang/vscode-dup-checker"
   },
   "jock.svg": {
-    "repository": "https://github.com/lishu/vscode-svg2"
+    "repository": "https://github.com/lishu/vscode-svg2",
+    "prepublish": "grep '\"version\": \"1\\.4\\.17\"' package.json && sed -i '/formatPlugins: .* = \\[/,/\\]/{/inlineStyles:/,${/}/{s/}/\\0 as any/g}}}' ./client/src/commands.ts || true"
   },
   "joelday.docthis": {
     "repository": "https://github.com/joelday/vscode-docthis"
