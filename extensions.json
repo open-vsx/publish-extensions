@@ -961,7 +961,7 @@
       "grep '\"version\": \"1\\.0\\.0\"' lerna.json && git checkout f7ecac70e62a7e0e5bfdb165c5902e2d96d55c70 || true",
       "npx --ignore-existing npm install",
       "npm run compile",
-      "cd packages/vscode-js-profile-flame && vsce package -o extension.vsix"
+      "cd packages/vscode-js-profile-flame && npx --package npm npx vsce package -o extension.vsix"
     ]
   },
   "ms-vscode.vscode-js-profile-notebook": {
@@ -971,7 +971,7 @@
       "grep '\"version\": \"1\\.0\\.0\"' lerna.json && git checkout f7ecac70e62a7e0e5bfdb165c5902e2d96d55c70 || true",
       "npx --ignore-existing npm install",
       "npm run compile",
-      "cd packages/vscode-js-profile-notebook && vsce package -o extension.vsix"
+      "cd packages/vscode-js-profile-notebook && npx --package npm npx vsce package -o extension.vsix"
     ]
   },
   "ms-vscode.vscode-js-profile-table": {
@@ -981,7 +981,7 @@
       "grep '\"version\": \"1\\.0\\.0\"' lerna.json && git checkout f7ecac70e62a7e0e5bfdb165c5902e2d96d55c70 || true",
       "npx --ignore-existing npm install",
       "npm run compile",
-      "cd packages/vscode-js-profile-table && vsce package -o extension.vsix"
+      "cd packages/vscode-js-profile-table && npx --package npm npx vsce package -o extension.vsix"
     ]
   },
   "ms-vscode.vscode-smoketest-check": {
