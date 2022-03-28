@@ -882,9 +882,6 @@
     "location": "packages/vscode-pyright",
     "prepublish": "npm i && cd packages/vscode-pyright && npm run prepackage"
   },
-  "ms-python.devicesimulatorexpress": {
-    "repository": "https://github.com/microsoft/vscode-python-devicesimulator"
-  },
   "ms-python.python": {
     "repository": "https://github.com/microsoft/vscode-python"
   },
