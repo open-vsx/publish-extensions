@@ -1101,7 +1101,7 @@
       "npx yarn install --ignore-engines",
       "mkdir -p ./packages/language-server-ruby/dist",
       "npx lerna run build",
-      "cd packages/vscode-ruby-client && vsce package -o extension.vsix"
+      "cd packages/vscode-ruby-client && vsce package --no-dependencies -o extension.vsix"
     ]
   },
   "reduckted.vscode-gitweblinks": {
