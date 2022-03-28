@@ -1097,7 +1097,7 @@
     "repository": "https://github.com/rubyide/vscode-ruby",
     "location": "packages/vscode-ruby-client",
     "custom": [
-      "grep '\"version\": \"0\\.28\\.1\"' package.json && git checkout d37d664ced3e829505e2974acbc436aac21e95f2 || true",
+      "grep '\"version\": \"0\\.28\\.1\"' packages/vscode-ruby-client/package.json && git checkout d37d664ced3e829505e2974acbc436aac21e95f2 || true",
       "npx yarn install --ignore-engines",
       "mkdir -p ./packages/language-server-ruby/dist",
       "npx lerna run build"
