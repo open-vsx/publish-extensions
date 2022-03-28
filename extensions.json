@@ -1056,7 +1056,8 @@
     "repository": "https://github.com/openfl/lime-vscode-extension"
   },
   "paiqo.databricks-vscode": {
-    "repository": "https://github.com/paiqo/Databricks-VSCode"
+    "repository": "https://github.com/paiqo/Databricks-VSCode",
+    "prepublish": "rm vscode.d.ts"
   },
   "paragdiwan.gitpatch": {
     "repository": "https://github.com/paragdiwan/vscode-git-patch"
