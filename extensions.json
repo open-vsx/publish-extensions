@@ -917,7 +917,7 @@
     "repository": "https://github.com/microsoft/vscode-js-debug-companion",
     "location": ".",
     "custom": [
-      "grep '\"version\": \"1\\.0\\.16\" package.json && git checkout 638db88f56220c2d273aea633c4f67038c170c34 || true",
+      "grep '\"version\": \"1\\.0\\.16\"' package.json && git checkout 638db88f56220c2d273aea633c4f67038c170c34 || true",
       "npm install",
       "vsce package -o extension.vsix"
     ]
