@@ -619,17 +619,6 @@
     "repository": "https://github.com/lishu/vscode-svg2",
     "prepublish": "grep '\"version\": \"1\\.4\\.17\"' package.json && sed -i '/formatPlugins: .* = \\[/,/\\]/{/inlineStyles:/,${/}/{s/}/\\0 as any/g}}}' ./client/src/commands.ts || true"
   },
-  "joelday.docthis": {
-    "repository": "https://github.com/joelday/vscode-docthis",
-    "location": ".",
-    "custom": [
-      "grep '\"version\": \"0\\.8\\.2\"' package.json && sed -i '/\"\\(postinstall\\)\": \".*\"/d;s/\\(\"compile\": \".*\"\\),/\\1/g' package.json || true",
-      "grep '\"version\": \"0\\.8\\.2\"' package.json && npm remove --save-dev vscode && sed -i 's/\\(^.*\"devDependencies\": {$\\)/\\1\\n    \"@types\\/vscode\": \"^1.22.0\",/g' package.json || true",
-      "grep '\"version\": \"0\\.8\\.2\"' package.json && npm install --save-dev @types/vscode@1.22.0 @types/node@11 && npm install typescript@3 || true",
-      "npm install",
-      "vsce package -o extension.vsix"
-    ]
-  },
   "johnpapa.Angular2": {
     "repository": "https://github.com/johnpapa/vscode-angular-snippets"
   },
