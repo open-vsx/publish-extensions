@@ -1095,7 +1095,8 @@
   },
   "rebornix.ruby": {
     "repository": "https://github.com/rubyide/vscode-ruby",
-    "location": "packages/vscode-ruby-client"
+    "location": "packages/vscode-ruby-client",
+    "prepublish": "mkdir -p ./packages/language-server-ruby/dist"
   },
   "reduckted.vscode-gitweblinks": {
     "repository": "https://github.com/reduckted/vscode-gitweblinks"
