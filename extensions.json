@@ -1104,7 +1104,8 @@
     ]
   },
   "reduckted.vscode-gitweblinks": {
-    "repository": "https://github.com/reduckted/vscode-gitweblinks"
+    "repository": "https://github.com/reduckted/GitWebLinks",
+    "location": "vscode"
   },
   "ria.elastic": {
     "repository": "https://github.com/hsen-dev/vscode-elastic"
