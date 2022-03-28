@@ -725,7 +725,12 @@
     "repository": "https://github.com/mastazi/VS-code-vagrantfile"
   },
   "marus25.cortex-debug": {
-    "repository": "https://github.com/Marus/cortex-debug"
+    "repository": "https://github.com/Marus/cortex-debug",
+    "location": ".",
+    "custom": [
+      "npm ci",
+      "vsce package -o extension.vsix"
+    ]
   },
   "matepek.vscode-catch2-test-adapter": {
     "repository": "https://github.com/matepek/vscode-catch2-test-adapter"
