@@ -655,7 +655,12 @@
   },
   "justusadam.language-haskell": {
     "repository": "https://github.com/JustusAdam/language-haskell",
-    "prepublish": "npm i --save-dev @types/node@10 && make all"
+    "location": ".",
+    "custom": [
+      "grep '\"version\": \"3\\.6\\.0\"' package.json && git checkout 0475f2dace08a0b9f419c7521475564fa89f130f",
+      "npm install",
+      "vsce package -o extension.vsix"
+    ]
   },
   "k--kato.docomment": {
     "repository": "https://github.com/kasecato/vscode-docomment"
