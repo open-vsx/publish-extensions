@@ -758,9 +758,9 @@
     "location": ".",
     "custom": [
       "grep '\"version\": \"0\\.1\\.8\"' package.json && sed -i '/\"engines\":\\s*{/,/}/{s/\\(\"vscode\": \"\\).*\\(\"\\)/\\1^1.14.0\\2/g}' package.json || true",
-      "grep '\"version\": \"0\\.1\\.8\"' package.json && sed -i '/\"categories\":\\s*\\[/,/\\[/{s/\\(\"\\)\\(Languages\"\\)/\\1Programming \\2}' || true",
-      "grep '\"version\": \"0\\.1\\.8\"' package.json && sed -i '/\"postinstall\": \".*\"/d' || true",
-      "grep '\"version\": \"0\\.1\\.8\"' package.json && npm install --save-dev @types/vscode@1.14",
+      "grep '\"version\": \"0\\.1\\.8\"' package.json && sed -i '/\"categories\":\\s*\\[/,/\\[/{s/\\(\"\\)\\(Languages\"\\)/\\1Programming \\2/g}' package.json || true",
+      "grep '\"version\": \"0\\.1\\.8\"' package.json && sed -i '/\"postinstall\": \".*\"/d' package.json || true",
+      "grep '\"version\": \"0\\.1\\.8\"' package.json && npm install --save-dev @types/vscode@1.14 || true",
       "npm install",
       "vsce package -o extension.vsix"
     ]
