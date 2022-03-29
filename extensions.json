@@ -1384,7 +1384,15 @@
   },
   "vshaxe.hxcpp-debugger": {
     "repository": "https://github.com/vshaxe/hxcpp-debugger",
-    "prepublish": "npx lix download"
+    "location": ".",
+    "custom": [
+      "[ $VERSION = '1.2.4' ] && git checkout 4a5fdc0adcce7e6d028fb64aaf9777695110341d || true",
+      "npm install",
+      "[ $VERSION = '1.2.4' ] && npm install --no-save lix",
+      "npx lix download",
+      "[ $VERSION = '1.2.4' ] && npx haxelib install vscode && npx haxelib install vscode-debugadapter || true",
+      "npx haxe build.hxml"
+    ]
   },
   "vsls-contrib.codetour": {
     "repository": "https://github.com/vsls-contrib/codetour"
