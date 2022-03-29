@@ -878,6 +878,7 @@
     "repository": "https://github.com/dotnet/vscode-dotnet-runtime",
     "location": "vscode-dotnet-runtime-extension",
     "custom": [
+      "cp LICENSE* vscode-dotnet-runtime-extension",
       "cd vscode-dotnet-runtime-extension && vsce package --ignoreFile ../.vscodeignore -o extension.vsix --yarn"
     ]
   },
