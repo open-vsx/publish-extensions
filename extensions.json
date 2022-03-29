@@ -505,7 +505,7 @@
     "location": ".",
     "custom": [
       "[ $VERSION = '2.21.0' ] && npm install --no-save npm@8.5.5 || true",
-      "[ $VERSION = '2.21.0' ] && npx node@16 ./node_modules/npm/bin/npm-cli.js install",
+      "[ $VERSION = '2.21.0' ] && npx node@16 ./node_modules/npm/bin/npm-cli.js install || true",
       "[ $VERSION = '2.21.0' ] || npm install",
       "vsce package -o extension.vsix"
     ]
@@ -564,7 +564,7 @@
       "[ $VERSION = '1.0.5' ] && sed -i '/\"\\(update-vscode\\|postinstall\\)\": \".*\"/d' ./phpcs/package.json || true",
       "[ $VERSION = '1.0.5' ] && cd phpcs && npm remove vscode && npm install --save-dev @types/vscode@1.20.0 || true",
       "[ $VERSION = '1.0.5' ] && npm install --save-dev @types/node@9.6.61 typescript@3.9.10 || true",
-      "[ $VERSION = '1.0.5' ] && sed -i 's/\\(abstract \\)async/\\1/g' phpcs/src/resolvers/path-resolver-base.ts",
+      "[ $VERSION = '1.0.5' ] && sed -i 's/\\(abstract \\)async/\\1/g' phpcs/src/resolvers/path-resolver-base.ts || true",
       "npm install",
       "npm run compile",
       "cp LICENSE* phpcs && npx -c 'cd phpcs && vsce package -o extension.vsix'"
@@ -657,7 +657,7 @@
     "repository": "https://github.com/JustusAdam/language-haskell",
     "location": ".",
     "custom": [
-      "[ $VERSION = '3.6.0' ] && git checkout 0475f2dace08a0b9f419c7521475564fa89f130f",
+      "[ $VERSION = '3.6.0' ] && git checkout 0475f2dace08a0b9f419c7521475564fa89f130f || true",
       "npm install",
       "vsce package -o extension.vsix"
     ]
@@ -1106,7 +1106,7 @@
     "custom": [
       "[ $VERSION = '0.28.1' ] && sed -i 's/{/\\0\\n\\t\"concurrency\": 1,/g' lerna.json || true",
       "npx yarn install",
-      "[ $VERSION = '0.28.1' ] && mkdir -p ./packages/language-server-ruby/dist",
+      "[ $VERSION = '0.28.1' ] && mkdir -p ./packages/language-server-ruby/dist || true",
       "npx lerna run build",
       "cp LICENSE* packages/vscode-ruby-client/",
       "cd packages/vscode-ruby-client && vsce package --no-dependencies -o extension.vsix"
