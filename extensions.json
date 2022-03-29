@@ -1116,7 +1116,20 @@
     "repository": "https://github.com/richie5um/vscode-sort-json"
   },
   "rintoj.json-organizer": {
-    "repository": "https://github.com/rintoj/json-organizer"
+    "repository": "https://github.com/rintoj/json-organizer",
+    "location": ".",
+    "custom": [
+      "grep '\"version\": \"0\\.0\\.4\"' package.json && sed -i 's/git+\\(https\\)/\\1/g' package.json || true",
+      "grep '\"version\": \"0\\.0\\.4\"' package.json && sed -i 's/\\(\"vscode\": \"\\).*\\(\"\\)/\\1^1.1.0\\2/g' package.json || true",
+      "grep '\"version\": \"0\\.0\\.4\"' package.json && sed -i 's/\\(\"typescript\": \"\\).*\\(\"\\)/\\1^4.6.0\\2/g' package.json || true",
+      "grep '\"version\": \"0\\.0\\.4\"' package.json && sed -i 's/\\(^.*\"devDependencies\": {$\\)/\\1\\n    \"@types\\/vscode\": \"^1.1.0\",\\n    \"@types\\/node\": \"^17.0.23\",\\n    \"@types\\/mocha\": \"^9.0.1\",/g' package.json || true",
+      "grep '\"version\": \"0\\.0\\.4\"' package.json && npm remove --save-dev vscode || true",
+      "grep '\"version\": \"0\\.0\\.4\"' package.json && sed -i '/\"\\(vscode:prepublish\\|compile\\|postinstall\\)\": \".*\"/d' package.json || true",
+      "grep '\"version\": \"0\\.0\\.4\"' package.json && rm -rf typings || true",
+      "npm install",
+      "grep '\"version\": \"0\\.0\\.4\"' package.json && npx tsc --noLib false -p . || true",
+      "vsce package -o extension.vsix"
+    ]
   },
   "ritwickdey.LiveServer": {
     "repository": "https://github.com/ritwickdey/vscode-live-server"
