@@ -1164,7 +1164,9 @@
     "location": ".",
     "custom": [
       "[ $VERSION = '0.5.10' ] && git checkout f633224c84578a514d2171c0bb59395027716908 || true",
-      "[ $VERSION = '0.5.10' ] && sed -i 's/\\(\"version\": \"\\).*\\(\"\\)/\\1'$VERSION'\\2/g' package.json || true"
+      "[ $VERSION = '0.5.10' ] && sed -i 's/\\(\"version\": \"\\).*\\(\"\\)/\\1'$VERSION'\\2/g' package.json || true",
+      "npm install",
+      "vsce package -o extension.vsix"
     ]
   },
   "Serpen.vbsvscode": {
