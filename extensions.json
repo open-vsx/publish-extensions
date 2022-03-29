@@ -1416,7 +1416,16 @@
     "prepublish": "cd packages/vscode-import-cost && git clean -xdf && npm install"
   },
   "wmaurer.change-case": {
-    "repository": "https://github.com/wmaurer/vscode-change-case"
+    "repository": "https://github.com/wmaurer/vscode-change-case",
+    "location": ".",
+    "custom": [
+      "[ $VERSION = '1.0.0' ] && npm remove --save-dev vscode || true",
+      "[ $VERSION = '1.0.0' ] && sed -i 's/\\(\"vscode\": \"\\).*\\(\"\\)/\\1^1.14.0\\2/g' package.json || true",
+      "[ $VERSION = '1.0.0' ] && sed -i '/\"postinstall\": \".*\"/d;s/\\(\"compile\": \".*\"\\),/\\1/g' package.json || true",
+      "[ $VERSION = '1.0.0' ] && npm install --save-dev @types/vscode@1.14.0 typescript@3 || true",
+      "npm install",
+      "vsce package -o extension.vsix"
+    ]
   },
   "wongjn.php-sniffer": {
     "repository": "https://github.com/wongjn/vscode-php-sniffer"
