@@ -1097,9 +1097,9 @@
     "repository": "https://github.com/rubyide/vscode-ruby",
     "location": "packages/vscode-ruby-client",
     "custom": [
-      "grep '\"version\": \"0\\.28\\.1\"' packages/vscode-ruby-client/package.json && git checkout d37d664ced3e829505e2974acbc436aac21e95f2 || true",
-      "npx yarn install --ignore-engines",
-      "mkdir -p ./packages/language-server-ruby/dist",
+      "grep '\"version\": \"0\\.28\\.1\"' packages/vscode-ruby-client/package.json && sed -i 's/{/\\0\\n\\t\"concurrency\": 1,/g' lerna.json || true",
+      "npx yarn install",
+      "grep '\"version\": \"0\\.28\\.1\"' packages/language-server-ruby/package.json && mkdir -p ./packages/language-server-ruby/dist",
       "npx lerna run build",
       "cd packages/vscode-ruby-client && vsce package --no-dependencies -o extension.vsix"
     ]
