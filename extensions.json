@@ -1390,7 +1390,8 @@
       "[ $VERSION = '1.2.4' ] && npm install --no-save lix",
       "npx lix download",
       "[ $VERSION = '1.2.4' ] && npx haxelib install vscode && npx haxelib install vscode-debugadapter || true",
-      "npx haxe build.hxml"
+      "npx haxe build.hxml",
+      "vsce package -o extension.vsix"
     ]
   },
   "vsls-contrib.codetour": {
