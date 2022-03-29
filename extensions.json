@@ -1239,6 +1239,7 @@
   },
   "sodatea.velocity": {
     "repository": "https://github.com/sodatea/vscode-velocity",
+    "location": ".",
     "custom": [
       "[ $MS_VERSION = '0.2.0' ] && sed -i 's/\\(\"version\": \"\\).*\\(\"\\)/\\1'$VERSION'\\2/g' package.json || true",
       "[ $MS_VERSION = '0.2.0' ] && sed -i '/\"\\(postinstall\\)\": \".*\"/d;s/\\(\"pack\": \".*\"\\),/\\1/g' package.json || true",
