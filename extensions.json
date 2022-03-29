@@ -1101,6 +1101,7 @@
       "npx yarn install",
       "grep '\"version\": \"0\\.28\\.1\"' packages/language-server-ruby/package.json && mkdir -p ./packages/language-server-ruby/dist",
       "npx lerna run build",
+      "cp LICENSE* packages/vscode-ruby-client/",
       "cd packages/vscode-ruby-client && vsce package --no-dependencies -o extension.vsix"
     ]
   },
