@@ -1460,7 +1460,14 @@
     "repository": "https://github.com/xdebug/vscode-php-debug"
   },
   "xirider.livecode": {
-    "repository": "https://github.com/xirider/livecode"
+    "repository": "https://github.com/xirider/livecode",
+    "location": ".",
+    "custom": [
+      "[ $VERSION = '1.3.10' ] && npx rimraf node_modules || true",
+      "[ $VERSION = '1.3.10' ] && sed -i '/\"license\": \".*\"/d' package.json || true",
+      "npm install",
+      "vsce package -o extension.vsix"
+    ]
   },
   "xxamxx.vscode-rubygems": {
     "repository": "https://github.com/xxamxx/vscode-rubygems"
