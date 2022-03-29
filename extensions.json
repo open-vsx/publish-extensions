@@ -1231,7 +1231,14 @@
     "repository": "https://github.com/snyk/vulncost"
   },
   "sodatea.velocity": {
-    "repository": "https://github.com/trilogy-group/vscode-velocity"
+    "repository": "https://github.com/sodatea/vscode-velocity",
+    "custom": [
+      "[ $VERSION = '0.2.0' ] && sed -i 's/\\(\"version\": \"\\).*\\(\"\\)/\\1'$VERSION'\\2/g' package.json || true",
+      "[ $VERSION = '0.2.0' ] && sed -i '/\"\\(postinstall\\)\": \".*\"/d;s/\\(\"pack\": \".*\"\\),/\\1/g' package.json || true",
+      "[ $VERSION = '0.2.0' ] && npm remove --save-dev vscode && npm install --save-dev @types/vscode@1.25 || true",
+      "npm install",
+      "vsce package -o extension.vsix"
+    ]
   },
   "steoates.autoimport": {
     "repository": "https://github.com/soates/Auto-Import"
