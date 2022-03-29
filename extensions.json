@@ -1147,7 +1147,8 @@
     "repository": "https://github.com/ryu1kn/vscode-edit-with-shell"
   },
   "saltud.type4py": {
-    "repository": "https://github.com/saltudelft/type4py-vscode-ext"
+    "repository": "https://github.com/saltudelft/type4py-vscode-ext",
+    "prepublish": "npm run package-web"
   },
   "samuelcolvin.jinjahtml": {
     "repository": "https://github.com/samuelcolvin/jinjahtml-vscode"
