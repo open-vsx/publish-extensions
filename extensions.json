@@ -1433,7 +1433,15 @@
   },
   "Wscats.eno": {
     "repository": "https://github.com/Wscats/compile-hero",
-    "prepublish": "npm run build"
+    "location": ".",
+    "custom": [
+      "[ $VERSION = '2.3.53' ] && sed -i '/\"postinstall\": \".*\"/d' publish.js || true",
+      "[ $VERSION = '2.3.53' ] && sed -i 's/\"devDependencies\": {/a        \"@types/vscode\": \"^1.39.0\",' package.json || true",
+      "[ $VERSION = '2.3.53' ] && sed -i '/\"devDependencies\": {/}/{ /\"vscode\": \".*\"/d }",
+      "[ $VERSION = '2.3.53' ] && rm -rf src/test || true",
+      "npm run build:beautify",
+      "vsce package -o extension.vsix"
+    ]
   },
   "Wscats.omi-snippets": {
     "repository": "https://github.com/Wscats/omi-snippets"
