@@ -874,6 +874,13 @@
     "repository": "https://github.com/microsoft/vscode-loc",
     "location": "i18n/vscode-language-pack-zh-hant"
   },
+  "ms-dotnettools.vscode-dotnet-runtime": {
+    "repository": "https://github.com/dotnet/vscode-dotnet-runtime",
+    "location": "vscode-dotnet-runtime-extension",
+    "custom": [
+      "cd vscode-dotnet-runtime-extension && vsce package --ignoreFile ../.vscodeignore -o extension.vsix --yarn"
+    ]
+  },
   "ms-kubernetes-tools.vscode-kubernetes-tools": {
     "repository": "https://github.com/Azure/vscode-kubernetes-tools"
   },
