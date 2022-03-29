@@ -1354,7 +1354,16 @@
     "repository": "https://github.com/vscode-icons/vscode-icons"
   },
   "vscode-org-mode.org-mode": {
-    "repository": "https://github.com/vscode-org-mode/vscode-org-mode"
+    "repository": "https://github.com/vscode-org-mode/vscode-org-mode",
+    "location": ".",
+    "custom": [
+      "[ $MS_VERSION = '1.0.0' ] && git checkout e8cc69868af427f5fd03c8ad125b493cbf2e8292 || true",
+      "[ $MS_VERSION = '1.0.0' ] && npm remove --save-dev vscode && npm install --save-dev @types/vscode@1.23 || true",
+      "[ $MS_VERSION = '1.0.0' ] && sed -i '/\"categories\":\\s*\\[/,/\\[/{s/\\(\"\\)\\(Languages\"\\)/\\1Programming \\2/g}' package.json || true",
+      "[ $MS_VERSION = '1.0.0' ] && sed -i '/\"postinstall\": \".*\"/d' package.json || true",
+      "npm install",
+      "vsce package -o extension.vsix"
+    ]
   },
   "vscode.smali": {
     "repository": "https://github.com/ViRb3/vscode-smali",
