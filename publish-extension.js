@@ -38,6 +38,7 @@ const { createVSIX } = require('vsce');
             options = { extensionFile: context.file };
         } else if (context.repo && context.ref) {
             console.log(`${id}: preparing from ${context.repo}...`);
+            process.env.VERSION = context.msVersion;
             await exec(`git checkout ${context.ref}`, { cwd: context.repo });
             if (extension.custom) {
                 try {
