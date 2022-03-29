@@ -39,11 +39,6 @@
   "albymor.increment-selection": {
     "repository": "https://github.com/albymor/Increment-Selection"
   },
-  "alexkrechik.cucumberautocomplete": {
-    "repository": "https://github.com/alexkrechik/VSCucumberAutoComplete",
-    "location": "gclient",
-    "prepublish": "cd gclient && npm install"
-  },
   "aliariff.vscode-erb-beautify": {
     "repository": "https://github.com/aliariff/vscode-erb-beautify"
   },
@@ -366,7 +361,12 @@
   },
   "formulahendry.auto-rename-tag": {
     "repository": "https://github.com/formulahendry/vscode-auto-rename-tag",
-    "location": "packages/extension"
+    "location": "packages/extension",
+    "custom": [
+      "npm i",
+      "npm run package",
+      "mv dist/auto-rename-tag-*.vsix packages/extension/extension.vsix"
+    ]
   },
   "formulahendry.code-runner": {
     "repository": "https://github.com/formulahendry/vscode-code-runner"
@@ -539,9 +539,6 @@
   "jock.svg": {
     "repository": "https://github.com/lishu/vscode-svg2"
   },
-  "joelday.docthis": {
-    "repository": "https://github.com/joelday/vscode-docthis"
-  },
   "johnpapa.Angular2": {
     "repository": "https://github.com/johnpapa/vscode-angular-snippets"
   },
@@ -601,18 +598,6 @@
   },
   "KnisterPeter.vscode-github": {
     "repository": "https://github.com/KnisterPeter/vscode-github"
-  },
-  "kodetech.electron-debug": {
-    "repository": "https://github.com/Kode/vscode-electron-debug"
-  },
-  "kodetech.kha": {
-    "repository": "https://github.com/Kode/vscode-kha"
-  },
-  "kodetech.kha-extension-pack": {
-    "repository": "https://github.com/Kode/vscode-kha-extension-pack"
-  },
-  "kodetech.krafix": {
-    "repository": "https://github.com/Kode/vscode-krafix"
   },
   "korekontrol.saltstack": {
     "repository": "https://github.com/korekontrol/vscode-saltstack"
@@ -793,9 +778,6 @@
     "location": "packages/vscode-pyright",
     "prepublish": "npm i && cd packages/vscode-pyright && npm run prepackage"
   },
-  "ms-python.devicesimulatorexpress": {
-    "repository": "https://github.com/microsoft/vscode-python-devicesimulator"
-  },
   "ms-python.python": {
     "repository": "https://github.com/microsoft/vscode-python"
   },
@@ -872,7 +854,11 @@
   "ms-vscode.vscode-js-profile-table": {
     "repository": "https://github.com/microsoft/vscode-js-profile-visualizer",
     "location": "packages/vscode-js-profile-table",
-    "prepublish": "npm run compile"
+    "custom": [
+      "npm install",
+      "npm run compile",
+      "cd packages/vscode-js-profile-table && vsce package --yarn --out extension.vsix"
+    ]
   },
   "ms-vscode.vscode-smoketest-check": {
     "repository": "https://github.com/microsoft/vscode-smoketest-check"
@@ -1197,9 +1183,6 @@
     "repository": "https://github.com/ViRb3/vscode-smali",
     "location": "smali",
     "prepublish": "cp LICENSE smali/ && cd smali && npm install"
-  },
-  "vscodevim.vim": {
-    "repository": "https://github.com/VSCodeVim/Vim"
   },
   "vshaxe.haxe-checkstyle": {
     "repository": "https://github.com/vshaxe/vscode-checkstyle"
