@@ -72,4 +72,15 @@ If a `custom` property is provided, then every command from the array is execute
 
 See all `ovsx` CLI options [here](https://github.com/eclipse/openvsx/blob/master/cli/README.md).
 
+## Environment Variables
+Custom commands such as `prepublish` and the ones inside the `custom`-array receive a few environment variables
+in order to perform advanced tasks such as executing operations based on the extension version.
+
+Following environment variables are available:
+  - `EXTENSION_ID`: the extension ID, e.g. `rebornix.ruby`
+  - `EXTENSION_PUBLISHER`: the extension publisher, e.g. `rebornix`
+  - `EXTENSION_NAME`: the extension name, e.g. `ruby`
+  - `VERSION`: the extension version, e.g. `0.1.0`
+  - `OVSX_VERSION`: the latest version of the extension on Open VSX, e.g. `0.1.0`
+
 [publish-extensions-job]: https://github.com/open-vsx/publish-extensions/blob/master/.github/workflows/publish-extensions.yml
