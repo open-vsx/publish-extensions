@@ -757,10 +757,10 @@
     "repository": "https://github.com/MiguelSavignano/vscode-ruby-symbols",
     "location": ".",
     "custom": [
-      "[ $VERSION = '0.1.8' ] package.json && sed -i '/\"engines\":\\s*{/,/}/{s/\\(\"vscode\": \"\\).*\\(\"\\)/\\1^1.14.0\\2/g}' package.json || true",
-      "[ $VERSION = '0.1.8' ] package.json && sed -i '/\"categories\":\\s*\\[/,/\\[/{s/\\(\"\\)\\(Languages\"\\)/\\1Programming \\2/g}' package.json || true",
-      "[ $VERSION = '0.1.8' ] package.json && sed -i '/\"postinstall\": \".*\"/d' package.json || true",
-      "[ $VERSION = '0.1.8' ] package.json && npm install --save-dev @types/vscode@1.14 || true",
+      "[ $VERSION = '0.1.8' ] && sed -i '/\"engines\":\\s*{/,/}/{s/\\(\"vscode\": \"\\).*\\(\"\\)/\\1^1.14.0\\2/g}' package.json || true",
+      "[ $VERSION = '0.1.8' ] && sed -i '/\"categories\":\\s*\\[/,/\\[/{s/\\(\"\\)\\(Languages\"\\)/\\1Programming \\2/g}' package.json || true",
+      "[ $VERSION = '0.1.8' ] && sed -i '/\"postinstall\": \".*\"/d' package.json || true",
+      "[ $VERSION = '0.1.8' ] && npm install --save-dev @types/vscode@1.14 || true",
       "npm install",
       "vsce package -o extension.vsix"
     ]
@@ -917,7 +917,7 @@
     "repository": "https://github.com/microsoft/vscode-js-debug-companion",
     "location": ".",
     "custom": [
-      "[ $VERSION = '1.0.16' ] package.json && git checkout 638db88f56220c2d273aea633c4f67038c170c34 || true",
+      "[ $VERSION = '1.0.16' ] && git checkout 638db88f56220c2d273aea633c4f67038c170c34 || true",
       "npm install",
       "vsce package -o extension.vsix"
     ]
