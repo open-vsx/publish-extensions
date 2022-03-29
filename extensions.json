@@ -13,9 +13,9 @@
     "repository": "https://github.com/adamhartford/vscode-base64",
     "location": ".",
     "custom": [
-      "[ $VERSION = '0.1.0' ] && sed -i 's/\\(\"vscode\": \"\\).*\\(\"\\)/\\1^1.1.0\\2/g' package.json || true",
+      "[ $VERSION = '0.1.0' ] && sed -i 's/\\(\"vscode\": \"\\).*\\(\"\\)/\\1^1.14.0\\2/g' package.json || true",
       "[ $VERSION = '0.1.0' ] && sed -i 's/\\(\"typescript\": \"\\).*\\(\"\\)/\\1^4.6.0\\2/g' package.json || true",
-      "[ $VERSION = '0.1.0' ] && sed -i 's/\\(^.*\"devDependencies\": {$\\)/\\1\\n        \"@types\\/vscode\": \"^1.1.0\",\\n        \"@types\\/node\": \"^17.0.23\",\\n        \"@types\\/mocha\": \"^9.0.1\",/g' package.json || true",
+      "[ $VERSION = '0.1.0' ] && sed -i 's/\\(^.*\"devDependencies\": {$\\)/\\1\\n        \"@types\\/vscode\": \"^1.14.0\",\\n        \"@types\\/node\": \"^17.0.23\",\\n        \"@types\\/mocha\": \"^9.0.1\",/g' package.json || true",
       "[ $VERSION = '0.1.0' ] && sed -i '/\"devDependencies\": {/,/}/{/\"vscode\": \".*\"/d}' package.json || true",
       "[ $VERSION = '0.1.0' ] && sed -i '/\"\\(vscode:prepublish\\|compile\\|postinstall\\)\": \".*\"/d' package.json || true",
       "[ $VERSION = '0.1.0' ] && rm -rf typings || true",
@@ -1128,9 +1128,9 @@
     "location": ".",
     "custom": [
       "[ $VERSION = '0.0.4' ] && sed -i 's/git+\\(https\\)/\\1/g' package.json || true",
-      "[ $VERSION = '0.0.4' ] && sed -i 's/\\(\"vscode\": \"\\).*\\(\"\\)/\\1^1.1.0\\2/g' package.json || true",
+      "[ $VERSION = '0.0.4' ] && sed -i 's/\\(\"vscode\": \"\\).*\\(\"\\)/\\1^1.14.0\\2/g' package.json || true",
       "[ $VERSION = '0.0.4' ] && sed -i 's/\\(\"typescript\": \"\\).*\\(\"\\)/\\1^4.6.0\\2/g' package.json || true",
-      "[ $VERSION = '0.0.4' ] && sed -i 's/\\(^.*\"devDependencies\": {$\\)/\\1\\n    \"@types\\/vscode\": \"^1.1.0\",\\n    \"@types\\/node\": \"^17.0.23\",\\n    \"@types\\/mocha\": \"^9.0.1\",/g' package.json || true",
+      "[ $VERSION = '0.0.4' ] && sed -i 's/\\(^.*\"devDependencies\": {$\\)/\\1\\n    \"@types\\/vscode\": \"^1.14.0\",\\n    \"@types\\/node\": \"^17.0.23\",\\n    \"@types\\/mocha\": \"^9.0.1\",/g' package.json || true",
       "[ $VERSION = '0.0.4' ] && npm remove --save-dev vscode || true",
       "[ $VERSION = '0.0.4' ] && sed -i '/\"\\(vscode:prepublish\\|compile\\|postinstall\\)\": \".*\"/d' package.json || true",
       "[ $VERSION = '0.0.4' ] && rm -rf typings || true",
