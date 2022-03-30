@@ -1011,6 +1011,7 @@
   "neikeq.godot-csharp-vscode": {
     "repository": "https://github.com/godotengine/godot-csharp-vscode",
     "location": ".",
+    "timeout": 10,
     "custom": [
       "[ $VERSION = '0.2.1' ] && sed -i '/output: {/a     hashFunction: \"xxhash64\"' webpack.config.js || true",
       "[ $VERSION = '0.2.1' ] && npm install --save-dev webpack@5.70.0 webpack-cli@4.9.2 || true",
