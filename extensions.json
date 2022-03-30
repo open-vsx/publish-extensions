@@ -1022,7 +1022,7 @@
       "echo 'su -c \"npm install\" node' >> /tmp/build-godot.sh",
       "echo 'su -c \"npm remove --no-save make\" node' >> /tmp/build-godot.sh",
       "echo 'su -c \"vsce package -o extension.vsix\" node' >> /tmp/build-godot.sh",
-      "cat /tmp/build-godot.sh | docker run -i --rm -e NODE_UID=${UID} -v $(pwd):/workspace -w /workspace node:14 bash"
+      "cat /tmp/build-godot.sh | docker run -i -v $(pwd):/workspace -w /workspace node:14 bash"
     ]
   },
   "neilbrayfield.php-docblocker": {
