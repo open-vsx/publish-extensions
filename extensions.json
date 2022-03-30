@@ -1020,7 +1020,7 @@
       "echo 'apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF' >> /tmp/build-godot.sh",
       "echo \"echo 'deb https://download.mono-project.com/repo/debian stable-buster main' |  tee /etc/apt/sources.list.d/mono-official-stable.list\" >> /tmp/build-godot.sh",
       "echo 'apt-get update -y && apt-get install -y mono-devel' >> /tmp/build-godot.sh",
-      "echo \"usermod -u $(id -u) -g $(id -g) node\" >> /tmp/build-godot.sh",
+      "echo \"usermod -u $(id -u) node\" >> /tmp/build-godot.sh",
       "echo 'su -c \"npm install\" node' >> /tmp/build-godot.sh",
       "echo 'su -c \"npm remove --no-save make\" node' >> /tmp/build-godot.sh",
       "echo 'su -c \"vsce package -o extension.vsix\" node' >> /tmp/build-godot.sh",
