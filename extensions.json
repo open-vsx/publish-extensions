@@ -1458,7 +1458,8 @@
       "[ $VERSION = '2.3.53' ] && sed -i '/\"devDependencies\": {/a\\       \"@types/vscode\": \"^1.39.0\",' publish.js || true",
       "[ $VERSION = '2.3.53' ] && sed -i '/\"devDependencies\": {/,/}/{ /\"vscode\": \".*\"/d }' publish.js || true",
       "[ $VERSION = '2.3.53' ] && rm -rf src/test || true",
-      "npm run build:beautify",
+      "npm run build:beautify || true",
+      "npm install",
       "vsce package -o extension.vsix"
     ]
   },
