@@ -562,9 +562,6 @@
     "repository": "https://github.com/jolaleye/horizon-theme-vscode",
     "prepublish": "npm run build"
   },
-  "jpoissonnier.vscode-styled-components": {
-    "repository": "https://github.com/styled-components/vscode-styled-components"
-  },
   "junstyle.php-cs-fixer": {
     "repository": "https://github.com/junstyle/vscode-php-cs-fixer"
   },
@@ -1079,6 +1076,9 @@
   },
   "stripe.vscode-stripe": {
     "repository": "https://github.com/stripe/vscode-stripe"
+  },
+  "styled-components.vscode-styled-components": {
+    "repository": "https://github.com/styled-components/vscode-styled-components"
   },
   "stylelint.vscode-stylelint": {
     "repository": "https://github.com/stylelint/vscode-stylelint"
