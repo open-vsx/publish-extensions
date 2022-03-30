@@ -1013,7 +1013,7 @@
     "location": ".",
     "timeout": 10,
     "custom": [
-      "[ $VERSION = '0.2.1' ] && sed -i '/output: {/a     hashFunction: \"xxhash64\"' webpack.config.js || true",
+      "[ $VERSION = '0.2.1' ] && sed -i '/output: {/a     hashFunction: \"xxhash64\",' webpack.config.js || true",
       "[ $VERSION = '0.2.1' ] && npm install --save-dev webpack@5.70.0 webpack-cli@4.9.2 || true",
       "echo 'apt-get update -y' > /tmp/build-godot.sh",
       "echo 'apt-get install -y apt-transport-https dirmngr gnupg ca-certificates' >> /tmp/build-godot.sh",
