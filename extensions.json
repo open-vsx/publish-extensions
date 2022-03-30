@@ -1454,7 +1454,7 @@
     "location": ".",
     "custom": [
       "[ $VERSION = '2.3.53' ] && sed -i '/\"postinstall\": \".*\"/d' publish.js || true",
-      "[ $VERSION = '2.3.53' ] && sed -i '/\"devDependencies\": {/a        \"@types/vscode\": \"^1.39.0\",' package.json || true",
+      "[ $VERSION = '2.3.53' ] && sed -i '/\"devDependencies\": {/a\\       \"@types/vscode\": \"^1.39.0\",' package.json || true",
       "[ $VERSION = '2.3.53' ] && sed -i '/\"devDependencies\": {/}/{ /\"vscode\": \".*\"/d }' package.json || true",
       "[ $VERSION = '2.3.53' ] && rm -rf src/test || true",
       "npm run build:beautify",
