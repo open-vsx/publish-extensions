@@ -212,7 +212,7 @@ function sortedKeys(s) {
         process.exitCode = -1;
     }
 
-    const weightedThreshold = 0.9;
+    const weightedThreshold = 0.8;
 
     if (weightedPercentage < weightedThreshold) {
         // This should indicate a big extension breaking
