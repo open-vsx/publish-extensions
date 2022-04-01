@@ -34,10 +34,17 @@ Click the button below to start a [Gitpod](https://gitpod.io) workspace where yo
 
 ## Publishing Options
 
-The best way to add an extension here is to [open this repository in Gitpod](https://gitpod.io/#https://github.com/open-vsx/publish-extensions) and [add a new entry to `extensions.json`](#how-to-add-an-extension). To test, run:
+The best way to add an extension here is to [open this repository in Gitpod](https://gitpod.io/#https://github.com/open-vsx/publish-extensions) and [add a new entry to `extensions.json`](#how-to-add-an-extension).
+
+To test, run:
 ```
-EXTENSIONS=rebornix.ruby SKIP_PUBLISH=true node publish-extensions.js
+GITHUB_TOKEN=your_pat EXTENSIONS=rebornix.ruby SKIP_PUBLISH=true node publish-extensions.js
 ```
+
+### `GITHUB_TOKEN`
+For testing locally, we advise you to provide a [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for release and file resolution in our scripts. Otherwise, publishing can work in our workflow but fail for you locally and vice-a-versa.
+
+You can create one on your [PAT page](https://github.com/settings/tokens). This token does not require any special permissions.
 
 Notes:
 - Simply replace `$REPOSITORY_URL` with the extension's actual repository URL
