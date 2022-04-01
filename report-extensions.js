@@ -12,7 +12,7 @@
 const fs = require('fs');
 const Octokit = require('octokit').Octokit;
 const exec = require('./lib/exec');
-const { checkMissing } = require('./lib/reportStat');
+const { checkMissing, formatter } = require('./lib/reportStat');
 const humanNumber = require('human-number');
 
 const token = process.env.GITHUB_TOKEN;
@@ -81,6 +81,25 @@ function sortedKeys(s) {
     /** @type{import('./types').PublishStat}*/
     const stat = JSON.parse(await fs.promises.readFile("/tmp/stat.json", { encoding: 'utf8' }));
 
+    /**
+     * 
+     * @param {'upToDate' | 'unstable' | 'outdated' | 'notInOpen'} category 
+     * @returns 
+     */
+    const getAggregatedInstalls = (category) => {
+        return Object.keys(stat[category]).map((st) => stat[category][st].msInstalls).reduce(
+            (previousValue, currentValue) => previousValue + currentValue,
+            0
+          );
+    }
+
+    const agregatedInstalls = {
+        upToDate: getAggregatedInstalls('upToDate'),
+        unstable: getAggregatedInstalls('unstable'),
+        outdated: getAggregatedInstalls('outdated'),
+        notInOpen: getAggregatedInstalls('notInOpen')
+    }
+
     const upToDate = Object.keys(stat.upToDate).length;
     const unstable = Object.keys(stat.unstable).length;
     const outdated = Object.keys(stat.outdated).length;
@@ -119,6 +138,7 @@ function sortedKeys(s) {
     let summary = '----- Summary -----\r\n';
     summary += `Total: ${total}\r\n`;
     summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%) (${upToDateChange !== undefined ? `${upToDateChange ? `${Math.abs(upToDateChange).toFixed(3)}% ` : ''}${upToDateChange > 0 ? 'increase' : upToDateChange === 0 ? 'no change' : 'decrease'} since last week` : "WoW change n/a"})\r\n`;
+    summary += `Weighted publish percentage: ${((agregatedInstalls.upToDate / ( agregatedInstalls.notInOpen + agregatedInstalls.upToDate + agregatedInstalls.outdated + agregatedInstalls.unstable )) * 100).toFixed(0)}%\r\n`
     summary += `Outdated (Not in OpenVSX, but in MS marketplace): ${notInOpen} (${(notInOpen / total * 100).toFixed(0)}%)\r\n`;
     summary += `Outdated (MS marketplace > Open VSX): ${outdated} (${(outdated / total * 100).toFixed(0)}%)\r\n`;
     summary += `Unstable (MS marketplace < Open VSX): ${unstable} (${(unstable / total * 100).toFixed(0)}%)\r\n`;
@@ -153,7 +173,7 @@ function sortedKeys(s) {
         content += '\r\n----- Outdated (MS marketplace > Open VSX version) -----\r\n';
         for (const id of sortedKeys(stat.outdated)) {
             const r = stat.outdated[id];
-            content += `${id} (installs: ${humanNumber(r.msInstalls)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.msVersion} > ${r.openVersion}\r\n`;
+            content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.msVersion} > ${r.openVersion}\r\n`;
         }
         content += '-------------------\r\n';
     }
@@ -165,7 +185,7 @@ function sortedKeys(s) {
         content += '\r\n----- Not published to Open VSX, but in MS marketplace -----\r\n';
         for (const id of Object.keys(stat.notInOpen).sort((a, b) => stat.notInOpen[b].msInstalls - stat.notInOpen[a].msInstalls)) {
             const r = stat.notInOpen[id];
-            content += `${id} (installs: ${humanNumber(r.msInstalls)}): ${r.msVersion}\r\n`;
+            content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): ${r.msVersion}\r\n`;
         }
         content += '-------------------\r\n';
     }
@@ -177,7 +197,7 @@ function sortedKeys(s) {
         content += '\r\n----- Unstable (Open VSX > MS marketplace version) -----\r\n';
         for (const id of sortedKeys(stat.unstable)) {
             const r = stat.unstable[id];
-            content += `${id} (installs: ${humanNumber(r.msInstalls)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion} > ${r.msVersion}\r\n`;
+            content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion} > ${r.msVersion}\r\n`;
         }
         content += '-------------------\r\n';
     }
@@ -200,7 +220,7 @@ function sortedKeys(s) {
         content += '\r\n----- MS extensions -----\r\n'
         for (const id of Object.keys(stat.msPublished).sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls)) {
             const r = stat.msPublished[id];
-            content += `${id} (installs: ${humanNumber(r.msInstalls)})\r\n`;
+            content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
         }
 
         content += '-------------------\r\n';
@@ -208,7 +228,7 @@ function sortedKeys(s) {
 
         for (const id of msPublishedOutdated.sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls)) {
             const r = stat.msPublished[id];
-            content += `${id} (installs: ${humanNumber(r.msInstalls)})\r\n`;
+            content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
         }
 
 
@@ -217,7 +237,7 @@ function sortedKeys(s) {
 
         for (const id of msPublishedUnstable.sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls)) {
             const r = stat.msPublished[id];
-            content += `${id} (installs: ${humanNumber(r.msInstalls)})\r\n`;
+            content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
         }
 
         content += '-------------------\r\n';
@@ -239,7 +259,7 @@ function sortedKeys(s) {
             const in2Days = updatedInOpenIn2Days.has(id) ? '+' : '-';
             const in2Weeks = updatedInOpenIn2Weeks.has(id) ? '+' : '-';
             const inMonth = updatedInOpenInMonth.has(id) ? '+' : '-';
-            content += `${inMonth}${in2Weeks}${in2Days} ${id}: installs: ${humanNumber(r.msInstalls)}; daysInBetween: ${r.daysInBetween?.toFixed(0)}; MS marketplace: ${r.msVersion}; Open VSX: ${r.openVersion}\r\n`;
+            content += `${inMonth}${in2Weeks}${in2Days} ${id}: installs: ${humanNumber(r.msInstalls, formatter)}; daysInBetween: ${r.daysInBetween?.toFixed(0)}; MS marketplace: ${r.msVersion}; Open VSX: ${r.openVersion}\r\n`;
         }
         content += '-------------------\r\n';
     }
@@ -248,7 +268,7 @@ function sortedKeys(s) {
         content += '\r\n----- Up-to-date (Open VSX = MS marketplace version) -----\r\n';
         for (const id of Object.keys(stat.upToDate).sort((a, b) => stat.upToDate[b].msInstalls - stat.upToDate[a].msInstalls)) {
             const r = stat.upToDate[id];
-            content += `${id} (installs: ${humanNumber(r.msInstalls)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion}\r\n`;
+            content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion}\r\n`;
         }
         content += '-------------------\r\n';
     }
@@ -258,23 +278,23 @@ function sortedKeys(s) {
         for (const id of sortedKeys(stat.resolutions)) {
             const r = stat.resolutions[id];
             if (r?.releaseAsset) {
-                content += `${id} (installs: ${humanNumber(r.msInstalls)}): from '${r.releaseAsset}' release asset\r\n`;
+                content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.releaseAsset}' release asset\r\n`;
             } else if (r?.releaseTag) {
-                content += `${id} (installs: ${humanNumber(r.msInstalls)}): from '${r.releaseTag}' release tag\r\n`;
+                content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.releaseTag}' release tag\r\n`;
             } else if (r?.tag) {
-                content += `${id} (installs: ${humanNumber(r.msInstalls)}): from '${r.tag}' release repo tag\r\n`;
+                content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.tag}' release repo tag\r\n`;
             } else if (r?.latest) {
                 if (r.msVersion) {
-                    content += `${id} (installs: ${humanNumber(r.msInstalls)}): from '${r.latest}' the very latest repo commit, since it is not actively maintained\r\n`;
+                    content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.latest}' the very latest repo commit, since it is not actively maintained\r\n`;
                 } else {
-                    content += `${id} (installs: ${humanNumber(r.msInstalls)}): from '${r.latest}' the very latest repo commit, since it is not published to MS marketplace\r\n`;
+                    content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.latest}' the very latest repo commit, since it is not published to MS marketplace\r\n`;
                 }
             } else if (r?.matchedLatest) {
-                content += `${id} (installs: ${humanNumber(r.msInstalls)}): from '${r.matchedLatest}' from the very latest commit on the last update date\r\n`;
+                content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.matchedLatest}' from the very latest commit on the last update date\r\n`;
             } else if (r?.matched) {
-                content += `${id} (installs: ${humanNumber(r.msInstalls)}): from '${r.matched}' from the latest commit on the last update date\r\n`;
+                content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.matched}' from the latest commit on the last update date\r\n`;
             } else {
-                content += `${id} (installs: ${humanNumber(r.msInstalls)}): unresolved\r\n`;
+                content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): unresolved\r\n`;
             }
         }
         content += '-------------------\r\n';
