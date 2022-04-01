@@ -9,22 +9,6 @@
   "abusaidm.html-snippets": {
     "repository": "https://github.com/abusaidm/html-snippets"
   },
-  "adamhartford.vscode-base64": {
-    "repository": "https://github.com/adamhartford/vscode-base64",
-    "location": ".",
-    "custom": [
-      "[ $VERSION = '0.1.0' ] && sed -i 's/\\(\"vscode\": \"\\).*\\(\"\\)/\\1^1.14.0\\2/g' package.json || true",
-      "[ $VERSION = '0.1.0' ] && sed -i 's/\\(\"typescript\": \"\\).*\\(\"\\)/\\1^4.6.0\\2/g' package.json || true",
-      "[ $VERSION = '0.1.0' ] && sed -i 's/\\(^.*\"devDependencies\": {$\\)/\\1\\n        \"@types\\/vscode\": \"^1.14.0\",\\n        \"@types\\/node\": \"^17.0.23\",\\n        \"@types\\/mocha\": \"^9.0.1\",/g' package.json || true",
-      "[ $VERSION = '0.1.0' ] && sed -i '/\"devDependencies\": {/,/}/{/\"vscode\": \".*\"/d}' package.json || true",
-      "[ $VERSION = '0.1.0' ] && sed -i '/\"\\(vscode:prepublish\\|compile\\|postinstall\\)\": \".*\"/d' package.json || true",
-      "[ $VERSION = '0.1.0' ] && rm -rf typings || true",
-      "[ $VERSION = '0.1.0' ] && sed -i 's/\\(: \\)\\(Selection\\[\\]\\)/\\1readonly \\2/g' src/extension.ts || true",
-      "npm install",
-      "[ $VERSION = '0.1.0' ] && npx tsc --noLib false -p . || true",
-      "vsce package -o extension.vsix"
-    ]
-  },
   "adelphes.android-dev-ext": {
     "repository": "https://github.com/adelphes/android-dev-ext"
   },
@@ -82,31 +66,10 @@
   "apollographql.apollo-midnight-color-theme": {
     "repository": "https://github.com/apollographql/apollo-midnight"
   },
-  "appulate.filewatcher": {
-    "repository": "https://github.com/appulate/vscode-file-watcher",
-    "prepublish": "[ $VERSION = '1.0.3' ] && sed -i 's/\\(: \\)\\(vscode.WorkspaceFolder\\[\\]\\)/\\1readonly \\2/g' src/extension.ts || true"
-  },
   "arcanis.vscode-zipfs": {
     "repository": "https://github.com/yarnpkg/berry",
     "location": "packages/vscode-zipfs",
     "prepublish": "sed -ri \"s_ssh://git@github.com/yarnpkg/berry.git_https://github.com/yarnpkg/berry_g\" packages/vscode-zipfs/package.json"
-  },
-  "arjun.swagger-viewer": {
-    "repository": "https://github.com/arjun-g/vs-swagger-viewer",
-    "location": ".",
-    "custom": [
-      "[ $VERSION = '3.1.2' ] && sed -i '/\"@types\\/socket\\.io\": \".*\"/d' package.json || true",
-      "[ $VERSION = '3.1.2' ] && sed -i 's/\\(\"typescript\": \"\\).*\\(\"\\)/\\1^4.6.0\\2/g' package.json || true",
-      "[ $VERSION = '3.1.2' ] && sed -i '/\"vscode:prepublish\": \".*\"/d' package.json || true",
-      "[ $VERSION = '3.1.2' ] && sed -i 's/\\(^\\s*\"dependencies\": {\\s*$\\)/\\1\\n    \"openapi-types\": \"^10.0.0\",/g' package.json || true",
-      "npm install",
-      "[ $VERSION = '3.1.2' ] && npx tsc --lib dom -p . || true",
-      "[ $VERSION = '3.1.2' ] && wget https://www.ko-fi.com/img/githubbutton_sm.svg || true",
-      "[ $VERSION = '3.1.2' ] && npx svgexport githubbutton_sm.svg githubbutton_sm.png || true",
-      "[ $VERSION = '3.1.2' ] && rm githubbutton_sm.svg || true",
-      "[ $VERSION = '3.1.2' ] && sed -i 's/\\(!\\[.*\\](\\)https:\\/\\/www\\.ko-fi\\.com\\/img\\/\\(githubbutton_sm\\.\\)svg\\()\\)/\\1.\\/\\2png\\3/g' README.md || true",
-      "vsce package -o extension.vsix"
-    ]
   },
   "asabil.meson": {
     "repository": "https://github.com/asabil/vscode-meson"
@@ -409,35 +372,8 @@
   "formulahendry.vscode-mysql": {
     "repository": "https://github.com/formulahendry/vscode-mysql"
   },
-  "formulahendry.vscode-node-red": {
-    "repository": "https://github.com/formulahendry/vscode-node-red",
-    "location": ".",
-    "custom": [
-      "[ $VERSION = '0.2.0' ] && sed -i 's/\\(\"@types\\/node-red\": \"\\).*\\(\"\\)/\\1^1.2.0\\2/g;s/\\(\"node-red\": \"\\).*\\(\"\\)/\\1^2.0.6\\2/g' package.json || true",
-      "[ $VERSION = '0.2.0' ] && sed -i '/\"\\(postinstall\\|test\\)\": \".*\"/d;s/\\(\"watch\": \".*\"\\),/\\1/g' package.json || true",
-      "[ $VERSION = '0.2.0' ] && sed -i 's/\\(\"typescript\": \"\\).*\\(\"\\)/\\1^4.6.0\\2/g' package.json || true",
-      "[ $VERSION = '0.2.0' ] && sed -i 's/\\(\"@types\\/node\": \"\\).*\\(\"\\)/\\1^17.0.23\\2/g;s/\\(\"applicationinsights\": \"\\).*\\(\"\\)/\\1^2.2.2\\2/g' package.json || true",
-      "[ $VERSION = '0.2.0' ] && sed -i 's/\\(^.*\"devDependencies\": {$\\)/\\1\\n        \"@types\\/vscode\": \"^1.1.0\",/g' package.json || true",
-      "[ $VERSION = '0.2.0' ] && sed -i 's/\\(\\s*\\)httpAdminRoot: \".*\",/\\1userDir: require(\"path\").resolve(__dirname, \"..\", \".node-red\"),\\n\\0/g' src/nodeRedServer.ts || true",
-      "npm install",
-      "vsce package -o extension.vsix"
-    ]
-  },
   "Fr43nk.seito-openfile": {
     "repository": "https://gitlab.com/fr43nk/seito-openfile"
-  },
-  "fraser.live-coder": {
-    "repository": "https://gitlab.com/Fraser-Greenlee/live-coder-vscode-extension",
-    "location": ".",
-    "custom": [
-      "[ $VERSION = '1.0.2' ] && sed -i '/\"\\(postinstall\\|test\\|vscode:prepublish\\)\": \".*\"/d;s/\\(\"watch\": \".*\"\\),/\\1/g' package.json || true",
-      "[ $VERSION = '1.0.2' ] && sed -i 's/\\(\"typescript\": \"\\).*\\(\"\\)/\\1^4.6.0\\2/g;s/\\(\"@types\\/node\": \"\\).*\\(\"\\)/\\1^17.0.23\\2/g' package.json || true",
-      "[ $VERSION = '1.0.2' ] && sed -i 's/\\(^.*\"devDependencies\": {$\\)/\\1\\n        \"@types\\/vscode\": \"^1.35.0\",/g' package.json || true",
-      "[ $VERSION = '1.0.2' ] && rm -rf ./src/test || true",
-      "npm install",
-      "[ $VERSION = '1.0.2' ] && npm run compile -- --strict false --noUnusedLocals false || true",
-      "vsce package -o extension.vsix"
-    ]
   },
   "fredericbonnet.cmake-test-adapter": {
     "repository": "https://github.com/fredericbonnet/cmake-test-explorer"
@@ -550,25 +486,6 @@
   },
   "IBMBlockchain.ibm-blockchain-platform": {
     "repository": "https://github.com/IBM-Blockchain/blockchain-vscode-extension"
-  },
-  "ikappas.composer": {
-    "repository": "https://github.com/ikappas/vscode-composer",
-    "prepublish": "[ $VERSION = '0.7.1' ] && sed -i 's/\\(\"typescript\": \"\\).*\\(\"\\)/\\1^4.6.0\\2/g' package.json && npm install || true"
-  },
-  "ikappas.phpcs": {
-    "repository": "https://github.com/ikappas/vscode-phpcs",
-    "location": "phpcs",
-    "custom": [
-      "[ $VERSION = '1.0.5' ] && sed -i 's/\\(\"preinstall\": \"\\)\\(rimraf node_modules\"\\)/\\1npx --ignore-existing \\2/g' **/package.json package.json || true",
-      "[ $VERSION = '1.0.5' ] && sed -i '/\"categories\": \\[/,/\\]/{s/\\(\"\\)\\(Languages\"\\)/\\1Programming \\2/g}' ./phpcs/package.json || true",
-      "[ $VERSION = '1.0.5' ] && sed -i '/\"\\(update-vscode\\|postinstall\\)\": \".*\"/d' ./phpcs/package.json || true",
-      "[ $VERSION = '1.0.5' ] && cd phpcs && npm remove vscode && npm install --save-dev @types/vscode@1.20.0 || true",
-      "[ $VERSION = '1.0.5' ] && npm install --save-dev @types/node@9.6.61 typescript@3.9.10 || true",
-      "[ $VERSION = '1.0.5' ] && sed -i 's/\\(abstract \\)async/\\1/g' phpcs/src/resolvers/path-resolver-base.ts || true",
-      "npm install",
-      "npm run compile",
-      "cp LICENSE* phpcs && npx -c 'cd phpcs && vsce package -o extension.vsix'"
-    ]
   },
   "Ikuyadeu.r": {
     "repository": "https://github.com/Ikuyadeu/vscode-R"
@@ -1433,18 +1350,6 @@
     "repository": "https://github.com/wix/import-cost",
     "location": "packages/vscode-import-cost",
     "prepublish": "cd packages/vscode-import-cost && git clean -xdf && npm install"
-  },
-  "wmaurer.change-case": {
-    "repository": "https://github.com/wmaurer/vscode-change-case",
-    "location": ".",
-    "custom": [
-      "[ $VERSION = '1.0.0' ] && npm remove --save-dev vscode || true",
-      "[ $VERSION = '1.0.0' ] && sed -i 's/\\(\"vscode\": \"\\).*\\(\"\\)/\\1^1.14.0\\2/g' package.json || true",
-      "[ $VERSION = '1.0.0' ] && sed -i '/\"postinstall\": \".*\"/d;s/\\(\"compile\": \".*\"\\),/\\1/g' package.json || true",
-      "[ $VERSION = '1.0.0' ] && npm install --save-dev @types/vscode@1.14.0 typescript@3 || true",
-      "npm install",
-      "vsce package -o extension.vsix"
-    ]
   },
   "wongjn.php-sniffer": {
     "repository": "https://github.com/wongjn/vscode-php-sniffer"
