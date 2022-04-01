@@ -58,7 +58,7 @@ function isPreReleaseVersion(version) {
    */
   let toVerify = undefined;
   if (process.env.EXTENSIONS) {
-    toVerify = process.env.EXTENSIONS.split(',').map(s => s.trim());
+    toVerify = process.env.EXTENSIONS === ',' ? [] : process.env.EXTENSIONS.split(',').map(s => s.trim());
   }
   /**
    * @type {Readonly<import('./types').Extensions>}
