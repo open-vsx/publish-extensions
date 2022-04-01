@@ -135,10 +135,12 @@ function sortedKeys(s) {
 
     const upToDateChange = lastWeekUpToDate ? (upToDate / total * 100) - lastWeekUpToDate : undefined;
 
+    const weightedPercentage = (agregatedInstalls.upToDate / ( agregatedInstalls.notInOpen + agregatedInstalls.upToDate + agregatedInstalls.outdated + agregatedInstalls.unstable ));
+
     let summary = '----- Summary -----\r\n';
     summary += `Total: ${total}\r\n`;
     summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%) (${upToDateChange !== undefined ? `${upToDateChange ? `${Math.abs(upToDateChange).toFixed(3)}% ` : ''}${upToDateChange > 0 ? 'increase' : upToDateChange === 0 ? 'no change' : 'decrease'} since last week` : "WoW change n/a"})\r\n`;
-    summary += `Weighted publish percentage: ${((agregatedInstalls.upToDate / ( agregatedInstalls.notInOpen + agregatedInstalls.upToDate + agregatedInstalls.outdated + agregatedInstalls.unstable )) * 100).toFixed(0)}%\r\n`
+    summary += `Weighted publish percentage: ${(weightedPercentage * 100).toFixed(0)}%\r\n`
     summary += `Outdated (Not in OpenVSX, but in MS marketplace): ${notInOpen} (${(notInOpen / total * 100).toFixed(0)}%)\r\n`;
     summary += `Outdated (MS marketplace > Open VSX): ${outdated} (${(outdated / total * 100).toFixed(0)}%)\r\n`;
     summary += `Unstable (MS marketplace < Open VSX): ${unstable} (${(unstable / total * 100).toFixed(0)}%)\r\n`;
@@ -167,9 +169,6 @@ function sortedKeys(s) {
 
     let content = summary;
     if (outdated) {
-        if (process.env.VALIDATE_PR !== 'true') {
-            process.exitCode = -1;
-        }
         content += '\r\n----- Outdated (MS marketplace > Open VSX version) -----\r\n';
         for (const id of sortedKeys(stat.outdated)) {
             const r = stat.outdated[id];
@@ -179,9 +178,6 @@ function sortedKeys(s) {
     }
 
     if (notInOpen) {
-        if (process.env.VALIDATE_PR !== 'true') {
-            process.exitCode = -1;
-        }
         content += '\r\n----- Not published to Open VSX, but in MS marketplace -----\r\n';
         for (const id of Object.keys(stat.notInOpen).sort((a, b) => stat.notInOpen[b].msInstalls - stat.notInOpen[a].msInstalls)) {
             const r = stat.notInOpen[id];
@@ -191,9 +187,6 @@ function sortedKeys(s) {
     }
 
     if (unstable) {
-        if (process.env.VALIDATE_PR !== 'true') {
-            process.exitCode = -1;
-        }
         content += '\r\n----- Unstable (Open VSX > MS marketplace version) -----\r\n';
         for (const id of sortedKeys(stat.unstable)) {
             const r = stat.unstable[id];
@@ -203,17 +196,27 @@ function sortedKeys(s) {
     }
 
     if (notInMS) {
-        process.exitCode = -1;
         content += '\r\n----- Not published to MS marketplace -----\r\n';
         content += stat.notInMS.join(', ') + '\r\n';
         content += '-------------------\r\n';
     }
 
     if (stat.failed.length) {
-        process.exitCode = -1;
         content += '\r\n----- Failed to publish -----\r\n';
         content += stat.failed.join(', ') + '\r\n';
         content += '-------------------\r\n';
+    }
+
+    if ((unstable || stat.failed.length || outdated) && process.env.VALIDATE_PR === 'true') {
+        // Fail the validating job if there are failing extensions
+        process.exitCode = -1;
+    }
+
+    const weightedThreshold = 0.9;
+
+    if (weightedPercentage < weightedThreshold) {
+        // This should indicate a big extension breaking
+        process.exitCode = -1;
     }
 
     if (msPublished) {
