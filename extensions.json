@@ -50,7 +50,6 @@
   },
   "amodio.tsl-problem-matcher": {
     "repository": "https://github.com/eamodio/vscode-tsl-problem-matcher",
-    "location": ".",
     "custom": [
       "yarn install",
       "vsce package -o extension.vsix"
@@ -125,7 +124,6 @@
   },
   "bmalehorn.vscode-fish": {
     "repository": "https://github.com/bmalehorn/vscode-fish",
-    "location": ".",
     "custom": [
       "[ $VERSION = '1.0.27' ] && sed -i '/\"\\(postinstall\\|test\\)\": \".*\"/d;s/\\(\"watch\": \".*\"\\),/\\1/g' package.json || true",
       "[ $VERSION = '1.0.27' ] && rm -rf ./src/test || true",
@@ -423,7 +421,6 @@
   },
   "halcyontechltd.git-client-ibmi": {
     "repository": "https://github.com/halcyon-tech/git-client-ibmi",
-    "location": ".",
     "prepublish": "[ $VERSION = '0.1.0' ] && mv LICENCE LICENSE || true"
   },
   "halcyontechltd.vscode-ibmi-walkthroughs": {
@@ -438,7 +435,6 @@
   },
   "hashicorp.terraform": {
     "repository": "https://github.com/hashicorp/vscode-terraform",
-    "location": ".",
     "custom": [
       "[ $VERSION = '2.21.0' ] && npm install --no-save npm@8.5.5 || true",
       "[ $VERSION = '2.21.0' ] && npx node@16 ./node_modules/npm/bin/npm-cli.js install || true",
@@ -572,7 +568,6 @@
   },
   "justusadam.language-haskell": {
     "repository": "https://github.com/JustusAdam/language-haskell",
-    "location": ".",
     "custom": [
       "[ $VERSION = '3.6.0' ] && git checkout 0475f2dace08a0b9f419c7521475564fa89f130f || true",
       "npm install",
@@ -643,7 +638,6 @@
   },
   "marus25.cortex-debug": {
     "repository": "https://github.com/Marus/cortex-debug",
-    "location": ".",
     "custom": [
       "npm ci",
       "vsce package -o extension.vsix"
@@ -672,7 +666,6 @@
   },
   "miguel-savignano.ruby-symbols": {
     "repository": "https://github.com/MiguelSavignano/vscode-ruby-symbols",
-    "location": ".",
     "custom": [
       "[ $VERSION = '0.1.8' ] && sed -i '/\"engines\":\\s*{/,/}/{s/\\(\"vscode\": \"\\).*\\(\"\\)/\\1^1.14.0\\2/g}' package.json || true",
       "[ $VERSION = '0.1.8' ] && sed -i '/\"categories\":\\s*\\[/,/\\[/{s/\\(\"\\)\\(Languages\"\\)/\\1Programming \\2/g}' package.json || true",
@@ -840,7 +833,6 @@
   },
   "ms-vscode.js-debug-companion": {
     "repository": "https://github.com/microsoft/vscode-js-debug-companion",
-    "location": ".",
     "custom": [
       "[ $VERSION = '1.0.16' ] && git checkout 638db88f56220c2d273aea633c4f67038c170c34 || true",
       "npm install",
@@ -927,7 +919,6 @@
   },
   "neikeq.godot-csharp-vscode": {
     "repository": "https://github.com/godotengine/godot-csharp-vscode",
-    "location": ".",
     "timeout": 10,
     "custom": [
       "[ $VERSION = '0.2.1' ] && npm install --save-dev webpack@5.70.0 webpack-cli@4.9.2 || true",
@@ -986,7 +977,6 @@
   },
   "oouo-diogo-perdigao.docthis": {
     "repository": "https://github.com/oouo-diogo-perdigao/vscode-docthis",
-    "location": ".",
     "custom": [
       "[ $VERSION = '0.8.2' ] && sed -i '/\"\\(postinstall\\)\": \".*\"/d;s/\\(\"compile\": \".*\"\\),/\\1/g' package.json || true",
       "[ $VERSION = '0.8.2' ] && npm remove --save-dev vscode && sed -i 's/\\(^.*\"devDependencies\": {$\\)/\\1\\n    \"@types\\/vscode\": \"^1.22.0\",/g' package.json || true",
@@ -1059,7 +1049,6 @@
   },
   "rintoj.json-organizer": {
     "repository": "https://github.com/rintoj/json-organizer",
-    "location": ".",
     "custom": [
       "[ $VERSION = '0.0.4' ] && npm remove --save-dev vscode || true",
       "[ $VERSION = '0.0.4' ] && sed -i 's/git+\\(https\\)/\\1/g' package.json || true",
@@ -1103,7 +1092,6 @@
   },
   "serayuzgur.crates": {
     "repository": "https://github.com/serayuzgur/crates",
-    "location": ".",
     "custom": [
       "[ $VERSION = '0.5.10' ] && git checkout f633224c84578a514d2171c0bb59395027716908 || true",
       "[ $VERSION = '0.5.10' ] && sed -i 's/\\(\"version\": \"\\).*\\(\"\\)/\\1'$VERSION'\\2/g' package.json || true",
@@ -1138,7 +1126,6 @@
   },
   "shuworks.vscode-table-formatter": {
     "repository": "https://github.com/shuGH/vscode-table-formatter",
-    "location": ".",
     "custom": [
       "[ $VERSION = '1.2.1' ] && npm install --save-dev typescript@3 || true",
       "npm install",
@@ -1174,7 +1161,6 @@
   },
   "sodatea.velocity": {
     "repository": "https://github.com/sodatea/vscode-velocity",
-    "location": ".",
     "custom": [
       "[ $MS_VERSION = '0.2.0' ] && sed -i 's/\\(\"version\": \"\\).*\\(\"\\)/\\1'$MS_VERSION'\\2/g' package.json || true",
       "[ $MS_VERSION = '0.2.0' ] && sed -i '/\"\\(postinstall\\)\": \".*\"/d;s/\\(\"pack\": \".*\"\\),/\\1/g' package.json || true",
@@ -1290,7 +1276,6 @@
   },
   "vscode-org-mode.org-mode": {
     "repository": "https://github.com/vscode-org-mode/vscode-org-mode",
-    "location": ".",
     "custom": [
       "[ $MS_VERSION = '1.0.0' ] && git checkout e8cc69868af427f5fd03c8ad125b493cbf2e8292 || true",
       "[ $MS_VERSION = '1.0.0' ] && npm remove --save-dev vscode && npm install --save-dev typescript@3 @types/vscode@1.23 @types/node@7 || true",
@@ -1319,7 +1304,6 @@
   },
   "vshaxe.hxcpp-debugger": {
     "repository": "https://github.com/vshaxe/hxcpp-debugger",
-    "location": ".",
     "custom": [
       "[ $VERSION = '1.2.4' ] && git checkout 4a5fdc0adcce7e6d028fb64aaf9777695110341d || true",
       "npm install",
@@ -1356,7 +1340,6 @@
   },
   "Wscats.eno": {
     "repository": "https://github.com/Wscats/compile-hero",
-    "location": ".",
     "custom": [
       "[ $VERSION = '2.3.53' ] && sed -i '/\"postinstall\": \".*\"/d' publish.js || true",
       "[ $VERSION = '2.3.53' ] && sed -i '/\"devDependencies\": {/a\\       \"@types/vscode\": \"^1.39.0\",' publish.js || true",
@@ -1385,7 +1368,6 @@
   },
   "xirider.livecode": {
     "repository": "https://github.com/xirider/livecode",
-    "location": ".",
     "custom": [
       "[ $VERSION = '1.3.10' ] && npx rimraf node_modules || true",
       "[ $VERSION = '1.3.10' ] && sed -i '/\"license\": \".*\"/d' package.json || true",
