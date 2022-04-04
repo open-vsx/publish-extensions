@@ -1050,7 +1050,6 @@
   },
   "saltud.type4py": {
     "repository": "https://github.com/saltudelft/type4py-vscode-ext",
-    "prepublish": "[ $VERSION = '0.2.0' ] && npm run package-web || true"
   },
   "samuelcolvin.jinjahtml": {
     "repository": "https://github.com/samuelcolvin/jinjahtml-vscode"
