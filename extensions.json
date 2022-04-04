@@ -486,9 +486,6 @@
   "IBMBlockchain.ibm-blockchain-platform": {
     "repository": "https://github.com/IBM-Blockchain/blockchain-vscode-extension"
   },
-  "ikappas.composer": {
-    "repository": "https://github.com/ikappas/vscode-composer"
-  },
   "ikappas.phpcs": {
     "repository": "https://github.com/ikappas/vscode-phpcs"
   },
