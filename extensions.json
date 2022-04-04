@@ -971,16 +971,6 @@
   "onecentlin.laravel5-snippets": {
     "repository": "https://github.com/onecentlin/laravel5-snippets-vscode"
   },
-  "oouo-diogo-perdigao.docthis": {
-    "repository": "https://github.com/oouo-diogo-perdigao/vscode-docthis",
-    "custom": [
-      "[ $VERSION = '0.8.2' ] && sed -i '/\"\\(postinstall\\)\": \".*\"/d;s/\\(\"compile\": \".*\"\\),/\\1/g' package.json || true",
-      "[ $VERSION = '0.8.2' ] && npm remove --save-dev vscode && sed -i 's/\\(^.*\"devDependencies\": {$\\)/\\1\\n    \"@types\\/vscode\": \"^1.22.0\",/g' package.json || true",
-      "[ $VERSION = '0.8.2' ] && npm install --save-dev @types/vscode@1.22.0 @types/node@11 && npm install typescript@3 || true",
-      "npm install",
-      "vsce package -o extension.vsix"
-    ]
-  },
   "openfl.lime-vscode-extension": {
     "repository": "https://github.com/openfl/lime-vscode-extension"
   },
