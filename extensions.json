@@ -1033,21 +1033,6 @@
   "richie5um2.vscode-sort-json": {
     "repository": "https://github.com/richie5um/vscode-sort-json"
   },
-  "rintoj.json-organizer": {
-    "repository": "https://github.com/rintoj/json-organizer",
-    "custom": [
-      "[ $VERSION = '0.0.4' ] && npm remove --save-dev vscode || true",
-      "[ $VERSION = '0.0.4' ] && sed -i 's/git+\\(https\\)/\\1/g' package.json || true",
-      "[ $VERSION = '0.0.4' ] && sed -i 's/\\(\"vscode\": \"\\).*\\(\"\\)/\\1^1.14.0\\2/g' package.json || true",
-      "[ $VERSION = '0.0.4' ] && sed -i 's/\\(\"typescript\": \"\\).*\\(\"\\)/\\1^4.6.0\\2/g' package.json || true",
-      "[ $VERSION = '0.0.4' ] && sed -i 's/\\(^.*\"devDependencies\": {$\\)/\\1\\n    \"@types\\/vscode\": \"^1.14.0\",\\n    \"@types\\/node\": \"^17.0.23\",\\n    \"@types\\/mocha\": \"^9.0.1\",/g' package.json || true",
-      "[ $VERSION = '0.0.4' ] && sed -i '/\"\\(vscode:prepublish\\|compile\\|postinstall\\)\": \".*\"/d' package.json || true",
-      "[ $VERSION = '0.0.4' ] && rm -rf typings || true",
-      "npm install",
-      "[ $VERSION = '0.0.4' ] && npx tsc --noLib false -p . || true",
-      "vsce package -o extension.vsix"
-    ]
-  },
   "ritwickdey.LiveServer": {
     "repository": "https://github.com/ritwickdey/vscode-live-server"
   },
