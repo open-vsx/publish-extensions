@@ -1277,4 +1277,7 @@
   "zxh404.vscode-proto3": {
     "repository": "https://github.com/zxh0/vscode-proto3"
   }
+  "Chaofan.hoi4modutilities": {
+    "repository": "https://github.com/herbix/hoi4modutilities"
+  }
 }
