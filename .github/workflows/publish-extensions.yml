@@ -70,4 +70,4 @@ jobs:
     - run: npm install
     - name: Check parity of the top 4096 extensions
       if: ${{ !github.event.inputs.extensions }} # only run on full runs
-      run: lib/reportStat.js
+      run: node lib/reportStat.js
