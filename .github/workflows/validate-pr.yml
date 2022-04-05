@@ -18,6 +18,7 @@ jobs:
         with:
           node-version: "14.x"
       - run: npm i
+      - run: npm i -g vsce
       - uses: actions/setup-python@v3
         with:
           python-version: "3.8"
