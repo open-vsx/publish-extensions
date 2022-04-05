@@ -1,12 +1,12 @@
-## Understanding statistics
+# Understanding statistics
 
 This document is here to help you understand reports from [the nightly publishing job](https://github.com/open-vsx/publish-extensions/actions/workflows/publish-extensions.yml).
 
-### How to gather these statistics
+## How to gather these statistics
 
 If you click on a job in the GitHub Actions tab, there is an `Artifacts` section at the bottom of the page, from which you can download the `report`, which after unarchiving reveals two files: `result.log` and `stat.json`.
 
-### `stat.json`
+## `stat.json`
 
 This is the machine-readable data that the next file - `result.log` is generated from. In it, you can find 9 different categories of extensions:
 - `upToDate` - these extensions are the extensions, which have the same version published to OpenVSX as well as the Microsoft Marketplace.
@@ -19,11 +19,11 @@ This is the machine-readable data that the next file - `result.log` is generated
 - `hitMiss`
 - `resolutions` is a list of all extensions and the way they have been resolved: `latest`, `matchedLatest`. `releaseTag`, `tag` or `releaseAsset`.
 
-### `result.log`
+## `result.log`
 
 This file is the one that should provide a quick overview of how the repository is doing. It has many percentages, numbers and sections, so that you can quickly take a look and get the information you want. These are mostly made from the `stat.json` file and pretty self-explanatory, but there are some that are a big more comples:
 
-#### `Weighted publish percentage`
+### `Weighted publish percentage`
 
 This metric's goal is to provide the one number you need to see if the big and most used extensions are up-to-date and existing on OpenVSX. This value is computed as follows (in pseudo-code):
 ```ts
@@ -32,3 +32,7 @@ const totalInstalls = sum(upToDate); // a sum of all install from the Microsoft 
 
 const weightedPublishPercentage = upToDateInstalls / totalInstalls;
 ```
+
+### Microsoft-published extensions
+
+In the `Summary`, you can see a how many extensions published by Microsoft are defined in our repo, how many of them are outdated and how many of them are unstable. For further details with all of the failing extensions, refer to the `MS extensions` section in the file. Under there, you can find more details, like the specific IDs of the extensions and their install counts. 
