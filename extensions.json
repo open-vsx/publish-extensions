@@ -39,17 +39,6 @@
   "albymor.increment-selection": {
     "repository": "https://github.com/albymor/Increment-Selection"
   },
-  "alefragnani.Bookmarks": {
-    "repository": "https://github.com/alefragnani/vscode-bookmarks"
-  },
-  "alefragnani.project-manager": {
-    "repository": "https://github.com/alefragnani/vscode-project-manager"
-  },
-  "alexkrechik.cucumberautocomplete": {
-    "repository": "https://github.com/alexkrechik/VSCucumberAutoComplete",
-    "location": "gclient",
-    "prepublish": "cd gclient && npm install"
-  },
   "aliariff.vscode-erb-beautify": {
     "repository": "https://github.com/aliariff/vscode-erb-beautify"
   },
@@ -115,9 +104,6 @@
   },
   "ban.spellright": {
     "repository": "https://github.com/bartosz-antosik/vscode-spellright"
-  },
-  "batisteo.vscode-django": {
-    "repository": "https://github.com/vscode-django/vscode-django"
   },
   "BazelBuild.vscode-bazel": {
     "repository": "https://github.com/bazelbuild/vscode-bazel"
@@ -364,6 +350,9 @@
   "file-icons.file-icons": {
     "repository": "https://github.com/file-icons/vscode"
   },
+  "folke.vscode-monorepo-workspace": {
+    "repository": "https://github.com/folke/vscode-monorepo-workspace"
+  },
   "formulahendry.auto-close-tag": {
     "repository": "https://github.com/formulahendry/vscode-auto-close-tag"
   },
@@ -372,7 +361,12 @@
   },
   "formulahendry.auto-rename-tag": {
     "repository": "https://github.com/formulahendry/vscode-auto-rename-tag",
-    "location": "packages/extension"
+    "location": "packages/extension",
+    "custom": [
+      "npm i",
+      "npm run package",
+      "mv dist/auto-rename-tag-*.vsix packages/extension/extension.vsix"
+    ]
   },
   "formulahendry.code-runner": {
     "repository": "https://github.com/formulahendry/vscode-code-runner"
@@ -492,12 +486,6 @@
   "IBMBlockchain.ibm-blockchain-platform": {
     "repository": "https://github.com/IBM-Blockchain/blockchain-vscode-extension"
   },
-  "ikappas.composer": {
-    "repository": "https://github.com/ikappas/vscode-composer"
-  },
-  "ikappas.phpcs": {
-    "repository": "https://github.com/ikappas/vscode-phpcs"
-  },
   "Ikuyadeu.r": {
     "repository": "https://github.com/Ikuyadeu/vscode-R"
   },
@@ -518,9 +506,6 @@
   },
   "itsjonq.owlet": {
     "repository": "https://github.com/ItsJonQ/owlet"
-  },
-  "itsmajestix.vscode-ti": {
-    "repository": "https://github.com/ItsMajestiX/VSCode-Ti"
   },
   "ivangabriele.vscode-git-add-and-commit": {
     "repository": "https://github.com/ivangabriele/vscode-git-automator-legacy"
@@ -547,9 +532,6 @@
   },
   "jock.svg": {
     "repository": "https://github.com/lishu/vscode-svg2"
-  },
-  "joelday.docthis": {
-    "repository": "https://github.com/joelday/vscode-docthis"
   },
   "johnpapa.Angular2": {
     "repository": "https://github.com/johnpapa/vscode-angular-snippets"
@@ -611,26 +593,11 @@
   "KnisterPeter.vscode-github": {
     "repository": "https://github.com/KnisterPeter/vscode-github"
   },
-  "kodetech.electron-debug": {
-    "repository": "https://github.com/Kode/vscode-electron-debug"
-  },
-  "kodetech.kha": {
-    "repository": "https://github.com/Kode/vscode-kha"
-  },
-  "kodetech.kha-extension-pack": {
-    "repository": "https://github.com/Kode/vscode-kha-extension-pack"
-  },
-  "kodetech.krafix": {
-    "repository": "https://github.com/Kode/vscode-krafix"
-  },
   "korekontrol.saltstack": {
     "repository": "https://github.com/korekontrol/vscode-saltstack"
   },
   "kortina.vscode-markdown-notes": {
     "repository": "https://github.com/kortina/vscode-markdown-notes"
-  },
-  "kosz78.nim": {
-    "repository": "https://github.com/pragmagic/vscode-nim"
   },
   "laradump.laradump": {
     "repository": "https://github.com/TheJenos/laradump-vscode"
@@ -652,7 +619,8 @@
   },
   "mads-hartmann.bash-ide-vscode": {
     "repository": "https://github.com/bash-lsp/bash-language-server",
-    "location": "vscode-client"
+    "location": "vscode-client",
+    "prepublish": "yarn"
   },
   "magicstack.MagicPython": {
     "repository": "https://github.com/MagicStack/MagicPython"
@@ -683,9 +651,6 @@
   },
   "MehediDracula.php-namespace-resolver": {
     "repository": "https://github.com/MehediDracula/PHP-Namespace-Resolver"
-  },
-  "mgmcdermott.vscode-language-babel": {
-    "repository": "https://github.com/michaelgmcd/vscode-language-babel"
   },
   "miguel-savignano.ruby-symbols": {
     "repository": "https://github.com/MiguelSavignano/vscode-ruby-symbols"
@@ -807,9 +772,6 @@
     "location": "packages/vscode-pyright",
     "prepublish": "npm i && cd packages/vscode-pyright && npm run prepackage"
   },
-  "ms-python.devicesimulatorexpress": {
-    "repository": "https://github.com/microsoft/vscode-python-devicesimulator"
-  },
   "ms-python.python": {
     "repository": "https://github.com/microsoft/vscode-python"
   },
@@ -834,8 +796,13 @@
   "ms-vscode.cmake-tools": {
     "repository": "https://github.com/microsoft/vscode-cmake-tools"
   },
+  "ms-vscode.cpptools-themes": {
+    "repository": "https://github.com/microsoft/vscode-cpptools",
+    "location": "Themes/"
+  },
   "ms-vscode.hexeditor": {
-    "repository": "https://github.com/microsoft/vscode-hexeditor"
+    "repository": "https://github.com/microsoft/vscode-hexeditor",
+    "prepublish": "npm run compile"
   },
   "ms-vscode.js-debug": {
     "repository": "https://github.com/microsoft/vscode-js-debug",
@@ -887,13 +854,20 @@
   "ms-vscode.vscode-js-profile-table": {
     "repository": "https://github.com/microsoft/vscode-js-profile-visualizer",
     "location": "packages/vscode-js-profile-table",
-    "prepublish": "npm run compile"
+    "custom": [
+      "npm install",
+      "npm run compile",
+      "cd packages/vscode-js-profile-table && vsce package --yarn --out extension.vsix"
+    ]
   },
   "ms-vscode.vscode-smoketest-check": {
     "repository": "https://github.com/microsoft/vscode-smoketest-check"
   },
   "msjsdiag.debugger-for-edge": {
     "repository": "https://github.com/Microsoft/vscode-edge-debug2"
+  },
+  "msjsdiag.vscode-react-native": {
+    "repository": "https://github.com/microsoft/vscode-react-native"
   },
   "mtxr.sqltools": {
     "repository": "https://github.com/mtxr/vscode-sqltools"
@@ -986,10 +960,6 @@
   },
   "philosowaffle.openapi-designer": {
     "repository": "https://github.com/philosowaffle/vs-openapi-designer"
-  },
-  "platformio.platformio-ide": {
-    "repository": "https://github.com/platformio/platformio-vscode-ide",
-    "prepublish": "npm run build"
   },
   "pucelle.vscode-css-navigation": {
     "repository": "https://github.com/pucelle/vscode-css-navigation"
@@ -1138,6 +1108,9 @@
   "tombonnike.vscode-status-bar-format-toggle": {
     "repository": "https://github.com/Tom-Bonnike/vscode-formatting-toggle"
   },
+  "tomoki1207.pdf": {
+    "repository": "https://github.com/tomoki1207/vscode-pdfviewer"
+  },
   "tonsky.theme-alabaster": {
     "repository": "https://github.com/tonsky/vscode-theme-alabaster"
   },
@@ -1163,9 +1136,6 @@
   "Tyriar.windows-terminal": {
     "repository": "https://github.com/Tyriar/vscode-windows-terminal"
   },
-  "Unity.unity-debug": {
-    "repository": "https://github.com/Unity-Technologies/vscode-unity-debug"
-  },
   "vhdlwhiz.vhdl-by-vhdlwhiz": {
     "repository": "https://github.com/jonasjj/awesome-vhdl"
   },
@@ -1180,9 +1150,6 @@
   },
   "vortizhe.simple-ruby-erb": {
     "repository": "https://github.com/vortizhe/vscode-ruby-erb"
-  },
-  "vsciot-vscode.vscode-arduino": {
-    "repository": "https://github.com/microsoft/vscode-arduino"
   },
   "vscjava.vscode-java-debug": {
     "repository": "https://github.com/microsoft/vscode-java-debug",
@@ -1216,9 +1183,6 @@
     "repository": "https://github.com/ViRb3/vscode-smali",
     "location": "smali",
     "prepublish": "cp LICENSE smali/ && cd smali && npm install"
-  },
-  "vscodevim.vim": {
-    "repository": "https://github.com/VSCodeVim/Vim"
   },
   "vshaxe.haxe-checkstyle": {
     "repository": "https://github.com/vshaxe/vscode-checkstyle"

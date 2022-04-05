@@ -12,7 +12,7 @@ Please publish this extension to the Open VSX marketplace.
 
 ## Context
 
-Unfortunately, as Microsoft prohibits usages of the Microsoft marketplace by any other products or redistribution vsix files from it, in order to use VS Code extensions in non-Microsoft products, we kindly ask that you take ownership of the VS Code extension namespace in [OpenVSX](https://open-vsx.org/) and publish this extension on Open VSX.
+Unfortunately, as Microsoft prohibits usages of the Microsoft marketplace by any other products or redistribution of `.vsix` files from it, in order to use VS Code extensions in non-Microsoft products, we kindly ask that you take ownership of the VS Code extension namespace in [OpenVSX](https://open-vsx.org/) and publish this extension on Open VSX.
 
 ## What is OpenVSX? Why does it exist?
 

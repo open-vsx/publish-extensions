@@ -39,52 +39,63 @@ const { createVSIX } = require('vsce');
         } else if (context.repo && context.ref) {
             console.log(`${id}: preparing from ${context.repo}...`);
             await exec(`git checkout ${context.ref}`, { cwd: context.repo });
-            let yarn = await new Promise(resolve => {
-                fs.access(path.join(context.repo, 'yarn.lock'), error => resolve(!error));
-            });
-            try {
-                await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: packagePath });
-            } catch (e) {
-                const pck = JSON.parse(await fs.promises.readFile(path.join(packagePath, 'package.json'), 'utf-8'));
-                // try to auto migrate from vscode: https://code.visualstudio.com/api/working-with-extensions/testing-extension#migrating-from-vscode
-                if (pck.scripts?.postinstall === 'node ./node_modules/vscode/bin/install') {
-                    delete pck.scripts['postinstall'];
-                    pck.devDependencies = pck.devDependencies || {};
-                    delete pck.devDependencies['vscode'];
-                    pck.devDependencies['@types/vscode'] = pck.engines['vscode'];
-                    const content = JSON.stringify(pck, undefined, 2).replace(/node \.\/node_modules\/vscode\/bin\/compile/g, 'tsc');
-                    await fs.promises.writeFile(path.join(packagePath, 'package.json'), content, 'utf-8');
-                    await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: packagePath });
-                } else {
+            if (extension.custom) {
+                try {
+                    for (const command of extension.custom) {
+                        await exec(command, { cwd: context.repo });
+                    }
+                    options = { extensionFile: path.join(context.repo, extension.location ?? '.', 'extension.vsix') };
+                } catch (e) {
                     throw e;
                 }
-            }
-            if (extension.prepublish) {
-                await exec(extension.prepublish, { cwd: context.repo })
-            }
-            if (extension.extensionFile) {
-                options = { extensionFile: path.join(context.repo, extension.extensionFile) };
             } else {
-                options = { extensionFile: path.join(context.repo, 'extension.vsix') };
-                if (yarn) {
-                    options.yarn = true;
-                }
-                // answer y to all quetions https://github.com/microsoft/vscode-vsce/blob/7182692b0f257dc10e7fc643269511549ca0c1db/src/util.ts#L12
-                const vsceTests = process.env['VSCE_TESTS'];
-                process.env['VSCE_TESTS'] = '1';
+                let yarn = await new Promise(resolve => {
+                    fs.access(path.join(context.repo, 'yarn.lock'), error => resolve(!error));
+                });
                 try {
-                    await createVSIX({
-                        cwd: packagePath,
-                        packagePath: options.extensionFile,
-                        baseContentUrl: options.baseContentUrl,
-                        baseImagesUrl: options.baseImagesUrl,
-                        useYarn: options.yarn
-                    });
-                } finally {
-                    process.env['VSCE_TESTS'] = vsceTests;
+                    await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: packagePath });
+                } catch (e) {
+                    const pck = JSON.parse(await fs.promises.readFile(path.join(packagePath, 'package.json'), 'utf-8'));
+                    // try to auto migrate from vscode: https://code.visualstudio.com/api/working-with-extensions/testing-extension#migrating-from-vscode
+                    if (pck.scripts?.postinstall === 'node ./node_modules/vscode/bin/install') {
+                        delete pck.scripts['postinstall'];
+                        pck.devDependencies = pck.devDependencies || {};
+                        delete pck.devDependencies['vscode'];
+                        pck.devDependencies['@types/vscode'] = pck.engines['vscode'];
+                        const content = JSON.stringify(pck, undefined, 2).replace(/node \.\/node_modules\/vscode\/bin\/compile/g, 'tsc');
+                        await fs.promises.writeFile(path.join(packagePath, 'package.json'), content, 'utf-8');
+                        await exec(`${yarn ? 'yarn' : 'npm'} install`, { cwd: packagePath });
+                    } else {
+                        throw e;
+                    }
                 }
+                if (extension.prepublish) {
+                    await exec(extension.prepublish, { cwd: context.repo })
+                }
+                if (extension.extensionFile) {
+                    options = { extensionFile: path.join(context.repo, extension.extensionFile) };
+                } else {
+                    options = { extensionFile: path.join(context.repo, 'extension.vsix') };
+                    if (yarn) {
+                        options.yarn = true;
+                    }
+                    // answer y to all quetions https://github.com/microsoft/vscode-vsce/blob/7182692b0f257dc10e7fc643269511549ca0c1db/src/util.ts#L12
+                    const vsceTests = process.env['VSCE_TESTS'];
+                    process.env['VSCE_TESTS'] = '1';
+                    try {
+                        await createVSIX({
+                            cwd: packagePath,
+                            packagePath: options.extensionFile,
+                            baseContentUrl: options.baseContentUrl,
+                            baseImagesUrl: options.baseImagesUrl,
+                            useYarn: options.yarn
+                        });
+                    } finally {
+                        process.env['VSCE_TESTS'] = vsceTests;
+                    }
+                }
+                console.log(`${id}: prepared from ${context.repo}`);
             }
-            console.log(`${id}: prepared from ${context.repo}`);
         }
 
         // Check if the requested version is greater than the one on Open VSX.
@@ -93,6 +104,7 @@ const { createVSIX } = require('vsce');
         if (!context.version) {
             throw new Error(`${extension.id}: version is not resolved`);
         }
+
         if (context.ovsxVersion) {
             if (semver.gt(context.ovsxVersion, context.version)) {
                 throw new Error(`extensions.json is out-of-date: Open VSX version ${context.ovsxVersion} is already greater than specified version ${context.version}`);
@@ -102,6 +114,7 @@ const { createVSIX } = require('vsce');
                 return;
             }
         }
+
         // TODO(ak) check license is open-source
         if (!xmlManifest?.PackageManifest?.Metadata[0]?.License?.[0] && !manifest.license && !(packagePath && await ovsx.isLicenseOk(packagePath, manifest))) {
             throw new Error(`${extension.id}: license is missing`);
