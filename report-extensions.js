@@ -137,6 +137,9 @@ function sortedKeys(s) {
 
     const weightedPercentage = (agregatedInstalls.upToDate / ( agregatedInstalls.notInOpen + agregatedInstalls.upToDate + agregatedInstalls.outdated + agregatedInstalls.unstable ));
 
+    // Get missing extensions from Microsoft
+    const { couldPublishMs, missingMs, definedInRepo } = await checkMissing(true);
+
     let summary = '----- Summary -----\r\n';
     summary += `Total: ${total}\r\n`;
     summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%) (${upToDateChange !== undefined ? `${upToDateChange ? `${Math.abs(upToDateChange).toFixed(3)}% ` : ''}${upToDateChange > 0 ? 'increase' : upToDateChange === 0 ? 'no change' : 'decrease'} since last week` : "WoW change n/a"})\r\n`;
@@ -150,6 +153,7 @@ function sortedKeys(s) {
     summary += `Total: ${msPublished} (${(msPublished / total * 100).toFixed(0)}%)\r\n`;
     summary += `Outdated: ${msPublishedOutdated.length}\r\n`;
     summary += `Unstable: ${msPublishedUnstable.length}\r\n`;
+    summary += `Missing: ${missingMs.length} (we could publish ${couldPublishMs.length} out of that)`
     summary += `Total resolutions: ${totalResolutions}\r\n`;
     summary += `From release asset: ${fromReleaseAsset} (${(fromReleaseAsset / totalResolutions * 100).toFixed(0)}%)\r\n`;
     summary += `From release tag: ${fromReleaseTag} (${(fromReleaseTag / totalResolutions * 100).toFixed(0)}%)\r\n`;
@@ -245,8 +249,6 @@ function sortedKeys(s) {
 
         content += '-------------------\r\n';
         content += '\r\n----- MS missing from OpenVSX -----\r\n'
-
-        const { couldPublishMs, definedInRepo } = await checkMissing(true);
 
         for (const extension of couldPublishMs) {
             content += `${`${extension.publisher.publisherName}.${extension.extensionName}`} (installs: ${extension.statistics?.find(s => s.statisticName === 'install')?.value}})${definedInRepo.includes(`${extension.publisher.publisherName}.${extension.extensionName}`) ? ` [defined in extensions.json]` : ''}\r\n`;
