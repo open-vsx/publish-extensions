@@ -697,6 +697,9 @@
   "mrorz.language-gettext": {
     "repository": "https://github.com/MrOrz/vscode-gettext"
   },
+  "ms-azuretools.vscode-azurefunctions": {
+    "repository": "https://github.com/microsoft/vscode-azurefunctions"
+  },
   "ms-azuretools.vscode-docker": {
     "repository": "https://github.com/microsoft/vscode-docker"
   },
