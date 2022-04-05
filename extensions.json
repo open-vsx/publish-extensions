@@ -805,6 +805,18 @@
     "extensionFile": "ms-toolsai-jupyter-insiders.vsix",
     "timeout": 30
   },
+  "ms-toolsai.jupyter-keymap": {
+    "repository": "https://github.com/microsoft/vscode-jupyter-keymap"
+  },
+  "ms-toolsai.jupyter-renderers": {
+    "repository": "https://github.com/Microsoft/vscode-notebook-renderers",
+    "custom": [
+      "npm ci",
+      "npm run package",
+      "mv *.vsix extension.vsix"
+    ],
+    "timeout": 30
+  },
   "ms-vscode.atom-keybindings": {
     "repository": "https://github.com/Microsoft/vscode-atom-keybindings"
   },
