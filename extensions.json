@@ -834,6 +834,9 @@
   "ms-vscode.notepadplusplus-keybindings": {
     "repository": "https://github.com/microsoft/vscode-notepadplusplus-keybindings"
   },
+  "ms-vscode.PowerShell": {
+    "repository": "https://github.com/PowerShell/vscode-powershell"
+  },
   "ms-vscode.references-view": {
     "repository": "https://github.com/microsoft/vscode-references-view"
   },
