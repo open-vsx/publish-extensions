@@ -59,3 +59,15 @@ jobs:
       env:
         SLACK_WEBHOOK: ${{ secrets.GITPOD_SLACK_WEBHOOK }}
         SLACK_COLOR: ${{ job.status }}
+  check_parity:
+    name: Check parity with the Microsoft Marketplace
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3.0.0
+      with:
+        node-version: '14.x'
+    - run: npm install
+    - name: Check parity of the top 4096 extensions
+      if: ${{ !github.event.inputs.extensions }} # only run on full runs
+      run: lib/reportStat.js
