@@ -206,12 +206,6 @@
   "Dannark.AndroidLauncher": {
     "repository": "https://github.com/Dannark/Android-Launcher-for-VSCode"
   },
-  "Dart-Code.dart-code": {
-    "repository": "https://github.com/Dart-Code/Dart-Code"
-  },
-  "Dart-Code.flutter": {
-    "repository": "https://github.com/Dart-Code/Flutter"
-  },
   "DavidAnson.vscode-markdownlint": {
     "repository": "https://github.com/DavidAnson/vscode-markdownlint",
     "prepublish": "npm run compile"
