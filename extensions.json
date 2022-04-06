@@ -883,7 +883,6 @@
     "repository": "https://github.com/microsoft/vscode-js-profile-visualizer",
     "location": "packages/vscode-js-profile-flame",
     "custom": [
-      "grep '\"version\": \"1\\.0\\.0\"' lerna.json && git checkout f7ecac70e62a7e0e5bfdb165c5902e2d96d55c70 || true",
       "npx --ignore-existing npm install",
       "npm run compile",
       "cp LICENSE* packages/vscode-js-profile-flame",
@@ -894,7 +893,6 @@
     "repository": "https://github.com/microsoft/vscode-js-profile-visualizer",
     "location": "packages/vscode-js-profile-table",
     "custom": [
-      "grep '\"version\": \"1\\.0\\.0\"' lerna.json && git checkout f7ecac70e62a7e0e5bfdb165c5902e2d96d55c70 || true",
       "npx --ignore-existing npm install",
       "npm run compile",
       "cp LICENSE* packages/vscode-js-profile-table",
