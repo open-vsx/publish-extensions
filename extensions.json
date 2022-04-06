@@ -990,7 +990,12 @@
     "repository": "https://github.com/paiqo/Databricks-VSCode"
   },
   "paragdiwan.gitpatch": {
-    "repository": "https://github.com/paragdiwan/vscode-git-patch"
+    "repository": "https://github.com/paragdiwan/vscode-git-patch",
+    "custom": [
+      "[ $VERSION = '0.2.1' ] && git checkout a648bb3656d0c5c9e9c8cb281eb71d56fd0e9f6a || true",
+      "npm install",
+      "vsce package -o extension.vsix"
+    ]
   },
   "patbenatar.advanced-new-file": {
     "repository": "https://github.com/patbenatar/vscode-advanced-new-file"
