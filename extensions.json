@@ -206,12 +206,6 @@
   "Dannark.AndroidLauncher": {
     "repository": "https://github.com/Dannark/Android-Launcher-for-VSCode"
   },
-  "Dart-Code.dart-code": {
-    "repository": "https://github.com/Dart-Code/Dart-Code"
-  },
-  "Dart-Code.flutter": {
-    "repository": "https://github.com/Dart-Code/Flutter"
-  },
   "DavidAnson.vscode-markdownlint": {
     "repository": "https://github.com/DavidAnson/vscode-markdownlint",
     "prepublish": "npm run compile"
@@ -486,12 +480,6 @@
   "IBMBlockchain.ibm-blockchain-platform": {
     "repository": "https://github.com/IBM-Blockchain/blockchain-vscode-extension"
   },
-  "ikappas.composer": {
-    "repository": "https://github.com/ikappas/vscode-composer"
-  },
-  "ikappas.phpcs": {
-    "repository": "https://github.com/ikappas/vscode-phpcs"
-  },
   "Ikuyadeu.r": {
     "repository": "https://github.com/Ikuyadeu/vscode-R"
   },
@@ -700,6 +688,9 @@
   "mrorz.language-gettext": {
     "repository": "https://github.com/MrOrz/vscode-gettext"
   },
+  "ms-azuretools.vscode-azurefunctions": {
+    "repository": "https://github.com/microsoft/vscode-azurefunctions"
+  },
   "ms-azuretools.vscode-docker": {
     "repository": "https://github.com/microsoft/vscode-docker"
   },
@@ -784,6 +775,18 @@
     "extensionFile": "ms-toolsai-jupyter-insiders.vsix",
     "timeout": 30
   },
+  "ms-toolsai.jupyter-keymap": {
+    "repository": "https://github.com/microsoft/vscode-jupyter-keymap"
+  },
+  "ms-toolsai.jupyter-renderers": {
+    "repository": "https://github.com/Microsoft/vscode-notebook-renderers",
+    "custom": [
+      "npm ci",
+      "npm run package",
+      "mv *.vsix extension.vsix"
+    ],
+    "timeout": 30
+  },
   "ms-vscode.atom-keybindings": {
     "repository": "https://github.com/Microsoft/vscode-atom-keybindings"
   },
@@ -824,6 +827,9 @@
   },
   "ms-vscode.notepadplusplus-keybindings": {
     "repository": "https://github.com/microsoft/vscode-notepadplusplus-keybindings"
+  },
+  "ms-vscode.PowerShell": {
+    "repository": "https://github.com/PowerShell/vscode-powershell"
   },
   "ms-vscode.references-view": {
     "repository": "https://github.com/microsoft/vscode-references-view"

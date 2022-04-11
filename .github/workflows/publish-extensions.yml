@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3.0.0
+    - uses: actions/setup-node@v3.1.0
       with:
         node-version: '14.x'
     - uses: actions/setup-python@v3
@@ -46,7 +46,7 @@ jobs:
     - run: node report-extensions
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
       if: always()
       with:
         name: report
