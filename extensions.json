@@ -770,7 +770,10 @@
     "prepublish": "npm i && cd packages/vscode-pyright && npm run prepackage"
   },
   "ms-python.python": {
-    "repository": "https://github.com/microsoft/vscode-python"
+    "repository": "https://github.com/microsoft/vscode-python",
+    "prepublish": "PIP_USER=no python3 -m pip --disable-pip-version-check install -r build/debugger-install-requirements.txt && python3 ./pythonFiles/install_debugpy.py && python3 -m pip install --no-deps --require-hashes --only-binary :all: -t ./pythonFiles/lib/python --implementation py -r ./requirements.txt && python3 -m pip install --no-deps --require-hashes --only-binary :all: -t ./pythonFiles/lib/jedilsp --implementation py --platform any --abi none -r ./pythonFiles/jedilsp_requirements/requirements.txt && python3 ./build/update_ext_version.py --release --for-publishing && npm run addExtensionPackDependencies && npm run package",
+    "extensionFile": "ms-python-insiders.vsix",
+    "timeout": 30
   },
   "ms-toolsai.jupyter": {
     "repository": "https://github.com/microsoft/vscode-jupyter",
