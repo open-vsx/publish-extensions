@@ -511,6 +511,9 @@
   "janisdd.vscode-edit-csv": {
     "repository": "https://github.com/janisdd/vscode-edit-csv"
   },
+  "jebbs.markdown-extended": {
+    "repository": "https://github.com/qjebbs/vscode-markdown-extended"
+  },
   "jebbs.plantuml": {
     "repository": "https://github.com/qjebbs/vscode-plantuml",
     "prepublish": "wget -O plantuml.zip https://sourceforge.net/projects/plantuml/files/1.2021.0/plantuml-jar-mit-1.2021.0.zip/download && unzip plantuml.zip && rm plantuml.zip && mv COPYING COPYING.plantuml-jar"
