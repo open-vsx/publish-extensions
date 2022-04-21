@@ -484,7 +484,7 @@
   },
   "iocave.monkey-patch": {
     "repository": "https://github.com/iocave/monkey-patch",
-    "prepublish": "[ $VERSION = '0.1.16' ] && rm -rf ./src/test || true"
+    "prepublish": "rm -rf ./src/test"
   },
   "ipedrazas.kubernetes-snippets": {
     "repository": "https://github.com/ipedrazas/kubernetes-snippets"
