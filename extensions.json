@@ -1089,14 +1089,6 @@
   "shrey150.javafx-support": {
     "repository": "https://github.com/shrey150/vscode-javafx-support"
   },
-  "shuworks.vscode-table-formatter": {
-    "repository": "https://github.com/shuGH/vscode-table-formatter",
-    "custom": [
-      "[ $VERSION = '1.2.1' ] && npm install --save-dev typescript@3 || true",
-      "npm install",
-      "vsce package -o extension.vsix"
-    ]
-  },
   "shyykoserhiy.git-autoconfig": {
     "repository": "https://github.com/ShyykoSerhiy/git-autoconfig"
   },
