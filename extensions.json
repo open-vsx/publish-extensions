@@ -651,17 +651,6 @@
   "MehediDracula.php-namespace-resolver": {
     "repository": "https://github.com/MehediDracula/PHP-Namespace-Resolver"
   },
-  "miguel-savignano.ruby-symbols": {
-    "repository": "https://github.com/MiguelSavignano/vscode-ruby-symbols",
-    "custom": [
-      "[ $VERSION = '0.1.8' ] && sed -i '/\"engines\":\\s*{/,/}/{s/\\(\"vscode\": \"\\).*\\(\"\\)/\\1^1.14.0\\2/g}' package.json || true",
-      "[ $VERSION = '0.1.8' ] && sed -i '/\"categories\":\\s*\\[/,/\\[/{s/\\(\"\\)\\(Languages\"\\)/\\1Programming \\2/g}' package.json || true",
-      "[ $VERSION = '0.1.8' ] && sed -i '/\"postinstall\": \".*\"/d' package.json || true",
-      "[ $VERSION = '0.1.8' ] && npm install --save-dev @types/vscode@1.14 || true",
-      "npm install",
-      "vsce package -o extension.vsix"
-    ]
-  },
   "miguelsolorio.fluent-icons": {
     "repository": "https://github.com/misolori/vscode-fluent-icons"
   },
