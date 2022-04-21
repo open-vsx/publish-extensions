@@ -1116,16 +1116,6 @@
   "snyk-security.vscode-vuln-cost": {
     "repository": "https://github.com/snyk/vulncost"
   },
-  "sodatea.velocity": {
-    "repository": "https://github.com/sodatea/vscode-velocity",
-    "custom": [
-      "[ $MS_VERSION = '0.2.0' ] && sed -i 's/\\(\"version\": \"\\).*\\(\"\\)/\\1'$MS_VERSION'\\2/g' package.json || true",
-      "[ $MS_VERSION = '0.2.0' ] && sed -i '/\"\\(postinstall\\)\": \".*\"/d;s/\\(\"pack\": \".*\"\\),/\\1/g' package.json || true",
-      "[ $MS_VERSION = '0.2.0' ] && npm remove --save-dev vscode && npm install --save-dev @types/vscode@1.25 || true",
-      "npm install",
-      "vsce package -o extension.vsix"
-    ]
-  },
   "steoates.autoimport": {
     "repository": "https://github.com/soates/Auto-Import"
   },
