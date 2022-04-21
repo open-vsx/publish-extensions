@@ -429,15 +429,6 @@
   "HanWang.android-adb-wlan": {
     "repository": "https://github.com/deskbtm/android-adb-wlan"
   },
-  "hashicorp.terraform": {
-    "repository": "https://github.com/hashicorp/vscode-terraform",
-    "custom": [
-      "[ $VERSION = '2.21.0' ] && npm install --no-save npm@8.5.5 || true",
-      "[ $VERSION = '2.21.0' ] && npx node@16 ./node_modules/npm/bin/npm-cli.js install || true",
-      "[ $VERSION = '2.21.0' ] || npm install",
-      "vsce package -o extension.vsix"
-    ]
-  },
   "haskell.haskell": {
     "repository": "https://github.com/haskell/vscode-haskell"
   },
