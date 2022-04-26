@@ -909,23 +909,6 @@
   "naumovs.color-highlight": {
     "repository": "https://github.com/egonyans/vscode-ext-color-highlight"
   },
-  "neikeq.godot-csharp-vscode": {
-    "repository": "https://github.com/godotengine/godot-csharp-vscode",
-    "timeout": 10,
-    "custom": [
-      "[ $VERSION = '0.2.1' ] && npm install --save-dev webpack@5.70.0 webpack-cli@4.9.2 || true",
-      "echo 'apt-get update -y' > /tmp/build-godot.sh",
-      "echo 'apt-get install -y apt-transport-https dirmngr gnupg ca-certificates' >> /tmp/build-godot.sh",
-      "echo 'apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF' >> /tmp/build-godot.sh",
-      "echo \"echo 'deb https://download.mono-project.com/repo/debian stable-buster main' |  tee /etc/apt/sources.list.d/mono-official-stable.list\" >> /tmp/build-godot.sh",
-      "echo 'apt-get update -y && apt-get install -y mono-devel' >> /tmp/build-godot.sh",
-      "echo \"usermod -u $(id -u) node\" >> /tmp/build-godot.sh",
-      "echo 'su -c \"npm install\" node' >> /tmp/build-godot.sh",
-      "echo 'su -c \"npm remove --no-save make\" node' >> /tmp/build-godot.sh",
-      "echo 'su -c \"npx --package vsce vsce package -o extension.vsix\" node' >> /tmp/build-godot.sh",
-      "cat /tmp/build-godot.sh | docker run -i -v $(pwd):/workspace -w /workspace node:lts bash"
-    ]
-  },
   "neilbrayfield.php-docblocker": {
     "repository": "https://github.com/neild3r/vscode-php-docblocker"
   },
