@@ -39,31 +39,51 @@ function sortedKeys(s) {
 (async () => {
 
     let lastWeekUpToDate;
+    let yesterdayWeightedPercentage;
     try {
         if (token) {
-            const weekMilis = 7 * 86_400 * 1000 - 3600; // One hour tolerance
+            const dayMilis = 86_400 * 1000 - 3600; // One hour tolerance
+            const weekMilis = 7 * dayMilis; // One hour tolerance
             const previousReports = (await octokit.rest.actions.listArtifactsForRepo({
                 owner: 'open-vsx',
                 repo: 'publish-extensions',
                 per_page: 100
             })).data.artifacts;
             const previousWeekReport = previousReports.find(report => new Date().getTime() - new Date(report.created_at).getTime() > weekMilis);
+            const yesterdayReport = previousReports.find(report => new Date().getTime() - new Date(report.created_at).getTime() > dayMilis);
             const outputFile = '/tmp/report.zip';
-            const downloadURL = await octokit.rest.actions.downloadArtifact({
+            const weekDownload = await octokit.rest.actions.downloadArtifact({
                 owner: 'open-vsx',
                 repo: 'publish-extensions',
                 artifact_id: previousWeekReport.id,
                 archive_format: 'zip',
             });
+            const yesterdayDownload = await octokit.rest.actions.downloadArtifact({
+                owner: 'open-vsx',
+                repo: 'publish-extensions',
+                artifact_id: yesterdayReport.id,
+                archive_format: 'zip',
+            });
 
             // @ts-ignore
-            fs.appendFileSync(outputFile, Buffer.from(downloadURL.data));
+            fs.appendFileSync(outputFile, Buffer.from(weekDownload.data));
             fs.rmSync('/tmp/lastweek/', { recursive: true, force: true });
             fs.mkdirSync('/tmp/lastweek/');
             try {
                 await exec(`unzip ${outputFile} -d /tmp/lastweek/`, { quiet: true });
             } catch { }
+
+            fs.rmSync(outputFile);
+            // @ts-ignore
+            fs.appendFileSync(outputFile, Buffer.from(yesterdayDownload.data));
+            fs.rmSync('/tmp/lastweek/', { recursive: true, force: true });
+            fs.mkdirSync('/tmp/lastweek/');
+            try {
+                await exec(`unzip ${outputFile} -d /tmp/yesterday/`, { quiet: true });
+            } catch { }
+
             const stat = JSON.parse(await fs.promises.readFile("/tmp/lastweek/stat.json", { encoding: 'utf8' }));
+            const { weightedPercentage } = JSON.parse(await fs.promises.readFile("/tmp/yesterday/stat.json", { encoding: 'utf8' }));
 
             const upToDate = Object.keys(stat.upToDate).length;
             const unstable = Object.keys(stat.unstable).length;
@@ -73,6 +93,7 @@ function sortedKeys(s) {
             const total = upToDate + notInOpen + outdated + unstable + notInMS;
 
             lastWeekUpToDate = upToDate / total * 100;
+            yesterdayWeightedPercentage = weightedPercentage;
         }
     } catch (e) {
         console.error(e);
@@ -90,7 +111,7 @@ function sortedKeys(s) {
         return Object.keys(stat[category]).map((st) => stat[category][st].msInstalls).reduce(
             (previousValue, currentValue) => previousValue + currentValue,
             0
-          );
+        );
     }
 
     const agregatedInstalls = {
@@ -135,7 +156,7 @@ function sortedKeys(s) {
 
     const upToDateChange = lastWeekUpToDate ? (upToDate / total * 100) - lastWeekUpToDate : undefined;
 
-    const weightedPercentage = (agregatedInstalls.upToDate / ( agregatedInstalls.notInOpen + agregatedInstalls.upToDate + agregatedInstalls.outdated + agregatedInstalls.unstable ));
+    const weightedPercentage = (agregatedInstalls.upToDate / (agregatedInstalls.notInOpen + agregatedInstalls.upToDate + agregatedInstalls.outdated + agregatedInstalls.unstable));
 
     // Get missing extensions from Microsoft
     const { couldPublishMs, missingMs, definedInRepo } = await checkMissing(true);
@@ -216,9 +237,7 @@ function sortedKeys(s) {
         process.exitCode = -1;
     }
 
-    const weightedThreshold = 0.8;
-
-    if (weightedPercentage < weightedThreshold) {
+    if (yesterdayWeightedPercentage > (weightedPercentage * 1.05)) {
         // This should indicate a big extension breaking
         process.exitCode = -1;
     }
@@ -306,5 +325,9 @@ function sortedKeys(s) {
     }
 
     await fs.promises.writeFile("/tmp/result.log", content, { encoding: 'utf8' });
-    console.log('See result output for the detailed report.')
+    const metadata = {
+        weightedPercentage
+    };
+    await fs.promises.writeFile('/tmp/meta.json', JSON.stringify(metadata), { encoding: 'utf8' });   
+    console.log('See result output for the detailed report.');
 })();

@@ -52,6 +52,7 @@ jobs:
         name: report
         path: |
           /tmp/stat.json
+          /tmp/meta.json
           /tmp/result.log
     - name: Slack Notification
       if: always()
