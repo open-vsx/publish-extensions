@@ -1235,7 +1235,7 @@
     "custom": [
       "[ $MS_VERSION = '1.0.0' ] && git checkout e8cc69868af427f5fd03c8ad125b493cbf2e8292 || true",
       "[ $MS_VERSION = '1.0.0' ] && npm remove --save-dev vscode && npm install --save-dev typescript@3 @types/vscode@1.23 @types/node@7 || true",
-      "[ $MS_VERSION = '1.0.0' ] && sed -i '/\"categories\":\\s*\\[/,/\\[/{s/\\(\"\\)\\(Languages\"\\)/\\1Programming \\2/g}' package.json || true",
+      "[ $MS_VERSION = '1.0.0' ] && sed -i '/\"categories\":\\s*\\[/,/\\]/{s/\\(\"\\)\\(Languages\"\\)/\\1Programming \\2/g}' package.json || true",
       "[ $MS_VERSION = '1.0.0' ] && sed -i '/\"postinstall\": \".*\"/d' package.json || true",
       "npm install",
       "vsce package -o extension.vsix"
