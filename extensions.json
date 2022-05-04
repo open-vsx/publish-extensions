@@ -512,6 +512,9 @@
   "jianbingfang.dupchecker": {
     "repository": "https://github.com/jianbingfang/vscode-dup-checker"
   },
+  "jigar-patel.OdooSnippets": {
+    "repository": "https://github.com/Droggol/VscOdooSnippets"
+  },
   "jock.svg": {
     "repository": "https://github.com/lishu/vscode-svg2",
     "prepublish": "[ $VERSION = '1.4.17' ] && sed -i '/formatPlugins: .* = \\[/,/\\]/{/inlineStyles:/,${/}/{s/}/\\0 as any/g}}}' ./client/src/commands.ts || true"
