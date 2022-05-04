@@ -853,9 +853,6 @@
   "ms-vscode.PowerShell": {
     "repository": "https://github.com/PowerShell/vscode-powershell"
   },
-  "ms-vscode.references-view": {
-    "repository": "https://github.com/microsoft/vscode-references-view"
-  },
   "ms-vscode.sublime-keybindings": {
     "repository": "https://github.com/Microsoft/vscode-sublime-keybindings"
   },
