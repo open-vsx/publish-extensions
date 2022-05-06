@@ -1357,5 +1357,8 @@
   },
   "zxh404.vscode-proto3": {
     "repository": "https://github.com/zxh0/vscode-proto3"
+  },
+  "fabiospampinato.vscode-terminals": {
+    "repository": "https://github.com/fabiospampinato/vscode-terminals"
   }
 }
