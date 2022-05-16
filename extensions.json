@@ -558,7 +558,7 @@
     "custom": [
       "[ $VERSION = '3.6.0' ] && git checkout 0475f2dace08a0b9f419c7521475564fa89f130f || true",
       "npm install",
-      "make all",
+      "make grammars",
       "vsce package -o extension.vsix"
     ]
   },
