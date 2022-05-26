@@ -174,7 +174,7 @@ function sortedKeys(s) {
     summary += `Total: ${msPublished} (${(msPublished / total * 100).toFixed(0)}%)\r\n`;
     summary += `Outdated: ${msPublishedOutdated.length}\r\n`;
     summary += `Unstable: ${msPublishedUnstable.length}\r\n`;
-    summary += `Missing: ${missingMs.length} (we could publish ${couldPublishMs.length} out of that)`
+    summary += `Missing: ${missingMs.length} (we could publish ${couldPublishMs.length} out of that)\r\n`
     summary += `Total resolutions: ${totalResolutions}\r\n`;
     summary += `From release asset: ${fromReleaseAsset} (${(fromReleaseAsset / totalResolutions * 100).toFixed(0)}%)\r\n`;
     summary += `From release tag: ${fromReleaseTag} (${(fromReleaseTag / totalResolutions * 100).toFixed(0)}%)\r\n`;
