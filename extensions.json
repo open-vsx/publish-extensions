@@ -318,6 +318,9 @@
   "fabiospampinato.vscode-open-in-npm": {
     "repository": "https://github.com/fabiospampinato/vscode-open-in-npm"
   },
+  "fabiospampinato.vscode-terminals": {
+    "repository": "https://github.com/fabiospampinato/vscode-terminals"
+  },
   "fabiospampinato.vscode-todo-plus": {
     "repository": "https://github.com/fabiospampinato/vscode-todo-plus"
   },
@@ -1143,6 +1146,9 @@
   "Swellaby.vscode-rust-test-adapter": {
     "repository": "https://github.com/swellaby/vscode-rust-test-adapter"
   },
+  "tanhakabir.rest-book": {
+    "repository": "https://github.com/tanhakabir/rest-book"
+  },
   "tchayen.markdown-links": {
     "repository": "https://github.com/tchayen/markdown-links"
   },
@@ -1360,8 +1366,5 @@
   },
   "zxh404.vscode-proto3": {
     "repository": "https://github.com/zxh0/vscode-proto3"
-  },
-  "fabiospampinato.vscode-terminals": {
-    "repository": "https://github.com/fabiospampinato/vscode-terminals"
   }
 }
