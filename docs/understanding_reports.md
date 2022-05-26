@@ -4,7 +4,7 @@ This document is here to help you understand reports from [the nightly publishin
 
 ## How to gather these statistics
 
-If you click on a job in the GitHub Actions tab, there is an `Artifacts` section at the bottom of the page, from which you can download the `report`, which after unarchiving reveals two files: `result.log` and `stat.json`.
+If you click on a job in the GitHub Actions tab, there is an `Artifacts` section at the bottom of the page, from which you can download the `report`, which after unarchiving reveals three files: `result.log`, `stat.json` and `meta.json`.
 
 ## `stat.json`
 
@@ -22,7 +22,7 @@ This is the machine-readable data that the next file - `result.log` is generated
 
 ## `result.log`
 
-This file is the one that should provide a quick overview of how the repository is doing. It has many percentages, numbers and sections, so that you can quickly take a look and get the information you want. These are mostly made from the `stat.json` file and pretty self-explanatory, but there are some that are a big more comples:
+This file is the one that should provide a quick overview of how the repository is doing. It has many percentages, numbers and sections, so that you can quickly take a look and get the information you want. These are mostly made from the `stat.json` file and pretty self-explanatory, but there are some that are a bit more complex:
 
 ### `Weighted publish percentage`
 
@@ -38,3 +38,7 @@ const weightedPublishPercentage = upToDateInstalls / totalInstalls;
 ### Microsoft-published extensions
 
 In the `Summary`, you can see a how many extensions published by Microsoft are defined in our repo, how many of them are outdated and how many of them are unstable. For further details with all of the failing extensions, refer to the `MS extensions` section in the file. Under there, you can find more details, like the specific IDs of the extensions and their install counts.
+
+## `meta.json`
+
+Contains metadata that can be used by other jobs wanting to examine data from previous runs. It is not intended to be read by humans.
