@@ -813,6 +813,9 @@
   "ms-vscode.atom-keybindings": {
     "repository": "https://github.com/Microsoft/vscode-atom-keybindings"
   },
+  "ms-vscode.brackets-keybindings": {
+    "repository": "https://github.com/Microsoft/vscode-brackets-keybindings"
+  },
   "ms-vscode.brackets-pack": {
     "repository": "https://github.com/microsoft/vscode-brackets-pack"
   },
