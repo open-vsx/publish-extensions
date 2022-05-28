@@ -810,6 +810,9 @@
     ],
     "timeout": 30
   },
+  "ms-toolsai.vscode-jupyter-powertoys": {
+    "repository": "https://github.com/microsoft/vscode-jupyter-powertoys"
+  },
   "ms-vscode.atom-keybindings": {
     "repository": "https://github.com/Microsoft/vscode-atom-keybindings"
   },
