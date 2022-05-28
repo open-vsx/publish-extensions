@@ -775,6 +775,9 @@
       "cd vscode-dotnet-runtime-extension && vsce package --ignoreFile ../.vscodeignore -o extension.vsix --yarn"
     ]
   },
+  "ms-edgedevtools.vscode-edge-devtools": {
+    "repository": "https://github.com/Microsoft/vscode-edge-devtools"
+  },
   "ms-kubernetes-tools.vscode-kubernetes-tools": {
     "repository": "https://github.com/Azure/vscode-kubernetes-tools"
   },
