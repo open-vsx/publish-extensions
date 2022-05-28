@@ -778,6 +778,9 @@
   "ms-kubernetes-tools.vscode-kubernetes-tools": {
     "repository": "https://github.com/Azure/vscode-kubernetes-tools"
   },
+  "ms-playwright.playwright": {
+    "repository": "https://github.com/microsoft/playwright-vscode"
+  },
   "ms-pyright.vscode-pyright": {
     "repository": "https://github.com/Microsoft/pyright",
     "location": "packages/vscode-pyright",
