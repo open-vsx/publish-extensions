@@ -869,6 +869,9 @@
     "repository": "https://github.com/microsoft/vscode-themes/",
     "location": "tomorrow"
   },
+  "ms-vscode.vs-keybindings": {
+    "repository": "https://github.com/Microsoft/vscode-vs-keybindings"
+  },
   "ms-vscode.vscode-github-issue-notebooks": {
     "repository": "https://github.com/microsoft/vscode-github-issue-notebooks"
   },
