@@ -296,6 +296,9 @@
     "repository": "https://github.com/erlang-ls/vscode",
     "prepublish": "npm run compile"
   },
+  "esamatti.unsaved": {
+    "repository": "https://github.com/esamattis/vscode-unsaved"
+  },
   "esbenp.prettier-vscode": {
     "repository": "https://github.com/prettier/prettier-vscode"
   },
