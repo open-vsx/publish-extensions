@@ -177,9 +177,6 @@
   "CoenraadS.bracket-pair-colorizer": {
     "repository": "https://github.com/CoenraadS/BracketPair"
   },
-  "compulim.vscode-closetag": {
-    "repository": "https://github.com/compulim/vscode-closetag"
-  },
   "connorshea.vscode-ruby-test-adapter": {
     "repository": "https://github.com/connorshea/vscode-ruby-test-adapter"
   },
@@ -699,9 +696,6 @@
   },
   "mrmlnc.vscode-apache": {
     "repository": "https://github.com/mrmlnc/vscode-apache"
-  },
-  "mrmlnc.vscode-csscomb": {
-    "repository": "https://github.com/mrmlnc/vscode-csscomb"
   },
   "mrmlnc.vscode-duplicate": {
     "repository": "https://github.com/mrmlnc/vscode-duplicate"
