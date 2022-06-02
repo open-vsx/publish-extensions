@@ -1,0 +1,26 @@
+name: Add an unmaintained extension
+description: I want an unmaintained extension to be published
+title: "[extension.id]: Publish to OpenVSX [unmaintained]"
+labels: ["extension"]
+assignees: ["filiptronicek"]
+body:
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Pre-submission checklist
+      description: We require new publication requests to be first communicated with the extension's maintainers (see [why](https://github.com/open-vsx/publish-extensions/blob/HEAD/README.md#when-to-add-an-extension)), it the author cannot publish the extension or is unresponsive, raise a PR. If you haven't made an issue for the extension owner yet, please create one in the extension's repository using [this template](https://github.com/open-vsx/publish-extensions/blob/HEAD/docs/external_contribution_request.md).
+      options:
+        - label: I have reached out to the extension maintainers to publish to OpenVSX directly
+          required: true
+        - label: This extension has an [OSI-approved OSS license](https://opensource.org/licenses)
+          required: true
+  - type: textarea
+    id: buildsteps
+    attributes:
+      label: How to build the extension?
+      description: Please write down the commands and/or actions needed to produce a `.vsix` file for this extension.
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else?
+      description: If there are further details that could help with publishing the extension, put them here

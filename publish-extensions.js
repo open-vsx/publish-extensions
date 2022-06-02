@@ -100,7 +100,7 @@ function isPreReleaseVersion(version) {
     if (id === '$schema') {
       continue;
     }
-    if (toVerify && toVerify.indexOf(id) === -1) {
+    if (toVerify && !toVerify.includes(id)) {
       continue;
     }
     const extension = Object.freeze({ id, ...extensions[id] });
