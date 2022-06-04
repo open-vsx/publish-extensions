@@ -330,9 +330,6 @@
   "felipecaputo.git-project-manager": {
     "repository": "https://github.com/felipecaputo/git-project-manager"
   },
-  "felixfbecker.php-intellisense": {
-    "repository": "https://github.com/felixfbecker/vscode-php-intellisense"
-  },
   "felixfbecker.php-pack": {
     "repository": "https://github.com/felixfbecker/vscode-php-pack"
   },
