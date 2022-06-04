@@ -858,6 +858,9 @@
   "ms-vscode.mock-debug": {
     "repository": "https://github.com/microsoft/vscode-mock-debug"
   },
+  "ms-vscode.mono-debug": {
+    "repository": "https://github.com/microsoft/vscode-mono-debug"
+  },
   "ms-vscode.node-debug": {
     "repository": "https://github.com/microsoft/vscode-node-debug",
     "prepublish": "yarn prepublish && yarn package"
