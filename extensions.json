@@ -6,9 +6,6 @@
   "aaron-bond.better-comments": {
     "repository": "https://github.com/aaron-bond/better-comments"
   },
-  "abusaidm.html-snippets": {
-    "repository": "https://github.com/abusaidm/html-snippets"
-  },
   "actboy168.tasks": {
     "repository": "https://github.com/actboy168/vscode-tasks"
   },
@@ -83,9 +80,6 @@
   },
   "attilabuti.brainfuck-syntax": {
     "repository": "https://github.com/attilabuti/brainfuck-syntax"
-  },
-  "auchenberg.vscode-browser-preview": {
-    "repository": "https://github.com/auchenberg/vscode-browser-preview"
   },
   "aurorabiz.blade-ui-kit": {
     "repository": "https://github.com/Y-open/blade-ui-kit-vscode"
@@ -452,9 +446,6 @@
   "hollowtree.vue-snippets": {
     "repository": "https://github.com/hollowtree/vscode-vue-snippets"
   },
-  "HookyQR.beautify": {
-    "repository": "https://github.com/HookyQR/VSCodeBeautify"
-  },
   "hoovercj.haskell-linter": {
     "repository": "https://github.com/hoovercj/vscode-haskell-linter"
   },
@@ -609,9 +600,6 @@
   },
   "littlefoxteam.vscode-python-test-adapter": {
     "repository": "https://github.com/kondratyev-nv/vscode-python-test-adapter"
-  },
-  "lonefy.vscode-JS-CSS-HTML-formatter": {
-    "repository": "https://github.com/lonefy/vscode-js-css-html-formatter"
   },
   "mads-hartmann.bash-ide-vscode": {
     "repository": "https://github.com/bash-lsp/bash-language-server",
@@ -858,13 +846,6 @@
   "ms-vscode.mono-debug": {
     "repository": "https://github.com/microsoft/vscode-mono-debug"
   },
-  "ms-vscode.node-debug": {
-    "repository": "https://github.com/microsoft/vscode-node-debug",
-    "prepublish": "yarn prepublish && yarn package"
-  },
-  "ms-vscode.node-debug2": {
-    "repository": "https://github.com/microsoft/vscode-node-debug2"
-  },
   "ms-vscode.notepadplusplus-keybindings": {
     "repository": "https://github.com/microsoft/vscode-notepadplusplus-keybindings"
   },
@@ -1063,9 +1044,6 @@
   },
   "rokoroku.vscode-theme-darcula": {
     "repository": "https://github.com/rokoroku/vscode-theme-darcula"
-  },
-  "rust-lang.rust": {
-    "repository": "https://github.com/rust-lang/rls-vscode"
   },
   "ryu1kn.edit-with-shell": {
     "repository": "https://github.com/ryu1kn/vscode-edit-with-shell"
