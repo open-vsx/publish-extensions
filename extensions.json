@@ -330,8 +330,8 @@
   "felipecaputo.git-project-manager": {
     "repository": "https://github.com/felipecaputo/git-project-manager"
   },
-  "felixfbecker.php-pack": {
-    "repository": "https://github.com/felixfbecker/vscode-php-pack"
+  "xdebug.php-pack": {
+    "repository": "https://github.com/zobo/vscode-php-pack"
   },
   "fernandoescolar.vscode-solution-explorer": {
     "repository": "https://github.com/fernandoescolar/vscode-solution-explorer"
