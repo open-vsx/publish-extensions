@@ -688,10 +688,6 @@
   "ms-azuretools.vscode-docker": {
     "repository": "https://github.com/microsoft/vscode-docker"
   },
-  "MS-CEINTL.vscode-language-pack-bg": {
-    "repository": "https://github.com/microsoft/vscode-loc",
-    "location": "i18n/vscode-language-pack-bg"
-  },
   "MS-CEINTL.vscode-language-pack-cs": {
     "repository": "https://github.com/microsoft/vscode-loc",
     "location": "i18n/vscode-language-pack-cs"
@@ -700,10 +696,6 @@
     "repository": "https://github.com/microsoft/vscode-loc",
     "location": "i18n/vscode-language-pack-de"
   },
-  "MS-CEINTL.vscode-language-pack-en-GB": {
-    "repository": "https://github.com/microsoft/vscode-loc",
-    "location": "i18n/vscode-language-pack-en-GB"
-  },
   "MS-CEINTL.vscode-language-pack-es": {
     "repository": "https://github.com/microsoft/vscode-loc",
     "location": "i18n/vscode-language-pack-es"
@@ -711,10 +703,6 @@
   "MS-CEINTL.vscode-language-pack-fr": {
     "repository": "https://github.com/microsoft/vscode-loc",
     "location": "i18n/vscode-language-pack-fr"
-  },
-  "MS-CEINTL.vscode-language-pack-hu": {
-    "repository": "https://github.com/microsoft/vscode-loc",
-    "location": "i18n/vscode-language-pack-hu"
   },
   "MS-CEINTL.vscode-language-pack-it": {
     "repository": "https://github.com/microsoft/vscode-loc",
@@ -735,6 +723,10 @@
   "MS-CEINTL.vscode-language-pack-pt-BR": {
     "repository": "https://github.com/microsoft/vscode-loc",
     "location": "i18n/vscode-language-pack-pt-BR"
+  },
+  "MS-CEINTL.vscode-language-pack-qps-ploc": {
+    "repository": "https://github.com/microsoft/vscode-loc",
+    "location": "i18n/vscode-language-pack-qps-ploc"
   },
   "MS-CEINTL.vscode-language-pack-ru": {
     "repository": "https://github.com/microsoft/vscode-loc",
