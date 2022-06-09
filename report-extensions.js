@@ -103,9 +103,9 @@ function sortedKeys(s) {
     const stat = JSON.parse(await fs.promises.readFile("/tmp/stat.json", { encoding: 'utf8' }));
 
     /**
-     * 
-     * @param {'upToDate' | 'unstable' | 'outdated' | 'notInOpen'} category 
-     * @returns 
+     *
+     * @param {'upToDate' | 'unstable' | 'outdated' | 'notInOpen'} category
+     * @returns
      */
     const getAggregatedInstalls = (category) => {
         return Object.keys(stat[category]).map((st) => stat[category][st].msInstalls).reduce(
@@ -328,6 +328,6 @@ function sortedKeys(s) {
     const metadata = {
         weightedPercentage
     };
-    await fs.promises.writeFile('/tmp/meta.json', JSON.stringify(metadata), { encoding: 'utf8' });   
+    await fs.promises.writeFile('/tmp/meta.json', JSON.stringify(metadata), { encoding: 'utf8' });
     console.log('See result output for the detailed report.');
 })();
