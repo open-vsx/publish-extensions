@@ -70,8 +70,10 @@ function sortedKeys(s) {
             fs.rmSync('/tmp/lastweek/', { recursive: true, force: true });
             fs.mkdirSync('/tmp/lastweek/');
             try {
-                await exec(`unzip ${outputFile} -d /tmp/lastweek/`, { quiet: true });
-            } catch { }
+                await exec(`unzip ${outputFile} -d /tmp/lastweek/`, { quiet: false });
+            } catch (e) {
+                console.error('Error while unarchiving last week\'s stats.', e);
+            }
 
             fs.rmSync(outputFile);
             // @ts-ignore
@@ -79,8 +81,10 @@ function sortedKeys(s) {
             fs.rmSync('/tmp/lastweek/', { recursive: true, force: true });
             fs.mkdirSync('/tmp/lastweek/');
             try {
-                await exec(`unzip ${outputFile} -d /tmp/yesterday/`, { quiet: true });
-            } catch { }
+                await exec(`unzip ${outputFile} -d /tmp/yesterday/`, { quiet: false });
+            } catch (e) {
+                console.error('Error while unarchiving yesterday\'s stats.', e);
+            }
 
             const stat = JSON.parse(await fs.promises.readFile("/tmp/lastweek/stat.json", { encoding: 'utf8' }));
             const { weightedPercentage } = JSON.parse(await fs.promises.readFile("/tmp/yesterday/stat.json", { encoding: 'utf8' }));
