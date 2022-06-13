@@ -11,9 +11,9 @@
 // @ts-check
 const fs = require('fs');
 const Octokit = require('octokit').Octokit;
-const exec = require('./lib/exec');
 const { checkMissing, formatter } = require('./lib/reportStat');
 const humanNumber = require('human-number');
+const unzipper = require('unzipper');
 
 const token = process.env.GITHUB_TOKEN;
 if (!token) {
@@ -36,68 +36,98 @@ function sortedKeys(s) {
     })
 }
 
+function streamToString(stream) {
+    const chunks = [];
+    return new Promise((resolve, reject) => {
+        stream.on('data', (chunk) => chunks.push(Buffer.from(chunk)));
+        stream.on('error', (err) => reject(err));
+        stream.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
+    })
+}
+
 (async () => {
 
     let lastWeekUpToDate;
     let yesterdayWeightedPercentage;
+
     try {
-        if (token) {
-            const dayMilis = 86_400 * 1000 - 3600; // One hour tolerance
-            const weekMilis = 7 * dayMilis; // One hour tolerance
-            const previousReports = (await octokit.rest.actions.listArtifactsForRepo({
-                owner: 'open-vsx',
-                repo: 'publish-extensions',
-                per_page: 100
-            })).data.artifacts;
-            const previousWeekReport = previousReports.find(report => new Date().getTime() - new Date(report.created_at).getTime() > weekMilis);
-            const yesterdayReport = previousReports.find(report => new Date().getTime() - new Date(report.created_at).getTime() > dayMilis);
-            const outputFile = '/tmp/report.zip';
-            const weekDownload = await octokit.rest.actions.downloadArtifact({
-                owner: 'open-vsx',
-                repo: 'publish-extensions',
-                artifact_id: previousWeekReport.id,
-                archive_format: 'zip',
-            });
-            const yesterdayDownload = await octokit.rest.actions.downloadArtifact({
-                owner: 'open-vsx',
-                repo: 'publish-extensions',
-                artifact_id: yesterdayReport.id,
-                archive_format: 'zip',
-            });
+        if (!token) {
+            throw new Error('No GitHub token');
+        }
+        const dayMilis = 86_400 * 1000 - 3600; // One hour tolerance
+        const weekMilis = 7 * dayMilis; // One hour tolerance
+        const previousReports = (await octokit.rest.actions.listArtifactsForRepo({
+            owner: 'open-vsx',
+            repo: 'publish-extensions',
+            per_page: 100
+        })).data.artifacts;
+        const previousWeekReport = previousReports.find(report => new Date().getTime() - new Date(report.created_at).getTime() > weekMilis);
+        const yesterdayReport = previousReports.find(report => new Date().getTime() - new Date(report.created_at).getTime() > dayMilis);
+        const outputFile = '/tmp/report.zip';
+        const weekDownload = await octokit.rest.actions.downloadArtifact({
+            owner: 'open-vsx',
+            repo: 'publish-extensions',
+            artifact_id: previousWeekReport.id,
+            archive_format: 'zip',
+        });
+        const yesterdayDownload = await octokit.rest.actions.downloadArtifact({
+            owner: 'open-vsx',
+            repo: 'publish-extensions',
+            artifact_id: yesterdayReport.id,
+            archive_format: 'zip',
+        });
 
-            // @ts-ignore
-            fs.appendFileSync(outputFile, Buffer.from(weekDownload.data));
-            fs.rmSync('/tmp/lastweek/', { recursive: true, force: true });
-            fs.mkdirSync('/tmp/lastweek/');
-            try {
-                await exec(`unzip ${outputFile} -d /tmp/lastweek/`, { quiet: false });
-            } catch (e) {
-                console.error('Error while unarchiving last week\'s stats.', e);
-            }
+        // @ts-ignore
+        fs.appendFileSync(outputFile, Buffer.from(weekDownload.data));
+        fs.rmSync('/tmp/lastweek/', { recursive: true, force: true });
+        fs.mkdirSync('/tmp/lastweek/');
 
-            fs.rmSync(outputFile);
-            // @ts-ignore
-            fs.appendFileSync(outputFile, Buffer.from(yesterdayDownload.data));
-            fs.rmSync('/tmp/lastweek/', { recursive: true, force: true });
-            fs.mkdirSync('/tmp/lastweek/');
-            try {
-                await exec(`unzip ${outputFile} -d /tmp/yesterday/`, { quiet: false });
-            } catch (e) {
-                console.error('Error while unarchiving yesterday\'s stats.', e);
-            }
+        try {
+            fs.createReadStream(outputFile)
+                .pipe(unzipper.Parse())
+                .on('entry', async (entry) => {
+                    const fileName = entry.path;
+                    switch (fileName) {
+                        case 'stat.json':
+                            entry.pipe(fs.createWriteStream("/tmp/lastweek/stat.json"));
+                            const result = JSON.parse(await streamToString(entry));
+                            const upToDate = Object.keys(result.upToDate).length;
+                            const unstable = Object.keys(result.unstable).length;
+                            const outdated = Object.keys(result.outdated).length;
+                            const notInOpen = Object.keys(result.notInOpen).length;
+                            const notInMS = result.notInMS.length;
+                            lastWeekUpToDate = upToDate + notInOpen + outdated + unstable + notInMS;
+                            break;
+                        default:
+                            entry.autodrain();
+                    }
+                });
+        } catch (e) {
+            console.error('Error while unarchiving last week\'s stats.', e);
+        }
 
-            const stat = JSON.parse(await fs.promises.readFile("/tmp/lastweek/stat.json", { encoding: 'utf8' }));
-            const { weightedPercentage } = JSON.parse(await fs.promises.readFile("/tmp/yesterday/stat.json", { encoding: 'utf8' }));
-
-            const upToDate = Object.keys(stat.upToDate).length;
-            const unstable = Object.keys(stat.unstable).length;
-            const outdated = Object.keys(stat.outdated).length;
-            const notInOpen = Object.keys(stat.notInOpen).length;
-            const notInMS = stat.notInMS.length;
-            const total = upToDate + notInOpen + outdated + unstable + notInMS;
-
-            lastWeekUpToDate = upToDate / total * 100;
-            yesterdayWeightedPercentage = weightedPercentage;
+        fs.rmSync(outputFile);
+        // @ts-ignore
+        fs.appendFileSync(outputFile, Buffer.from(yesterdayDownload.data));
+        fs.rmSync('/tmp/lastweek/', { recursive: true, force: true });
+        fs.mkdirSync('/tmp/lastweek/');
+        try {
+            fs.createReadStream(outputFile)
+                .pipe(unzipper.Parse())
+                .on('entry', async (entry) => {
+                    const fileName = entry.path;
+                    switch (fileName) {
+                        case 'stat.json':
+                            entry.pipe(fs.createWriteStream("/tmp/yesterday/stat.json"));
+                            const result = await streamToString(entry);
+                            yesterdayWeightedPercentage = JSON.parse(result);
+                            break;
+                        default:
+                            entry.autodrain();
+                    }
+                });
+        } catch (e) {
+            console.error('Error while unarchiving yesterday\'s stats.', e);
         }
     } catch (e) {
         console.error(e);
@@ -158,12 +188,13 @@ function sortedKeys(s) {
     const fromMatched = Object.keys(stat.resolutions).filter(id => stat.resolutions[id].matched).length;
     const totalResolved = fromReleaseAsset + fromReleaseTag + fromTag + fromLatestUnmaintained + fromLatestNotPublished + fromMatchedLatest + fromMatched;
 
-    const upToDateChange = lastWeekUpToDate ? (upToDate / total * 100) - lastWeekUpToDate : undefined;
+    const { couldPublishMs, missingMs, definedInRepo } = await checkMissing(true);
+
+    const upToDateChange = lastWeekUpToDate ? (upToDate / total * 100) - (lastWeekUpToDate / total * 100) : undefined;
 
     const weightedPercentage = (agregatedInstalls.upToDate / (agregatedInstalls.notInOpen + agregatedInstalls.upToDate + agregatedInstalls.outdated + agregatedInstalls.unstable));
 
     // Get missing extensions from Microsoft
-    const { couldPublishMs, missingMs, definedInRepo } = await checkMissing(true);
 
     let summary = '----- Summary -----\r\n';
     summary += `Total: ${total}\r\n`;
