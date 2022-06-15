@@ -1000,6 +1000,9 @@
   "pucelle.vscode-css-navigation": {
     "repository": "https://github.com/pucelle/vscode-css-navigation"
   },
+  "purduesigbots.pros-vsc": {
+    "repository": "https://github.com/purduesigbots/pros-vsc"
+  },
   "rafaelmaiolla.diff": {
     "repository": "https://github.com/rafaelmaiolla/diff-vscode"
   },
