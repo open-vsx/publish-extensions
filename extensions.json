@@ -1028,6 +1028,9 @@
   "richie5um2.vscode-sort-json": {
     "repository": "https://github.com/richie5um/vscode-sort-json"
   },
+  "rioj7.FileGroup": {
+    "repository": "https://github.com/rioj7/fileGroup"
+  },
   "ritwickdey.LiveServer": {
     "repository": "https://github.com/ritwickdey/vscode-live-server"
   },
