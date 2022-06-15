@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       publishMS:
-        description: "Publish to the VS Marketplace"
+        description: "Publish to the Microsoft Marketplace"
         type: boolean
         required: true
         default: "true"

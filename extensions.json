@@ -6,11 +6,8 @@
   "aaron-bond.better-comments": {
     "repository": "https://github.com/aaron-bond/better-comments"
   },
-  "abusaidm.html-snippets": {
-    "repository": "https://github.com/abusaidm/html-snippets"
-  },
-  "adamhartford.vscode-base64": {
-    "repository": "https://github.com/adamhartford/vscode-base64"
+  "actboy168.tasks": {
+    "repository": "https://github.com/actboy168/vscode-tasks"
   },
   "adelphes.android-dev-ext": {
     "repository": "https://github.com/adelphes/android-dev-ext"
@@ -39,17 +36,6 @@
   "albymor.increment-selection": {
     "repository": "https://github.com/albymor/Increment-Selection"
   },
-  "alefragnani.Bookmarks": {
-    "repository": "https://github.com/alefragnani/vscode-bookmarks"
-  },
-  "alefragnani.project-manager": {
-    "repository": "https://github.com/alefragnani/vscode-project-manager"
-  },
-  "alexkrechik.cucumberautocomplete": {
-    "repository": "https://github.com/alexkrechik/VSCucumberAutoComplete",
-    "location": "gclient",
-    "prepublish": "cd gclient && npm install"
-  },
   "aliariff.vscode-erb-beautify": {
     "repository": "https://github.com/aliariff/vscode-erb-beautify"
   },
@@ -65,9 +51,6 @@
   "amodio.tsl-problem-matcher": {
     "repository": "https://github.com/eamodio/vscode-tsl-problem-matcher"
   },
-  "andreweinand.mock-debug": {
-    "repository": "https://github.com/microsoft/vscode-mock-debug"
-  },
   "Angular.ng-template": {
     "repository": "https://github.com/angular/vscode-ng-language-service",
     "prepublish": "scripts/build.sh package.json"
@@ -78,16 +61,10 @@
   "apollographql.apollo-midnight-color-theme": {
     "repository": "https://github.com/apollographql/apollo-midnight"
   },
-  "appulate.filewatcher": {
-    "repository": "https://github.com/appulate/vscode-file-watcher"
-  },
   "arcanis.vscode-zipfs": {
     "repository": "https://github.com/yarnpkg/berry",
     "location": "packages/vscode-zipfs",
     "prepublish": "sed -ri \"s_ssh://git@github.com/yarnpkg/berry.git_https://github.com/yarnpkg/berry_g\" packages/vscode-zipfs/package.json"
-  },
-  "arjun.swagger-viewer": {
-    "repository": "https://github.com/arjun-g/vs-swagger-viewer"
   },
   "asabil.meson": {
     "repository": "https://github.com/asabil/vscode-meson"
@@ -103,9 +80,6 @@
   },
   "attilabuti.brainfuck-syntax": {
     "repository": "https://github.com/attilabuti/brainfuck-syntax"
-  },
-  "auchenberg.vscode-browser-preview": {
-    "repository": "https://github.com/auchenberg/vscode-browser-preview"
   },
   "aurorabiz.blade-ui-kit": {
     "repository": "https://github.com/Y-open/blade-ui-kit-vscode"
@@ -135,13 +109,20 @@
     "repository": "https://github.com/mattbierner/vscode-emojisense"
   },
   "bierner.markdown-image-size": {
-    "repository": "https://github.com/mjbvz/vscode-markdown-image-size"
+    "repository": "https://github.com/mjbvz/vscode-markdown-image-size",
+    "prepublish": "[ $VERSION = '0.0.4' ] && sed -i 's/\\(\"vscode\": \"\\).*\\(\"\\)/\\1^1.33.0\\2/g' package.json || true"
   },
   "bierner.markdown-mermaid": {
     "repository": "https://github.com/mjbvz/vscode-markdown-mermaid"
   },
   "bmalehorn.vscode-fish": {
-    "repository": "https://github.com/bmalehorn/vscode-fish"
+    "repository": "https://github.com/bmalehorn/vscode-fish",
+    "custom": [
+      "[ $VERSION = '1.0.27' ] && sed -i '/\"\\(postinstall\\|test\\)\": \".*\"/d;s/\\(\"watch\": \".*\"\\),/\\1/g' package.json || true",
+      "[ $VERSION = '1.0.27' ] && rm -rf ./src/test || true",
+      "yarn install",
+      "vsce package -o extension.vsix"
+    ]
   },
   "bmewburn.vscode-intelephense-client": {
     "repository": "https://github.com/bmewburn/vscode-intelephense"
@@ -216,12 +197,6 @@
   },
   "Dannark.AndroidLauncher": {
     "repository": "https://github.com/Dannark/Android-Launcher-for-VSCode"
-  },
-  "Dart-Code.dart-code": {
-    "repository": "https://github.com/Dart-Code/Dart-Code"
-  },
-  "Dart-Code.flutter": {
-    "repository": "https://github.com/Dart-Code/Flutter"
   },
   "DavidAnson.vscode-markdownlint": {
     "repository": "https://github.com/DavidAnson/vscode-markdownlint",
@@ -337,6 +312,9 @@
   "fabiospampinato.vscode-open-in-npm": {
     "repository": "https://github.com/fabiospampinato/vscode-open-in-npm"
   },
+  "fabiospampinato.vscode-terminals": {
+    "repository": "https://github.com/fabiospampinato/vscode-terminals"
+  },
   "fabiospampinato.vscode-todo-plus": {
     "repository": "https://github.com/fabiospampinato/vscode-todo-plus"
   },
@@ -345,12 +323,6 @@
   },
   "felipecaputo.git-project-manager": {
     "repository": "https://github.com/felipecaputo/git-project-manager"
-  },
-  "felixfbecker.php-debug": {
-    "repository": "https://github.com/xdebug/vscode-php-debug"
-  },
-  "felixfbecker.php-intellisense": {
-    "repository": "https://github.com/felixfbecker/vscode-php-intellisense"
   },
   "felixfbecker.php-pack": {
     "repository": "https://github.com/felixfbecker/vscode-php-pack"
@@ -361,6 +333,9 @@
   "file-icons.file-icons": {
     "repository": "https://github.com/file-icons/vscode"
   },
+  "folke.vscode-monorepo-workspace": {
+    "repository": "https://github.com/folke/vscode-monorepo-workspace"
+  },
   "formulahendry.auto-close-tag": {
     "repository": "https://github.com/formulahendry/vscode-auto-close-tag"
   },
@@ -369,7 +344,12 @@
   },
   "formulahendry.auto-rename-tag": {
     "repository": "https://github.com/formulahendry/vscode-auto-rename-tag",
-    "location": "packages/extension"
+    "location": "packages/extension",
+    "custom": [
+      "npm i",
+      "npm run package",
+      "mv dist/auto-rename-tag-*.vsix packages/extension/extension.vsix"
+    ]
   },
   "formulahendry.code-runner": {
     "repository": "https://github.com/formulahendry/vscode-code-runner"
@@ -377,14 +357,8 @@
   "formulahendry.vscode-mysql": {
     "repository": "https://github.com/formulahendry/vscode-mysql"
   },
-  "formulahendry.vscode-node-red": {
-    "repository": "https://github.com/formulahendry/vscode-node-red"
-  },
   "Fr43nk.seito-openfile": {
     "repository": "https://gitlab.com/fr43nk/seito-openfile"
-  },
-  "fraser.live-coder": {
-    "repository": "https://gitlab.com/Fraser-Greenlee/live-coder-vscode-extension"
   },
   "fredericbonnet.cmake-test-adapter": {
     "repository": "https://github.com/fredericbonnet/cmake-test-explorer"
@@ -433,7 +407,8 @@
     "repository": "https://github.com/halcyon-tech/code-for-ibmi"
   },
   "halcyontechltd.git-client-ibmi": {
-    "repository": "https://github.com/halcyon-tech/git-client-ibmi"
+    "repository": "https://github.com/halcyon-tech/git-client-ibmi",
+    "prepublish": "[ $VERSION = '0.1.0' ] && mv LICENCE LICENSE || true"
   },
   "halcyontechltd.vscode-ibmi-walkthroughs": {
     "repository": "https://github.com/halcyon-tech/vscode-ibmi-walkthroughs"
@@ -444,9 +419,6 @@
   },
   "HanWang.android-adb-wlan": {
     "repository": "https://github.com/deskbtm/android-adb-wlan"
-  },
-  "hashicorp.terraform": {
-    "repository": "https://github.com/hashicorp/vscode-terraform"
   },
   "haskell.haskell": {
     "repository": "https://github.com/haskell/vscode-haskell"
@@ -474,9 +446,6 @@
   "hollowtree.vue-snippets": {
     "repository": "https://github.com/hollowtree/vscode-vue-snippets"
   },
-  "HookyQR.beautify": {
-    "repository": "https://github.com/HookyQR/VSCodeBeautify"
-  },
   "hoovercj.haskell-linter": {
     "repository": "https://github.com/hoovercj/vscode-haskell-linter"
   },
@@ -488,12 +457,6 @@
   },
   "IBMBlockchain.ibm-blockchain-platform": {
     "repository": "https://github.com/IBM-Blockchain/blockchain-vscode-extension"
-  },
-  "ikappas.composer": {
-    "repository": "https://github.com/ikappas/vscode-composer"
-  },
-  "ikappas.phpcs": {
-    "repository": "https://github.com/ikappas/vscode-phpcs"
   },
   "Ikuyadeu.r": {
     "repository": "https://github.com/Ikuyadeu/vscode-R"
@@ -508,7 +471,8 @@
     "repository": "https://github.com/iocave/customize-ui"
   },
   "iocave.monkey-patch": {
-    "repository": "https://github.com/iocave/monkey-patch"
+    "repository": "https://github.com/iocave/monkey-patch",
+    "prepublish": "rm -rf ./src/test"
   },
   "ipedrazas.kubernetes-snippets": {
     "repository": "https://github.com/ipedrazas/kubernetes-snippets"
@@ -526,6 +490,9 @@
   "janisdd.vscode-edit-csv": {
     "repository": "https://github.com/janisdd/vscode-edit-csv"
   },
+  "jebbs.markdown-extended": {
+    "repository": "https://github.com/qjebbs/vscode-markdown-extended"
+  },
   "jebbs.plantuml": {
     "repository": "https://github.com/qjebbs/vscode-plantuml",
     "prepublish": "wget -O plantuml.zip https://sourceforge.net/projects/plantuml/files/1.2021.0/plantuml-jar-mit-1.2021.0.zip/download && unzip plantuml.zip && rm plantuml.zip && mv COPYING COPYING.plantuml-jar"
@@ -540,10 +507,8 @@
     "repository": "https://github.com/jianbingfang/vscode-dup-checker"
   },
   "jock.svg": {
-    "repository": "https://github.com/lishu/vscode-svg2"
-  },
-  "joelday.docthis": {
-    "repository": "https://github.com/joelday/vscode-docthis"
+    "repository": "https://github.com/lishu/vscode-svg2",
+    "prepublish": "[ $VERSION = '1.4.17' ] && sed -i '/formatPlugins: .* = \\[/,/\\]/{/inlineStyles:/,${/}/{s/}/\\0 as any/g}}}' ./client/src/commands.ts || true"
   },
   "johnpapa.Angular2": {
     "repository": "https://github.com/johnpapa/vscode-angular-snippets"
@@ -556,27 +521,37 @@
   },
   "johnsoncodehk.volar": {
     "repository": "https://github.com/johnsoncodehk/volar",
-    "prepublish": "yarn install && yarn build",
-    "location": "extensions/vscode-vue-language-features"
+    "location": "extensions/vscode-vue-language-features",
+    "custom": [
+      "npx pnpm install --no-frozen-lockfile --shamefully-hoist",
+      "npx pnpm run build",
+      "cd ./extensions/vscode-vue-language-features && npx vsce package -o extension.vsix"
+    ]
   },
   "johnsoncodehk.vscode-typescript-vue-plugin": {
     "repository": "https://github.com/johnsoncodehk/volar",
-    "prepublish": "yarn install && yarn build",
-    "location": "extensions/vscode-typescript-vue-plugin"
+    "location": "extensions/vscode-typescript-vue-plugin",
+    "custom": [
+      "npx pnpm install --no-frozen-lockfile --shamefully-hoist",
+      "npx pnpm run build",
+      "cd ./extensions/vscode-typescript-vue-plugin && npx vsce package -o extension.vsix"
+    ]
   },
   "jolaleye.horizon-theme-vscode": {
     "repository": "https://github.com/jolaleye/horizon-theme-vscode",
     "prepublish": "npm run build"
-  },
-  "jpoissonnier.vscode-styled-components": {
-    "repository": "https://github.com/styled-components/vscode-styled-components"
   },
   "junstyle.php-cs-fixer": {
     "repository": "https://github.com/junstyle/vscode-php-cs-fixer"
   },
   "justusadam.language-haskell": {
     "repository": "https://github.com/JustusAdam/language-haskell",
-    "prepublish": "npm i --save-dev @types/node@10 && make all"
+    "custom": [
+      "[ $VERSION = '3.6.0' ] && git checkout 0475f2dace08a0b9f419c7521475564fa89f130f || true",
+      "npm install",
+      "make grammars",
+      "vsce package -o extension.vsix"
+    ]
   },
   "k--kato.docomment": {
     "repository": "https://github.com/kasecato/vscode-docomment"
@@ -605,18 +580,6 @@
   "KnisterPeter.vscode-github": {
     "repository": "https://github.com/KnisterPeter/vscode-github"
   },
-  "kodetech.electron-debug": {
-    "repository": "https://github.com/Kode/vscode-electron-debug"
-  },
-  "kodetech.kha": {
-    "repository": "https://github.com/Kode/vscode-kha"
-  },
-  "kodetech.kha-extension-pack": {
-    "repository": "https://github.com/Kode/vscode-kha-extension-pack"
-  },
-  "kodetech.krafix": {
-    "repository": "https://github.com/Kode/vscode-krafix"
-  },
   "korekontrol.saltstack": {
     "repository": "https://github.com/korekontrol/vscode-saltstack"
   },
@@ -638,9 +601,6 @@
   "littlefoxteam.vscode-python-test-adapter": {
     "repository": "https://github.com/kondratyev-nv/vscode-python-test-adapter"
   },
-  "lonefy.vscode-JS-CSS-HTML-formatter": {
-    "repository": "https://github.com/lonefy/vscode-js-css-html-formatter"
-  },
   "mads-hartmann.bash-ide-vscode": {
     "repository": "https://github.com/bash-lsp/bash-language-server",
     "location": "vscode-client",
@@ -653,7 +613,11 @@
     "repository": "https://github.com/mastazi/VS-code-vagrantfile"
   },
   "marus25.cortex-debug": {
-    "repository": "https://github.com/Marus/cortex-debug"
+    "repository": "https://github.com/Marus/cortex-debug",
+    "custom": [
+      "npm ci",
+      "vsce package -o extension.vsix"
+    ]
   },
   "matepek.vscode-catch2-test-adapter": {
     "repository": "https://github.com/matepek/vscode-catch2-test-adapter"
@@ -675,12 +639,6 @@
   },
   "MehediDracula.php-namespace-resolver": {
     "repository": "https://github.com/MehediDracula/PHP-Namespace-Resolver"
-  },
-  "mgmcdermott.vscode-language-babel": {
-    "repository": "https://github.com/michaelgmcd/vscode-language-babel"
-  },
-  "miguel-savignano.ruby-symbols": {
-    "repository": "https://github.com/MiguelSavignano/vscode-ruby-symbols"
   },
   "miguelsolorio.fluent-icons": {
     "repository": "https://github.com/misolori/vscode-fluent-icons"
@@ -724,12 +682,11 @@
   "mrorz.language-gettext": {
     "repository": "https://github.com/MrOrz/vscode-gettext"
   },
+  "ms-azuretools.vscode-azurefunctions": {
+    "repository": "https://github.com/microsoft/vscode-azurefunctions"
+  },
   "ms-azuretools.vscode-docker": {
     "repository": "https://github.com/microsoft/vscode-docker"
-  },
-  "MS-CEINTL.vscode-language-pack-bg": {
-    "repository": "https://github.com/microsoft/vscode-loc",
-    "location": "i18n/vscode-language-pack-bg"
   },
   "MS-CEINTL.vscode-language-pack-cs": {
     "repository": "https://github.com/microsoft/vscode-loc",
@@ -739,10 +696,6 @@
     "repository": "https://github.com/microsoft/vscode-loc",
     "location": "i18n/vscode-language-pack-de"
   },
-  "MS-CEINTL.vscode-language-pack-en-GB": {
-    "repository": "https://github.com/microsoft/vscode-loc",
-    "location": "i18n/vscode-language-pack-en-GB"
-  },
   "MS-CEINTL.vscode-language-pack-es": {
     "repository": "https://github.com/microsoft/vscode-loc",
     "location": "i18n/vscode-language-pack-es"
@@ -750,10 +703,6 @@
   "MS-CEINTL.vscode-language-pack-fr": {
     "repository": "https://github.com/microsoft/vscode-loc",
     "location": "i18n/vscode-language-pack-fr"
-  },
-  "MS-CEINTL.vscode-language-pack-hu": {
-    "repository": "https://github.com/microsoft/vscode-loc",
-    "location": "i18n/vscode-language-pack-hu"
   },
   "MS-CEINTL.vscode-language-pack-it": {
     "repository": "https://github.com/microsoft/vscode-loc",
@@ -775,6 +724,10 @@
     "repository": "https://github.com/microsoft/vscode-loc",
     "location": "i18n/vscode-language-pack-pt-BR"
   },
+  "MS-CEINTL.vscode-language-pack-qps-ploc": {
+    "repository": "https://github.com/microsoft/vscode-loc",
+    "location": "i18n/vscode-language-pack-qps-ploc"
+  },
   "MS-CEINTL.vscode-language-pack-ru": {
     "repository": "https://github.com/microsoft/vscode-loc",
     "location": "i18n/vscode-language-pack-ru"
@@ -791,19 +744,33 @@
     "repository": "https://github.com/microsoft/vscode-loc",
     "location": "i18n/vscode-language-pack-zh-hant"
   },
+  "ms-dotnettools.vscode-dotnet-runtime": {
+    "repository": "https://github.com/dotnet/vscode-dotnet-runtime",
+    "location": "vscode-dotnet-runtime-extension",
+    "custom": [
+      "cp LICENSE* vscode-dotnet-runtime-extension",
+      "cd vscode-dotnet-runtime-extension && vsce package --ignoreFile ../.vscodeignore -o extension.vsix --yarn"
+    ]
+  },
+  "ms-edgedevtools.vscode-edge-devtools": {
+    "repository": "https://github.com/Microsoft/vscode-edge-devtools"
+  },
   "ms-kubernetes-tools.vscode-kubernetes-tools": {
     "repository": "https://github.com/Azure/vscode-kubernetes-tools"
+  },
+  "ms-playwright.playwright": {
+    "repository": "https://github.com/microsoft/playwright-vscode"
   },
   "ms-pyright.vscode-pyright": {
     "repository": "https://github.com/Microsoft/pyright",
     "location": "packages/vscode-pyright",
     "prepublish": "npm i && cd packages/vscode-pyright && npm run prepackage"
   },
-  "ms-python.devicesimulatorexpress": {
-    "repository": "https://github.com/microsoft/vscode-python-devicesimulator"
-  },
   "ms-python.python": {
-    "repository": "https://github.com/microsoft/vscode-python"
+    "repository": "https://github.com/microsoft/vscode-python",
+    "prepublish": "PIP_USER=no python3 -m pip --disable-pip-version-check install -r build/debugger-install-requirements.txt && python3 ./pythonFiles/install_debugpy.py && python3 -m pip install --no-deps --require-hashes --only-binary :all: -t ./pythonFiles/lib/python --implementation py -r ./requirements.txt && python3 -m pip install --no-deps --require-hashes --only-binary :all: -t ./pythonFiles/lib/jedilsp --implementation py --platform any --abi none -r ./pythonFiles/jedilsp_requirements/requirements.txt && python3 ./build/update_ext_version.py --release --for-publishing && npm run addExtensionPackDependencies && DISABLE_TRANSLATIONS=true npm run package",
+    "extensionFile": "ms-python-insiders.vsix",
+    "timeout": 30
   },
   "ms-toolsai.jupyter": {
     "repository": "https://github.com/microsoft/vscode-jupyter",
@@ -811,8 +778,26 @@
     "extensionFile": "ms-toolsai-jupyter-insiders.vsix",
     "timeout": 30
   },
+  "ms-toolsai.jupyter-keymap": {
+    "repository": "https://github.com/microsoft/vscode-jupyter-keymap"
+  },
+  "ms-toolsai.jupyter-renderers": {
+    "repository": "https://github.com/Microsoft/vscode-notebook-renderers",
+    "custom": [
+      "npm ci",
+      "npm run package",
+      "mv *.vsix extension.vsix"
+    ],
+    "timeout": 30
+  },
+  "ms-toolsai.vscode-jupyter-powertoys": {
+    "repository": "https://github.com/microsoft/vscode-jupyter-powertoys"
+  },
   "ms-vscode.atom-keybindings": {
     "repository": "https://github.com/Microsoft/vscode-atom-keybindings"
+  },
+  "ms-vscode.brackets-keybindings": {
+    "repository": "https://github.com/Microsoft/vscode-brackets-keybindings"
   },
   "ms-vscode.brackets-pack": {
     "repository": "https://github.com/microsoft/vscode-brackets-pack"
@@ -820,8 +805,13 @@
   "ms-vscode.cmake-tools": {
     "repository": "https://github.com/microsoft/vscode-cmake-tools"
   },
+  "ms-vscode.cpptools-themes": {
+    "repository": "https://github.com/microsoft/vscode-cpptools",
+    "location": "Themes/"
+  },
   "ms-vscode.hexeditor": {
-    "repository": "https://github.com/microsoft/vscode-hexeditor"
+    "repository": "https://github.com/microsoft/vscode-hexeditor",
+    "prepublish": "npm run compile"
   },
   "ms-vscode.js-debug": {
     "repository": "https://github.com/microsoft/vscode-js-debug",
@@ -829,7 +819,12 @@
     "extensionFile": "dist/js-debug.vsix"
   },
   "ms-vscode.js-debug-companion": {
-    "repository": "https://github.com/microsoft/vscode-js-debug-companion"
+    "repository": "https://github.com/microsoft/vscode-js-debug-companion",
+    "custom": [
+      "[ $VERSION = '1.0.16' ] && git checkout 638db88f56220c2d273aea633c4f67038c170c34 || true",
+      "npm install",
+      "vsce package -o extension.vsix"
+    ]
   },
   "ms-vscode.live-server": {
     "repository": "https://github.com/microsoft/vscode-livepreview"
@@ -837,18 +832,17 @@
   "ms-vscode.makefile-tools": {
     "repository": "https://github.com/microsoft/vscode-makefile-tools"
   },
-  "ms-vscode.node-debug": {
-    "repository": "https://github.com/microsoft/vscode-node-debug",
-    "prepublish": "yarn prepublish && yarn package"
+  "ms-vscode.mock-debug": {
+    "repository": "https://github.com/microsoft/vscode-mock-debug"
   },
-  "ms-vscode.node-debug2": {
-    "repository": "https://github.com/microsoft/vscode-node-debug2"
+  "ms-vscode.mono-debug": {
+    "repository": "https://github.com/microsoft/vscode-mono-debug"
   },
   "ms-vscode.notepadplusplus-keybindings": {
     "repository": "https://github.com/microsoft/vscode-notepadplusplus-keybindings"
   },
-  "ms-vscode.references-view": {
-    "repository": "https://github.com/microsoft/vscode-references-view"
+  "ms-vscode.PowerShell": {
+    "repository": "https://github.com/PowerShell/vscode-powershell"
   },
   "ms-vscode.sublime-keybindings": {
     "repository": "https://github.com/Microsoft/vscode-sublime-keybindings"
@@ -857,29 +851,40 @@
     "repository": "https://github.com/microsoft/vscode-themes/",
     "location": "tomorrow"
   },
+  "ms-vscode.vs-keybindings": {
+    "repository": "https://github.com/Microsoft/vscode-vs-keybindings"
+  },
   "ms-vscode.vscode-github-issue-notebooks": {
     "repository": "https://github.com/microsoft/vscode-github-issue-notebooks"
   },
   "ms-vscode.vscode-js-profile-flame": {
     "repository": "https://github.com/microsoft/vscode-js-profile-visualizer",
     "location": "packages/vscode-js-profile-flame",
-    "prepublish": "npm run compile"
-  },
-  "ms-vscode.vscode-js-profile-notebook": {
-    "repository": "https://github.com/microsoft/vscode-js-profile-visualizer",
-    "location": "packages/vscode-js-profile-notebook",
-    "prepublish": "npm run compile"
+    "custom": [
+      "npx --ignore-existing npm install",
+      "npm run compile",
+      "cp LICENSE* packages/vscode-js-profile-flame",
+      "cd packages/vscode-js-profile-flame && vsce package --no-dependencies -o extension.vsix"
+    ]
   },
   "ms-vscode.vscode-js-profile-table": {
     "repository": "https://github.com/microsoft/vscode-js-profile-visualizer",
     "location": "packages/vscode-js-profile-table",
-    "prepublish": "npm run compile"
+    "custom": [
+      "npx --ignore-existing npm install",
+      "npm run compile",
+      "cp LICENSE* packages/vscode-js-profile-table",
+      "cd packages/vscode-js-profile-table && vsce package --no-dependencies -o extension.vsix"
+    ]
   },
   "ms-vscode.vscode-smoketest-check": {
     "repository": "https://github.com/microsoft/vscode-smoketest-check"
   },
   "msjsdiag.debugger-for-edge": {
     "repository": "https://github.com/Microsoft/vscode-edge-debug2"
+  },
+  "msjsdiag.vscode-react-native": {
+    "repository": "https://github.com/microsoft/vscode-react-native"
   },
   "mtxr.sqltools": {
     "repository": "https://github.com/mtxr/vscode-sqltools"
@@ -897,7 +902,23 @@
     "repository": "https://github.com/egonyans/vscode-ext-color-highlight"
   },
   "neikeq.godot-csharp-vscode": {
-    "repository": "https://github.com/godotengine/godot-csharp-vscode"
+    "repository": "https://github.com/godotengine/godot-csharp-vscode",
+    "timeout": 10,
+    "custom": [
+      "[ $VERSION = '0.2.1' ] && npm install --save-dev webpack@5.70.0 webpack-cli@4.9.2 || true",
+      "jq --argjson deps '[ \"muhammad-sammy.csharp\" ]' '.extensionDependencies = $deps' package.json > .package.json",
+      "mv --force .package.json package.json",
+      "echo 'apt-get update -y' > /tmp/build-godot.sh",
+      "echo 'apt-get install -y apt-transport-https dirmngr gnupg ca-certificates' >> /tmp/build-godot.sh",
+      "echo 'apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF' >> /tmp/build-godot.sh",
+      "echo \"echo 'deb https://download.mono-project.com/repo/debian stable-buster main' |  tee /etc/apt/sources.list.d/mono-official-stable.list\" >> /tmp/build-godot.sh",
+      "echo 'apt-get update -y && apt-get install -y mono-devel' >> /tmp/build-godot.sh",
+      "echo \"usermod -u $(id -u) node\" >> /tmp/build-godot.sh",
+      "echo 'su -c \"npm install\" node' >> /tmp/build-godot.sh",
+      "echo 'su -c \"npm remove --no-save make\" node' >> /tmp/build-godot.sh",
+      "echo 'su -c \"npx --package vsce vsce package -o extension.vsix\" node' >> /tmp/build-godot.sh",
+      "cat /tmp/build-godot.sh | docker run -i -v $(pwd):/workspace -w /workspace node:lts bash"
+    ]
   },
   "neilbrayfield.php-docblocker": {
     "repository": "https://github.com/neild3r/vscode-php-docblocker"
@@ -940,9 +961,6 @@
   "onecentlin.laravel5-snippets": {
     "repository": "https://github.com/onecentlin/laravel5-snippets-vscode"
   },
-  "oouo-diogo-perdigao.docthis": {
-    "repository": "https://github.com/oouo-diogo-perdigao/vscode-docthis"
-  },
   "openfl.lime-vscode-extension": {
     "repository": "https://github.com/openfl/lime-vscode-extension"
   },
@@ -950,7 +968,12 @@
     "repository": "https://github.com/paiqo/Databricks-VSCode"
   },
   "paragdiwan.gitpatch": {
-    "repository": "https://github.com/paragdiwan/vscode-git-patch"
+    "repository": "https://github.com/paragdiwan/vscode-git-patch",
+    "custom": [
+      "[ $VERSION = '0.2.1' ] && git checkout a648bb3656d0c5c9e9c8cb281eb71d56fd0e9f6a || true",
+      "npm install",
+      "vsce package -o extension.vsix"
+    ]
   },
   "patbenatar.advanced-new-file": {
     "repository": "https://github.com/patbenatar/vscode-advanced-new-file"
@@ -962,7 +985,8 @@
     "repository": "https://github.com/paulmolluzzo/convert-css-in-js"
   },
   "peterj.proto": {
-    "repository": "https://github.com/pj3677/vscode-protobuf"
+    "repository": "https://github.com/pj3677/vscode-protobuf",
+    "prepublish": "[ $VERSION = '0.0.3' ] && sed -i 's/\\(\"icon\": \".*\\.\\)svg\\(\"\\)/\\1png\\2/g' package.json && npx svgexport ./images/protobuficon.svg ./images/protobuficon.png || true"
   },
   "pflannery.vscode-versionlens": {
     "repository": "https://gitlab.com/versionlens/vscode-versionlens/"
@@ -984,19 +1008,25 @@
   },
   "rebornix.ruby": {
     "repository": "https://github.com/rubyide/vscode-ruby",
-    "location": "packages/vscode-ruby-client"
+    "location": "packages/vscode-ruby-client",
+    "custom": [
+      "[ $VERSION = '0.28.1' ] && sed -i 's/{/\\0\\n\\t\"concurrency\": 1,/g' lerna.json || true",
+      "npx yarn install",
+      "[ $VERSION = '0.28.1' ] && mkdir -p ./packages/language-server-ruby/dist || true",
+      "npx lerna run build",
+      "cp LICENSE* packages/vscode-ruby-client/",
+      "cd packages/vscode-ruby-client && vsce package --no-dependencies -o extension.vsix"
+    ]
   },
   "reduckted.vscode-gitweblinks": {
-    "repository": "https://github.com/reduckted/vscode-gitweblinks"
+    "repository": "https://github.com/reduckted/GitWebLinks",
+    "location": "vscode"
   },
   "ria.elastic": {
     "repository": "https://github.com/hsen-dev/vscode-elastic"
   },
   "richie5um2.vscode-sort-json": {
     "repository": "https://github.com/richie5um/vscode-sort-json"
-  },
-  "rintoj.json-organizer": {
-    "repository": "https://github.com/rintoj/json-organizer"
   },
   "rioj7.FileGroup": {
     "repository": "https://github.com/rioj7/fileGroup"
@@ -1009,9 +1039,6 @@
   },
   "rokoroku.vscode-theme-darcula": {
     "repository": "https://github.com/rokoroku/vscode-theme-darcula"
-  },
-  "rust-lang.rust": {
-    "repository": "https://github.com/rust-lang/rls-vscode"
   },
   "ryu1kn.edit-with-shell": {
     "repository": "https://github.com/ryu1kn/vscode-edit-with-shell"
@@ -1029,7 +1056,13 @@
     "repository": "https://github.com/sdras/night-owl-vscode-theme"
   },
   "serayuzgur.crates": {
-    "repository": "https://github.com/serayuzgur/crates"
+    "repository": "https://github.com/serayuzgur/crates",
+    "custom": [
+      "[ $VERSION = '0.5.10' ] && git checkout f633224c84578a514d2171c0bb59395027716908 || true",
+      "[ $VERSION = '0.5.10' ] && sed -i 's/\\(\"version\": \"\\).*\\(\"\\)/\\1'$VERSION'\\2/g' package.json || true",
+      "npm install",
+      "vsce package -o extension.vsix"
+    ]
   },
   "Serpen.vbsvscode": {
     "repository": "https://github.com/Serpen/VBS-VSCode"
@@ -1055,9 +1088,6 @@
   },
   "shrey150.javafx-support": {
     "repository": "https://github.com/shrey150/vscode-javafx-support"
-  },
-  "shuworks.vscode-table-formatter": {
-    "repository": "https://github.com/shuGH/vscode-table-formatter"
   },
   "shyykoserhiy.git-autoconfig": {
     "repository": "https://github.com/ShyykoSerhiy/git-autoconfig"
@@ -1086,14 +1116,14 @@
   "snyk-security.vscode-vuln-cost": {
     "repository": "https://github.com/snyk/vulncost"
   },
-  "sodatea.velocity": {
-    "repository": "https://github.com/trilogy-group/vscode-velocity"
-  },
   "steoates.autoimport": {
     "repository": "https://github.com/soates/Auto-Import"
   },
   "stripe.vscode-stripe": {
     "repository": "https://github.com/stripe/vscode-stripe"
+  },
+  "styled-components.vscode-styled-components": {
+    "repository": "https://github.com/styled-components/vscode-styled-components"
   },
   "stylelint.vscode-stylelint": {
     "repository": "https://github.com/stylelint/vscode-stylelint"
@@ -1103,6 +1133,9 @@
   },
   "Swellaby.vscode-rust-test-adapter": {
     "repository": "https://github.com/swellaby/vscode-rust-test-adapter"
+  },
+  "tanhakabir.rest-book": {
+    "repository": "https://github.com/tanhakabir/rest-book"
   },
   "tchayen.markdown-links": {
     "repository": "https://github.com/tchayen/markdown-links"
@@ -1122,6 +1155,9 @@
   },
   "tombonnike.vscode-status-bar-format-toggle": {
     "repository": "https://github.com/Tom-Bonnike/vscode-formatting-toggle"
+  },
+  "tomoki1207.pdf": {
+    "repository": "https://github.com/tomoki1207/vscode-pdfviewer"
   },
   "tonsky.theme-alabaster": {
     "repository": "https://github.com/tonsky/vscode-theme-alabaster"
@@ -1147,9 +1183,6 @@
   },
   "Tyriar.windows-terminal": {
     "repository": "https://github.com/Tyriar/vscode-windows-terminal"
-  },
-  "Unity.unity-debug": {
-    "repository": "https://github.com/Unity-Technologies/vscode-unity-debug"
   },
   "vhdlwhiz.vhdl-by-vhdlwhiz": {
     "repository": "https://github.com/jonasjj/awesome-vhdl"
@@ -1192,15 +1225,20 @@
     "repository": "https://github.com/vscode-icons/vscode-icons"
   },
   "vscode-org-mode.org-mode": {
-    "repository": "https://github.com/vscode-org-mode/vscode-org-mode"
+    "repository": "https://github.com/vscode-org-mode/vscode-org-mode",
+    "custom": [
+      "[ $MS_VERSION = '1.0.0' ] && git checkout e8cc69868af427f5fd03c8ad125b493cbf2e8292 || true",
+      "[ $MS_VERSION = '1.0.0' ] && npm remove --save-dev vscode && npm install --save-dev typescript@3 @types/vscode@1.23 @types/node@7 || true",
+      "[ $MS_VERSION = '1.0.0' ] && sed -i '/\"categories\":\\s*\\[/,/\\]/{s/\\(\"\\)\\(Languages\"\\)/\\1Programming \\2/g}' package.json || true",
+      "[ $MS_VERSION = '1.0.0' ] && sed -i '/\"postinstall\": \".*\"/d' package.json || true",
+      "npm install",
+      "vsce package -o extension.vsix"
+    ]
   },
   "vscode.smali": {
     "repository": "https://github.com/ViRb3/vscode-smali",
     "location": "smali",
     "prepublish": "cp LICENSE smali/ && cd smali && npm install"
-  },
-  "vscodevim.vim": {
-    "repository": "https://github.com/VSCodeVim/Vim"
   },
   "vshaxe.haxe-checkstyle": {
     "repository": "https://github.com/vshaxe/vscode-checkstyle"
@@ -1216,7 +1254,15 @@
   },
   "vshaxe.hxcpp-debugger": {
     "repository": "https://github.com/vshaxe/hxcpp-debugger",
-    "prepublish": "npx lix download"
+    "custom": [
+      "[ $VERSION = '1.2.4' ] && git checkout 4a5fdc0adcce7e6d028fb64aaf9777695110341d || true",
+      "npm install",
+      "[ $VERSION = '1.2.4' ] && npm install --no-save lix || true",
+      "npx lix download",
+      "[ $VERSION = '1.2.4' ] && npx haxelib install vscode && npx haxelib install vscode-debugadapter || true",
+      "npx haxe build.hxml",
+      "vsce package -o extension.vsix"
+    ]
   },
   "vsls-contrib.codetour": {
     "repository": "https://github.com/vsls-contrib/codetour"
@@ -1239,15 +1285,20 @@
     "location": "packages/vscode-import-cost",
     "prepublish": "cd packages/vscode-import-cost && git clean -xdf && npm install"
   },
-  "wmaurer.change-case": {
-    "repository": "https://github.com/wmaurer/vscode-change-case"
-  },
   "wongjn.php-sniffer": {
     "repository": "https://github.com/wongjn/vscode-php-sniffer"
   },
   "Wscats.eno": {
     "repository": "https://github.com/Wscats/compile-hero",
-    "prepublish": "npm run build"
+    "custom": [
+      "[ $VERSION = '2.3.53' ] && sed -i '/\"postinstall\": \".*\"/d' publish.js || true",
+      "[ $VERSION = '2.3.53' ] && sed -i '/\"devDependencies\": {/a\\       \"@types/vscode\": \"^1.39.0\",' publish.js || true",
+      "[ $VERSION = '2.3.53' ] && sed -i '/\"devDependencies\": {/,/}/{ /\"vscode\": \".*\"/d }' publish.js || true",
+      "[ $VERSION = '2.3.53' ] && rm -rf src/test || true",
+      "npm run build:beautify || true",
+      "npm install",
+      "vsce package -o extension.vsix"
+    ]
   },
   "Wscats.omi-snippets": {
     "repository": "https://github.com/Wscats/omi-snippets"
@@ -1263,7 +1314,13 @@
     "repository": "https://github.com/xaverh/vscode-clang-format-provider"
   },
   "xirider.livecode": {
-    "repository": "https://github.com/xirider/livecode"
+    "repository": "https://github.com/xirider/livecode",
+    "custom": [
+      "[ $VERSION = '1.3.10' ] && npx rimraf node_modules || true",
+      "[ $VERSION = '1.3.10' ] && sed -i '/\"license\": \".*\"/d' package.json || true",
+      "npm install",
+      "vsce package -o extension.vsix"
+    ]
   },
   "xxamxx.vscode-rubygems": {
     "repository": "https://github.com/xxamxx/vscode-rubygems"

@@ -58,7 +58,7 @@ function isPreReleaseVersion(version) {
    */
   let toVerify = undefined;
   if (process.env.EXTENSIONS) {
-    toVerify = process.env.EXTENSIONS.split(',').map(s => s.trim());
+    toVerify = process.env.EXTENSIONS === ',' ? [] : process.env.EXTENSIONS.split(',').map(s => s.trim());
   }
   /**
    * @type {Readonly<import('./types').Extensions>}
@@ -100,7 +100,7 @@ function isPreReleaseVersion(version) {
     if (id === '$schema') {
       continue;
     }
-    if (toVerify && toVerify.indexOf(id) === -1) {
+    if (toVerify && !toVerify.includes(id)) {
       continue;
     }
     const extension = Object.freeze({ id, ...extensions[id] });

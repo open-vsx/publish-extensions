@@ -52,12 +52,41 @@ export interface Extensions {
     [id: string]: Omit<Extension, 'id'>
 }
 
+export interface SingleExtensionQueryResult {
+    publisher: Publisher
+    extensionId: string
+    extensionName: string
+    displayName: string
+    flags: number
+    lastUpdated: string
+    publishedDate: string
+    releaseDate: string
+    shortDescription: string
+    deploymentType: number
+    statistics: Statistic[]
+};
+
+export interface Statistic {
+    statisticName: string
+    value: number
+}
+
+export interface Publisher {
+    publisherId: string
+    publisherName: string
+    displayName: string
+    flags: number
+    domain: string
+    isDomainVerified: boolean
+}
+
 export interface Extension {
     id: string,
     repository?: string
     location?: string
     prepublish?: string
     extensionFile?: string
+    custom?: string[]
     timeout?: number
 }
 
@@ -92,6 +121,6 @@ export interface PublishContext {
 }
 
 interface IRawGalleryExtensionProperty {
-	readonly key: string;
-	readonly value: string;
+    readonly key: string;
+    readonly value: string;
 }

@@ -1,7 +1,6 @@
 # Publish Extensions to Open VSX
 
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-ready--to--code-908a85?logo=gitpod)](https://gitpod.io/#https://github.com/open-vsx/publish-extensions)
-[![GitHub Workflow Status](https://github.com/open-vsx/publish-extensions/workflows/Publish%20extensions%20to%20open-vsx.org/badge.svg)](https://github.com/open-vsx/publish-extensions/actions?query=workflow%3A%22Publish+extensions+to+open-vsx.org%22)
 
 A CI script for publishing open-source VS Code extensions to [open-vsx.org](https://open-vsx.org).
 
@@ -35,10 +34,17 @@ Click the button below to start a [Gitpod](https://gitpod.io) workspace where yo
 
 ## Publishing Options
 
-The best way to add an extension here is to [open this repository in Gitpod](https://gitpod.io/#https://github.com/open-vsx/publish-extensions) and [add a new entry to `extensions.json`](#how-to-add-an-extension). To test, run:
+The best way to add an extension here is to [open this repository in Gitpod](https://gitpod.io/#https://github.com/open-vsx/publish-extensions) and [add a new entry to `extensions.json`](#how-to-add-an-extension).
+
+To test, run:
 ```
-EXTENSIONS=rebornix.ruby SKIP_PUBLISH=true node publish-extensions.js
+GITHUB_TOKEN=your_pat EXTENSIONS=rebornix.ruby SKIP_PUBLISH=true node publish-extensions.js
 ```
+
+### `GITHUB_TOKEN`
+For testing locally, we advise you to provide a [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for release and file resolution in our scripts. Otherwise, publishing can work in our workflow but fail for you locally and vice-a-versa.
+
+You can create one on your [PAT page](https://github.com/settings/tokens). This token does not require any special permissions.
 
 Notes:
 - Simply replace `$REPOSITORY_URL` with the extension's actual repository URL
@@ -62,12 +68,26 @@ Every night at [03:03 UTC](https://github.com/open-vsx/publish-extensions/blob/e
 The [publishing process](https://github.com/open-vsx/publish-extensions/blob/d2df425a84093023f4ee164592f2491c32166297/publish-extensions.js#L58-L87) can be summarized like this:
 
 1. [`git clone "repository"`](https://github.com/open-vsx/publish-extensions/blob/d2df425a84093023f4ee164592f2491c32166297/publish-extensions.js#L61)
-2. _([`git checkout "checkout"`](https://github.com/open-vsx/publish-extensions/blob/d2df425a84093023f4ee164592f2491c32166297/publish-extensions.js#L63) if a `"checkout"` value is specified)_
-3. [`npm install`](https://github.com/open-vsx/publish-extensions/blob/d2df425a84093023f4ee164592f2491c32166297/publish-extensions.js#L68) (or `yarn install` if a `yarn.lock` file is detected in the repository)
-4. _([`"prepublish"`](https://github.com/open-vsx/publish-extensions/blob/d2df425a84093023f4ee164592f2491c32166297/publish-extensions.js#L70))_
-5. _([`ovsx create-namespace "publisher"`](https://github.com/open-vsx/publish-extensions/blob/d2df425a84093023f4ee164592f2491c32166297/publish-extensions.js#L75) if it doesn't already exist)_
-6. [`ovsx publish`](https://github.com/open-vsx/publish-extensions/blob/d2df425a84093023f4ee164592f2491c32166297/publish-extensions.js#L86) (with `--yarn` if a `yarn.lock` file was detected earlier)
+
+If a `custom` property is provided, then every command from the array is executed, otherwise, the following 2 steps are executed: (the rest is always the same)
+
+2. [`npm install`](https://github.com/open-vsx/publish-extensions/blob/d2df425a84093023f4ee164592f2491c32166297/publish-extensions.js#L68) (or `yarn install` if a `yarn.lock` file is detected in the repository)
+3. _([`"prepublish"`](https://github.com/open-vsx/publish-extensions/blob/d2df425a84093023f4ee164592f2491c32166297/publish-extensions.js#L70))_
+4. _([`ovsx create-namespace "publisher"`](https://github.com/open-vsx/publish-extensions/blob/d2df425a84093023f4ee164592f2491c32166297/publish-extensions.js#L75) if it doesn't already exist)_
+5. [`ovsx publish`](https://github.com/open-vsx/publish-extensions/blob/d2df425a84093023f4ee164592f2491c32166297/publish-extensions.js#L86) (with `--yarn` if a `yarn.lock` file was detected earlier)
 
 See all `ovsx` CLI options [here](https://github.com/eclipse/openvsx/blob/master/cli/README.md).
+
+## Environment Variables
+Custom commands such as `prepublish` and the ones inside the `custom`-array receive a few environment variables
+in order to perform advanced tasks such as executing operations based on the extension version.
+
+Following environment variables are available:
+  - `EXTENSION_ID`: the extension ID, e.g. `rebornix.ruby`
+  - `EXTENSION_PUBLISHER`: the extension publisher, e.g. `rebornix`
+  - `EXTENSION_NAME`: the extension name, e.g. `ruby`
+  - `VERSION`: the version of the extension to publish, e.g. `0.1.0`
+  - `MS_VERSION`: the latest version of the extension on MS marketplace, e.g. `0.1.0`
+  - `OVSX_VERSION`: the latest version of the extension on Open VSX, e.g. `0.1.0`
 
 [publish-extensions-job]: https://github.com/open-vsx/publish-extensions/blob/master/.github/workflows/publish-extensions.yml

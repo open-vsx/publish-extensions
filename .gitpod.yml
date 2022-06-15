@@ -1,2 +1,2 @@
 tasks:
-  - init: npm install
+  - init: npm i -g vsce && npm i
