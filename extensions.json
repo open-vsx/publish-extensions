@@ -1310,9 +1310,6 @@
   "xaver.clang-format": {
     "repository": "https://github.com/xaverh/vscode-clang-format-provider"
   },
-  "xdebug.php-debug": {
-    "repository": "https://github.com/xdebug/vscode-php-debug"
-  },
   "xirider.livecode": {
     "repository": "https://github.com/xirider/livecode",
     "custom": [
