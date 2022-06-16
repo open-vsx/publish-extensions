@@ -507,8 +507,7 @@
     "repository": "https://github.com/jianbingfang/vscode-dup-checker"
   },
   "jock.svg": {
-    "repository": "https://github.com/lishu/vscode-svg2",
-    "prepublish": "[ $VERSION = '1.4.17' ] && sed -i '/formatPlugins: .* = \\[/,/\\]/{/inlineStyles:/,${/}/{s/}/\\0 as any/g}}}' ./client/src/commands.ts || true"
+    "repository": "https://github.com/lishu/vscode-svg2"
   },
   "johnpapa.Angular2": {
     "repository": "https://github.com/johnpapa/vscode-angular-snippets"
