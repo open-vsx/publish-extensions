@@ -196,7 +196,7 @@ function streamToString(stream) {
 
     // Get missing extensions from Microsoft
 
-    let summary = '----- Summary -----\r\n';
+    let summary = '# Summary\r\n';
     summary += `Total: ${total}\r\n`;
     summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%) (${upToDateChange !== undefined ? `${upToDateChange ? `${Math.abs(upToDateChange).toFixed(3)}% ` : ''}${upToDateChange > 0 ? 'increase' : upToDateChange === 0 ? 'no change' : 'decrease'} since last week` : "WoW change n/a"})\r\n`;
     summary += `Weighted publish percentage: ${(weightedPercentage * 100).toFixed(0)}%\r\n`
@@ -224,47 +224,47 @@ function streamToString(stream) {
     summary += `Of which updated in Open VSX within 2 days: ${updatedInOpenIn2Days.size} (${(updatedInOpenIn2Days.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
     summary += `Of which updated in Open VSX within 2 weeks: ${updatedInOpenIn2Weeks.size} (${(updatedInOpenIn2Weeks.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
     summary += `Of which updated in Open VSX within a month: ${updatedInOpenInMonth.size} (${(updatedInOpenInMonth.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
-    summary += '-------------------\r\n';
+    summary += '---\r\n';
     console.log(summary);
 
     let content = summary;
     if (outdated) {
-        content += '\r\n----- Outdated (MS marketplace > Open VSX version) -----\r\n';
+        content += '\r\n## Outdated (MS marketplace > Open VSX version)\r\n';
         for (const id of sortedKeys(stat.outdated)) {
             const r = stat.outdated[id];
             content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.msVersion} > ${r.openVersion}\r\n`;
         }
-        content += '-------------------\r\n';
+        content += '---\r\n';
     }
 
     if (notInOpen) {
-        content += '\r\n----- Not published to Open VSX, but in MS marketplace -----\r\n';
+        content += '\r\n## Not published to Open VSX, but in MS marketplace\r\n';
         for (const id of Object.keys(stat.notInOpen).sort((a, b) => stat.notInOpen[b].msInstalls - stat.notInOpen[a].msInstalls)) {
             const r = stat.notInOpen[id];
             content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): ${r.msVersion}\r\n`;
         }
-        content += '-------------------\r\n';
+        content += '---\r\n';
     }
 
     if (unstable) {
-        content += '\r\n----- Unstable (Open VSX > MS marketplace version) -----\r\n';
+        content += '\r\n## Unstable (Open VSX > MS marketplace version)\r\n';
         for (const id of sortedKeys(stat.unstable)) {
             const r = stat.unstable[id];
             content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion} > ${r.msVersion}\r\n`;
         }
-        content += '-------------------\r\n';
+        content += '---\r\n';
     }
 
     if (notInMS) {
-        content += '\r\n----- Not published to MS marketplace -----\r\n';
+        content += '\r\n## Not published to MS marketplace\r\n';
         content += stat.notInMS.join(', ') + '\r\n';
-        content += '-------------------\r\n';
+        content += '---\r\n';
     }
 
     if (stat.failed.length) {
-        content += '\r\n----- Failed to publish -----\r\n';
+        content += '\r\n## Failed to publish\r\n';
         content += stat.failed.join(', ') + '\r\n';
-        content += '-------------------\r\n';
+        content += '---\r\n';
     }
 
     if ((unstable || stat.failed.length || outdated) && process.env.VALIDATE_PR === 'true') {
@@ -272,20 +272,20 @@ function streamToString(stream) {
         process.exitCode = -1;
     }
 
-    if (yesterdayWeightedPercentage > (weightedPercentage * 1.05)) {
+    if (yesterdayWeightedPercentage && yesterdayWeightedPercentage > (weightedPercentage * 1.05)) {
         // This should indicate a big extension breaking
         process.exitCode = -1;
     }
 
     if (msPublished) {
-        content += '\r\n----- MS extensions -----\r\n'
+        content += '\r\n## MS extensions\r\n'
         for (const id of Object.keys(stat.msPublished).sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls)) {
             const r = stat.msPublished[id];
             content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
         }
 
-        content += '-------------------\r\n';
-        content += '\r\n----- MS Outdated -----\r\n'
+        content += '---\r\n';
+        content += '\r\n## MS Outdated\r\n'
 
         for (const id of msPublishedOutdated.sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls)) {
             const r = stat.msPublished[id];
@@ -293,26 +293,26 @@ function streamToString(stream) {
         }
 
 
-        content += '-------------------\r\n';
-        content += '\r\n----- MS Unstable -----\r\n'
+        content += '---\r\n';
+        content += '\r\n## MS Unstable\r\n'
 
         for (const id of msPublishedUnstable.sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls)) {
             const r = stat.msPublished[id];
             content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
         }
 
-        content += '-------------------\r\n';
-        content += '\r\n----- MS missing from OpenVSX -----\r\n'
+        content += '---\r\n';
+        content += '\r\n## MS missing from OpenVSX\r\n'
 
         for (const extension of couldPublishMs) {
             content += `${`${extension.publisher.publisherName}.${extension.extensionName}`} (installs: ${extension.statistics?.find(s => s.statisticName === 'install')?.value}})${definedInRepo.includes(`${extension.publisher.publisherName}.${extension.extensionName}`) ? ` [defined in extensions.json]` : ''}\r\n`;
         }
 
-        content += '-------------------\r\n';
+        content += '---\r\n';
     }
 
     if (updatedInMTD) {
-        content += '\r\n----- Updated in Open VSX within 2 days after in MS marketplace in MTD -----\r\n';
+        content += '\r\n## Updated in Open VSX within 2 days after in MS marketplace in MTD\r\n';
         for (const id of sortedKeys(stat.hitMiss)) {
             const r = stat.hitMiss[id];
             const in2Days = updatedInOpenIn2Days.has(id) ? '+' : '-';
@@ -320,20 +320,20 @@ function streamToString(stream) {
             const inMonth = updatedInOpenInMonth.has(id) ? '+' : '-';
             content += `${inMonth}${in2Weeks}${in2Days} ${id}: installs: ${humanNumber(r.msInstalls, formatter)}; daysInBetween: ${r.daysInBetween?.toFixed(0)}; MS marketplace: ${r.msVersion}; Open VSX: ${r.openVersion}\r\n`;
         }
-        content += '-------------------\r\n';
+        content += '---\r\n';
     }
 
     if (upToDate) {
-        content += '\r\n----- Up-to-date (Open VSX = MS marketplace version) -----\r\n';
+        content += '\r\n## Up-to-date (Open VSX = MS marketplace version)\r\n';
         for (const id of Object.keys(stat.upToDate).sort((a, b) => stat.upToDate[b].msInstalls - stat.upToDate[a].msInstalls)) {
             const r = stat.upToDate[id];
             content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion}\r\n`;
         }
-        content += '-------------------\r\n';
+        content += '---\r\n';
     }
 
     if (totalResolutions) {
-        content += '\r\n----- Resolutions -----\r\n';
+        content += '\r\n## Resolutions\r\n';
         for (const id of sortedKeys(stat.resolutions)) {
             const r = stat.resolutions[id];
             if (r?.releaseAsset) {
@@ -356,10 +356,10 @@ function streamToString(stream) {
                 content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): unresolved\r\n`;
             }
         }
-        content += '-------------------\r\n';
+        content += '---\r\n';
     }
 
-    await fs.promises.writeFile("/tmp/result.log", content, { encoding: 'utf8' });
+    await fs.promises.writeFile("/tmp/result.md", content, { encoding: 'utf8' });
     const metadata = {
         weightedPercentage
     };

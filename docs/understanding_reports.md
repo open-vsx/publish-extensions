@@ -4,11 +4,11 @@ This document is here to help you understand reports from [the nightly publishin
 
 ## How to gather these statistics
 
-If you click on a job in the GitHub Actions tab, there is an `Artifacts` section at the bottom of the page, from which you can download the `report`, which after unarchiving reveals three files: `result.log`, `stat.json` and `meta.json`.
+If you click on a job in the GitHub Actions tab, there is an `Artifacts` section at the bottom of the page, from which you can download the `report`, which after unarchiving reveals three files: `result.md`, `stat.json` and `meta.json`.
 
 ## `stat.json`
 
-This is the machine-readable data that the next file - `result.log` is generated from. In it, you can find 9 different categories of extensions:
+This is the machine-readable data that the next file - `result.md` is generated from. In it, you can find 9 different categories of extensions:
 
 - `upToDate` - these extensions are the extensions, which have the same version published to OpenVSX as well as the Microsoft Marketplace.
 - `outdated` are all of the extensions, which have versions on OpenVSX, which are behind the ones on the Microsoft Marketplace.
@@ -20,7 +20,7 @@ This is the machine-readable data that the next file - `result.log` is generated
 - `hitMiss` - extensions which, in <abbr title="Month-To-Date">MTD</abbr>, have been updated on OpenVSX within 2 days after the Microsoft Marketplace.
 - `resolutions` is a list of all extensions and the way they have been resolved: `latest`, `matchedLatest`. `releaseTag`, `tag` or `releaseAsset`.
 
-## `result.log`
+## `result.md`
 
 This file is the one that should provide a quick overview of how the repository is doing. It has many percentages, numbers and sections, so that you can quickly take a look and get the information you want. These are mostly made from the `stat.json` file and pretty self-explanatory, but there are some that are a bit more complex:
 

@@ -53,7 +53,9 @@ jobs:
         path: |
           /tmp/stat.json
           /tmp/meta.json
-          /tmp/result.log
+          /tmp/result.md
+    - name: Upload job summary
+      run: cat /tmp/result.md >> $GITHUB_STEP_SUMMARY
     - name: Slack Notification
       if: always()
       uses: rtCamp/action-slack-notify@v2
