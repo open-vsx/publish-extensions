@@ -196,7 +196,7 @@ function streamToString(stream) {
 
     // Get missing extensions from Microsoft
 
-    let summary = '# Summary\r\n';
+    let summary = '# Summary\r\n\n';
     summary += `Total: ${total}\r\n`;
     summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%) (${upToDateChange !== undefined ? `${upToDateChange ? `${Math.abs(upToDateChange).toFixed(3)}% ` : ''}${upToDateChange > 0 ? 'increase' : upToDateChange === 0 ? 'no change' : 'decrease'} since last week` : "WoW change n/a"})\r\n`;
     summary += `Weighted publish percentage: ${(weightedPercentage * 100).toFixed(0)}%\r\n`
@@ -205,11 +205,13 @@ function streamToString(stream) {
     summary += `Unstable (MS marketplace < Open VSX): ${unstable} (${(unstable / total * 100).toFixed(0)}%)\r\n`;
     summary += `Not in MS marketplace: ${notInMS} (${(notInMS / total * 100).toFixed(0)}%)\r\n`;
     summary += `Failed to publish: ${stat.failed.length} (${(stat.failed.length / total * 100).toFixed(0)}%) \r\n`;
+    summary += `\r\n\n`;
     summary += `Microsoft:\r\n`;
     summary += `Total: ${msPublished} (${(msPublished / total * 100).toFixed(0)}%)\r\n`;
     summary += `Outdated: ${msPublishedOutdated.length}\r\n`;
     summary += `Unstable: ${msPublishedUnstable.length}\r\n`;
     summary += `Missing: ${missingMs.length} (we could publish ${couldPublishMs.length} out of that)\r\n`
+    summary += `\r\n\n`;
     summary += `Total resolutions: ${totalResolutions}\r\n`;
     summary += `From release asset: ${fromReleaseAsset} (${(fromReleaseAsset / totalResolutions * 100).toFixed(0)}%)\r\n`;
     summary += `From release tag: ${fromReleaseTag} (${(fromReleaseTag / totalResolutions * 100).toFixed(0)}%)\r\n`;
@@ -219,13 +221,16 @@ function streamToString(stream) {
     summary += `From very latest repo commit on the last update date: ${fromMatchedLatest} (${(fromMatchedLatest / totalResolutions * 100).toFixed(0)}%)\r\n`;
     summary += `From latest repo commit on the last update date: ${fromMatched} (${(fromMatched / totalResolutions * 100).toFixed(0)}%)\r\n`;
     summary += `Total resolved: ${totalResolved} (${(totalResolved / totalResolutions * 100).toFixed(0)}%)\r\n`;
-    summary += `\r\n`;
+    summary += `\r\n\n`;
     summary += `Updated in MS marketplace in month-to-date: ${updatedInMTD}\r\n`;
     summary += `Of which updated in Open VSX within 2 days: ${updatedInOpenIn2Days.size} (${(updatedInOpenIn2Days.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
     summary += `Of which updated in Open VSX within 2 weeks: ${updatedInOpenIn2Weeks.size} (${(updatedInOpenIn2Weeks.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
     summary += `Of which updated in Open VSX within a month: ${updatedInOpenInMonth.size} (${(updatedInOpenInMonth.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
-    summary += '---\r\n';
+
     console.log(summary);
+    summary += `\r\n\n`;
+    summary += '---'
+    summary += `\r\n\n`;
 
     let content = summary;
     if (outdated) {
