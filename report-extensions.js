@@ -239,7 +239,7 @@ function streamToString(stream) {
             const r = stat.outdated[id];
             content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.msVersion} > ${r.openVersion}\r\n`;
         }
-        content += '---\r\n';
+        content += '\r\n---\r\n';
     }
 
     if (notInOpen) {
@@ -248,7 +248,7 @@ function streamToString(stream) {
             const r = stat.notInOpen[id];
             content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): ${r.msVersion}\r\n`;
         }
-        content += '---\r\n';
+        content += '\r\n---\r\n';
     }
 
     if (unstable) {
@@ -257,19 +257,19 @@ function streamToString(stream) {
             const r = stat.unstable[id];
             content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion} > ${r.msVersion}\r\n`;
         }
-        content += '---\r\n';
+        content += '\r\n---\r\n';
     }
 
     if (notInMS) {
         content += '\r\n## Not published to MS marketplace\r\n';
         content += stat.notInMS.join(', ') + '\r\n';
-        content += '---\r\n';
+        content += '\r\n---\r\n';
     }
 
     if (stat.failed.length) {
         content += '\r\n## Failed to publish\r\n';
         content += stat.failed.join(', ') + '\r\n';
-        content += '---\r\n';
+        content += '\r\n---\r\n';
     }
 
     if ((unstable || stat.failed.length || outdated) && process.env.VALIDATE_PR === 'true') {
@@ -289,7 +289,7 @@ function streamToString(stream) {
             content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
         }
 
-        content += '---\r\n';
+        content += '\r\n---\r\n';
         content += '\r\n## MS Outdated\r\n'
 
         for (const id of msPublishedOutdated.sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls)) {
@@ -298,7 +298,7 @@ function streamToString(stream) {
         }
 
 
-        content += '---\r\n';
+        content += '\r\n---\r\n';
         content += '\r\n## MS Unstable\r\n'
 
         for (const id of msPublishedUnstable.sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls)) {
@@ -306,14 +306,14 @@ function streamToString(stream) {
             content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
         }
 
-        content += '---\r\n';
+        content += '\r\n---\r\n';
         content += '\r\n## MS missing from OpenVSX\r\n'
 
         for (const extension of couldPublishMs) {
             content += `${`${extension.publisher.publisherName}.${extension.extensionName}`} (installs: ${extension.statistics?.find(s => s.statisticName === 'install')?.value}})${definedInRepo.includes(`${extension.publisher.publisherName}.${extension.extensionName}`) ? ` [defined in extensions.json]` : ''}\r\n`;
         }
 
-        content += '---\r\n';
+        content += '\r\n---\r\n';
     }
 
     if (updatedInMTD) {
@@ -325,7 +325,7 @@ function streamToString(stream) {
             const inMonth = updatedInOpenInMonth.has(id) ? '+' : '-';
             content += `${inMonth}${in2Weeks}${in2Days} ${id}: installs: ${humanNumber(r.msInstalls, formatter)}; daysInBetween: ${r.daysInBetween?.toFixed(0)}; MS marketplace: ${r.msVersion}; Open VSX: ${r.openVersion}\r\n`;
         }
-        content += '---\r\n';
+        content += '\r\n---\r\n';
     }
 
     if (upToDate) {
@@ -334,7 +334,7 @@ function streamToString(stream) {
             const r = stat.upToDate[id];
             content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion}\r\n`;
         }
-        content += '---\r\n';
+        content += '\r\n---\r\n';
     }
 
     if (totalResolutions) {
@@ -361,7 +361,7 @@ function streamToString(stream) {
                 content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): unresolved\r\n`;
             }
         }
-        content += '---\r\n';
+        content += '\r\n---\r\n';
     }
 
     await fs.promises.writeFile("/tmp/result.md", content, { encoding: 'utf8' });
