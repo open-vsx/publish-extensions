@@ -1115,6 +1115,9 @@
   "snyk-security.vscode-vuln-cost": {
     "repository": "https://github.com/snyk/vulncost"
   },
+  "sswg.swift-lang": {
+    "repository": "https://github.com/swift-server/vscode-swift"
+  },
   "steoates.autoimport": {
     "repository": "https://github.com/soates/Auto-Import"
   },
