@@ -45,6 +45,19 @@ function streamToString(stream) {
     })
 }
 
+/**
+ * @param {any} item
+ * @param {string | any[]} array
+ * @returns {string} the position of the item in the array with a `.` appended onto it.
+ */
+function positionOf(item, array) {
+    return `${array.indexOf(item) + 1}.`;
+}
+
+function generateLink = () => {
+    
+}
+
 (async () => {
 
     let lastWeekUpToDate;
@@ -238,7 +251,7 @@ function streamToString(stream) {
         content += '\r\n## Outdated (MS marketplace > Open VSX version)\r\n';
         for (const id of keys) {
             const r = stat.outdated[id];
-            content += `${keys.indexOf(id)}. ${id} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.msVersion} > ${r.openVersion}\r\n`;
+            content += `${positionOf(id, keys)} ${id} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.msVersion} > ${r.openVersion}\r\n`;
         }
         content += '\r\n---\r\n';
     }
@@ -248,7 +261,7 @@ function streamToString(stream) {
         content += '\r\n## Not published to Open VSX, but in MS marketplace\r\n';
         for (const id of keys) {
             const r = stat.notInOpen[id];
-            content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): ${r.msVersion}\r\n`;
+            content += `${positionOf(id, keys)} ${id} (installs: ${humanNumber(r.msInstalls, formatter)}): ${r.msVersion}\r\n`;
         }
         content += '\r\n---\r\n';
     }
@@ -258,7 +271,7 @@ function streamToString(stream) {
         content += '\r\n## Unstable (Open VSX > MS marketplace version)\r\n';
         for (const id of keys) {
             const r = stat.unstable[id];
-            content += `${keys.indexOf(id)}. ${id} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion} > ${r.msVersion}\r\n`;
+            content += `${positionOf(id, keys)} ${id} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion} > ${r.msVersion}\r\n`;
         }
         content += '\r\n---\r\n';
     }
@@ -295,7 +308,7 @@ function streamToString(stream) {
 
         for (const id of publishedKeys) {
             const r = stat.msPublished[id];
-            content += `${publishedKeys.indexOf(id)}. ${id} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
+            content += `${positionOf(id, publishedKeys)} ${id} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
         }
 
         content += '\r\n---\r\n';
@@ -303,7 +316,7 @@ function streamToString(stream) {
 
         for (const id of outdatedKeys) {
             const r = stat.msPublished[id];
-            content += `${outdatedKeys.indexOf(id)}. ${id} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
+            content += `${positionOf(id, outdatedKeys)} ${id} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
         }
 
 
@@ -312,14 +325,14 @@ function streamToString(stream) {
 
         for (const id of unstableKeys) {
             const r = stat.msPublished[id];
-            content += `${unstableKeys.indexOf(id)}. ${id} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
+            content += `${positionOf(id, unstableKeys)} ${id} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
         }
 
         content += '\r\n---\r\n';
         content += '\r\n## MS missing from OpenVSX\r\n'
 
         for (const extension of couldPublishMs) {
-            content += `${couldPublishMs.indexOf(extension)}. ${`${extension.publisher.publisherName}.${extension.extensionName}`} (installs: ${extension.statistics?.find(s => s.statisticName === 'install')?.value}})${definedInRepo.includes(`${extension.publisher.publisherName}.${extension.extensionName}`) ? ` [defined in extensions.json]` : ''}\r\n`;
+            content += `${positionOf(extension, couldPublishMs)} ${`${extension.publisher.publisherName}.${extension.extensionName}`} (installs: ${extension.statistics?.find(s => s.statisticName === 'install')?.value}})${definedInRepo.includes(`${extension.publisher.publisherName}.${extension.extensionName}`) ? ` [defined in extensions.json]` : ''}\r\n`;
         }
 
         content += '\r\n---\r\n';
@@ -333,7 +346,7 @@ function streamToString(stream) {
             const in2Days = updatedInOpenIn2Days.has(id) ? '+' : '-';
             const in2Weeks = updatedInOpenIn2Weeks.has(id) ? '+' : '-';
             const inMonth = updatedInOpenInMonth.has(id) ? '+' : '-';
-            content += `${keys.indexOf(id)}. ${inMonth}${in2Weeks}${in2Days} ${id}: installs: ${humanNumber(r.msInstalls, formatter)}; daysInBetween: ${r.daysInBetween?.toFixed(0)}; MS marketplace: ${r.msVersion}; Open VSX: ${r.openVersion}\r\n`;
+            content += `${positionOf(id, keys)} ${inMonth}${in2Weeks}${in2Days} ${id}: installs: ${humanNumber(r.msInstalls, formatter)}; daysInBetween: ${r.daysInBetween?.toFixed(0)}; MS marketplace: ${r.msVersion}; Open VSX: ${r.openVersion}\r\n`;
         }
         content += '\r\n---\r\n';
     }
@@ -343,7 +356,7 @@ function streamToString(stream) {
         const keys = Object.keys(stat.upToDate).sort((a, b) => stat.upToDate[b].msInstalls - stat.upToDate[a].msInstalls);
         for (const id of keys) {
             const r = stat.upToDate[id];
-            content += `${keys.indexOf(id)}. ${id} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion}\r\n`;
+            content += `${positionOf(id, keys)} ${id} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion}\r\n`;
         }
         content += '\r\n---\r\n';
     }
@@ -354,23 +367,23 @@ function streamToString(stream) {
         for (const id of keys) {
             const r = stat.resolutions[id];
             if (r?.releaseAsset) {
-                content += `${keys.indexOf(id)}. ${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.releaseAsset}' release asset\r\n`;
+                content += `${positionOf(id, keys)} ${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.releaseAsset}' release asset\r\n`;
             } else if (r?.releaseTag) {
-                content += `${keys.indexOf(id)}. ${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.releaseTag}' release tag\r\n`;
+                content += `${positionOf(id, keys)} ${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.releaseTag}' release tag\r\n`;
             } else if (r?.tag) {
-                content += `${keys.indexOf(id)}. ${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.tag}' release repo tag\r\n`;
+                content += `${positionOf(id, keys)} ${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.tag}' release repo tag\r\n`;
             } else if (r?.latest) {
                 if (r.msVersion) {
-                    content += `${keys.indexOf(id)}. ${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.latest}' the very latest repo commit, since it is not actively maintained\r\n`;
+                    content += `${positionOf(id, keys)} ${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.latest}' the very latest repo commit, since it is not actively maintained\r\n`;
                 } else {
-                    content += `${keys.indexOf(id)}. ${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.latest}' the very latest repo commit, since it is not published to MS marketplace\r\n`;
+                    content += `${positionOf(id, keys)} ${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.latest}' the very latest repo commit, since it is not published to MS marketplace\r\n`;
                 }
             } else if (r?.matchedLatest) {
-                content += `${keys.indexOf(id)}. ${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.matchedLatest}' from the very latest commit on the last update date\r\n`;
+                content += `${positionOf(id, keys)} ${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.matchedLatest}' from the very latest commit on the last update date\r\n`;
             } else if (r?.matched) {
-                content += `${keys.indexOf(id)}. ${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.matched}' from the latest commit on the last update date\r\n`;
+                content += `${positionOf(id, keys)} ${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.matched}' from the latest commit on the last update date\r\n`;
             } else {
-                content += `${keys.indexOf(id)}. ${id} (installs: ${humanNumber(r.msInstalls, formatter)}): unresolved\r\n`;
+                content += `${positionOf(id, keys)} ${id} (installs: ${humanNumber(r.msInstalls, formatter)}): unresolved\r\n`;
             }
         }
         content += '\r\n---\r\n';
