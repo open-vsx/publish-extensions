@@ -251,7 +251,6 @@ const generateLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace
             const r = stat.outdated[id];
             content += `${positionOf(id, keys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.msVersion} > ${r.openVersion}\r\n`;
         }
-        content += '\r\n---\r\n';
     }
 
     if (notInOpen) {
@@ -261,7 +260,6 @@ const generateLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace
             const r = stat.notInOpen[id];
             content += `${positionOf(id, keys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}): ${r.msVersion}\r\n`;
         }
-        content += '\r\n---\r\n';
     }
 
     if (unstable) {
@@ -271,19 +269,18 @@ const generateLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace
             const r = stat.unstable[id];
             content += `${positionOf(id, keys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion} > ${r.msVersion}\r\n`;
         }
-        content += '\r\n---\r\n';
     }
 
     if (notInMS) {
         content += '\r\n## Not published to MS marketplace\r\n';
         content += stat.notInMS.map(ext => `- ${ext}`).join('\r\n');
-        content += '\r\n---\r\n';
+        content += '\r\n';
     }
 
     if (stat.failed.length) {
         content += '\r\n## Failed to publish\r\n';
         content += stat.failed.map(ext => `- ${generateLink(ext)}`).join('\r\n');
-        content += '\r\n---\r\n';
+        content += '\r\n';
     }
 
     if ((unstable || stat.failed.length || outdated) && process.env.VALIDATE_PR === 'true') {
@@ -309,7 +306,6 @@ const generateLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace
             content += `${positionOf(id, publishedKeys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
         }
 
-        content += '\r\n---\r\n';
         content += '\r\n## MS Outdated\r\n'
 
         for (const id of outdatedKeys) {
@@ -318,7 +314,6 @@ const generateLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace
         }
 
 
-        content += '\r\n---\r\n';
         content += '\r\n## MS Unstable\r\n'
 
         for (const id of unstableKeys) {
@@ -326,14 +321,11 @@ const generateLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace
             content += `${positionOf(id, unstableKeys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
         }
 
-        content += '\r\n---\r\n';
         content += '\r\n## MS missing from OpenVSX\r\n'
 
         for (const extension of couldPublishMs) {
             content += `${positionOf(extension, couldPublishMs)} ${generateLink(`${extension.publisher.publisherName}.${extension.extensionName}`)} (installs: ${extension.statistics?.find(s => s.statisticName === 'install')?.value}})${definedInRepo.includes(`${extension.publisher.publisherName}.${extension.extensionName}`) ? ` [defined in extensions.json]` : ''}\r\n`;
         }
-
-        content += '\r\n---\r\n';
     }
 
     if (updatedInMTD) {
@@ -346,7 +338,7 @@ const generateLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace
             const inMonth = updatedInOpenInMonth.has(id) ? '+' : '-';
             content += `${positionOf(id, keys)} ${inMonth}${in2Weeks}${in2Days} ${generateLink(id)}: installs: ${humanNumber(r.msInstalls, formatter)}; daysInBetween: ${r.daysInBetween?.toFixed(0)}; MS marketplace: ${r.msVersion}; Open VSX: ${r.openVersion}\r\n`;
         }
-        content += '\r\n---\r\n';
+        content += '\r\n';
     }
 
     if (upToDate) {
@@ -356,7 +348,7 @@ const generateLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace
             const r = stat.upToDate[id];
             content += `${positionOf(id, keys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion}\r\n`;
         }
-        content += '\r\n---\r\n';
+        content += '\r\n';
     }
 
     if (totalResolutions) {
@@ -385,7 +377,6 @@ const generateLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace
                 content +=  `${base} unresolved\r\n`;
             }
         }
-        content += '\r\n---\r\n';
     }
 
     await fs.promises.writeFile("/tmp/result.md", content, { encoding: 'utf8' });
