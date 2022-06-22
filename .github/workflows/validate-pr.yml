@@ -32,5 +32,6 @@ jobs:
           name: report
           path: |
             /tmp/stat.json
-            /tmp/result.log
-
+            /tmp/result.md
+      - name: Upload job summary
+        run: cat /tmp/result.md >> $GITHUB_STEP_SUMMARY

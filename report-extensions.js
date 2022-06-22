@@ -45,6 +45,17 @@ function streamToString(stream) {
     })
 }
 
+/**
+ * @param {any} item
+ * @param {string | any[]} array
+ * @returns {string} the position of the item in the array with a `.` appended onto it.
+ */
+function positionOf(item, array) {
+    return `${array.indexOf(item) + 1}.`;
+}
+
+const generateLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace.visualstudio.com/items?itemName=${id})`;
+
 (async () => {
 
     let lastWeekUpToDate;
@@ -196,7 +207,7 @@ function streamToString(stream) {
 
     // Get missing extensions from Microsoft
 
-    let summary = '----- Summary -----\r\n';
+    let summary = '# Summary\r\n\n';
     summary += `Total: ${total}\r\n`;
     summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%) (${upToDateChange !== undefined ? `${upToDateChange ? `${Math.abs(upToDateChange).toFixed(3)}% ` : ''}${upToDateChange > 0 ? 'increase' : upToDateChange === 0 ? 'no change' : 'decrease'} since last week` : "WoW change n/a"})\r\n`;
     summary += `Weighted publish percentage: ${(weightedPercentage * 100).toFixed(0)}%\r\n`
@@ -205,11 +216,13 @@ function streamToString(stream) {
     summary += `Unstable (MS marketplace < Open VSX): ${unstable} (${(unstable / total * 100).toFixed(0)}%)\r\n`;
     summary += `Not in MS marketplace: ${notInMS} (${(notInMS / total * 100).toFixed(0)}%)\r\n`;
     summary += `Failed to publish: ${stat.failed.length} (${(stat.failed.length / total * 100).toFixed(0)}%) \r\n`;
+    summary += `\r\n\n`;
     summary += `Microsoft:\r\n`;
     summary += `Total: ${msPublished} (${(msPublished / total * 100).toFixed(0)}%)\r\n`;
     summary += `Outdated: ${msPublishedOutdated.length}\r\n`;
     summary += `Unstable: ${msPublishedUnstable.length}\r\n`;
     summary += `Missing: ${missingMs.length} (we could publish ${couldPublishMs.length} out of that)\r\n`
+    summary += `\r\n\n`;
     summary += `Total resolutions: ${totalResolutions}\r\n`;
     summary += `From release asset: ${fromReleaseAsset} (${(fromReleaseAsset / totalResolutions * 100).toFixed(0)}%)\r\n`;
     summary += `From release tag: ${fromReleaseTag} (${(fromReleaseTag / totalResolutions * 100).toFixed(0)}%)\r\n`;
@@ -219,52 +232,55 @@ function streamToString(stream) {
     summary += `From very latest repo commit on the last update date: ${fromMatchedLatest} (${(fromMatchedLatest / totalResolutions * 100).toFixed(0)}%)\r\n`;
     summary += `From latest repo commit on the last update date: ${fromMatched} (${(fromMatched / totalResolutions * 100).toFixed(0)}%)\r\n`;
     summary += `Total resolved: ${totalResolved} (${(totalResolved / totalResolutions * 100).toFixed(0)}%)\r\n`;
-    summary += `\r\n`;
+    summary += `\r\n\n`;
     summary += `Updated in MS marketplace in month-to-date: ${updatedInMTD}\r\n`;
     summary += `Of which updated in Open VSX within 2 days: ${updatedInOpenIn2Days.size} (${(updatedInOpenIn2Days.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
     summary += `Of which updated in Open VSX within 2 weeks: ${updatedInOpenIn2Weeks.size} (${(updatedInOpenIn2Weeks.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
     summary += `Of which updated in Open VSX within a month: ${updatedInOpenInMonth.size} (${(updatedInOpenInMonth.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
-    summary += '-------------------\r\n';
+
     console.log(summary);
+    summary += `\r\n\n`;
+    summary += '---'
+    summary += `\r\n\n`;
 
     let content = summary;
     if (outdated) {
-        content += '\r\n----- Outdated (MS marketplace > Open VSX version) -----\r\n';
-        for (const id of sortedKeys(stat.outdated)) {
+        const keys = sortedKeys(stat.outdated);
+        content += '\r\n## Outdated (MS marketplace > Open VSX version)\r\n';
+        for (const id of keys) {
             const r = stat.outdated[id];
-            content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.msVersion} > ${r.openVersion}\r\n`;
+            content += `${positionOf(id, keys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.msVersion} > ${r.openVersion}\r\n`;
         }
-        content += '-------------------\r\n';
     }
 
     if (notInOpen) {
-        content += '\r\n----- Not published to Open VSX, but in MS marketplace -----\r\n';
-        for (const id of Object.keys(stat.notInOpen).sort((a, b) => stat.notInOpen[b].msInstalls - stat.notInOpen[a].msInstalls)) {
+        const keys = Object.keys(stat.notInOpen).sort((a, b) => stat.notInOpen[b].msInstalls - stat.notInOpen[a].msInstalls);
+        content += '\r\n## Not published to Open VSX, but in MS marketplace\r\n';
+        for (const id of keys) {
             const r = stat.notInOpen[id];
-            content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): ${r.msVersion}\r\n`;
+            content += `${positionOf(id, keys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}): ${r.msVersion}\r\n`;
         }
-        content += '-------------------\r\n';
     }
 
     if (unstable) {
-        content += '\r\n----- Unstable (Open VSX > MS marketplace version) -----\r\n';
-        for (const id of sortedKeys(stat.unstable)) {
+        const keys = sortedKeys(stat.unstable);
+        content += '\r\n## Unstable (Open VSX > MS marketplace version)\r\n';
+        for (const id of keys) {
             const r = stat.unstable[id];
-            content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion} > ${r.msVersion}\r\n`;
+            content += `${positionOf(id, keys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion} > ${r.msVersion}\r\n`;
         }
-        content += '-------------------\r\n';
     }
 
     if (notInMS) {
-        content += '\r\n----- Not published to MS marketplace -----\r\n';
-        content += stat.notInMS.join(', ') + '\r\n';
-        content += '-------------------\r\n';
+        content += '\r\n## Not published to MS marketplace\r\n';
+        content += stat.notInMS.map(ext => `- ${ext}`).join('\r\n');
+        content += '\r\n';
     }
 
     if (stat.failed.length) {
-        content += '\r\n----- Failed to publish -----\r\n';
-        content += stat.failed.join(', ') + '\r\n';
-        content += '-------------------\r\n';
+        content += '\r\n## Failed to publish\r\n';
+        content += stat.failed.map(ext => `- ${generateLink(ext)}`).join('\r\n');
+        content += '\r\n';
     }
 
     if ((unstable || stat.failed.length || outdated) && process.env.VALIDATE_PR === 'true') {
@@ -272,94 +288,98 @@ function streamToString(stream) {
         process.exitCode = -1;
     }
 
-    if (yesterdayWeightedPercentage > (weightedPercentage * 1.05)) {
+    if (yesterdayWeightedPercentage && yesterdayWeightedPercentage > (weightedPercentage * 1.05)) {
         // This should indicate a big extension breaking
         process.exitCode = -1;
     }
 
     if (msPublished) {
-        content += '\r\n----- MS extensions -----\r\n'
-        for (const id of Object.keys(stat.msPublished).sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls)) {
+
+        const publishedKeys = Object.keys(stat.msPublished).sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls);
+        const outdatedKeys = msPublishedOutdated.sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls);
+        const unstableKeys = msPublishedUnstable.sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls);
+
+        content += '\r\n## MS extensions\r\n';
+
+        for (const id of publishedKeys) {
             const r = stat.msPublished[id];
-            content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
+            content += `${positionOf(id, publishedKeys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
         }
 
-        content += '-------------------\r\n';
-        content += '\r\n----- MS Outdated -----\r\n'
+        content += '\r\n## MS Outdated\r\n'
 
-        for (const id of msPublishedOutdated.sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls)) {
+        for (const id of outdatedKeys) {
             const r = stat.msPublished[id];
-            content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
+            content += `${positionOf(id, outdatedKeys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
         }
 
 
-        content += '-------------------\r\n';
-        content += '\r\n----- MS Unstable -----\r\n'
+        content += '\r\n## MS Unstable\r\n'
 
-        for (const id of msPublishedUnstable.sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls)) {
+        for (const id of unstableKeys) {
             const r = stat.msPublished[id];
-            content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
+            content += `${positionOf(id, unstableKeys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
         }
 
-        content += '-------------------\r\n';
-        content += '\r\n----- MS missing from OpenVSX -----\r\n'
+        content += '\r\n## MS missing from OpenVSX\r\n'
 
         for (const extension of couldPublishMs) {
-            content += `${`${extension.publisher.publisherName}.${extension.extensionName}`} (installs: ${extension.statistics?.find(s => s.statisticName === 'install')?.value}})${definedInRepo.includes(`${extension.publisher.publisherName}.${extension.extensionName}`) ? ` [defined in extensions.json]` : ''}\r\n`;
+            content += `${positionOf(extension, couldPublishMs)} ${generateLink(`${extension.publisher.publisherName}.${extension.extensionName}`)} (installs: ${extension.statistics?.find(s => s.statisticName === 'install')?.value}})${definedInRepo.includes(`${extension.publisher.publisherName}.${extension.extensionName}`) ? ` [defined in extensions.json]` : ''}\r\n`;
         }
-
-        content += '-------------------\r\n';
     }
 
     if (updatedInMTD) {
-        content += '\r\n----- Updated in Open VSX within 2 days after in MS marketplace in MTD -----\r\n';
-        for (const id of sortedKeys(stat.hitMiss)) {
+        content += '\r\n## Updated in Open VSX within 2 days after in MS marketplace in MTD\r\n';
+        const keys = sortedKeys(stat.hitMiss);
+        for (const id of keys) {
             const r = stat.hitMiss[id];
             const in2Days = updatedInOpenIn2Days.has(id) ? '+' : '-';
             const in2Weeks = updatedInOpenIn2Weeks.has(id) ? '+' : '-';
             const inMonth = updatedInOpenInMonth.has(id) ? '+' : '-';
-            content += `${inMonth}${in2Weeks}${in2Days} ${id}: installs: ${humanNumber(r.msInstalls, formatter)}; daysInBetween: ${r.daysInBetween?.toFixed(0)}; MS marketplace: ${r.msVersion}; Open VSX: ${r.openVersion}\r\n`;
+            content += `${positionOf(id, keys)} ${inMonth}${in2Weeks}${in2Days} ${generateLink(id)}: installs: ${humanNumber(r.msInstalls, formatter)}; daysInBetween: ${r.daysInBetween?.toFixed(0)}; MS marketplace: ${r.msVersion}; Open VSX: ${r.openVersion}\r\n`;
         }
-        content += '-------------------\r\n';
+        content += '\r\n';
     }
 
     if (upToDate) {
-        content += '\r\n----- Up-to-date (Open VSX = MS marketplace version) -----\r\n';
-        for (const id of Object.keys(stat.upToDate).sort((a, b) => stat.upToDate[b].msInstalls - stat.upToDate[a].msInstalls)) {
+        content += '\r\n## Up-to-date (Open VSX = MS marketplace version)\r\n';
+        const keys = Object.keys(stat.upToDate).sort((a, b) => stat.upToDate[b].msInstalls - stat.upToDate[a].msInstalls);
+        for (const id of keys) {
             const r = stat.upToDate[id];
-            content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion}\r\n`;
+            content += `${positionOf(id, keys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion}\r\n`;
         }
-        content += '-------------------\r\n';
+        content += '\r\n';
     }
 
     if (totalResolutions) {
-        content += '\r\n----- Resolutions -----\r\n';
-        for (const id of sortedKeys(stat.resolutions)) {
+        content += '\r\n## Resolutions\r\n';
+        const keys = sortedKeys(stat.resolutions);
+        for (const id of keys) {
             const r = stat.resolutions[id];
+            const base  = `${positionOf(id, keys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}) from`;
             if (r?.releaseAsset) {
-                content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.releaseAsset}' release asset\r\n`;
+                content += `${base} '${r.releaseAsset}' release asset\r\n`;
             } else if (r?.releaseTag) {
-                content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.releaseTag}' release tag\r\n`;
+                content +=  `${base} '${r.releaseTag}' release tag\r\n`;
             } else if (r?.tag) {
-                content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.tag}' release repo tag\r\n`;
+                content +=  `${base} from '${r.tag}' release repo tag\r\n`;
             } else if (r?.latest) {
                 if (r.msVersion) {
-                    content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.latest}' the very latest repo commit, since it is not actively maintained\r\n`;
+                    content +=  `${base} from '${r.latest}' the very latest repo commit, since it is not actively maintained\r\n`;
                 } else {
-                    content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.latest}' the very latest repo commit, since it is not published to MS marketplace\r\n`;
+                    content +=  `${base} from '${r.latest}' the very latest repo commit, since it is not published to MS marketplace\r\n`;
                 }
             } else if (r?.matchedLatest) {
-                content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.matchedLatest}' from the very latest commit on the last update date\r\n`;
+                content +=  `${base} from '${r.matchedLatest}' from the very latest commit on the last update date\r\n`;
             } else if (r?.matched) {
-                content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): from '${r.matched}' from the latest commit on the last update date\r\n`;
+                content +=  `${base} from '${r.matched}' from the latest commit on the last update date\r\n`;
             } else {
-                content += `${id} (installs: ${humanNumber(r.msInstalls, formatter)}): unresolved\r\n`;
+                content +=  `${base} unresolved\r\n`;
             }
         }
-        content += '-------------------\r\n';
     }
 
-    await fs.promises.writeFile("/tmp/result.log", content, { encoding: 'utf8' });
+    await fs.promises.writeFile("/tmp/result.md", content, { encoding: 'utf8' });
     const metadata = {
         weightedPercentage
     };
