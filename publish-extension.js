@@ -38,9 +38,11 @@ const { createVSIX } = require('vsce');
             options = { extensionFile: context.file };
         } else if (context.repo && context.ref) {
             console.log(`${id}: preparing from ${context.repo}...`);
+
+            const [publisher, name] = extension.id.split('.');
             process.env.EXTENSION_ID = extension.id;
-            process.env.EXTENSION_PUBLISHER = context.msPublisher;
-            process.env.EXTENSION_NAME = extension.id.substring(context.msPublisher.length + 1);
+            process.env.EXTENSION_PUBLISHER = publisher;
+            process.env.EXTENSION_NAME = name;
             process.env.VERSION = context.version;
             process.env.MS_VERSION = context.msVersion;
             process.env.OVSX_VERSION = context.ovsxVersion;
