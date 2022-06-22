@@ -145,9 +145,6 @@
   "ccls-project.ccls": {
     "repository": "https://github.com/MaskRay/vscode-ccls"
   },
-  "ChakrounAnas.turbo-console-log": {
-    "repository": "https://github.com/Chakroun-Anas/turbo-console-log"
-  },
   "chenglou92.rescript-vscode": {
     "repository": "https://github.com/rescript-lang/rescript-vscode"
   },
