@@ -993,6 +993,9 @@
   "philosowaffle.openapi-designer": {
     "repository": "https://github.com/philosowaffle/vs-openapi-designer"
   },
+  "plorefice.devicetree": {
+    "repository": "https://github.com/plorefice/vscode-devicetree"
+  },
   "pucelle.vscode-css-navigation": {
     "repository": "https://github.com/pucelle/vscode-css-navigation"
   },
