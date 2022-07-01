@@ -54,7 +54,8 @@ function positionOf(item, array) {
     return `${array.indexOf(item) + 1}.`;
 }
 
-const generateLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace.visualstudio.com/items?itemName=${id})`;
+const generateMicrosoftLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace.visualstudio.com/items?itemName=${id})`;
+const generateOpennVsxLink = (/** @type {string} */ id) =>  `[${id}](https://open-vsx.org/extension/${id.split(".").at(0)}/${id.split(".").at(1)})`;
 
 (async () => {
 
@@ -249,7 +250,7 @@ const generateLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace
         content += '\r\n## Outdated (MS marketplace > Open VSX version)\r\n';
         for (const id of keys) {
             const r = stat.outdated[id];
-            content += `${positionOf(id, keys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.msVersion} > ${r.openVersion}\r\n`;
+            content += `${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.msVersion} > ${r.openVersion}\r\n`;
         }
     }
 
@@ -258,7 +259,7 @@ const generateLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace
         content += '\r\n## Not published to Open VSX, but in MS marketplace\r\n';
         for (const id of keys) {
             const r = stat.notInOpen[id];
-            content += `${positionOf(id, keys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}): ${r.msVersion}\r\n`;
+            content += `${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}): ${r.msVersion}\r\n`;
         }
     }
 
@@ -267,19 +268,19 @@ const generateLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace
         content += '\r\n## Unstable (Open VSX > MS marketplace version)\r\n';
         for (const id of keys) {
             const r = stat.unstable[id];
-            content += `${positionOf(id, keys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion} > ${r.msVersion}\r\n`;
+            content += `${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion} > ${r.msVersion}\r\n`;
         }
     }
 
     if (notInMS) {
         content += '\r\n## Not published to MS marketplace\r\n';
-        content += stat.notInMS.map(ext => `- ${ext}`).join('\r\n');
+        content += stat.notInMS.map(ext => `- ${generateOpennVsxLink(ext)}`).join('\r\n');
         content += '\r\n';
     }
 
     if (stat.failed.length) {
         content += '\r\n## Failed to publish\r\n';
-        content += stat.failed.map(ext => `- ${generateLink(ext)}`).join('\r\n');
+        content += stat.failed.map(ext => `- ${generateMicrosoftLink(ext)}`).join('\r\n');
         content += '\r\n';
     }
 
@@ -303,14 +304,14 @@ const generateLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace
 
         for (const id of publishedKeys) {
             const r = stat.msPublished[id];
-            content += `${positionOf(id, publishedKeys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
+            content += `${positionOf(id, publishedKeys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
         }
 
         content += '\r\n## MS Outdated\r\n'
 
         for (const id of outdatedKeys) {
             const r = stat.msPublished[id];
-            content += `${positionOf(id, outdatedKeys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
+            content += `${positionOf(id, outdatedKeys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
         }
 
 
@@ -318,13 +319,13 @@ const generateLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace
 
         for (const id of unstableKeys) {
             const r = stat.msPublished[id];
-            content += `${positionOf(id, unstableKeys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
+            content += `${positionOf(id, unstableKeys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
         }
 
         content += '\r\n## MS missing from OpenVSX\r\n'
 
         for (const extension of couldPublishMs) {
-            content += `${positionOf(extension, couldPublishMs)} ${generateLink(`${extension.publisher.publisherName}.${extension.extensionName}`)} (installs: ${extension.statistics?.find(s => s.statisticName === 'install')?.value}})${definedInRepo.includes(`${extension.publisher.publisherName}.${extension.extensionName}`) ? ` [defined in extensions.json]` : ''}\r\n`;
+            content += `${positionOf(extension, couldPublishMs)} ${generateMicrosoftLink(`${extension.publisher.publisherName}.${extension.extensionName}`)} (installs: ${extension.statistics?.find(s => s.statisticName === 'install')?.value}})${definedInRepo.includes(`${extension.publisher.publisherName}.${extension.extensionName}`) ? ` [defined in extensions.json]` : ''}\r\n`;
         }
     }
 
@@ -336,7 +337,7 @@ const generateLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace
             const in2Days = updatedInOpenIn2Days.has(id) ? '+' : '-';
             const in2Weeks = updatedInOpenIn2Weeks.has(id) ? '+' : '-';
             const inMonth = updatedInOpenInMonth.has(id) ? '+' : '-';
-            content += `${positionOf(id, keys)} ${inMonth}${in2Weeks}${in2Days} ${generateLink(id)}: installs: ${humanNumber(r.msInstalls, formatter)}; daysInBetween: ${r.daysInBetween?.toFixed(0)}; MS marketplace: ${r.msVersion}; Open VSX: ${r.openVersion}\r\n`;
+            content += `${positionOf(id, keys)} ${inMonth}${in2Weeks}${in2Days} ${generateMicrosoftLink(id)}: installs: ${humanNumber(r.msInstalls, formatter)}; daysInBetween: ${r.daysInBetween?.toFixed(0)}; MS marketplace: ${r.msVersion}; Open VSX: ${r.openVersion}\r\n`;
         }
         content += '\r\n';
     }
@@ -346,7 +347,7 @@ const generateLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace
         const keys = Object.keys(stat.upToDate).sort((a, b) => stat.upToDate[b].msInstalls - stat.upToDate[a].msInstalls);
         for (const id of keys) {
             const r = stat.upToDate[id];
-            content += `${positionOf(id, keys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion}\r\n`;
+            content += `${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion}\r\n`;
         }
         content += '\r\n';
     }
@@ -356,23 +357,23 @@ const generateLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace
         const keys = sortedKeys(stat.resolutions);
         for (const id of keys) {
             const r = stat.resolutions[id];
-            const base  = `${positionOf(id, keys)} ${generateLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}) from`;
+            const base  = `${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}) from`;
             if (r?.releaseAsset) {
                 content += `${base} '${r.releaseAsset}' release asset\r\n`;
             } else if (r?.releaseTag) {
                 content +=  `${base} '${r.releaseTag}' release tag\r\n`;
             } else if (r?.tag) {
-                content +=  `${base} from '${r.tag}' release repo tag\r\n`;
+                content +=  `${base} the '${r.tag}' release tag\r\n`;
             } else if (r?.latest) {
                 if (r.msVersion) {
-                    content +=  `${base} from '${r.latest}' the very latest repo commit, since it is not actively maintained\r\n`;
+                    content +=  `${base} '${r.latest}' - the very latest repo commit, since it is not actively maintained\r\n`;
                 } else {
-                    content +=  `${base} from '${r.latest}' the very latest repo commit, since it is not published to MS marketplace\r\n`;
+                    content +=  `${positionOf(id, keys)} ${generateOpennVsxLink(id)} from '${r.latest}' - the very latest repo commit, since it is not published to MS marketplace\r\n`;
                 }
             } else if (r?.matchedLatest) {
-                content +=  `${base} from '${r.matchedLatest}' from the very latest commit on the last update date\r\n`;
+                content +=  `${base} '${r.matchedLatest}' - the very latest commit on the last update date\r\n`;
             } else if (r?.matched) {
-                content +=  `${base} from '${r.matched}' from the latest commit on the last update date\r\n`;
+                content +=  `${base} '${r.matched}' - the latest commit on the last update date\r\n`;
             } else {
                 content +=  `${base} unresolved\r\n`;
             }
