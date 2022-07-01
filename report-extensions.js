@@ -55,7 +55,7 @@ function positionOf(item, array) {
 }
 
 const generateMicrosoftLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace.visualstudio.com/items?itemName=${id})`;
-const generateOpennVsxLink = (/** @type {string} */ id) =>  `[${id}](https://open-vsx.org/extension/${id.split(".").at(0)}/${id.split(".").at(1)})`;
+const generateOpennVsxLink = (/** @type {string} */ id) =>  `[${id}](https://open-vsx.org/extension/${id.split(".")[0]}/${id.split(".")[1]})`;
 
 (async () => {
 
