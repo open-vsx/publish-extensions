@@ -357,7 +357,7 @@ const generateOpennVsxLink = (/** @type {string} */ id) =>  `[${id}](https://ope
         const keys = sortedKeys(stat.resolutions);
         for (const id of keys) {
             const r = stat.resolutions[id];
-            const base  = `${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}) from`;
+            const base  =  r?.latest && !r.msVersion ? `${positionOf(id, keys)} ${generateOpennVsxLink(id)} from '` : `${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}) from`;
             if (r?.releaseAsset) {
                 content += `${base} '${r.releaseAsset}' release asset\r\n`;
             } else if (r?.releaseTag) {
@@ -368,7 +368,7 @@ const generateOpennVsxLink = (/** @type {string} */ id) =>  `[${id}](https://ope
                 if (r.msVersion) {
                     content +=  `${base} '${r.latest}' - the very latest repo commit, since it is not actively maintained\r\n`;
                 } else {
-                    content +=  `${positionOf(id, keys)} ${generateOpennVsxLink(id)} from '${r.latest}' - the very latest repo commit, since it is not published to MS marketplace\r\n`;
+                    content +=  `${base} '${r.latest}' - the very latest repo commit, since it is not published to MS marketplace\r\n`;
                 }
             } else if (r?.matchedLatest) {
                 content +=  `${base} '${r.matchedLatest}' - the very latest commit on the last update date\r\n`;
