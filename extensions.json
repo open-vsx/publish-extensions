@@ -1206,9 +1206,11 @@
     "repository": "https://github.com/microsoft/vscode-java-pack"
   },
   "vscjava.vscode-java-test": {
+    "prepublish": "npm run build-plugin",
     "repository": "https://github.com/microsoft/vscode-java-test"
   },
   "vscjava.vscode-maven": {
+    "prepublish": "npm run build-plugin",
     "repository": "https://github.com/microsoft/vscode-maven"
   },
   "vscjava.vscode-spring-boot-dashboard": {
