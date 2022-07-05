@@ -1036,6 +1036,9 @@
   "rokoroku.vscode-theme-darcula": {
     "repository": "https://github.com/rokoroku/vscode-theme-darcula"
   },
+  "ronnidc.vscode-nunjuck": {
+    "repository": "https://github.com/ronnidc/vscode-nunjucks"
+  },
   "ryu1kn.edit-with-shell": {
     "repository": "https://github.com/ryu1kn/vscode-edit-with-shell"
   },
