@@ -16,6 +16,14 @@ const path = require('path');
 const semver = require('semver');
 const exec = require('./lib/exec');
 const { createVSIX } = require('vsce');
+const { checkLicense } = require('./lib/checkLicense');
+const { Octokit } = require('octokit');
+
+const token = process.env.GITHUB_TOKEN;
+if (!token) {
+  throw new Error("GITHUB_TOKEN env var is not set");
+}
+const octokit = new Octokit({ auth: token });
 
 (async () => {
     /**
@@ -30,6 +38,11 @@ const { createVSIX } = require('vsce');
         let packagePath = context.repo;
         if (packagePath && extension.location) {
             packagePath = path.join(packagePath, extension.location);
+        }
+
+        const [owner, repo] = extension.repository.slice(1).split("/");
+        if (!(await checkLicense(new URL(extension.repository), owner, repo, octokit, packagePath+'/package.json'))) {
+            process.exit(1);
         }
 
         /** @type {import('ovsx').PublishOptions} */
