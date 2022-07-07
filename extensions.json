@@ -1112,6 +1112,9 @@
   "snyk-security.vscode-vuln-cost": {
     "repository": "https://github.com/snyk/vulncost"
   },
+  "sorbet.sorbet-vscode-extension": {
+    "repository": "https://github.com/sorbet/sorbet"
+  },
   "steoates.autoimport": {
     "repository": "https://github.com/soates/Auto-Import"
   },
