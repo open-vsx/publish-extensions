@@ -873,6 +873,9 @@
       "cd packages/vscode-js-profile-table && vsce package --no-dependencies -o extension.vsix"
     ]
   },
+  "ms-vscode.vscode-selfhost-test-provider": {
+    "repository": "https://github.com/microsoft/vscode-selfhost-test-provider"
+  },
   "ms-vscode.vscode-smoketest-check": {
     "repository": "https://github.com/microsoft/vscode-smoketest-check"
   },
