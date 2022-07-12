@@ -996,6 +996,9 @@
   "philosowaffle.openapi-designer": {
     "repository": "https://github.com/philosowaffle/vs-openapi-designer"
   },
+  "phoenisx.cssvar": {
+    "repository": "https://github.com/willofindie/vscode-cssvar"
+  },
   "pucelle.vscode-css-navigation": {
     "repository": "https://github.com/pucelle/vscode-css-navigation"
   },
