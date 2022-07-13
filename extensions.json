@@ -660,6 +660,25 @@
   "mjcrouch.perforce": {
     "repository": "https://github.com/mjcrouch/vscode-perforce"
   },
+  "ModyQyW.vscode-uni-app-schemas": {
+    "repository": "https://github.com/ModyQyW/uni-helper/tree/main/packages/vscode-uni-app-schemas",
+    "prepublish": "npx tsx generate.ts"
+  },
+  "ModyQyW.vscode-uni-app-snippets": {
+    "repository": "https://github.com/ModyQyW/uni-helper/tree/main/packages/vscode-uni-app-snippets",
+    "prepublish": "npx tsx generate.ts"
+  },
+  "ModyQyW.vscode-uni-cloud-snippets": {
+    "repository": "https://github.com/ModyQyW/uni-helper/tree/main/packages/vscode-uni-cloud-snippets",
+    "prepublish": "npx tsx generate.ts"
+  },
+  "ModyQyW.vscode-uni-helper": {
+    "repository": "https://github.com/ModyQyW/uni-helper/tree/main/packages/vscode-uni-helper"
+  },
+  "ModyQyW.vscode-uni-ui-snippets": {
+    "repository": "https://github.com/ModyQyW/uni-helper/tree/main/packages/vscode-uni-ui-snippets",
+    "prepublish": "npx tsx generate.ts"
+  },
   "mongodb.mongodb-vscode": {
     "repository": "https://github.com/mongodb-js/vscode"
   },
