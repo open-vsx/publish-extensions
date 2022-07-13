@@ -16,7 +16,7 @@ on:
         required: false
         default: false
       forcefullyPublish:
-        description: 'Force publish to OpenVSX, even if version is already published'
+        description: 'Force publish to Open VSX, even if version is already published'
         type: boolean
         required: false
         default: false

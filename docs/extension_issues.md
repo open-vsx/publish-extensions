@@ -2,9 +2,9 @@
 
 ## Functional bugs in VS Code extensions
 
-If an extension you downloaded from OpenVSX isn't functioning as expected, please follow these steps to debug:
+If an extension you downloaded from Open VSX isn't functioning as expected, please follow these steps to debug:
 
-1. check the extension version on [OpenVSX](https://open-vsx.org/) (you can see the latest one in the right sidebar)
+1. check the extension version on [Open VSX](https://open-vsx.org/) (you can see the latest one in the right sidebar)
 2. check the extension version on the [VS Code Marketplace](https://marketplace.visualstudio.com/) (you can find the version on the bottom of the right-hand side bar)
 3. If the versions don't match, it's probably a problem with the publishing process, so continue to the next chapter of this guide
 4. If they are the same version, visit the extension's source repository to investigate the issue further.
@@ -15,7 +15,7 @@ If the extension has been unmaintained for a longer period of time, and maintain
 
 ## Errors in the publishing process
 
-If an extension on OpenVSX is outdated or has never been successfully published (despite being listed in [`extensions.json`](https://github.com/open-vsx/publish-extensions/blob/HEAD/extensions.json)), the cause is likely one of the following:
+If an extension on Open VSX is outdated or has never been successfully published (despite being listed in [`extensions.json`](https://github.com/open-vsx/publish-extensions/blob/HEAD/extensions.json)), the cause is likely one of the following:
 
 1. The extension has some abnormal build prerequisites, we build everything inside the same Ubuntu VM, which might cause problems like:
     - a CLI tool is not installed

@@ -20,8 +20,8 @@ jobs:
           node-version: "14.x"
       - name: Download extension file
         run: wget -O extension.vsix ${{ github.event.inputs.extensions }}
-      - name: Create OpenVSX namespace
+      - name: Create Open VSX namespace
         if: ${{ github.event.inputs.namespace }}
         run: npx ovsx create-namespace ${{ github.event.inputs.namespace }} -p ${{ secrets.OVSX_PAT }}
-      - name: Publish to OpenVSX
+      - name: Publish to Open VSX
         run: npx ovsx publish extension.vsix  -p ${{ secrets.OVSX_PAT }}

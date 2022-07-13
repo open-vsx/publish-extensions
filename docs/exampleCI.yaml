@@ -11,7 +11,7 @@ on:
         required: true
         default: "true"
       publishOVSX:
-        description: "Publish to OpenVSX"
+        description: "Publish to Open VSX"
         type: boolean
         required: true
         default: "true"
@@ -76,7 +76,7 @@ jobs:
         run: npx vsce publish --packagePath ./${{ needs.package.outputs.packageName }} -p ${{ secrets.VSCE_PAT }}
 
   publishOVSX:
-    name: Publish to OpenVSX
+    name: Publish to Open VSX
     runs-on: ubuntu-latest
     needs: package
     if: github.event.inputs.publishOVSX == 'true'
@@ -85,7 +85,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: ${{ needs.package.outputs.packageName }}
-      - name: Publish to OpenVSX
+      - name: Publish to Open VSX
         run: npx ovsx publish ./${{ needs.package.outputs.packageName }} -p ${{ secrets.OVSX_PAT }}
 
   publishGH:

@@ -10,14 +10,14 @@ If you click on a job in the GitHub Actions tab, there is an `Artifacts` section
 
 This is the machine-readable data that the next file - `result.md` is generated from. In it, you can find 9 different categories of extensions:
 
-- `upToDate` - these extensions are the extensions, which have the same version published to OpenVSX as well as the Microsoft Marketplace.
-- `outdated` are all of the extensions, which have versions on OpenVSX, which are behind the ones on the Microsoft Marketplace.
-- `unstable` is the category, which has all extensions, that are most likely incorrectly published from the extensions' nightly or beta builds, since on the Microsoft Marketplace has a version which is smaller than the one on OpenVSX.
-- `notInOpen` includes extensions that simply failed to ever be published to OpenVSX, which means they should get special attention - fix them or remove them :)
+- `upToDate` - these extensions are the extensions, which have the same version published to Open VSX as well as the Microsoft Marketplace.
+- `outdated` are all of the extensions, which have versions on Open VSX, which are behind the ones on the Microsoft Marketplace.
+- `unstable` is the category, which has all extensions, that are most likely incorrectly published from the extensions' nightly or beta builds, since on the Microsoft Marketplace has a version which is smaller than the one on Open VSX.
+- `notInOpen` includes extensions that simply failed to ever be published to Open VSX, which means they should get special attention - fix them or remove them :)
 - `notInMs` - extensions that aren't published on the Microsoft Marketplace
 - `failed` - the extensions that for some reason failed with their publishing.
 - `msPublished` - all extensions published by Microsoft Corporation.
-- `hitMiss` - extensions which, in <abbr title="Month-To-Date">MTD</abbr>, have been updated on OpenVSX within 2 days after the Microsoft Marketplace.
+- `hitMiss` - extensions which, in <abbr title="Month-To-Date">MTD</abbr>, have been updated on Open VSX within 2 days after the Microsoft Marketplace.
 - `resolutions` is a list of all extensions and the way they have been resolved: `latest`, `matchedLatest`. `releaseTag`, `tag` or `releaseAsset`.
 
 ## `result.md`
@@ -26,7 +26,7 @@ This file is the one that should provide a quick overview of how the repository 
 
 ### `Weighted publish percentage`
 
-This metric's goal is to provide the one number you need to see if the big and most used extensions are up-to-date and existing on OpenVSX. This value is computed as follows (in pseudo-code):
+This metric's goal is to provide the one number you need to see if the big and most used extensions are up-to-date and existing on Open VSX. This value is computed as follows (in pseudo-code):
 
 ```ts
 const upToDateInstalls = sum(upToDate); // a sum of all installs on the Microsoft Marketplace of all up-to-date extensions
