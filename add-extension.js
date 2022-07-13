@@ -20,17 +20,71 @@ const fs = require('fs');
 const minimist = require('minimist');
 const util = require('util');
 const extensionsSchema = require('./extensions-schema.json');
+const fetch = require('node-fetch');
+const { getPublicGalleryAPI } = require('vsce/out/util');
+const parseXmlManifest = require('vsce/out/xml').parseXmlManifest;
+const { ExtensionQueryFlags, PublishedExtension } = require('azure-devops-node-api/interfaces/GalleryInterfaces');
+
+const flags = [
+    ExtensionQueryFlags.IncludeMetadata,
+    ExtensionQueryFlags.IncludeAssetUri,
+    ExtensionQueryFlags.IncludeFiles,
+    ExtensionQueryFlags.IncludeLatestVersionOnly
+];
+
+const msGalleryApi = getPublicGalleryAPI();
+msGalleryApi.client['_allowRetries'] = true;
+msGalleryApi.client['_maxRetries'] = 5;
+
+const getRepositoryFromMarketplace = async (/** @type {string} */ id) => {
+    /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
+    let [msExtension] = await Promise.allSettled([msGalleryApi.getExtension(id, flags)]);
+    const parseString = require('xml2js').parseString;
+    if (msExtension.status === 'fulfilled') {
+        const vsixManifest = msExtension.value?.versions && msExtension.value?.versions[0].files?.find(file => file.assetType === "Microsoft.VisualStudio.Services.VsixManifest")?.source;
+        const response = await fetch(vsixManifest);
+        const data = await parseXmlManifest(await response.text());
+        const url = data.PackageManifest.Metadata[0].Properties[0].Property.find(property => property.$.Id === "Microsoft.VisualStudio.Services.Links.Source").$.Value;
+        return url;
+    }
+}
 
 (async () => {
     // Parse args
     const argv = minimist(process.argv.slice(2)); // without executable & script path
 
     // Check positional args
-    if (argv._.length < 2) {
-        console.error('Need two postional arguments: ext-id, repo-url');
+    if (argv._.length === 0) {
+        console.error('Need two postional arguments: ext-id, repo-url or a Microsoft Marketplace URL');
         process.exit(1);
     }
-    const [extID, repoURL] = argv._;
+
+    let [extID, repoURL] = argv._;
+    try {
+        const urlObject = new URL(extID);
+        if (urlObject.host === 'marketplace.visualstudio.com') {
+            const id = urlObject.searchParams.get('itemName');
+            if (!id) {
+                console.error(`Couldn\'t get the extension ID from ${extID}`);
+                process.exit(1);
+            } else {
+                extID = id;
+                const url = await getRepositoryFromMarketplace(id);
+                if (!url) {
+                    console.error(`Couldn\'t get the repository URL for ${extID}`);
+                    process.exit(1);
+                } else {
+                    repoURL = url;
+                }
+            }
+        }
+    } catch { } finally {
+        if (argv._.length < 2 && !repoURL) {
+            console.error('Need two postional arguments: ext-id, repo-url, since the provided argument is not a Marketplace URL');
+            process.exit(1);
+        }
+    }
+
     const extDefinition = {
         repository: repoURL,
     };
