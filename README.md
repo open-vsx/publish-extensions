@@ -65,16 +65,16 @@ The publishing job auto infers the latest version published to the MS Marketplac
 
 Every night (Monday-Friday) at [03:03 UTC](https://github.com/open-vsx/publish-extensions/blob/a95d871811e490e1d24fd233b4047cac03f293a2/.github/workflows/publish-extensions.yml#L6), a [GitHub Actions workflow](https://github.com/open-vsx/publish-extensions/blob/a95d871811e490e1d24fd233b4047cac03f293a2/.github/workflows/publish-extensions.yml#L25-L68) goes through all entries in [`extensions.json`](./extensions.json), and checks for every entry whether it needs to be published to https://open-vsx.org or not (whether it is up-to-date).
 
-The [publishing process](https://github.com/open-vsx/publish-extensions/blob/d2df425a84093023f4ee164592f2491c32166297/publish-extensions.js#L58-L87) can be summarized like this:
+The [publishing process](https://github.com/open-vsx/publish-extensions/blob/master/publish-extension.js) can be summarized like this:
 
-1. [`git clone "repository"`](https://github.com/open-vsx/publish-extensions/blob/d2df425a84093023f4ee164592f2491c32166297/publish-extensions.js#L61)
+1. [`git clone "repository"`](https://github.com/open-vsx/publish-extensions/blob/a0fa4378a6621fb4d660a3bc7cefe71e074c077f/lib/resolveExtension.js#L53)
 
-If a `custom` property is provided, then every command from the array is executed, otherwise, the following 2 steps are executed: (the rest is always the same)
+If a `custom` property is provided, then every command from the array is executed. Otherwise, the following 2 steps are executed: (steps 4 and 5 are executed in both cases)
 
-2. [`npm install`](https://github.com/open-vsx/publish-extensions/blob/fcf903b3a3d7df1c7f7bc7ce20f21b8a9d49e5d4/publish-extension.js#L62) (or `yarn install` if a `yarn.lock` file is detected in the repository)
-3. _([`"prepublish"`](https://github.com/open-vsx/publish-extensions/blob/d2df425a84093023f4ee164592f2491c32166297/publish-extensions.js#L70))_
-4. _([`ovsx create-namespace "publisher"`](https://github.com/open-vsx/publish-extensions/blob/d2df425a84093023f4ee164592f2491c32166297/publish-extensions.js#L75) if it doesn't already exist)_
-5. [`ovsx publish`](https://github.com/open-vsx/publish-extensions/blob/d2df425a84093023f4ee164592f2491c32166297/publish-extensions.js#L86) (with `--yarn` if a `yarn.lock` file was detected earlier)
+2. [`npm install`](https://github.com/open-vsx/publish-extensions/blob/a0fa4378a6621fb4d660a3bc7cefe71e074c077f/publish-extension.js#L56) (or `yarn install` if a `yarn.lock` file is detected in the repository)
+3. _([`"prepublish"`](https://github.com/open-vsx/publish-extensions/blob/fcf903b3a3d7df1c7f7bc7ce20f21b8a9d49e5d4/publish-extension.js#L79))_
+4. _([`ovsx create-namespace "publisher"`](https://github.com/open-vsx/publish-extensions/blob/fcf903b3a3d7df1c7f7bc7ce20f21b8a9d49e5d4/publish-extension.js#L135-L140) if it doesn't already exist)_
+5. [`ovsx publish`](https://github.com/open-vsx/publish-extensions/blob/fcf903b3a3d7df1c7f7bc7ce20f21b8a9d49e5d4/publish-extension.js#L142) (with `--yarn` if a `yarn.lock` file was detected earlier)
 
 See all `ovsx` CLI options [here](https://github.com/eclipse/openvsx/blob/master/cli/README.md).
 
