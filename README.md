@@ -59,7 +59,7 @@ Notes:
 
 ## How do extensions get updated?
 
-The publishing job auto infers the latest version published to MS marketplace using vsce and then tries to resolve vsix file using GitHub releases or a commit to build associated with a version using tags and commits around the last updated date.
+The publishing job auto infers the latest version published to the MS Marketplace[^ms] using [`vsce`](https://www.npmjs.com/package/vsce) and then tries to resolve a `vsix` file using a `GitHub Release asset` or, when one doesn't exist, it tries to find a commit to a build associated with the version using tags and commits around the last MS Marketplace[^ms] updated date.
 
 ## How are Extensions Published?
 
@@ -87,7 +87,9 @@ Following environment variables are available:
   - `EXTENSION_PUBLISHER`: the extension publisher, e.g. `rebornix`
   - `EXTENSION_NAME`: the extension name, e.g. `ruby`
   - `VERSION`: the version of the extension to publish, e.g. `0.1.0`
-  - `MS_VERSION`: the latest version of the extension on MS marketplace, e.g. `0.1.0`
+  - `MS_VERSION`: the latest version of the extension on the MS Marketplace[^ms], e.g. `0.1.0`
   - `OVSX_VERSION`: the latest version of the extension on Open VSX, e.g. `0.1.0`
 
 [publish-extensions-job]: https://github.com/open-vsx/publish-extensions/blob/master/.github/workflows/publish-extensions.yml
+
+[^ms]: [The Microsoft Visual Studio Code Extensions Marketplace](https://marketplace.visualstudio.com/)
