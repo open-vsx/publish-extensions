@@ -54,9 +54,6 @@ For testing locally, we advise you to provide a [GitHub Personal Access Token](h
 
 You can create one in your [GitHub Token Settings](https://github.com/settings/tokens). This token does not require any special permissions.
 
-Notes:
-- Simply replace `$REPOSITORY_URL` with the extension's actual repository URL
-
 ```jsonc
     // Unique Open VSX extension ID in the form "<publisher>.<name>"
     "rebornix.ruby": {
