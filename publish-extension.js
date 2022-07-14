@@ -57,7 +57,7 @@ const { createVSIX } = require('vsce');
                     throw e;
                 }
             } else {
-                let yarn = await new Promise(resolve => {
+                const yarn = await new Promise(resolve => {
                     fs.access(path.join(context.repo, 'yarn.lock'), error => resolve(!error));
                 });
                 try {
