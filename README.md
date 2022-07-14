@@ -59,7 +59,7 @@ Notes:
 
 ## How do extensions get updated?
 
-The publishing job auto infers the latest version published to the MS Marketplace[^ms] using [`vsce`](https://www.npmjs.com/package/vsce) and then tries to resolve a `vsix` file using a `GitHub Release asset` or, when one doesn't exist, it tries to find a commit to a build associated with the version using tags and commits around the last MS Marketplace[^ms] updated date.
+The publishing job auto infers the latest version published to the MS Marketplace[^ms] using [`vsce`](https://www.npmjs.com/package/vsce) and then tries to resolve a `vsix` file using a [GitHub Release asset](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases) or, when one doesn't exist, it tries to find a commit to a build associated with the version using tags and commits around the last MS Marketplace[^ms] updated date.
 
 ## How are Extensions Published?
 
