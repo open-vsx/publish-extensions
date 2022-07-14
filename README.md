@@ -63,7 +63,7 @@ The publishing job auto infers the latest version published to the MS Marketplac
 
 ## How are Extensions Published?
 
-Every night at [03:03 UTC](https://github.com/open-vsx/publish-extensions/blob/e70fb554a5c265e53f44605dbd826270b860694b/.github/workflows/publish-extensions.yml#L3-L6), a [GitHub workflow](https://github.com/open-vsx/publish-extensions/blob/e70fb554a5c265e53f44605dbd826270b860694b/.github/workflows/publish-extensions.yml#L9-L21) goes through all entries in [`extensions.json`](./extensions.json), and checks if it needs to be published to https://open-vsx.org or not.
+Every night (Monday-Friday) at [03:03 UTC](https://github.com/open-vsx/publish-extensions/blob/a95d871811e490e1d24fd233b4047cac03f293a2/.github/workflows/publish-extensions.yml#L6), a [GitHub Actions workflow](https://github.com/open-vsx/publish-extensions/blob/a95d871811e490e1d24fd233b4047cac03f293a2/.github/workflows/publish-extensions.yml#L25-L68) goes through all entries in [`extensions.json`](./extensions.json), and checks for every entry whether it needs to be published to https://open-vsx.org or not (whether it is up-to-date).
 
 The [publishing process](https://github.com/open-vsx/publish-extensions/blob/d2df425a84093023f4ee164592f2491c32166297/publish-extensions.js#L58-L87) can be summarized like this:
 
