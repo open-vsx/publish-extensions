@@ -44,7 +44,7 @@ GITHUB_TOKEN=your_pat EXTENSIONS=rebornix.ruby SKIP_PUBLISH=true node publish-ex
 ### `GITHUB_TOKEN`
 For testing locally, we advise you to provide a [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for release and file resolution in our scripts. Otherwise, publishing can work in our workflow but fail for you locally and vice-a-versa.
 
-You can create one on your [PAT page](https://github.com/settings/tokens). This token does not require any special permissions.
+You can create one in your [GitHub Token Settings](https://github.com/settings/tokens). This token does not require any special permissions.
 
 Notes:
 - Simply replace `$REPOSITORY_URL` with the extension's actual repository URL
