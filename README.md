@@ -18,9 +18,17 @@ In the long-run it is better for extension owners to publish their own plugins b
 
 ## How to Add an Extension?
 
-To add an extension to this repo,  add it to the [`extensions.json`](./extensions.json) file. You can do this directly via GitHub using its web editor, or for a way simpler approach, which makes sure your extension also goes in the right place in the file, use the following command:
+To add an extension to this repo, add it to the [`extensions.json`](./extensions.json) file. You can do this directly via GitHub using its web editor, or for a way simpler approach, which makes sure your extension also goes in the right place in the file, clone the repo, install the dependencies, and use the following command:
 
-`node add-extension.js ext.id https://github.com/x/y --optional arg`
+```bash
+node add-extension.js ext.id https://github.com/x/y --optional arg
+```
+
+Or, if the extension you want to add exists on the MS Marketplace[^ms], you can simply feed the script the item URL (this automatically populates both the ID and git repository).
+
+```bash
+node add-extension.js https://marketplace.visualstudio.com/items?itemName=ext.id --optional arg
+```
 
 All of the arguments are also valid options if you add the extension manually to the JSON file directly. You can find them in the [extension-schema.json file](https://github.com/open-vsx/publish-extensions/blob/HEAD/extensions-schema.json).
 
