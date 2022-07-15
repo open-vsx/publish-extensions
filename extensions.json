@@ -895,6 +895,9 @@
   "ms-vscode.vscode-smoketest-check": {
     "repository": "https://github.com/microsoft/vscode-smoketest-check"
   },
+  "ms-vscode.vscode-typescript-next": {
+    "repository": "https://github.com/microsoft/vscode-typescript-next.git"
+  },
   "msjsdiag.debugger-for-edge": {
     "repository": "https://github.com/Microsoft/vscode-edge-debug2"
   },
