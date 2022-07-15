@@ -157,7 +157,7 @@ const getRepositoryFromMarketplace = async (/** @type {string} */ id) => {
     process.env.SKIP_PUBLISH = "true";
 
     const out = await exec("node publish-extensions", { quiet: true });
-    if (out && out.stderr.includes("Error: failed with exit status: 255")) {
+    if (out && out.stderr.includes("[FAIL] Could not process extension:")) {
         console.error(`There was an error while trying to build ${extID}. Reverting back to the previous state of extensions.json.`);
         await fs.promises.writeFile(
             './extensions.json',
