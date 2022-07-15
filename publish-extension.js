@@ -139,12 +139,12 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
         }
 
         const { extensionDependencies } = manifest;
-        const unpublishableDependencies = extensionDependencies.filter(dependency => cannotPublish.includes(dependency));
+        const unpublishableDependencies = extensionDependencies && extensionDependencies.filter(dependency => cannotPublish.includes(dependency));
         if (unpublishableDependencies) {
             throw new Error(`${id} is dependent on ${unpublishableDependencies.join(", ")}, which ${unpublishableDependencies.length === 1 ? "has" : "have"} to be published to Open VSX first by ${unpublishableDependencies.length === 1 ? "its author because of its license" : "their authors because of their licenses"}.`);
         }
 
-        const dependenciesNotOnOpenVsx = extensionDependencies.filter(async dependency => {
+        const dependenciesNotOnOpenVsx = extensionDependencies && extensionDependencies.filter(async dependency => {
             /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
             const [ovsxExtension] = await Promise.allSettled([openGalleryApi.getExtension(dependency)]);
             if (ovsxExtension.status === 'fulfilled') {
