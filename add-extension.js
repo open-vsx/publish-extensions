@@ -19,6 +19,7 @@
 const fs = require('fs');
 const minimist = require('minimist');
 const util = require('util');
+const exec = require("./lib/exec");
 const extensionsSchema = require('./extensions-schema.json');
 const fetch = require('node-fetch');
 const { getPublicGalleryAPI } = require('vsce/out/util');
@@ -119,6 +120,8 @@ const getRepositoryFromMarketplace = async (/** @type {string} */ id) => {
     // Sort extensions (most are, but not always)
     extensions.sort(([k1], [k2]) => k1.localeCompare(k2));
 
+    const originalList = JSON.stringify(Object.fromEntries(extensions), undefined, 2);
+
     // Find position & insert extension
     for (let i = 0; i < extensions.length; i++) {
         const [currentID] = extensions[i];
@@ -140,5 +143,29 @@ const getRepositoryFromMarketplace = async (/** @type {string} */ id) => {
         JSON.stringify(Object.fromEntries(extensions), undefined, 2) + '\n', // add newline at EOF
         { encoding: 'utf8' }
     );
+
     console.log(`Successfully added ${extID}`);
+    if (process.env.TEST_EXTENSION === "false") {
+        console.info("Skipping tests, TEST_EXTENSION was provided.")
+        process.exit(0);
+    }
+
+    console.info(`Trying to build ${extID} for the first time`);
+
+    process.env.EXTENSIONS = extID;
+    process.env.FORCE = "true";
+    process.env.SKIP_PUBLISH = "true";
+
+    const out = await exec("node publish-extensions", { quiet: true });
+    if (out && out.stderr.includes("Error: failed with exit status: 255")) {
+        console.error(`There was an error while trying to build ${extID}. Reverting back to the previous state of extensions.json.`);
+        await fs.promises.writeFile(
+            './extensions.json',
+            originalList + '\n', // add newline at EOF
+            { encoding: 'utf8' }
+        );
+    } else {
+        console.log("Built extension successfully");
+    }
+
 })();
