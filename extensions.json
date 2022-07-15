@@ -678,6 +678,9 @@
   "mrorz.language-gettext": {
     "repository": "https://github.com/MrOrz/vscode-gettext"
   },
+  "ms-azuretools.vscode-azureappservice": {
+    "repository": "https://github.com/Microsoft/vscode-azureappservice.git"
+  },
   "ms-azuretools.vscode-azurefunctions": {
     "repository": "https://github.com/microsoft/vscode-azurefunctions"
   },
@@ -794,6 +797,9 @@
   },
   "ms-vscode.atom-keybindings": {
     "repository": "https://github.com/Microsoft/vscode-atom-keybindings"
+  },
+  "ms-vscode.azure-account": {
+    "repository": "https://github.com/microsoft/vscode-azure-account.git"
   },
   "ms-vscode.azurecli": {
     "repository": "https://github.com/Microsoft/vscode-azurecli.git",
