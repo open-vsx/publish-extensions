@@ -16,6 +16,16 @@ const path = require('path');
 const semver = require('semver');
 const exec = require('./lib/exec');
 const { createVSIX } = require('vsce');
+const { cannotPublish } = require('./lib/reportStat');
+
+const { PublicGalleryAPI } = require('vsce/out/publicgalleryapi');
+const { PublishedExtension } = require('azure-devops-node-api/interfaces/GalleryInterfaces');
+
+const openGalleryApi = new PublicGalleryAPI('https://open-vsx.org/vscode', '3.0-preview.1');
+openGalleryApi.client['_allowRetries'] = true;
+openGalleryApi.client['_maxRetries'] = 5;
+openGalleryApi.post = (url, data, additionalHeaders) =>
+  openGalleryApi.client.post(`${openGalleryApi.baseUrl}${url}`, data, additionalHeaders);
 
 (async () => {
     /**
@@ -126,6 +136,26 @@ const { createVSIX } = require('vsce');
         // TODO(ak) check license is open-source
         if (!xmlManifest?.PackageManifest?.Metadata[0]?.License?.[0] && !manifest.license && !(packagePath && await ovsx.isLicenseOk(packagePath, manifest))) {
             throw new Error(`${extension.id}: license is missing`);
+        }
+
+        const { extensionDependencies } = manifest;
+        const unpublishableDependencies = extensionDependencies.filter(dependency => cannotPublish.includes(dependency));
+        if (unpublishableDependencies) {
+            throw new Error(`${id} is dependent on ${unpublishableDependencies.join(", ")}, which ${unpublishableDependencies.length === 1 ? "has" : "have"} to be published to Open VSX first by ${unpublishableDependencies.length === 1 ? "its author because of its license" : "their authors because of their licenses"}.`);
+        }
+
+        const dependenciesNotOnOpenVsx = extensionDependencies.filter(async dependency => {
+            /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
+            const [ovsxExtension] = await Promise.allSettled([openGalleryApi.getExtension(dependency)]);
+            if (ovsxExtension.status === 'fulfilled') {
+                if (!ovsxExtension.value) {
+                    return true;
+                }
+                return false;
+            }
+        });
+        if (dependenciesNotOnOpenVsx) {
+            throw new Error(`${id} is dependent on ${dependenciesNotOnOpenVsx.join(", ")}, which ${dependenciesNotOnOpenVsx.length === 1 ? "has" : "have"} to be published to Open VSX first`);
         }
 
         if (process.env.SKIP_PUBLISH === 'true') {
