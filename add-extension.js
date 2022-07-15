@@ -39,7 +39,6 @@ msGalleryApi.client['_maxRetries'] = 5;
 const getRepositoryFromMarketplace = async (/** @type {string} */ id) => {
     /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
     let [msExtension] = await Promise.allSettled([msGalleryApi.getExtension(id, flags)]);
-    const parseString = require('xml2js').parseString;
     if (msExtension.status === 'fulfilled') {
         const vsixManifest = msExtension.value?.versions && msExtension.value?.versions[0].files?.find(file => file.assetType === "Microsoft.VisualStudio.Services.VsixManifest")?.source;
         const response = await fetch(vsixManifest);
