@@ -846,6 +846,9 @@
   "ms-vscode.sublime-keybindings": {
     "repository": "https://github.com/Microsoft/vscode-sublime-keybindings"
   },
+  "ms-vscode.test-adapter-converter": {
+    "repository": "https://github.com/microsoft/vscode-test-adapter-converter.git"
+  },
   "ms-vscode.Theme-TomorrowKit": {
     "repository": "https://github.com/microsoft/vscode-themes/",
     "location": "tomorrow"
