@@ -795,6 +795,10 @@
   "ms-vscode.atom-keybindings": {
     "repository": "https://github.com/Microsoft/vscode-atom-keybindings"
   },
+  "ms-vscode.azurecli": {
+    "repository": "https://github.com/Microsoft/vscode-azurecli.git",
+    "prepublish": "npm run compile"
+  },
   "ms-vscode.brackets-keybindings": {
     "repository": "https://github.com/Microsoft/vscode-brackets-keybindings"
   },
