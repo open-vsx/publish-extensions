@@ -859,6 +859,26 @@
   "ms-vscode.test-adapter-converter": {
     "repository": "https://github.com/microsoft/vscode-test-adapter-converter.git"
   },
+  "ms-vscode.Theme-1337": {
+    "repository": "https://github.com/microsoft/vscode-themes/",
+    "location": "1337"
+  },
+  "ms-vscode.Theme-3024Kit": {
+    "repository": "https://github.com/microsoft/vscode-themes/",
+    "location": "3024"
+  },
+  "ms-vscode.Theme-MarkdownKit": {
+    "repository": "https://github.com/microsoft/vscode-themes/",
+    "location": "markdown-editing"
+  },
+  "ms-vscode.Theme-MaterialKit": {
+    "repository": "https://github.com/microsoft/vscode-themes/",
+    "location": "material"
+  },
+  "ms-vscode.Theme-PredawnKit": {
+    "repository": "https://github.com/microsoft/vscode-themes/",
+    "location": "predawn"
+  },
   "ms-vscode.Theme-TomorrowKit": {
     "repository": "https://github.com/microsoft/vscode-themes/",
     "location": "tomorrow"
