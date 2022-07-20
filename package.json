@@ -15,6 +15,10 @@
     {
       "name": "TypeFox",
       "url": "https://www.typefox.io"
+    },
+    {
+      "name": "Gitpod",
+      "url": "https://www.gitpod.io"
     }
   ],
   "bin": "bin/publish-extensions",
