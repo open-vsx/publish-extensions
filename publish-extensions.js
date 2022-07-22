@@ -256,16 +256,25 @@ function isPreReleaseVersion(version) {
       }
 
       if (context.files) {
+        // Publish all targets of extension from GitHub Release assets
         for (const [target, file] of Object.entries(context.files)) {
           if (!extension.target || extension.target.includes(target)) {
             context.file = file;
             context.target = target;
-            console.log(context);
             await publishVersion(extension, context);
           } else {
             console.log(`${extension.id}: skipping, since target ${target} is not included`);
           }
         }
+      } else if (extension.target) {
+        // Publish all specified targets of extension from sources
+        for (const target of extension.target) {
+          context.target = target;
+          await publishVersion(extension, context);
+        }
+      } else {
+        // Publish only the universal target of extension from sources
+        await publishVersion(extension, context);
       }
 
       await updateStat();
