@@ -15,7 +15,7 @@ const { getPublicGalleryAPI } = require('vsce/out/util');
 const { PublicGalleryAPI } = require('vsce/out/publicgalleryapi');
 const { ExtensionQueryFlags, PublishedExtension } = require('azure-devops-node-api/interfaces/GalleryInterfaces');
 const semver = require('semver');
-const Ajv = require("ajv").default;
+const Ajv = require("ajv/dist/2020").default;
 const resolveExtension = require('./lib/resolveExtension').resolveExtension;
 const exec = require('./lib/exec');
 

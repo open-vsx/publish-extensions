@@ -1,5 +1,4 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "$schema": {
@@ -36,7 +35,25 @@
       "target": {
         "type": "array",
         "description": "A list of platforms to target. If unspecified, a universal extension will be published in case of building from source and if the vsix is resolved from GitHub Releases, all of the attached platform-specific assets will be published.",
-        "uniqueItems": true
+        "prefixItems": [
+          {
+            "enum": [
+              "win32-x64",
+              "win32-ia32",
+              "win32-arm64",
+              "linux-x64",
+              "linux-arm64",
+              "linux-armhf",
+              "darwin-x64",
+              "darwin-arm64",
+              "alpine-x64",
+              "alpine-arm64",
+              "web"
+            ]
+          }
+        ],
+        "uniqueItems": true,
+        "minItems": 1
       }
     },
     "required": [
