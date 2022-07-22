@@ -45,7 +45,7 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
         /** @type {import('ovsx').PublishOptions} */
         let options;
         if (context.file) {
-            options = { extensionFile: context.file };
+            options = { extensionFile: context.file, targets: [context.target]};
         } else if (context.repo && context.ref) {
             console.log(`${id}: preparing from ${context.repo}...`);
 
@@ -171,8 +171,9 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
             console.log(error);
         }
 
+        console.info(`Publishing extension as ${options.targets ? options.targets.join(', ') : 'universal'}`);
         await ovsx.publish(options);
-        console.log(`[OK] Successfully published ${id} to Open VSX!`);
+        console.info(`[OK] Successfully published ${id} to Open VSX!`);
 
     } catch (error) {
         if (error && String(error).indexOf('is already published.') !== -1) {

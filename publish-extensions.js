@@ -194,7 +194,7 @@ function isPreReleaseVersion(version) {
 
       if (resolved?.resolution?.releaseAsset) {
         console.log(`${extension.id}: resolved ${resolved.resolution.releaseAsset} from release`);
-        context.file = resolved.path;
+        context.files = resolved.files;
       } else if (resolved?.resolution?.releaseTag) {
         console.log(`${extension.id}: resolved ${resolved.resolution.releaseTag} from release tag`);
         context.repo = resolved.path;
@@ -228,28 +228,44 @@ function isPreReleaseVersion(version) {
       }
 
       let timeout;
-      await new Promise((resolve, reject) => {
-        const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify({ extension, context })], {
-          stdio: ['ignore', 'inherit', 'inherit'],
-          cwd: process.cwd(),
-          env: process.env
+
+      const publishVersion = async (extension, context) => {
+        await new Promise((resolve, reject) => {
+          const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify({ extension, context })], {
+            stdio: ['ignore', 'inherit', 'inherit'],
+            cwd: process.cwd(),
+            env: process.env
+          });
+          p.on('error', reject);
+          p.on('exit', code => {
+            if (code) {
+              return reject(new Error('failed with exit status: ' + code));
+            }
+            resolve('done');
+          });
+          timeout = setTimeout(() => {
+            try {
+              p.kill('SIGKILL');
+            } catch { }
+            reject(new Error(`timeout after ${timeoutDelay} mins`));
+          }, timeoutDelay * 60 * 1000);
         });
-        p.on('error', reject);
-        p.on('exit', code => {
-          if (code) {
-            return reject(new Error('failed with exit status: ' + code));
+        if (timeout !== undefined) {
+          clearTimeout(timeout);
+        }
+      }
+
+      if (context.files) {
+        for (const [target, file] of Object.entries(context.files)) {
+          if (!extension.target || extension.target.includes(target)) {
+            context.file = file;
+            context.target = target;
+            console.log(context);
+            await publishVersion(extension, context);
+          } else {
+            console.log(`${extension.id}: skipping, since target ${target} is not included`);
           }
-          resolve();
-        });
-        timeout = setTimeout(() => {
-          try {
-            p.kill('SIGKILL');
-          } catch { }
-          reject(new Error(`timeout after ${timeoutDelay} mins`));
-        }, timeoutDelay * 60 * 1000);
-      });
-      if (timeout !== undefined) {
-        clearTimeout(timeout);
+        }
       }
 
       await updateStat();
