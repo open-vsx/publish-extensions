@@ -21,7 +21,7 @@ const { cannotPublish } = require('./lib/reportStat');
 const { PublicGalleryAPI } = require('vsce/out/publicgalleryapi');
 const { PublishedExtension } = require('azure-devops-node-api/interfaces/GalleryInterfaces');
 
-const openGalleryApi = new PublicGalleryAPI('https://8080-eclipse-openvsx-oieidwshukq.ws-eu54.gitpod.io/vscode', '3.0-preview.1');
+const openGalleryApi = new PublicGalleryAPI('https://open-vsx.org/vscode', '3.0-preview.1');
 openGalleryApi.client['_allowRetries'] = true;
 openGalleryApi.client['_maxRetries'] = 5;
 openGalleryApi.post = (url, data, additionalHeaders) =>
