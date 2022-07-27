@@ -763,7 +763,7 @@
   "ms-playwright.playwright": {
     "repository": "https://github.com/microsoft/playwright-vscode"
   },
-  "ms-pyright.pyright": {
+  "ms-pyright.vscode-pyright": {
     "repository": "https://github.com/Microsoft/pyright",
     "location": "packages/vscode-pyright",
     "prepublish": "npm i && cd packages/vscode-pyright && npm run prepackage"
