@@ -521,7 +521,7 @@
     "custom": [
       "npx pnpm install --no-frozen-lockfile --shamefully-hoist",
       "npx pnpm run build",
-      "cd ./extensions/vscode-vue-language-features && npx vsce package -o extension.vsix"
+      "cd ./extensions/vscode-vue-language-features && npx pnpm run prepack:browser && npx vsce package -o extension.vsix"
     ]
   },
   "johnsoncodehk.vscode-typescript-vue-plugin": {
