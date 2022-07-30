@@ -515,7 +515,7 @@
   "johnpapa.winteriscoming": {
     "repository": "https://github.com/johnpapa/vscode-winteriscoming"
   },
-  "johnsoncodehk.volar": {
+  "Vue.volar": {
     "repository": "https://github.com/johnsoncodehk/volar",
     "location": "extensions/vscode-vue-language-features",
     "custom": [
