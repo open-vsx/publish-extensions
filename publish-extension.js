@@ -25,7 +25,7 @@ const openGalleryApi = new PublicGalleryAPI('https://open-vsx.org/vscode', '3.0-
 openGalleryApi.client['_allowRetries'] = true;
 openGalleryApi.client['_maxRetries'] = 5;
 openGalleryApi.post = (url, data, additionalHeaders) =>
-  openGalleryApi.client.post(`${openGalleryApi.baseUrl}${url}`, data, additionalHeaders);
+    openGalleryApi.client.post(`${openGalleryApi.baseUrl}${url}`, data, additionalHeaders);
 
 (async () => {
     /**
@@ -139,23 +139,24 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
         }
 
         const { extensionDependencies } = manifest;
-        const unpublishableDependencies = extensionDependencies && extensionDependencies.filter(dependency => cannotPublish.includes(dependency));
-        if (unpublishableDependencies?.length > 0) {
-            throw new Error(`${id} is dependent on ${unpublishableDependencies.join(", ")}, which ${unpublishableDependencies.length === 1 ? "has" : "have"} to be published to Open VSX first by ${unpublishableDependencies.length === 1 ? "its author because of its license" : "their authors because of their licenses"}.`);
-        }
 
-        const dependenciesNotOnOpenVsx = extensionDependencies && extensionDependencies.filter(async dependency => {
-            /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
-            const [ovsxExtension] = await Promise.allSettled([openGalleryApi.getExtension(dependency)]);
-            if (ovsxExtension.status === 'fulfilled') {
-                if (!ovsxExtension.value) {
-                    return true;
-                }
-                return false;
+        if (extensionDependencies) {
+            const unpublishableDependencies = extensionDependencies.filter(dependency => cannotPublish.includes(dependency));
+            if (unpublishableDependencies?.length > 0) {
+                throw new Error(`${id} is dependent on ${unpublishableDependencies.join(", ")}, which ${unpublishableDependencies.length === 1 ? "has" : "have"} to be published to Open VSX first by ${unpublishableDependencies.length === 1 ? "its author because of its license" : "their authors because of their licenses"}.`);
             }
-        });
-        if (dependenciesNotOnOpenVsx?.length > 0) {
-            throw new Error(`${id} is dependent on ${dependenciesNotOnOpenVsx.join(", ")}, which ${dependenciesNotOnOpenVsx.length === 1 ? "has" : "have"} to be published to Open VSX first`);
+
+            const dependenciesNotOnOpenVsx = [];
+            for (const dependency of extensionDependencies) {
+                /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
+                const [ovsxExtension] = await Promise.allSettled([openGalleryApi.getExtension(dependency)]);
+                if (ovsxExtension.status === 'fulfilled' && !ovsxExtension.value) {
+                    dependenciesNotOnOpenVsx.push(dependency);
+                }
+            }
+            if (dependenciesNotOnOpenVsx.length > 0) {
+                throw new Error(`${id} is dependent on ${dependenciesNotOnOpenVsx.join(", ")}, which ${dependenciesNotOnOpenVsx.length === 1 ? "has" : "have"} to be published to Open VSX first`);
+            }
         }
 
         if (process.env.SKIP_PUBLISH === 'true') {
