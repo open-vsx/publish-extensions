@@ -141,7 +141,7 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
 
         const { extensionDependencies } = manifest;
         const unpublishableDependencies = extensionDependencies && extensionDependencies.filter(dependency => cannotPublish.includes(dependency));
-        if (unpublishableDependencies) {
+        if (unpublishableDependencies?.length > 0) {
             throw new Error(`${id} is dependent on ${unpublishableDependencies.join(", ")}, which ${unpublishableDependencies.length === 1 ? "has" : "have"} to be published to Open VSX first by ${unpublishableDependencies.length === 1 ? "its author because of its license" : "their authors because of their licenses"}.`);
         }
 
@@ -155,7 +155,7 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
                 return false;
             }
         });
-        if (dependenciesNotOnOpenVsx) {
+        if (dependenciesNotOnOpenVsx?.length > 0) {
             throw new Error(`${id} is dependent on ${dependenciesNotOnOpenVsx.join(", ")}, which ${dependenciesNotOnOpenVsx.length === 1 ? "has" : "have"} to be published to Open VSX first`);
         }
 
