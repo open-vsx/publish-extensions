@@ -530,7 +530,7 @@
     "custom": [
       "npx pnpm install",
       "npx pnpm run build",
-      "cd ./extensions/vscode-typescript-vue-plugin && npm install && npx vsce package -o extension.vsix"
+      "cd ./extensions/vscode-typescript-vue-plugin && cat <<< $(jq 'del(.dependencies[\"typescript-vue-plugin-forward\"])' package.json) > package.json && npx vsce package -o extension.vsix"
     ]
   },
   "jolaleye.horizon-theme-vscode": {
