@@ -62,7 +62,7 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
                     for (const command of extension.custom) {
                         await exec(command, { cwd: context.repo });
                     }
-                    options = { extensionFile: path.join(context.repo, extension.location ?? '.', 'extension.vsix') };
+                    options = { extensionFile: path.join(context.repo, extension.location ?? '.', extension.extensionFile ?? 'extension.vsix') };
                 } catch (e) {
                     throw e;
                 }
