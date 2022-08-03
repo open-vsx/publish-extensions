@@ -97,7 +97,7 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
                     if (yarn) {
                         options.yarn = true;
                     }
-                    // answer y to all quetions https://github.com/microsoft/vscode-vsce/blob/7182692b0f257dc10e7fc643269511549ca0c1db/src/util.ts#L12
+                    // answer y to all questions https://github.com/microsoft/vscode-vsce/blob/7182692b0f257dc10e7fc643269511549ca0c1db/src/util.ts#L12
                     const vsceTests = process.env['VSCE_TESTS'];
                     process.env['VSCE_TESTS'] = '1';
                     try {
