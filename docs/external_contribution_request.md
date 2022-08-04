@@ -16,7 +16,7 @@ Unfortunately, as Microsoft prohibits usages of the Microsoft marketplace by any
 
 ## What is Open VSX? Why does it exist?
 
-Open VSX is a vendor neutral alternative to the MS marketplace used by most other derivatives of VS Code like [VSCodium](https://vscodium.com/), [Gitpod](gitpod.io), [OpenVSCode](https://github.com/gitpod-io/openvscode-server), [Theia](https://theia-ide.org/) based IDEs, and so on.
+Open VSX is a vendor neutral alternative to the MS marketplace used by most other derivatives of VS Code like [VSCodium](https://vscodium.com/), [Gitpod](https://www.gitpod.io), [OpenVSCode](https://github.com/gitpod-io/openvscode-server), [Theia](https://theia-ide.org/)-based IDEs, and so on.
 
 ## How can you publish to Open VSX?
 
