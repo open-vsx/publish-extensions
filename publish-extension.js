@@ -1,5 +1,5 @@
 /********************************************************************************
- * Copyright (c) 2020 TypeFox and others
+ * Copyright (c) 2022 TypeFox and others
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0 which is available at
@@ -25,7 +25,7 @@ const openGalleryApi = new PublicGalleryAPI('https://open-vsx.org/vscode', '3.0-
 openGalleryApi.client['_allowRetries'] = true;
 openGalleryApi.client['_maxRetries'] = 5;
 openGalleryApi.post = (url, data, additionalHeaders) =>
-  openGalleryApi.client.post(`${openGalleryApi.baseUrl}${url}`, data, additionalHeaders);
+    openGalleryApi.client.post(`${openGalleryApi.baseUrl}${url}`, data, additionalHeaders);
 
 (async () => {
     /**
@@ -57,12 +57,18 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
             process.env.MS_VERSION = context.msVersion;
             process.env.OVSX_VERSION = context.ovsxVersion;
             await exec(`git checkout ${context.ref}`, { cwd: context.repo });
+
+            try {
+                // If the project has a preferred Node version, use it 
+                await exec("source ~/.nvm/nvm.sh && nvm install", { cwd: path.join(context.repo, extension.location ?? '.') });
+            } catch { }
+
             if (extension.custom) {
                 try {
                     for (const command of extension.custom) {
                         await exec(command, { cwd: context.repo });
                     }
-                    options = { extensionFile: path.join(context.repo, extension.location ?? '.', 'extension.vsix') };
+                    options = { extensionFile: path.join(context.repo, extension.location ?? '.', extension.extensionFile ?? 'extension.vsix') };
                 } catch (e) {
                     throw e;
                 }
@@ -97,7 +103,7 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
                     if (yarn) {
                         options.yarn = true;
                     }
-                    // answer y to all quetions https://github.com/microsoft/vscode-vsce/blob/7182692b0f257dc10e7fc643269511549ca0c1db/src/util.ts#L12
+                    // answer y to all questions https://github.com/microsoft/vscode-vsce/blob/7182692b0f257dc10e7fc643269511549ca0c1db/src/util.ts#L12
                     const vsceTests = process.env['VSCE_TESTS'];
                     process.env['VSCE_TESTS'] = '1';
                     try {
@@ -139,23 +145,24 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
         }
 
         const { extensionDependencies } = manifest;
-        const unpublishableDependencies = extensionDependencies && extensionDependencies.filter(dependency => cannotPublish.includes(dependency));
-        if (unpublishableDependencies?.length > 0) {
-            throw new Error(`${id} is dependent on ${unpublishableDependencies.join(", ")}, which ${unpublishableDependencies.length === 1 ? "has" : "have"} to be published to Open VSX first by ${unpublishableDependencies.length === 1 ? "its author because of its license" : "their authors because of their licenses"}.`);
-        }
 
-        const dependenciesNotOnOpenVsx = extensionDependencies && extensionDependencies.filter(async dependency => {
-            /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
-            const [ovsxExtension] = await Promise.allSettled([openGalleryApi.getExtension(dependency)]);
-            if (ovsxExtension.status === 'fulfilled') {
-                if (!ovsxExtension.value) {
-                    return true;
-                }
-                return false;
+        if (extensionDependencies) {
+            const unpublishableDependencies = extensionDependencies.filter(dependency => cannotPublish.includes(dependency));
+            if (unpublishableDependencies?.length > 0) {
+                throw new Error(`${id} is dependent on ${unpublishableDependencies.join(", ")}, which ${unpublishableDependencies.length === 1 ? "has" : "have"} to be published to Open VSX first by ${unpublishableDependencies.length === 1 ? "its author because of its license" : "their authors because of their licenses"}.`);
             }
-        });
-        if (dependenciesNotOnOpenVsx?.length > 0) {
-            throw new Error(`${id} is dependent on ${dependenciesNotOnOpenVsx.join(", ")}, which ${dependenciesNotOnOpenVsx.length === 1 ? "has" : "have"} to be published to Open VSX first`);
+
+            const dependenciesNotOnOpenVsx = [];
+            for (const dependency of extensionDependencies) {
+                /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
+                const [ovsxExtension] = await Promise.allSettled([openGalleryApi.getExtension(dependency)]);
+                if (ovsxExtension.status === 'fulfilled' && !ovsxExtension.value) {
+                    dependenciesNotOnOpenVsx.push(dependency);
+                }
+            }
+            if (dependenciesNotOnOpenVsx.length > 0) {
+                throw new Error(`${id} is dependent on ${dependenciesNotOnOpenVsx.join(", ")}, which ${dependenciesNotOnOpenVsx.length === 1 ? "has" : "have"} to be published to Open VSX first`);
+            }
         }
 
         if (process.env.SKIP_PUBLISH === 'true') {
@@ -171,8 +178,13 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
             console.log(error);
         }
 
-        await ovsx.publish(options);
-        console.log(`[OK] Successfully published ${id} to Open VSX!`);
+        if (process.env.OVSX_PAT) {
+            await ovsx.publish(options);
+            console.log(`[OK] Successfully published ${id} to Open VSX!`);
+        } else {
+            console.error("The OVSX_PAT environment variable was not provided, which means the extension cannot be published. Provide it or set SKIP_PUBLISH to true to avoid seeing this.");
+            process.exitCode = -1;
+        }
 
     } catch (error) {
         if (error && String(error).indexOf('is already published.') !== -1) {

@@ -26,7 +26,7 @@
       },
       "custom": {
         "type": "array",
-        "description": "Build using a custom script. Must output an `extension.vsix` file in the `location` directory."
+        "description": "Build using a custom script. Must output an `extension.vsix` file in the `location` directory (can be changed using `extensionFile`)."
       },
       "timeout": {
         "type": "number",
