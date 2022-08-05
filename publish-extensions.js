@@ -122,7 +122,6 @@ function isPreReleaseVersion(version) {
 
       // Check if the extension is published by either Microsoft or GitHub
       if (['https://microsoft.com', 'https://github.com'].includes(msExtension?.value.publisher.domain) && msExtension?.value.publisher.isDomainVerified ) {
-        debugger;
         stat.msPublished[extension.id] = { msInstalls: context.msInstalls, msVersion: context.msVersion };
       }
 
