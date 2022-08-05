@@ -15,6 +15,8 @@ const readVSIXPackage = require('vsce/out/zip').readVSIXPackage;
 const path = require('path');
 const semver = require('semver');
 const exec = require('./lib/exec');
+const findUp = require('find-up');
+
 const { createVSIX } = require('vsce');
 const { cannotPublish } = require('./lib/reportStat');
 
@@ -59,8 +61,11 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
             await exec(`git checkout ${context.ref}`, { cwd: context.repo });
 
             try {
-                // If the project has a preferred Node version, use it 
-                await exec("source ~/.nvm/nvm.sh && nvm install", { cwd: path.join(context.repo, extension.location ?? '.') });
+                const nvmFile = await findUp(".nvmrc", {cwd: path.join(context.repo, extension.location ?? '.')});
+                if (nvmFile) {
+                    // If the project has a preferred Node version, use it 
+                    await exec("source ~/.nvm/nvm.sh && nvm install", { cwd: path.join(context.repo, extension.location ?? '.'), quiet: true });
+                }
             } catch { }
 
             if (extension.custom) {
