@@ -44,8 +44,13 @@ const getRepositoryFromMarketplace = async (/** @type {string} */ id) => {
         const vsixManifest = msExtension.value?.versions && msExtension.value?.versions[0].files?.find(file => file.assetType === "Microsoft.VisualStudio.Services.VsixManifest")?.source;
         const response = await fetch(vsixManifest);
         const data = await parseXmlManifest(await response.text());
-        const url = data.PackageManifest.Metadata[0].Properties[0].Property.find(property => property.$.Id === "Microsoft.VisualStudio.Services.Links.Source").$.Value;
-        return url;
+        const url = new URL(data.PackageManifest.Metadata[0].Properties[0].Property.find(property => property.$.Id === "Microsoft.VisualStudio.Services.Links.Source").$.Value);
+
+        if (url.host === "github.com") {
+            return url.toString().replace('.git', '')
+        }
+
+        return url.toString();
     }
 }
 
@@ -156,7 +161,7 @@ const getRepositoryFromMarketplace = async (/** @type {string} */ id) => {
     process.env.FORCE = "true";
     process.env.SKIP_PUBLISH = "true";
 
-    const out = await exec("node publish-extensions", { quiet: true });
+    const out = await exec("node publish-extensions", { quiet: true, ghtoken: true });
     if (out && out.stderr.includes("[FAIL] Could not process extension:")) {
         console.error(`There was an error while trying to build ${extID}. Reverting back to the previous state of extensions.json.`);
         await fs.promises.writeFile(
