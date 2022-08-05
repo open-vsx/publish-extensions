@@ -528,7 +528,8 @@
     "prepublish": "npm run build"
   },
   "junstyle.php-cs-fixer": {
-    "repository": "https://github.com/junstyle/vscode-php-cs-fixer"
+    "repository": "https://github.com/junstyle/vscode-php-cs-fixer",
+    "prepublish": "npm i -g esbuild"
   },
   "justusadam.language-haskell": {
     "repository": "https://github.com/JustusAdam/language-haskell",
