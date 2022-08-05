@@ -60,7 +60,7 @@ const getRepositoryFromMarketplace = async (/** @type {string} */ id) => {
 
     // Check positional args
     if (argv._.length === 0) {
-        console.error('Need two postional arguments: ext-id, repo-url or a Microsoft Marketplace URL');
+        console.error('Need two positional arguments: ext-id, repo-url or a Microsoft Marketplace URL');
         process.exit(1);
     }
 
@@ -85,7 +85,7 @@ const getRepositoryFromMarketplace = async (/** @type {string} */ id) => {
         }
     } catch { } finally {
         if (argv._.length < 2 && !repoURL) {
-            console.error('Need two postional arguments: ext-id, repo-url, since the provided argument is not a Marketplace URL');
+            console.error('Need two positional arguments: ext-id, repo-url, since the provided argument is not a Marketplace URL');
             process.exit(1);
         }
     }
