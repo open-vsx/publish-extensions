@@ -523,24 +523,6 @@
   "johnpapa.winteriscoming": {
     "repository": "https://github.com/johnpapa/vscode-winteriscoming"
   },
-  "Vue.volar": {
-    "repository": "https://github.com/johnsoncodehk/volar",
-    "location": "extensions/vscode-vue-language-features",
-    "custom": [
-      "npx pnpm install --no-frozen-lockfile --shamefully-hoist",
-      "npx pnpm run build",
-      "cd ./extensions/vscode-vue-language-features && npx pnpm run prepack:node && npx vsce package -o extension.vsix"
-    ]
-  },
-  "Vue.vscode-typescript-vue-plugin": {
-    "repository": "https://github.com/johnsoncodehk/volar",
-    "location": "extensions/vscode-typescript-vue-plugin",
-    "custom": [
-      "npx pnpm install",
-      "npx pnpm run build",
-      "cd ./extensions/vscode-typescript-vue-plugin && echo $(jq 'del(.dependencies[\"typescript-vue-plugin-forward\"])' package.json) > package.json && npx vsce package -o extension.vsix"
-    ]
-  },
   "jolaleye.horizon-theme-vscode": {
     "repository": "https://github.com/jolaleye/horizon-theme-vscode",
     "prepublish": "npm run build"
@@ -1327,6 +1309,24 @@
   },
   "vsls-contrib.gitdoc": {
     "repository": "https://github.com/lostintangent/gitdoc"
+  },
+  "Vue.volar": {
+    "repository": "https://github.com/johnsoncodehk/volar",
+    "location": "extensions/vscode-vue-language-features",
+    "custom": [
+      "npx pnpm install --no-frozen-lockfile --shamefully-hoist",
+      "npx pnpm run build",
+      "cd ./extensions/vscode-vue-language-features && npx pnpm run prepack:node && npx vsce package -o extension.vsix"
+    ]
+  },
+  "Vue.vscode-typescript-vue-plugin": {
+    "repository": "https://github.com/johnsoncodehk/volar",
+    "location": "extensions/vscode-typescript-vue-plugin",
+    "custom": [
+      "npx pnpm install",
+      "npx pnpm run build",
+      "cd ./extensions/vscode-typescript-vue-plugin && echo $(jq 'del(.dependencies[\"typescript-vue-plugin-forward\"])' package.json) > package.json && npx vsce package -o extension.vsix"
+    ]
   },
   "wayou.vscode-todo-highlight": {
     "repository": "https://github.com/wayou/vscode-todo-highlight"
