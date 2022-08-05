@@ -232,6 +232,14 @@
   "donjayamanne.jquerysnippets": {
     "repository": "https://github.com/DonJayamanne/jquerysnippets"
   },
+  "donjayamanne.python-environment-manager": {
+    "repository": "https://github.com/DonJayamanne/vscode-python-manager",
+    "prepublish": "npm run package"
+  },
+  "donjayamanne.python-extension-pack": {
+    "repository": "https://github.com/DonJayamanne/python-extension-pack",
+    "prepublish": "jq 'del(.extensionPack[4])' package.json > .package.json && mv .package.json package.json"
+  },
   "DotJoshJohnson.xml": {
     "repository": "https://github.com/DotJoshJohnson/vscode-xml"
   },
