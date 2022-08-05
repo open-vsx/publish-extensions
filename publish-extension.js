@@ -61,7 +61,6 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
             try { 
                 // If the project has a preferred Node version, use it 
                 await exec("source ~/.nvm/nvm.sh && nvm install", { cwd: path.join(context.repo, extension.location ?? '.') });
-                debugger
             } catch { }
 
             if (extension.custom) {
