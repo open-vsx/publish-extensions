@@ -58,7 +58,7 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
             process.env.OVSX_VERSION = context.ovsxVersion;
             await exec(`git checkout ${context.ref}`, { cwd: context.repo });
 
-            try { 
+            try {
                 // If the project has a preferred Node version, use it 
                 await exec("source ~/.nvm/nvm.sh && nvm install", { cwd: path.join(context.repo, extension.location ?? '.') });
             } catch { }
@@ -178,8 +178,13 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
             console.log(error);
         }
 
-        await ovsx.publish(options);
-        console.log(`[OK] Successfully published ${id} to Open VSX!`);
+        if (process.env.OVSX_PAT) {
+            await ovsx.publish(options);
+            console.log(`[OK] Successfully published ${id} to Open VSX!`);
+        } else {
+            console.error("The OVSX_PAT environment variable was not provided, which means the extension cannot be published. Provide it or set SKIP_PUBLISH to true to avoid seeing this.");
+            process.exitCode = -1;
+        }
 
     } catch (error) {
         if (error && String(error).indexOf('is already published.') !== -1) {
