@@ -36,7 +36,7 @@ const flags = [
 ];
 
 /**
- * Checks whether the provided `version` is a prerelase or not
+ * Checks whether the provided `version` is a prerelease or not
  * @param {Readonly<import('./types').IRawGalleryExtensionProperty[]>} version
  * @returns
  */
