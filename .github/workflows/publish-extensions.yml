@@ -70,7 +70,7 @@ jobs:
             return isLastFailedRun ? "failed" : "succeeded";
         result-encoding: string
     - name: Slack Notification
-      if: ${{ !github.event.inputs.extensions && (success() && steps.lastrun.outputs.result == "failed") || failure() }}
+      if: ${{ !github.event.inputs.extensions && (success() && steps.lastrun.outputs.result == 'failed') || failure() }}
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: ${{ secrets.GITPOD_SLACK_WEBHOOK }}
