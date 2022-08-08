@@ -1026,10 +1026,6 @@
   "philosowaffle.openapi-designer": {
     "repository": "https://github.com/philosowaffle/vs-openapi-designer"
   },
-  "phoenisx.cssvar": {
-    "prepublish": "[ $VERSION = '1.4.0' ] && git checkout 8c32fc6b3a0fa82420c1bbe8fa50b0ae0ef29d7b || true",
-    "repository": "https://github.com/willofindie/vscode-cssvar"
-  },
   "pranayagarwal.vscode-hack": {
     "repository": "https://github.com/slackhq/vscode-hack"
   },
