@@ -62,15 +62,18 @@ jobs:
         run: cat /tmp/result.md >> $GITHUB_STEP_SUMMARY
       - name: Get previous job's status
         uses: actions/github-script@v6
+        if: ${{ success() }}
         id: lastrun
         with:
           script: |
-            const isLastFailedRun = (await github.rest.actions.listWorkflowRuns({owner: "open-vsx", repo: "publish-extensions", workflow_id: 19084047, per_page: 1})).data.workflow_runs.filter(run => run.conclusion === "failure").length > 0;
-            console.log(isLastFailedRun);
-            return isLastFailedRun ? "failed" : "succeeded";
+              const workflow_id = 791896;
+              const isLastFailedRun = (await github.rest.actions.listWorkflowRuns({owner: "open-vsx", repo: "publish-extensions", workflow_id, per_page: 1})).data.workflow_runs.filter(run => run.conclusion === "failure").length > 0;
+              const message = isLastFailedRun ? "failed" : "succeeded";
+              console.log(`The last workflow run ${message}`);
+              return message;
           result-encoding: string
       - name: Slack Notification
-        if: ${{ !github.event.inputs.extensions && (success() && steps.lastrun.outputs.result == 'failed') || failure() }}
+        if: ${{ !github.event.inputs.extensions && ((success() && steps.lastrun.outputs.result == 'failed') || failure()) }}
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.GITPOD_SLACK_WEBHOOK }}
