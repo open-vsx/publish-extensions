@@ -3,7 +3,7 @@ name: Publish extensions to open-vsx.org
 on:
   schedule:
     # Run at 03:03 UTC every day.
-    - cron:  '3 3 * * 1-5'
+    - cron: "3 3 * * 1-5"
   workflow_dispatch:
     inputs:
       extensions:
@@ -11,12 +11,12 @@ on:
         required: false
         default: ""
       skipPublish:
-        description: 'Skip publishing to Open VSX, only build extensions'
+        description: "Skip publishing to Open VSX, only build extensions"
         type: boolean
         required: false
         default: false
       forcefullyPublish:
-        description: 'Force publish to Open VSX, even if version is already published'
+        description: "Force publish to Open VSX, even if version is already published"
         type: boolean
         required: false
         default: false
@@ -30,61 +30,62 @@ jobs:
     name: Publish Extensions
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3.4.1
-      with:
-        node-version: '14.x'
-    - uses: actions/setup-python@v4
-      with:
-        python-version: '3.8'
-    - uses: actions/setup-java@v3
-      with:
-        distribution: 'microsoft'
-        java-version: '17'
-    - run: npm install
-    - run: npm i -g vsce
-    - run: node publish-extensions
-      env:
-        OVSX_PAT: ${{ secrets.OVSX_PAT }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - run: node report-extensions
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - uses: actions/upload-artifact@v3
-      if: always()
-      with:
-        name: report
-        path: |
-          /tmp/stat.json
-          /tmp/meta.json
-          /tmp/result.md
-    - name: Upload job summary
-      run: cat /tmp/result.md >> $GITHUB_STEP_SUMMARY
-    - name: Get previous job's status
-      uses: actions/github-script@v6
-      id: lastrun
-      with:
-        script: |
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3.4.1
+        with:
+          node-version: "14.x"
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.8"
+      - uses: actions/setup-java@v3
+        with:
+          distribution: "microsoft"
+          java-version: "17"
+      - run: npm install
+      - run: npm i -g vsce
+      - run: node publish-extensions
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: node report-extensions
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: report
+          path: |
+            /tmp/stat.json
+            /tmp/meta.json
+            /tmp/result.md
+      - name: Upload job summary
+        run: cat /tmp/result.md >> $GITHUB_STEP_SUMMARY
+      - name: Get previous job's status
+        uses: actions/github-script@v6
+        id: lastrun
+        with:
+          script: |
             const isLastFailedRun = (await github.rest.actions.listWorkflowRuns({owner: "open-vsx", repo: "publish-extensions", workflow_id: 19084047, per_page: 1})).data.workflow_runs.filter(run => run.conclusion === "failure").length > 0;
             console.log(isLastFailedRun);
             return isLastFailedRun ? "failed" : "succeeded";
-        result-encoding: string
-    - name: Slack Notification
-      if: ${{ !github.event.inputs.extensions && (success() && steps.lastrun.outputs.result == 'failed') || failure() }}
-      uses: rtCamp/action-slack-notify@v2
-      env:
-        SLACK_WEBHOOK: ${{ secrets.GITPOD_SLACK_WEBHOOK }}
-        SLACK_COLOR: ${{ job.status }}
+          result-encoding: string
+      - name: Slack Notification
+        if: ${{ !github.event.inputs.extensions && (success() && steps.lastrun.outputs.result == 'failed') || failure() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.GITPOD_SLACK_WEBHOOK }}
+          SLACK_COLOR: ${{ job.status }}
   check_parity:
     name: Check MS parity
     runs-on: ubuntu-latest
     needs: publish_extensions
     if: ${{ !github.event.inputs.extensions }} # only run on full runs
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3.4.1
-      with:
-        node-version: '14.x'
-    - run: npm install
-    - name: Check parity of the top 4096 extensions
-      run: node lib/reportStat.js
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3.4.1
+        with:
+          node-version: "14.x"
+      - run: npm install
+      - name: Check parity of the top 4096 extensions
+        run: node lib/reportStat.js
+
