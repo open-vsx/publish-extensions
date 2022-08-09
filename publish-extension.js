@@ -63,7 +63,7 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
             try {
                 const nvmFile = await findUp(".nvmrc", {cwd: path.join(context.repo, extension.location ?? '.')});
                 if (nvmFile) {
-                    // If the project has a preferred Node version, use it 
+                    // If the project has a preferred Node version, use it
                     await exec("source ~/.nvm/nvm.sh && nvm install", { cwd: path.join(context.repo, extension.location ?? '.'), quiet: true });
                 }
             } catch { }
