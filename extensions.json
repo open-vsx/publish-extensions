@@ -1234,6 +1234,9 @@
   "vortizhe.simple-ruby-erb": {
     "repository": "https://github.com/vortizhe/vscode-ruby-erb"
   },
+  "vscjava.vscode-gradle": {
+    "repository": "https://github.com/microsoft/vscode-gradle"
+  },
   "vscjava.vscode-java-debug": {
     "repository": "https://github.com/microsoft/vscode-java-debug",
     "prepublish": "git clone https://github.com/Microsoft/java-debug.git ../java-debug && npm run build-server"
