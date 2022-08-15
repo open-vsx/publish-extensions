@@ -1151,6 +1151,9 @@
   "sorbet.sorbet-vscode-extension": {
     "repository": "https://github.com/sorbet/sorbet"
   },
+  "stateful.issue-explorer": {
+    "repository": "https://github.com/stateful/vscode-issue-explorer"
+  },
   "steoates.autoimport": {
     "repository": "https://github.com/soates/Auto-Import"
   },
