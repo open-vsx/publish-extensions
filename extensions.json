@@ -232,6 +232,14 @@
   "donjayamanne.jquerysnippets": {
     "repository": "https://github.com/DonJayamanne/jquerysnippets"
   },
+  "donjayamanne.python-environment-manager": {
+    "repository": "https://github.com/DonJayamanne/vscode-python-manager",
+    "prepublish": "npm run package"
+  },
+  "donjayamanne.python-extension-pack": {
+    "repository": "https://github.com/DonJayamanne/python-extension-pack",
+    "prepublish": "jq 'del(.extensionPack[4])' package.json > .package.json && mv .package.json package.json"
+  },
   "DotJoshJohnson.xml": {
     "repository": "https://github.com/DotJoshJohnson/vscode-xml"
   },
@@ -515,30 +523,13 @@
   "johnpapa.winteriscoming": {
     "repository": "https://github.com/johnpapa/vscode-winteriscoming"
   },
-  "Vue.volar": {
-    "repository": "https://github.com/johnsoncodehk/volar",
-    "location": "extensions/vscode-vue-language-features",
-    "custom": [
-      "npx pnpm install --no-frozen-lockfile --shamefully-hoist",
-      "npx pnpm run build",
-      "cd ./extensions/vscode-vue-language-features && npx pnpm run prepack:browser && npx vsce package -o extension.vsix"
-    ]
-  },
-  "johnsoncodehk.vscode-typescript-vue-plugin": {
-    "repository": "https://github.com/johnsoncodehk/volar",
-    "location": "extensions/vscode-typescript-vue-plugin",
-    "custom": [
-      "npx pnpm install --no-frozen-lockfile --shamefully-hoist",
-      "npx pnpm run build",
-      "cd ./extensions/vscode-typescript-vue-plugin && npx vsce package -o extension.vsix"
-    ]
-  },
   "jolaleye.horizon-theme-vscode": {
     "repository": "https://github.com/jolaleye/horizon-theme-vscode",
     "prepublish": "npm run build"
   },
   "junstyle.php-cs-fixer": {
-    "repository": "https://github.com/junstyle/vscode-php-cs-fixer"
+    "repository": "https://github.com/junstyle/vscode-php-cs-fixer",
+    "prepublish": "npm i -g esbuild"
   },
   "justusadam.language-haskell": {
     "repository": "https://github.com/JustusAdam/language-haskell",
@@ -1035,9 +1026,8 @@
   "philosowaffle.openapi-designer": {
     "repository": "https://github.com/philosowaffle/vs-openapi-designer"
   },
-  "phoenisx.cssvar": {
-    "prepublish": "[ $VERSION = '1.4.0' ] && git checkout 8c32fc6b3a0fa82420c1bbe8fa50b0ae0ef29d7b || true",
-    "repository": "https://github.com/willofindie/vscode-cssvar"
+  "pranayagarwal.vscode-hack": {
+    "repository": "https://github.com/slackhq/vscode-hack"
   },
   "pucelle.vscode-css-navigation": {
     "repository": "https://github.com/pucelle/vscode-css-navigation"
@@ -1244,6 +1234,9 @@
   "vortizhe.simple-ruby-erb": {
     "repository": "https://github.com/vortizhe/vscode-ruby-erb"
   },
+  "vscjava.vscode-gradle": {
+    "repository": "https://github.com/microsoft/vscode-gradle"
+  },
   "vscjava.vscode-java-debug": {
     "repository": "https://github.com/microsoft/vscode-java-debug",
     "prepublish": "git clone https://github.com/Microsoft/java-debug.git ../java-debug && npm run build-server"
@@ -1316,6 +1309,24 @@
   },
   "vsls-contrib.gitdoc": {
     "repository": "https://github.com/lostintangent/gitdoc"
+  },
+  "Vue.volar": {
+    "repository": "https://github.com/johnsoncodehk/volar",
+    "location": "extensions/vscode-vue-language-features",
+    "custom": [
+      "npx pnpm install --no-frozen-lockfile --shamefully-hoist",
+      "npx pnpm run build",
+      "cd ./extensions/vscode-vue-language-features && npx pnpm run prepack:node && npx vsce package -o extension.vsix"
+    ]
+  },
+  "Vue.vscode-typescript-vue-plugin": {
+    "repository": "https://github.com/johnsoncodehk/volar",
+    "location": "extensions/vscode-typescript-vue-plugin",
+    "custom": [
+      "npx pnpm install",
+      "npx pnpm run build",
+      "cd ./extensions/vscode-typescript-vue-plugin && echo $(jq 'del(.dependencies[\"typescript-vue-plugin-forward\"])' package.json) > package.json && npx vsce package -o extension.vsix"
+    ]
   },
   "wayou.vscode-todo-highlight": {
     "repository": "https://github.com/wayou/vscode-todo-highlight"

@@ -24,5 +24,6 @@ The template performs the following:
    - you can customize the [release tag](exampleCI.yaml#L60) or the [release name](exampleCI.yaml#L108)
    - you can customize what the [packaging process behaves and executes](exampleCI.yaml#L32)
    - you can customize the [workflow triggers](exampleCI.yaml#L2) to better fit in your workflow. See [Events that trigger workflows](https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows) for all the possible options.
-4. Now you can test whether your config works by commiting the Action file and running it from the Actions tab in your repo (select your workflow on the left and hit <kbd>Run Workflow</kbd> on the top right).
-    - note this will not work if you have removed the `workflow_dispatch` trigger for the workflow. You will need to trigger the Action some other way (e.g. creating a blank GitHub Release)
+4. Now you can test whether your config works by committing the Action file and running it from the Actions tab in your repo (select your workflow on the left and hit <kbd>Run Workflow</kbd> on the top right).
+   - note this will not work if you have removed the `workflow_dispatch` trigger for the workflow. You will need to trigger the Action some other way (e.g. creating a blank GitHub Release)
+

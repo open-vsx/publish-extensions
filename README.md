@@ -6,7 +6,7 @@ A CI script for publishing open-source VS Code extensions to [open-vsx.org](http
 
 ## When to Add an Extension?
 
-A goal of Open VSX is to have extension maintainers publish their extensions [according to the documentation](https://github.com/eclipse/openvsx/wiki/Publishing-Extensions). The first step we recommend is to open an issue with the extension owner. If the extension owner is unresponsive for some time, this repo (publish-extensions) can be used **as a temporary workaround** to esure the extension is published to Open VSX.
+A goal of Open VSX is to have extension maintainers publish their extensions [according to the documentation](https://github.com/eclipse/openvsx/wiki/Publishing-Extensions). The first step we recommend is to open an issue with the extension owner. If the extension owner is unresponsive for some time, this repo (publish-extensions) can be used **as a temporary workaround** to ensure the extension is published to Open VSX.
 
 In the long-run it is better for extension owners to publish their own plugins because:
 

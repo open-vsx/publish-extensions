@@ -36,7 +36,7 @@ const flags = [
 ];
 
 /**
- * Checks whether the provided `version` is a prerelase or not
+ * Checks whether the provided `version` is a prerelease or not
  * @param {Readonly<import('./types').IRawGalleryExtensionProperty[]>} version
  * @returns
  */
@@ -93,7 +93,6 @@ function isPreReleaseVersion(version) {
     hitMiss: {},
     resolutions: {}
   }
-  const msPublishers = new Set(['ms-python', 'ms-toolsai', 'ms-vscode', 'dbaeumer', 'GitHub', 'Tyriar', 'ms-azuretools', 'msjsdiag', 'ms-mssql', 'vscjava', 'ms-vsts']);
   const monthAgo = new Date();
   monthAgo.setMonth(monthAgo.getMonth() - 1);
   for (const id in extensions) {
@@ -120,7 +119,9 @@ function isPreReleaseVersion(version) {
         context.msInstalls = msExtension.value?.statistics?.find(s => s.statisticName === 'install')?.value;
         context.msPublisher = msExtension.value?.publisher.publisherName;
       }
-      if (msPublishers.has(context.msPublisher)) {
+
+      // Check if the extension is published by either Microsoft or GitHub
+      if (['https://microsoft.com', 'https://github.com'].includes(msExtension?.value.publisher.domain) && msExtension?.value.publisher.isDomainVerified ) {
         stat.msPublished[extension.id] = { msInstalls: context.msInstalls, msVersion: context.msVersion };
       }
 
