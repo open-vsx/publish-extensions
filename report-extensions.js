@@ -55,7 +55,7 @@ function positionOf(item, array) {
 }
 
 const generateMicrosoftLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace.visualstudio.com/items?itemName=${id})`;
-const generateOpennVsxLink = (/** @type {string} */ id) =>  `[${id}](https://open-vsx.org/extension/${id.split(".")[0]}/${id.split(".")[1]})`;
+const generateOpenVsxLink = (/** @type {string} */ id) =>  `[${id}](https://open-vsx.org/extension/${id.split(".")[0]}/${id.split(".")[1]})`;
 
 (async () => {
 
@@ -160,7 +160,7 @@ const generateOpennVsxLink = (/** @type {string} */ id) =>  `[${id}](https://ope
         );
     }
 
-    const agregatedInstalls = {
+    const aggregatedInstalls = {
         upToDate: getAggregatedInstalls('upToDate'),
         unstable: getAggregatedInstalls('unstable'),
         outdated: getAggregatedInstalls('outdated'),
@@ -204,7 +204,7 @@ const generateOpennVsxLink = (/** @type {string} */ id) =>  `[${id}](https://ope
 
     //const upToDateChange = lastWeekUpToDate ? (upToDate / total * 100) - (lastWeekUpToDate / total * 100) : undefined;
 
-    const weightedPercentage = (agregatedInstalls.upToDate / (agregatedInstalls.notInOpen + agregatedInstalls.upToDate + agregatedInstalls.outdated + agregatedInstalls.unstable));
+    const weightedPercentage = (aggregatedInstalls.upToDate / (aggregatedInstalls.notInOpen + aggregatedInstalls.upToDate + aggregatedInstalls.outdated + aggregatedInstalls.unstable));
 
     // Get missing extensions from Microsoft
 
@@ -275,7 +275,7 @@ const generateOpennVsxLink = (/** @type {string} */ id) =>  `[${id}](https://ope
 
     if (notInMS) {
         content += '\r\n## Not published to MS marketplace\r\n';
-        content += stat.notInMS.map(ext => `- ${generateOpennVsxLink(ext)}`).join('\r\n');
+        content += stat.notInMS.map(ext => `- ${generateOpenVsxLink(ext)}`).join('\r\n');
         content += '\r\n';
     }
 
@@ -358,7 +358,7 @@ const generateOpennVsxLink = (/** @type {string} */ id) =>  `[${id}](https://ope
         const keys = sortedKeys(stat.resolutions);
         for (const id of keys) {
             const r = stat.resolutions[id];
-            const base  =  r?.latest && !r.msVersion ? `${positionOf(id, keys)} ${generateOpennVsxLink(id)} from '` : `${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}) from`;
+            const base  =  r?.latest && !r.msVersion ? `${positionOf(id, keys)} ${generateOpenVsxLink(id)} from '` : `${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}) from`;
             if (r?.releaseAsset) {
                 content += `${base} '${r.releaseAsset}' release asset\r\n`;
             } else if (r?.releaseTag) {
