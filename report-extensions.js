@@ -89,10 +89,12 @@ const generateOpenVsxLink = (/** @type {string} */ id) =>  `[${id}](https://open
             archive_format: 'zip',
         });
 
+        const lastWeekReportDownloadDirectory = '/tmp/last_week/';
+
         // @ts-ignore
         fs.appendFileSync(outputFile, Buffer.from(weekDownload.data));
-        fs.rmSync('/tmp/lastweek/', { recursive: true, force: true });
-        fs.mkdirSync('/tmp/lastweek/');
+        fs.rmSync(lastWeekReportDownloadDirectory, { recursive: true, force: true });
+        fs.mkdirSync(lastWeekReportDownloadDirectory);
 
         try {
             fs.createReadStream(outputFile)
@@ -101,14 +103,14 @@ const generateOpenVsxLink = (/** @type {string} */ id) =>  `[${id}](https://open
                     const fileName = entry.path;
                     switch (fileName) {
                         case 'stat.json':
-                            entry.pipe(fs.createWriteStream("/tmp/lastweek/stat.json"));
+                            entry.pipe(fs.createWriteStream(`${lastWeekReportDownloadDirectory}stat.json`));
                             const result = JSON.parse(await streamToString(entry));
                             const upToDate = Object.keys(result.upToDate).length;
                             const unstable = Object.keys(result.unstable).length;
                             const outdated = Object.keys(result.outdated).length;
                             const notInOpen = Object.keys(result.notInOpen).length;
                             const notInMS = result.notInMS.length;
-                            lastWeekUpToDate = upToDate + notInOpen + outdated + unstable + notInMS;
+                            lastWeekUpToDate = upToDate / (upToDate + notInOpen + outdated + unstable + notInMS);
                             break;
                         default:
                             entry.autodrain();
@@ -121,8 +123,8 @@ const generateOpenVsxLink = (/** @type {string} */ id) =>  `[${id}](https://open
         fs.rmSync(outputFile);
         // @ts-ignore
         fs.appendFileSync(outputFile, Buffer.from(yesterdayDownload.data));
-        fs.rmSync('/tmp/lastweek/', { recursive: true, force: true });
-        fs.mkdirSync('/tmp/lastweek/');
+        fs.rmSync(lastWeekReportDownloadDirectory, { recursive: true, force: true });
+        fs.mkdirSync(lastWeekReportDownloadDirectory);
         try {
             fs.createReadStream(outputFile)
                 .pipe(unzipper.Parse())
@@ -202,7 +204,7 @@ const generateOpenVsxLink = (/** @type {string} */ id) =>  `[${id}](https://open
 
     const { couldPublishMs, missingMs, definedInRepo } = await checkMissing(true);
 
-    //const upToDateChange = lastWeekUpToDate ? (upToDate / total * 100) - (lastWeekUpToDate / total * 100) : undefined;
+    const upToDateChange = lastWeekUpToDate ? (upToDate / total - lastWeekUpToDate) * 100 : undefined;
 
     const weightedPercentage = (aggregatedInstalls.upToDate / (aggregatedInstalls.notInOpen + aggregatedInstalls.upToDate + aggregatedInstalls.outdated + aggregatedInstalls.unstable));
 
@@ -210,8 +212,7 @@ const generateOpenVsxLink = (/** @type {string} */ id) =>  `[${id}](https://open
 
     let summary = '# Summary\r\n\n';
     summary += `Total: ${total}\r\n`;
-    //summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%) (${upToDateChange !== undefined ? `${upToDateChange ? `${Math.abs(upToDateChange).toFixed(3)}% ` : ''}${upToDateChange > 0 ? 'increase' : upToDateChange === 0 ? 'no change' : 'decrease'} since last week` : "WoW change n/a"})\r\n`;
-    summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%)\r\n`;
+    summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%) (${upToDateChange !== undefined ? `${upToDateChange ? `${Math.abs(upToDateChange).toFixed(3)}% ` : ''}${upToDateChange > 0 ? 'increase' : upToDateChange === 0 ? 'no change' : 'decrease'} since last week` : "WoW change n/a"})\r\n`;
     summary += `Weighted publish percentage: ${(weightedPercentage * 100).toFixed(0)}%\r\n`
     summary += `Outdated (Not in Open VSX, but in MS marketplace): ${notInOpen} (${(notInOpen / total * 100).toFixed(0)}%)\r\n`;
     summary += `Outdated (MS marketplace > Open VSX): ${outdated} (${(outdated / total * 100).toFixed(0)}%)\r\n`;
