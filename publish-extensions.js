@@ -153,7 +153,7 @@ function isPreReleaseVersion(version) {
           stat.upToDate[extension.id] = extStat;
         } else {
           // Some extensions have versioning which is a bit different, like for example in the format of 1.71.8240911. If this is the case and we don't have this version published, we do some more checking to get more context about this version string.
-          const weirdVersionNumberPattern = new RegExp(/^\d{1,3}\.\d{1,}\.\d{4,}/g);
+          const weirdVersionNumberPattern = new RegExp(/^\d{1,3}\.\d{1,}\.\d{4,}/g); // https://regexr.com/6t02m
           if (context.msVersion.match(weirdVersionNumberPattern)) {
             if (`${semver.major(context.msVersion)}.${semver.minor(context.msVersion)}` === `${semver.major(context.ovsxVersion)}.${semver.minor(context.ovsxVersion)}`) {
               // If major.minor are the same on both marketplaces, we assume we're up-to-date
