@@ -399,9 +399,6 @@
   "golang.go": {
     "repository": "https://github.com/golang/vscode-go"
   },
-  "goodbaikin.org-preview": {
-    "repository": "https://github.com/goodbaikin/VSC-Org-Preview"
-  },
   "GrapeCity.gc-excelviewer": {
     "repository": "https://github.com/jjuback/gc-excelviewer"
   },
