@@ -1275,11 +1275,6 @@
       "vsce package -o extension.vsix"
     ]
   },
-  "vscode.smali": {
-    "repository": "https://github.com/ViRb3/vscode-smali",
-    "location": "smali",
-    "prepublish": "cp LICENSE smali/ && cd smali && npm install"
-  },
   "vshaxe.haxe-checkstyle": {
     "repository": "https://github.com/vshaxe/vscode-checkstyle"
   },
