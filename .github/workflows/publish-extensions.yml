@@ -58,6 +58,11 @@ jobs:
             /tmp/stat.json
             /tmp/meta.json
             /tmp/result.md
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: artifacts
+          path: |
             /tmp/artifacts/*.vsix
       - name: Upload job summary
         run: cat /tmp/result.md >> $GITHUB_STEP_SUMMARY
