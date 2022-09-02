@@ -171,6 +171,7 @@ const getRepositoryFromMarketplace = async (/** @type {string} */ id) => {
         );
     } else {
         console.info("Built extension successfully");
+        console.info(`Feel free to use the message below for your commit:\r\nAdded \`${extID}\``);
     }
 
 })();
