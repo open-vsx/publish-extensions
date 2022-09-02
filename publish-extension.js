@@ -22,6 +22,7 @@ const { cannotPublish } = require('./lib/reportStat');
 
 const { PublicGalleryAPI } = require('vsce/out/publicgalleryapi');
 const { PublishedExtension } = require('azure-devops-node-api/interfaces/GalleryInterfaces');
+const { artifactDirectory } = require('./lib/constants');
 
 const openGalleryApi = new PublicGalleryAPI('https://open-vsx.org/vscode', '3.0-preview.1');
 openGalleryApi.client['_allowRetries'] = true;
@@ -170,9 +171,15 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
             }
         }
 
+        if (options.extensionFile && process.env.EXTENSIONS) {
+            console.info("Copying file to " + artifactDirectory)
+            fs.cpSync(options.extensionFile, path.join("/tmp/artifacts/", `${extension.id}.vsix`));
+        }
+
         if (process.env.SKIP_PUBLISH === 'true') {
             return;
         }
+
         console.log(`Attempting to publish ${id} to Open VSX`);
 
         // Create a public Open VSX namespace if needed.
@@ -181,10 +188,6 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
         } catch (error) {
             console.log(`Creating Open VSX namespace failed -- assuming that it already exists`);
             console.log(error);
-        }
-
-        if (options.extensionFile && process.env.EXTENSIONS) {
-            fs.cpSync(options.extensionFile, path.join("/tmp/artifacts/", `${extension.id}.vsix`));
         }
 
         if (process.env.OVSX_PAT) {

@@ -18,6 +18,7 @@ const semver = require('semver');
 const Ajv = require("ajv").default;
 const resolveExtension = require('./lib/resolveExtension').resolveExtension;
 const exec = require('./lib/exec');
+const { artifactDirectory } = require("./lib/constants");
 
 const msGalleryApi = getPublicGalleryAPI();
 msGalleryApi.client['_allowRetries'] = true;
@@ -45,13 +46,25 @@ function isPreReleaseVersion(version) {
   return values.length > 0 && values[0].value === 'true';
 }
 
+const ensureBuildPrerequisites = async () => {
+    // Make yarn use bash
+    await exec('yarn config set script-shell /bin/bash');
+
+    // Don't show large git advice blocks
+    await exec('git config --global advice.detachedHead false');
+  
+    // Create directory for storing built extensions
+    if (fs.existsSync(artifactDirectory)) {
+      // If the folder has any files, delete them
+      try {fs.rmSync(`${artifactDirectory}*`)} catch {}
+    } else {
+      fs.mkdirSync(artifactDirectory);
+    }
+}
+
 (async () => {
 
-  // Make yarn use bash
-  exec('yarn config set script-shell /bin/bash');
-
-  // Don't show large git advice blocks
-  exec('git config --global advice.detachedHead false');
+  await ensureBuildPrerequisites();
 
   /**
    * @type {string[] | undefined}
