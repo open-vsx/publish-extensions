@@ -202,13 +202,12 @@ const generateOpenVsxLink = (/** @type {string} */ id) =>  `[${id}](https://open
     const fromMatched = Object.keys(stat.resolutions).filter(id => stat.resolutions[id].matched).length;
     const totalResolved = fromReleaseAsset + fromReleaseTag + fromTag + fromLatestUnmaintained + fromLatestNotPublished + fromMatchedLatest + fromMatched;
 
+    // Get missing extensions from Microsoft
     const { couldPublishMs, missingMs, definedInRepo } = await checkMissing(true);
 
     const upToDateChange = lastWeekUpToDate ? (upToDate / total - lastWeekUpToDate) * 100 : undefined;
 
     const weightedPercentage = (aggregatedInstalls.upToDate / (aggregatedInstalls.notInOpen + aggregatedInstalls.upToDate + aggregatedInstalls.outdated + aggregatedInstalls.unstable));
-
-    // Get missing extensions from Microsoft
 
     let summary = '# Summary\r\n\n';
     summary += `Total: ${total}\r\n`;
