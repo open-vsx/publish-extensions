@@ -118,7 +118,7 @@ const getRepositoryFromMarketplace = async (/** @type {string} */ id) => {
             process.exit(1);
         }
     }
-    console.log('Adding extension:', util.inspect(extDefinition, { colors: true, compact: false }));
+    console.info('Adding extension:', util.inspect(extDefinition, { colors: true, compact: false }));
 
     // Read current file
     const extensions = Object.entries(JSON.parse(await fs.promises.readFile('./extensions.json', { encoding: 'utf8' })));
@@ -149,7 +149,7 @@ const getRepositoryFromMarketplace = async (/** @type {string} */ id) => {
         { encoding: 'utf8' }
     );
 
-    console.log(`Successfully added ${extID}`);
+    console.info(`Successfully added ${extID}`);
     if (process.env.TEST_EXTENSION === "false") {
         console.info("Skipping tests, TEST_EXTENSION was provided.")
         process.exit(0);
@@ -170,7 +170,7 @@ const getRepositoryFromMarketplace = async (/** @type {string} */ id) => {
             { encoding: 'utf8' }
         );
     } else {
-        console.log("Built extension successfully");
+        console.info("Built extension successfully");
     }
 
 })();
