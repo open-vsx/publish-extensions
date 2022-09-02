@@ -11,7 +11,7 @@
 // @ts-check
 const fs = require('fs');
 const Octokit = require('octokit').Octokit;
-const { checkMissing, formatter } = require('./lib/reportStat');
+const { formatter } = require('./lib/reportStat');
 const humanNumber = require('human-number');
 const unzipper = require('unzipper');
 
@@ -202,11 +202,7 @@ const generateOpenVsxLink = (/** @type {string} */ id) =>  `[${id}](https://open
     const fromMatched = Object.keys(stat.resolutions).filter(id => stat.resolutions[id].matched).length;
     const totalResolved = fromReleaseAsset + fromReleaseTag + fromTag + fromLatestUnmaintained + fromLatestNotPublished + fromMatchedLatest + fromMatched;
 
-    // Get missing extensions from Microsoft
-    const { couldPublishMs, missingMs, definedInRepo } = await checkMissing(true);
-
     const upToDateChange = lastWeekUpToDate ? (upToDate / total - lastWeekUpToDate) * 100 : undefined;
-
     const weightedPercentage = (aggregatedInstalls.upToDate / (aggregatedInstalls.notInOpen + aggregatedInstalls.upToDate + aggregatedInstalls.outdated + aggregatedInstalls.unstable));
 
     let summary = '# Summary\r\n\n';
@@ -225,7 +221,6 @@ const generateOpenVsxLink = (/** @type {string} */ id) =>  `[${id}](https://open
         summary += `Total: ${msPublished} (${(msPublished / total * 100).toFixed(0)}%)\r\n`;
         summary += `Outdated: ${msPublishedOutdated.length}\r\n`;
         summary += `Unstable: ${msPublishedUnstable.length}\r\n`;
-        summary += `Missing: ${missingMs.length} (we could publish ${couldPublishMs.length} out of that)\r\n`
         summary += `\r\n\n`;
         summary += `Total resolutions: ${totalResolutions}\r\n`;
         summary += `From release asset: ${fromReleaseAsset} (${(fromReleaseAsset / totalResolutions * 100).toFixed(0)}%)\r\n`;
@@ -323,18 +318,11 @@ const generateOpenVsxLink = (/** @type {string} */ id) =>  `[${id}](https://open
             content += `${positionOf(id, outdatedKeys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
         }
 
-
         content += '\r\n## MS Unstable\r\n'
 
         for (const id of unstableKeys) {
             const r = stat.msPublished[id];
             content += `${positionOf(id, unstableKeys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
-        }
-
-        content += '\r\n## MS missing from Open VSX\r\n'
-
-        for (const extension of couldPublishMs) {
-            content += `${positionOf(extension, couldPublishMs)} ${generateMicrosoftLink(`${extension.publisher.publisherName}.${extension.extensionName}`)} (installs: ${extension.statistics?.find(s => s.statisticName === 'install')?.value}})${definedInRepo.includes(`${extension.publisher.publisherName}.${extension.extensionName}`) ? ` [defined in extensions.json]` : ''}\r\n`;
         }
     }
 
