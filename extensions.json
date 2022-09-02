@@ -1136,6 +1136,9 @@
   "skn0tt.markdown-link-expander": {
     "repository": "https://github.com/Skn0tt/markdown-link-expander"
   },
+  "slevesque.shader": {
+    "repository": "https://github.com/stef-levesque/vscode-shader"
+  },
   "slevesque.vscode-3dviewer": {
     "repository": "https://github.com/stef-levesque/vscode-3dviewer"
   },
