@@ -173,7 +173,7 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
 
         if (options.extensionFile && process.env.EXTENSIONS) {
             console.info("Copying file to " + artifactDirectory)
-            fs.cpSync(options.extensionFile, path.join("/tmp/artifacts/", `${extension.id}.vsix`));
+            fs.copyFileSync(options.extensionFile, path.join("/tmp/artifacts/", `${extension.id}.vsix`));
         }
 
         if (process.env.SKIP_PUBLISH === 'true') {
