@@ -183,6 +183,10 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
             console.log(error);
         }
 
+        if (options.extensionFile && process.env.EXTENSIONS) {
+            fs.cpSync(options.extensionFile, path.join("/tmp/artifacts/", `${extension.id}.vsix`));
+        }
+
         if (process.env.OVSX_PAT) {
             await ovsx.publish(options);
             console.log(`[OK] Successfully published ${id} to Open VSX!`);

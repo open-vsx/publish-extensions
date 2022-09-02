@@ -58,6 +58,7 @@ jobs:
             /tmp/stat.json
             /tmp/meta.json
             /tmp/result.md
+            /tmp/artifacts/*.vsix
       - name: Upload job summary
         run: cat /tmp/result.md >> $GITHUB_STEP_SUMMARY
       - name: Get previous job's status
