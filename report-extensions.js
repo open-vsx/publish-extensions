@@ -237,10 +237,14 @@ const generateOpenVsxLink = (/** @type {string} */ id) =>  `[${id}](https://open
         summary += `Of which updated in Open VSX within 2 weeks: ${updatedInOpenIn2Weeks.size} (${(updatedInOpenIn2Weeks.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
         summary += `Of which updated in Open VSX within a month: ${updatedInOpenInMonth.size} (${(updatedInOpenInMonth.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
     } else {
-        summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%)\r\n`;
-        summary += `Failed to publish: ${stat.failed.length} (${(stat.failed.length / total * 100).toFixed(0)}%)\r\n`;
-        summary += `Outdated: ${msPublishedOutdated.length}\r\n`;
-        summary += `Unstable: ${msPublishedUnstable.length}\r\n`;
+        if (total === 0) {
+            summary += 'No extensions were processed\r\n';
+        } else {
+            summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%)\r\n`;
+            summary += `Failed to publish: ${stat.failed.length} (${(stat.failed.length / total * 100).toFixed(0)}%)\r\n`;
+            summary += `Outdated: ${msPublishedOutdated.length}\r\n`;
+            summary += `Unstable: ${msPublishedUnstable.length}\r\n`;
+        }
     }
 
     console.log(summary);
