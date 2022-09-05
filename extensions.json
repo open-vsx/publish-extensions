@@ -332,9 +332,6 @@
   "felixfbecker.php-pack": {
     "repository": "https://github.com/felixfbecker/vscode-php-pack"
   },
-  "fernandoescolar.vscode-solution-explorer": {
-    "repository": "https://github.com/fernandoescolar/vscode-solution-explorer"
-  },
   "file-icons.file-icons": {
     "repository": "https://github.com/file-icons/vscode"
   },
