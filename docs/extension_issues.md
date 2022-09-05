@@ -20,7 +20,7 @@ If an extension on Open VSX is outdated or has never been successfully published
 1. The extension has some abnormal build prerequisites, we build everything inside the same Ubuntu VM, which might cause problems like:
     - a CLI tool is not installed
     - the extension requires an older/newer version of Node.js: we are using Node 14 by default, although this can be fixed by extensions specifying a different Node version using the [`.nvmrc`](https://github.com/nvm-sh/nvm#nvmrc) file in their repository.
-    - the extension has issues building on the latest LTS of Ubuntu server (we use `ubuntu-latest` for our jobs, you can take a look at [GitHub's Docs](https://github.com/actions/virtual-environments#available-environments) to see what that currently stands for)
+    - the extension has issues building on the latest LTS of Ubuntu server (we use `ubuntu-latest` for our jobs, you can take a look at [GitHub's Docs](https://github.com/actions/runner-images#available-images) to see what that currently stands for)
 2. The extension requires additional commands to be executed to build successfully.
     - if you want a quick and easy fix you can try adding a `prepublish` property to the extension in `extensions.json` to set a command to be executed before packaging up the extension, right after installing the project's dependencies.
 
