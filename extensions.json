@@ -220,6 +220,10 @@
   "denoland.vscode-deno": {
     "repository": "https://github.com/denoland/vscode_deno"
   },
+  "dfinity-foundation.vscode-motoko": {
+    "repository": "https://github.com/dfinity/vscode-motoko",
+    "prepublish": "npm run package"
+  },
   "DigitalBrainstem.javascript-ejs-support": {
     "repository": "https://github.com/Digitalbrainstem/ejs-grammar"
   },
