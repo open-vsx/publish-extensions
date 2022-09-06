@@ -57,6 +57,11 @@ function positionOf(item, array) {
 const generateMicrosoftLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace.visualstudio.com/items?itemName=${id})`;
 const generateOpenVsxLink = (/** @type {string} */ id) =>  `[${id}](https://open-vsx.org/extension/${id.split(".")[0]}/${id.split(".")[1]})`;
 
+const repoDetails = {
+    owner: 'open-vsx',
+    repo: 'publish-extensions',
+};
+
 (async () => {
 
     let lastWeekUpToDate;
@@ -69,22 +74,36 @@ const generateOpenVsxLink = (/** @type {string} */ id) =>  `[${id}](https://open
         const dayMilis = 86_400 * 1000 - 3600; // One hour tolerance
         const weekMilis = 7 * dayMilis; // One hour tolerance
         const previousReports = (await octokit.rest.actions.listArtifactsForRepo({
-            owner: 'open-vsx',
-            repo: 'publish-extensions',
+            ...repoDetails,
             per_page: 100
-        })).data.artifacts;
-        const previousWeekReport = previousReports.find(report => new Date().getTime() - new Date(report.created_at).getTime() > weekMilis);
+        })).data.artifacts.filter(report => {
+            if (!report.created_at) return false;
+            return (new Date().getTime() - new Date(report.created_at).getTime() > weekMilis)
+        });
+
+        const previousWeekReport = previousReports.find(async report => {
+            if (!report.workflow_run?.id) return false;
+            try {
+                const workflowRun = await octokit.rest.actions.getWorkflowRun({
+                    ...repoDetails,
+                    run_id: report.workflow_run.id
+                });
+                if (workflowRun.data.event === "schedule") {
+                    return true;
+                }
+            } catch {
+                return false;
+            }
+        });
         const yesterdayReport = previousReports.find(report => new Date().getTime() - new Date(report.created_at).getTime() > dayMilis);
         const outputFile = '/tmp/report.zip';
         const weekDownload = await octokit.rest.actions.downloadArtifact({
-            owner: 'open-vsx',
-            repo: 'publish-extensions',
+            ...repoDetails,
             artifact_id: previousWeekReport.id,
             archive_format: 'zip',
         });
         const yesterdayDownload = await octokit.rest.actions.downloadArtifact({
-            owner: 'open-vsx',
-            repo: 'publish-extensions',
+            ...repoDetails,
             artifact_id: yesterdayReport.id,
             archive_format: 'zip',
         });
