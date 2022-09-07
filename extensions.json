@@ -33,6 +33,9 @@
   "aki77.rails-db-schema": {
     "repository": "https://github.com/aki77/vscode-rails-db-schema"
   },
+  "albertromkes.tabout": {
+    "repository": "https://github.com/albertromkes/tabout"
+  },
   "albymor.increment-selection": {
     "repository": "https://github.com/albymor/Increment-Selection"
   },
