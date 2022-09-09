@@ -1067,6 +1067,10 @@
   "rokoroku.vscode-theme-darcula": {
     "repository": "https://github.com/rokoroku/vscode-theme-darcula"
   },
+  "rxliuli.joplin-vscode-plugin": {
+    "repository": "https://github.com/rxliuli/joplin-utils",
+    "location": "apps/joplin-vscode-plugin"
+  },
   "ryu1kn.edit-with-shell": {
     "repository": "https://github.com/ryu1kn/vscode-edit-with-shell"
   },
