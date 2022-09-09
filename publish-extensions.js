@@ -52,7 +52,7 @@ const ensureBuildPrerequisites = async () => {
 
     // Don't show large git advice blocks
     await exec('git config --global advice.detachedHead false');
-  
+
     // Create directory for storing built extensions
     if (fs.existsSync(artifactDirectory)) {
       // If the folder has any files, delete them
