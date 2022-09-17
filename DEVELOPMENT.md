@@ -27,8 +27,6 @@ Click the button below to start a [Gitpod](https://gitpod.io) workspace where yo
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/open-vsx/publish-extensions)
 
-**ℹ️ note**: adding extensions should work alright with any Node.js-supported OS, but
-
 ## Publishing Options
 
 The best way to add an extension here is to [open this repository in Gitpod](https://gitpod.io/#https://github.com/open-vsx/publish-extensions) and [add a new entry to `extensions.json`](#how-to-add-an-extension).
