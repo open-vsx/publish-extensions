@@ -13,11 +13,11 @@ In the long-run it is better for extension owners to publish their own extension
 
 ⚠️ We only accept extensions with an [OSI-approved open source license](https://opensource.org/licenses) here. If you want to have an extension with a proprietary or non-approved license published, please ask its maintainers to publish it[^proprietary].
 
+Now that you know whether you should contribute, let's learn how to contribute! Read on in [DEVELOPMENT.md](DEVELOPMENT.md)
+
 ## Other contributions
 
 Contributions involving docs, publishing processes and others should be first discussed in an issue. This is not necessary for small changes like typo fixes.
-
-Now that you know whether you should contribute, let's learn how to contribute! Read on in [DEVELOPMENT.md](DEVELOPMENT.md)
 
 [^proprietary]: proprietary extensions are allowed on https://open-vsx.org, but cannot be published through this repository
 
