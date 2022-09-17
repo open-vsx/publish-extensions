@@ -1333,8 +1333,12 @@
   },
   "wix.vscode-import-cost": {
     "repository": "https://github.com/wix/import-cost",
-    "location": "packages/vscode-import-cost",
-    "prepublish": "cd packages/vscode-import-cost && git clean -xdf && npm install"
+    "custom": [
+      "[ $VERSION = '3.3.0' ] && git checkout origin/master",
+      "npm install && pwd && npm run build",
+      "cd packages/vscode-import-cost/ && mv *.vsix extension.vsix"
+    ],
+    "location": "packages/vscode-import-cost/"
   },
   "wongjn.php-sniffer": {
     "repository": "https://github.com/wongjn/vscode-php-sniffer"
