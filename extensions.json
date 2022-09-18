@@ -1334,7 +1334,6 @@
   "wix.vscode-import-cost": {
     "repository": "https://github.com/wix/import-cost",
     "custom": [
-      "[ $VERSION = '3.3.0' ] && git checkout origin/master",
       "npm install && npm run build",
       "cd packages/vscode-import-cost/ && mv *.vsix extension.vsix"
     ],
