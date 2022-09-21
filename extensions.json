@@ -755,7 +755,16 @@
     "prepublish": "npm i && cd packages/vscode-pyright && npm run prepackage"
   },
   "ms-python.black-formatter": {
-    "repository": "https://github.com/microsoft/vscode-black-formatter"
+    "repository": "https://github.com/microsoft/vscode-black-formatter",
+    "custom": [
+      "python -m pip install -U pip",
+      "python -m pip install wheel",
+      "python -m pip install nox",
+      "npm ci --prefer-offline",
+      "python -m nox --session install_bundled_libs",
+      "npm run vsce-package"
+    ],
+    "extensionFile": "black-formatter.vsix"
   },
   "ms-python.python": {
     "repository": "https://github.com/microsoft/vscode-python",
