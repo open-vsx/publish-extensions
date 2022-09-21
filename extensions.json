@@ -754,6 +754,9 @@
     "location": "packages/vscode-pyright",
     "prepublish": "npm i && cd packages/vscode-pyright && npm run prepackage"
   },
+  "ms-python.black-formatter": {
+    "repository": "https://github.com/microsoft/vscode-black-formatter"
+  },
   "ms-python.python": {
     "repository": "https://github.com/microsoft/vscode-python",
     "prepublish": "PIP_USER=no python3 -m pip --disable-pip-version-check install -r build/debugger-install-requirements.txt && python3 ./pythonFiles/install_debugpy.py && python3 -m pip install --no-deps --require-hashes --only-binary :all: -t ./pythonFiles/lib/python --implementation py -r ./requirements.txt && python3 -m pip install --no-deps --require-hashes --only-binary :all: -t ./pythonFiles/lib/jedilsp --implementation py --platform any --abi none -r ./pythonFiles/jedilsp_requirements/requirements.txt && python3 ./build/update_ext_version.py --release --for-publishing && npm run addExtensionPackDependencies && DISABLE_TRANSLATIONS=true npm run package",
