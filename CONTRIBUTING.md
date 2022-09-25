@@ -11,7 +11,7 @@ In the long-run it is better for extension owners to publish their own extension
    open-vsx</kbd>.
 3. Extension owners who publish their own extensions get greater flexibility on the publishing/release process, therefore ensure more accuracy/stability. For instance, in some cases `publish-extensions` has build steps within this repository, which can cause some uploaded extension versions to break (e.g. if an extensions's build step changes).
 
-⚠️ We only accept extensions with an [OSI-approved open source license](https://opensource.org/licenses) here. If you want to have an extension with a proprietary or non-approved license published, please ask its maintainers to publish it[^proprietary].
+> **Warning**: We only accept extensions with an [OSI-approved open source license](https://opensource.org/licenses) here. If you want to have an extension with a proprietary or non-approved license published, please ask its maintainers to publish it[^proprietary].
 
 Now that you know whether you should contribute, let's learn how to contribute! Read on in [DEVELOPMENT.md](DEVELOPMENT.md).
 
