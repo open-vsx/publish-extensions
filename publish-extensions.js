@@ -258,7 +258,7 @@ const ensureBuildPrerequisites = async () => {
 
       let timeout;
       await new Promise((resolve, reject) => {
-        const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify({ extension, context })], {
+        const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify({ extension, context, extensions })], {
           stdio: ['ignore', 'inherit', 'inherit'],
           cwd: process.cwd(),
           env: process.env

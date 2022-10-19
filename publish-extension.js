@@ -32,9 +32,9 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
 
 (async () => {
     /**
-     * @type {{extension: import('./types').Extension, context: import('./types').PublishContext}}
+     * @type {{extension: import('./types').Extension, context: import('./types').PublishContext, extensions: Readonly<import('./types').Extensions>}}
      */
-    const { extension, context } = JSON.parse(process.argv[2]);
+    const { extension, context, extensions } = JSON.parse(process.argv[2]);
     console.log(`\nProcessing extension: ${JSON.stringify({ extension, context }, undefined, 2)}`);
     try {
         const { id } = extension;
@@ -160,6 +160,11 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
 
             const dependenciesNotOnOpenVsx = [];
             for (const dependency of extensionDependencies) {
+
+                if (process.env.SKIP_PUBLISH && Object.keys(extensions).find(key => key === dependency)) {
+                    continue;
+                }
+
                 /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
                 const [ovsxExtension] = await Promise.allSettled([openGalleryApi.getExtension(dependency)]);
                 if (ovsxExtension.status === 'fulfilled' && !ovsxExtension.value) {
