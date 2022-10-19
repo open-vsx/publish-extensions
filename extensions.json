@@ -253,6 +253,12 @@
   "dracula-theme.theme-dracula": {
     "repository": "https://github.com/dracula/visual-studio-code"
   },
+  "draivin.hscopes": {
+    "repository": "https://github.com/draivin/hscopes"
+  },
+  "draivin.hsnips": {
+    "repository": "https://github.com/draivin/hsnips"
+  },
   "dsznajder.es7-react-js-snippets": {
     "repository": "https://github.com/dsznajder/vscode-es7-javascript-react-snippets"
   },
