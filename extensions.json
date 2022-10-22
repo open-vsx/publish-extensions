@@ -42,6 +42,9 @@
   "aliariff.vscode-erb-beautify": {
     "repository": "https://github.com/aliariff/vscode-erb-beautify"
   },
+  "alireza94.theme-gotham": {
+    "repository": "https://github.com/alireza-ahmadi/vscode-theme-gotham"
+  },
   "almenon.arepl": {
     "repository": "https://github.com/almenon/arepl-vscode"
   },
