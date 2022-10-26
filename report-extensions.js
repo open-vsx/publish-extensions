@@ -1,5 +1,5 @@
 /********************************************************************************
- * Copyright (c) 2021 Gitpod and others
+ * Copyright (c) 2021-2022 Gitpod and others
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0 which is available at
@@ -11,7 +11,7 @@
 // @ts-check
 const fs = require('fs');
 const Octokit = require('octokit').Octokit;
-const { checkMissing, formatter } = require('./lib/reportStat');
+const { formatter } = require('./lib/reportStat');
 const humanNumber = require('human-number');
 const unzipper = require('unzipper');
 
@@ -55,7 +55,12 @@ function positionOf(item, array) {
 }
 
 const generateMicrosoftLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace.visualstudio.com/items?itemName=${id})`;
-const generateOpennVsxLink = (/** @type {string} */ id) =>  `[${id}](https://open-vsx.org/extension/${id.split(".")[0]}/${id.split(".")[1]})`;
+const generateOpenVsxLink = (/** @type {string} */ id) =>  `[${id}](https://open-vsx.org/extension/${id.split(".")[0]}/${id.split(".")[1]})`;
+
+const repoDetails = {
+    owner: 'open-vsx',
+    repo: 'publish-extensions',
+};
 
 (async () => {
 
@@ -69,30 +74,46 @@ const generateOpennVsxLink = (/** @type {string} */ id) =>  `[${id}](https://ope
         const dayMilis = 86_400 * 1000 - 3600; // One hour tolerance
         const weekMilis = 7 * dayMilis; // One hour tolerance
         const previousReports = (await octokit.rest.actions.listArtifactsForRepo({
-            owner: 'open-vsx',
-            repo: 'publish-extensions',
+            ...repoDetails,
             per_page: 100
-        })).data.artifacts;
-        const previousWeekReport = previousReports.find(report => new Date().getTime() - new Date(report.created_at).getTime() > weekMilis);
+        })).data.artifacts.filter(report => {
+            if (!report.created_at) return false;
+            return (new Date().getTime() - new Date(report.created_at).getTime() > weekMilis)
+        });
+
+        const previousWeekReport = previousReports.find(async report => {
+            if (!report.workflow_run?.id) return false;
+            try {
+                const workflowRun = await octokit.rest.actions.getWorkflowRun({
+                    ...repoDetails,
+                    run_id: report.workflow_run.id
+                });
+                if (workflowRun.data.event === "schedule") {
+                    return true;
+                }
+            } catch {
+                return false;
+            }
+        });
         const yesterdayReport = previousReports.find(report => new Date().getTime() - new Date(report.created_at).getTime() > dayMilis);
         const outputFile = '/tmp/report.zip';
         const weekDownload = await octokit.rest.actions.downloadArtifact({
-            owner: 'open-vsx',
-            repo: 'publish-extensions',
+            ...repoDetails,
             artifact_id: previousWeekReport.id,
             archive_format: 'zip',
         });
         const yesterdayDownload = await octokit.rest.actions.downloadArtifact({
-            owner: 'open-vsx',
-            repo: 'publish-extensions',
+            ...repoDetails,
             artifact_id: yesterdayReport.id,
             archive_format: 'zip',
         });
 
+        const lastWeekReportDownloadDirectory = '/tmp/last_week/';
+
         // @ts-ignore
         fs.appendFileSync(outputFile, Buffer.from(weekDownload.data));
-        fs.rmSync('/tmp/lastweek/', { recursive: true, force: true });
-        fs.mkdirSync('/tmp/lastweek/');
+        fs.rmSync(lastWeekReportDownloadDirectory, { recursive: true, force: true });
+        fs.mkdirSync(lastWeekReportDownloadDirectory);
 
         try {
             fs.createReadStream(outputFile)
@@ -101,14 +122,14 @@ const generateOpennVsxLink = (/** @type {string} */ id) =>  `[${id}](https://ope
                     const fileName = entry.path;
                     switch (fileName) {
                         case 'stat.json':
-                            entry.pipe(fs.createWriteStream("/tmp/lastweek/stat.json"));
+                            entry.pipe(fs.createWriteStream(`${lastWeekReportDownloadDirectory}stat.json`));
                             const result = JSON.parse(await streamToString(entry));
                             const upToDate = Object.keys(result.upToDate).length;
                             const unstable = Object.keys(result.unstable).length;
                             const outdated = Object.keys(result.outdated).length;
                             const notInOpen = Object.keys(result.notInOpen).length;
                             const notInMS = result.notInMS.length;
-                            lastWeekUpToDate = upToDate + notInOpen + outdated + unstable + notInMS;
+                            lastWeekUpToDate = upToDate / (upToDate + notInOpen + outdated + unstable + notInMS);
                             break;
                         default:
                             entry.autodrain();
@@ -121,8 +142,8 @@ const generateOpennVsxLink = (/** @type {string} */ id) =>  `[${id}](https://ope
         fs.rmSync(outputFile);
         // @ts-ignore
         fs.appendFileSync(outputFile, Buffer.from(yesterdayDownload.data));
-        fs.rmSync('/tmp/lastweek/', { recursive: true, force: true });
-        fs.mkdirSync('/tmp/lastweek/');
+        fs.rmSync(lastWeekReportDownloadDirectory, { recursive: true, force: true });
+        fs.mkdirSync(lastWeekReportDownloadDirectory);
         try {
             fs.createReadStream(outputFile)
                 .pipe(unzipper.Parse())
@@ -160,7 +181,7 @@ const generateOpennVsxLink = (/** @type {string} */ id) =>  `[${id}](https://ope
         );
     }
 
-    const agregatedInstalls = {
+    const aggregatedInstalls = {
         upToDate: getAggregatedInstalls('upToDate'),
         unstable: getAggregatedInstalls('unstable'),
         outdated: getAggregatedInstalls('outdated'),
@@ -200,44 +221,50 @@ const generateOpennVsxLink = (/** @type {string} */ id) =>  `[${id}](https://ope
     const fromMatched = Object.keys(stat.resolutions).filter(id => stat.resolutions[id].matched).length;
     const totalResolved = fromReleaseAsset + fromReleaseTag + fromTag + fromLatestUnmaintained + fromLatestNotPublished + fromMatchedLatest + fromMatched;
 
-    const { couldPublishMs, missingMs, definedInRepo } = await checkMissing(true);
-
-    const upToDateChange = lastWeekUpToDate ? (upToDate / total * 100) - (lastWeekUpToDate / total * 100) : undefined;
-
-    const weightedPercentage = (agregatedInstalls.upToDate / (agregatedInstalls.notInOpen + agregatedInstalls.upToDate + agregatedInstalls.outdated + agregatedInstalls.unstable));
-
-    // Get missing extensions from Microsoft
+    const upToDateChange = lastWeekUpToDate ? (upToDate / total - lastWeekUpToDate) * 100 : undefined;
+    const weightedPercentage = (aggregatedInstalls.upToDate / (aggregatedInstalls.notInOpen + aggregatedInstalls.upToDate + aggregatedInstalls.outdated + aggregatedInstalls.unstable));
 
     let summary = '# Summary\r\n\n';
-    summary += `Total: ${total}\r\n`;
-    summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%) (${upToDateChange !== undefined ? `${upToDateChange ? `${Math.abs(upToDateChange).toFixed(3)}% ` : ''}${upToDateChange > 0 ? 'increase' : upToDateChange === 0 ? 'no change' : 'decrease'} since last week` : "WoW change n/a"})\r\n`;
-    summary += `Weighted publish percentage: ${(weightedPercentage * 100).toFixed(0)}%\r\n`
-    summary += `Outdated (Not in Open VSX, but in MS marketplace): ${notInOpen} (${(notInOpen / total * 100).toFixed(0)}%)\r\n`;
-    summary += `Outdated (MS marketplace > Open VSX): ${outdated} (${(outdated / total * 100).toFixed(0)}%)\r\n`;
-    summary += `Unstable (MS marketplace < Open VSX): ${unstable} (${(unstable / total * 100).toFixed(0)}%)\r\n`;
-    summary += `Not in MS marketplace: ${notInMS} (${(notInMS / total * 100).toFixed(0)}%)\r\n`;
-    summary += `Failed to publish: ${stat.failed.length} (${(stat.failed.length / total * 100).toFixed(0)}%) \r\n`;
-    summary += `\r\n\n`;
-    summary += `Microsoft:\r\n`;
-    summary += `Total: ${msPublished} (${(msPublished / total * 100).toFixed(0)}%)\r\n`;
-    summary += `Outdated: ${msPublishedOutdated.length}\r\n`;
-    summary += `Unstable: ${msPublishedUnstable.length}\r\n`;
-    summary += `Missing: ${missingMs.length} (we could publish ${couldPublishMs.length} out of that)\r\n`
-    summary += `\r\n\n`;
-    summary += `Total resolutions: ${totalResolutions}\r\n`;
-    summary += `From release asset: ${fromReleaseAsset} (${(fromReleaseAsset / totalResolutions * 100).toFixed(0)}%)\r\n`;
-    summary += `From release tag: ${fromReleaseTag} (${(fromReleaseTag / totalResolutions * 100).toFixed(0)}%)\r\n`;
-    summary += `From repo tag: ${fromTag} (${(fromTag / totalResolutions * 100).toFixed(0)}%)\r\n`;
-    summary += `From very latest repo commit of unmaintained (last update >= 2 months ago): ${fromLatestUnmaintained} (${(fromLatestUnmaintained / totalResolutions * 100).toFixed(0)}%)\r\n`;
-    summary += `From very latest repo commit of not published to MS: ${fromLatestNotPublished} (${(fromLatestNotPublished / totalResolutions * 100).toFixed(0)}%)\r\n`;
-    summary += `From very latest repo commit on the last update date: ${fromMatchedLatest} (${(fromMatchedLatest / totalResolutions * 100).toFixed(0)}%)\r\n`;
-    summary += `From latest repo commit on the last update date: ${fromMatched} (${(fromMatched / totalResolutions * 100).toFixed(0)}%)\r\n`;
-    summary += `Total resolved: ${totalResolved} (${(totalResolved / totalResolutions * 100).toFixed(0)}%)\r\n`;
-    summary += `\r\n\n`;
-    summary += `Updated in MS marketplace in month-to-date: ${updatedInMTD}\r\n`;
-    summary += `Of which updated in Open VSX within 2 days: ${updatedInOpenIn2Days.size} (${(updatedInOpenIn2Days.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
-    summary += `Of which updated in Open VSX within 2 weeks: ${updatedInOpenIn2Weeks.size} (${(updatedInOpenIn2Weeks.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
-    summary += `Of which updated in Open VSX within a month: ${updatedInOpenInMonth.size} (${(updatedInOpenInMonth.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
+
+    if (!process.env.EXTENSIONS) {
+        summary += `Total: ${total}\r\n`;
+        summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%) (${upToDateChange !== undefined ? `${upToDateChange ? `${Math.abs(upToDateChange).toFixed(3)}% ` : ''}${upToDateChange > 0 ? 'increase' : upToDateChange === 0 ? 'no change' : 'decrease'} since last week` : "WoW change n/a"})\r\n`;
+        summary += `Weighted publish percentage: ${(weightedPercentage * 100).toFixed(0)}%\r\n`
+        summary += `Outdated (Not in Open VSX, but in MS marketplace): ${notInOpen} (${(notInOpen / total * 100).toFixed(0)}%)\r\n`;
+        summary += `Outdated (MS marketplace > Open VSX): ${outdated} (${(outdated / total * 100).toFixed(0)}%)\r\n`;
+        summary += `Unstable (MS marketplace < Open VSX): ${unstable} (${(unstable / total * 100).toFixed(0)}%)\r\n`;
+        summary += `Not in MS marketplace: ${notInMS} (${(notInMS / total * 100).toFixed(0)}%)\r\n`;
+        summary += `Failed to publish: ${stat.failed.length} (${(stat.failed.length / total * 100).toFixed(0)}%) \r\n`;
+        summary += `\r\n\n`;
+        summary += `Microsoft:\r\n`;
+        summary += `Total: ${msPublished} (${(msPublished / total * 100).toFixed(0)}%)\r\n`;
+        summary += `Outdated: ${msPublishedOutdated.length}\r\n`;
+        summary += `Unstable: ${msPublishedUnstable.length}\r\n`;
+        summary += `\r\n\n`;
+        summary += `Total resolutions: ${totalResolutions}\r\n`;
+        summary += `From release asset: ${fromReleaseAsset} (${(fromReleaseAsset / totalResolutions * 100).toFixed(0)}%)\r\n`;
+        summary += `From release tag: ${fromReleaseTag} (${(fromReleaseTag / totalResolutions * 100).toFixed(0)}%)\r\n`;
+        summary += `From repo tag: ${fromTag} (${(fromTag / totalResolutions * 100).toFixed(0)}%)\r\n`;
+        summary += `From very latest repo commit of unmaintained (last update >= 2 months ago): ${fromLatestUnmaintained} (${(fromLatestUnmaintained / totalResolutions * 100).toFixed(0)}%)\r\n`;
+        summary += `From very latest repo commit of not published to MS: ${fromLatestNotPublished} (${(fromLatestNotPublished / totalResolutions * 100).toFixed(0)}%)\r\n`;
+        summary += `From very latest repo commit on the last update date: ${fromMatchedLatest} (${(fromMatchedLatest / totalResolutions * 100).toFixed(0)}%)\r\n`;
+        summary += `From latest repo commit on the last update date: ${fromMatched} (${(fromMatched / totalResolutions * 100).toFixed(0)}%)\r\n`;
+        summary += `Total resolved: ${totalResolved} (${(totalResolved / totalResolutions * 100).toFixed(0)}%)\r\n`;
+        summary += `\r\n\n`;
+        summary += `Updated in MS marketplace in month-to-date: ${updatedInMTD}\r\n`;
+        summary += `Of which updated in Open VSX within 2 days: ${updatedInOpenIn2Days.size} (${(updatedInOpenIn2Days.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
+        summary += `Of which updated in Open VSX within 2 weeks: ${updatedInOpenIn2Weeks.size} (${(updatedInOpenIn2Weeks.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
+        summary += `Of which updated in Open VSX within a month: ${updatedInOpenInMonth.size} (${(updatedInOpenInMonth.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
+    } else {
+        if (total === 0) {
+            summary += 'No extensions were processed\r\n';
+        } else {
+            summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%)\r\n`;
+            summary += `Failed to publish: ${stat.failed.length} (${(stat.failed.length / total * 100).toFixed(0)}%)\r\n`;
+            summary += `Outdated: ${msPublishedOutdated.length}\r\n`;
+            summary += `Unstable: ${msPublishedUnstable.length}\r\n`;
+        }
+    }
 
     console.log(summary);
     summary += `\r\n\n`;
@@ -274,7 +301,7 @@ const generateOpennVsxLink = (/** @type {string} */ id) =>  `[${id}](https://ope
 
     if (notInMS) {
         content += '\r\n## Not published to MS marketplace\r\n';
-        content += stat.notInMS.map(ext => `- ${generateOpennVsxLink(ext)}`).join('\r\n');
+        content += stat.notInMS.map(ext => `- ${generateOpenVsxLink(ext)}`).join('\r\n');
         content += '\r\n';
     }
 
@@ -314,18 +341,11 @@ const generateOpennVsxLink = (/** @type {string} */ id) =>  `[${id}](https://ope
             content += `${positionOf(id, outdatedKeys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
         }
 
-
         content += '\r\n## MS Unstable\r\n'
 
         for (const id of unstableKeys) {
             const r = stat.msPublished[id];
             content += `${positionOf(id, unstableKeys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
-        }
-
-        content += '\r\n## MS missing from Open VSX\r\n'
-
-        for (const extension of couldPublishMs) {
-            content += `${positionOf(extension, couldPublishMs)} ${generateMicrosoftLink(`${extension.publisher.publisherName}.${extension.extensionName}`)} (installs: ${extension.statistics?.find(s => s.statisticName === 'install')?.value}})${definedInRepo.includes(`${extension.publisher.publisherName}.${extension.extensionName}`) ? ` [defined in extensions.json]` : ''}\r\n`;
         }
     }
 
@@ -357,7 +377,7 @@ const generateOpennVsxLink = (/** @type {string} */ id) =>  `[${id}](https://ope
         const keys = sortedKeys(stat.resolutions);
         for (const id of keys) {
             const r = stat.resolutions[id];
-            const base  =  r?.latest && !r.msVersion ? `${positionOf(id, keys)} ${generateOpennVsxLink(id)} from '` : `${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}) from`;
+            const base  =  r?.latest && !r.msVersion ? `${positionOf(id, keys)} ${generateOpenVsxLink(id)} from '` : `${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}) from`;
             if (r?.releaseAsset) {
                 content += `${base} '${r.releaseAsset}' release asset\r\n`;
             } else if (r?.releaseTag) {

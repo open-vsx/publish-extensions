@@ -33,6 +33,9 @@
   "aki77.rails-db-schema": {
     "repository": "https://github.com/aki77/vscode-rails-db-schema"
   },
+  "albert.tabout": {
+    "repository": "https://github.com/albertromkes/tabout"
+  },
   "albymor.increment-selection": {
     "repository": "https://github.com/albymor/Increment-Selection"
   },
@@ -220,6 +223,10 @@
   "denoland.vscode-deno": {
     "repository": "https://github.com/denoland/vscode_deno"
   },
+  "dfinity-foundation.vscode-motoko": {
+    "repository": "https://github.com/dfinity/vscode-motoko",
+    "prepublish": "npm run package"
+  },
   "DigitalBrainstem.javascript-ejs-support": {
     "repository": "https://github.com/Digitalbrainstem/ejs-grammar"
   },
@@ -245,6 +252,12 @@
   },
   "dracula-theme.theme-dracula": {
     "repository": "https://github.com/dracula/visual-studio-code"
+  },
+  "draivin.hscopes": {
+    "repository": "https://github.com/draivin/hscopes"
+  },
+  "draivin.hsnips": {
+    "repository": "https://github.com/draivin/hsnips"
   },
   "dsznajder.es7-react-js-snippets": {
     "repository": "https://github.com/dsznajder/vscode-es7-javascript-react-snippets"
@@ -332,9 +345,6 @@
   "felixfbecker.php-pack": {
     "repository": "https://github.com/felixfbecker/vscode-php-pack"
   },
-  "fernandoescolar.vscode-solution-explorer": {
-    "repository": "https://github.com/fernandoescolar/vscode-solution-explorer"
-  },
   "file-icons.file-icons": {
     "repository": "https://github.com/file-icons/vscode"
   },
@@ -399,9 +409,6 @@
   "golang.go": {
     "repository": "https://github.com/golang/vscode-go"
   },
-  "goodbaikin.org-preview": {
-    "repository": "https://github.com/goodbaikin/VSC-Org-Preview"
-  },
   "GrapeCity.gc-excelviewer": {
     "repository": "https://github.com/jjuback/gc-excelviewer"
   },
@@ -463,9 +470,6 @@
   "IBMBlockchain.ibm-blockchain-platform": {
     "repository": "https://github.com/IBM-Blockchain/blockchain-vscode-extension"
   },
-  "Ikuyadeu.r": {
-    "repository": "https://github.com/Ikuyadeu/vscode-R"
-  },
   "ilkka.google-java-format": {
     "repository": "https://github.com/ilkka/vscode-google-java-format"
   },
@@ -510,9 +514,6 @@
   },
   "jianbingfang.dupchecker": {
     "repository": "https://github.com/jianbingfang/vscode-dup-checker"
-  },
-  "jock.svg": {
-    "repository": "https://github.com/lishu/vscode-svg2"
   },
   "johnpapa.Angular2": {
     "repository": "https://github.com/johnpapa/vscode-angular-snippets"
@@ -759,6 +760,18 @@
     "location": "packages/vscode-pyright",
     "prepublish": "npm i && cd packages/vscode-pyright && npm run prepackage"
   },
+  "ms-python.black-formatter": {
+    "repository": "https://github.com/microsoft/vscode-black-formatter",
+    "custom": [
+      "python -m pip install -U pip",
+      "python -m pip install wheel",
+      "python -m pip install nox",
+      "npm ci --prefer-offline",
+      "python -m nox --session install_bundled_libs",
+      "npm run vsce-package"
+    ],
+    "extensionFile": "black-formatter.vsix"
+  },
   "ms-python.python": {
     "repository": "https://github.com/microsoft/vscode-python",
     "prepublish": "PIP_USER=no python3 -m pip --disable-pip-version-check install -r build/debugger-install-requirements.txt && python3 ./pythonFiles/install_debugpy.py && python3 -m pip install --no-deps --require-hashes --only-binary :all: -t ./pythonFiles/lib/python --implementation py -r ./requirements.txt && python3 -m pip install --no-deps --require-hashes --only-binary :all: -t ./pythonFiles/lib/jedilsp --implementation py --platform any --abi none -r ./pythonFiles/jedilsp_requirements/requirements.txt && python3 ./build/update_ext_version.py --release --for-publishing && npm run addExtensionPackDependencies && DISABLE_TRANSLATIONS=true npm run package",
@@ -767,7 +780,12 @@
   },
   "ms-toolsai.jupyter": {
     "repository": "https://github.com/microsoft/vscode-jupyter",
-    "prepublish": "PIP_USER=no python3 -m pip --disable-pip-version-check install -t ./pythonFiles/lib/python --no-cache-dir --implementation py --no-deps --upgrade -r requirements.txt && npm run updateBuildNumber -- --buildNumber $GITHUB_RUN_ID && npm run package",
+    "custom": [
+      "npm ci",
+      "python3 -m pip --disable-pip-version-check install -t ./pythonFiles/lib/python --no-cache-dir --implementation py --no-deps --upgrade -r requirements.txt --no-user",
+      "npm run clean",
+      "npm run package"
+    ],
     "extensionFile": "ms-toolsai-jupyter-insiders.vsix",
     "timeout": 30
   },
@@ -1026,6 +1044,9 @@
   "philosowaffle.openapi-designer": {
     "repository": "https://github.com/philosowaffle/vs-openapi-designer"
   },
+  "Pilleye.dusk-theme": {
+    "repository": "https://github.com/pilleye/dusk-theme"
+  },
   "pranayagarwal.vscode-hack": {
     "repository": "https://github.com/slackhq/vscode-hack"
   },
@@ -1071,6 +1092,10 @@
   },
   "rokoroku.vscode-theme-darcula": {
     "repository": "https://github.com/rokoroku/vscode-theme-darcula"
+  },
+  "rxliuli.joplin-vscode-plugin": {
+    "repository": "https://github.com/rxliuli/joplin-utils",
+    "location": "apps/joplin-vscode-plugin"
   },
   "ryu1kn.edit-with-shell": {
     "repository": "https://github.com/ryu1kn/vscode-edit-with-shell"
@@ -1138,6 +1163,9 @@
   },
   "skn0tt.markdown-link-expander": {
     "repository": "https://github.com/Skn0tt/markdown-link-expander"
+  },
+  "slevesque.shader": {
+    "repository": "https://github.com/stef-levesque/vscode-shader"
   },
   "slevesque.vscode-3dviewer": {
     "repository": "https://github.com/stef-levesque/vscode-3dviewer"
@@ -1275,11 +1303,6 @@
       "vsce package -o extension.vsix"
     ]
   },
-  "vscode.smali": {
-    "repository": "https://github.com/ViRb3/vscode-smali",
-    "location": "smali",
-    "prepublish": "cp LICENSE smali/ && cd smali && npm install"
-  },
   "vshaxe.haxe-checkstyle": {
     "repository": "https://github.com/vshaxe/vscode-checkstyle"
   },
@@ -1340,8 +1363,11 @@
   },
   "wix.vscode-import-cost": {
     "repository": "https://github.com/wix/import-cost",
-    "location": "packages/vscode-import-cost",
-    "prepublish": "cd packages/vscode-import-cost && git clean -xdf && npm install"
+    "custom": [
+      "npm install && npm run build",
+      "cd packages/vscode-import-cost/ && mv *.vsix extension.vsix"
+    ],
+    "location": "packages/vscode-import-cost/"
   },
   "wongjn.php-sniffer": {
     "repository": "https://github.com/wongjn/vscode-php-sniffer"

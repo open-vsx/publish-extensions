@@ -18,6 +18,7 @@ const semver = require('semver');
 const Ajv = require("ajv/dist/2020").default;
 const resolveExtension = require('./lib/resolveExtension').resolveExtension;
 const exec = require('./lib/exec');
+const { artifactDirectory } = require("./lib/constants");
 
 const msGalleryApi = getPublicGalleryAPI();
 msGalleryApi.client['_allowRetries'] = true;
@@ -45,13 +46,25 @@ function isPreReleaseVersion(version) {
   return values.length > 0 && values[0].value === 'true';
 }
 
+const ensureBuildPrerequisites = async () => {
+    // Make yarn use bash
+    await exec('yarn config set script-shell /bin/bash');
+
+    // Don't show large git advice blocks
+    await exec('git config --global advice.detachedHead false');
+
+    // Create directory for storing built extensions
+    if (fs.existsSync(artifactDirectory)) {
+      // If the folder has any files, delete them
+      try {fs.rmSync(`${artifactDirectory}*`)} catch {}
+    } else {
+      fs.mkdirSync(artifactDirectory);
+    }
+}
+
 (async () => {
 
-  // Make yarn use bash
-  exec('yarn config set script-shell /bin/bash');
-
-  // Don't show large git advice blocks
-  exec('git config --global advice.detachedHead false');
+  await ensureBuildPrerequisites();
 
   /**
    * @type {string[] | undefined}
@@ -121,7 +134,7 @@ function isPreReleaseVersion(version) {
       }
 
       // Check if the extension is published by either Microsoft or GitHub
-      if (['https://microsoft.com', 'https://github.com'].includes(msExtension?.value.publisher.domain) && msExtension?.value.publisher.isDomainVerified ) {
+      if (['https://microsoft.com', 'https://github.com'].includes(msExtension?.value?.publisher.domain) && msExtension?.value.publisher.isDomainVerified) {
         stat.msPublished[extension.id] = { msInstalls: context.msInstalls, msVersion: context.msVersion };
       }
 
@@ -151,10 +164,25 @@ function isPreReleaseVersion(version) {
           stat.notInOpen[extension.id] = extStat;
         } else if (semver.eq(context.msVersion, context.ovsxVersion)) {
           stat.upToDate[extension.id] = extStat;
-        } else if (semver.gt(context.msVersion, context.ovsxVersion)) {
-          stat.outdated[extension.id] = extStat;
-        } else if (semver.lt(context.msVersion, context.ovsxVersion)) {
-          stat.unstable[extension.id] = extStat;
+        } else {
+          // Some extensions have versioning which is a bit different, like for example in the format of 1.71.8240911. If this is the case and we don't have this version published, we do some more checking to get more context about this version string.
+          const weirdVersionNumberPattern = new RegExp(/^\d{1,3}\.\d{1,}\.\d{4,}/g); // https://regexr.com/6t02m
+          if (context.msVersion.match(weirdVersionNumberPattern)) {
+            if (`${semver.major(context.msVersion)}.${semver.minor(context.msVersion)}` === `${semver.major(context.ovsxVersion)}.${semver.minor(context.ovsxVersion)}`) {
+              // If major.minor are the same on both marketplaces, we assume we're up-to-date
+              stat.upToDate[extension.id] = extStat;
+              debugger;
+            } else {
+              stat.outdated[extension.id] = extStat;
+              debugger;
+            }
+          } else {
+            if (semver.gt(context.msVersion, context.ovsxVersion)) {
+              stat.outdated[extension.id] = extStat;
+            } else if (semver.lt(context.msVersion, context.ovsxVersion)) {
+              stat.unstable[extension.id] = extStat;
+            }
+          }
         }
 
         if (context.msVersion && context.msLastUpdated && monthAgo.getTime() <= context.msLastUpdated.getTime()) {
@@ -232,7 +260,7 @@ function isPreReleaseVersion(version) {
 
       const publishVersion = async (extension, context) => {
         await new Promise((resolve, reject) => {
-          const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify({ extension, context })], {
+          const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify({ extension, context, extensions })], {
             stdio: ['ignore', 'inherit', 'inherit'],
             cwd: process.cwd(),
             env: process.env

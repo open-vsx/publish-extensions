@@ -22,6 +22,7 @@ const { cannotPublish } = require('./lib/reportStat');
 
 const { PublicGalleryAPI } = require('vsce/out/publicgalleryapi');
 const { PublishedExtension } = require('azure-devops-node-api/interfaces/GalleryInterfaces');
+const { artifactDirectory } = require('./lib/constants');
 
 const openGalleryApi = new PublicGalleryAPI('https://open-vsx.org/vscode', '3.0-preview.1');
 openGalleryApi.client['_allowRetries'] = true;
@@ -31,9 +32,9 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
 
 (async () => {
     /**
-     * @type {{extension: import('./types').Extension, context: import('./types').PublishContext}}
+     * @type {{extension: import('./types').Extension, context: import('./types').PublishContext, extensions: Readonly<import('./types').Extensions>}}
      */
-    const { extension, context } = JSON.parse(process.argv[2]);
+    const { extension, context, extensions } = JSON.parse(process.argv[2]);
     console.log(`\nProcessing extension: ${JSON.stringify({ extension, context }, undefined, 2)}`);
     try {
         const { id } = extension;
@@ -160,6 +161,11 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
 
             const dependenciesNotOnOpenVsx = [];
             for (const dependency of extensionDependencies) {
+
+                if (process.env.SKIP_PUBLISH && Object.keys(extensions).find(key => key === dependency)) {
+                    continue;
+                }
+
                 /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
                 const [ovsxExtension] = await Promise.allSettled([openGalleryApi.getExtension(dependency)]);
                 if (ovsxExtension.status === 'fulfilled' && !ovsxExtension.value) {
@@ -171,9 +177,15 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
             }
         }
 
+        if (options.extensionFile && process.env.EXTENSIONS) {
+            console.info("Copying file to " + artifactDirectory)
+            fs.copyFileSync(options.extensionFile, path.join("/tmp/artifacts/", `${extension.id}.vsix`));
+        }
+
         if (process.env.SKIP_PUBLISH === 'true') {
             return;
         }
+
         console.log(`Attempting to publish ${id} to Open VSX`);
 
         // Create a public Open VSX namespace if needed.
