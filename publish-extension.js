@@ -16,6 +16,7 @@ const path = require('path');
 const semver = require('semver');
 const exec = require('./lib/exec');
 const findUp = require('find-up');
+const fg = require('fast-glob');
 
 const { createVSIX } = require('vsce');
 const { cannotPublish } = require('./lib/reportStat');
@@ -48,7 +49,7 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
         /** @type {import('ovsx').PublishOptions} */
         let options;
         if (context.file) {
-            options = { extensionFile: context.file, targets: [context.target]};
+            options = { extensionFile: context.file, targets: [context.target] };
         } else if (context.repo && context.ref) {
             console.log(`${id}: preparing from ${context.repo}...`);
 
@@ -62,7 +63,7 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
             await exec(`git checkout ${context.ref}`, { cwd: context.repo });
 
             try {
-                const nvmFile = await findUp(".nvmrc", {cwd: path.join(context.repo, extension.location ?? '.')});
+                const nvmFile = await findUp(".nvmrc", { cwd: path.join(context.repo, extension.location ?? '.') });
                 if (nvmFile) {
                     // If the project has a preferred Node version, use it
                     await exec("source ~/.nvm/nvm.sh && nvm install", { cwd: path.join(context.repo, extension.location ?? '.'), quiet: true });
@@ -74,7 +75,19 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
                     for (const command of extension.custom) {
                         await exec(command, { cwd: context.repo });
                     }
+
                     options = { extensionFile: path.join(context.repo, extension.location ?? '.', extension.extensionFile ?? 'extension.vsix') };
+
+                    if (context.target) {
+                        console.info(`Looking for a ${context.target} vsix package in ${context.repo}...`);
+                        const vsixFiles = await fg(path.join(`*-${context.target}-*.vsix`), { cwd: context.repo, onlyFiles: true });
+                        if (vsixFiles.length > 0) {
+                            console.info(`Found ${vsixFiles.length} ${context.target} vsix package(s) in ${context.repo}: ${vsixFiles.join(', ')}`);
+                            options = { extensionFile: path.join(context.repo, vsixFiles[0]), targets: [context.target] };
+                        } else {
+                            throw new Error(`After running the custom commands, no .vsix file was found for ${extension.id}@${context.target}`);
+                        }
+                    }
                 } catch (e) {
                     throw e;
                 }
