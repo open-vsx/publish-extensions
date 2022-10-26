@@ -515,9 +515,6 @@
   "jianbingfang.dupchecker": {
     "repository": "https://github.com/jianbingfang/vscode-dup-checker"
   },
-  "jock.svg": {
-    "repository": "https://github.com/lishu/vscode-svg2"
-  },
   "johnpapa.Angular2": {
     "repository": "https://github.com/johnpapa/vscode-angular-snippets"
   },
