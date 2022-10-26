@@ -15,7 +15,7 @@ const { getPublicGalleryAPI } = require('vsce/out/util');
 const { PublicGalleryAPI } = require('vsce/out/publicgalleryapi');
 const { ExtensionQueryFlags, PublishedExtension } = require('azure-devops-node-api/interfaces/GalleryInterfaces');
 const semver = require('semver');
-const Ajv = require("ajv").default;
+const Ajv = require("ajv/dist/2020").default;
 const resolveExtension = require('./lib/resolveExtension').resolveExtension;
 const exec = require('./lib/exec');
 const { artifactDirectory } = require("./lib/constants");
@@ -223,7 +223,7 @@ const ensureBuildPrerequisites = async () => {
 
       if (resolved?.resolution?.releaseAsset) {
         console.log(`${extension.id}: resolved ${resolved.resolution.releaseAsset} from release`);
-        context.file = resolved.path;
+        context.files = resolved.files;
       } else if (resolved?.resolution?.releaseTag) {
         console.log(`${extension.id}: resolved ${resolved.resolution.releaseTag} from release tag`);
         context.repo = resolved.path;
@@ -257,28 +257,53 @@ const ensureBuildPrerequisites = async () => {
       }
 
       let timeout;
-      await new Promise((resolve, reject) => {
-        const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify({ extension, context, extensions })], {
-          stdio: ['ignore', 'inherit', 'inherit'],
-          cwd: process.cwd(),
-          env: process.env
+
+      const publishVersion = async (extension, context) => {
+        await new Promise((resolve, reject) => {
+          const p = cp.spawn(process.execPath, ['publish-extension.js', JSON.stringify({ extension, context, extensions })], {
+            stdio: ['ignore', 'inherit', 'inherit'],
+            cwd: process.cwd(),
+            env: process.env
+          });
+          p.on('error', reject);
+          p.on('exit', code => {
+            if (code) {
+              return reject(new Error('failed with exit status: ' + code));
+            }
+            resolve('done');
+          });
+          timeout = setTimeout(() => {
+            try {
+              p.kill('SIGKILL');
+            } catch { }
+            reject(new Error(`timeout after ${timeoutDelay} mins`));
+          }, timeoutDelay * 60 * 1000);
         });
-        p.on('error', reject);
-        p.on('exit', code => {
-          if (code) {
-            return reject(new Error('failed with exit status: ' + code));
+        if (timeout !== undefined) {
+          clearTimeout(timeout);
+        }
+      }
+
+      if (context.files) {
+        // Publish all targets of extension from GitHub Release assets
+        for (const [target, file] of Object.entries(context.files)) {
+          if (!extension.target || extension.target.includes(target)) {
+            context.file = file;
+            context.target = target;
+            await publishVersion(extension, context);
+          } else {
+            console.log(`${extension.id}: skipping, since target ${target} is not included`);
           }
-          resolve();
-        });
-        timeout = setTimeout(() => {
-          try {
-            p.kill('SIGKILL');
-          } catch { }
-          reject(new Error(`timeout after ${timeoutDelay} mins`));
-        }, timeoutDelay * 60 * 1000);
-      });
-      if (timeout !== undefined) {
-        clearTimeout(timeout);
+        }
+      } else if (extension.target) {
+        // Publish all specified targets of extension from sources
+        for (const target of extension.target) {
+          context.target = target;
+          await publishVersion(extension, context);
+        }
+      } else {
+        // Publish only the universal target of extension from sources
+        await publishVersion(extension, context);
       }
 
       await updateStat();

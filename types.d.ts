@@ -64,7 +64,7 @@ export interface SingleExtensionQueryResult {
     shortDescription: string
     deploymentType: number
     statistics: Statistic[]
-};
+}
 
 export interface Statistic {
     statisticName: string
@@ -88,6 +88,7 @@ export interface Extension {
     extensionFile?: string
     custom?: string[]
     timeout?: number
+    target?: string[]
 }
 
 export interface ExtensionResolution {
@@ -102,6 +103,7 @@ export interface ExtensionResolution {
 export interface ResolvedExtension {
     version: string
     path: string
+    files?: {[key: string]: string}
     resolution: ExtensionResolution
 }
 
@@ -115,6 +117,8 @@ export interface PublishContext {
     ovsxLastUpdated?: Date
 
     version?: string
+    files?: {[key: string]: string}
+    target: string
     file?: string
     repo?: string
     ref?: string
