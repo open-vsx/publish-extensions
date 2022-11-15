@@ -23,7 +23,7 @@ const { cannotPublish } = require('./lib/reportStat');
 
 const { PublicGalleryAPI } = require('vsce/out/publicgalleryapi');
 const { PublishedExtension } = require('azure-devops-node-api/interfaces/GalleryInterfaces');
-const { artifactDirectory } = require('./lib/constants');
+const { artifactDirectory, registryHost } = require('./lib/constants');
 
 const openGalleryApi = new PublicGalleryAPI('https://open-vsx.org/vscode', '3.0-preview.1');
 openGalleryApi.client['_allowRetries'] = true;
@@ -213,7 +213,7 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
         console.info(`Publishing extension as ${options.targets ? options.targets.join(', ') : 'universal'}`);
         if (process.env.OVSX_PAT) {
             await ovsx.publish(options);
-            console.log(`[OK] Successfully published ${id} to Open VSX!`);
+            console.log(`Published ${id} to https://${registryHost}/extension/${id.split(".")[0]}/${id.split(".")[1]})`);
         } else {
             console.error("The OVSX_PAT environment variable was not provided, which means the extension cannot be published. Provide it or set SKIP_PUBLISH to true to avoid seeing this.");
             process.exitCode = -1;
