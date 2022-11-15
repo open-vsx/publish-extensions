@@ -222,7 +222,7 @@ const ensureBuildPrerequisites = async () => {
       }
 
       if (resolved?.resolution?.releaseAsset) {
-        console.log(`${extension.id}: resolved ${resolved.resolution.releaseAsset} from release`);
+        console.log(`${extension.id}: resolved from release`);
         context.files = resolved.files;
       } else if (resolved?.resolution?.releaseTag) {
         console.log(`${extension.id}: resolved ${resolved.resolution.releaseTag} from release tag`);
