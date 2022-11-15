@@ -622,6 +622,9 @@
   "maziac.asm-code-lens": {
     "repository": "https://github.com/maziac/asm-code-lens"
   },
+  "mcu-debug.memview": {
+    "repository": "https://github.com/mcu-debug/memview"
+  },
   "medo64.render-crlf": {
     "repository": "https://github.com/medo64/render-crlf"
   },
