@@ -18,13 +18,13 @@ const semver = require('semver');
 const Ajv = require("ajv/dist/2020").default;
 const resolveExtension = require('./lib/resolveExtension').resolveExtension;
 const exec = require('./lib/exec');
-const { artifactDirectory } = require("./lib/constants");
+const { artifactDirectory, registryHost } = require("./lib/constants");
 
 const msGalleryApi = getPublicGalleryAPI();
 msGalleryApi.client['_allowRetries'] = true;
 msGalleryApi.client['_maxRetries'] = 5;
 
-const openGalleryApi = new PublicGalleryAPI('https://open-vsx.org/vscode', '3.0-preview.1');
+const openGalleryApi = new PublicGalleryAPI(`https://${registryHost}/vscode`, '3.0-preview.1');
 openGalleryApi.client['_allowRetries'] = true;
 openGalleryApi.client['_maxRetries'] = 5;
 openGalleryApi.post = (url, data, additionalHeaders) =>
