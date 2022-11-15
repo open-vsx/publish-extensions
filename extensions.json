@@ -1096,6 +1096,9 @@
   "rokoroku.vscode-theme-darcula": {
     "repository": "https://github.com/rokoroku/vscode-theme-darcula"
   },
+  "RoyAction.color-manager": {
+    "repository": "https://github.com/royaction/vscode-colormanager"
+  },
   "rxliuli.joplin-vscode-plugin": {
     "repository": "https://github.com/rxliuli/joplin-utils",
     "location": "apps/joplin-vscode-plugin"
