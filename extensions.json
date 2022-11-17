@@ -1087,6 +1087,9 @@
   "rioj7.FileGroup": {
     "repository": "https://github.com/rioj7/fileGroup"
   },
+  "rioj7.html-related-links": {
+    "repository": "https://github.com/rioj7/html-related-links"
+  },
   "ritwickdey.LiveServer": {
     "repository": "https://github.com/ritwickdey/vscode-live-server"
   },
