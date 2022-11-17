@@ -9,6 +9,10 @@ on:
       namespace:
         description: "If a namespace does not exist for the author, provide it here"
         required: false
+      flags:
+        description: "Additional flags to pass to the `vsce publish` command"
+        required: false
+        default: ""
 
 jobs:
   publish:
@@ -24,4 +28,4 @@ jobs:
         if: ${{ github.event.inputs.namespace }}
         run: npx ovsx create-namespace ${{ github.event.inputs.namespace }} -p ${{ secrets.OVSX_PAT }}
       - name: Publish to Open VSX
-        run: npx ovsx publish extension.vsix  -p ${{ secrets.OVSX_PAT }}
+        run: npx ovsx publish extension.vsix  -p ${{ secrets.OVSX_PAT }} ${{ github.event.inputs.flags }}
