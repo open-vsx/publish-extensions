@@ -221,16 +221,18 @@ const ensureBuildPrerequisites = async () => {
         }
       }
 
+      if (resolved && !resolved?.resolution.releaseAsset) {
+        context.repo = resolved.path;
+      }
+
       if (resolved?.resolution?.releaseAsset) {
         console.log(`${extension.id}: resolved from release`);
         context.files = resolved.files;
       } else if (resolved?.resolution?.releaseTag) {
         console.log(`${extension.id}: resolved ${resolved.resolution.releaseTag} from release tag`);
-        context.repo = resolved.path;
         context.ref = resolved.resolution.releaseTag;
       } else if (resolved?.resolution?.tag) {
         console.log(`${extension.id}: resolved ${resolved.resolution.tag} from tags`);
-        context.repo = resolved.path;
         context.ref = resolved.resolution.tag;
       } else if (resolved?.resolution?.latest) {
         if (context.msVersion) {
@@ -238,15 +240,12 @@ const ensureBuildPrerequisites = async () => {
         } else {
           console.log(`${extension.id}: resolved ${resolved.resolution.latest} from the very latest commit, since it is not published to MS marketplace`);
         }
-        context.repo = resolved.path;
         context.ref = resolved.resolution.latest;
       } else if (resolved?.resolution?.matchedLatest) {
         console.log(`${extension.id}: resolved ${resolved.resolution.matchedLatest} from the very latest commit`);
-        context.repo = resolved.path;
         context.ref = resolved.resolution.matchedLatest;
       } else if (resolved?.resolution?.matched) {
         console.log(`${extension.id}: resolved ${resolved.resolution.matched} from the latest commit on the last update date`);
-        context.repo = resolved.path;
         context.ref = resolved.resolution.matched;
       } else {
         throw `${extension.id}: failed to resolve`;
