@@ -213,7 +213,7 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
         console.info(`Publishing extension as ${options.targets ? options.targets.join(', ') : 'universal'}`);
         if (process.env.OVSX_PAT) {
             await ovsx.publish(options);
-            console.log(`Published ${id} to https://${registryHost}/extension/${id.split(".")[0]}/${id.split(".")[1]})`);
+            console.log(`Published ${id} to https://${registryHost}/extension/${id.split(".")[0]}/${id.split(".")[1]}`);
         } else {
             console.error("The OVSX_PAT environment variable was not provided, which means the extension cannot be published. Provide it or set SKIP_PUBLISH to true to avoid seeing this.");
             process.exitCode = -1;
