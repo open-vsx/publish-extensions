@@ -25,6 +25,9 @@ const { PublicGalleryAPI } = require('vsce/out/publicgalleryapi');
 const { PublishedExtension } = require('azure-devops-node-api/interfaces/GalleryInterfaces');
 const { artifactDirectory, registryHost } = require('./lib/constants');
 
+const vscodeBuiltinExtensionsNamespace = "vscode";
+const isBuiltIn = (id) => id.split(".")[0] === vscodeBuiltinExtensionsNamespace;
+
 const openGalleryApi = new PublicGalleryAPI(`https://${registryHost}/vscode`, '3.0-preview.1');
 openGalleryApi.client['_allowRetries'] = true;
 openGalleryApi.client['_maxRetries'] = 5;
@@ -165,15 +168,16 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
         }
 
         const { extensionDependencies } = manifest;
+        const extensionDependenciesNotBuiltin = extensionDependencies.filter(id => !isBuiltIn(id));
 
-        if (extensionDependencies) {
-            const unpublishableDependencies = extensionDependencies.filter(dependency => cannotPublish.includes(dependency));
+        if (extensionDependenciesNotBuiltin) {
+            const unpublishableDependencies = extensionDependenciesNotBuiltin.filter(dependency => cannotPublish.includes(dependency));
             if (unpublishableDependencies?.length > 0) {
                 throw new Error(`${id} is dependent on ${unpublishableDependencies.join(", ")}, which ${unpublishableDependencies.length === 1 ? "has" : "have"} to be published to Open VSX first by ${unpublishableDependencies.length === 1 ? "its author because of its license" : "their authors because of their licenses"}.`);
             }
 
             const dependenciesNotOnOpenVsx = [];
-            for (const dependency of extensionDependencies) {
+            for (const dependency of extensionDependenciesNotBuiltin) {
 
                 if (process.env.SKIP_PUBLISH && Object.keys(extensions).find(key => key === dependency)) {
                     continue;
