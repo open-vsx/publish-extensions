@@ -168,9 +168,8 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
         }
 
         const { extensionDependencies } = manifest;
-        const extensionDependenciesNotBuiltin = extensionDependencies.filter(id => !isBuiltIn(id));
-
-        if (extensionDependenciesNotBuiltin) {
+        if (extensionDependencies) {
+            const extensionDependenciesNotBuiltin = extensionDependencies.filter(id => !isBuiltIn(id));
             const unpublishableDependencies = extensionDependenciesNotBuiltin.filter(dependency => cannotPublish.includes(dependency));
             if (unpublishableDependencies?.length > 0) {
                 throw new Error(`${id} is dependent on ${unpublishableDependencies.join(", ")}, which ${unpublishableDependencies.length === 1 ? "has" : "have"} to be published to Open VSX first by ${unpublishableDependencies.length === 1 ? "its author because of its license" : "their authors because of their licenses"}.`);
