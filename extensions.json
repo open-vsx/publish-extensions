@@ -1342,15 +1342,6 @@
   "vsls-contrib.gitdoc": {
     "repository": "https://github.com/lostintangent/gitdoc"
   },
-  "Vue.volar": {
-    "repository": "https://github.com/johnsoncodehk/volar",
-    "location": "extensions/vscode-vue-language-features",
-    "custom": [
-      "npx pnpm install --no-frozen-lockfile --shamefully-hoist",
-      "npx pnpm run build",
-      "cd ./extensions/vscode-vue-language-features && npx pnpm run prepack:node && npx vsce package -o extension.vsix"
-    ]
-  },
   "Vue.vscode-typescript-vue-plugin": {
     "repository": "https://github.com/johnsoncodehk/volar",
     "location": "extensions/vscode-typescript-vue-plugin",
