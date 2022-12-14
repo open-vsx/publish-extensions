@@ -816,8 +816,14 @@
     ],
     "timeout": 30
   },
+  "ms-toolsai.vscode-jupyter-cell-tags": {
+    "repository": "https://github.com/Microsoft/vscode-jupyter-cell-tags"
+  },
   "ms-toolsai.vscode-jupyter-powertoys": {
     "repository": "https://github.com/microsoft/vscode-jupyter-powertoys"
+  },
+  "ms-toolsai.vscode-jupyter-slideshow": {
+    "repository": "https://github.com/Microsoft/vscode-jupyter-slideshow"
   },
   "ms-vscode.atom-keybindings": {
     "repository": "https://github.com/Microsoft/vscode-atom-keybindings"
