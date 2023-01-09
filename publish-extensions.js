@@ -123,8 +123,9 @@ const ensureBuildPrerequisites = async () => {
       timeoutDelay = 5;
     }
     try {
+      const extensionId = extension.msMarketplaceIdOverride ?? extension.id;
       /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
-      let [msExtension] = await Promise.allSettled([msGalleryApi.getExtension(extension.id, flags)]);
+      let [msExtension] = await Promise.allSettled([msGalleryApi.getExtension(extensionId, flags)]);
       if (msExtension.status === 'fulfilled') {
         const lastNonPrereleaseVersion = msExtension.value?.versions.find(version => !isPreReleaseVersion(version.properties));
         context.msVersion = lastNonPrereleaseVersion?.version;
