@@ -577,6 +577,9 @@
   "kortina.vscode-markdown-notes": {
     "repository": "https://github.com/kortina/vscode-markdown-notes"
   },
+  "kylebarron.stata-enhanced": {
+    "repository": "https://github.com/kylebarron/language-stata"
+  },
   "laradump.laradump": {
     "repository": "https://github.com/TheJenos/laradump-vscode"
   },
@@ -1433,6 +1436,9 @@
   },
   "xyz.plsql-language": {
     "repository": "https://github.com/zabel-xyz/plsql-language"
+  },
+  "Yeaoh.stataRun": {
+    "repository": "https://github.com/poidstotal/stataRun"
   },
   "ybaumes.highlight-trailing-white-spaces": {
     "repository": "https://github.com/yifu/highlight-trailing-whitespaces"
