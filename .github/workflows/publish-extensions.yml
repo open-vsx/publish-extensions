@@ -43,7 +43,7 @@ jobs:
           java-version: "17"
       - run: npm install
       - run: npm i -g @vscode/vsce
-      - run: node publish-extensions
+      - run: EXTENSIONS=ms-toolsai.jupyter node publish-extensions
         env:
           OVSX_PAT: ${{ secrets.OVSX_PAT }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
