@@ -1,2 +1,2 @@
 tasks:
-  - init: npm i -g vsce && npm i
+  - init: npm i -g @vscode/vsce && npm i
