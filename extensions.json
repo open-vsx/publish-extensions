@@ -797,10 +797,7 @@
   "ms-toolsai.jupyter": {
     "repository": "https://github.com/microsoft/vscode-jupyter",
     "custom": [
-      "npm ci",
-      "python3 -m pip --disable-pip-version-check install -t ./pythonFiles/lib/python --no-cache-dir --implementation py --no-deps --upgrade -r requirements.txt --no-user",
-      "npm run clean",
-      "npm run package"
+      "source ~/.nvm/nvm.sh && nvm use && nvm install-latest-npm && npm install --global @vscode/vsce && npm ci && python3 -m pip --disable-pip-version-check install -t ./pythonFiles/lib/python --no-cache-dir --implementation py --no-deps --upgrade -r requirements.txt --no-user && npm run clean && npm run package"
     ],
     "extensionFile": "ms-toolsai-jupyter-insiders.vsix",
     "timeout": 30
