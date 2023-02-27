@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: "14.x"
       - run: npm install
-      - run: npm install --global vsce
+      - run: npm i -g @vscode/vsce
       - uses: actions/setup-python@v4
         with:
           python-version: "3.7"
