@@ -186,6 +186,9 @@
   "ctf0.macros": {
     "repository": "https://github.com/ctf0/macros"
   },
+  "czhang03.unicode-math-input": {
+    "repository": "https://github.com/czhang03/unicode-math-vscode/"
+  },
   "damc.textpad-color-theme": {
     "repository": "https://github.com/damc-code/themes"
   },
