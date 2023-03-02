@@ -1075,6 +1075,9 @@
   "Pilleye.dusk-theme": {
     "repository": "https://github.com/pilleye/dusk-theme"
   },
+  "PowerQuery.vscode-powerquery": {
+    "repository": "https://github.com/microsoft/vscode-powerquery"
+  },
   "pranayagarwal.vscode-hack": {
     "repository": "https://github.com/slackhq/vscode-hack"
   },
