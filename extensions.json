@@ -470,9 +470,6 @@
   "humao.rest-client": {
     "repository": "https://github.com/Huachao/vscode-restclient"
   },
-  "IBMBlockchain.ibm-blockchain-platform": {
-    "repository": "https://github.com/IBM-Blockchain/blockchain-vscode-extension"
-  },
   "ilkka.google-java-format": {
     "repository": "https://github.com/ilkka/vscode-google-java-format"
   },
