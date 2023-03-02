@@ -11,17 +11,17 @@
 // @ts-check
 const fs = require('fs');
 const ovsx = require('ovsx');
-const readVSIXPackage = require('vsce/out/zip').readVSIXPackage;
+const readVSIXPackage = require('@vscode/vsce/out/zip').readVSIXPackage;
 const path = require('path');
 const semver = require('semver');
 const exec = require('./lib/exec');
 const findUp = require('find-up');
 const fg = require('fast-glob');
 
-const { createVSIX } = require('vsce');
+const { createVSIX } = require('@vscode/vsce');
 const { cannotPublish } = require('./lib/reportStat');
 
-const { PublicGalleryAPI } = require('vsce/out/publicgalleryapi');
+const { PublicGalleryAPI } = require('@vscode/vsce/out/publicgalleryapi');
 const { PublishedExtension } = require('azure-devops-node-api/interfaces/GalleryInterfaces');
 const { artifactDirectory, registryHost } = require('./lib/constants');
 

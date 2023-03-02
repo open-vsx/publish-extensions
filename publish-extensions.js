@@ -11,8 +11,8 @@
 // @ts-check
 const fs = require('fs');
 const cp = require('child_process');
-const { getPublicGalleryAPI } = require('vsce/out/util');
-const { PublicGalleryAPI } = require('vsce/out/publicgalleryapi');
+const { getPublicGalleryAPI } = require('@vscode/vsce/out/util');
+const { PublicGalleryAPI } = require('@vscode/vsce/out/publicgalleryapi');
 const { ExtensionQueryFlags, PublishedExtension } = require('azure-devops-node-api/interfaces/GalleryInterfaces');
 const semver = require('semver');
 const Ajv = require("ajv/dist/2020").default;
