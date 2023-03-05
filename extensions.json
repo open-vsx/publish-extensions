@@ -503,7 +503,9 @@
     "repository": "https://github.com/jacobdufault/vscode-fuzzy-search",
     "custom": [
       "npm install --ignore-scripts",
-      "vsce package -o extension.vsix"
+      "npm uninstall vscode",
+      "npm install --save-dev @types/vscode@1.40.0",
+      "yes | vsce package -o extension.vsix"
     ]
   },
   "jebbs.markdown-extended": {
