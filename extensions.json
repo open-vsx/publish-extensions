@@ -499,6 +499,15 @@
   "janisdd.vscode-edit-csv": {
     "repository": "https://github.com/janisdd/vscode-edit-csv"
   },
+  "jacobdufault.fuzzy-search": {
+    "repository": "https://github.com/jacobdufault/vscode-fuzzy-search",
+    "custom": [
+      "npm install --ignore-scripts",
+      "npm uninstall vscode",
+      "npm install --save-dev @types/vscode@1.40.0",
+      "yes | vsce package -o extension.vsix"
+    ]
+  },
   "jebbs.markdown-extended": {
     "repository": "https://github.com/qjebbs/vscode-markdown-extended"
   },
