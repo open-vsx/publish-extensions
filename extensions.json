@@ -1424,10 +1424,6 @@
   "Wscats.omi-snippets": {
     "repository": "https://github.com/Wscats/omi-snippets"
   },
-  "wwm.better-align": {
-    "repository": "https://github.com/WarWithinMe/better-align",
-    "prepublish": "sed -ri \"s_]\\(http://_](https://_g\" README.md"
-  },
   "xabikos.JavaScriptSnippets": {
     "repository": "https://github.com/xabikos/vscode-javascript"
   },
