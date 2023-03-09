@@ -4,4 +4,4 @@
 
 A CI script for publishing open-source VS Code extensions to [open-vsx.org](https://open-vsx.org).
 
-This repository is open for contributions, but before you contribute, please read our [Contribution guidelines](CONTRIBUTING.md). 
+This repository is open for contributions, but before you contribute, please read our [Contribution guidelines](CONTRIBUTING.md).
