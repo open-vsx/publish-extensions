@@ -1118,6 +1118,10 @@
   "richie5um2.vscode-sort-json": {
     "repository": "https://github.com/richie5um/vscode-sort-json"
   },
+  "rioj7.command-variable": {
+    "repository": "https://github.com/rioj7/command-variable",
+    "prepublish": "npm run build"
+  },
   "rioj7.FileGroup": {
     "repository": "https://github.com/rioj7/fileGroup"
   },
