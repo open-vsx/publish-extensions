@@ -1253,9 +1253,6 @@
   "teabyii.ayu": {
     "repository": "https://github.com/ayu-theme/vscode-ayu"
   },
-  "tiehuis.zig": {
-    "repository": "https://github.com/ziglang/vscode-zig"
-  },
   "Tobiah.unity-tools": {
     "repository": "https://github.com/TobiahZ/unity-tools"
   },
