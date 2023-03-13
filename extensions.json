@@ -822,11 +822,6 @@
   },
   "ms-toolsai.jupyter-renderers": {
     "repository": "https://github.com/Microsoft/vscode-notebook-renderers",
-    "custom": [
-      "npm i",
-      "npm run package",
-      "mv *.vsix extension.vsix"
-    ],
     "timeout": 30
   },
   "ms-toolsai.vscode-jupyter-cell-tags": {
