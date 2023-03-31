@@ -174,9 +174,6 @@
   "connorshea.vscode-ruby-test-adapter": {
     "repository": "https://github.com/connorshea/vscode-ruby-test-adapter"
   },
-  "cschleiden.vscode-github-actions": {
-    "repository": "https://github.com/cschleiden/vscode-github-actions"
-  },
   "csstools.postcss": {
     "repository": "https://github.com/csstools/postcss-language"
   },
