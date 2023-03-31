@@ -22,8 +22,8 @@ const util = require('util');
 const exec = require("./lib/exec");
 const extensionsSchema = require('./extensions-schema.json');
 const fetch = require('node-fetch');
-const { getPublicGalleryAPI } = require('vsce/out/util');
-const parseXmlManifest = require('vsce/out/xml').parseXmlManifest;
+const { getPublicGalleryAPI } = require('@vscode/vsce/out/util');
+const parseXmlManifest = require('@vscode/vsce/out/xml').parseXmlManifest;
 const { ExtensionQueryFlags, PublishedExtension } = require('azure-devops-node-api/interfaces/GalleryInterfaces');
 
 const flags = [
