@@ -45,6 +45,9 @@
   "almenon.arepl": {
     "repository": "https://github.com/almenon/arepl-vscode"
   },
+  "amazonemr.emr-tools": {
+    "repository": "https://github.com/awslabs/amazon-emr-vscode-toolkit"
+  },
   "amazonwebservices.aws-toolkit-vscode": {
     "repository": "https://github.com/aws/aws-toolkit-vscode"
   },
