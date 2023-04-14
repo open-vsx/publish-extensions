@@ -1139,6 +1139,9 @@
     "repository": "https://github.com/rxliuli/joplin-utils",
     "location": "apps/joplin-vscode-plugin"
   },
+  "ryanolsonx.zenburn": {
+    "repository": "https://github.com/ryanolsonx/vscode-zenburn-theme"
+  },
   "ryu1kn.edit-with-shell": {
     "repository": "https://github.com/ryu1kn/vscode-edit-with-shell"
   },
