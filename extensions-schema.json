@@ -36,6 +36,10 @@
         "type": "string",
         "description": "A property to set a different lookup ID when querying the Microsoft Marketplace. Please do not ever use if not absolutely necessary."
       },
+      "helper": {
+        "type": "string",
+        "description": "A helper script to use for building the extension. If not specified, the default resolver will be used. The script must be located in the `helpers` directory of the `open-vsx/publish-extensions` repository."
+      },
       "target": {
         "type": "array",
         "description": "A list of platforms to target. If unspecified, a universal extension will be published in case of building from source and if the vsix is resolved from GitHub Releases, all of the attached platform-specific assets will be published.",

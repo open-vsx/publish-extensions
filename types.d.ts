@@ -89,7 +89,8 @@ export interface Extension {
     custom?: string[]
     timeout?: number
     target?: string[]
-    msMarketplaceIdOverride?: string
+    msMarketplaceIdOverride?: string,
+    helper?: string,
 }
 
 export interface ExtensionResolution {
