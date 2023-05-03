@@ -596,7 +596,8 @@
     "repository": "https://github.com/kondratyev-nv/vscode-python-test-adapter"
   }, 
   "llam4u.nerdtree": {
-    "repository": "https://github.com/61130061/NERDTree"
+    "repository": "https://github.com/61130061/NERDTree",
+    "prepublish": "sed /\\.svg/d README.md > README.md.tmp && mv README.md.tmp README.md"
   },
   "mads-hartmann.bash-ide-vscode": {
     "repository": "https://github.com/bash-lsp/bash-language-server",
