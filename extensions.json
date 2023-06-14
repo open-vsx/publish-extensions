@@ -1307,7 +1307,8 @@
     "prepublish": "git clone https://github.com/Microsoft/java-debug.git ../java-debug && npm run build-server"
   },
   "vscjava.vscode-java-dependency": {
-    "repository": "https://github.com/microsoft/vscode-java-dependency"
+    "repository": "https://github.com/microsoft/vscode-java-dependency",
+    "prepublish": "npm run build-server"
   },
   "vscjava.vscode-java-pack": {
     "repository": "https://github.com/microsoft/vscode-java-pack"
