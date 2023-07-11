@@ -795,6 +795,18 @@
     ],
     "extensionFile": "isort.vsix"
   },
+  "ms-python.mypy-type-checker": {
+    "repository": "https://github.com/microsoft/vscode-mypy",
+    "custom": [
+      "python -m venv .venv",
+      "source .venv/bin/activate",
+      "python -m pip install nox",
+      "python -m pip install -t ./bundled/libs --no-cache-dir --no-user --implementation py --no-deps --upgrade -r ./requirements.txt",
+      "npm ci --prefer-offline",
+      "npm run vsce-package"
+    ],
+    "extensionFile": "mypy.vsix"
+  },
   "ms-python.pylint": {
     "repository": "https://github.com/microsoft/vscode-pylint",
     "custom": [
