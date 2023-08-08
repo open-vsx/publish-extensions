@@ -598,6 +598,9 @@
   "littlefoxteam.vscode-python-test-adapter": {
     "repository": "https://github.com/kondratyev-nv/vscode-python-test-adapter"
   },
+  "LoranKloeze.ruby-rubocop-revived": {
+    "repository": "https://github.com/LoranKloeze/vscode-ruby-rubocop-revived"
+  },
   "llam4u.nerdtree": {
     "repository": "https://github.com/61130061/NERDTree",
     "prepublish": "sed /\\.svg/d README.md > README.md.tmp && mv README.md.tmp README.md"
