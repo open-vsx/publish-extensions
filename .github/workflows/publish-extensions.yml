@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3.8.0
+      - uses: actions/setup-node@v3.8.1
         with:
           node-version: "14.x"
       - uses: actions/setup-python@v4
@@ -86,7 +86,7 @@ jobs:
     if: ${{ !github.event.inputs.extensions }} # only run on full runs
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3.8.0
+      - uses: actions/setup-node@v3.8.1
         with:
           node-version: "14.x"
       - run: npm install
