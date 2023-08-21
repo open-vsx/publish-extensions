@@ -219,7 +219,7 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
             console.log(`Published ${id} to https://${registryHost}/extension/${id.split(".")[0]}/${id.split(".")[1]}`);
         } else {
             console.error("The OVSX_PAT environment variable was not provided, which means the extension cannot be published. Provide it or set SKIP_PUBLISH to true to avoid seeing this.");
-            process.exitCode = -1;
+            process.exitCode = 1;
         }
 
     } catch (error) {
@@ -229,7 +229,7 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
         } else {
             console.error(`[FAIL] Could not process extension: ${JSON.stringify({ extension, context }, null, 2)}`);
             console.error(error);
-            process.exitCode = -1;
+            process.exitCode = 1;
         }
     }
 })();

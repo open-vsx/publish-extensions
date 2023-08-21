@@ -196,7 +196,7 @@ const generateOpenVsxLink = (/** @type {string} */ id) => `[${id}](https://${reg
 
     if ((unstable || stat.failed.length || outdated) && process.env.VALIDATE_PR === 'true') {
         // Fail the validating job if there are failing extensions
-        process.exitCode = -1;
+        process.exitCode = 1;
     }
 
     /**
@@ -215,7 +215,7 @@ const generateOpenVsxLink = (/** @type {string} */ id) => `[${id}](https://${reg
     // This should indicate a big extension breaking
     if (existsFailingExtensionAboveThreshold) {
         console.error(`There are outdated extensions above the threshold of ${humanNumber(threshold)} installs. See above for the list.`);
-        process.exitCode = -1;
+        process.exitCode = 1;
     }
 
     if (msPublished) {
