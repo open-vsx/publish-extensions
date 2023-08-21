@@ -1,5 +1,5 @@
 /********************************************************************************
- * Copyright (c) 2021-2022 Gitpod and others
+ * Copyright (c) 2021-2023 Gitpod and others
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0 which is available at
@@ -37,15 +37,6 @@ function sortedKeys(s) {
     })
 }
 
-function streamToString(stream) {
-    const chunks = [];
-    return new Promise((resolve, reject) => {
-        stream.on('data', (chunk) => chunks.push(Buffer.from(chunk)));
-        stream.on('error', (err) => reject(err));
-        stream.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
-    })
-}
-
 /**
  * @param {any} item
  * @param {string | any[]} array
@@ -55,118 +46,10 @@ function positionOf(item, array) {
     return `${array.indexOf(item) + 1}.`;
 }
 
-const generateMicrosoftLink = (/** @type {string} */ id) =>  `[${id}](https://marketplace.visualstudio.com/items?itemName=${id})`;
-const generateOpenVsxLink = (/** @type {string} */ id) =>  `[${id}](https://${registryHost}/extension/${id.split(".")[0]}/${id.split(".")[1]})`;
-
-const repoDetails = {
-    owner: 'open-vsx',
-    repo: 'publish-extensions',
-};
+const generateMicrosoftLink = (/** @type {string} */ id) => `[${id}](https://marketplace.visualstudio.com/items?itemName=${id})`;
+const generateOpenVsxLink = (/** @type {string} */ id) => `[${id}](https://${registryHost}/extension/${id.split(".")[0]}/${id.split(".")[1]})`;
 
 (async () => {
-
-    let lastWeekUpToDate;
-    let yesterdayWeightedPercentage;
-
-    try {
-        if (!token) {
-            throw new Error('No GitHub token');
-        }
-        const dayMilis = 86_400 * 1000 - 3600; // One hour tolerance
-        const weekMilis = 7 * dayMilis; // One hour tolerance
-        const previousReports = (await octokit.rest.actions.listArtifactsForRepo({
-            ...repoDetails,
-            per_page: 100
-        })).data.artifacts.filter(report => {
-            if (!report.created_at) return false;
-            return (new Date().getTime() - new Date(report.created_at).getTime() > weekMilis)
-        });
-
-        const previousWeekReport = previousReports.find(async report => {
-            if (!report.workflow_run?.id) return false;
-            try {
-                const workflowRun = await octokit.rest.actions.getWorkflowRun({
-                    ...repoDetails,
-                    run_id: report.workflow_run.id
-                });
-                if (workflowRun.data.event === "schedule") {
-                    return true;
-                }
-            } catch {
-                return false;
-            }
-        });
-        const yesterdayReport = previousReports.find(report => new Date().getTime() - new Date(report.created_at).getTime() > dayMilis);
-        const outputFile = '/tmp/report.zip';
-        const weekDownload = await octokit.rest.actions.downloadArtifact({
-            ...repoDetails,
-            artifact_id: previousWeekReport.id,
-            archive_format: 'zip',
-        });
-        const yesterdayDownload = await octokit.rest.actions.downloadArtifact({
-            ...repoDetails,
-            artifact_id: yesterdayReport.id,
-            archive_format: 'zip',
-        });
-
-        const lastWeekReportDownloadDirectory = '/tmp/last_week/';
-
-        // @ts-ignore
-        fs.appendFileSync(outputFile, Buffer.from(weekDownload.data));
-        fs.rmSync(lastWeekReportDownloadDirectory, { recursive: true, force: true });
-        fs.mkdirSync(lastWeekReportDownloadDirectory);
-
-        try {
-            fs.createReadStream(outputFile)
-                .pipe(unzipper.Parse())
-                .on('entry', async (entry) => {
-                    const fileName = entry.path;
-                    switch (fileName) {
-                        case 'stat.json':
-                            entry.pipe(fs.createWriteStream(`${lastWeekReportDownloadDirectory}stat.json`));
-                            const result = JSON.parse(await streamToString(entry));
-                            const upToDate = Object.keys(result.upToDate).length;
-                            const unstable = Object.keys(result.unstable).length;
-                            const outdated = Object.keys(result.outdated).length;
-                            const notInOpen = Object.keys(result.notInOpen).length;
-                            const notInMS = result.notInMS.length;
-                            lastWeekUpToDate = upToDate / (upToDate + notInOpen + outdated + unstable + notInMS);
-                            break;
-                        default:
-                            entry.autodrain();
-                    }
-                });
-        } catch (e) {
-            console.error('Error while unarchiving last week\'s stats.', e);
-        }
-
-        fs.rmSync(outputFile);
-        // @ts-ignore
-        fs.appendFileSync(outputFile, Buffer.from(yesterdayDownload.data));
-        fs.rmSync(lastWeekReportDownloadDirectory, { recursive: true, force: true });
-        fs.mkdirSync(lastWeekReportDownloadDirectory);
-        try {
-            fs.createReadStream(outputFile)
-                .pipe(unzipper.Parse())
-                .on('entry', async (entry) => {
-                    const fileName = entry.path;
-                    switch (fileName) {
-                        case 'stat.json':
-                            entry.pipe(fs.createWriteStream("/tmp/yesterday/stat.json"));
-                            const result = await streamToString(entry);
-                            yesterdayWeightedPercentage = JSON.parse(result);
-                            break;
-                        default:
-                            entry.autodrain();
-                    }
-                });
-        } catch (e) {
-            console.error('Error while unarchiving yesterday\'s stats.', e);
-        }
-    } catch (e) {
-        console.error(e);
-    }
-
     /** @type{import('./types').PublishStat}*/
     const stat = JSON.parse(await fs.promises.readFile("/tmp/stat.json", { encoding: 'utf8' }));
 
@@ -222,14 +105,13 @@ const repoDetails = {
     const fromMatched = Object.keys(stat.resolutions).filter(id => stat.resolutions[id].matched).length;
     const totalResolved = fromReleaseAsset + fromReleaseTag + fromTag + fromLatestUnmaintained + fromLatestNotPublished + fromMatchedLatest + fromMatched;
 
-    const upToDateChange = lastWeekUpToDate ? (upToDate / total - lastWeekUpToDate) * 100 : undefined;
     const weightedPercentage = (aggregatedInstalls.upToDate / (aggregatedInstalls.notInOpen + aggregatedInstalls.upToDate + aggregatedInstalls.outdated + aggregatedInstalls.unstable));
 
     let summary = '# Summary\r\n\n';
 
     if (!process.env.EXTENSIONS) {
         summary += `Total: ${total}\r\n`;
-        summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%) (${upToDateChange !== undefined ? `${upToDateChange ? `${Math.abs(upToDateChange).toFixed(3)}% ` : ''}${upToDateChange > 0 ? 'increase' : upToDateChange === 0 ? 'no change' : 'decrease'} since last week` : "WoW change n/a"})\r\n`;
+        summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%)\r\n`;
         summary += `Weighted publish percentage: ${(weightedPercentage * 100).toFixed(0)}%\r\n`
         summary += `Outdated (Not in Open VSX, but in MS marketplace): ${notInOpen} (${(notInOpen / total * 100).toFixed(0)}%)\r\n`;
         summary += `Outdated (MS marketplace > Open VSX): ${outdated} (${(outdated / total * 100).toFixed(0)}%)\r\n`;
@@ -317,13 +199,26 @@ const repoDetails = {
         process.exitCode = -1;
     }
 
-    if (yesterdayWeightedPercentage && yesterdayWeightedPercentage > (weightedPercentage * 1.05)) {
-        // This should indicate a big extension breaking
+    /**
+     * A threshold above which we will be alerted about a big extension breaking
+     */
+    const threshold = 10_000_000;
+    const existsFailingExtensionAboveThreshold = Object.keys(stat.outdated).some(id => {
+        const extension = stat.resolutions[id];
+        if (!extension?.msInstalls) {
+            return false;
+        }
+        console.log(`Extension ${id} is outdated and has ${humanNumber(extension.msInstalls)} installs`)
+        return extension.msInstalls > threshold;
+    });
+
+    // This should indicate a big extension breaking
+    if (existsFailingExtensionAboveThreshold) {
+        console.error(`There are outdated extensions above the threshold of ${humanNumber(threshold)} installs. See above for the list.`);
         process.exitCode = -1;
     }
 
     if (msPublished) {
-
         const publishedKeys = Object.keys(stat.msPublished).sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls);
         const outdatedKeys = msPublishedOutdated.sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls);
         const unstableKeys = msPublishedUnstable.sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls);
@@ -378,25 +273,25 @@ const repoDetails = {
         const keys = sortedKeys(stat.resolutions);
         for (const id of keys) {
             const r = stat.resolutions[id];
-            const base  =  r?.latest && !r.msVersion ? `${positionOf(id, keys)} ${generateOpenVsxLink(id)} from '` : `${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}) from`;
+            const base = r?.latest && !r.msVersion ? `${positionOf(id, keys)} ${generateOpenVsxLink(id)} from '` : `${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}) from`;
             if (r?.releaseAsset) {
                 content += `${base} '${r.releaseAsset}' release asset\r\n`;
             } else if (r?.releaseTag) {
-                content +=  `${base} '${r.releaseTag}' release tag\r\n`;
+                content += `${base} '${r.releaseTag}' release tag\r\n`;
             } else if (r?.tag) {
-                content +=  `${base} the '${r.tag}' release tag\r\n`;
+                content += `${base} the '${r.tag}' release tag\r\n`;
             } else if (r?.latest) {
                 if (r.msVersion) {
-                    content +=  `${base} '${r.latest}' - the very latest repo commit, since it is not actively maintained\r\n`;
+                    content += `${base} '${r.latest}' - the very latest repo commit, since it is not actively maintained\r\n`;
                 } else {
-                    content +=  `${base} '${r.latest}' - the very latest repo commit, since it is not published to MS marketplace\r\n`;
+                    content += `${base} '${r.latest}' - the very latest repo commit, since it is not published to MS marketplace\r\n`;
                 }
             } else if (r?.matchedLatest) {
-                content +=  `${base} '${r.matchedLatest}' - the very latest commit on the last update date\r\n`;
+                content += `${base} '${r.matchedLatest}' - the very latest commit on the last update date\r\n`;
             } else if (r?.matched) {
-                content +=  `${base} '${r.matched}' - the latest commit on the last update date\r\n`;
+                content += `${base} '${r.matched}' - the latest commit on the last update date\r\n`;
             } else {
-                content +=  `${base} unresolved\r\n`;
+                content += `${base} unresolved\r\n`;
             }
         }
     }
