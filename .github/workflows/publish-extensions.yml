@@ -54,7 +54,8 @@ jobs:
         env:
           OVSX_PAT: ${{ secrets.OVSX_PAT }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: bun run ./report-extensions.ts
+      - name: "Report publishing results"
+        run: bun run ./report-extensions.ts
       - uses: actions/upload-artifact@v3
         if: always()
         with:
@@ -69,6 +70,7 @@ jobs:
           path: |
             /tmp/artifacts/*.vsix
       - name: Upload job summary
+        if: always()
         run: cat /tmp/result.md >> $GITHUB_STEP_SUMMARY
       - name: Get previous job's status
         id: lastrun
