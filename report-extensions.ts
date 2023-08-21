@@ -8,56 +8,33 @@
  * SPDX-License-Identifier: EPL-2.0
  ********************************************************************************/
 
-// @ts-check
-const fs = require('fs');
-const Octokit = require('octokit').Octokit;
-const { formatter } = require('./lib/reportStat');
-const humanNumber = require('human-number');
-const { registryHost } = require('./lib/constants');
+import fs from 'fs';
+import { formatter } from './lib/reportStat';
+import humanNumber from 'human-number';
+import { registryHost } from './lib/constants';
+import type { ExtensionStat, MSExtensionStat, PublishStat } from './types';
 
-const token = process.env.GITHUB_TOKEN;
-if (!token) {
-    console.error("GITHUB_TOKEN env var is not set, the week-over-week statistic won't be included");
-}
-const octokit = new Octokit({ auth: token });
-
-/**
- * @param {{ [id: string]: (Partial<import('./types').MSExtensionStat | import('./types').ExtensionStat>) }} s
- */
-function sortedKeys(s) {
+type InputExtensionStat = Partial<MSExtensionStat | ExtensionStat>;
+function sortedKeys(s: { [id: string]: InputExtensionStat}) {
     return Object.keys(s).sort((a, b) => {
-        if (typeof s[b].msInstalls === 'number' && typeof s[a].msInstalls === 'number') {
-            return s[b].msInstalls - s[a].msInstalls;
-        }
-        if (typeof s[b].msInstalls === 'number') {
-            return s[b].msInstalls;
-        }
-        return -1;
+        const msInstallsA = s[a].msInstalls ?? 0;
+        const msInstallsB = s[b].msInstalls ?? 0;
+
+        return msInstallsB - msInstallsA;
     })
 }
 
-/**
- * @param {any} item
- * @param {string | any[]} array
- * @returns {string} the position of the item in the array with a `.` appended onto it.
- */
-function positionOf(item, array) {
+function positionOf(item: any, array: string | any[]): string {
     return `${array.indexOf(item) + 1}.`;
 }
 
-const generateMicrosoftLink = (/** @type {string} */ id) => `[${id}](https://marketplace.visualstudio.com/items?itemName=${id})`;
-const generateOpenVsxLink = (/** @type {string} */ id) => `[${id}](https://${registryHost}/extension/${id.split(".")[0]}/${id.split(".")[1]})`;
+const generateMicrosoftLink = (/** @type {string} */ id: string) => `[${id}](https://marketplace.visualstudio.com/items?itemName=${id})`;
+const generateOpenVsxLink = (/** @type {string} */ id: string) => `[${id}](https://${registryHost}/extension/${id.split(".")[0]}/${id.split(".")[1]})`;
 
 (async () => {
-    /** @type{import('./types').PublishStat}*/
-    const stat = JSON.parse(await fs.promises.readFile("/tmp/stat.json", { encoding: 'utf8' }));
+    const stat: PublishStat = JSON.parse(await fs.promises.readFile("/tmp/stat.json", { encoding: 'utf8' }));
 
-    /**
-     *
-     * @param {'upToDate' | 'unstable' | 'outdated' | 'notInOpen'} category
-     * @returns
-     */
-    const getAggregatedInstalls = (category) => {
+    const getAggregatedInstalls = (category: 'upToDate' | 'unstable' | 'outdated' | 'notInOpen') => {
         return Object.keys(stat[category]).map((st) => stat[category][st].msInstalls).reduce(
             (previousValue, currentValue) => previousValue + currentValue,
             0
@@ -296,9 +273,5 @@ const generateOpenVsxLink = (/** @type {string} */ id) => `[${id}](https://${reg
     }
 
     await fs.promises.writeFile("/tmp/result.md", content, { encoding: 'utf8' });
-    const metadata = {
-        weightedPercentage
-    };
-    await fs.promises.writeFile('/tmp/meta.json', JSON.stringify(metadata), { encoding: 'utf8' });
     console.log('See result output for the detailed report.');
 })();

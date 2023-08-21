@@ -39,6 +39,7 @@
     "semver": "^7.1.3"
   },
   "devDependencies": {
+    "@types/human-number": "^1.0.0",
     "@types/unzipper": "^0.10.5"
   }
 }

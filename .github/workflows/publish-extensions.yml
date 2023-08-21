@@ -34,6 +34,9 @@ jobs:
       - uses: actions/setup-node@v3.8.1
         with:
           node-version: "14.x"
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
       - uses: actions/setup-python@v4
         with:
           python-version: "3.7"
@@ -51,16 +54,13 @@ jobs:
         env:
           OVSX_PAT: ${{ secrets.OVSX_PAT }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: node report-extensions
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: bun run ./report-extensions.ts
       - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: report
           path: |
             /tmp/stat.json
-            /tmp/meta.json
             /tmp/result.md
       - uses: actions/upload-artifact@v3
         if: always()
