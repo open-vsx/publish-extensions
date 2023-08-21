@@ -407,6 +407,7 @@
     "repository": "https://github.com/github/vscode-github-actions"
   },
   "GitHub.vscode-pull-request-github": {
+    "prepublish": "yarn bundle",
     "repository": "https://github.com/microsoft/vscode-pull-request-github"
   },
   "golang.go": {
