@@ -13,7 +13,6 @@ const fs = require('fs');
 const Octokit = require('octokit').Octokit;
 const { formatter } = require('./lib/reportStat');
 const humanNumber = require('human-number');
-const unzipper = require('unzipper');
 const { registryHost } = require('./lib/constants');
 
 const token = process.env.GITHUB_TOKEN;
