@@ -9,9 +9,11 @@
  ********************************************************************************/
 
 import fs from 'fs';
-import { formatter } from './lib/reportStat';
 import humanNumber from 'human-number';
+
 import { registryHost } from './lib/constants';
+import { lineBreak, positionOf } from './lib/helpers';
+import { formatter } from './lib/reportStat';
 import type { ExtensionStat, MSExtensionStat, PublishStat } from './types';
 
 type InputExtensionStat = Partial<MSExtensionStat | ExtensionStat>;
@@ -24,12 +26,12 @@ function sortedKeys(s: { [id: string]: InputExtensionStat }) {
     })
 }
 
-function positionOf(item: any, array: string | any[]): string {
-    return `${array.indexOf(item) + 1}.`;
-}
+const generateMicrosoftLink = (id: string) => `[${id}](https://marketplace.visualstudio.com/items?itemName=${id})`;
+const generateOpenVsxLink = (id: string) => `[${id}](https://${registryHost}/extension/${id.split(".")[0]}/${id.split(".")[1]})`;
 
-const generateMicrosoftLink = (/** @type {string} */ id: string) => `[${id}](https://marketplace.visualstudio.com/items?itemName=${id})`;
-const generateOpenVsxLink = (/** @type {string} */ id: string) => `[${id}](https://${registryHost}/extension/${id.split(".")[0]}/${id.split(".")[1]})`;
+const calculatePercentage = (value: number, total: number): string => {
+    return `${(value / total * 100).toFixed(0)}%`;
+}
 
 (async () => {
     const stat: PublishStat = JSON.parse(await fs.promises.readFile("/tmp/stat.json", { encoding: 'utf8' }));
@@ -83,91 +85,92 @@ const generateOpenVsxLink = (/** @type {string} */ id: string) => `[${id}](https
 
     const weightedPercentage = (aggregatedInstalls.upToDate / (aggregatedInstalls.notInOpen + aggregatedInstalls.upToDate + aggregatedInstalls.outdated + aggregatedInstalls.unstable));
 
-    let summary = '# Summary\r\n\n';
+    let summary: string[] = ['# Summary'];
 
     if (!process.env.EXTENSIONS) {
-        summary += `Total: ${total}\r\n`;
-        summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%)\r\n`;
-        summary += `Weighted publish percentage: ${(weightedPercentage * 100).toFixed(0)}%\r\n`
-        summary += `Outdated (Not in Open VSX, but in MS marketplace): ${notInOpen} (${(notInOpen / total * 100).toFixed(0)}%)\r\n`;
-        summary += `Outdated (MS marketplace > Open VSX): ${outdated} (${(outdated / total * 100).toFixed(0)}%)\r\n`;
-        summary += `Unstable (MS marketplace < Open VSX): ${unstable} (${(unstable / total * 100).toFixed(0)}%)\r\n`;
-        summary += `Not in MS marketplace: ${notInMS} (${(notInMS / total * 100).toFixed(0)}%)\r\n`;
-        summary += `Failed to publish: ${stat.failed.length} (${(stat.failed.length / total * 100).toFixed(0)}%) \r\n`;
-        summary += `\r\n\n`;
-        summary += `Microsoft:\r\n`;
-        summary += `Total: ${msPublished} (${(msPublished / total * 100).toFixed(0)}%)\r\n`;
-        summary += `Outdated: ${msPublishedOutdated.length}\r\n`;
-        summary += `Unstable: ${msPublishedUnstable.length}\r\n`;
-        summary += `\r\n\n`;
-        summary += `Total resolutions: ${totalResolutions}\r\n`;
-        summary += `From release asset: ${fromReleaseAsset} (${(fromReleaseAsset / totalResolutions * 100).toFixed(0)}%)\r\n`;
-        summary += `From release tag: ${fromReleaseTag} (${(fromReleaseTag / totalResolutions * 100).toFixed(0)}%)\r\n`;
-        summary += `From repo tag: ${fromTag} (${(fromTag / totalResolutions * 100).toFixed(0)}%)\r\n`;
-        summary += `From very latest repo commit of unmaintained (last update >= 2 months ago): ${fromLatestUnmaintained} (${(fromLatestUnmaintained / totalResolutions * 100).toFixed(0)}%)\r\n`;
-        summary += `From very latest repo commit of not published to MS: ${fromLatestNotPublished} (${(fromLatestNotPublished / totalResolutions * 100).toFixed(0)}%)\r\n`;
-        summary += `From very latest repo commit on the last update date: ${fromMatchedLatest} (${(fromMatchedLatest / totalResolutions * 100).toFixed(0)}%)\r\n`;
-        summary += `From latest repo commit on the last update date: ${fromMatched} (${(fromMatched / totalResolutions * 100).toFixed(0)}%)\r\n`;
-        summary += `Total resolved: ${totalResolved} (${(totalResolved / totalResolutions * 100).toFixed(0)}%)\r\n`;
-        summary += `\r\n\n`;
-        summary += `Updated in MS marketplace in month-to-date: ${updatedInMTD}\r\n`;
-        summary += `Of which updated in Open VSX within 2 days: ${updatedInOpenIn2Days.size} (${(updatedInOpenIn2Days.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
-        summary += `Of which updated in Open VSX within 2 weeks: ${updatedInOpenIn2Weeks.size} (${(updatedInOpenIn2Weeks.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
-        summary += `Of which updated in Open VSX within a month: ${updatedInOpenInMonth.size} (${(updatedInOpenInMonth.size / updatedInMTD * 100).toFixed(0)}%)\r\n`;
+        summary.push(
+            `Total: ${total}`,
+            `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${calculatePercentage(upToDate, total)})`,
+            `Weighted publish percentage: ${(weightedPercentage * 100).toFixed(0)}%`,
+            `Outdated (Not in Open VSX, but in MS marketplace): ${notInOpen} (${calculatePercentage(notInOpen, total)})`,
+            `Outdated (MS marketplace > Open VSX): ${outdated} (${calculatePercentage(outdated, total)})`,
+            `Unstable (MS marketplace < Open VSX): ${unstable} (${calculatePercentage(unstable, total)})`,
+            `Not in MS marketplace: ${notInMS} (${calculatePercentage(notInMS, total)})`,
+            `Failed to publish: ${stat.failed.length} (${calculatePercentage(stat.failed.length, total)})`,
+            '',
+            'Microsoft:',
+            `Total: ${msPublished} (${calculatePercentage(msPublished, total)})`,
+            `Outdated: ${msPublishedOutdated.length}`,
+            `Unstable: ${msPublishedUnstable.length}`,
+            '',
+            `Total resolutions: ${totalResolutions}`,
+            `From release asset: ${fromReleaseAsset} (${calculatePercentage(fromReleaseAsset, totalResolutions)})`,
+            `From release tag: ${fromReleaseTag} (${calculatePercentage(fromReleaseTag, totalResolutions)})`,
+            `From repo tag: ${fromTag} (${calculatePercentage(fromTag, totalResolutions)})`,
+            `From very latest repo commit of unmaintained (last update >= 2 months ago): ${fromLatestUnmaintained} (${calculatePercentage(fromLatestUnmaintained, totalResolutions)})`,
+            `From very latest repo commit of not published to MS: ${fromLatestNotPublished} (${calculatePercentage(fromLatestNotPublished, totalResolutions)})`,
+            `From very latest repo commit on the last update date: ${fromMatchedLatest} (${calculatePercentage(fromMatchedLatest, totalResolutions)})`,
+            `From latest repo commit on the last update date: ${fromMatched} (${calculatePercentage(fromMatched, totalResolutions)})`,
+            `Total resolved: ${totalResolved} (${calculatePercentage(totalResolved, totalResolutions)})`,
+            '',
+            `Updated in MS marketplace in month-to-date: ${updatedInMTD}`,
+            `Of which updated in Open VSX within 2 days: ${updatedInOpenIn2Days.size} (${calculatePercentage(updatedInOpenIn2Days.size, updatedInMTD)})`,
+            `Of which updated in Open VSX within 2 weeks: ${updatedInOpenIn2Weeks.size} (${calculatePercentage(updatedInOpenIn2Weeks.size, updatedInMTD)})`,
+            `Of which updated in Open VSX within a month: ${updatedInOpenInMonth.size} (${calculatePercentage(updatedInOpenInMonth.size, updatedInMTD)})`
+        );
     } else {
         if (total === 0) {
-            summary += 'No extensions were processed\r\n';
+            summary.push('No extensions were processed');
         } else {
-            summary += `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${(upToDate / total * 100).toFixed(0)}%)\r\n`;
-            summary += `Failed to publish: ${stat.failed.length} (${(stat.failed.length / total * 100).toFixed(0)}%)\r\n`;
-            summary += `Outdated: ${msPublishedOutdated.length}\r\n`;
-            summary += `Unstable: ${msPublishedUnstable.length}\r\n`;
+            summary.push(
+                `Up-to-date (MS Marketplace == Open VSX): ${upToDate} (${calculatePercentage(upToDate, total)})`,
+                `Failed to publish: ${stat.failed.length} (${calculatePercentage(stat.failed.length, total)})`,
+                `Outdated: ${msPublishedOutdated.length}`,
+                `Unstable: ${msPublishedUnstable.length}`
+            );
         }
     }
 
-    console.log(summary);
-    summary += `\r\n\n`;
-    summary += '---'
-    summary += `\r\n\n`;
+    console.log(summary.join(lineBreak));
+    summary.push('', '---', '');
 
-    let content = summary;
+    let content: string[] = summary;
+
     if (outdated) {
         const keys = sortedKeys(stat.outdated);
-        content += '\r\n## Outdated (MS marketplace > Open VSX version)\r\n';
+        content.push('## Outdated (MS marketplace > Open VSX version)');
         for (const id of keys) {
             const r = stat.outdated[id];
-            content += `${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.msVersion} > ${r.openVersion}\r\n`;
+            content.push(`${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.msVersion} > ${r.openVersion}`);
         }
     }
 
     if (notInOpen) {
         const keys = Object.keys(stat.notInOpen).sort((a, b) => stat.notInOpen[b].msInstalls - stat.notInOpen[a].msInstalls);
-        content += '\r\n## Not published to Open VSX, but in MS marketplace\r\n';
+        content.push('', '## Not published to Open VSX, but in MS marketplace');
         for (const id of keys) {
             const r = stat.notInOpen[id];
-            content += `${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}): ${r.msVersion}\r\n`;
+            content.push(`${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}): ${r.msVersion}`);
         }
     }
 
     if (unstable) {
         const keys = sortedKeys(stat.unstable);
-        content += '\r\n## Unstable (Open VSX > MS marketplace version)\r\n';
+        content.push('', '## Unstable (Open VSX > MS marketplace version)');
         for (const id of keys) {
             const r = stat.unstable[id];
-            content += `${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion} > ${r.msVersion}\r\n`;
+            content.push(`${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion} > ${r.msVersion}`);
         }
     }
 
     if (notInMS) {
-        content += '\r\n## Not published to MS marketplace\r\n';
-        content += stat.notInMS.map(ext => `- ${generateOpenVsxLink(ext)}`).join('\r\n');
-        content += '\r\n';
+        content.push('', '## Not published to MS marketplace');
+        content.push(...stat.notInMS.map(ext => `- ${generateOpenVsxLink(ext)}`));
     }
 
     if (stat.failed.length) {
-        content += '\r\n## Failed to publish\r\n';
-        content += stat.failed.map(ext => `- ${generateMicrosoftLink(ext)}`).join('\r\n');
-        content += '\r\n';
+        content.push('', '## Failed to publish');
+        content.push(...stat.failed.map(ext => `- ${generateMicrosoftLink(ext)}`));
     }
 
     if ((unstable || stat.failed.length || outdated) && process.env.VALIDATE_PR === 'true') {
@@ -200,83 +203,78 @@ const generateOpenVsxLink = (/** @type {string} */ id: string) => `[${id}](https
     }
 
     if (msPublished) {
+        content.push('## MS extensions');
         const publishedKeys = Object.keys(stat.msPublished).sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls);
         const outdatedKeys = msPublishedOutdated.sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls);
         const unstableKeys = msPublishedUnstable.sort((a, b) => stat.msPublished[b].msInstalls - stat.msPublished[a].msInstalls);
-
-        content += '\r\n## MS extensions\r\n';
-
-        for (const id of publishedKeys) {
+    
+        publishedKeys.forEach(id => {
             const r = stat.msPublished[id];
-            content += `${positionOf(id, publishedKeys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
-        }
-
-        content += '\r\n## MS Outdated\r\n'
-
-        for (const id of outdatedKeys) {
+            content.push(`${positionOf(id, publishedKeys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)})`);
+        });
+    
+        content.push('## MS Outdated');
+        outdatedKeys.forEach(id => {
             const r = stat.msPublished[id];
-            content += `${positionOf(id, outdatedKeys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
-        }
-
-        content += '\r\n## MS Unstable\r\n'
-
-        for (const id of unstableKeys) {
+            content.push(`${positionOf(id, outdatedKeys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)})`);
+        });
+    
+        content.push('## MS Unstable');
+        unstableKeys.forEach(id => {
             const r = stat.msPublished[id];
-            content += `${positionOf(id, unstableKeys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)})\r\n`;
-        }
+            content.push(`${positionOf(id, unstableKeys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)})`);
+        });
     }
-
+    
     if (updatedInMTD) {
-        content += '\r\n## Updated in Open VSX within 2 days after in MS marketplace in MTD\r\n';
+        content.push('## Updated in Open VSX within 2 days after in MS marketplace in MTD');
         const keys = sortedKeys(stat.hitMiss);
-        for (const id of keys) {
+        keys.forEach(id => {
             const r = stat.hitMiss[id];
             const in2Days = updatedInOpenIn2Days.has(id) ? '+' : '-';
             const in2Weeks = updatedInOpenIn2Weeks.has(id) ? '+' : '-';
             const inMonth = updatedInOpenInMonth.has(id) ? '+' : '-';
-            content += `${positionOf(id, keys)} ${inMonth}${in2Weeks}${in2Days} ${generateMicrosoftLink(id)}: installs: ${humanNumber(r.msInstalls, formatter)}; daysInBetween: ${r.daysInBetween?.toFixed(0)}; MS marketplace: ${r.msVersion}; Open VSX: ${r.openVersion}\r\n`;
-        }
-        content += '\r\n';
+            content.push(`${positionOf(id, keys)} ${inMonth}${in2Weeks}${in2Days} ${generateMicrosoftLink(id)}: installs: ${humanNumber(r.msInstalls, formatter)}; daysInBetween: ${r.daysInBetween?.toFixed(0)}; MS marketplace: ${r.msVersion}; Open VSX: ${r.openVersion}`);
+        });
     }
-
+    
     if (upToDate) {
-        content += '\r\n## Up-to-date (Open VSX = MS marketplace version)\r\n';
+        content.push('## Up-to-date (Open VSX = MS marketplace version)');
         const keys = Object.keys(stat.upToDate).sort((a, b) => stat.upToDate[b].msInstalls - stat.upToDate[a].msInstalls);
-        for (const id of keys) {
+        keys.forEach(id => {
             const r = stat.upToDate[id];
-            content += `${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion}\r\n`;
-        }
-        content += '\r\n';
+            content.push(`${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}, daysInBetween: ${r.daysInBetween.toFixed(0)}): ${r.openVersion}`);
+        });
     }
-
+    
     if (totalResolutions) {
-        content += '\r\n## Resolutions\r\n';
+        content.push('## Resolutions');
         const keys = sortedKeys(stat.resolutions);
-        for (const id of keys) {
+        keys.forEach(id => {
             const extension = stat.resolutions[id];
             const base = extension?.latest && !extension.msVersion ? `${positionOf(id, keys)} ${generateOpenVsxLink(id)} from '` : `${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(extension.msInstalls!, formatter)}) from`;
             if (extension?.releaseAsset) {
-                content += `${base} '${extension.releaseAsset}' release asset\r\n`;
+                content.push(`${base} '${extension.releaseAsset}' release asset`);
             } else if (extension?.releaseTag) {
-                content += `${base} '${extension.releaseTag}' release tag\r\n`;
+                content.push(`${base} '${extension.releaseTag}' release tag`);
             } else if (extension?.tag) {
-                content += `${base} the '${extension.tag}' release tag\r\n`;
+                content.push(`${base} the '${extension.tag}' release tag`);
             } else if (extension?.latest) {
                 if (extension.msVersion) {
-                    content += `${base} '${extension.latest}' - the very latest repo commit, since it is not actively maintained\r\n`;
+                    content.push(`${base} '${extension.latest}' - the very latest repo commit, since it is not actively maintained`);
                 } else {
-                    content += `${base} '${extension.latest}' - the very latest repo commit, since it is not published to MS marketplace\r\n`;
+                    content.push(`${base} '${extension.latest}' - the very latest repo commit, since it is not published to MS marketplace`);
                 }
             } else if (extension?.matchedLatest) {
-                content += `${base} '${extension.matchedLatest}' - the very latest commit on the last update date\r\n`;
+                content.push(`${base} '${extension.matchedLatest}' - the very latest commit on the last update date`);
             } else if (extension?.matched) {
-                content += `${base} '${extension.matched}' - the latest commit on the last update date\r\n`;
+                content.push(`${base} '${extension.matched}' - the latest commit on the last update date`);
             } else {
-                content += `${base} unresolved\r\n`;
+                content.push(`${base} unresolved`);
             }
-        }
+        });
     }
-
-    await fs.promises.writeFile("/tmp/result.md", content, { encoding: 'utf8' });
+    
+    await fs.promises.writeFile("/tmp/result.md", content.join(lineBreak), { encoding: 'utf8' });    
     console.log('See result output for the detailed report.');
 })();
