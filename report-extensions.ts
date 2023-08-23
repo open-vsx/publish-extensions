@@ -248,24 +248,24 @@ const generateOpenVsxLink = (/** @type {string} */ id: string) => `[${id}](https
         content += '\r\n## Resolutions\r\n';
         const keys = sortedKeys(stat.resolutions);
         for (const id of keys) {
-            const r = stat.resolutions[id];
-            const base = r?.latest && !r.msVersion ? `${positionOf(id, keys)} ${generateOpenVsxLink(id)} from '` : `${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(r.msInstalls, formatter)}) from`;
-            if (r?.releaseAsset) {
-                content += `${base} '${r.releaseAsset}' release asset\r\n`;
-            } else if (r?.releaseTag) {
-                content += `${base} '${r.releaseTag}' release tag\r\n`;
-            } else if (r?.tag) {
-                content += `${base} the '${r.tag}' release tag\r\n`;
-            } else if (r?.latest) {
-                if (r.msVersion) {
-                    content += `${base} '${r.latest}' - the very latest repo commit, since it is not actively maintained\r\n`;
+            const extension = stat.resolutions[id];
+            const base = extension?.latest && !extension.msVersion ? `${positionOf(id, keys)} ${generateOpenVsxLink(id)} from '` : `${positionOf(id, keys)} ${generateMicrosoftLink(id)} (installs: ${humanNumber(extension.msInstalls!, formatter)}) from`;
+            if (extension?.releaseAsset) {
+                content += `${base} '${extension.releaseAsset}' release asset\r\n`;
+            } else if (extension?.releaseTag) {
+                content += `${base} '${extension.releaseTag}' release tag\r\n`;
+            } else if (extension?.tag) {
+                content += `${base} the '${extension.tag}' release tag\r\n`;
+            } else if (extension?.latest) {
+                if (extension.msVersion) {
+                    content += `${base} '${extension.latest}' - the very latest repo commit, since it is not actively maintained\r\n`;
                 } else {
-                    content += `${base} '${r.latest}' - the very latest repo commit, since it is not published to MS marketplace\r\n`;
+                    content += `${base} '${extension.latest}' - the very latest repo commit, since it is not published to MS marketplace\r\n`;
                 }
-            } else if (r?.matchedLatest) {
-                content += `${base} '${r.matchedLatest}' - the very latest commit on the last update date\r\n`;
-            } else if (r?.matched) {
-                content += `${base} '${r.matched}' - the latest commit on the last update date\r\n`;
+            } else if (extension?.matchedLatest) {
+                content += `${base} '${extension.matchedLatest}' - the very latest commit on the last update date\r\n`;
+            } else if (extension?.matched) {
+                content += `${base} '${extension.matched}' - the latest commit on the last update date\r\n`;
             } else {
                 content += `${base} unresolved\r\n`;
             }
