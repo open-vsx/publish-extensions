@@ -15,7 +15,7 @@ import { registryHost } from './lib/constants';
 import type { ExtensionStat, MSExtensionStat, PublishStat } from './types';
 
 type InputExtensionStat = Partial<MSExtensionStat | ExtensionStat>;
-function sortedKeys(s: { [id: string]: InputExtensionStat}) {
+function sortedKeys(s: { [id: string]: InputExtensionStat }) {
     return Object.keys(s).sort((a, b) => {
         const msInstallsA = s[a].msInstalls ?? 0;
         const msInstallsB = s[b].msInstalls ?? 0;
@@ -184,8 +184,13 @@ const generateOpenVsxLink = (/** @type {string} */ id: string) => `[${id}](https
         if (!extension?.msInstalls) {
             return false;
         }
-        console.log(`Extension ${id} is outdated and has ${humanNumber(extension.msInstalls)} installs`)
-        return extension.msInstalls > threshold;
+
+        const aboveThreshold = extension.msInstalls > threshold
+        if (aboveThreshold) {
+            console.log(`Extension ${id} is outdated and has ${humanNumber(extension.msInstalls)} installs`)
+        }
+
+        return aboveThreshold;
     });
 
     // This should indicate a big extension breaking
