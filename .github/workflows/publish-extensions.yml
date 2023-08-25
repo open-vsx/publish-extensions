@@ -54,7 +54,7 @@ jobs:
         env:
           OVSX_PAT: ${{ secrets.OVSX_PAT }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: "Report publishing results"
+      - name: Report results
         run: bun run ./report-extensions.ts
       - uses: actions/upload-artifact@v3
         if: always()

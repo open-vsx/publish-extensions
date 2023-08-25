@@ -25,7 +25,8 @@ jobs:
       - run: EXTENSIONS=$(node diff-extensions) node publish-extensions
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: node report-extensions
+      - name: Report results
+        run: bun run ./report-extensions.ts
       - uses: actions/upload-artifact@v3
         if: always()
         with:
