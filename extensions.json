@@ -790,6 +790,18 @@
     ],
     "extensionFile": "black-formatter.vsix"
   },
+  "ms-python.flake8": {
+    "repository": "https://github.com/microsoft/vscode-flake8",
+    "custom": [
+      "python -m pip install -U pip",
+      "python -m pip install wheel",
+      "python -m pip install nox",
+      "npm ci --prefer-offline",
+      "python -m nox --session install_bundled_libs",
+      "npm run vsce-package"
+    ],
+    "extensionFile": "flake8.vsix"
+  },
   "ms-python.isort": {
     "repository": "https://github.com/microsoft/vscode-isort",
     "custom": [
