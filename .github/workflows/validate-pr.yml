@@ -17,6 +17,9 @@ jobs:
       - uses: actions/setup-node@v3.8.1
         with:
           node-version: "14.x"
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
       - run: npm install
       - run: npm i -g @vscode/vsce
       - uses: actions/setup-python@v4
