@@ -2,8 +2,8 @@
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/en/) (tested on v14 & v16)
-- Ubuntu Linux (Windows and macOS work fine for adding extensions, but extensions are always tested on Ubuntu, so they need to build correctly there)
+- [Node.js](https://nodejs.org/en/) (we use Node 18)
+- Ubuntu Linux (Windows and macOS work fine for adding extensions, but extensions are always tested on Ubuntu, so they only need to build correctly there)
 
 To add an extension to this repo, clone the repo[^clone], install the dependencies[^deps], and use the following command:
 
