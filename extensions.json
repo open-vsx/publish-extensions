@@ -697,7 +697,8 @@
     "repository": "https://github.com/Microsoft/vscode-azureresourcegroups"
   },
   "ms-azuretools.vscode-docker": {
-    "repository": "https://github.com/microsoft/vscode-docker"
+    "repository": "https://github.com/microsoft/vscode-docker",
+    "prepublish": "npm run build"
   },
   "MS-CEINTL.vscode-language-pack-cs": {
     "repository": "https://github.com/microsoft/vscode-loc",
