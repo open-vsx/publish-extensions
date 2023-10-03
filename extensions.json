@@ -1251,9 +1251,6 @@
   "snyk-security.snyk-vulnerability-scanner": {
     "repository": "https://github.com/snyk/vscode-extension"
   },
-  "snyk-security.vscode-vuln-cost": {
-    "repository": "https://github.com/snyk/vulncost"
-  },
   "sorbet.sorbet-vscode-extension": {
     "repository": "https://github.com/sorbet/sorbet"
   },
