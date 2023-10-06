@@ -25,8 +25,11 @@ jobs:
       - name: Set up pyenv
         uses: "gabrielfalcao/pyenv-action@v13"
         with:
-            command: pyenv global 3.8
-            default: 3.8
+            command: python --version
+      - name: Set default global version
+        run: |
+          pyenv install 3.8 
+          pyenv global 3.8
       - run: EXTENSIONS=$(node diff-extensions) node publish-extensions
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
