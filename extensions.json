@@ -809,12 +809,14 @@
   "ms-python.isort": {
     "repository": "https://github.com/microsoft/vscode-isort",
     "custom": [
+      "pyenv install 3.7 && pyenv global 3.7",
       "python -m pip install -U pip",
       "python -m pip install wheel",
       "python -m pip install nox",
       "npm ci --prefer-offline",
       "python -m nox --session install_bundled_libs",
-      "npm run vsce-package"
+      "npm run vsce-package",
+      "pyenv global 3.8"
     ],
     "extensionFile": "isort.vsix"
   },
