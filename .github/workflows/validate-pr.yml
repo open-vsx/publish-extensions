@@ -24,7 +24,7 @@ jobs:
       - run: npm i -g @vscode/vsce
       - uses: actions/setup-python@v4
         with:
-          python-version: "3.7"
+          python-version: "3.8"
       - run: EXTENSIONS=$(node diff-extensions) node publish-extensions
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
