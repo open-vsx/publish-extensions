@@ -37,9 +37,11 @@ jobs:
       - uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
-      - uses: actions/setup-python@v4
+      - name: Set up pyenv
+        uses: "gabrielfalcao/pyenv-action@v13"
         with:
-          python-version: "3.8"
+            command: pyenv global 3.8
+            versions: 3.8
       - uses: actions/setup-java@v3
         with:
           distribution: "microsoft"

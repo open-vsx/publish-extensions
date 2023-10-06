@@ -22,9 +22,11 @@ jobs:
           bun-version: latest
       - run: npm install
       - run: npm i -g @vscode/vsce
-      - uses: actions/setup-python@v4
+      - name: Set up pyenv
+        uses: "gabrielfalcao/pyenv-action@v13"
         with:
-          python-version: "3.8"
+            command: pyenv global 3.8
+            versions: 3.8
       - run: EXTENSIONS=$(node diff-extensions) node publish-extensions
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
