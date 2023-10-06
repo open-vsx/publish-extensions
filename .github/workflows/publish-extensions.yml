@@ -41,7 +41,7 @@ jobs:
         uses: "gabrielfalcao/pyenv-action@v13"
         with:
             command: pyenv global 3.8
-            versions: 3.8.18
+            default: 3.8
       - uses: actions/setup-java@v3
         with:
           distribution: "microsoft"

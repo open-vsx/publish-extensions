@@ -26,7 +26,7 @@ jobs:
         uses: "gabrielfalcao/pyenv-action@v13"
         with:
             command: pyenv global 3.8
-            versions: 3.8.18
+            default: 3.8
       - run: EXTENSIONS=$(node diff-extensions) node publish-extensions
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
