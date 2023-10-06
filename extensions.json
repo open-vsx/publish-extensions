@@ -809,7 +809,7 @@
   "ms-python.isort": {
     "repository": "https://github.com/microsoft/vscode-isort",
     "custom": [
-      "pyenv install 3.7 && pyenv global 3.7",
+      "pyenv install -s 3.7 && pyenv global 3.7",
       "python -m pip install -U pip",
       "python -m pip install wheel",
       "python -m pip install nox",
