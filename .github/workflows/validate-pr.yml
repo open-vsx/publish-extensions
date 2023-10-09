@@ -28,7 +28,7 @@ jobs:
             command: python --version
       - name: Set default global version
         run: |
-          pyenv install 3.8 
+          pyenv install 3.8
           pyenv global 3.8
       - run: EXTENSIONS=$(node diff-extensions) node publish-extensions
         env:
