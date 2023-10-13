@@ -808,15 +808,14 @@
   },
   "ms-python.isort": {
     "repository": "https://github.com/microsoft/vscode-isort",
+    "pythonVersion": "3.7",
     "custom": [
-      "pyenv install -s 3.7 && pyenv global 3.7",
       "python -m pip install -U pip",
       "python -m pip install wheel",
       "python -m pip install nox",
       "npm ci --prefer-offline",
       "python -m nox --session install_bundled_libs",
-      "npm run vsce-package",
-      "pyenv global 3.8"
+      "npm run vsce-package"
     ],
     "extensionFile": "isort.vsix"
   },
@@ -846,8 +845,9 @@
   },
   "ms-python.python": {
     "repository": "https://github.com/microsoft/vscode-python",
-    "prepublish": "npx gulp installPythonLibs && python3 ./pythonFiles/install_debugpy.py && python3 ./build/update_ext_version.py --release --for-publishing && npm run addExtensionPackDependencies && DISABLE_TRANSLATIONS=true npm run package",
+    "prepublish": "npx gulp installPythonLibs && python3 -m pip --disable-pip-version-check install packaging && python3 ./pythonFiles/install_debugpy.py && python3 ./pythonFiles/download_get_pip.py && python3 ./build/update_ext_version.py --release --for-publishing && npm run addExtensionPackDependencies && DISABLE_TRANSLATIONS=true npm run package",
     "extensionFile": "ms-python-insiders.vsix",
+    "pythonVersion": "3.8",
     "timeout": 30
   },
   "ms-toolsai.jupyter": {

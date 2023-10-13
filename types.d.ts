@@ -90,6 +90,7 @@ export interface Extension {
     timeout?: number
     target?: string[]
     msMarketplaceIdOverride?: string
+    pythonVersion?: string;
 }
 
 export interface ExtensionResolution {

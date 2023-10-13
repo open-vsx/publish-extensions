@@ -1,5 +1,5 @@
 /********************************************************************************
- * Copyright (c) 2022 TypeFox and others
+ * Copyright (c) 2023 TypeFox and others
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0 which is available at
@@ -23,7 +23,7 @@ const { cannotPublish } = require('./lib/reportStat');
 
 const { PublicGalleryAPI } = require('@vscode/vsce/out/publicgalleryapi');
 const { PublishedExtension } = require('azure-devops-node-api/interfaces/GalleryInterfaces');
-const { artifactDirectory, registryHost } = require('./lib/constants');
+const { artifactDirectory, registryHost, defaultPythonVersion } = require('./lib/constants');
 
 const vscodeBuiltinExtensionsNamespace = "vscode";
 const isBuiltIn = (id) => id.split(".")[0] === vscodeBuiltinExtensionsNamespace;
@@ -70,6 +70,11 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
                 if (nvmFile) {
                     // If the project has a preferred Node version, use it
                     await exec("source ~/.nvm/nvm.sh && nvm install", { cwd: path.join(context.repo, extension.location ?? '.'), quiet: true });
+                }
+
+                if (extension.pythonVersion) {
+                    console.debug("Installing appropriate Python version...")
+                    await exec(`pyenv install -s ${extension.pythonVersion} && pyenv global ${extension.pythonVersion}`, { cwd: path.join(context.repo, extension.location ?? '.'), quiet: false })
                 }
             } catch { }
 
@@ -230,6 +235,11 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
             console.error(`[FAIL] Could not process extension: ${JSON.stringify({ extension, context }, null, 2)}`);
             console.error(error);
             process.exitCode = 1;
+        }
+    } finally {
+        // Clean up
+        if (extension.pythonVersion) {
+            await exec(`pyenv global ${defaultPythonVersion}`)
         }
     }
 })();

@@ -32,6 +32,10 @@
         "type": "number",
         "description": "Timeout to build the extension vsix from sources."
       },
+      "pythonVersion": {
+        "type": "string",
+        "description": "Python version to use with this build."
+      },
       "msMarketplaceIdOverride": {
         "type": "string",
         "description": "A property to set a different lookup ID when querying the Microsoft Marketplace. Please do not ever use if not absolutely necessary."
@@ -43,9 +47,7 @@
         "minItems": 1
       }
     },
-    "required": [
-      "repository"
-    ],
+    "required": ["repository"],
     "additionalProperties": false
   }
 }
