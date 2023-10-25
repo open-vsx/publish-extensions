@@ -283,9 +283,6 @@
   "efoerster.texlab": {
     "repository": "https://github.com/latex-lsp/texlab-vscode"
   },
-  "embertooling.prettier-for-handlebars-vscode": {
-    "repository": "https://github.com/ember-tooling/prettier-for-handlebars-vscode"
-  },
   "emmanuelbeziat.vscode-great-icons": {
     "repository": "https://github.com/EmmanuelBeziat/vscode-great-icons",
     "prepublish": "sed -ri \"s_git\\+https://_https://_g\" package.json"
