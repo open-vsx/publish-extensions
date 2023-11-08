@@ -38,7 +38,7 @@ jobs:
         with:
           bun-version: latest
       - name: Set up pyenv
-        uses: "gabrielfalcao/pyenv-action@bfc27b45fd257a9df9438c1c01a16f7d8b88d709"
+        uses: "gabrielfalcao/pyenv-action@f5c15a49ee343ad0118292ab1f27aca120465c42"
         with:
             command: python --version
       - name: Set default global version
