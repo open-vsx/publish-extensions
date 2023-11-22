@@ -1145,6 +1145,9 @@
     "repository": "https://github.com/reduckted/GitWebLinks",
     "location": "vscode"
   },
+  "revilowaldow.5etools-language-server": {
+    "repository": "https://github.com/revilowaldow/5eTools-Language-Server"
+  },
   "ria.elastic": {
     "repository": "https://github.com/hsen-dev/vscode-elastic"
   },
