@@ -506,6 +506,9 @@
   "janisdd.vscode-edit-csv": {
     "repository": "https://github.com/janisdd/vscode-edit-csv"
   },
+  "JannisX11.batch-rename": {
+    "repository": "https://github.com/JannisX11/batch-rename"
+  },
   "jebbs.markdown-extended": {
     "repository": "https://github.com/qjebbs/vscode-markdown-extended"
   },
