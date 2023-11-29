@@ -45,7 +45,7 @@ jobs:
         run: |
           pyenv install 3.8
           pyenv global 3.8
-      - uses: actions/setup-java@v3
+      - uses: actions/setup-java@v4
         with:
           distribution: "microsoft"
           java-version: "17"
