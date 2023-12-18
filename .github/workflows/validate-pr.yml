@@ -23,7 +23,7 @@ jobs:
       - run: npm install
       - run: npm i -g @vscode/vsce
       - name: Set up pyenv
-        uses: "gabrielfalcao/pyenv-action@bfc27b45fd257a9df9438c1c01a16f7d8b88d709"
+        uses: "gabrielfalcao/pyenv-action@2f49ca7587f9d0663d13f1147b78d3361417eaf7"
         with:
             command: python --version
       - name: Set default global version
