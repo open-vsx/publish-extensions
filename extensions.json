@@ -1268,6 +1268,9 @@
   "svipas.control-snippets": {
     "repository": "https://github.com/svipas/vscode-control-snippets"
   },
+  "swellaby.rust-pack": {
+    "repository": "https://github.com/swellaby/vscode-rust-pack"
+  },
   "Swellaby.vscode-rust-test-adapter": {
     "repository": "https://github.com/swellaby/vscode-rust-test-adapter"
   },
