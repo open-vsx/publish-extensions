@@ -779,6 +779,9 @@
     "prepublish": "npm i && cd packages/vscode-pyright && npm run prepackage",
     "msMarketplaceIdOverride": "ms-pyright.pyright"
   },
+  "ms-python.autopep8": {
+    "repository": "https://github.com/microsoft/vscode-autopep8"
+  },
   "ms-python.black-formatter": {
     "repository": "https://github.com/microsoft/vscode-black-formatter",
     "custom": [
