@@ -784,7 +784,7 @@
     "custom": [
       "python -m pip install -U pip",
       "python -m pip install wheel",
-      "python -m pip install nox",
+      "python -m pip install nox flake8 autopep8",
       "npm ci --prefer-offline",
       "python -m nox --session install_bundled_libs",
       "npm run vsce-package"
