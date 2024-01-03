@@ -1160,6 +1160,9 @@
   "revilowaldow.5etools-language-server": {
     "repository": "https://github.com/revilowaldow/5eTools-Language-Server"
   },
+  "rheller.alive": {
+    "repository": "https://github.com/nobody-famous/alive"
+  },
   "ria.elastic": {
     "repository": "https://github.com/hsen-dev/vscode-elastic"
   },
