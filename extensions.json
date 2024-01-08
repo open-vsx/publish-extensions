@@ -854,7 +854,18 @@
   },
   "ms-python.python": {
     "repository": "https://github.com/microsoft/vscode-python",
-    "prepublish": "npx gulp installPythonLibs && python3 -m pip --disable-pip-version-check install packaging && python3 ./pythonFiles/install_debugpy.py && python3 ./pythonFiles/download_get_pip.py && python3 ./build/update_ext_version.py --release --for-publishing && npm run addExtensionPackDependencies && DISABLE_TRANSLATIONS=true npm run package",
+    "custom": [
+      "python -m pip install -U pip",
+      "python -m pip install wheel",
+      "python -m pip install --no-deps --require-hashes --only-binary :all: -t ./pythonFiles/lib/python --implementation py -r requirements.txt",
+      "python -m pip --disable-pip-version-check install packaging",
+      "python ./pythonFiles/install_debugpy.py",
+      "python ./pythonFiles/download_get_pip.py",
+      "python -m pip install --no-deps --require-hashes --only-binary :all: -t ./pythonFiles/lib/jedilsp --implementation py --platform any --abi none -r ./pythonFiles/jedilsp_requirements/requirements.txt",
+      "npm ci --prefer-offline",
+      "npm run addExtensionPackDependencies",
+      "npm run package"
+    ],
     "extensionFile": "ms-python-insiders.vsix",
     "pythonVersion": "3.8",
     "timeout": 30
