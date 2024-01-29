@@ -870,6 +870,9 @@
     "pythonVersion": "3.8",
     "timeout": 30
   },
+  "MS-SarifVSCode.sarif-viewer": {
+    "repository": "https://github.com/Microsoft/sarif-vscode-extension"
+  },
   "ms-toolsai.jupyter": {
     "repository": "https://github.com/microsoft/vscode-jupyter",
     "custom": [
