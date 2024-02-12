@@ -813,7 +813,11 @@
       "vsce package --target=darwin-arm64",
       "vsce package --target=win32-x64"
     ],
-    "target": ["linux-x64", "darwin-arm64", "win32-x64"]
+    "target": [
+      "linux-x64",
+      "darwin-arm64",
+      "win32-x64"
+    ]
   },
   "ms-python.flake8": {
     "repository": "https://github.com/microsoft/vscode-flake8",
@@ -1314,6 +1318,20 @@
   },
   "Swellaby.vscode-rust-test-adapter": {
     "repository": "https://github.com/swellaby/vscode-rust-test-adapter"
+  },
+  "swyddfa.esbonio": {
+    "repository": "https://github.com/swyddfa/esbonio",
+    "location": "code",
+    "pythonVersion": "3.8",
+    "custom": [
+      "git describe --tags --match 'esbonio-vscode-extension-*' origin/develop | xargs git checkout",
+      "python3 -m pip install --upgrade pip",
+      "python3 -m pip install --upgrade hatch tox towncrier docutils",
+      "env -C code 'ESBONIO_WHL=--pre esbonio' python3 -m tox run -e bundle-deps",
+      "env -C code npm ci --prefer-offline",
+      "env -C code npm run package",
+      "mv code/*.vsix code/extension.vsix"
+    ]
   },
   "tanhakabir.rest-book": {
     "repository": "https://github.com/tanhakabir/rest-book"
