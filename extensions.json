@@ -809,9 +809,11 @@
       "python -m pip install -U pip pipx wheel",
       "npm ci --prefer-offline",
       "python -m pipx run nox --session install_bundled_libs",
-      "npm run vsce-package"
+      "vsce package --target=linux-x64",
+      "vsce package --target=darwin-arm64",
+      "vsce package --target=win32-x64"
     ],
-    "extensionFile": "pyhton-debugger.vsix"
+    "target": ["linux-x64", "darwin-arm64", "win32-x64"]
   },
   "ms-python.flake8": {
     "repository": "https://github.com/microsoft/vscode-flake8",
