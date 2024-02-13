@@ -803,6 +803,16 @@
     ],
     "extensionFile": "black-formatter.vsix"
   },
+  "ms-python.debugpy": {
+    "repository": "https://github.com/microsoft/vscode-python-debugger",
+    "custom": [
+      "python -m pip install -U pip pipx wheel",
+      "npm ci --prefer-offline",
+      "python -m pipx run nox --session install_bundled_libs",
+      "npm run vsce-package"
+    ],
+    "extensionFile": "pyhton-debugger.vsix"
+  },
   "ms-python.flake8": {
     "repository": "https://github.com/microsoft/vscode-flake8",
     "custom": [
