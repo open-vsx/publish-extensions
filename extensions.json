@@ -1217,6 +1217,9 @@
   "RoyAction.color-manager": {
     "repository": "https://github.com/royaction/vscode-colormanager"
   },
+  "rpinski.shebang-snippets": {
+    "repository": "https://github.com/Rpinski/vscode-shebang-snippets"
+  },
   "rxliuli.joplin-vscode-plugin": {
     "repository": "https://github.com/rxliuli/joplin-utils",
     "location": "apps/joplin-vscode-plugin"
