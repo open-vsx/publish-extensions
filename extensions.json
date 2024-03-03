@@ -345,6 +345,9 @@
   "file-icons.file-icons": {
     "repository": "https://github.com/file-icons/vscode"
   },
+  "floone.varnish-vcl": {
+    "repository": "https://github.com/floone/sublime-varnish/tree/vscode"
+  },
   "folke.vscode-monorepo-workspace": {
     "repository": "https://github.com/folke/vscode-monorepo-workspace"
   },
