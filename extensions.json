@@ -1327,6 +1327,9 @@
   "teabyii.ayu": {
     "repository": "https://github.com/ayu-theme/vscode-ayu"
   },
+  "tecosaur.latex-utilities": {
+    "repository": "https://github.com/tecosaur/LaTeX-Utilities"
+  },
   "Tobiah.unity-tools": {
     "repository": "https://github.com/TobiahZ/unity-tools"
   },
