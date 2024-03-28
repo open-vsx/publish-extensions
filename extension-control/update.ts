@@ -46,11 +46,6 @@ const latestJson = (await latestData.json()) as IStringDictionary<IRawExtensions
 
 const localFile = Bun.file("./extensions.json");
 const localData = JSON.parse(await localFile.text()) as IStringDictionary<IRawExtensionsControlManifest>;
-
-// Go through the keys of each section, and make sure that entries present in the upstream file, which exist on openvsx are present in the local file.
-console.log(Object.keys(latestJson.deprecated).length);
-console.log(Object.keys(localData.deprecated).length);
-
 const updatedData = structuredClone(localData);
 
 for (const key of Object.values(latestJson.malicious)) {
@@ -69,8 +64,9 @@ for (const key of Object.keys(latestJson.deprecated)) {
     }
 
     const extensionsToCheck = [key];
-    if (typeof latestJson.deprecated[key] === "object" && latestJson.deprecated[key].extension) {
-        extensionsToCheck.push(latestJson.deprecated[key].extension.id);
+    const value = latestJson.deprecated[key];
+    if (typeof value === "object" && value.extension) {
+        extensionsToCheck.push(value.extension.id);
     }
 
     // Ensure both extensions exist on OpenVSX, if only key exists, set its entry to true instead of the original object
