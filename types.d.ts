@@ -11,119 +11,119 @@
 //@ts-check
 
 export interface MSExtensionStat {
-    msInstalls: number,
-    msVersion: string
+    msInstalls: number;
+    msVersion: string;
 }
 
 export interface ExtensionStat extends MSExtensionStat {
-    daysInBetween: number,
-    openVersion: string,
+    daysInBetween: number;
+    openVersion: string;
 }
 
 export interface PublishStat {
     upToDate: {
-        [id: string]: ExtensionStat
-    }
+        [id: string]: ExtensionStat;
+    };
     unstable: {
-        [id: string]: ExtensionStat
-    }
+        [id: string]: ExtensionStat;
+    };
     outdated: {
-        [id: string]: ExtensionStat
-    }
+        [id: string]: ExtensionStat;
+    };
     notInOpen: {
-        [id: string]: MSExtensionStat
-    }
-    notInMS: string[]
+        [id: string]: MSExtensionStat;
+    };
+    notInMS: string[];
 
     resolutions: {
-        [id: string]: Partial<MSExtensionStat> & ExtensionResolution
-    }
-    failed: string[]
+        [id: string]: Partial<MSExtensionStat> & ExtensionResolution;
+    };
+    failed: string[];
 
     msPublished: {
-        [id: string]: MSExtensionStat
-    }
+        [id: string]: MSExtensionStat;
+    };
     hitMiss: {
-        [id: string]: (ExtensionStat | ExtensionStat)
-    }
+        [id: string]: ExtensionStat | ExtensionStat;
+    };
 }
 
 export interface Extensions {
-    [id: string]: Omit<Extension, 'id'>
+    [id: string]: Omit<Extension, "id">;
 }
 
 export interface SingleExtensionQueryResult {
-    publisher: Publisher
-    extensionId: string
-    extensionName: string
-    displayName: string
-    flags: number
-    lastUpdated: string
-    publishedDate: string
-    releaseDate: string
-    shortDescription: string
-    deploymentType: number
-    statistics: Statistic[]
+    publisher: Publisher;
+    extensionId: string;
+    extensionName: string;
+    displayName: string;
+    flags: number;
+    lastUpdated: string;
+    publishedDate: string;
+    releaseDate: string;
+    shortDescription: string;
+    deploymentType: number;
+    statistics: Statistic[];
 }
 
 export interface Statistic {
-    statisticName: string
-    value: number
+    statisticName: string;
+    value: number;
 }
 
 export interface Publisher {
-    publisherId: string
-    publisherName: string
-    displayName: string
-    flags: number
-    domain: string
-    isDomainVerified: boolean
+    publisherId: string;
+    publisherName: string;
+    displayName: string;
+    flags: number;
+    domain: string;
+    isDomainVerified: boolean;
 }
 
 export interface Extension {
-    id: string,
-    repository?: string
-    location?: string
-    prepublish?: string
-    extensionFile?: string
-    custom?: string[]
-    timeout?: number
-    target?: string[]
-    msMarketplaceIdOverride?: string
+    id: string;
+    repository?: string;
+    location?: string;
+    prepublish?: string;
+    extensionFile?: string;
+    custom?: string[];
+    timeout?: number;
+    target?: string[];
+    msMarketplaceIdOverride?: string;
     pythonVersion?: string;
 }
 
 export interface ExtensionResolution {
-    releaseAsset?: string
-    releaseTag?: string
-    tag?: string
-    latest?: string
-    matchedLatest?: string
-    matched?: string
+    releaseAsset?: string;
+    releaseTag?: string;
+    tag?: string;
+    latest?: string;
+    matchedLatest?: string;
+    matched?: string;
 }
 
 export interface ResolvedExtension {
-    version: string
-    path: string
-    files?: {[key: string]: string}
-    resolution: ExtensionResolution
+    version: string;
+    path: string;
+    files?: { [key: string]: string };
+    resolution: ExtensionResolution;
 }
 
 export interface PublishContext {
-    msVersion?: string
-    msLastUpdated?: Date
-    msInstalls?: number
-    msPublisher?: string
+    msVersion?: string;
+    msLastUpdated?: Date;
+    msInstalls?: number;
+    msPublisher?: string;
 
-    ovsxVersion?: string
-    ovsxLastUpdated?: Date
+    ovsxVersion?: string;
+    ovsxLastUpdated?: Date;
 
-    version?: string
-    files?: {[key: string]: string}
-    target: string
-    file?: string
-    repo?: string
-    ref?: string
+    version?: string;
+    files?: { [key: string]: string };
+    target: string;
+    file?: string;
+    repo?: string;
+    ref?: string;
 }
 
 interface IRawGalleryExtensionProperty {

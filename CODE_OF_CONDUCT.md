@@ -13,31 +13,31 @@ This Community Code of Conduct ("Code") outlines our behavior expectations as me
 
 Examples of behavior that contribute to creating a positive and professional environment include:
 
-- Using welcoming and inclusive language;
-- Actively encouraging all voices;
-- Helping others bring their perspectives and listening actively. If you find yourself dominating a discussion, it is especially important to encourage other voices to join in;
-- Being respectful of differing viewpoints and experiences;
-- Gracefully accepting constructive criticism;
-- Focusing on what is best for the community;
-- Showing empathy towards other community members;
-- Being direct but professional; and
-- Leading by example by holding yourself and others accountable
+-   Using welcoming and inclusive language;
+-   Actively encouraging all voices;
+-   Helping others bring their perspectives and listening actively. If you find yourself dominating a discussion, it is especially important to encourage other voices to join in;
+-   Being respectful of differing viewpoints and experiences;
+-   Gracefully accepting constructive criticism;
+-   Focusing on what is best for the community;
+-   Showing empathy towards other community members;
+-   Being direct but professional; and
+-   Leading by example by holding yourself and others accountable
 
 Examples of unacceptable behavior by Contributors include:
 
-- The use of sexualized language or imagery;
-- Unwelcome sexual attention or advances;
-- Trolling, insulting/derogatory comments, and personal or political attacks;
-- Public or private harassment, repeated harassment;
-- Publishing others' private information, such as a physical or electronic address, without explicit permission;
-- Violent threats or language directed against another person;
-- Sexist, racist, or otherwise discriminatory jokes and language;
-- Posting sexually explicit or violent material;
-- Sharing private content, such as emails sent privately or non-publicly, or unlogged forums such as IRC channel history;
-- Personal insults, especially those using racist or sexist terms;
-- Excessive or unnecessary profanity;
-- Advocating for, or encouraging, any of the above behavior; and
-- Other conduct which could reasonably be considered inappropriate in a professional setting
+-   The use of sexualized language or imagery;
+-   Unwelcome sexual attention or advances;
+-   Trolling, insulting/derogatory comments, and personal or political attacks;
+-   Public or private harassment, repeated harassment;
+-   Publishing others' private information, such as a physical or electronic address, without explicit permission;
+-   Violent threats or language directed against another person;
+-   Sexist, racist, or otherwise discriminatory jokes and language;
+-   Posting sexually explicit or violent material;
+-   Sharing private content, such as emails sent privately or non-publicly, or unlogged forums such as IRC channel history;
+-   Personal insults, especially those using racist or sexist terms;
+-   Excessive or unnecessary profanity;
+-   Advocating for, or encouraging, any of the above behavior; and
+-   Other conduct which could reasonably be considered inappropriate in a professional setting
 
 ## Our Responsibilities
 
@@ -68,6 +68,7 @@ Reports should be directed to <conduct@eclipse-foundation.org>. It is the Conduc
 The Eclipse Foundation takes all reports of potential Code violations seriously and is committed to confidentiality and a full investigation of all allegations. The identity of the reporter will be omitted from the details of the report supplied to the accused. Contributors who are being investigated for a potential Code violation will have an opportunity to be heard prior to any final determination. Those found to have violated the Code can seek reconsideration of the violation and disciplinary action decisions. Every effort will be made to have all matters disposed of within 60 days of the receipt of the complaint.
 
 ## Actions
+
 Contributors who do not follow this Code in good faith may face temporary or permanent repercussions as determined by the Conduct Committee.
 
 This Code does not address all conduct. It works in conjunction with our [Communication Channel Guidelines](https://www.eclipse.org/org/documents/communication-channel-guidelines/), [Social Media Guidelines](https://www.eclipse.org/org/documents/social_media_guidelines.php), [Bylaws](https://www.eclipse.org/org/documents/eclipse-foundation-be-bylaws-en.pdf), and [Internal Rules](https://www.eclipse.org/org/documents/ef-be-internal-rules.pdf) which set out additional protections for, and obligations of, all contributors. The Foundation has additional policies that provide further guidance on other matters.

@@ -25,5 +25,6 @@ If an extension on Open VSX is outdated or has never been successfully published
     - if you want a quick and easy fix you can try adding a `prepublish` property to the extension in `extensions.json` to set a command to be executed before packaging up the extension, right after installing the project's dependencies.
 
 The best way to solve issues of failed publishing is to publish the extension from its own repository, not this one.
-- If you are the extension author, you can use [this document](direct_publish_setup.md) as a guide on how to set up a CI publishing process.
-- If you are a community member you can raise an issue (please check for existing issues) using [this template](external_contribution_request.md). If the maintainers are willing to accept a contribution you can use the [same document listed in the point above](direct_publish_setup.md) to quickly setup a CI job with GitHub Actions.
+
+-   If you are the extension author, you can use [this document](direct_publish_setup.md) as a guide on how to set up a CI publishing process.
+-   If you are a community member you can raise an issue (please check for existing issues) using [this template](external_contribution_request.md). If the maintainers are willing to accept a contribution you can use the [same document listed in the point above](direct_publish_setup.md) to quickly setup a CI job with GitHub Actions.

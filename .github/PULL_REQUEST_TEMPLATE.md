@@ -21,9 +21,9 @@ see https://github.blog/2019-02-14-introducing-draft-pull-requests/ for further 
 
 -->
 
-- [ ] I have read the note above about PRs contributing or fixing extensions
-- [ ] I have tried reaching out to the extension maintainers about publishing this extension to Open VSX (if not, please create an issue in the extension's repo using [this template](https://github.com/open-vsx/publish-extensions/blob/HEAD/docs/external_contribution_request.md)).
-- [ ] This extension has an [OSI-approved OSS license](https://opensource.org/licenses) (we don't accept proprietary extensions in this repository)
+-   [ ] I have read the note above about PRs contributing or fixing extensions
+-   [ ] I have tried reaching out to the extension maintainers about publishing this extension to Open VSX (if not, please create an issue in the extension's repo using [this template](https://github.com/open-vsx/publish-extensions/blob/HEAD/docs/external_contribution_request.md)).
+-   [ ] This extension has an [OSI-approved OSS license](https://opensource.org/licenses) (we don't accept proprietary extensions in this repository)
 
 ## Description
 

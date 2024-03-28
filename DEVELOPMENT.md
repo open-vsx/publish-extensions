@@ -2,8 +2,8 @@
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/en/) (we use Node 18)
-- Ubuntu Linux (Windows and macOS work fine for adding extensions, but extensions are always tested on Ubuntu, so they only need to build correctly there)
+-   [Node.js](https://nodejs.org/en/) (we use Node 18)
+-   Ubuntu Linux (Windows and macOS work fine for adding extensions, but extensions are always tested on Ubuntu, so they only need to build correctly there)
 
 To add an extension to this repo, clone the repo[^clone], install the dependencies[^deps], and use the following command:
 
@@ -79,12 +79,12 @@ in order to perform advanced tasks such as executing operations based on the ext
 
 Following environment variables are available:
 
-- `EXTENSION_ID`: the extension ID, e.g. `rebornix.ruby`
-- `EXTENSION_PUBLISHER`: the extension publisher, e.g. `rebornix`
-- `EXTENSION_NAME`: the extension name, e.g. `ruby`
-- `VERSION`: the version of the extension to publish, e.g. `0.1.0`
-- `MS_VERSION`: the latest version of the extension on the MS Marketplace[^ms], e.g. `0.1.0`
-- `OVSX_VERSION`: the latest version of the extension on Open VSX, e.g. `0.1.0`
+-   `EXTENSION_ID`: the extension ID, e.g. `rebornix.ruby`
+-   `EXTENSION_PUBLISHER`: the extension publisher, e.g. `rebornix`
+-   `EXTENSION_NAME`: the extension name, e.g. `ruby`
+-   `VERSION`: the version of the extension to publish, e.g. `0.1.0`
+-   `MS_VERSION`: the latest version of the extension on the MS Marketplace[^ms], e.g. `0.1.0`
+-   `OVSX_VERSION`: the latest version of the extension on Open VSX, e.g. `0.1.0`
 
 [publish-extensions-job]: https://github.com/open-vsx/publish-extensions/blob/master/.github/workflows/publish-extensions.yml
 

@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 // @ts-check
-const fs = require('fs');
-const Octokit = require('octokit').Octokit;
+const fs = require("fs");
+const Octokit = require("octokit").Octokit;
 
 /**
  *
@@ -24,10 +24,10 @@ function diff(original, current) {
         const extension = current[id];
         if (original.hasOwnProperty(id)) {
             if (JSON.stringify(original[id]) !== JSON.stringify(extension)) {
-                changes.push(id)
+                changes.push(id);
             }
         } else {
-            changes.push(id)
+            changes.push(id);
         }
     }
     return changes;
@@ -42,14 +42,16 @@ function diff(original, current) {
 
     const octokit = new Octokit({ auth: token });
     const fileResponse = await octokit.rest.repos.getContent({
-        owner, repo,
-        path: "extensions.json", mediaType: { format: "raw", }
+        owner,
+        repo,
+        path: "extensions.json",
+        mediaType: { format: "raw" },
     });
-    if (!(typeof fileResponse.data === 'string')) {
+    if (!(typeof fileResponse.data === "string")) {
         return undefined;
     }
     const manifest = JSON.parse(fileResponse.data);
-    const newExtensions = JSON.parse(await fs.promises.readFile('./extensions.json', 'utf-8'));
+    const newExtensions = JSON.parse(await fs.promises.readFile("./extensions.json", "utf-8"));
     const updatedExtensions = diff(manifest, newExtensions);
-    console.log([...updatedExtensions].join(',') || ',');
-})()
+    console.log([...updatedExtensions].join(",") || ",");
+})();

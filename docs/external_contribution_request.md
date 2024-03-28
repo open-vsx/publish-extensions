@@ -24,4 +24,3 @@ You can read on about Open VSX at the Eclipse Foundation's [Open VSX FAQ](https:
 
 The docs to publish an extension can be found [here](https://github.com/eclipse/openvsx/wiki/Publishing-Extensions). This process is straightforward and shouldn't take too long. Essentially, you need an authentication token and to execute the `ovsx publish` command to publish your extension. There's also [a doc](https://github.com/open-vsx/publish-extensions/blob/master/docs/direct_publish_setup.md) explaining the whole process with an example GitHub Action workflow.
 ```
-

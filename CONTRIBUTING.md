@@ -10,9 +10,9 @@ This project is governed by the [Eclipse Community Code of Conduct](CODE_OF_COND
 
 The following communication channels are available:
 
- * [publish-extensions issues](https://github.com/open-vsx/publish-extensions/issues) - for general issues (bug reports, feature requests, etc.)
- * [open-vsx.org issues](https://github.com/EclipseFdn/open-vsx.org/issues) - for issues related to [open-vsx.org](https://open-vsx.org/) (outage reports, requests about extensions and namespaces, etc.)
- * [Developer mailing list](https://accounts.eclipse.org/mailing-list/openvsx-dev) - for organizational issues (e.g. elections of new committers)
+-   [publish-extensions issues](https://github.com/open-vsx/publish-extensions/issues) - for general issues (bug reports, feature requests, etc.)
+-   [open-vsx.org issues](https://github.com/EclipseFdn/open-vsx.org/issues) - for issues related to [open-vsx.org](https://open-vsx.org/) (outage reports, requests about extensions and namespaces, etc.)
+-   [Developer mailing list](https://accounts.eclipse.org/mailing-list/openvsx-dev) - for organizational issues (e.g. elections of new committers)
 
 ## How to Contribute
 

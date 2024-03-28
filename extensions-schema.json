@@ -1,53 +1,53 @@
 {
-  "type": "object",
-  "properties": {
-    "$schema": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": {
     "type": "object",
     "properties": {
-      "repository": {
-        "type": "string",
-        "description": "Repository URL to clone and publish from. If the extension publishes `.vsix` files as release artifacts, this will determine the repo to fetch the releases from."
-      },
-      "location": {
-        "type": "string",
-        "description": "Location of the extension's package.json in the repository (defaults to the repository's root directory)"
-      },
-      "prepublish": {
-        "type": "string",
-        "description": "Extra commands to run just before publishing to Open VSX (i.e. after 'yarn/npm install', but before 'vscode:prepublish')"
-      },
-      "extensionFile": {
-        "type": "string",
-        "description": "Relative path of the extension vsix file inside the git repo (i.e. when it is built by prepublish commands"
-      },
-      "custom": {
-        "type": "array",
-        "description": "Build using a custom script. Must output an `extension.vsix` file in the `location` directory (can be changed using `extensionFile`)."
-      },
-      "timeout": {
-        "type": "number",
-        "description": "Timeout to build the extension vsix from sources."
-      },
-      "pythonVersion": {
-        "type": "string",
-        "description": "Python version to use with this build."
-      },
-      "msMarketplaceIdOverride": {
-        "type": "string",
-        "description": "A property to set a different lookup ID when querying the Microsoft Marketplace. Please do not ever use if not absolutely necessary."
-      },
-      "target": {
-        "type": "array",
-        "description": "A list of platforms to target. If unspecified, a universal extension will be published in case of building from source and if the vsix is resolved from GitHub Releases, all of the attached platform-specific assets will be published.",
-        "uniqueItems": true,
-        "minItems": 1
-      }
+        "$schema": {
+            "type": "string"
+        }
     },
-    "required": ["repository"],
-    "additionalProperties": false
-  }
+    "additionalProperties": {
+        "type": "object",
+        "properties": {
+            "repository": {
+                "type": "string",
+                "description": "Repository URL to clone and publish from. If the extension publishes `.vsix` files as release artifacts, this will determine the repo to fetch the releases from."
+            },
+            "location": {
+                "type": "string",
+                "description": "Location of the extension's package.json in the repository (defaults to the repository's root directory)"
+            },
+            "prepublish": {
+                "type": "string",
+                "description": "Extra commands to run just before publishing to Open VSX (i.e. after 'yarn/npm install', but before 'vscode:prepublish')"
+            },
+            "extensionFile": {
+                "type": "string",
+                "description": "Relative path of the extension vsix file inside the git repo (i.e. when it is built by prepublish commands"
+            },
+            "custom": {
+                "type": "array",
+                "description": "Build using a custom script. Must output an `extension.vsix` file in the `location` directory (can be changed using `extensionFile`)."
+            },
+            "timeout": {
+                "type": "number",
+                "description": "Timeout to build the extension vsix from sources."
+            },
+            "pythonVersion": {
+                "type": "string",
+                "description": "Python version to use with this build."
+            },
+            "msMarketplaceIdOverride": {
+                "type": "string",
+                "description": "A property to set a different lookup ID when querying the Microsoft Marketplace. Please do not ever use if not absolutely necessary."
+            },
+            "target": {
+                "type": "array",
+                "description": "A list of platforms to target. If unspecified, a universal extension will be published in case of building from source and if the vsix is resolved from GitHub Releases, all of the attached platform-specific assets will be published.",
+                "uniqueItems": true,
+                "minItems": 1
+            }
+        },
+        "required": ["repository"],
+        "additionalProperties": false
+    }
 }
