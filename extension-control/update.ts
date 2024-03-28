@@ -3,11 +3,15 @@
 
 import { diff } from "jest-diff";
 
+// https://github.com/microsoft/vscode/blob/a2acd131e47500cf4bd7d602626f0b54ab266904/src/vs/platform/extensionManagement/common/extensionManagement.ts#L314
 interface ISearchPrefferedResults {
     readonly query?: string;
     readonly preferredResults?: string[];
 }
+
 export type IStringDictionary<V> = Record<string, V>;
+
+// https://github.com/microsoft/vscode/blob/a2acd131e47500cf4bd7d602626f0b54ab266904/src/vs/platform/extensionManagement/common/extensionGalleryService.ts#L563
 interface IRawExtensionsControlManifest {
     malicious: string[];
     migrateToPreRelease?: IStringDictionary<{
