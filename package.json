@@ -24,7 +24,8 @@
   "bin": "bin/publish-extensions",
   "main": "publish-extensions",
   "scripts": {
-    "publish": "node publish-extensions"
+    "publish": "node publish-extensions",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@vscode/vsce": "^2.18.0",
@@ -36,6 +37,7 @@
     "minimist": "^1.2.5",
     "octokit": "^3.1.2",
     "ovsx": "latest",
+    "prettier": "^3.2.5",
     "semver": "^7.1.3"
   },
   "devDependencies": {
