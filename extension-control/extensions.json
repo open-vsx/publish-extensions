@@ -264,7 +264,22 @@
                 "id": "aswinkumar863.smarty-template-support",
                 "displayName": "Smarty Template Support"
             }
-        }
+        },
+        "kavod-io.vscode-jest-test-adapter": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "Orta.vscode-jest",
+                "displayName": "Jest"
+            }
+        },
+        "projektanker.code-butler": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "just-seba.vscode-code-butler",
+                "displayName": "Code Butler"
+            }
+        },
+        "redhat.atlasmap-viewer": true
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
