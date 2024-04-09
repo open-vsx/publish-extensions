@@ -257,7 +257,14 @@
         "heptio.jsonnet": true,
         "eg2.vscode-npm-script": true,
         "virgilsisoe.python-auto-import": true,
-        "ethan-reesor.vscode-go-test-adapter": true
+        "ethan-reesor.vscode-go-test-adapter": true,
+        "imperez.smarty": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "aswinkumar863.smarty-template-support",
+                "displayName": "Smarty Template Support"
+            }
+        }
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
