@@ -30,10 +30,13 @@
   "dependencies": {
     "@vscode/vsce": "^2.18.0",
     "ajv": "^8.8.1",
+    "chai": "^5.1.0",
+    "deep-equal-in-any-order": "^2.0.6",
     "download": "^8.0.0",
     "fast-glob": "^3.2.12",
     "find-up": "^5.0.0",
     "human-number": "^2.0.0",
+    "jest-diff": "^29.7.0",
     "minimist": "^1.2.5",
     "octokit": "^3.1.2",
     "ovsx": "latest",
