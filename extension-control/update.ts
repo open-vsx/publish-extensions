@@ -2,6 +2,7 @@
 // usage: bun update.ts
 
 import { diff } from "jest-diff";
+import path from "path";
 
 // https://github.com/microsoft/vscode/blob/a2acd131e47500cf4bd7d602626f0b54ab266904/src/vs/platform/extensionManagement/common/extensionManagement.ts#L314
 interface ISearchPrefferedResults {
@@ -48,7 +49,7 @@ const existsOnOpenVSX = async (id: string) => {
 const latestData = await fetch("https://az764295.vo.msecnd.net/extensions/marketplace.json");
 const latestJson = (await latestData.json()) as IStringDictionary<IRawExtensionsControlManifest>;
 
-const localFile = Bun.file("./extensions.json");
+const localFile = Bun.file(path.resolve(__dirname, "./extensions.json"));
 const localData = JSON.parse(await localFile.text()) as IStringDictionary<IRawExtensionsControlManifest>;
 const updatedData = structuredClone(localData);
 
