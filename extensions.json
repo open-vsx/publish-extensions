@@ -808,10 +808,13 @@
     "custom": [
       "python -m pip install -U pip pipx wheel",
       "npm ci --prefer-offline",
-      "python -m pipx run nox --session install_bundled_libs",
+      "VSCETARGET=linux-x64 python -m pipx run nox --session install_bundled_libs",
       "vsce package --target=linux-x64",
+      "VSCETARGET=linux-arm64 python -m pipx run nox --session install_bundled_libs",
       "vsce package --target=linux-arm64",
+      "VSCETARGET=darwin-arm64 python -m pipx run nox --session install_bundled_libs",
       "vsce package --target=darwin-arm64",
+      "VSCETARGET=win32-x64 python -m pipx run nox --session install_bundled_libs",
       "vsce package --target=win32-x64"
     ],
     "target": ["linux-x64", "linux-arm64", "darwin-arm64", "win32-x64"]
