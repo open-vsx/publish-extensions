@@ -82,7 +82,7 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
                         { cwd: path.join(context.repo, extension.location ?? "."), quiet: false },
                     );
                 }
-            } catch {}
+            } catch { }
 
             if (extension.custom) {
                 try {
@@ -188,7 +188,7 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
                     `extensions.json is out-of-date: Open VSX version ${context.ovsxVersion} is already greater than specified version ${context.version}`,
                 );
             }
-            if (semver.eq(context.ovsxVersion, context.version)) {
+            if (semver.eq(context.ovsxVersion, context.version) && process.env.FORCE !== "true") {
                 console.log(`[SKIPPED] Requested version ${context.version} is already published on Open VSX`);
                 return;
             }
