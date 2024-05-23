@@ -892,7 +892,7 @@
   "ms-toolsai.jupyter": {
     "repository": "https://github.com/microsoft/vscode-jupyter",
     "custom": [
-      "source ~/.nvm/nvm.sh && nvm use && nvm install-latest-npm && npm ci --foreground-scripts --prefer-offline && npm run postinstall && python3 -m pip --disable-pip-version-check install -t ./pythonFiles/lib/python --no-cache-dir --implementation py --no-deps --upgrade -r requirements.txt --no-user && npm run clean && npm run package"
+      "npm ci --ignore-scripts --prefer-offline --no-audit && npm run postinstall && npm run package"
     ],
     "extensionFile": "ms-toolsai-jupyter-insiders.vsix",
     "timeout": 30
