@@ -82,7 +82,7 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
                         { cwd: path.join(context.repo, extension.location ?? "."), quiet: false },
                     );
                 }
-            } catch { }
+            } catch {}
 
             if (extension.custom) {
                 try {

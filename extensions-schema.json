@@ -41,10 +41,8 @@
                 "description": "A property to set a different lookup ID when querying the Microsoft Marketplace. Please do not ever use if not absolutely necessary."
             },
             "target": {
-                "type": "array",
-                "description": "A list of platforms to target. If unspecified, a universal extension will be published in case of building from source and if the vsix is resolved from GitHub Releases, all of the attached platform-specific assets will be published.",
-                "uniqueItems": true,
-                "minItems": 1
+                "type": "object",
+                "description": "An object containing the ids of platforms to target while publishing. If unspecified, a universal extension will be published in case of building from source and if the vsix is resolved from GitHub Releases, all of the attached platform-specific assets will be published. The value of the key should be either `true` or an object specifying environment variables to be applied while packaging inside of `env`."
             }
         },
         "required": ["repository"],

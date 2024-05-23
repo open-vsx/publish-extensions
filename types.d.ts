@@ -88,7 +88,13 @@ export interface Extension {
     extensionFile?: string;
     custom?: string[];
     timeout?: number;
-    target?: string[];
+    target?: {
+        [key: string]:
+            | true
+            | {
+                  env: { [key: string]: string };
+              };
+    };
     msMarketplaceIdOverride?: string;
     pythonVersion?: string;
 }
@@ -124,6 +130,8 @@ export interface PublishContext {
     file?: string;
     repo?: string;
     ref?: string;
+
+    environmentVariables?: { [key: string]: string };
 }
 
 interface IRawGalleryExtensionProperty {

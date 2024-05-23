@@ -291,6 +291,13 @@ const ensureBuildPrerequisites = async () => {
             let timeout;
 
             const publishVersion = async (extension, context) => {
+                const env = {
+                    ...process.env,
+                    ...context.environmentVariables,
+                };
+
+                console.debug(`Publishing ${extension.id} for ${context.target || "universal"}...`);
+
                 await new Promise((resolve, reject) => {
                     const p = cp.spawn(
                         process.execPath,
@@ -298,7 +305,7 @@ const ensureBuildPrerequisites = async () => {
                         {
                             stdio: ["ignore", "inherit", "inherit"],
                             cwd: process.cwd(),
-                            env: process.env,
+                            env,
                         },
                     );
                     p.on("error", reject);
@@ -326,7 +333,7 @@ const ensureBuildPrerequisites = async () => {
             if (context.files) {
                 // Publish all targets of extension from GitHub Release assets
                 for (const [target, file] of Object.entries(context.files)) {
-                    if (!extension.target || extension.target.includes(target)) {
+                    if (!extension.target || Object.keys(extension.target).includes(target)) {
                         context.file = file;
                         context.target = target;
                         await publishVersion(extension, context);
@@ -336,8 +343,11 @@ const ensureBuildPrerequisites = async () => {
                 }
             } else if (extension.target) {
                 // Publish all specified targets of extension from sources
-                for (const target of extension.target) {
+                for (const [target, targetData] of Object.entries(extension.target)) {
                     context.target = target;
+                    if (targetData !== true) {
+                        context.environmentVariables = targetData.env;
+                    }
                     await publishVersion(extension, context);
                 }
             } else {
