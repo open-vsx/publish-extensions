@@ -45,9 +45,6 @@
   "almenon.arepl": {
     "repository": "https://github.com/almenon/arepl-vscode"
   },
-  "amazonwebservices.aws-toolkit-vscode": {
-    "repository": "https://github.com/aws/aws-toolkit-vscode"
-  },
   "amiralizadeh9480.laravel-extra-intellisense": {
     "repository": "https://github.com/amir9480/vscode-laravel-extra-intellisense"
   },
