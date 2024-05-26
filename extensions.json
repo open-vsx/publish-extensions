@@ -154,6 +154,13 @@
   "cheshirekow.cmake-format": {
     "repository": "https://github.com/cheshirekow/cmake_format"
   },
+  "chrisdias.vscode-opennewinstance": {
+    "repository": "https://github.com/chrisdias/vscode-opennewinstance",
+    "custom": [
+      "NODE_OPTIONS=--openssl-legacy-provider npm install",
+      "NODE_OPTIONS=--openssl-legacy-provider vsce package -o extension.vsix --baseContentUrl https://github.com/chrisdias/vscode-opennewinstance/blob/HEAD --baseImagesUrl https://github.com/chrisdias/vscode-opennewinstance/raw/HEAD"
+    ]
+  },
   "christianvoigt.argdown-vscode": {
     "repository": "https://github.com/christianvoigt/argdown",
     "location": "packages/argdown-vscode",
