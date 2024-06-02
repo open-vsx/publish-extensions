@@ -107,8 +107,6 @@ const totalNumberAfter = Object.keys(updatedData)
 console.log(`Total number of entries before: ${totalNumberBefore}`);
 console.log(`Total number of entries after: ${totalNumberAfter}`);
 
-console.log(missingDependency);
-
 console.log(diff(updatedData, localData));
 
 Bun.write(localFile, JSON.stringify(updatedData, null, 4));
