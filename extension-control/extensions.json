@@ -279,7 +279,14 @@
                 "displayName": "Code Butler"
             }
         },
-        "redhat.atlasmap-viewer": true
+        "redhat.atlasmap-viewer": true,
+        "AdaCore.ada-debug": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "AdaCore.ada",
+                "displayName": "Ada & SPARK"
+            }
+        }
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
