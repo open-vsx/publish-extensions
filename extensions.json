@@ -1052,11 +1052,16 @@
   },
   "ms-vscode.wasm-wasi-core": {
     "repository": "https://github.com/microsoft/vscode-wasm.git",
-    "location": "wasm-wasi-core"
+    "location": "wasm-wasi-core",
+    "custom": [
+      "cd wasm-wasi-core && jq '.scripts[\"update:version\"] = \"\"' package.json > tmp.json && mv tmp.json package.json",
+      "cd wasm-wasi-core && vsce package -o extension.vsix"
+    ]
   },
   "ms-vscode.webshell": {
     "repository": "https://github.com/microsoft/vscode-wasm.git",
-    "location": "webshell"
+    "location": "webshell",
+    "custom": ["cd webshell && vsce package -o extension.vsix"]
   },
   "msjsdiag.debugger-for-edge": {
     "repository": "https://github.com/Microsoft/vscode-edge-debug2"
