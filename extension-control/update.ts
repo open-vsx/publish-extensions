@@ -12,7 +12,7 @@ interface ISearchPrefferedResults {
 
 export type IStringDictionary<V> = Record<string, V>;
 
-// https://github.com/microsoft/vscode/blob/a2acd131e47500cf4bd7d602626f0b54ab266904/src/vs/platform/extensionManagement/common/extensionGalleryService.ts#L563
+// https://github.com/microsoft/vscode/blob/cb1514f9a64ab342f94092f79bdf1a768635d96f/src/vs/platform/extensionManagement/common/extensionGalleryService.ts#L572-L591
 interface IRawExtensionsControlManifest {
     malicious: string[];
     migrateToPreRelease?: IStringDictionary<{
@@ -30,9 +30,11 @@ interface IRawExtensionsControlManifest {
                   displayName: string;
               };
               settings?: string[];
+              additionalInfo?: string;
           }
     >;
     search?: ISearchPrefferedResults[];
+    extensionsEnabledWithPreRelease?: string[];
 }
 
 const existsOnOpenVSX = async (id: string) => {
@@ -93,6 +95,35 @@ for (const key of Object.keys(latestJson.migrateToPreRelease)) {
     const exists = await existsOnOpenVSX(key);
     if (exists) {
         updatedData.migrateToPreRelease[key] = latestJson.migrateToPreRelease[key];
+    }
+}
+
+for (const value of Object.values(latestJson.search)) {
+    if (value.query && value.preferredResults) {
+        const localValue = localData?.search?.find((x) => x.query === value.query);
+        if (!localValue) {
+            const newEntry = { query: value.query, preferredResults: [] };
+            for (const entry of value.preferredResults) {
+                const exists = await existsOnOpenVSX(entry);
+                if (exists) {
+                    newEntry.preferredResults.push(entry);
+                }
+            }
+
+            if (newEntry.preferredResults.length > 0) {
+                updatedData.search.push(newEntry);
+            }
+            continue;
+        }
+    }
+}
+
+for (const key of Object.values(latestJson.extensionsEnabledWithPreRelease)) {
+    if (!localData.extensionsEnabledWithPreRelease.includes(key)) {
+        const exists = await existsOnOpenVSX(key);
+        if (exists) {
+            updatedData.extensionsEnabledWithPreRelease.push(key);
+        }
     }
 }
 
