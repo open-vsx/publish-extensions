@@ -887,10 +887,10 @@
     "custom": [
       "python -m pip install -U pip",
       "python -m pip install wheel",
-      "python -m pip install --no-deps --require-hashes --only-binary :all: -t ./python_files/lib/python --implementation py -r requirements.txt",
+      "python -m pip install --no-user --no-deps --require-hashes --only-binary :all: -t ./python_files/lib/python --implementation py -r requirements.txt",
       "python -m pip --disable-pip-version-check install packaging",
       "python ./python_files/download_get_pip.py",
-      "python -m pip install --no-deps --require-hashes --only-binary :all: -t ./python_files/lib/jedilsp --implementation py --platform any --abi none -r ./python_files/jedilsp_requirements/requirements.txt",
+      "python -m pip install --no-user --no-deps --require-hashes --only-binary :all: -t ./python_files/lib/jedilsp --implementation py --platform any --abi none -r ./python_files/jedilsp_requirements/requirements.txt",
       "npm ci --prefer-offline",
       "npm run addExtensionPackDependencies",
       "npm run package"
