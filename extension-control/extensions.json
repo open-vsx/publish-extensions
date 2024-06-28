@@ -1,5 +1,34 @@
 {
-    "malicious": ["kyntrack.log-matrix"],
+    "malicious": [
+        "kyntrack.log-matrix"
+    ],
+    "search": [
+        {
+            "query": "github",
+            "preferredResults": [
+                "github.vscode-pull-request-github",
+                "github.github-vscode-theme"
+            ]
+        },
+        {
+            "query": "java",
+            "preferredResults": [
+                "vscjava.vscode-java-pack"
+            ]
+        },
+        {
+            "query": "java extension pack",
+            "preferredResults": [
+                "vscjava.vscode-java-pack"
+            ]
+        },
+        {
+            "query": "azure",
+            "preferredResults": [
+                "ms-azuretools.vscode-azureappservice"
+            ]
+        }
+    ],
     "deprecated": {
         "msjsdiag.debugger-for-chrome": {
             "disallowInstall": true,
@@ -106,10 +135,16 @@
             }
         },
         "CoenraadS.bracket-pair-colorizer-2": {
-            "settings": ["editor.bracketPairColorization.enabled", "editor.guides.bracketPairs"]
+            "settings": [
+                "editor.bracketPairColorization.enabled",
+                "editor.guides.bracketPairs"
+            ]
         },
         "CoenraadS.bracket-pair-colorizer": {
-            "settings": ["editor.bracketPairColorization.enabled", "editor.guides.bracketPairs"]
+            "settings": [
+                "editor.bracketPairColorization.enabled",
+                "editor.guides.bracketPairs"
+            ]
         },
         "idleberg.innosetup": {
             "disallowInstall": true,
@@ -297,5 +332,6 @@
             "id": "ms-vscode.PowerShell",
             "displayName": "PowerShell"
         }
-    }
+    },
+    "extensionsEnabledWithPreRelease": []
 }
