@@ -13,7 +13,11 @@
     "repository": "https://github.com/kufii/CodeSnap"
   },
   "adrianhumphreys.silverstripe": {
-    "repository": "https://github.com/adrhumphreys/vscode-silverstripe"
+    "repository": "https://github.com/adrhumphreys/vscode-silverstripe",
+    "custom": [
+      "npm install",
+      "NODE_OPTIONS=--openssl-legacy-provider vsce package -o extension.vsix"
+    ]
   },
   "adrieankhisbe.vscode-ndjson": {
     "repository": "https://github.com/AdrieanKhisbe/vscode-ndjson"
