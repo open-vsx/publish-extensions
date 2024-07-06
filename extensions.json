@@ -15,7 +15,7 @@
   "adrianhumphreys.silverstripe": {
     "repository": "https://github.com/adrhumphreys/vscode-silverstripe",
     "custom": [
-      "git reset --hard a3fd311cdabdca6a23a3d5cc18c2bc00b7f16c2c",
+      "git checkout a3fd311cdabdca6a23a3d5cc18c2bc00b7f16c2c",
       "jq '.version = \"1.0.6\"' package.json > tmp.json && mv tmp.json package.json",
       "npm install",
       "NODE_OPTIONS=--openssl-legacy-provider vsce package -o extension.vsix"
