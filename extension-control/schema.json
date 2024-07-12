@@ -1,0 +1,101 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "malicious": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "migrateToPreRelease": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "migrateStorage": {
+                        "type": "boolean"
+                    },
+                    "engine": {
+                        "type": "string"
+                    }
+                },
+                "required": ["id", "displayName"],
+                "additionalProperties": false
+            }
+        },
+        "deprecated": {
+            "type": "object",
+            "additionalProperties": {
+                "oneOf": [
+                    {
+                        "type": "boolean"
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "disallowInstall": {
+                                "type": "boolean"
+                            },
+                            "extension": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "displayName": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": ["id", "displayName"],
+                                "additionalProperties": false
+                            },
+                            "settings": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "additionalInfo": {
+                                "type": "string"
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                ]
+            }
+        },
+        "search": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string"
+                    },
+                    "preferredResults": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "additionalProperties": false
+            }
+        },
+        "extensionsEnabledWithPreRelease": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "required": ["malicious"],
+    "additionalProperties": false
+}
