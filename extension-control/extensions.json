@@ -321,6 +321,13 @@
                 "id": "AdaCore.ada",
                 "displayName": "Ada & SPARK"
             }
+        },
+        "mgt19937.typst-preview": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "myriad-dreamin.tinymist",
+                "displayName": "Tinymist Typst"
+            }
         }
     },
     "migrateToPreRelease": {
