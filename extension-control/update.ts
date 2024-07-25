@@ -44,7 +44,7 @@ const existsOnOpenVSX = async (id: string) => {
         return true;
     }
 
-    console.log(`Extension ${id} does not exist on OpenVSX.`);
+    console.log(`Extension ${id} does not exist on OpenVSX. (HTTP ${response.status})`);
     return false;
 };
 
