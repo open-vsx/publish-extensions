@@ -328,6 +328,13 @@
                 "id": "myriad-dreamin.tinymist",
                 "displayName": "Tinymist Typst"
             }
+        },
+        "serayuzgur.crates": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "fill-labs.dependi",
+                "displayName": "Dependi"
+            }
         }
     },
     "migrateToPreRelease": {
