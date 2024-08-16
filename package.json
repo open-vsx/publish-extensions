@@ -28,7 +28,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@vscode/vsce": "^2.18.0",
+    "@vscode/vsce": "^3.0.0",
     "ajv": "^8.8.1",
     "chai": "^5.1.0",
     "deep-equal-in-any-order": "^2.0.6",
