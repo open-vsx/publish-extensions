@@ -832,6 +832,11 @@
           "VSCETARGET": "darwin-arm64"
         }
       },
+      "darwin-x64": {
+        "env": {
+          "VSCETARGET": "darwin-x64"
+        }
+      },
       "win32-x64": {
         "env": {
           "VSCETARGET": "win32-x64"
