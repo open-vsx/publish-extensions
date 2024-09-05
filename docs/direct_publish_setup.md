@@ -1,6 +1,6 @@
 # Publishing an extension to Open VSX on your own
 
-We advise extension authors to publish their extensions to Open VSX as a part of their CI/CD process. See [our reasoning why that is](https://github.com/open-vsx/publish-extensions#when-to-add-an-extension).
+We advise extension authors to publish their extensions to Open VSX as a part of their CI/CD process. See [our reasoning why that is](https://github.com/open-vsx/publish-extensions/blob/master/CONTRIBUTING.md#when-to-add-an-extension).
 
 To make the Open VSX publishing process easier, we have provided a template of a GitHub Actions workflow.
 
