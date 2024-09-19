@@ -335,6 +335,20 @@
                 "id": "fill-labs.dependi",
                 "displayName": "Dependi"
             }
+        },
+        "alygin.vscode-tlaplus": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "tlaplus.vscode-ide",
+                "displayName": "TLA+ (Temporal Logic of Actions)"
+            }
+        },
+        "alygin.vscode-tlaplus-nightly": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "tlaplus.vscode-ide",
+                "displayName": "TLA+ (Temporal Logic of Actions)"
+            }
         }
     },
     "migrateToPreRelease": {
