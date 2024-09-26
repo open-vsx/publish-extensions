@@ -4,4 +4,7 @@
 
 A CI script for publishing open-source VS Code extensions to [open-vsx.org](https://open-vsx.org).
 
+For information on publishing and managing extensions at open-vsx.org, please see 
+the [EclipseFdn/open-vsx.org wiki](https://github.com/EclipseFdn/open-vsx.org/wiki).
+
 This repository is open for contributions, but before you contribute, please read our [Contribution guidelines](CONTRIBUTING.md).
