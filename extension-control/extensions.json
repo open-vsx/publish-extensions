@@ -27,6 +27,12 @@
             "preferredResults": [
                 "ms-azuretools.vscode-azureappservice"
             ]
+        },
+        {
+            "query": "codegpt",
+            "preferredResults": [
+                "DanielSanMedium.dscodegpt"
+            ]
         }
     ],
     "deprecated": {
@@ -348,6 +354,13 @@
             "extension": {
                 "id": "tlaplus.vscode-ide",
                 "displayName": "TLA+ (Temporal Logic of Actions)"
+            }
+        },
+        "cweijan.vscode-autohotkey-plus": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "mark-wiemer.vscode-autohotkey-plus-plus",
+                "displayName": "AutoHotkey Plus Plus"
             }
         }
     },
