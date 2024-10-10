@@ -362,6 +362,13 @@
                 "id": "mark-wiemer.vscode-autohotkey-plus-plus",
                 "displayName": "AutoHotkey Plus Plus"
             }
+        },
+        "mark-wiemer.ahk-v1-formatter": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "mark-wiemer.vscode-autohotkey-plus-plus",
+                "displayName": "AutoHotkey Plus Plus"
+            }
         }
     },
     "migrateToPreRelease": {
