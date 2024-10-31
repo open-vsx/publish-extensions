@@ -355,6 +355,24 @@
   "file-icons.file-icons": {
     "repository": "https://github.com/file-icons/vscode"
   },
+  "florent-revest.addr2line": {
+    "repository": "https://github.com/FlorentRevest/vscode-addr2line"
+  },
+  "florent-revest.git-send-email": {
+    "repository": "https://github.com/FlorentRevest/vscode-git-send-email"
+  },
+  "florent-revest.patchwork": {
+    "repository": "https://github.com/FlorentRevest/vscode-patchwork"
+  },
+  "florent-revest.systemtap-assistant": {
+    "repository": "https://github.com/FlorentRevest/vscode-systemtap-assistant"
+  },
+  "florent-revest.syzkaller-coverage": {
+    "repository": "https://github.com/FlorentRevest/vscode-syzkaller-coverage"
+  },
+  "florent-revest.vscode-syzlang": {
+    "repository": "https://github.com/FlorentRevest/vscode-syzlang"
+  },
   "folke.vscode-monorepo-workspace": {
     "repository": "https://github.com/folke/vscode-monorepo-workspace"
   },
