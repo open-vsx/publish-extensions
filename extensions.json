@@ -1338,6 +1338,9 @@
   "sorbet.sorbet-vscode-extension": {
     "repository": "https://github.com/sorbet/sorbet"
   },
+  "sourcery.sourcery": {
+    "repository": "https://github.com/sourcery-ai/sourcery-vscode"
+  },
   "sswg.swift-lang": {
     "repository": "https://github.com/swift-server/vscode-swift"
   },
