@@ -328,6 +328,9 @@
   "evaera.vscode-rojo": {
     "repository": "https://github.com/rojo-rbx/vscode-rojo"
   },
+  "evidence.sqltools-duckdb-driver": {
+    "repository": "https://github.com/evidence-dev/sqltools-duckdb-driver"
+  },
   "exiasr.hadolint": {
     "repository": "https://github.com/ExiaSR/vscode-hadolint"
   },
