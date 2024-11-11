@@ -369,6 +369,13 @@
                 "id": "mark-wiemer.vscode-autohotkey-plus-plus",
                 "displayName": "AutoHotkey Plus Plus"
             }
+        },
+        "redhat.vscode-camelk": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "redhat.apache-camel-extension-pack",
+                "displayName": "Extension Pack for Apache Camel by Red Hat"
+            }
         }
     },
     "migrateToPreRelease": {
